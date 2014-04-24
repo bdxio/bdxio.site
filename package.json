@@ -1,0 +1,16 @@
+{
+  "name": "bdxio-website",
+  "version": "0.0.1",
+  "description": "Bdx.io website",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bdxio/bdxio.github.io.git"
+  },
+  "author": "Frédéric Camblor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bdxio/bdxio.github.io/issues"
+  }
+}
