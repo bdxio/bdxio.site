@@ -1,0 +1,20 @@
+{
+  "name": "bdxio-website",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bdxio/bdxio.github.io",
+  "authors": [
+    "Frédéric Camblor <fcamblor@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#v3.1.0"
+  }
+}
