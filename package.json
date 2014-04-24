@@ -2,15 +2,18 @@
   "name": "bdxio-website",
   "version": "0.0.1",
   "description": "Bdx.io website",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/bdxio/bdxio.github.io.git"
   },
-  "author": "Frédéric Camblor",
+  "author": "Frédéric Camblor <fcamblor@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bdxio/bdxio.github.io/issues"
+  },
+  "dependencies": {
+    "grunt-cli": "~0.1.13",
+    "bower": "~1.2.8"
   }
 }
