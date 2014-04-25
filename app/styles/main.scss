@@ -18,6 +18,12 @@ $theme3-main-bgcolor: $dark-green;
 $theme3-main-color: white;
 $theme3-secondary-color: $grey-black;
 
+// True variables
+$header-desktop-logo-width: 159px;
+$header-desktop-logo-height: 62px;
+$header-mobile-logo-width: 150px;
+$header-mobile-logo-height: 45px;
+
 @import 'sass-bootstrap/lib/bootstrap';
 
 @font-face {
@@ -41,6 +47,27 @@ $theme3-secondary-color: $grey-black;
 /* Space out content a bit */
 body {
     padding-bottom: 20px;
+}
+
+.logo {
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media (min-width: $screen-xs-min) {
+    background: url('../images/logo_header.png');
+    height: $header-desktop-logo-height;
+    width: $header-desktop-logo-width; /* Width of new image */
+    padding-left: $header-desktop-logo-width; /* Equal to width of new image */
+//    height: $header-desktop-height;
+  }
+  @media (max-width: $screen-xs-min) {
+    background: url('../images/logo_header_mobile.png');
+    height: $header-mobile-logo-height;
+    width: $header-mobile-logo-width; /* Width of new image */
+    padding-left: $header-mobile-logo-width; /* Equal to width of new image */
+//    height: $header-mobile-height;
+  }
 }
 
 h1,
