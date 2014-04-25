@@ -24,6 +24,12 @@ $header-desktop-logo-height: 62px;
 $header-mobile-logo-width: 150px;
 $header-mobile-logo-height: 45px;
 
+$header-desktop-height: $header-desktop-logo-height+31px;
+$header-mobile-height: $header-mobile-logo-height+31px;
+$navbar-toggle-height: 34px;
+$navbar-toggle-desktop-margintop: ($header-desktop-height/2 - $navbar-toggle-height/2);
+$navbar-toggle-mobile-margintop: ($header-mobile-height/2 - $navbar-toggle-height/2);
+
 @import 'sass-bootstrap/lib/bootstrap';
 
 @font-face {
@@ -47,10 +53,10 @@ $header-mobile-logo-height: 45px;
 /* Space out content a bit */
 body {
     @media (min-width: $screen-xs-min) {
-      padding-top: $header-desktop-logo-height+31px;
+      padding-top: $header-desktop-height;
     }
     @media (max-width: $screen-xs-min) {
-      padding-top: $header-mobile-logo-height+31px;
+      padding-top: $header-mobile-height;
     }
     padding-bottom: 20px;
 }
@@ -65,14 +71,21 @@ body {
     height: $header-desktop-logo-height;
     width: $header-desktop-logo-width; /* Width of new image */
     padding-left: $header-desktop-logo-width; /* Equal to width of new image */
-//    height: $header-desktop-height;
   }
   @media (max-width: $screen-xs-min) {
     background: url('../images/logo_header_mobile.png');
     height: $header-mobile-logo-height;
     width: $header-mobile-logo-width; /* Width of new image */
     padding-left: $header-mobile-logo-width; /* Equal to width of new image */
-//    height: $header-mobile-height;
+  }
+}
+
+.navbar-toggle {
+  @media (min-width: $screen-xs-min) {
+    margin-top: $navbar-toggle-desktop-margintop;
+  }
+  @media (max-width: $screen-xs-min) {
+    margin-top: $navbar-toggle-mobile-margintop;
   }
 }
 
