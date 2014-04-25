@@ -18,7 +18,7 @@ git rm -r *
 cd ..
 
 # Generating dist/
-grunt build
+./node_modules/.bin/grunt build
 
 # Checking in dist/
 cd dist
