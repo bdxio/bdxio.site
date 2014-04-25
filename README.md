@@ -18,7 +18,7 @@ Then, clone the repository, and don't forget to use the `dev` branch.
 Once done, simply run `npm install && npm-exec bower install` only once, this will provision needed dependencies to make it
 work.
 
-Once done, you can start a webserver which will handle every assets by running `grunt serve`
+Once done, you can start a webserver which will handle every assets by running `npm-exec grunt serve`
 
 ### Deploying website
 
