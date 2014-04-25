@@ -3,7 +3,7 @@ BDX.io website
 
 ### Pre-requisites
 
-You need `node` & `npm` to be installed on your machine. That's all.
+You need `node`, `npm`, `Ruby` and `compass` (`gem install compass`) to be installed on your machine. That's all.
 
 ### Developing
 
