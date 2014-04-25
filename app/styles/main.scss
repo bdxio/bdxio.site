@@ -1,6 +1,31 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+//$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+// Color palette
+
+$grey-black: #4a4a4b;
+$light-red: #dc2e2e;
+$dark-green: #8dbd4f;
+
+// Themed variables
+
+$theme1-main-bgcolor: white;
+$theme1-main-color: $grey-black;
+
+$theme2-main-bgcolor: $light-red;
+$theme2-main-color: white;
+
+$theme3-main-bgcolor: $dark-green;
+$theme3-main-color: white;
+$theme3-secondary-color: $grey-black;
 
 @import 'sass-bootstrap/lib/bootstrap';
+
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Dosis-Regular.ttf')
+}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -9,83 +34,85 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+.margin-less {
+  margin: 0px 0px;
+}
+
 /* Space out content a bit */
 body {
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+body {
+  font-family: 'Dosis', 'sans-serif' !important;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
+h1 {
+  font-size: 45px;
 }
 
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+h4 {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
+.theme1 {
+  background-color: $theme1-main-bgcolor;
+  color: $theme1-main-color;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-    }
+.theme2 {
+  background-color: $theme2-main-bgcolor;
+  color: $theme2-main-color;
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
-    }
+.theme3 {
+  .h3 {
+    color: $theme3-secondary-color;
+  }
+  color: $theme3-main-color;
+  background-color: $theme3-main-bgcolor;
 }
+
+h1.main-title {
+  padding-top: 55px;
+  padding-bottom: 30px;
+}
+
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-}
+//@media screen and (min-width: 768px) {
+//    .container {
+//        max-width: 730px;
+//    }
+//
+//    /* Remove the padding we set earlier */
+//    .header,
+//    .marketing,
+//    .footer {
+//        padding-left: 0;
+//        padding-right: 0;
+//    }
+//
+//    /* Space out the masthead */
+//    .header {
+//        margin-bottom: 30px;
+//    }
+//
+//    /* Remove the bottom border on the jumbotron for visual effect */
+//    .jumbotron {
+//        border-bottom: 0;
+//    }
+//}
