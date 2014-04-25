@@ -36,7 +36,7 @@ $navbar-toggle-mobile-margintop: ($header-mobile-height/2 - $navbar-toggle-heigh
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/Dosis-Regular.ttf')
+  src: url('#{$icon-font-path}/Dosis-Regular.ttf')
 }
 
 .browsehappy {
