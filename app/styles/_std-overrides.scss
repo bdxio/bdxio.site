@@ -2,8 +2,20 @@
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
-  font-weight: 400;
-  src: url('#{$icon-font-path}/Dosis-Regular.ttf')
+  font-weight: 300;
+  src: url('#{$icon-font-path}/Dosis-Light.ttf')
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$icon-font-path}/Dosis-Medium.ttf')
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$icon-font-path}/Dosis-Bold.ttf')
 }
 
 /* Space out content a bit */
@@ -38,6 +50,5 @@ h1 {
   }
 
 h4 {
-  font-weight: bold;
   text-transform: uppercase;
 }
