@@ -19,8 +19,8 @@
 
 .venue {
   @include responsive-image(
-    'ENSEIRB - Venue.png', $venue-desktop-height, $venue-desktop-width,
-    'ENSEIRB - Venue-mobile.png', $venue-mobile-height, $venue-mobile-width
+    'ENSEIRB - Venue.png', 344px, 543px,
+    'ENSEIRB - Venue-mobile.png', 253px, 400px
   );
 }
 
