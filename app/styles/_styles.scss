@@ -24,6 +24,17 @@
   );
 }
 
+.partner-enseirb {
+  @include responsive-image(
+    'logo_einserb.png', 130px, 130px,
+    'logo_einserb.png', 130px, 130px,
+    false
+  );
+  &:hover {
+    background: image-url('logo_einserb_hover.png');
+  }
+}
+
 .theme1 {
   background-color: $theme1-main-bgcolor;
   color: $theme1-main-color;
@@ -88,4 +99,15 @@ hr.spacer {
 
 .phone {
   color: $light-red;
+}
+
+#partners ul {
+  padding-top: 20px;
+  text-align: left;
+}
+
+#partners li {
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
