@@ -17,6 +17,13 @@
   );
 }
 
+.venue {
+  @include responsive-image(
+    'ENSEIRB - Venue.png', $venue-desktop-height, $venue-desktop-width,
+    'ENSEIRB - Venue-mobile.png', $venue-mobile-height, $venue-mobile-width
+  );
+}
+
 .theme1 {
   background-color: $theme1-main-bgcolor;
   color: $theme1-main-color;
@@ -45,13 +52,56 @@
   @include section(".theme3");
 }
 
-h1.main-title {
+.main-title {
   padding-top: 20px;
   padding-bottom: 30px;
+  font-weight: 300;
 }
 
 .icon {
   padding-right: 7px;
   padding-left: 7px;
   padding-bottom: 5px;
+}
+
+hr.spacer {
+  line-height: 0px;
+  margin: 0px;
+  border: 0px;
+  visibility: hidden;
+}
+.logistic-spacer {
+  @extend hr.spacer;
+  height: 5px;
+}
+
+.logistic-title {
+  padding-bottom: 60px;
+}
+
+.hint {
+  font-weight: 300;
+  @media (min-width: $screen-xs-min) {
+    font-size: 30px;
+  }
+  @media (max-width: $screen-xs-min) {
+    font-size: 20px;
+  }
+}
+
+.important-hint {
+  @media (min-width: $screen-xs-min) {
+    font-size: 34px;
+  }
+  @media (max-width: $screen-xs-min) {
+    font-size: 24px;
+  }
+}
+
+.more-infos {
+  font-size: 18px;
+}
+
+.phone {
+  color: $light-red;
 }
