@@ -1,10 +1,4 @@
 
-@mixin section($themeSelector) {
-  padding-top: 35px;
-  padding-bottom: 35px;
-  @extend #{$themeSelector};
-}
-
 @mixin responsive-image(
         $desktop-image-path, $desktop-image-height, $desktop-image-width,
         $mobile-image-path, $mobile-image-height, $mobile-image-width) {

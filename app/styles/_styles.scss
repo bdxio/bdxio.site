@@ -42,22 +42,6 @@
   background-color: $theme3-main-bgcolor;
 }
 
-.sec-t1 {
-  @include section(".theme1");
-}
-.sec-t2 {
-  @include section(".theme2");
-}
-.sec-t3 {
-  @include section(".theme3");
-}
-
-.main-title {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  font-weight: 300;
-}
-
 .icon {
   padding-right: 7px;
   padding-left: 7px;

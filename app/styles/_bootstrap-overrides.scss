@@ -8,6 +8,19 @@
   }
 }
 
+// The div is important here : this is the only way
+// to distinguish containers from the header and container from
+// themed sections
+div .container {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.container.main-title {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+
 a {
   color: $light-red;
 }
