@@ -46,8 +46,13 @@ body {
 }
 
 h1 {
-    font-size: 45px;
+  @media (min-width: $screen-xs-min) {
+    font-size: 50px;
   }
+  @media (max-width: $screen-xs-min) {
+    font-size: 35px;
+  }
+}
 
 h4 {
   text-transform: uppercase;
