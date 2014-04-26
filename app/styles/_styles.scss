@@ -11,22 +11,10 @@
 }
 
 .logo {
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  @media (min-width: $screen-xs-min) {
-    background: image-url('logo_header.png');
-    height: $header-desktop-logo-height;
-    width: $header-desktop-logo-width; /* Width of new image */
-    padding-left: $header-desktop-logo-width; /* Equal to width of new image */
-  }
-  @media (max-width: $screen-xs-min) {
-    background: image-url('logo_header_mobile.png');
-    height: $header-mobile-logo-height;
-    width: $header-mobile-logo-width; /* Width of new image */
-    padding-left: $header-mobile-logo-width; /* Equal to width of new image */
-  }
+  @include responsive-image(
+    'logo_header.png', $header-desktop-logo-height, $header-desktop-logo-width,
+    'logo_header_mobile.png', $header-mobile-logo-height, $header-mobile-logo-width
+  );
 }
 
 .theme1 {

@@ -4,3 +4,24 @@
   padding-bottom: 35px;
   @extend #{$themeSelector};
 }
+
+@mixin responsive-image(
+        $desktop-image-path, $desktop-image-height, $desktop-image-width,
+        $mobile-image-path, $mobile-image-height, $mobile-image-width) {
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media (min-width: $screen-xs-min) {
+    background: image-url($desktop-image-path);
+    height: $desktop-image-height;
+    width: $desktop-image-width; /* Width of new image */
+    padding-left: $desktop-image-width; /* Equal to width of new image */
+  }
+  @media (max-width: $screen-xs-min) {
+    background: image-url($mobile-image-path);
+    height: $mobile-image-height;
+    width: $mobile-image-width; /* Width of new image */
+    padding-left: $mobile-image-width; /* Equal to width of new image */
+  }
+}
