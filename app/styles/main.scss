@@ -114,6 +114,12 @@ h4 {
   text-transform: uppercase;
 }
 
+@mixin section($themeSelector) {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  @extend #{$themeSelector};
+}
+
 .theme1 {
   background-color: $theme1-main-bgcolor;
   color: $theme1-main-color;
@@ -132,8 +138,18 @@ h4 {
   background-color: $theme3-main-bgcolor;
 }
 
+.sec-t1 {
+  @include section(".theme1");
+}
+.sec-t2 {
+  @include section(".theme2");
+}
+.sec-t3 {
+  @include section(".theme3");
+}
+
 h1.main-title {
-  padding-top: 55px;
+  padding-top: 20px;
   padding-bottom: 30px;
 }
 
@@ -168,3 +184,5 @@ h1.main-title {
 //        border-bottom: 0;
 //    }
 //}
+
+
