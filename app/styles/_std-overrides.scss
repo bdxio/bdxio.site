@@ -1,0 +1,43 @@
+
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$icon-font-path}/Dosis-Regular.ttf')
+}
+
+/* Space out content a bit */
+body {
+    @media (min-width: $screen-xs-min) {
+      padding-top: $header-desktop-height;
+    }
+    @media (max-width: $screen-xs-min) {
+      padding-top: $header-mobile-height;
+    }
+    padding-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+body {
+  font-family: 'Dosis', 'sans-serif' !important;
+}
+
+h1 {
+    font-size: 45px;
+  }
+
+h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
