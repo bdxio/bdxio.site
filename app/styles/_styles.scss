@@ -12,8 +12,15 @@
 
 .logo {
   @include responsive-image(
-    'logo_header.png', $header-desktop-logo-height, $header-desktop-logo-width,
-    'logo_header_mobile.png', $header-mobile-logo-height, $header-mobile-logo-width
+    'logo_header.png', $header-desktop-hlogo-height, $header-desktop-hlogo-width,
+    'logo_header_mobile.png', $header-mobile-hlogo-height, $header-mobile-hlogo-width
+  );
+}
+
+.footer-logo {
+  @include responsive-image(
+    'logo_footer.png', $header-flogo-height, $header-flogo-width,
+    'logo_footer.png', $header-flogo-height, $header-flogo-width
   );
 }
 
@@ -50,6 +57,11 @@
   }
   color: $theme3-main-color;
   background-color: $theme3-main-bgcolor;
+}
+
+.theme4 {
+  color: $theme4-main-color;
+  background-color: $theme4-main-bgcolor;
 }
 
 .icon {
@@ -126,4 +138,15 @@ span.hidden-xs {
     padding-right: 5px;
     padding-left: 5px;
   }
+}
+
+.copyright {
+  @media (min-width: $screen-xs-min) {
+    text-align: right;
+  }
+  @media (max-width: $screen-xs-min) {
+    text-align: left;
+  }
+  font-size: 10px;
+  padding-top: 20px;
 }

@@ -16,14 +16,19 @@ $theme3-main-bgcolor: $dark-green;
 $theme3-main-color: white;
 $theme3-secondary-color: $grey-black;
 
-// True variables
-$header-desktop-logo-width: 159px;
-$header-desktop-logo-height: 62px;
-$header-mobile-logo-width: 150px;
-$header-mobile-logo-height: 45px;
+$theme4-main-bgcolor: $grey-black;
+$theme4-main-color: white;
 
-$header-desktop-height: $header-desktop-logo-height+15px;
-$header-mobile-height: $header-mobile-logo-height+15px;
+// True variables
+$header-desktop-hlogo-width: 159px;
+$header-desktop-hlogo-height: 62px;
+$header-mobile-hlogo-width: 150px;
+$header-mobile-hlogo-height: 45px;
+$header-flogo-width: 100px;
+$header-flogo-height: 38px;
+
+$header-desktop-height: $header-desktop-hlogo-height+15px;
+$header-mobile-height: $header-mobile-hlogo-height+15px;
 $navbar-toggle-height: 34px;
 $navbar-toggle-desktop-margintop: ($header-desktop-height/2 - $navbar-toggle-height/2);
 $navbar-toggle-mobile-margintop: ($header-mobile-height/2 - $navbar-toggle-height/2);
