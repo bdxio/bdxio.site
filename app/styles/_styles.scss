@@ -143,6 +143,15 @@ span.hidden-xs {
   }
 }
 
+span.visible-xs {
+  @media (min-width: $screen-xs-min) {
+    display: none !important;
+  }
+  @media (max-width: $screen-xs-min) {
+    display: inline !important;
+  }
+}
+
 .partners {
   padding-top: 20px;
   text-align: left;
