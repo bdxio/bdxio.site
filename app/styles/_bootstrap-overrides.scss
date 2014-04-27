@@ -26,7 +26,18 @@ div .container {
   padding-bottom: 55px;
 }
 
+.nav > li > a {
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-icon-desktop-margintop;
+    padding: 0px 10px 4px 4px;
+  }
+  @media (max-width: $screen-sm-min) {
+    margin-top: $navbar-icon-small-margintop;
+    padding: 4px 4px;
+    margin-top: 5px;
+  }
+}
+
 #logistic .dl-horizontal {
   margin-bottom: 40px;
 }
-
