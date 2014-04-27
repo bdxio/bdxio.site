@@ -22,8 +22,8 @@ $header-desktop-logo-height: 62px;
 $header-mobile-logo-width: 150px;
 $header-mobile-logo-height: 45px;
 
-$header-desktop-height: $header-desktop-logo-height+31px;
-$header-mobile-height: $header-mobile-logo-height+31px;
+$header-desktop-height: $header-desktop-logo-height+15px;
+$header-mobile-height: $header-mobile-logo-height+15px;
 $navbar-toggle-height: 34px;
 $navbar-toggle-desktop-margintop: ($header-desktop-height/2 - $navbar-toggle-height/2);
 $navbar-toggle-mobile-margintop: ($header-mobile-height/2 - $navbar-toggle-height/2);

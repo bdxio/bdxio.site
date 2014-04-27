@@ -8,6 +8,11 @@
   }
 }
 
+.navbar-brand {
+  padding-top: 7px; /* was 15px */
+  padding-bottom: 7px; /* was 15px */
+}
+
 // The div is important here : this is the only way
 // to distinguish containers from the header and container from
 // themed sections
