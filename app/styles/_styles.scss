@@ -70,6 +70,23 @@
   padding-bottom: 5px;
 }
 
+#home {
+  @media (min-width: $screen-md-min) {
+    height: 680px;
+    background-image: image-url('pont_bacalan_md.png');
+  }
+  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    height: 680px;
+    background-image: image-url('pont_bacalan_xs-md.png');
+  }
+  @media (max-width: $screen-xs-min) {
+    height: 525px;
+    background-image: image-url('pont_bacalan_xs.png');
+  }
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
 .main-title h4 {
   margin-top: 16px;
   margin-bottom: 16px;
