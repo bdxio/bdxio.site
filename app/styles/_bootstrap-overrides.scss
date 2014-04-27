@@ -70,3 +70,24 @@ div .container {
 #logistic .dl-horizontal {
   margin-bottom: 40px;
 }
+
+// Overriden hidden-xs / visible-xs behaviour for span tags
+// In that case : display should be inline instead of block !
+span.hidden-xs {
+  @media (min-width: $screen-xs-min) {
+    display: inline !important;
+  }
+  @media (max-width: $screen-xs-min) {
+    display: none !important;
+  }
+}
+
+span.visible-xs {
+  @media (min-width: $screen-xs-min) {
+    display: none !important;
+  }
+  @media (max-width: $screen-xs-min) {
+    display: inline !important;
+  }
+}
+

@@ -134,24 +134,6 @@ hr.spacer {
   color: $light-red;
 }
 
-span.hidden-xs {
-  @media (min-width: $screen-xs-min) {
-    display: inline !important;
-  }
-  @media (max-width: $screen-xs-min) {
-    display: none !important;
-  }
-}
-
-span.visible-xs {
-  @media (min-width: $screen-xs-min) {
-    display: none !important;
-  }
-  @media (max-width: $screen-xs-min) {
-    display: inline !important;
-  }
-}
-
 .partners {
   padding-top: 20px;
   text-align: left;
