@@ -27,8 +27,7 @@
 .partner-enseirb {
   @include responsive-image(
     'logo_einserb.png', 130px, 130px,
-    'logo_einserb.png', 130px, 130px,
-    false
+    'logo_einserb.png', 130px, 130px
   );
   &:hover {
     background: image-url('logo_einserb_hover.png');
@@ -110,12 +109,13 @@ span.hidden-xs {
   }
 }
 
-#partners ul {
+.partners {
   padding-top: 20px;
   text-align: left;
 }
 
-#partners li {
+.partner {
+  float: left;
   @media (min-width: $screen-xs-min) {
     padding-bottom: 10px;
     padding-right: 10px;
