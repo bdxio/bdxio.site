@@ -67,7 +67,7 @@ hr.spacer {
 }
 .logistic-spacer {
   @extend hr.spacer;
-  height: 5px;
+  height: 10px;
 }
 
 .logistic-title {
@@ -77,19 +77,19 @@ hr.spacer {
 .hint {
   font-weight: 300;
   @media (min-width: $screen-xs-min) {
-    font-size: 30px;
+    font-size: 28px;
   }
   @media (max-width: $screen-xs-min) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
 .important-hint {
   @media (min-width: $screen-xs-min) {
-    font-size: 34px;
+    font-size: 32px;
   }
   @media (max-width: $screen-xs-min) {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -99,6 +99,15 @@ hr.spacer {
 
 .phone {
   color: $light-red;
+}
+
+span.hidden-xs {
+  @media (min-width: $screen-xs-min) {
+    display: inline !important;
+  }
+  @media (max-width: $screen-xs-min) {
+    display: none !important;
+  }
 }
 
 #partners ul {
