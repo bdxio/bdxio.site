@@ -38,6 +38,35 @@ div .container {
   }
 }
 
+// Extended dl-horizontal class to media < 768px
+// with dl-horizontal.forced class
+// Copy-pasted dl-horizontal bootstrap styles restricted to >=768px
+// here, without restricting it to this viewport size
+// Enabling it only if you appended a "forced" class to the initial
+// dl-horizontal class
+.dl-horizontal.forced dt {
+  float: left;
+  width: 160px;
+  clear: left;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dl-horizontal.forced dd {
+  margin-left: 180px;
+}
+.dl-horizontal.forced dd:before,
+.dl-horizontal.forced dd:after {
+   content: " ";
+   /* 1 */
+   display: table;
+   /* 2 */
+ }
+.dl-horizontal.forced dd:after {
+  clear: both;
+}
+
 #logistic .dl-horizontal {
   margin-bottom: 40px;
 }
