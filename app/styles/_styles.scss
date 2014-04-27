@@ -17,6 +17,26 @@
   );
 }
 
+.twitter-icon {
+  @include responsive-image(
+    'btn_twitter.png', 27px, 27px,
+    'btn_twitter.png', 27px, 27px
+  );
+  &:hover {
+    background: image-url('btn_twitter_hover.png');
+  }
+}
+
+.contact-icon {
+  @include responsive-image(
+    'btn_contact.png', 27px, 27px,
+    'btn_contact.png', 27px, 27px
+  );
+  &:hover {
+    background: image-url('btn_contact_hover.png');
+  }
+}
+
 .footer-logo {
   @include responsive-image(
     'logo_footer.png', $header-flogo-height, $header-flogo-width,
