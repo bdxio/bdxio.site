@@ -22,7 +22,12 @@ div .container {
 }
 
 .container.main-title {
-  padding-top: 55px;
+  @media (min-width: $screen-xs-min) {
+    padding-top: 55px;
+  }
+  @media (max-width: $screen-tn-max) {
+    padding-top: 25px;
+  }
   padding-bottom: 55px;
 }
 
@@ -46,7 +51,12 @@ div .container {
 // dl-horizontal class
 .dl-horizontal.forced dt {
   float: left;
-  width: 160px;
+  @media (min-width: $screen-xs-min) {
+    width: 160px;
+  }
+  @media (max-width: $screen-tn-max) {
+    width: 120px;
+  }
   clear: left;
   text-align: right;
   overflow: hidden;
@@ -54,7 +64,12 @@ div .container {
   white-space: nowrap;
 }
 .dl-horizontal.forced dd {
-  margin-left: 180px;
+  @media (min-width: $screen-xs-min) {
+    margin-left: 180px;
+  }
+  @media (max-width: $screen-tn-max) {
+    margin-left: 140px;
+  }
 }
 .dl-horizontal.forced dd:before,
 .dl-horizontal.forced dd:after {

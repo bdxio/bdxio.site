@@ -47,12 +47,18 @@
 .partner-enseirb {
   @include responsive-image(
     'logo_einserb.png', 130px, 130px,
-    'logo_einserb.png', 130px, 130px
+    'logo_einserb-mobile.png', 100px, 100px,
+    true
   );
-  &:hover {
-    background: image-url('logo_einserb_hover.png');
-  }
 }
+
+.unknown-partner {
+  @include responsive-image(
+    'no_logo.png', 130px, 130px,
+    'no_logo-mobile.png', 100px, 100px
+  );
+}
+
 
 .theme1 {
   background-color: $theme1-main-bgcolor;
@@ -92,8 +98,12 @@
     height: 680px;
     background-image: image-url('pont_bacalan_xs-md.png');
   }
-  @media (max-width: $screen-xs-max) {
-    height: 525px;
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+    height: 490px;
+    background-image: image-url('pont_bacalan_xs.png');
+  }
+  @media (max-width: $screen-tn-max) {
+    height: 410px;
     background-image: image-url('pont_bacalan_xs.png');
   }
   background-position: bottom;
@@ -101,8 +111,14 @@
 }
 
 .main-title h4 {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: $screen-xs-max) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 hr.spacer {
@@ -111,6 +127,17 @@ hr.spacer {
   border: 0px;
   visibility: hidden;
 }
+
+hr.title-tips-spacer {
+  @extend hr.spacer;
+  @media (min-width: $screen-md-min) {
+    height: 35px;
+  }
+  @media (max-width: $screen-xs-max) {
+    height: 5px;
+  }
+}
+
 .logistic-spacer {
   @extend hr.spacer;
   height: 10px;
@@ -125,8 +152,11 @@ hr.spacer {
   @media (min-width: $screen-sm-min) {
     font-size: 28px;
   }
-  @media (max-width: $screen-xs-max) {
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
     font-size: 18px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 16px;
   }
 }
 
@@ -134,8 +164,11 @@ hr.spacer {
   @media (min-width: $screen-sm-min) {
     font-size: 32px;
   }
-  @media (max-width: $screen-xs-max) {
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
     font-size: 20px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 17px;
   }
 }
 
