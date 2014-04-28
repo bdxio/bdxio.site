@@ -3,19 +3,19 @@
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 300;
-  src: url('#{$icon-font-path}/Dosis-Light.ttf')
+  src: url('/fonts/Dosis-Light.ttf')
 }
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 500;
-  src: url('#{$icon-font-path}/Dosis-Medium.ttf')
+  src: url('/fonts/Dosis-Medium.ttf')
 }
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 700;
-  src: url('#{$icon-font-path}/Dosis-Bold.ttf')
+  src: url('/fonts/Dosis-Bold.ttf')
 }
 
 /* Space out content a bit */
