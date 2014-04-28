@@ -35,3 +35,7 @@ $navbar-toggle-mobile-margintop: ($header-mobile-height/2 - $navbar-toggle-heigh
 $navbar-icon-height: 27px;
 $navbar-icon-desktop-margintop: ($header-desktop-height/2 - $navbar-icon-height/2);
 $navbar-icon-small-margintop: ($header-mobile-height/2 - $navbar-icon-height/2);
+
+// Declared screen size for size lower than 480px
+// (typically, iphones, galaxy s etc.. in portrait mode)
+$screen-tn-max:              ($screen-xs-min - 1) !default;
