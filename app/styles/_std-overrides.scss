@@ -20,10 +20,10 @@
 
 /* Space out content a bit */
 body {
-    @media (min-width: $screen-xs-min) {
+    @media (min-width: $screen-sm-min) {
       padding-top: $header-desktop-height;
     }
-    @media (max-width: $screen-xs-min) {
+    @media (max-width: $screen-xs-max) {
       padding-top: $header-mobile-height;
     }
 }
@@ -45,20 +45,20 @@ body {
 }
 
 h1 {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     font-size: 46px;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     font-size: 25px;
   }
   font-weight: 300;
 }
 
 h4 {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     font-size: 18px;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     font-size: 13px;
   }
   text-transform: uppercase;

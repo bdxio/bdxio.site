@@ -95,11 +95,11 @@
     height: 680px;
     background-image: image-url('pont_bacalan_md.png');
   }
-  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
     height: 680px;
     background-image: image-url('pont_bacalan_xs-md.png');
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     height: 525px;
     background-image: image-url('pont_bacalan_xs.png');
   }
@@ -129,19 +129,19 @@ hr.spacer {
 
 .hint {
   font-weight: 300;
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     font-size: 28px;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     font-size: 18px;
   }
 }
 
 .important-hint {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     font-size: 32px;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     font-size: 20px;
   }
 }
@@ -161,12 +161,12 @@ hr.spacer {
 
 .partner {
   float: left;
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     padding-bottom: 10px;
     padding-right: 10px;
     padding-left: 10px;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     padding-bottom: 5px;
     padding-right: 5px;
     padding-left: 5px;
@@ -174,10 +174,10 @@ hr.spacer {
 }
 
 .copyright {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     text-align: right;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     text-align: left;
   }
   font-size: 10px;

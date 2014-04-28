@@ -1,9 +1,9 @@
 
 .navbar-toggle {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     margin-top: $navbar-toggle-desktop-margintop;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     margin-top: $navbar-toggle-mobile-margintop;
   }
 }
@@ -31,7 +31,7 @@ div .container {
     margin-top: $navbar-icon-desktop-margintop;
     padding: 0px 10px 4px 4px;
   }
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     margin-top: $navbar-icon-small-margintop;
     padding: 4px 4px;
     margin-top: 5px;
@@ -74,19 +74,19 @@ div .container {
 // Overriden hidden-xs / visible-xs behaviour for span tags
 // In that case : display should be inline instead of block !
 span.hidden-xs {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     display: inline !important;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     display: none !important;
   }
 }
 
 span.visible-xs {
-  @media (min-width: $screen-xs-min) {
+  @media (min-width: $screen-sm-min) {
     display: none !important;
   }
-  @media (max-width: $screen-xs-min) {
+  @media (max-width: $screen-xs-max) {
     display: inline !important;
   }
 }
