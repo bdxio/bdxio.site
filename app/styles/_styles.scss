@@ -44,13 +44,6 @@
   );
 }
 
-.venue {
-  @include responsive-image(
-    'ENSEIRB - Venue.png', 344px, 543px,
-    'ENSEIRB - Venue-mobile.png', 222px, 350px
-  );
-}
-
 .partner-enseirb {
   @include responsive-image(
     'logo_einserb.png', 130px, 130px,
