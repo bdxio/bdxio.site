@@ -44,6 +44,10 @@
   );
 }
 
+.twitter-follow-button {
+  margin: 8px;
+}
+
 .partner-enseirb {
   @include responsive-image(
     'logo_einserb.png', 130px, 130px,
