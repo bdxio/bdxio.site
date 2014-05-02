@@ -11,18 +11,14 @@ mkdir dist
 # Cloning master branch into dist directory
 git clone -b master git@github.com:bdxio/bdxio.github.io.git dist/
 
-# Removing every files in order to not keep removed files
-# during commit coming later
-cd dist/
-git rm -r *
-cd ..
-
 # Generating dist/
 ./node_modules/.bin/grunt build
 
 # Checking in dist/
 cd dist
+# Adding files, removing missing files
 git add .
+git rm $(git ls-files --deleted)
 git commit -m "Auto-deploy"
 
 # Pushing to master branch, which is sync-ed with www.bdx.io
