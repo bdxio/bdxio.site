@@ -18,6 +18,14 @@
   );
 }
 
+.facebook-icon {
+  @include responsive-image(
+    'btn_facebook.png', 27px, 27px,
+    'btn_facebook.png', 27px, 27px,
+    inline-block, true
+  );
+}
+
 .twitter-icon {
   @include responsive-image(
     'btn_twitter.png', 27px, 27px,
