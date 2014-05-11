@@ -37,6 +37,11 @@
                 <a class="navbar-brand" href="#"><img class="logo" /></a>
             </div>
             <div class="collapse navbar-collapse" id="collapsed-navbar">
+                <ul class="nav navbar-nav nav-menu">
+                    <li><a href="#home" class="first navbar-item">Accueil</a></li>
+                    <li><a href="#logistic" class="navbar-item">Logistique</a></li>
+                    <li><a href="#partners" class="navbar-item">Partenaires</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://www.twitter.com/bdxio"><img class="twitter-icon" /></a></li>
                     <li><a href="mailto:team@bdx.io"><img class="contact-icon" /></a></li>
@@ -165,6 +170,20 @@
 
             ga('create', 'UA-50374424-1', 'bdx.io');
             ga('send', 'pageview');
+        </script>
+        <script>
+          $(function(){
+              // Fixing anchor links hiding fixed top header
+              // See https://github.com/twbs/bootstrap/issues/1768
+              var shiftWindow = function() {
+                  var bodyPaddingTop = $("body").css("padding-top");
+                  scrollBy(0, -parseInt(bodyPaddingTop, 10));
+              };
+              $(window).on("hashchange", shiftWindow);
+              if(window.location.hash) {
+                  shiftWindow();
+              }
+          });
         </script>
 
         <!-- build:js scripts/plugins.js -->

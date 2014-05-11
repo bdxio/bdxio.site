@@ -106,3 +106,11 @@ span.visible-xs {
   }
 }
 
+.navbar-default .navbar-nav > li > a {
+  color: $grey-black;
+  text-transform: uppercase;
+  font-size: 17px;
+  &:hover {
+    color: $light-red;
+  }
+}
