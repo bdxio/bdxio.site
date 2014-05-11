@@ -2,10 +2,12 @@
 // For this hint, see http://css-tricks.com/replace-the-image-in-an-img-with-css/
 @mixin responsive-image(
         $desktop-image-path, $desktop-image-height, $desktop-image-width,
-        $mobile-image-path, $mobile-image-height, $mobile-image-width, $withHover: false) {
-  display: block;
-  -moz-box-sizing: border-box;
+        $mobile-image-path, $mobile-image-height, $mobile-image-width,
+        $display-type, $withHover: false) {
+
+  display: $display-type;
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
 
   @media (min-width: $screen-sm-min) {
     background: image-url($desktop-image-path);

@@ -13,34 +13,32 @@
 .logo {
   @include responsive-image(
     'logo_header.png', $header-desktop-hlogo-height, $header-desktop-hlogo-width,
-    'logo_header_mobile.png', $header-mobile-hlogo-height, $header-mobile-hlogo-width
+    'logo_header_mobile.png', $header-mobile-hlogo-height, $header-mobile-hlogo-width,
+    block
   );
 }
 
 .twitter-icon {
   @include responsive-image(
     'btn_twitter.png', 27px, 27px,
-    'btn_twitter.png', 27px, 27px
+    'btn_twitter.png', 27px, 27px,
+    inline-block, true
   );
-  &:hover {
-    background: image-url('btn_twitter_hover.png');
-  }
 }
 
 .contact-icon {
   @include responsive-image(
     'btn_contact.png', 27px, 27px,
-    'btn_contact.png', 27px, 27px
+    'btn_contact.png', 27px, 27px,
+    inline-block, true
   );
-  &:hover {
-    background: image-url('btn_contact_hover.png');
-  }
 }
 
 .footer-logo {
   @include responsive-image(
     'logo_footer.png', $header-flogo-height, $header-flogo-width,
-    'logo_footer.png', $header-flogo-height, $header-flogo-width
+    'logo_footer.png', $header-flogo-height, $header-flogo-width,
+    block
   );
 }
 
@@ -52,14 +50,15 @@
   @include responsive-image(
     'logo_einserb.png', 130px, 130px,
     'logo_einserb-mobile.png', 100px, 100px,
-    true
+    block, true
   );
 }
 
 .unknown-partner {
   @include responsive-image(
     'no_logo.png', 130px, 130px,
-    'no_logo-mobile.png', 100px, 100px
+    'no_logo-mobile.png', 100px, 100px,
+    block
   );
 }
 
