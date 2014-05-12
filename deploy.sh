@@ -22,7 +22,5 @@ if [ $(git ls-files --deleted | wc -l) -ne 0 ]; then git ls-files --deleted | se
 git commit -m "Auto-deploy"
 
 # Pushing to master branch, which is sync-ed with www.bdx.io
-if [ $(ls -al | wc -l) -ge 4 ]; then echo "git push origin master"; else echo "Avoiding any push since there is an empty dist/ dir"; fi;
-
-git push origin master
+if [ $(ls -al | wc -l) -ge 4 ]; then git push origin master; else echo "Avoiding any push since there is an empty dist/ dir"; fi;
 cd ..
