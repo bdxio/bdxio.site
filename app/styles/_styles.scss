@@ -56,7 +56,7 @@
 
 .partner-enseirb {
   @include responsive-image(
-    'logo_einserb.png', 130px, 130px,
+    'logo_einserb.png', 110px, 110px,
     'logo_einserb-mobile.png', 100px, 100px,
     block, true
   );
@@ -64,7 +64,7 @@
 
 .unknown-partner {
   @include responsive-image(
-    'no_logo.png', 130px, 130px,
+    'no_logo.png', 110px, 110px,
     'no_logo-mobile.png', 100px, 100px,
     block
   );
@@ -228,15 +228,13 @@ hr.title-tips-spacer {
 
 .partner {
   float: left;
+  padding-right: 5px;
+  padding-left: 5px;
   @media (min-width: $screen-sm-min) {
     padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
   }
   @media (max-width: $screen-xs-max) {
     padding-bottom: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
   }
 }
 
