@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:team@bdx.io">
+                        <a data-mailto="team">
                             <img class="contact-icon" />
                             <span class="visible-xs">Mail</span>
                         </a>
@@ -120,7 +120,7 @@
                 <div class="col-xs-12 col-md-6 text-right more-infos">
                     <hr class="spacer" style="height: 30px" />
                     <img src="images/btn_contact.png" />
-                    <strong>Pour + d'infos : <a href="mailto:team@bdx.io">contactez la team</a></strong>
+                    <strong>Pour + d'infos : <a data-mailto="team">contactez la team</a></strong>
                     <hr class="spacer" style="height: 20px" />
                     <address>
                       <strong>ENSEIRB</strong><br/>
@@ -208,6 +208,13 @@
               if(window.location.hash) {
                   shiftWindow();
               }
+          });
+          $(function(){
+              // Creating mailtos "by hand" in order to avoid bots crawlers
+              $("a[data-mailto]").each(function(idx, el) {
+                  var $el = $(el);
+                  $el.attr("href", "mailto:"+$el.attr("data-mailto")+"@bdx.io");
+              });
           });
         </script>
 
