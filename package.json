@@ -15,7 +15,6 @@
     "dependencies": {
     },
     "devDependencies": {
-        "grunt-cli": "~0.1.13",
         "bower": "~1.2.8",
         "grunt": "~0.4.1",
         "grunt-contrib-copy": "~0.4.1",
