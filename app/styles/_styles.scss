@@ -82,8 +82,11 @@
 }
 
 .theme3 {
-  .h3 {
+  .h3, a {
     color: $theme3-secondary-color;
+  }
+  a:hover {
+    color: $theme3-main-color;
   }
   color: $theme3-main-color;
   background-color: $theme3-main-bgcolor;
