@@ -33,8 +33,7 @@
   }
 }
 
-$max_theme_img_height: 85px;
-@mixin theme-img($icon-path, $icon-width, $icon-height) {
+@mixin _theme-img($icon-path, $icon-width, $icon-height, $max_theme_img_height) {
   @include responsive-image(
           $icon-path, $icon-height, $icon-width,
           $icon-path, $icon-height, $icon-width,
@@ -42,4 +41,10 @@ $max_theme_img_height: 85px;
   margin-left: ($theme-tile-size - $icon-width)/2;
   margin-top: ($max_theme_img_height - $icon-height)/2;
   margin-bottom: ($max_theme_img_height - $icon-height)/2;
+}
+@mixin front-theme-img($icon-path, $icon-width, $icon-height) {
+  @include _theme-img($icon-path, $icon-width, $icon-height, 85px);
+}
+@mixin back-theme-img($icon-path, $icon-width, $icon-height) {
+  @include _theme-img($icon-path, $icon-width, $icon-height, 65px);
 }
