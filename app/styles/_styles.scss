@@ -220,6 +220,51 @@ hr.title-tips-spacer {
   }
 }
 
+.themes {
+}
+
+.themeTile {
+  width: $theme-tile-size;
+  height: $theme-tile-size;
+  background-color: $theme2-main-bgcolor;
+  color: $theme2-main-color;
+
+  float: left;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  @media (min-width: $screen-sm-min) {
+    padding-bottom: 10px;
+  }
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 5px;
+  }
+}
+
+.theme-img {
+  border: 0px;
+  &.coding {
+    @include theme-img('icon-coding.png', 98px, 57px);
+  }
+  &.medias {
+    @include theme-img('icon-medias.png', 95px, 57px);
+  }
+  &.future {
+    @include theme-img('icon-future.png', 61px, 65px);
+  }
+  &.design {
+    @include theme-img('icon-design.png', 44px, 65px);
+  }
+}
+
+.theme-hints {
+  li {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
 .phone {
   color: $light-red;
 }

@@ -39,3 +39,6 @@ $navbar-icon-small-margintop: ($header-mobile-height/2 - $navbar-icon-height/2);
 // Declared screen size for size lower than 480px
 // (typically, iphones, galaxy s etc.. in portrait mode)
 $screen-tn-max:              ($screen-xs-min - 1) !default;
+
+// Size of them tiles
+$theme-tile-size: 200px;

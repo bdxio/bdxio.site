@@ -32,3 +32,14 @@
     }
   }
 }
+
+$max_theme_img_height: 85px;
+@mixin theme-img($icon-path, $icon-width, $icon-height) {
+  @include responsive-image(
+          $icon-path, $icon-height, $icon-width,
+          $icon-path, $icon-height, $icon-width,
+          block);
+  margin-left: ($theme-tile-size - $icon-width)/2;
+  margin-top: ($max_theme_img_height - $icon-height)/2;
+  margin-bottom: ($max_theme_img_height - $icon-height)/2;
+}
