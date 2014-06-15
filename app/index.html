@@ -25,7 +25,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header class="navbar navbar-default margin-less theme1 navbar-fixed-top" role="banner">
+        <header class="navbar navbar-default margin-less theme1 navbar-fixed-top" role="banner" role="navigation">
           <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsed-navbar">
@@ -38,9 +38,17 @@
             </div>
             <div class="collapse navbar-collapse" id="collapsed-navbar">
                 <ul class="nav navbar-nav nav-menu">
-                    <li><a href="#home" class="first navbar-item">Accueil</a></li>
-                    <li><a href="#logistic" class="navbar-item">Logistique</a></li>
-                    <li><a href="#partners" class="navbar-item">Partenaires</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#logistic" class="navbar-item">Logistique</a></li>
+                            <li><a href="#themes" class="navbar-item">Thèmes</a></li>
+                            <li><a href="#newsletter" class="navbar-item">News</a></li>
+                            <li><a href="#billetterie" class="navbar-item">Billetterie</a></li>
+                            <li><a href="#partners" class="navbar-item">Partenaires</a></li>
+                            <li><a href="#plaquette" class="navbar-item">Plaquette</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -264,7 +272,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-6">
+                <div id="plaquette" class="col-xs-12 col-md-6">
                     <h2>
                         <span class="hidden-xs">Télécharger la plaquette</span>
                         <span class="visible-xs">La plaquette</span>
