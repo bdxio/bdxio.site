@@ -79,6 +79,9 @@
 .theme2 {
   background-color: $theme2-main-bgcolor;
   color: $theme2-main-color;
+  a, a:hover {
+    color: $theme2-main-color;
+  }
 }
 
 .theme3 {
