@@ -91,6 +91,16 @@
   a:hover {
     color: $theme3-main-color;
   }
+  .btn-primary {
+    color: white;
+    background-color: #333333;
+    border-color: grey;
+    border-radius: 22px;
+    &:hover, &:focus, &:active, &.active {
+      background-color: black;
+      border-color: grey;
+    }
+  }
   color: $theme3-main-color;
   background-color: $theme3-main-bgcolor;
 }
