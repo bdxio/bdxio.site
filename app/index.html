@@ -20,7 +20,7 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
 
     </head>
-    <body>
+    <body ng-app="bdxioModule">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -41,12 +41,12 @@
                     <li class="dropdown">
                         <a href="#" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#logistic" class="navbar-item">Logistique</a></li>
-                            <li><a href="#themes" class="navbar-item">Thèmes</a></li>
-                            <li><a href="#newsletter" class="navbar-item">News</a></li>
-                            <li><a href="#billetterie" class="navbar-item">Billetterie</a></li>
-                            <li><a href="#partners" class="navbar-item">Partenaires</a></li>
-                            <li><a href="#plaquette" class="navbar-item">Plaquette</a></li>
+                            <li><a ng-click="scrollTo('logistic')" class="navbar-item">Logistique</a></li>
+                            <li><a ng-click="scrollTo('themes')" class="navbar-item">Thèmes</a></li>
+                            <li><a ng-click="scrollTo('newsletter')" class="navbar-item">News</a></li>
+                            <li><a ng-click="scrollTo('billetterie')" class="navbar-item">Billetterie</a></li>
+                            <li><a ng-click="scrollTo('partners')" class="navbar-item">Partenaires</a></li>
+                            <li><a ng-click="scrollTo('plaquette')" class="navbar-item">Plaquette</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a data-mailto="team">
+                        <a ng-href="{{genMailTo('team')}}">
                             <img class="contact-icon" />
                             <span class="visible-xs">Mail</span>
                         </a>
@@ -128,7 +128,7 @@
                 <div class="col-xs-12 col-md-6 text-right more-infos">
                     <hr class="spacer" style="height: 30px" />
                     <img src="images/btn_contact.png" />
-                    <strong>Pour + d'infos : <a data-mailto="team">contactez la team</a></strong>
+                    <strong>Pour + d'infos : <a ng-href="{{genMailTo('team')}}">contactez la team</a></strong>
                     <hr class="spacer" style="height: 20px" />
                     <address>
                       <strong>ENSEIRB</strong><br/>
@@ -313,6 +313,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -326,25 +327,18 @@
             ga('send', 'pageview');
         </script>
         <script>
-          $(function(){
-              // Fixing anchor links hiding fixed top header
-              // See https://github.com/twbs/bootstrap/issues/1768
-              var shiftWindow = function() {
-                  var bodyPaddingTop = $("body").css("padding-top");
-                  scrollBy(0, -parseInt(bodyPaddingTop, 10));
-              };
-              $(window).on("hashchange", shiftWindow);
-              if(window.location.hash) {
-                  shiftWindow();
-              }
-          });
-          $(function(){
-              // Creating mailtos "by hand" in order to avoid bots crawlers
-              $("a[data-mailto]").each(function(idx, el) {
-                  var $el = $(el);
-                  $el.attr("href", "mailto:"+$el.attr("data-mailto")+"@bdx.io");
-              });
-          });
+//          $(function(){
+//              // Fixing anchor links hiding fixed top header
+//              // See https://github.com/twbs/bootstrap/issues/1768
+//              var shiftWindow = function() {
+//                  var bodyPaddingTop = $("body").css("padding-top");
+//                  scrollBy(0, -parseInt(bodyPaddingTop, 10));
+//              };
+//              $(window).on("hashchange", shiftWindow);
+//              if(window.location.hash) {
+//                  shiftWindow();
+//              }
+//          });
         </script>
 
         <!-- build:js scripts/plugins.js -->
@@ -364,6 +358,7 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/controllers.js"></script>
         <!-- endbuild -->
 </body>
 </html>
