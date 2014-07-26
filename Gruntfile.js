@@ -232,7 +232,10 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['<%= yeoman.dist %>']
             },
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
+            html: [
+                '<%= yeoman.dist %>/{,*/}*.html',
+                '<%= yeoman.dist %>/templates/{,*/}*.html'
+            ],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
 
@@ -320,6 +323,7 @@ module.exports = function (grunt) {
                         '{,*/}*.html',
                         'fonts/{,*/}*.*',
                         'contents/{,*/}*.*',
+                        'templates/{,*/}*.html',
                         'bower_components/' + (this.includeCompass ? 'sass-' : '') + 'bootstrap/' + (this.includeCompass ? 'fonts/' : 'dist/fonts/') +'*.*'
                     ]
                 }]
