@@ -14,9 +14,13 @@ bdxioModule.config(function($routeProvider) {
 });
 
 bdxioModule.run(function($rootScope, $location, $anchorScroll) {
-    $rootScope.scrollTo = function(targetAnchorName) {
-        $location.hash(targetAnchorName);
-        $anchorScroll();
+    $rootScope.goto = function(path, targetAnchorName) {
+        $location.path(path);
+
+        if(targetAnchorName) {
+            $location.hash(targetAnchorName);
+            $anchorScroll();
+        }
     };
     $rootScope.genMailTo = function(name) {
         return "mailto:"+name+"@bdx.io";

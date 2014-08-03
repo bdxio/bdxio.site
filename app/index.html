@@ -39,14 +39,14 @@
             <div class="collapse navbar-collapse" id="collapsed-navbar">
                 <ul class="nav navbar-nav nav-menu">
                     <li class="dropdown">
-                        <a href="#" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
+                        <a href="" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a ng-click="scrollTo('logistic')" class="navbar-item">Logistique</a></li>
-                            <li><a ng-click="scrollTo('themes')" class="navbar-item">Thèmes</a></li>
-                            <li><a ng-click="scrollTo('newsletter')" class="navbar-item">News</a></li>
-                            <li><a ng-click="scrollTo('billetterie')" class="navbar-item">Billetterie</a></li>
-                            <li><a ng-click="scrollTo('partners')" class="navbar-item">Partenaires</a></li>
-                            <li><a ng-click="scrollTo('plaquette')" class="navbar-item">Plaquette</a></li>
+                            <li><a ng-click="goto('/home', 'logistic')" class="navbar-item">Logistique</a></li>
+                            <li><a ng-click="goto('/home', 'themes')" class="navbar-item">Thèmes</a></li>
+                            <li><a ng-click="goto('/home', 'newsletter')" class="navbar-item">News</a></li>
+                            <li><a ng-click="goto('/home', 'billetterie')" class="navbar-item">Billetterie</a></li>
+                            <li><a ng-click="goto('/home', 'partners')" class="navbar-item">Partenaires</a></li>
+                            <li><a ng-click="goto('/home', 'plaquette')" class="navbar-item">Plaquette</a></li>
                         </ul>
                     </li>
                 </ul>
