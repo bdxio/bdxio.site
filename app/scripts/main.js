@@ -19,6 +19,10 @@ bdxioModule.config(function($routeProvider) {
 
 bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
     $rootScope.goto = function(path, targetAnchorName) {
+        if(path != $location.path()) {
+            ga('send', 'screenview', { 'screenName': path });
+        }
+
         $location.path(path);
 
         if(targetAnchorName) {
@@ -35,6 +39,7 @@ bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
             $location.hash("");
         }
     };
+
     $rootScope.genMailTo = function(name) {
         return "mailto:"+name+"@bdx.io";
     };
