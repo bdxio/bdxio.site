@@ -56,8 +56,8 @@
 
 .partner-enseirb {
   @include responsive-image(
-    'logo_einserb.png', 110px, 110px,
-    'logo_einserb-mobile.png', 100px, 100px,
+    'logo_enseirb.png', 110px, 110px,
+    'logo_enseirb-mobile.png', 100px, 100px,
     block, true
   );
 }
