@@ -57,3 +57,7 @@ bdxioControllers.controller('HomeController', function($scope){
         }
     ];
 });
+
+bdxioControllers.controller('PartnersController', function($scope) {
+
+});

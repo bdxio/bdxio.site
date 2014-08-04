@@ -39,14 +39,23 @@
             <div class="collapse navbar-collapse" id="collapsed-navbar">
                 <ul class="nav navbar-nav nav-menu">
                     <li class="dropdown">
-                        <a href="" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
+                        <a href=""  ng-click="goto('/home')" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a ng-click="goto('/home', 'logistic')" class="navbar-item">Logistique</a></li>
                             <li><a ng-click="goto('/home', 'themes')" class="navbar-item">Thèmes</a></li>
                             <li><a ng-click="goto('/home', 'newsletter')" class="navbar-item">News</a></li>
                             <li><a ng-click="goto('/home', 'billetterie')" class="navbar-item">Billetterie</a></li>
-                            <li><a ng-click="goto('/home', 'partners')" class="navbar-item">Partenaires</a></li>
-                            <li><a ng-click="goto('/home', 'plaquette')" class="navbar-item">Plaquette</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" ng-click="goto('/partners')" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Partenaires <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="goto('/partners', 'gold')" class="navbar-item">Gold</a></li>
+                            <li><a ng-click="goto('/partners', 'silver')" class="navbar-item">Silver</a></li>
+                            <li><a ng-click="goto('/partners', 'bronze')" class="navbar-item">Bronze</a></li>
+                            <li><a ng-click="goto('/partners', 'plaquette')" class="navbar-item">La Plaquette</a></li>
+                            <li><a ng-click="goto('/partners', 'press')" class="navbar-item">Presse / Média</a></li>
+                            <li><a ng-click="goto('/partners', 'friends')" class="navbar-item">Nos amis</a></li>
                         </ul>
                     </li>
                 </ul>
