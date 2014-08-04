@@ -1,17 +1,22 @@
-<div id="home" class="theme2">
+<div id="home" class="theme2" itemscope itemtype="http://schema.org/Event">
     <div class="container main-title">
         <div class="col-xs-12 col-md-6">
             <h1>
+                <span itemprop="description">
                 Une journée de conférences,<br/>
                 pour les développeurs,<br/>
                 sur les technologies de demain
+                </span>
             </h1>
         </div>
         <div class="col-xs-12 col-md-6">
             <hr class="title-tips-spacer" />
-            <h4><img src="images/icon_calendar_white.png" class="icon" />Le 17 Octobre 2014</h4>
+            <h4 itemprop="startDate" content="2014-10-17T09:00"><img src="images/icon_calendar_white.png" class="icon" />Le 17 Octobre 2014</h4>
             <h4><img src="images/icon_event_white.png" class="icon" />SDBX4, Un évènement de la semaine digitale</h4>
-            <h4><img src="images/icon_pointer_white.png" class="icon" />À l'ENSEIRB, Inst. polytechnique de Bordeaux</h4>
+            <h4 itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <img src="images/icon_pointer_white.png" class="icon" />
+                À l'<span itemprop="name">ENSEIRB, Inst. polytechnique de Bordeaux</span>
+            </h4>
         </div>
     </div>
 </div>
@@ -55,11 +60,13 @@
             <img src="images/btn_contact.png" />
             <strong>Pour + d'infos : <a ng-href="{{genMailTo('team')}}">contactez la team</a></strong>
             <hr class="spacer" style="height: 20px" />
-            <address>
-              <strong>ENSEIRB</strong><br/>
-              1 Avenue du docteur Albert Schweitzer<br/>
-              33400 Talence
-            </address>
+            <div itemscope itemtype="http://schema.org/Place">
+                <strong><span itemprop="name">ENSEIRB</span></strong>
+                <address>
+                    <span itemprop="streetAddress">1 Avenue du docteur Albert Schweitzer</span><br/>
+                    <span itemprop="postalCode">33400</span> <span itemprop="addressLocality">Talence</span>
+                </address>
+            </div>
             <em>Pour nous rejoindre en transport en commun, choisissez <a href="http://www.infotbc.com/">le Bus ou le Tram</a>.<br/>
             Si vous venez en voiture, le parking de l'Université est ouvert et gratuit.</em>
             <img class="img-responsive" src="images/ENSEIRB%20-%20Venue.png" />
