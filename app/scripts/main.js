@@ -1,4 +1,5 @@
-console.log('Hello Bordeaux !');
+/* global angular, ga */
+'use strict';
 
 var bdxioModule = angular.module('bdxioModule', ['ngRoute', 'bdxioControllers']);
 
@@ -14,12 +15,12 @@ bdxioModule.config(function($routeProvider) {
         })
         .otherwise({
             redirectTo: '/home'
-        })
+        });
 });
 
 bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
     $rootScope.goto = function(path, targetAnchorName) {
-        if(path != $location.path()) {
+        if(path !== $location.path()) {
             ga('send', 'screenview', { 'screenName': path });
         }
 
@@ -32,15 +33,15 @@ bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
             // Hackish here... allows to anchorscroll and take into consideration menu header
             // because of https://github.com/angular/angular.js/issues/2070
             $timeout(function(){
-                var bodyPaddingTop = $("body").css("padding-top");
+                var bodyPaddingTop = $('body').css('padding-top');
                 scrollBy(0, -parseInt(bodyPaddingTop, 10));
             }, 100);
         } else {
-            $location.hash("");
+            $location.hash('');
         }
     };
 
     $rootScope.genMailTo = function(name) {
-        return "mailto:"+name+"@bdx.io";
+        return 'mailto:'+name+'@bdx.io';
     };
 });

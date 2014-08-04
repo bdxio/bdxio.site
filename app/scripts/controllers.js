@@ -1,63 +1,64 @@
-console.log("hello from controllers");
+/* global angular */
+'use strict';
 
 var bdxioControllers = angular.module('bdxioControllers', []);
 
 bdxioControllers.controller('HomeController', function($scope){
     $scope.themes = [
         {
-            className: "coding",
+            className: 'coding',
             hints: [
-                "Langages",
-                "Frameworks",
-                "Tooling"
+                'Langages',
+                'Frameworks',
+                'Tooling'
             ],
             detailedHints: [
-                "Java, PHP, C#, Javascript",
-                "Groovy, Scala, Dart ...",
-                "Et les autres librairies et outils de productivité au quotidien"
+                'Java, PHP, C#, Javascript',
+                'Groovy, Scala, Dart ...',
+                'Et les autres librairies et outils de productivité au quotidien'
             ]
         },
         {
-            className: "medias",
+            className: 'medias',
             hints: [
-                "Web",
-                "Jeux",
-                "Mobile"
+                'Web',
+                'Jeux',
+                'Mobile'
             ],
             detailedHints: [
-                "Les différents médias",
-                "sur lesquels développer aujourd'hui"
+                'Les différents médias',
+                'sur lesquels développer aujourd\'hui'
             ]
         },
         {
-            className: "future",
+            className: 'future',
             hints: [
-                "Startups",
-                "Objets connectés"
+                'Startups',
+                'Objets connectés'
             ],
             detailedHints: [
-                "Où découvrir les idées",
-                "disruptives du monde de demain"
+                'Où découvrir les idées',
+                'disruptives du monde de demain'
             ]
         },
         {
-            className: "design",
+            className: 'design',
             hints: [
-                "Design",
-                "Pratiques",
-                "Architectures",
-                "Cloud"
+                'Design',
+                'Pratiques',
+                'Architectures',
+                'Cloud'
             ],
             detailedHints: [
-                "Architecture REST",
-                "Bases NOSQL",
-                "Développement dans le cloud",
-                "Pratiques telles que SCRUM ou Kanban"
+                'Architecture REST',
+                'Bases NOSQL',
+                'Développement dans le cloud',
+                'Pratiques telles que SCRUM ou Kanban'
             ]
         }
     ];
 });
 
-bdxioControllers.controller('PartnersController', function($scope) {
+bdxioControllers.controller('PartnersController', function() {
 
 });
