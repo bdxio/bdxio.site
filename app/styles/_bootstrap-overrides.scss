@@ -136,3 +136,10 @@ span.visible-xs {
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
 }
+
+.navbar-nav .open .dropdown-menu {
+  z-index: 1000;
+}
+.navbar-nav .dropdown-menu {
+  z-index: 0;
+}
