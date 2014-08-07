@@ -237,6 +237,21 @@ hr.title-tips-spacer {
   }
 }
 
+.btn-lg {
+  @media (min-width: $screen-xs-min) {
+    font-size: 18px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 16px;
+  }
+}
+
+.no-padding-left-on-tn {
+  @media (max-width: $screen-tn-max) {
+    padding-left: 0px !important;
+  }
+}
+
 .theme-tile {
   width: $theme-tile-size;
   height: $theme-tile-size;
@@ -345,3 +360,4 @@ li.friend {
   font-size: 10px;
   padding-top: 20px;
 }
+
