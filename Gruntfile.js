@@ -197,6 +197,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
                         '<%= yeoman.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,webp}',
                         '<%= yeoman.dist %>/fonts/{,*/}*.*',
+                        '<%= yeoman.dist %>/templates/{,*/}*.*',
                         '<%= yeoman.dist %>/contents/{,*/}*.*'
                     ]
                 }
@@ -230,13 +231,31 @@ module.exports = function (grunt) {
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
             options: {
-                assetsDirs: ['<%= yeoman.dist %>']
+                assetsDirs: ['<%= yeoman.dist %>'],
+                patterns: {
+                    js: [
+                        // Crappy workaround for https://github.com/yeoman/grunt-usemin/issues/418
+                        // Crossing fingers we won't have more than 10 angular templates in minified main.js file
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller ']
+                    ]
+                }
             },
             html: [
                 '<%= yeoman.dist %>/{,*/}*.html',
                 '<%= yeoman.dist %>/templates/{,*/}*.html'
             ],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            // For angular js templates urls in main router
+            js: ['<%= yeoman.dist %>/scripts/*main.js']
         },
 
         // The following *-min tasks produce minified files in the dist folder
