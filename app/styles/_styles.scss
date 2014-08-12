@@ -361,3 +361,39 @@ li.friend {
   padding-top: 20px;
 }
 
+li.person {
+  padding: 10px;
+  $header-height: 137px;
+  $body-height: 150px;
+
+  .header {
+    color: white;
+    background-color: $grey-green;
+    height: $header-height;
+    img {
+      float: left;
+      margin-right: 20px;
+      height: $header-height;
+      @include desaturate();
+    }
+    .names {
+      float: left;
+      height: $header-height;
+      width: 140px;
+      padding-top: 20px;
+    }
+    span.firstname, span.lastname {
+      font-size: 1.6em;
+    }
+    span.lastname {
+      text-transform: uppercase;
+    }
+  }
+  .body {
+    padding: 18px;
+    color: white;
+    background-color: $grey-black;
+    font-size: 0.8em;
+    height: $body-height;
+  }
+}

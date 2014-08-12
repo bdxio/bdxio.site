@@ -1,0 +1,21 @@
+<div id="speakers" class="theme1">
+    <div class="container">
+        <div class="col-xs-12">
+            <h2>Speakers à la conférence</h2>
+            <ul class="speakers list-unstyled">
+                <li ng-repeat="speaker in speakers" class="person speaker col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
+                    <div class="header">
+                        <img itemprop="image" ng-src="{{speaker.avatarUrl}}" />
+                        <div class="names">
+                            <span itemprop="givenName" class="firstname">{{speaker.firstName}}</span>
+                            <span itemprop="familyName" class="lastname">{{speaker.lastName}}</span>
+                        </div>
+                    </div>
+                    <div class="body" itemprop="description">
+                        {{speaker.bio}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
