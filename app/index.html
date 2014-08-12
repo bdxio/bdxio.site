@@ -40,6 +40,7 @@
                 <ul class="nav navbar-nav nav-menu">
                     <li class="dropdown">
                         <a href=""  ng-click="goto('/home')" class="first dropdown-toggle navbar-item" data-toggle="dropdown">Accueil <b class="caret"></b></a>
+                        <a href="#!/home" style="display:none">Accueil</a><!-- For indexation crawlers only -->
                         <ul class="dropdown-menu">
                             <li><a ng-click="goto('/home', 'logistic')" class="navbar-item">Logistique</a></li>
                             <li><a ng-click="goto('/home', 'themes')" class="navbar-item">Thèmes</a></li>
@@ -49,6 +50,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="" ng-click="goto('/partners')" class="dropdown-toggle navbar-item" data-toggle="dropdown">Partenaires <b class="caret"></b></a>
+                        <a href="#!/partners" style="display:none">Partenaires</a><!-- For indexation crawlers only -->
                         <ul class="dropdown-menu">
                             <li><a ng-click="goto('/partners', 'gold')" class="navbar-item">Gold</a></li>
                             <li><a ng-click="goto('/partners', 'silver')" class="navbar-item">Silver</a></li>
