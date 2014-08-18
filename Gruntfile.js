@@ -234,18 +234,7 @@ module.exports = function (grunt) {
                 assetsDirs: ['<%= yeoman.dist %>'],
                 patterns: {
                     js: [
-                        // Crappy workaround for https://github.com/yeoman/grunt-usemin/issues/418
-                        // Crossing fingers we won't have more than 10 angular templates in minified main.js file
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller '],
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/, 'Replacing reference to templates in angular main controller ']
+                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/gm, 'Replacing reference to templates in angular main controller']
                     ]
                 }
             },
