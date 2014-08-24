@@ -5,10 +5,15 @@
             <ul class="speakers list-unstyled">
                 <li ng-repeat="speaker in speakers" class="person speaker col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
                     <div class="header">
-                        <img itemprop="image" ng-src="{{speaker.avatarUrl}}" />
-                        <div class="names">
+                        <img class="avatar" itemprop="image" ng-src="{{speaker.avatarUrl}}" />
+                        <div class="infos">
                             <span itemprop="givenName" class="firstname">{{speaker.firstName}}</span>
                             <span itemprop="familyName" class="lastname">{{speaker.lastName}}</span>
+                            <div class="social">
+                                <span><a ng-href="http://www.twitter.com/{{speaker.twitter}}" ng-show="{{speaker.twitter != null}}"><img class="twitter icon" /></a></span>
+                                <span><a ng-href="http://www.linkedin.com/{{speaker.linkedin}}" ng-show="{{speaker.linkedin != null}}"><img class="linkedin icon" /></a></span>
+                                <span><a ng-href="http://www.gplus.com/{{speaker.gplus}}" ng-show="{{speaker.gplus != null}}"><img class="gplus icon" /></a></span>
+                            </div>
                         </div>
                     </div>
                     <div class="body" itemprop="description">

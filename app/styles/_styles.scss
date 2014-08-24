@@ -363,30 +363,101 @@ li.friend {
 
 li.person {
   padding: 10px;
-  $header-height: 137px;
+  $header-xs-height: 100px;
+  $header-sm-height: 137px;
+  $names-md-font-height: 38px;
+  $names-sm-font-height: 38px;
+  $names-xs-font-height: 28px;
   $body-height: 150px;
+  $icon-size: 27px;
 
   .header {
     color: white;
     background-color: $grey-green;
-    height: $header-height;
+    @media (min-width: $screen-sm-min) {
+      height: $header-sm-height;
+    }
+    @media (max-width: $screen-xs-max) {
+      height: $header-xs-height;
+    }
     img {
       float: left;
-      margin-right: 20px;
-      height: $header-height;
-      @include desaturate();
+
+      &.avatar {
+        float: left;
+        margin-right: 20px;
+
+        @media (min-width: $screen-sm-min) {
+          height: $header-sm-height;
+        }
+        @media (max-width: $screen-xs-max) {
+          height: $header-xs-height;
+        }
+
+        @include desaturate();
+      }
+
+      &.icon {
+        height: $icon-size;
+        width: $icon-size;
+        content: ""; // to avoid border on chrome
+        margin-right: 5px;
+
+        &.twitter {
+          background-image: image-url("btn_twitter2.png");
+          &:hover {
+            background-image: image-url("btn_twitter2_hover.png");
+          }
+        }
+        &.linkedin {
+          background-image: image-url("btn_linkedin.png");
+          &:hover {
+            background-image: image-url("btn_linkedin_hover.png");
+          }
+        }
+        &.gplus {
+          background-image: image-url("btn_googleplus2.png");
+          &:hover {
+            background-image: image-url("btn_googleplus2_hover.png");
+          }
+        }
+      }
     }
-    .names {
+    .infos {
       float: left;
-      height: $header-height;
-      width: 140px;
-      padding-top: 20px;
-    }
-    span.firstname, span.lastname {
-      font-size: 1.6em;
-    }
-    span.lastname {
-      text-transform: uppercase;
+
+      span {
+        &.firstname, &.lastname {
+          font-size: 1.6em;
+        }
+        &.lastname {
+          text-transform: uppercase;
+        }
+      }
+
+      @media (min-width: $screen-md-min) {
+        width: 140px; // Needed to display firstname and lastname below
+        height: $header-sm-height;
+        padding-top: ($header-sm-height/2 - $names-md-font-height - $icon-size/2 - 5px);
+      }
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        width: 140px;
+        height: $header-sm-height;
+        padding-top: ($header-sm-height/2 - $names-sm-font-height - $icon-size/2 - 5px);
+      }
+      @media (max-width: $screen-xs-max) {
+        width: 100px;
+        height: $header-xs-height;
+        padding-top: ($header-xs-height/2 - $names-xs-font-height - $icon-size/2 - 5px);
+      }
+
+      .social {
+        @media (min-width: $screen-sm-min) {
+          padding-top: 5px;
+        }
+        @media (max-width: $screen-xs-max) {
+        }
+      }
     }
   }
   .body {
