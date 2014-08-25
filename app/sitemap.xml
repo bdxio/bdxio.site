@@ -9,4 +9,9 @@
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
+    <url>
+      <loc>http://www.bdx.io/#!/people</loc>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+    </url>
 </urlset>

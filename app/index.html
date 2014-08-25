@@ -60,6 +60,13 @@
                             <li><a ng-click="goto('/partners', 'friends')" class="navbar-item">Nos amis</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="" ng-click="goto('/people')" class="dropdown-toggle navbar-item" data-toggle="dropdown">Participants <b class="caret"></b></a>
+                        <a href="#!/people" style="display:none">Participants</a><!-- For indexation crawlers only -->
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="goto('/people', 'orgas')" class="navbar-item">Orgas</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
