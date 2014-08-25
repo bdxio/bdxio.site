@@ -1,23 +1,23 @@
 <div id="speakers" class="theme1">
     <div class="container">
-        <div class="col-xs-12">
-            <h2>Speakers à la conférence</h2>
+        <div class="col-xs-12" ng-repeat="participantSection in participantSections">
+            <h2>{{participantSection.title}}</h2>
             <ul class="speakers list-unstyled">
-                <li ng-repeat="speaker in speakers" class="person speaker col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
+                <li ng-repeat="participant in participantSection.participants" class="person col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
                     <div class="header">
-                        <img class="avatar" itemprop="image" ng-src="{{speaker.avatarUrl}}" />
+                        <img class="avatar" itemprop="image" ng-src="{{participant.avatarUrl}}" />
                         <div class="infos">
-                            <span itemprop="givenName" class="firstname">{{speaker.firstName}}</span>
-                            <span itemprop="familyName" class="lastname">{{speaker.lastName}}</span>
+                            <span itemprop="givenName" class="firstname">{{participant.firstName}}</span>
+                            <span itemprop="familyName" class="lastname">{{participant.lastName}}</span>
                             <div class="social">
-                                <span><a ng-href="http://www.twitter.com/{{speaker.twitter}}" ng-show="{{speaker.twitter != null}}"><img class="twitter icon" /></a></span>
-                                <span><a ng-href="http://www.linkedin.com/{{speaker.linkedin}}" ng-show="{{speaker.linkedin != null}}"><img class="linkedin icon" /></a></span>
-                                <span><a ng-href="http://www.gplus.com/{{speaker.gplus}}" ng-show="{{speaker.gplus != null}}"><img class="gplus icon" /></a></span>
+                                <span><a ng-href="http://www.twitter.com/{{participant.twitter}}" ng-show="{{participant.twitter != null}}"><img class="twitter icon" /></a></span>
+                                <span><a ng-href="http://{{participant.linkedin}}" ng-show="{{participant.linkedin != null}}"><img class="linkedin icon" /></a></span>
+                                <span><a ng-href="http://plus.google.com/{{participant.gplus}}/posts" ng-show="{{participant.gplus != null}}"><img class="gplus icon" /></a></span>
                             </div>
                         </div>
                     </div>
-                    <div class="body" itemprop="description">
-                        {{speaker.bio}}
+                    <div class="body" itemprop="description" ng-show="participant.bio != null">
+                        {{participant.bio}}
                     </div>
                 </li>
             </ul>
