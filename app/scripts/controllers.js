@@ -137,7 +137,7 @@ bdxioControllers.controller('PeopleController', function($scope) {
                     gplus: null
                 },
                 {
-                    avatarUrl: "http://static9.viadeo-static.com/servlet/photo?memberId=0021czj1gy7ijpjp&height=185&width=140&ts=1318840930000",
+                    avatarUrl: "https://pbs.twimg.com/profile_images/1295838721/me.png",
                     firstName: "Christophe",
                     lastName: "Picot",
                     bio: "Diplômé de l’ENSEIRB en 2000, Christophe a forgé son expérience " +
