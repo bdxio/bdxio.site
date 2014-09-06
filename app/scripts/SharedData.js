@@ -11,15 +11,27 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                     "title": "L'équipe d'organisation",
                     "anchor": "orgas",
                     "columnFields": {
-                        "A": "firstName",
-                        "B": "lastName",
-                        "C": "bio",
-                        "D": "company",
-                        "E": "avatarUrl",
-                        "F": "twitter",
-                        "G": "linkedin",
-                        "H": "gplus"
-                    }
+                        "A": "firstName", "B": "lastName", "C": "bio",
+                        "D": "company", "E": "avatarUrl", "F": "twitter",
+                        "G": "linkedin", "H": "gplus"
+                    },
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
+                }
+            },
+            {
+                tabId: 2,
+                dataField: "speakers",
+                descriptor: {
+                    "firstRow": 2,
+                    "title": "Les speakers",
+                    "anchor": "speakers",
+                    "columnFields": {
+                        "A": "firstName", "B": "lastName", "C": "bio",
+                        "D": "company", "E": "avatarUrl", "F": "twitter",
+                        "G": "linkedin", "H": "gplus", "I": "blog",
+                        "J": "talk1", "K": "talk2"
+                    },
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
                 }
             }
         ],

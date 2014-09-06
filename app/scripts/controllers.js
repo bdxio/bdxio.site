@@ -68,6 +68,11 @@ bdxioControllers.controller('PeopleController', function($scope, $q, SharedData)
     $q.when(SharedData.dataLoaded()).then(function(){
         $scope.participantSections = [
             {
+                title: "Les speakers",
+                anchor: "speakers",
+                participants: SharedData.data("speakers")
+            },
+            {
                 title: "L'équipe d'organisation",
                 anchor: "orgas",
                 participants: SharedData.data("orgas")
