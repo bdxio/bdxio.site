@@ -375,7 +375,6 @@ li.person {
   $names-md-font-height: 38px;
   $names-sm-font-height: 38px;
   $names-xs-font-height: 28px;
-  $body-height: 160px;
   $icon-size: 27px;
 
   .header {
@@ -475,6 +474,17 @@ li.person {
     color: white;
     background-color: $grey-black;
     font-size: 0.8em;
-    height: $body-height;
+    @media (min-width: $screen-md-min) {
+        height: 235px;
+    }
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        height: 175px;
+    }
+    @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+        height: 175px;
+    }
+    @media (max-width: ($screen-xs-min - 1px)) {
+        height: 300px;
+    }
   }
 }
