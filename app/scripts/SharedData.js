@@ -14,10 +14,11 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         "A": "firstName",
                         "B": "lastName",
                         "C": "bio",
-                        "D": "avatarUrl",
-                        "E": "twitter",
-                        "F": "linkedin",
-                        "G": "gplus"
+                        "D": "company",
+                        "E": "avatarUrl",
+                        "F": "twitter",
+                        "G": "linkedin",
+                        "H": "gplus"
                     }
                 }
             }
