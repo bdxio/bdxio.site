@@ -73,5 +73,5 @@ bdxioControllers.controller('PeopleController', function($scope, $q, SharedData)
                 participants: SharedData.data("orgas")
             }
         ];
-    });
+    }, errorMessage("Cannot load SharedData"));
 });

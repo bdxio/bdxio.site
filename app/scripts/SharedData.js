@@ -37,7 +37,7 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
             var fetchPromises = _.map(SharedData.SPREADSHEETS, function(spreadsheet){
                 return $http.jsonp(urlFactory(spreadsheet.tabId),{}).then(function(spreadsheetQueryResult){
                     return SpreadsheetReader.read(spreadsheetQueryResult.data, spreadsheet.descriptor);
-                });
+                }, errorMessage("Error while fetching spreadsheet info for tab "+spreadsheet.tabId));
             });
 
             $q.all(fetchPromises).then(function(spreadsheetInfos) {
@@ -46,7 +46,7 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                 });
                 self._dataLoadedDefer.resolve();
                 defer.resolve();
-            });
+            }, rejectDeferred(defer, "Error while fetching spreadsheet data"));
 
             return defer.promise;
         },

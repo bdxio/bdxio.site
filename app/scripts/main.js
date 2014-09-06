@@ -51,9 +51,10 @@ bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout, $q, Sha
         return 'mailto:'+name+'@bdx.io';
     };
 
-    return $q.all([
-        SharedData.init({
-            offline: $location.search().offline===true
-        })
-    ]);
+    SharedData.init({
+        offline: $location.search().offline===true
+    });
+
+    // It would be nice if we could have run() return a promise
+    // It would avoid to have to rely on SharedData.dataLoaded() on every controllers...
 });
