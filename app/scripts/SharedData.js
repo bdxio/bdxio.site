@@ -55,11 +55,6 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "active", "name", "type" ],
                     postProcess: function(results) {
-                        // Transforming imgId into imgSrc
-                        _.each(results, function(company){
-                            company.imgSrc = $("#"+company.imgId).attr('src');
-                        });
-
                         // Grouping results by type
                         results = _.groupBy(results, "type");
 
