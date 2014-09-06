@@ -432,10 +432,13 @@ li.person {
     }
     .infos {
       float: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
 
       span {
         &.firstname, &.lastname {
-          font-size: 1.6em;
+          font-size: 1.5em;
+          white-space: nowrap;
         }
         &.lastname {
           text-transform: uppercase;
@@ -443,17 +446,17 @@ li.person {
       }
 
       @media (min-width: $screen-md-min) {
-        width: 140px; // Needed to display firstname and lastname below
+        width: 270px;
         height: $header-sm-height;
         padding-top: ($header-sm-height/2 - $names-md-font-height - $icon-size/2 - 5px);
       }
       @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-        width: 140px;
+        width: 270px;
         height: $header-sm-height;
         padding-top: ($header-sm-height/2 - $names-sm-font-height - $icon-size/2 - 5px);
       }
       @media (max-width: $screen-xs-max) {
-        width: 100px;
+        width: 115px;
         height: $header-xs-height;
         padding-top: ($header-xs-height/2 - $names-xs-font-height - $icon-size/2 - 5px);
       }
