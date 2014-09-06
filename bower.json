@@ -18,9 +18,10 @@
     "sass-bootstrap": "~3.0.0",
     "modernizr": "~2.6.2",
     "jquery": "~1.10.2",
-    "angular": "~1.2.20",
-    "angular-route": "~1.2.21",
-    "lodash": "~2.4.1"
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.23",
+    "lodash": "~2.4.1",
+    "angular-animate": "~1.2.23"
   },
   "devDependencies": {}
 }

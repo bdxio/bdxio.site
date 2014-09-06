@@ -1,7 +1,7 @@
 /* global angular, ga */
 'use strict';
 
-var bdxioModule = angular.module('bdxioModule', ['ngRoute', 'bdxioControllers']);
+var bdxioModule = angular.module('bdxioModule', ['ngRoute', 'ngAnimate', 'bdxioControllers']);
 
 bdxioModule.config(function($routeProvider, $locationProvider) {
     $routeProvider
