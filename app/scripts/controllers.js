@@ -58,6 +58,7 @@ bdxioControllers.controller('HomeController', function($scope){
         }
     ];
     $scope.cfpOpened = Date.now() <= Date.parse("Aug 16, 2014 23:59:59 GMT+0200");
+    $scope.programAvailable = true;
 });
 
 bdxioControllers.controller('PartnersController', function($q, $scope, SharedData) {
