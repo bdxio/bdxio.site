@@ -60,8 +60,22 @@ bdxioControllers.controller('HomeController', function($scope){
     $scope.cfpOpened = Date.now() <= Date.parse("Aug 16, 2014 23:59:59 GMT+0200");
 });
 
-bdxioControllers.controller('PartnersController', function() {
+bdxioControllers.controller('PartnersController', function($q, $scope, SharedData) {
+    $q.when(SharedData.dataLoaded()).then(function(){
+        $scope.partnerLevels = [
+            _.extend({ title: "Gold", anchorId: "gold" }, SharedData.data("partners").gold),
+            _.extend({ title: "Silver", anchorId: "silver" }, SharedData.data("partners").silver),
+            _.extend({ title: "Bronze", anchorId: "bronze" }, SharedData.data("partners").bronze)
+        ];
+    }, errorMessage("Cannot load SharedData"));
 
+    $scope.noActivePartner = function(partnerLevel) {
+        return partnerLevel.activeCount==0;
+    };
+
+    $scope.someInactivePartnersComing = function(partnerLevel) {
+        return partnerLevel.activeCount!=0 && partnerLevel.inactiveCount!=0;
+    }
 });
 
 bdxioControllers.controller('PeopleController', function($scope, $q, SharedData) {

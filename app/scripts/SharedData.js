@@ -42,6 +42,41 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
                 }
+            },
+            {
+                tabId: 4,
+                dataField: "partners",
+                descriptor: {
+                    "firstRow": 2,
+                    "columnFields": {
+                        "A": "active", "B": "type", "C": "name",
+                        "D": "imgId", "E": "website", "F": "description",
+                        "G": "imgHeight"
+                    },
+                    "fieldsRequiredToConsiderFilledRow": [ "active", "name", "type" ],
+                    postProcess: function(results) {
+                        // Transforming imgId into imgSrc
+                        _.each(results, function(company){
+                            company.imgSrc = $("#"+company.imgId).attr('src');
+                        });
+
+                        // Grouping results by type
+                        results = _.groupBy(results, "type");
+
+                        _.each(_.keys(results), function(partnerType){
+                            results[partnerType] = {
+                                // Filtering on active companies only
+                                companies: _.filter(results[partnerType], function(company){ return company.active=="1"; }),
+                                // Identifying partner types having at least 1 active flat to 0
+                                // => These partner types should add a note saying we will add new partners soon
+                                activeCount: _.filter(results[partnerType], function(company){ return company.active=="1"; }).length,
+                                inactiveCount: _.filter(results[partnerType], function(company){ return company.active!="1"; }).length
+                            };
+                        });
+
+                        return results;
+                    }
+                }
             }
         ],
         _data: {},
