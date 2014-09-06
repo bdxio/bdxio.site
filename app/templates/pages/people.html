@@ -4,7 +4,7 @@
             <h2 id="{{participantSection.anchor}}">{{participantSection.title}}</h2>
             <ul class="speakers list-unstyled">
                 <li ng-repeat="participant in participantSection.participants" class="person col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
-                    <div class="header">
+                    <div class="header" ng-click="showBody = !showBody">
                         <img class="avatar" itemprop="image" ng-src="{{participant.avatarUrl}}" />
                         <div class="infos">
                             <span itemprop="givenName" class="firstname">{{participant.firstName}}</span>
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="body" itemprop="description" ng-show="participant.bio != null">
+                    <div class="body" itemprop="description" ng-show="participant.bio != null && showBody">
                         {{participant.bio}}
                     </div>
                 </li>
