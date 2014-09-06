@@ -392,6 +392,8 @@ li.person {
   .header {
     color: white;
     background-color: $grey-green;
+    cursor: pointer;
+
     @media (min-width: $screen-sm-min) {
       height: $header-sm-height;
     }
