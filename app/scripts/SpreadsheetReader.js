@@ -15,13 +15,21 @@ angular.module('bdxioModule').factory('SpreadsheetReader', function ($q) {
             });
 
             // Now grouping cells by line and building result
-            var results = _(cells).filter(function(cell){ return cell.r >= descriptor.firstRow; }).groupBy('r').mapValues(function(cells){
-                var lineObj = {};
-                _.each(cells, function(cell){
-                    lineObj[descriptor.columnFields[cell.c]] = cell.v;
-                });
-                return lineObj;
-            }).values().value();
+            var results = _(cells)
+                .filter(function(cell) {
+                    return cell.r >= descriptor.firstRow;
+                }).groupBy('r').mapValues(function(cells){
+                    var lineObj = {};
+                    _.each(cells, function(cell){
+                        lineObj[descriptor.columnFields[cell.c]] = cell.v;
+                    });
+                    return lineObj;
+                }).values().filter(function(obj) {
+                    var emptyRequiredColumns = _.filter(descriptor.fieldsRequiredToConsiderFilledRow, function (fieldRequiredToConsiderFilledRow) {
+                        return !obj[fieldRequiredToConsiderFilledRow];
+                    });
+                    return emptyRequiredColumns.length === 0;
+                }).value();
 
             defer.resolve(results);
 
