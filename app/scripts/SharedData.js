@@ -8,8 +8,6 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                 dataField: "orgas",
                 descriptor: {
                     "firstRow": 2,
-                    "title": "L'équipe d'organisation",
-                    "anchor": "orgas",
                     "columnFields": {
                         "A": "firstName", "B": "lastName", "C": "bio",
                         "D": "company", "E": "avatarUrl", "F": "twitter",
@@ -20,11 +18,22 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
             },
             {
                 tabId: 2,
+                dataField: "jurys",
+                descriptor: {
+                    "firstRow": 2,
+                    "columnFields": {
+                        "A": "firstName", "B": "lastName", "C": "bio",
+                        "D": "company", "E": "avatarUrl", "F": "twitter",
+                        "G": "linkedin", "H": "gplus"
+                    },
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
+                }
+            },
+            {
+                tabId: 3,
                 dataField: "speakers",
                 descriptor: {
                     "firstRow": 2,
-                    "title": "Les speakers",
-                    "anchor": "speakers",
                     "columnFields": {
                         "A": "firstName", "B": "lastName", "C": "bio",
                         "D": "company", "E": "avatarUrl", "F": "twitter",

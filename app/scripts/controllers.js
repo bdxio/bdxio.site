@@ -76,6 +76,11 @@ bdxioControllers.controller('PeopleController', function($scope, $q, SharedData)
                 title: "L'équipe d'organisation",
                 anchor: "orgas",
                 participants: SharedData.data("orgas")
+            },
+            {
+                title: "Le jury du CFP",
+                anchor: "jury",
+                participants: SharedData.data("jurys")
             }
         ];
     }, errorMessage("Cannot load SharedData"));
