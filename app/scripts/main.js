@@ -24,7 +24,7 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('!');
 });
 
-bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
+bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout, $q, SharedData) {
     $rootScope.goto = function(path, targetAnchorName) {
         if(path !== $location.path()) {
             ga('send', 'screenview', { 'screenName': path });
@@ -50,4 +50,10 @@ bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout) {
     $rootScope.genMailTo = function(name) {
         return 'mailto:'+name+'@bdx.io';
     };
+
+    return $q.all([
+        SharedData.init({
+            offline: $location.search().offline===true
+        })
+    ]);
 });
