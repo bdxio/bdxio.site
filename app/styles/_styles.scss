@@ -74,6 +74,13 @@
   );
 }
 
+hr.crlf {
+    line-height: 0px;
+    margin: 0px;
+    border: 0px;
+    clear: both;
+    visibility: hidden;
+}
 
 .theme1 {
   background-color: $theme1-main-bgcolor;
