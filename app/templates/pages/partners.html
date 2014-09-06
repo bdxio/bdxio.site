@@ -18,18 +18,26 @@
                 <img id="google" src="images/sponsors/Google_Logo_RGB_Color_flat_small.png" />
                 <img id="neotec" src="images/sponsors/NeoTec.png" />
             </div>
-            <h2 id="gold">Gold</h2>
-            <hr />
-            <a href="http://www.fr.capgemini.com/"><img class="img-responsive" height="100" src="images/sponsors/Capgemini_logo_300dpi.png" /></a>
-            <h2 id="silver">Silver</h2>
-            <hr />
-            <a href="http://developers.google.com/"><img class="img-responsive" height="80" src="images/sponsors/Google_Logo_RGB_Color_flat_small.png" /></a>
-            <br/>
-            <em>D'autres partenaires Silver seront annoncés prochainement</em>
-            <h2 id="bronze">Bronze</h2>
-            <hr />
-            <em>Les partenaires Bronze seront annoncés prochainement</em>
-            <hr />
+            <div ng-repeat="partnerLevel in partnerLevels">
+                <h2 id="{{partnerLevel.anchorId}}">{{partnerLevel.title}}</h2>
+                <hr />
+                <div ng-repeat="company in partnerLevel.companies">
+                    <a ng-href="{{company.website}}">
+                        <img class="img-responsive" ng-src="{{company.imgSrc}}" />
+                    </a>
+                    <em class="partner-desc">
+                        {{company.description}}
+                    </em>
+                </div>
+
+                <div ng-show="{{noActivePartner(partnerLevel)}}">
+                    <em>Les partenaires {{partnerLevel.title}} seront annoncés prochainement</em>
+                </div>
+                <div ng-show="{{someInactivePartnersComing(partnerLevel)}}" style="padding-top: 50px">
+                    <em>D'autres partenaires {{partnerLevel.title}} seront annoncés prochainement</em>
+                </div>
+            </div>
+
             <h2 id="plaquette">Télécharger la plaquette</h2>
             Vous souhaitez faire parti des partenaires de l'évènement ?<br/>
             Vous pouvez télécharger la plaquette de l'évènement qui précise les différents pricings proposés.<br/>
