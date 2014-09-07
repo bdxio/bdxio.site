@@ -31,6 +31,10 @@ angular.module('bdxioModule').factory('SpreadsheetReader', function ($q) {
                     return emptyRequiredColumns.length === 0;
                 }).value();
 
+            if(descriptor.sortBy){
+                results = _.sortBy(results, descriptor.sortBy);
+            }
+
             if(descriptor.postProcess) {
                 results = descriptor.postProcess(results);
             }

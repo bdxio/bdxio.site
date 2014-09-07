@@ -13,7 +13,8 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         "D": "company", "E": "avatarUrl", "F": "twitter",
                         "G": "linkedin", "H": "gplus"
                     },
-                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ],
+                    "sortBy": [ "lastName", "firstName" ]
                 }
             },
             {
@@ -26,7 +27,8 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         "D": "company", "E": "avatarUrl", "F": "twitter",
                         "G": "linkedin", "H": "gplus"
                     },
-                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ],
+                    "sortBy": [ "lastName", "firstName" ]
                 }
             },
             {
@@ -40,7 +42,8 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         "G": "linkedin", "H": "gplus", "I": "blog",
                         "J": "talk1", "K": "talk2"
                     },
-                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ]
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ],
+                    "sortBy": [ "lastName", "firstName" ]
                 }
             },
             {
@@ -54,7 +57,7 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         "G": "imgHeight"
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "active", "name", "type" ],
-                    postProcess: function(results) {
+                    "postProcess": function(results) {
                         // Grouping results by type
                         results = _.groupBy(results, "type");
 
