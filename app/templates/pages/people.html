@@ -19,6 +19,14 @@
                     </div>
                     <div class="body" itemprop="description" ng-show="participant.bio != null && showBody">
                         {{participant.bio}}
+                        <div ng-if="participant.talks.length">
+                            Ses talks :
+                            <ul>
+                                <li ng-repeat="talk in participant.talks">
+                                    {{talk.title}} ({{talk.type}})
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
             </ul>
