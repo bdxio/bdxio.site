@@ -77,6 +77,15 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         return results;
                     }
                 }
+            },
+            {
+                tabId: 5,
+                dataField: "newsletters",
+                descriptor: {
+                    firstRow: 2,
+                    columnFields: { "A": "label", "B": "url" },
+                    "fieldsRequiredToConsiderFilledRow": [ "label", "url" ]
+                }
             }
         ],
         _data: {},

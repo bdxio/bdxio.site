@@ -3,7 +3,7 @@
 
 var bdxioControllers = angular.module('bdxioControllers', []);
 
-bdxioControllers.controller('HomeController', function($scope){
+bdxioControllers.controller('HomeController', function($scope, $q, SharedData){
     $scope.themes = [
         {
             className: 'coding',
@@ -59,6 +59,11 @@ bdxioControllers.controller('HomeController', function($scope){
     ];
     $scope.cfpOpened = Date.now() <= Date.parse("Aug 16, 2014 23:59:59 GMT+0200");
     $scope.programAvailable = true;
+
+    $scope.newsletters = [];
+    $q.when(SharedData.dataLoaded()).then(function(){
+        $scope.newsletters = SharedData.data("newsletters");
+    });
 });
 
 bdxioControllers.controller('PartnersController', function($q, $scope, SharedData) {
