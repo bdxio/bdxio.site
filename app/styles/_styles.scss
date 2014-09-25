@@ -136,6 +136,16 @@ hr.crlf {
 .theme5 {
   background-color: $theme5-main-bgcolor;
   color: $theme5-main-color;
+    .btn-primary {
+      color: white;
+      background-color: #333333;
+      border-color: grey;
+      border-radius: 22px;
+      &:hover, &:focus, &:active, &.active {
+        background-color: black;
+        border-color: grey;
+      }
+    }
 }
 
 
@@ -275,6 +285,12 @@ hr.title-tips-spacer {
   @media (max-width: $screen-tn-max) {
     padding-left: 0px !important;
   }
+}
+
+.newsletter-item {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .theme-tile {
