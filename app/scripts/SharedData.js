@@ -64,7 +64,9 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                         _.each(_.keys(results), function(partnerType){
                             results[partnerType] = {
                                 // Filtering on active companies only
-                                companies: _.filter(results[partnerType], function(company){ return company.active=="1"; }),
+                                companies: _(results[partnerType]).filter(function(company){ return company.active=="1"; }).map(function(company){
+                                    return _.extend(company, { imgStyle: company.imgHeight?"height: "+company.imgHeight+"px":"" });
+                                }).value(),
                                 // Identifying partner types having at least 1 active flat to 0
                                 // => These partner types should add a note saying we will add new partners soon
                                 activeCount: _.filter(results[partnerType], function(company){ return company.active=="1"; }).length,
