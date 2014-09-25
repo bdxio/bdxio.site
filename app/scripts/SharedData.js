@@ -83,8 +83,8 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                 dataField: "newsletters",
                 descriptor: {
                     firstRow: 2,
-                    columnFields: { "A": "label", "B": "url" },
-                    "fieldsRequiredToConsiderFilledRow": [ "label", "url" ]
+                    columnFields: { "A": "longLabel", "B": "shortLabel", "C": "url" },
+                    "fieldsRequiredToConsiderFilledRow": [ "longLabel", "shortLabel", "url" ]
                 }
             }
         ],
