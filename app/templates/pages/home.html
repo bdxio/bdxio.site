@@ -106,7 +106,7 @@
             <h2>Newsletters</h2>
             <ul>
                 <li ng-repeat="newsletter in newsletters" class="newsletter-item list-unstyled">
-                    <a target="_blank" class="btn btn-primary btn-lg" role="button" ng-href="newsletter.url">
+                    <a target="_blank" class="btn btn-primary btn-lg" role="button" ng-href="{{newsletter.url}}">
                         <span class="hidden-xs">{{newsletter.longLabel}}</span>
                         <span class="visible-xs">{{newsletter.shortLabel}}</span>
                     </a>
