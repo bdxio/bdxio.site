@@ -70,7 +70,7 @@
   @include responsive-image(
     'logo_enseirb.png', 110px, 110px,
     'logo_enseirb-mobile.png', 100px, 100px,
-    block, true
+    block, true, 'friends/'
   );
 }
 
@@ -78,7 +78,7 @@
   @include responsive-image(
     'logo_mairie_bordeaux.png', 110px, 92px,
     'logo_mairie_bordeaux-mobile.png', 100px, 84px,
-    block, true
+    block, true, 'friends/'
   );
 }
 
@@ -86,7 +86,7 @@
   @include responsive-image(
     'logo_bordeaux_jug.png', 110px, 84px,
     'logo_bordeaux_jug-mobile.png', 100px, 76px,
-    block, true
+    block, true, 'friends/'
   );
 }
 
@@ -94,7 +94,7 @@
   @include responsive-image(
     'logo_poitoucharentes_jug.png', 110px, 68px,
     'logo_poitoucharentes_jug-mobile.png', 100px, 62px,
-    block, true
+    block, true, 'friends/'
   );
 }
 
@@ -102,7 +102,7 @@
   @include responsive-image(
     'logo_digisquare.png', 110px, 110px,
     'logo_digisquare-mobile.png', 100px, 100px,
-    block, true
+    block, true, 'friends/'
   );
 }
 
