@@ -86,6 +86,19 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                     columnFields: { "A": "longLabel", "B": "shortLabel", "C": "url" },
                     "fieldsRequiredToConsiderFilledRow": [ "longLabel", "shortLabel", "url" ]
                 }
+            },
+            {
+                tabId: 6,
+                dataField: "friends",
+                descriptor: {
+                    firstRow: 3,
+                    columnFields: {
+                        "A": "stdImage", "B": "stdHoverImage", "C": "stdImageHeight", "D": "stdImageWidth",
+                        "E": "mobileImage", "F": "mobileHoverImage", "G": "mobileImageHeight", "H": "mobileImageWidth",
+                        "I": "url", "J": "label", "K": "itemType"
+                    },
+                    "fieldsRequiredToConsiderFilledRow": [ "stdImage", "mobileImage", "url", "label" ]
+                }
             }
         ],
         _data: {},

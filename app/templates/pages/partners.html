@@ -72,25 +72,20 @@
             Il s'agit là des associations / écoles / communautés qui ont participé de près ou de loin à l'organisation
             de l'évènement : par de la communication, des jurys du CFP, du hardware, du software, de l'hébergement etc..
             <ul class="friends-list">
-                <li itemscope itemtype="http://schema.org/CollegeOrUniversity" class="friend">
-                    <a href="http://www.enseirb-matmeca.fr/"><img class="partner-enseirb" /></a>
-                    <span class="hidden" itemprop="name">ENSEIRB MATMECA</span>
-                </li>
-                <li class="friend">
-                    <a href="http://www.bordeaux.fr/"><img class="partner-mairie-bordeaux" /></a>
-                    <span class="hidden">Mairie de Bordeaux</span>
-                </li>
-                <li class="friend">
-                    <a href="http://www.bordeauxjug.org"><img class="partner-bordeaux-jug" /></a>
-                    <span class="hidden">Bordeaux JUG</span>
-                </li>
-                <li class="friend">
-                    <a href="http://www.poitoucharentesjug.org/"><img class="partner-poitoucharentes-jug" /></a>
-                    <span class="hidden">Poitou-Charentes JUG</span>
-                </li>
-                <li class="friend">
-                    <a href="http://bordeaux.digisquare.net/"><img class="partner-digisquare" /></a>
-                    <span class="hidden">Digisquare</span>
+                <li ng-repeat="friend in friends" itemscope itemtype="{{friend.itemType}}" class="friend">
+                    <a href="{{friend.url}}">
+                        <img class="unknown-partner hidden-xs"
+                             style="background-image: url('{{friend.stdImage}}'); display: block; box-sizing: border-box; -moz-box-sizing: border-box; height: {{friend.stdImageHeight}}; width: {{friend.stdImageWidth}}; padding-left: {{friend.stdImageWidth}};"
+                             onmouseout="this.style.backgroundImage=$(this).attr('std-image');"
+                             onmouseover="this.style.backgroundImage=$(this).attr('std-hover-image');"
+                             std-image="url({{friend.stdImage}})" std-hover-image="url({{friend.stdHoverImage}})"/>
+                        <img class="unknown-partner visible-xs"
+                             style="background-image: url('{{friend.mobileImage}}'); display: block; box-sizing: border-box; -moz-box-sizing: border-box; height: {{friend.mobileImageHeight}}; width: {{friend.mobileImageWidth}}; padding-left: {{friend.mobileImageWidth}};"
+                             onmouseout="this.style.backgroundImage=$(this).attr('mobile-image');"
+                             onmouseover="this.style.backgroundImage=$(this).attr('mobile-hover-image');"
+                             mobile-image="url({{friend.mobileImage}})" mobile-hover-image="url({{friend.mobileHoverImage}})"/>
+                    </a>
+                    <span class="hidden">{{friend.label}}</span>
                 </li>
             </ul>
         </div>
