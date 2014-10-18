@@ -129,7 +129,7 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
 
 
             var voxxrinFetched = $q.defer();
-            VoxxrinReader.readDaySchedule("lrdbdxio14", 0, "bdxio14").then(function(daySchedule){
+            VoxxrinReader.readDaySchedule("bdxio14", 0, "14").then(function(daySchedule){
                 self._data["daySchedule"] = daySchedule;
                 voxxrinFetched.resolve();
             });
