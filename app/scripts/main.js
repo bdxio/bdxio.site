@@ -9,14 +9,18 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             templateUrl: 'templates/pages/home.html',
             controller: 'HomeController'
         })
-        .when('/partners', {
-            templateUrl: 'templates/pages/partners.html',
-            controller: 'PartnersController'
-        })
-        .when('/people', {
-            templateUrl: 'templates/pages/people.html',
-            controller: 'PeopleController'
-        })
+//        .when('/home', {
+//            templateUrl: 'templates/pages/home.html',
+//            controller: 'HomeController'
+//        })
+//        .when('/partners', {
+//            templateUrl: 'templates/pages/partners.html',
+//            controller: 'PartnersController'
+//        })
+//        .when('/people', {
+//            templateUrl: 'templates/pages/people.html',
+//            controller: 'PeopleController'
+//        })
         .otherwise({
             redirectTo: '/home'
         });
