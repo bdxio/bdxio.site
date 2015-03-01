@@ -1,0 +1,160 @@
+<div id="home" class="theme2" itemscope itemtype="http://schema.org/Event">
+    <div class="container main-title">
+        <div class="col-xs-12 col-md-6">
+            <h1>
+                <span itemprop="description">
+                Une journée de conférences,<br/>
+                pour les développeurs,<br/>
+                sur les technologies de demain
+                </span>
+            </h1>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <hr class="title-tips-spacer" />
+            <h4 itemprop="startDate" content="2014-10-17T09:00"><img src="images/icon_calendar_white.png" class="icon" />Le 17 Octobre 2014</h4>
+            <h4><img src="images/icon_event_white.png" class="icon" />SDBX4, Un évènement de la semaine digitale</h4>
+            <h4 itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <img src="images/icon_pointer_white.png" class="icon" />
+                À l'<span itemprop="name">ENSEIRB, Inst. polytechnique de Bordeaux</span>
+            </h4>
+        </div>
+    </div>
+</div>
+<div id="logistic" class="theme1">
+    <div class="container">
+        <div class="col-xs-12 col-md-6">
+            <h2 class="logistic-title">Logistique</h2>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_home.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">
+                      <span class="hidden-xs">A 10 minutes de Bordeaux</span>
+                      <span class="visible-xs">A 10m de Bordeaux</span>
+                  </span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">4 amphis</span>
+              </dd>
+            </dl>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_localisation.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">4 Tracks <span class="hidden-xs"> en parallèle</span></span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">30 conférences</span>
+              </dd>
+            </dl>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_user.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">~15 Communautés</span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">220 Développeurs</span>
+              </dd>
+            </dl>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right more-infos">
+            <hr class="spacer" style="height: 30px" />
+            <img src="images/btn_contact.png" />
+            <strong>Pour + d'infos : <a ng-href="{{genMailTo('team')}}">contactez la team</a></strong>
+            <hr class="spacer" style="height: 20px" />
+            <div itemscope itemtype="http://schema.org/Place">
+                <strong><span itemprop="name">ENSEIRB</span></strong>
+                <address>
+                    <span itemprop="streetAddress">1 Avenue du docteur Albert Schweitzer</span><br/>
+                    <span itemprop="postalCode">33400</span> <span itemprop="addressLocality">Talence</span>
+                </address>
+            </div>
+            <em>Pour nous rejoindre en transport en commun, choisissez <a href="http://www.infotbc.com/">le Bus ou le Tram</a>.<br/>
+            Si vous venez en voiture, le parking de l'Université est ouvert et gratuit.</em>
+            <a href="https://www.google.com/maps/place/Enseirb+Matmeca/@44.806275,-0.606608,17z/data=!3m1!4b1!4m2!3m1!1s0xd54d88197728bbf:0xec840415731df92e" target="_blank">
+                <img class="img-responsive" src="images/ENSEIRB - Venue.png" />
+            </a>
+        </div>
+    </div>
+</div>
+<div id="themes" class="theme1">
+    <div class="container">
+        <div class="col-xs-12">
+            <h2>Thèmes de la conférence</h2>
+            <ul class="themes list-unstyled">
+                <li ng-repeat="theme in themes" class="theme-tile flip-container" ontouchstart="this.classList.toggle('hover');">
+                    <div class="flipper">
+                        <div class="front">
+                            <img class="theme-img {{theme.className}}" />
+                            <ul class="list-unstyled theme-hints">
+                                <li ng-repeat="hint in theme.hints">{{hint}}</li>
+                            </ul>
+                        </div>
+                        <div class="back">
+                            <img class="theme-img {{theme.className}}" />
+                            <ul class="list-unstyled theme-hints">
+                                <li ng-repeat="detailedHint in theme.detailedHints">{{detailedHint}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="theme5" id="newsletter">
+    <div class="container">
+        <div class="col-xs-12">
+            <h2>Newsletters</h2>
+            <ul>
+                <li ng-repeat="newsletter in newsletters" class="newsletter-item list-unstyled">
+                    <a target="_blank" class="btn btn-primary btn-lg" role="button" ng-href="{{newsletter.url}}">
+                        <span class="hidden-xs">{{newsletter.longLabel}}</span>
+                        <span class="visible-xs">{{newsletter.shortLabel}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <h2>
+               Vous souhaitez être tenu(e) informé(e) ?
+            </h2>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right">
+            <h2>
+                <a target="_blank" class="btn btn-primary btn-lg" role="button" href="https://docs.google.com/forms/d/1ZfLqPI2drGB9FwJgJeq5814jHvBj_siFs76QkEhQMGI/viewform?usp=send_form">Inscrivez-vous à la newsletter</a>
+            </h2>
+        </div>
+    </div>
+</div>
+<div class="theme3">
+    <div class="container">
+        <div class="col-xs-12 col-md-6" ng-show="programAvailable">
+            <h2>
+               Le programme est disponible !
+            </h2>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right no-padding-left-on-tn" ng-show="programAvailable">
+            <h2>
+                <a target="_blank" class="btn btn-primary btn-lg" role="button" href="http://lanyrd.com/2014/bdxio/schedule/">Consulter le programme</a>
+            </h2>
+        </div>
+        <div class="col-xs-12 col-md-6" ng-show="cfpOpened">
+            <h2>
+               Vous souhaitez être speaker(euse) à bdx.io ?
+            </h2>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right no-padding-left-on-tn" ng-show="cfpOpened">
+            <h2>
+                <a target="_blank" class="btn btn-primary btn-lg" role="button" href="http://cfp.bdx.io">Le call for paper est ouvert jusqu'au 16 août</a>
+            </h2>
+        </div>
+    </div>
+</div>
+<div id="billetterie" class="theme1">
+    <div class="container">
+        <div class="col-xs-12">
+          <h2>Réservez votre place ci-dessous :</h2>
+          <script type="text/javascript" src="https://www.yuticket.com/media/js/iframe.js"></script>
+          <iframe id="5b000910-6a89-4f4e-bf98-c47b35b9aef5" src="https://www.yuticket.com/iframe/ticketing/5b000910-6a89-4f4e-bf98-c47b35b9aef5?color=dc2e2e" allowTransparency="true" frameBorder="0" style="border: 0" width="100%" height="400">Votre navigateur ne peut pas afficher ce contenu. La billetterie est aussi disponible sur <a href="https://www.yuticket.com/bdx-io/5b000910-6a89-4f4e-bf98-c47b35b9aef5-bdx-io.html">Yuticket.com</a>.</iframe>
+        </div>
+    </div>
+</div>

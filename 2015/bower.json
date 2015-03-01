@@ -1,0 +1,27 @@
+{
+  "name": "bdxio-website",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bdxio/bdxio.github.io",
+  "authors": [
+    "Frédéric Camblor <fcamblor@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sass-bootstrap": "~3.0.0",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.23",
+    "lodash": "~2.4.1",
+    "angular-animate": "~1.2.23"
+  },
+  "devDependencies": {}
+}

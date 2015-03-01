@@ -1,0 +1,145 @@
+
+.navbar-toggle {
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-toggle-desktop-margintop;
+  }
+  @media (max-width: $screen-xs-max) {
+    margin-top: $navbar-toggle-mobile-margintop;
+  }
+}
+
+.navbar-brand {
+  padding-top: 7px; /* was 15px */
+  padding-bottom: 7px; /* was 15px */
+}
+
+// The div is important here : this is the only way
+// to distinguish containers from the header and container from
+// themed sections
+div .container {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.container.main-title {
+  @media (min-width: $screen-xs-min) {
+    padding-top: 55px;
+  }
+  @media (max-width: $screen-tn-max) {
+    padding-top: 25px;
+  }
+  padding-bottom: 55px;
+}
+
+.nav > li > a {
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-icon-desktop-margintop;
+    padding: 0px 10px 4px 4px;
+  }
+  @media (max-width: $screen-xs-max) {
+    margin-top: $navbar-icon-small-margintop;
+    padding: 4px 4px;
+    margin-top: 5px;
+  }
+}
+
+// Extended dl-horizontal class to media < 768px
+// with dl-horizontal.forced class
+// Copy-pasted dl-horizontal bootstrap styles restricted to >=768px
+// here, without restricting it to this viewport size
+// Enabling it only if you appended a "forced" class to the initial
+// dl-horizontal class
+.dl-horizontal.forced dt {
+  float: left;
+  @media (min-width: $screen-xs-min) {
+    width: 160px;
+  }
+  @media (max-width: $screen-tn-max) {
+    width: 120px;
+  }
+  clear: left;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dl-horizontal.forced dd {
+  @media (min-width: $screen-xs-min) {
+    margin-left: 180px;
+  }
+  @media (max-width: $screen-tn-max) {
+    margin-left: 140px;
+  }
+}
+.dl-horizontal.forced dd:before,
+.dl-horizontal.forced dd:after {
+   content: " ";
+   /* 1 */
+   display: table;
+   /* 2 */
+ }
+.dl-horizontal.forced dd:after {
+  clear: both;
+}
+
+#logistic .dl-horizontal {
+  margin-bottom: 40px;
+}
+
+// Overriden hidden-xs / visible-xs behaviour for span tags
+// In that case : display should be inline instead of block !
+span.hidden-xs {
+  @media (min-width: $screen-sm-min) {
+    display: inline !important;
+  }
+  @media (max-width: $screen-xs-max) {
+    display: none !important;
+  }
+}
+
+span.visible-xs {
+  @media (min-width: $screen-sm-min) {
+    display: none !important;
+  }
+  @media (max-width: $screen-xs-max) {
+    display: inline !important;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $grey-black;
+  text-transform: uppercase;
+  font-size: 17px;
+  &:hover {
+    color: $light-red;
+  }
+}
+
+/*
+  Opening dropdown menus with transition
+  See http://www.bootply.com/104597
+ */
+.open > .dropdown-menu {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity:1;
+}
+
+.dropdown-menu {
+  opacity:0;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-transform: scale(1, 0);
+  display: block;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.navbar-nav .open .dropdown-menu {
+  z-index: 1000;
+}
+.navbar-nav .dropdown-menu {
+  z-index: 0;
+}

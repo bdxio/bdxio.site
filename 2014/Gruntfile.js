@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         yeoman: {
             // Configurable paths
             app: 'app',
-            dist: 'dist'
+            dist: 'dist/2014'
         },
 
         // Watches files for changes and runs tasks based on the changed files
@@ -235,17 +235,10 @@ module.exports = function (grunt) {
                 patterns: {
                     js: [
                         [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/gm, 'Replacing reference to templates in angular main controller']
-                    ],
-                    ngInclude: [
-                        [/ng-include="'(templates[/A-Za-z0-9]*\.html)'"/gm, 'Replacing reference to templates in ng-include directive calls']
                     ]
                 }
             },
             html: [
-                '<%= yeoman.dist %>/{,*/}*.html',
-                '<%= yeoman.dist %>/templates/{,*/}*.html'
-            ],
-            ngInclude: [
                 '<%= yeoman.dist %>/{,*/}*.html',
                 '<%= yeoman.dist %>/templates/{,*/}*.html'
             ],

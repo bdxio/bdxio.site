@@ -1,0 +1,89 @@
+
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/Dosis-Light.ttf')
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Dosis-Medium.ttf')
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Dosis-Bold.ttf')
+}
+
+/* Space out content a bit */
+body {
+    @media (min-width: $screen-sm-min) {
+      padding-top: $header-desktop-height;
+      font-size: 18px;
+    }
+    @media (max-width: $screen-xs-max) {
+      padding-top: $header-mobile-height;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+body {
+  font-family: 'Dosis', 'sans-serif' !important;
+}
+
+h1 {
+  @media (min-width: $screen-sm-min) {
+    font-size: 46px;
+  }
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+    font-size: 25px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 22px;
+  }
+  font-weight: 300;
+}
+
+h2 {
+  @media (min-width: $screen-sm-min) {
+    font-size: 30px;
+  }
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+    font-size: 25px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 20px;
+  }
+  font-weight: 500;
+}
+
+h4 {
+  @media (min-width: $screen-sm-min) {
+    font-size: 18px;
+  }
+  @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+    font-size: 13px;
+  }
+  @media (max-width: $screen-tn-max) {
+    font-size: 11px;
+  }
+  text-transform: uppercase;
+}
+
+a {
+  color: $light-red;
+}
