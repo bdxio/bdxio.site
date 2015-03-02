@@ -1,6 +1,8 @@
 "use strict";
 
-angular.module('bdxioModule').factory('VoxxrinReader', function ($q, $http) {
+angular.module('bdxio.app')
+    .factory('VoxxrinReader', function ($q, $http) {
+
     var VoxxrinReader = {
         readDaySchedule: function(eventId, dayIdx, idPrefix){
             var defer = $q.defer();

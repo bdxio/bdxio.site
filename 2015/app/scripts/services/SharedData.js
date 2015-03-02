@@ -1,6 +1,8 @@
 "use strict";
 
-angular.module('bdxioModule').factory('SharedData', function ($q, $http, SpreadsheetReader, VoxxrinReader) {
+angular.module('bdxio.app')
+    .factory('SharedData', function ($q, $http, SpreadsheetReader, VoxxrinReader) {
+
     var SharedData = {
         SPREADSHEETS: [
             {
@@ -83,8 +85,8 @@ angular.module('bdxioModule').factory('SharedData', function ($q, $http, Spreads
                 dataField: "news",
                 descriptor: {
                     firstRow: 2,
-                    columnFields: { "A": "longLabel", "B": "shortLabel", "C": "url" },
-                    "fieldsRequiredToConsiderFilledRow": [ "longLabel", "shortLabel", "url" ]
+                    columnFields: { "A": "title", "B": "date", "C": "picture", "D": "content" },
+                    "fieldsRequiredToConsiderFilledRow": [ "title" ]
                 }
             },
             {

@@ -20,7 +20,7 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
 
     </head>
-    <body ng-app="bdxioModule">
+    <body ng-app="bdxio.app">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -29,7 +29,7 @@
 
         <div ng-view></div>
 
-        <div class="row">&nbsp;</div>
+        <div class="row" style="margin-top: 30px">&nbsp;</div>
 
         <span ng-include="'templates/partials/footer.html'"></span>
 
@@ -71,10 +71,12 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="app.js"></script>
         <script src="scripts/errors.js"></script>
-        <script src="scripts/SpreadsheetReader.js"></script>
-        <script src="scripts/SharedData.js"></script>
-        <script src="scripts/VoxxrinReader.js"></script>
-        <script src="scripts/controllers.js"></script>
+        <script src="scripts/services/SpreadsheetReader.js"></script>
+        <script src="scripts/services/SharedData.js"></script>
+        <script src="scripts/services/VoxxrinReader.js"></script>
+        <script src="scripts/controllers/HomeController.js"></script>
+        <script src="scripts/controllers/PartnersController.js"></script>
+        <script src="scripts/controllers/PeopleController.js"></script>
         <!-- endbuild -->
 </body>
 </html>

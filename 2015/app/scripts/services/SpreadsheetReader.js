@@ -1,6 +1,8 @@
 "use strict";
 
-angular.module('bdxioModule').factory('SpreadsheetReader', function ($q) {
+angular.module('bdxio.app')
+    .factory('SpreadsheetReader', function ($q) {
+
     var SpreadsheetReader = {
         read: function(spreadsheetRepresentation, descriptor) {
             var defer = $q.defer();
