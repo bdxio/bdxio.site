@@ -1,20 +1,16 @@
-<div class="row col-sm-12" ng-repeat="item in news" style="color: black;">
+<carousel>
 
-    <div class="panel panel-info">
+    <div ng-repeat="item in news" class="post">
 
-        <div class="panel-body">
-            <div class="row">
-                <span style="padding-left: 10px">{{ item.date }} - "{{ item.title }}"</span>
-            </div>
+        <img class="content-img-new" ng-src="{{ item.picture }}"/>
 
-        </div>
-        <div class="panel-footer">
-            <img ng-src="{{ item.picture }}" style="width:100px" class="col-sm-1"/>
+        <h2>{{ item.title }} </h2>
 
-            <div ng-bind-html="item.htmlContent"></div>
-        </div>
+        <p ng-bind-html="item.htmlContent"></p>
 
+        <span class="date-new">Le : {{ item.date }}</span>
+
+        <button class="btn-new" ng-click="display(item)"><i>></i> Lire +</button>
     </div>
 
-
-</div>
+</carousel>

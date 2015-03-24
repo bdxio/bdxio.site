@@ -7,16 +7,22 @@ angular.module('bdxio.app')
             scope: {
                 news: '='
             },
-            controller: function ($scope, $sce) {
+            controller: function ($scope, $sce, $location) {
+
+                var transformItem = function (_item) {
+                    _item.htmlContent = $sce.trustAsHtml(_item.content);
+                    return _item;
+                };
+
+                $scope.display = function (item) {
+                    $location.path('/news/' + item.id);
+                };
 
                 $scope.$watchCollection('news', function (news) {
-
-                    _.each(news, function (_item) {
-                        _item.htmlContent = $sce.trustAsHtml(_item.content);
+                    _.map(news, function (_item) {
+                        return transformItem(_item);
                     });
-
                 });
             }
         };
-
     });
