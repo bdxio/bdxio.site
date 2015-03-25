@@ -112,7 +112,7 @@ angular.module('bdxio.app')
             var urlFactory = function(tabId) {
                 return opts.offline
                     ?"/data/mockedSpreadsheet"+tabId+".json"
-                    :"https://spreadsheets.google.com/feeds/cells/1_NhkNZUprCYTQA6zZsy3lwgH4DSiWuaTT-e3MeFSX4Y/"+tabId+"/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
+                    :"https://spreadsheets.google.com/feeds/cells/1EfL1sYYjfvUy59rMej16sqph7O4TQDuesqTDZZqzMng/"+tabId+"/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
             };
 
             var fetchPromises = _.map(SharedData.SPREADSHEETS, function(spreadsheet){
