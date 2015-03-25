@@ -340,8 +340,7 @@ module.exports = function (grunt) {
                         'fonts/{,*/}*.*',
                         'contents/{,*/}*.*',
                         'templates/{,*/}*.html',
-                        'bower_components/' + (this.includeCompass ? 'sass-' : '') + 'bootstrap/' + (this.includeCompass ? 'fonts/' : 'dist/fonts/') +'*.*',
-                        'bower_components/slick.js/slick/fonts/*.*'
+                        'bower_components/' + (this.includeCompass ? 'sass-' : '') + 'bootstrap/' + (this.includeCompass ? 'fonts/' : 'dist/fonts/') +'*.*'
                     ]
                 }]
             },
