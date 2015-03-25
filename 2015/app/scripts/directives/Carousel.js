@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('bdxio.app')
-    .directive('carousel', function ($timeout) {
+    .directive('carousel', function () {
 
         return {
             restrict: 'E',
+            scope: {
+                elements: '='
+            },
             link: function (scope, elt) {
 
-                $timeout((function () {
+                var setupCarousel = function () {
                     elt.slick({
                         arrows: true,
                         dots: true,
@@ -39,8 +42,14 @@ angular.module('bdxio.app')
                                 }
                             }
                         ]
-                    })
-                }), 500)
+                    });
+                };
+
+                scope.$watchCollection('elements', function (_elements) {
+                    if (_elements && _elements.length > 0) {
+                        setupCarousel();
+                    }
+                });
             }
         };
     });
