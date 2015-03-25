@@ -2,7 +2,9 @@
 
     <div ng-repeat="item in news" class="post">
 
-        <img class="content-img-new" ng-src="{{ item.picture }}"/>
+        <div style="height: 150px">
+            <img class="content-img-new" ng-src="{{ item.picture }}"/>
+        </div>
 
         <h2>{{ item.title }} </h2>
 
