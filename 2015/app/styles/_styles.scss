@@ -1,3 +1,11 @@
+/**
+** Hack : http://stackoverflow.com/questions/17005500/bootstrap-2-3-css-responsive-left-with-a-white-space-on-the-right
+**/
+html, body {
+    width: auto !important;
+    overflow-x: hidden !important;
+}
+
 .underline {
     text-decoration: underline;
 }
