@@ -13,6 +13,10 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             templateUrl: 'templates/pages/people.html',
             controller: 'PeopleController'
         })
+        .when('/faq', {
+            templateUrl: 'templates/pages/faq.html',
+            controller: 'FAQController'
+        })
         .when('/news/:id', {
             templateUrl: 'templates/pages/news.html',
             controller: 'NewsDetailsController'
@@ -21,6 +25,7 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             redirectTo: '/home'
         });
 
+    // ?
     //$locationProvider.hashPrefix('!');
 });
 
