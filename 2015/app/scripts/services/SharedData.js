@@ -85,7 +85,7 @@ angular.module('bdxio.app')
                 dataField: "news",
                 descriptor: {
                     firstRow: 2,
-                    columnFields: { "A": "id", "B": "title", "C": "date", "D": "picture", "E": "content" },
+                    columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "content", "F": "picture", "G": "pictureStyles"},
                     "fieldsRequiredToConsiderFilledRow": [ "title" ]
                 }
             },

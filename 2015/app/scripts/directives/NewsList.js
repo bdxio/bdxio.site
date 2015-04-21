@@ -19,9 +19,14 @@ angular.module('bdxio.app')
                 };
 
                 $scope.$watchCollection('news', function (news) {
-                    _.map(news, function (_item) {
-                        return transformItem(_item);
-                    });
+                    $scope.news = _.chain(news)
+                        .filter(function (n) {
+                            return n.published === '1';
+                        })
+                        .map(function (_item) {
+                            return transformItem(_item);
+                        })
+                        .value();
                 });
             }
         };
