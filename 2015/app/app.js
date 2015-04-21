@@ -21,7 +21,7 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             redirectTo: '/home'
         });
 
-    $locationProvider.hashPrefix('!');
+    //$locationProvider.hashPrefix('!');
 });
 
 bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout, $q, SharedData) {

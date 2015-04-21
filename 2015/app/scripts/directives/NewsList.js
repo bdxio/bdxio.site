@@ -14,10 +14,6 @@ angular.module('bdxio.app')
                     return _item;
                 };
 
-                $scope.display = function (item) {
-                    $location.path('/news/' + item.id);
-                };
-
                 $scope.$watchCollection('news', function (news) {
                     $scope.news = _.chain(news)
                         .filter(function (n) {

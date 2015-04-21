@@ -12,7 +12,9 @@
 
         <span class="date-new">Le : {{ item.date }}</span>
 
-        <button class="btn-new" ng-click="display(item)"><i>></i> Lire +</button>
+        <a ng-href="/#/news/{{ item.id }}">
+            <button class="btn-new" ng-click="display(item)"><i>></i> Lire +</button>
+        </a>
     </div>
 
 </carousel>
