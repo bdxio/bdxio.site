@@ -1,5 +1,9 @@
 #!/bin/bash -x
 
+echo "----------------------"
+echo "Deploying ${PWD##*/}"
+echo "----------------------"
+
 # Ensuring npm & bower deps are installed
 npm install
 ./node_modules/.bin/bower install
