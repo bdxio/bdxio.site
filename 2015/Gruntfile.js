@@ -234,10 +234,10 @@ module.exports = function (grunt) {
                 assetsDirs: ['<%= yeoman.dist %>'],
                 patterns: {
                     js: [
-                        [/templateUrl:"(templates[/A-Za-z0-9]*\.html)"/gm, 'Replacing reference to templates in angular main controller']
+                        [/templateUrl:"(templates[-/A-Za-z0-9]*\.html)"/gm, 'Replacing reference to templates in angular main controller']
                     ],
                     ngInclude: [
-                        [/ng-include="'(templates[/A-Za-z0-9]*\.html)'"/gm, 'Replacing reference to templates in ng-include directive calls']
+                        [/ng-include="'(templates[-/A-Za-z0-9]*\.html)'"/gm, 'Replacing reference to templates in ng-include directive calls']
                     ]
                 }
             },
