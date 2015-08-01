@@ -29,6 +29,86 @@
         </div>
     </div>
 </div>
+<div id="logistic" class="theme1">
+    <div class="container">
+        <div class="col-xs-12 col-md-6">
+            <h2 class="logistic-title">Logistique</h2>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_home.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">
+                      <span class="hidden-xs">A 10 minutes de Bordeaux</span>
+                      <span class="visible-xs">A 10m de Bordeaux</span>
+                  </span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">6 amphis</span>
+              </dd>
+            </dl>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_localisation.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">5 Tracks <span class="hidden-xs"> en parallèle</span></span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">+40 conférences</span>
+              </dd>
+            </dl>
+            <dl class="dl-horizontal forced">
+              <dt><img src="images/icon_user.png" /></dt>
+              <dd>
+                  <hr class="logistic-spacer" />
+                  <span class="hint">~15 Communautés</span>
+                  <hr class="logistic-spacer" />
+                  <span class="important-hint">400 Développeur(se)s</span>
+              </dd>
+            </dl>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right more-infos">
+            <hr class="spacer" style="height: 30px" />
+            <img src="images/btn_contact.png" />
+            <strong>Pour + d'infos : <a ng-href="{{genMailTo('team')}}">contactez la team</a></strong>
+            <hr class="spacer" style="height: 20px" />
+            <div itemscope itemtype="http://schema.org/Place">
+                <strong><span itemprop="name">ENSEIRB</span></strong>
+                <address>
+                    <span itemprop="streetAddress">1 Avenue du docteur Albert Schweitzer</span><br/>
+                    <span itemprop="postalCode">33400</span> <span itemprop="addressLocality">Talence</span>
+                </address>
+            </div>
+            <em>Pour nous rejoindre en transport en commun, choisissez <a href="http://www.infotbc.com/">le Bus ou le Tram</a>.<br/>
+            Si vous venez en voiture, le parking de l'Université est ouvert et gratuit.</em>
+            <a href="https://www.google.com/maps/place/Enseirb+Matmeca/@44.806275,-0.606608,17z/data=!3m1!4b1!4m2!3m1!1s0xd54d88197728bbf:0xec840415731df92e" target="_blank">
+                <img class="img-responsive" src="images/ENSEIRB - Venue.png" />
+            </a>
+        </div>
+    </div>
+</div>
+<div id="themes" class="theme1">
+    <div class="container">
+        <div class="col-xs-12">
+            <h2>Thèmes de la conférence</h2>
+            <ul class="themes list-unstyled">
+                <li ng-repeat="theme in themes" class="theme-tile flip-container" ontouchstart="this.classList.toggle('hover');">
+                    <div class="flipper">
+                        <div class="front">
+                            <img class="theme-img {{theme.className}}" />
+                            <ul class="list-unstyled theme-hints">
+                                <li ng-repeat="hint in theme.hints">{{hint}}</li>
+                            </ul>
+                        </div>
+                        <div class="back">
+                            <img class="theme-img {{theme.className}}" />
+                            <ul class="list-unstyled theme-hints">
+                                <li ng-repeat="detailedHint in theme.detailedHints">{{detailedHint}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div class="theme6">
     <div class="container">

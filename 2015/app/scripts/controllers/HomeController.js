@@ -10,8 +10,8 @@ angular.module('bdxio.app')
                 'Tooling'
             ],
             detailedHints: [
-                'Java, PHP, C#, Javascript',
-                'Groovy, Scala, Dart ...',
+                'Java, PHP, C#, Javascript, ECMAScript, TypeScript',
+                'Ruby, Groovy, Scala, Dart ...',
                 'Et les autres librairies et outils de productivité au quotidien'
             ]
         },
@@ -41,10 +41,9 @@ angular.module('bdxio.app')
         {
             className: 'design',
             hints: [
-                'Design',
                 'Pratiques',
-                'Architectures',
-                'Cloud'
+                'Cloud',
+                'Big Data'
             ],
             detailedHints: [
                 'Architecture REST',
