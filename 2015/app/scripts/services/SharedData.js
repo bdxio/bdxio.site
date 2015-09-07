@@ -45,7 +45,14 @@ angular.module('bdxio.app')
                         "K": "talk1", "L": "talk2"
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName", "bio" ],
-                    "sortBy": [ "lastName", "firstName" ]
+                    "sortBy": [ "lastName", "firstName" ],
+                    "postProcess": function(speakers) {
+                        _.each(speakers, function(speaker){
+                            speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
+                            speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
+                        });
+                        return speakers;
+                    }
                 }
             },
             {
