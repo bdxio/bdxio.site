@@ -40,11 +40,11 @@ angular.module('bdxio.app')
                     "firstRow": 2,
                     "columnFields": {
                         "A": "firstName", "B": "lastName", "C": "bio",
-                        "D": "company", "E": "avatarUrl", "F": "twitter",
-                        "G": "linkedin", "H": "gplus", "I": "blog",
-                        "J": "talk1", "K": "talk2"
+                        "D": "company", "E": "companyLogo", "F": "avatarUrl", "G": "twitter",
+                        "H": "linkedin", "I": "gplus", "J": "blog",
+                        "K": "talk1", "L": "talk2"
                     },
-                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName" ],
+                    "fieldsRequiredToConsiderFilledRow": [ "firstName", "lastName", "bio" ],
                     "sortBy": [ "lastName", "firstName" ]
                 }
             },
