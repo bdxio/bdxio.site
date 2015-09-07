@@ -138,7 +138,7 @@ angular.module('bdxio.app')
 
 
             var voxxrinFetched = $q.defer();
-            VoxxrinReader.readDaySchedule("bdxio14", 0, "14").then(function(daySchedule){
+            VoxxrinReader.readDaySchedule("bdxio15", 0, "15").then(function(daySchedule){
                 self._data["daySchedule"] = daySchedule;
                 voxxrinFetched.resolve();
             });
