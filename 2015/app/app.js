@@ -21,6 +21,10 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             templateUrl: 'templates/pages/news.html',
             controller: 'NewsDetailsController'
         })
+        .when('/partners', {
+            templateUrl: 'templates/pages/partners.html',
+            controller: 'PartnersController'
+        })
         .otherwise({
             redirectTo: '/home'
         });
