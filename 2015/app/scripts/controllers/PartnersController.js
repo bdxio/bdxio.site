@@ -1,8 +1,11 @@
 angular.module('bdxio.app')
-    .controller('PartnersController', function($q, $scope, SharedData) {
+    .controller('PartnersController', function($q, $scope, SharedData, $sce) {
 
     $q.when(SharedData.dataLoaded()).then(function(){
         var partnersInfos = SharedData.data("partners");
+        _([partnersInfos.gold, partnersInfos.silver, partnersInfos.bronze]).pluck("companies").flatten().each(function(company){
+            company.description = $sce.trustAsHtml(company.description);
+        });
         $scope.partnerLevels = [
             _.extend({ title: "Gold", anchorId: "gold" }, partnersInfos.gold),
             _.extend({ title: "Silver", anchorId: "silver" }, partnersInfos.silver),

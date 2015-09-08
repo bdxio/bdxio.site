@@ -15,9 +15,7 @@
                     <a ng-href="{{company.website}}">
                         <img class="img-responsive" ng-src="{{company.imgSrc}}" style="{{company.imgStyle}}" />
                     </a>
-                    <em class="partner-desc">
-                        {{company.description}}
-                    </em>
+                    <em class="partner-desc" ng-bind-html="company.description"></em>
                 </div>
 
                 <div ng-show="{{noActivePartner(partnerLevel)}}">
