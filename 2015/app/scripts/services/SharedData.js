@@ -62,7 +62,7 @@ angular.module('bdxio.app')
                     "firstRow": 2,
                     "columnFields": {
                         "A": "active", "B": "type", "C": "name",
-                        "D": "imgId", "E": "website", "F": "description",
+                        "D": "imgSrc", "E": "website", "F": "description",
                         "G": "imgHeight"
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "active", "name", "type" ],
