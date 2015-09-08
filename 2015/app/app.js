@@ -64,6 +64,12 @@ bdxioModule.run(function($rootScope, $location, $anchorScroll, $timeout, $q, Sha
         offline: $location.search().offline===true
     });
 
+    $q.when(SharedData.dataLoaded()).then(function(){
+        $timeout(function(){
+            $rootScope.goldPartners = SharedData.data("partners").gold.companies;
+        });
+    }, errorMessage("Cannot load SharedData"));
+
     // It would be nice if we could have run() return a promise
     // It would avoid to have to rely on SharedData.dataLoaded() on every controllers...
 });

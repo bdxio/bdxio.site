@@ -63,7 +63,7 @@ angular.module('bdxio.app')
                     "columnFields": {
                         "A": "active", "B": "type", "C": "name",
                         "D": "imgSrc", "E": "website", "F": "description",
-                        "G": "imgHeight"
+                        "G": "imgHeight", "H": "footerImgSrc", "I": "footerImgHeight"
                     },
                     "fieldsRequiredToConsiderFilledRow": [ "active", "name", "type" ],
                     "postProcess": function(results) {
@@ -74,7 +74,10 @@ angular.module('bdxio.app')
                             results[partnerType] = {
                                 // Filtering on active companies only
                                 companies: _(results[partnerType]).filter(function(company){ return company.active=="1"; }).map(function(company){
-                                    return _.extend(company, { imgStyle: company.imgHeight?"height: "+company.imgHeight+"px":"" });
+                                    return _.extend(company, {
+                                        imgStyle: company.imgHeight?"height: "+company.imgHeight+"px":"",
+                                        footerImgStyle: company.footerImgHeight?"height: "+company.footerImgHeight+"px":""
+                                    });
                                 }).value(),
                                 // Identifying partner types having at least 1 active flat to 0
                                 // => These partner types should add a note saying we will add new partners soon

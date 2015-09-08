@@ -5,8 +5,8 @@
             <a href="https://twitter.com/bdxio" class="twitter-follow-button" data-show-count="false" data-lang="fr" data-size="large">Suivre @bdxio</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="col-xs-12 col-md-4">
-            &nbsp;
+        <div style="float: left; margin-right: 30px;" ng-repeat="goldPartner in goldPartners">
+            <a ng-href="{{goldPartner.website}}" target="_blank"><img class="img-responsive" style="{{goldPartner.footerImgStyle}}" ng-src="{{goldPartner.footerImgSrc}}" /></a>
         </div>
         <div class="col-xs-12 col-md-4 copyright">
             © Copyright
