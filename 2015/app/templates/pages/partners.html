@@ -11,7 +11,7 @@
             <div ng-repeat="partnerLevel in partnerLevels">
                 <h2 id="{{partnerLevel.anchorId}}">{{partnerLevel.title}}</h2>
                 <hr />
-                <div ng-repeat="company in partnerLevel.companies">
+                <div ng-repeat="company in partnerLevel.companies" class="partner">
                     <a ng-href="{{company.website}}">
                         <img class="img-responsive" ng-src="{{company.imgSrc}}" style="{{company.imgStyle}}" />
                     </a>
