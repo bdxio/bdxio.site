@@ -4,7 +4,7 @@
             <h2 id="{{participantSection.anchor}}" ng-if="hasParticipants">{{participantSection.title}}</h2>
             <ul class="speakers list-unstyled" ng-if="hasParticipants">
                 <li ng-repeat="participant in participantSection.participants" class="person col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
-                    <div class="header" ng-click="showBody = !showBody">
+                    <div id="{{participant.twitter}}" class="header" ng-click="showBody = !showBody">
                         <img class="avatar" itemprop="image" ng-src="{{participant.avatarUrl}}" />
                         <div class="infos">
                             <span itemprop="givenName" class="firstname">{{participant.firstName}}</span>
