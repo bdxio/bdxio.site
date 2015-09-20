@@ -4,14 +4,14 @@
             <h2 id="{{participantSection.anchor}}" ng-if="hasParticipants">{{participantSection.title}}</h2>
             <ul class="speakers list-unstyled" ng-if="hasParticipants">
                 <li ng-repeat="participant in participantSection.participants" class="person col-xs-12 col-md-6" itemscope itemtype="http://schema.org/Person">
-                    <div id="{{participant.twitter}}" class="header" ng-click="showBody = !showBody">
+                    <div class="header" ng-click="showBody = !showBody">
                         <img class="avatar" itemprop="image" ng-src="{{participant.avatarUrl}}" />
                         <div class="infos">
                             <span itemprop="givenName" class="firstname">{{participant.firstName}}</span>
                             <hr class="crlf" />
                             <span itemprop="familyName" class="lastname">{{participant.lastName}}</span>
                             <div class="social">
-                                <span><a ng-href="http://www.twitter.com/{{participant.twitter}}" ng-show="{{participant.twitter != null}}" target="_blank"><img class="twitter icon" /></a></span>
+                                <span><a id="{{participant.twitter}}" ng-href="http://www.twitter.com/{{participant.twitter}}" ng-show="{{participant.twitter != null}}" target="_blank"><img class="twitter icon" /></a></span>
                                 <span><a ng-href="http://{{participant.linkedin}}" ng-show="{{participant.linkedin != null}}" target="_blank"><img class="linkedin icon" /></a></span>
                                 <span><a ng-href="http://plus.google.com/{{participant.gplus}}/posts" ng-show="{{participant.gplus != null}}" target="_blank"><img class="gplus icon" /></a></span>
                             </div>
