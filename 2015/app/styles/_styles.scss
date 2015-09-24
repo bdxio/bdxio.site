@@ -453,6 +453,10 @@ li.person {
         @include desaturate();
       }
 
+      &.companyLogo {
+          height: $icon-size;
+      }
+
       &.icon {
         height: $icon-size;
         width: $icon-size;

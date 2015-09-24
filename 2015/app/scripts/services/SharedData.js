@@ -50,6 +50,10 @@ angular.module('bdxio.app')
                         _.each(speakers, function(speaker){
                             speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
                             speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
+                            if(speaker.companyLogo) {
+                                speaker.companyLogoStyle = speaker.companyLogo.split(" ")[1]==="(white)"?{"background-color":"white"}:null;
+                                speaker.companyLogo = speaker.companyLogo.split(" ")[0];
+                            }
                         });
                         return speakers;
                     }

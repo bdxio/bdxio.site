@@ -14,6 +14,7 @@
                                 <span><a ng-href="http://www.twitter.com/{{participant.twitter}}" ng-show="{{participant.twitter != null}}" target="_blank"><img class="twitter icon" /></a></span>
                                 <span><a ng-href="http://{{participant.linkedin}}" ng-show="{{participant.linkedin != null}}" target="_blank"><img class="linkedin icon" /></a></span>
                                 <span><a ng-href="http://plus.google.com/{{participant.gplus}}/posts" ng-show="{{participant.gplus != null}}" target="_blank"><img class="gplus icon" /></a></span>
+                                <span><img class="companyLogo" ng-src="{{participant.companyLogo}}" ng-show="participant.companyLogo" ng-style="participant.companyLogoStyle" /></span>
                             </div>
                         </div>
                     </div>
