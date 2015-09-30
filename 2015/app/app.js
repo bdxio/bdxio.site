@@ -17,6 +17,9 @@ bdxioModule.config(function($routeProvider, $locationProvider) {
             templateUrl: 'templates/pages/faq.html',
             controller: 'FAQController'
         })
+        .when('/livestream', {
+            templateUrl: 'templates/pages/livestream.html'
+        })
         .when('/news/:id', {
             templateUrl: 'templates/pages/news.html',
             controller: 'NewsDetailsController'
