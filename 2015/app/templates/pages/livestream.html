@@ -28,10 +28,20 @@
             <h1 class="title">BDX I/O en livestream !</h1>
             <hr>
 
+            Choisissez l'amphi que vous souhaitez visionner :
+            <select name="amphi" ng-model="amphiId" onchange="window.location.href = '#/livestream/'+this.value;">
+                <option value="gdAmphi">Grand Amphi</option>
+                <option value="amphiA">Amphi A</option>
+                <option value="amphiB">Amphi B</option>
+                <option value="amphiD">Amphi D</option>
+                <option value="amphiE">Amphi E</option>
+            </select>
+            <br/>
             <div style="max-width: 560px; margin-bottom: 2em;">
                 <div class="video-container">
                     <iframe width="800" height="450" frameborder="0"
-                            src="https://www.youtube.com/embed/q9KtMp6P7QY?autoplay=1" frameborder="0"
+                            ng-src="{{youtubeUrl}}"
+                            frameborder="0"
                             allowfullscreen></iframe>
                 </div>
             </div>
