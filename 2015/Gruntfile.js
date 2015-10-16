@@ -356,17 +356,16 @@ module.exports = function (grunt) {
 
         // Generates a custom Modernizr build that includes only the tests you
         // reference in your app
-        modernizr: {
-            devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-            outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
-            files: [
-                '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                '<%= yeoman.dist %>/styles/{,*/}*.css',
-                '!<%= yeoman.dist %>/scripts/vendor/*'
-            ],
-            uglify: true
-        },
-
+        //modernizr: {
+        //    devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
+        //    outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
+        //    files: [
+        //        '<%= yeoman.dist %>/scripts/{,*/}*.js',
+        //        '<%= yeoman.dist %>/styles/{,*/}*.css',
+        //        '!<%= yeoman.dist %>/scripts/vendor/*'
+        //    ],
+        //    uglify: true
+        //},
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -430,7 +429,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:dist',
-        'modernizr',
+       // 'modernizr',
         'rev',
         'usemin',
         'htmlmin'
