@@ -6,7 +6,7 @@ angular.module('bdxio.app')
     var youtubeId = {
         'gdAmphi': 'V5J4eQZ45L0',
         'amphiA': 'P0QCauLihB0',
-        'amphiB': 'Msov74xR6as',
+        'amphiB': '7sALkjzfgPE',
         'amphiD': 'OvYrBd8FiEE',
         'amphiE': 'dP6VuDinFww'
     };
