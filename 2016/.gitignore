@@ -1,9 +1,7 @@
 node_modules
 dist
-.tmp
-.sass-cache
-*.iml
-.idea
 reports
 typings
 out
+typings
+.idea/
