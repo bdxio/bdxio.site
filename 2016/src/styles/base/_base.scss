@@ -1,0 +1,13 @@
+// ~ BASE
+// ====================================================================== >
+
+body {
+  font-family: $text-font;
+  color: $body-font-color;
+  font-size: rem-calc(12px);
+}
+
+hr {
+  border-bottom: rem-calc(1px) solid $white-grey;
+  max-width:  inherit;
+}

@@ -16,7 +16,8 @@
     "dev",
     "typings/main.d.ts",
     "typings/main",
-    "reports"
+    "reports",
+    "old-src"
   ],
   "version": "1.7.5"
 }

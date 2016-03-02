@@ -1,0 +1,19 @@
+// ~ HEADER
+// ====================================================================== >
+
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .top-header {
+    height: 30px;
+  }
+}
+.navbar {
+  background: $primary;
+  border: 0;
+  border-radius: 0;
+  color: #ffffff;
+}
