@@ -9,6 +9,7 @@
     "outDir": "out"
   },
   "exclude": [
+    "old-src",
     "out",
     "node_modules",
     "dist",
