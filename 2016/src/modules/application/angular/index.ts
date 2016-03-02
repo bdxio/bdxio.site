@@ -1,7 +1,9 @@
 import "angular";
 
-import {StarComponent} from "./components/star/StarComponent";
-import {TwitterApplicationComponent} from "./components/twitterApplication/TwitterApplicationComponent";
+import {BdxIOAppComponent} from "./components/BdxIOAppComponent";
+import {AppNavMenuComponent} from "./components/AppNavMenuComponent";
+import {AppFooterComponent} from "./components/AppFooterComponent";
 angular.module("app.application", [])
-    .component("twitterApplication", new TwitterApplicationComponent())
-    .component("star",  new StarComponent());
+    .component("bdxioApp", new BdxIOAppComponent())
+    .component("appNavMenu", new AppNavMenuComponent())
+    .component("appFooter", new AppFooterComponent());
