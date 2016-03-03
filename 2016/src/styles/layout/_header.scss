@@ -8,12 +8,139 @@
   width: 100%;
 
   .top-header {
-    height: 30px;
+    height: $height-top-header;
+    background-color: $white-grey;
   }
 }
+
 .navbar {
-  background: $primary;
+  height: $height-nav-header;
+  background: #ffffff;
   border: 0;
+  border-top: 1px solid $header-color-border;
+  border-bottom: 1px solid $header-color-border;
   border-radius: 0;
   color: #ffffff;
+
+  .header-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    .navbar-collapse {
+      padding: 0;
+    }
+  }
+
+  .navbar-header {
+    height: 100%;
+  }
+
+  .navbar-brand {
+    height: 100%;
+    padding: 20px 25px 10px 25px;
+    //background: url("../images/png/logo-bdxio.png");
+    border-right: 1px solid $header-color-border;
+  }
+
+  .nav {
+    height: 69px;
+  }
+
+  .navbar-nav {
+    float: right;
+
+    &:first-child {
+      border-left: 1px solid $header-color-border;
+    }
+
+    li {
+      height: 100%;
+      border-right: 1px solid $header-color-border;
+
+      a {
+        position: relative;
+        height: 100%;
+        padding-top: 25px;
+        padding: 25px 25px 10px 25px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        color: $link-color-nav-menu;
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: -1px;
+          content: '';
+          height: 3px;
+          width: 0;
+          background-color: $primary;
+          transition: 240ms;
+        }
+
+        &:hover, &:focus {
+          color: $primary;
+
+          &:after {
+            transition: 240ms;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .dropdown {
+
+      .dropdown-toggle {
+        i {
+          margin-left: 10px;
+          font-size: 16px;
+        }
+      }
+
+      &.open {
+        .dropdown-toggle {
+          background-color: white;
+          color: $link-color-nav-menu;
+
+          .fa-angle-down { &:before {content: '\f102';}}
+        }
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: -1px;
+          content: '';
+          height: 3px;
+          width: 0;
+          background-color: $primary;
+        }
+      }
+    }
+
+    .btn-buy-ticket {
+      background-color: $primary;
+      width: 190px;
+      padding: 15px 10px 0 10px;
+      cursor: pointer;
+      border: none;
+      transition: 240ms;
+
+      &:hover, &:focus {
+        transition: 240ms;
+        background-color: darken($primary, 5%);
+
+        i {  animation: rotate-bounce 350ms infinite;}
+      }
+
+      .status-sale {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      i { font-size: 34px;}
+    }
+  }
 }

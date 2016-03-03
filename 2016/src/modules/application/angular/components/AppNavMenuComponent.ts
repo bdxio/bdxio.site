@@ -4,7 +4,7 @@ export class AppNavMenuComponent implements ng.IDirective {
              <div class="top-header">
              </div>
              <nav class="navbar navbar-inverse" role="navigation">
-                <div class="container">
+                <div class="header-container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -14,22 +14,59 @@ export class AppNavMenuComponent implements ng.IDirective {
                         </button>
                         <a class="navbar-brand" href="#">Start Bootstrap</a>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
+                            <li class="dropdown open">
+                                <a href="#" class="dropdown-toggle"
+                                    data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="true">
+                                    Partenaires<i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Gold</a></li>
+                                    <li><a href="#">Silver</a></li>
+                                    <li><a href="#">Bronze</a></li>
+                                    <li><a href="#">La plaquette</a></li>
+                                    <li><a href="#">Press / Média</a></li>
+                                    <li><a href="#">Nos amis</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown open">
+                                <a href="#" class="dropdown-toggle"
+                                    data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="true">
+                                    Participants<i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Gold</a></li>
+                                    <li><a href="#">Silver</a></li>
+                                    <li><a href="#">Bronze</a></li>
+                                    <li><a href="#">La plaquette</a></li>
+                                    <li><a href="#">Press / Média</a></li>
+                                    <li><a href="#">Nos amis</a></li>
+                                </ul>
+                            </li>
+
                             <li>
-                                <a href="#">About</a>
+                                <a href="#">FAQ</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="#">Programme</a>
                             </li>
-                            <li>
-                                <a href="#">Contact</a>
+                            <li class="btn-buy-ticket">
+                                <div class="col-sm-8 no-padding text-right">
+                                    <span>Acheter un billet</span>
+                                    <span class="status-sale">Ventes Fermées</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <i class="fa fa-ticket space-top-3"></i>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-
     `;
 }

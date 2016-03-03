@@ -57,6 +57,10 @@
   float: none;
 }
 
+.full-height {
+  height: 100%;
+}
+
 .element-centered {
   margin: 0 auto;
 }
@@ -75,6 +79,10 @@
 
 .dspl-inbl {
   display: inline-block;
+
+  &.top { vertical-align: top;}
+  &.middle { vertical-align: middle;}
+  &.bottom { vertical-align: bottom;}
 }
 
 .force-dspl-inbl {
@@ -142,7 +150,7 @@
 }
 
 // ~ Margin helper
-$spacing-value : 0, 1, 5, 10, 15, 20, 25, 30, 35, 40;
+$spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40;
 
 @each $value in $spacing-value {
   .space-top-#{$value} {
