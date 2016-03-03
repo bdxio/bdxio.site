@@ -8,9 +8,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                            <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="#">Start Bootstrap</a>
                     </div>
@@ -24,9 +22,9 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     Partenaires<i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Gold</a></li>
-                                    <li><a href="#">Silver</a></li>
-                                    <li><a href="#">Bronze</a></li>
+                                    <li><a href="#" class="sponsor gold">Gold</a></li>
+                                    <li><a href="#" class="sponsor silver">Silver</a></li>
+                                    <li><a href="#" class="sponsor bronze">Bronze</a></li>
                                     <li><a href="#">La plaquette</a></li>
                                     <li><a href="#">Press / Média</a></li>
                                     <li><a href="#">Nos amis</a></li>
@@ -39,12 +37,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Gold</a></li>
-                                    <li><a href="#">Silver</a></li>
-                                    <li><a href="#">Bronze</a></li>
-                                    <li><a href="#">La plaquette</a></li>
-                                    <li><a href="#">Press / Média</a></li>
-                                    <li><a href="#">Nos amis</a></li>
+                                    <li><a href="#">-</a></li>
                                 </ul>
                             </li>
 

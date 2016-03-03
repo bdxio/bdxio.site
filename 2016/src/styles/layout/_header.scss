@@ -30,6 +30,7 @@
 
     .navbar-collapse {
       padding: 0;
+      border: none;
     }
   }
 
@@ -92,6 +93,21 @@
     }
 
     .dropdown {
+      .dropdown-menu {
+        padding: 0;
+
+        a {
+          padding: 25px;
+
+          &.sponsor {
+            color: white;
+
+            &.gold { background-color: $gold;}
+            &.silver { background-color: $silver;}
+            &.bronze { background-color: $bronze;}
+          }
+        }
+      }
 
       .dropdown-toggle {
         i {
@@ -142,5 +158,22 @@
 
       i { font-size: 34px;}
     }
+  }
+}
+
+
+// ~ ==== Header Responsive
+
+.navbar-toggle {
+  background: white;
+  color: $link-color-nav-menu;
+  font-size: 24px;
+  border: 0;
+  transition: 240ms;
+
+  &:hover, &:focus {
+    transition: 240ms;
+    background-color: white !important;
+    color: $primary;
   }
 }
