@@ -86,7 +86,21 @@
 
           &:after {
             transition: 240ms;
-            width: 100%;
+            width: 102%;
+          }
+        }
+
+        &.select, &.open {
+
+          &:after {
+            position: absolute;
+            bottom: 0;
+            left: -1px;
+            content: '';
+            height: 3px;
+            width: 102%;
+            background-color: $primary;
+            transition: 240ms;
           }
         }
       }

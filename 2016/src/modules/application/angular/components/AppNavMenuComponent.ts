@@ -42,7 +42,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                             </li>
 
                             <li>
-                                <a href="#">FAQ</a>
+                                <a class="select" href="#">FAQ</a>
                             </li>
                             <li>
                                 <a href="#">Programme</a>
