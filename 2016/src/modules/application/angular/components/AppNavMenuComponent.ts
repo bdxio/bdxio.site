@@ -39,15 +39,12 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <li><a href="#">Nos amis</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown open">
+                            <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">-</a></li>
-                                </ul>
                             </li>
 
                             <li>

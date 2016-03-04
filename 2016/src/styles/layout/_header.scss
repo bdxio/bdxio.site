@@ -137,6 +137,7 @@
         }
 
         &.select, &.open {
+          color: $primary;
 
           &:after {
             position: absolute;
@@ -153,6 +154,7 @@
     }
 
     .dropdown {
+
       .dropdown-menu {
         top: 99%;
         padding: 0;
@@ -166,6 +168,7 @@
 
           &.sponsor {
             color: white;
+            transition: 240ms;
 
             &.gold { background-color: $gold;}
             &.silver { background-color: $silver;}
@@ -175,6 +178,12 @@
       }
 
       .dropdown-toggle {
+
+        &:hover, &:focus {
+          transition: 240ms;
+          color: $primary !important;
+        }
+
         i {
           margin-left: 10px;
           font-size: 16px;
@@ -184,7 +193,7 @@
       &.open {
         .dropdown-toggle {
           background-color: white;
-          color: $link-color-nav-menu;
+          color: $primary;
 
           .fa-angle-down { &:before {content: '\f102';}}
         }
