@@ -40,8 +40,12 @@
 
   .navbar-brand {
     height: 100%;
+    width: 170px;
     padding: 20px 25px 10px 25px;
     background: url("../../images/png/logo-bdxio.png");
+    background-size: 115px;
+    background-repeat: no-repeat;
+    background-position: center center;
     border-right: 1px solid $header-color-border;
   }
 

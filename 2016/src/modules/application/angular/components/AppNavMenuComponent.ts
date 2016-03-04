@@ -10,7 +10,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#">Start Bootstrap</a>
+                        <a class="navbar-brand" href="#"></a>
                     </div>
 
                     <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
