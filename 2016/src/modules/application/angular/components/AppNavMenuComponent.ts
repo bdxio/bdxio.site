@@ -2,6 +2,9 @@ export class AppNavMenuComponent implements ng.IDirective {
     public template: string = `
         <header class="header">
              <div class="top-header">
+             <button type="button" class="btn btn-live-stream float-right">
+                Livestream <span class="status-live live-off"><i class="fa fa-circle"></i>OFF</span>
+             </button>
              </div>
              <nav class="navbar navbar-inverse" role="navigation">
                 <div class="header-container">

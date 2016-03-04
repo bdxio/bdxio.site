@@ -6,10 +6,28 @@
   position: fixed;
   top: 0;
   width: 100%;
+}
 
-  .top-header {
-    height: $height-top-header;
-    background-color: $white-grey;
+.top-header {
+  height: $height-top-header;
+  background-color: $white-grey;
+
+  .btn-live-stream {
+    width: $width-special-btn-header;
+    height: 100%;
+    padding: 0;
+    background-color: $dark-grey;
+    color: white;
+    border-radius: 0;
+
+    .status-live {
+      margin-left: 10px;
+
+      &.live-on { color: $green;}
+      &.live-off { color: $primary;}
+
+      i { margin-right: 5px}
+    }
   }
 }
 
@@ -156,7 +174,7 @@
 
     .btn-buy-ticket {
       background-color: $primary;
-      width: 190px;
+      width: $width-special-btn-header;
       padding: 15px 10px 0 10px;
       cursor: pointer;
       border: none;
