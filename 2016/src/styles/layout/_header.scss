@@ -12,6 +12,29 @@
   height: $height-top-header;
   background-color: $white-grey;
 
+  .header-list-networks {
+    float: right;
+    height: 100%;
+    margin: 0;
+    padding: 4px;
+
+    .item-networks {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 20px;
+
+      a {
+        color: $primary;
+        transition: 240ms;
+
+        &:hover {
+          transition: 240ms;
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+
   .btn-live-stream {
     width: $width-special-btn-header;
     height: 100%;
@@ -182,7 +205,7 @@
 
       &:hover, &:focus {
         transition: 240ms;
-        background-color: darken($primary, 5%);
+        background-color: $primary-dark;
 
         i {  animation: rotate-bounce 350ms infinite;}
       }

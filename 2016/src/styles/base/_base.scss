@@ -12,3 +12,9 @@ hr {
   border-bottom: rem-calc(1px) solid $white-grey;
   max-width:  inherit;
 }
+
+a {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}

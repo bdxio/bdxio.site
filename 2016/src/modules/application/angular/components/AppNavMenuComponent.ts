@@ -2,9 +2,15 @@ export class AppNavMenuComponent implements ng.IDirective {
     public template: string = `
         <header class="header">
              <div class="top-header">
-             <button type="button" class="btn btn-live-stream float-right">
-                Livestream <span class="status-live live-off"><i class="fa fa-circle"></i>OFF</span>
-             </button>
+                 <button type="button" class="btn btn-live-stream float-right">
+                    Livestream <span class="status-live live-off"><i class="fa fa-circle"></i>OFF</span>
+                 </button>
+                 <ul class="header-list-networks">
+                     <li class="item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
+                     <li class="item-networks"><a href="http://lanyrd.com/2015/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                     <li class="item-networks"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
+                     <li class="item-networks"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
+                 </ul>
              </div>
              <nav class="navbar navbar-inverse" role="navigation">
                 <div class="header-container">
