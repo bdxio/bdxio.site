@@ -1,0 +1,22 @@
+// ~ HOME
+// ====================================================================== >
+
+// ~ ==== Welcome home
+
+.welcome-home {
+  position: relative;
+  height: 254px;
+  width: 100%;
+  background: url("../../images/png/bg-welcome-home.png");
+  background-color: $secondary;
+  background-size: cover;
+  background-position: bottom center;
+  padding-top: 50px;
+  padding-bottom: 500px;
+
+  .btn-view-talks {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

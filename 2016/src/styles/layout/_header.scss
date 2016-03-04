@@ -6,6 +6,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .top-header {
@@ -153,7 +154,12 @@
 
     .dropdown {
       .dropdown-menu {
+        top: 99%;
         padding: 0;
+
+        li {
+          border: 0;
+        }
 
         a {
           padding: 25px;

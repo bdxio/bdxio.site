@@ -10,3 +10,29 @@
   src: url("../fonts/Dosis-Bold.ttf");
   font-weight: bold;
 }
+
+// ~ ==== Line Height
+
+h1, h2, h3, h4, h5, h6 { line-height: 1.4;}
+
+// ~ ==== Style / Color Text
+
+.text-white { color: $text-white;}
+.text-primary { color: $text-primary;}
+.text-secondary { color: $text-secondary;}
+.text-dark { color: $text-dark;}
+
+// ~ ==== Style / Color Link
+
+.link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link-white { color: $link-white; transition: 240ms; &:hover, &:focus {transition: 240ms; color: darken($link-white, 5%);}}
+.link-primary { color: $link-primary; transition: 240ms; &:hover, &:focus {transition: 240ms; color: darken($link-primary, 5%);}}
+.link-secondary { color: $link-secondary; transition: 240ms; &:hover, &:focus {transition: 240ms; color: darken($link-secondary, 5%);}}
+.link-dark { color: $link-dark; transition: 240ms; &:hover, &:focus {transition: 240ms; color: darken($link-dark, 5%);}}
+
+
+
