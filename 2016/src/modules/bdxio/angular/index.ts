@@ -6,6 +6,8 @@ import {NewsListComponent} from "./components/home/NewsListComponent";
 import {SummaryContentComponent} from "./components/home/SummaryContentComponent";
 import {LocationContentComponent} from "./components/home/LocationContentComponent";
 import {NewsletterSubscriptionComponent} from "./components/home/NewsletterSubscriptionComponent";
+import {SharedModel} from "../models/impl/SharedModel";
+import {ISharedModel} from "../models/int/ISharedModel";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -14,8 +16,12 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("summaryContent", new SummaryContentComponent())
     .component("locationContent", new LocationContentComponent())
     .component("newsletterSubscription", new NewsletterSubscriptionComponent())
+    .service("ISharedModel", SharedModel)
     .config(["$routeProvider", ($routeProvider) => {
         $routeProvider.when("/", {
             template: "<home-page></home-page>"
         });
+    }])
+    .run(["ISharedModel", (sharedModel: ISharedModel) => {
+        console.info("BDX I/O App module ran !");
     }]);
