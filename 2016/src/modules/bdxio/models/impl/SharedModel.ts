@@ -117,7 +117,7 @@ export class SharedModel implements ISharedModel {
 
     private static SPREADSHEET_TABS: Array<SpreadsheetTabDescriptor> = [
         new SpreadsheetTabDescriptor({
-            tabId: 1,
+            tabId: 2,
             dataField: "orgas",
             descriptor: new SpreadsheetReaderDescriptor({
                 firstRow: 2,
@@ -131,7 +131,7 @@ export class SharedModel implements ISharedModel {
             })
         }),
         new SpreadsheetTabDescriptor({
-            tabId: 2,
+            tabId: 3,
             dataField: "jurys",
             descriptor: new SpreadsheetReaderDescriptor({
                 firstRow: 2,
@@ -145,7 +145,7 @@ export class SharedModel implements ISharedModel {
             })
         }),
         new SpreadsheetTabDescriptor({
-            tabId: 3,
+            tabId: 4,
             dataField: "speakers",
             descriptor: new PostProcessableSpreadsheetReaderDescriptor<Speaker, Speaker[]>({
                 firstRow: 2,
@@ -171,7 +171,7 @@ export class SharedModel implements ISharedModel {
             })
         }),
         new SpreadsheetTabDescriptor({
-            tabId: 4,
+            tabId: 5,
             dataField: "partners",
             descriptor: new PostProcessableSpreadsheetReaderDescriptor<Company,CompanyTypeStats>({
                 firstRow: 2,
@@ -208,7 +208,7 @@ export class SharedModel implements ISharedModel {
             })
         }),
         new SpreadsheetTabDescriptor({
-            tabId: 5,
+            tabId: 6,
             dataField: "news",
             descriptor: new SpreadsheetReaderDescriptor({
                 firstRow: 2,
@@ -217,7 +217,7 @@ export class SharedModel implements ISharedModel {
             })
         }),
         new SpreadsheetTabDescriptor({
-            tabId: 6,
+            tabId: 7,
             dataField: "friends",
             descriptor: new SpreadsheetReaderDescriptor({
                 firstRow: 3,
@@ -246,7 +246,7 @@ export class SharedModel implements ISharedModel {
         this._dataLoadedDefer = $q.defer<void>();
 
         let urlFactory = (tabId) => {
-            return "https://spreadsheets.google.com/feeds/cells/1EfL1sYYjfvUy59rMej16sqph7O4TQDuesqTDZZqzMng/"+tabId+"/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
+            return "https://spreadsheets.google.com/feeds/cells/1aRUhS3HB1tu3zP9Mz8reug-B6jzyQ67YzkLoAK-7CNE/"+tabId+"/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
         };
 
         let fetchPromises = _.map(SharedModel.SPREADSHEET_TABS, (spreadsheetTabDescriptor) =>
