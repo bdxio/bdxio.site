@@ -2,6 +2,8 @@ import IPromise = angular.IPromise;
 import {ISpeaker} from "./ISpeaker";
 import {ICompany} from "./ICompany";
 import {IAttendee} from "./IAttendee";
+import {INews} from "./INews";
+import {IFriend} from "./IFriend";
 
 
 export interface ICompaniesByType {
@@ -20,8 +22,8 @@ export interface ISharedModelData {
     jurys?: IAttendee[];
     speakers?: ISpeaker[];
     partners?: ITypedCompaniesByType;
-    news?: any;
-    friends?: any;
+    news?: INews[];
+    friends?: IFriend[];
     daySchedule?: any;
 }
 
