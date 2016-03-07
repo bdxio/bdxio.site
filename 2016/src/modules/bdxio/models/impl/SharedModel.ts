@@ -1,7 +1,7 @@
 import "lodash";
 import {
-    ISharedModel, ISharedModelData, CompaniesByType, Company, Speaker,
-    TypedCompaniesByType
+    ISharedModel, ISharedModelData,
+    ITypedCompaniesByType
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -11,6 +11,8 @@ import {
 } from "../../services/SpreadsheetReader";
 import IHttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 import {errorMessage, rejectDeferred} from "../../../util/errors";
+import {ISpeaker} from "../int/ISpeaker";
+import {ICompany} from "../int/ICompany";
 
 interface ISpreadsheetTabDescriptor {
     tabId: number;
@@ -63,7 +65,7 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 4,
             dataField: "speakers",
-            descriptor: new PostProcessableSpreadsheetReaderDescriptor<Speaker, Speaker[]>({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<ISpeaker, ISpeaker[]>({
                 firstRow: 2,
                 columnFields: {
                     "A": "firstName", "B": "lastName", "C": "bio",
@@ -73,8 +75,8 @@ export class SharedModel implements ISharedModel {
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName", "bio" ],
                 sortBy: [ "lastName", "firstName" ],
-                postProcess: function(speakers: Speaker[]) {
-                    _.each(speakers, (speaker: Speaker) => {
+                postProcess: function(speakers: ISpeaker[]) {
+                    _.each(speakers, (speaker: ISpeaker) => {
                         speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
                         speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
                         if(speaker.companyLogo) {
@@ -89,7 +91,7 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 5,
             dataField: "partners",
-            descriptor: new PostProcessableSpreadsheetReaderDescriptor<Company,TypedCompaniesByType>({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<ICompany,ITypedCompaniesByType>({
                 firstRow: 2,
                 columnFields: {
                     "A": "active", "B": "type", "C": "name",
@@ -97,18 +99,18 @@ export class SharedModel implements ISharedModel {
                     "G": "imgHeight", "H": "footerImgSrc", "I": "footerImgHeight"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "active", "name", "type" ],
-                postProcess: function(results: Company[]) {
+                postProcess: function(results: ICompany[]) {
                     // Grouping results by type
                     var companiesGroupedByType = _.groupBy(results, "type");
 
-                    var companyTypeStats: TypedCompaniesByType = <TypedCompaniesByType>{};
+                    var companyTypeStats: ITypedCompaniesByType = <ITypedCompaniesByType>{};
 
                     _.each(_.keys(companiesGroupedByType), function(partnerType){
                         companyTypeStats[partnerType] = {
                             type: partnerType,
                             // Filtering on active companies only
                             companies: _(companiesGroupedByType[partnerType]).filter(company => company.active=="1").map(function(company){
-                                return <Company>_.extend(company, {
+                                return <ICompany>_.extend(company, {
                                     imgStyle: company.imgHeight?"height: "+company.imgHeight+"px":"",
                                     footerImgStyle: company.footerImgHeight?"height: "+company.footerImgHeight+"px":""
                                 });

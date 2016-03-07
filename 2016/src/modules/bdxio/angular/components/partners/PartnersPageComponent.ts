@@ -1,4 +1,4 @@
-import {ISharedModel, TypedCompaniesByType} from "../../../models/int/ISharedModel";
+import {ISharedModel, ITypedCompaniesByType} from "../../../models/int/ISharedModel";
 
 export class PartnersPageComponent implements ng.IDirective {
     public controller: Function = PartnersPageController;
@@ -11,7 +11,7 @@ export class PartnersPageComponent implements ng.IDirective {
 export class PartnersPageController {
     public static $inject: Array<string> = ['ISharedModel'];
     
-    private partnersByType: TypedCompaniesByType;
+    private partnersByType: ITypedCompaniesByType;
 
     constructor(sharedModel: ISharedModel) {
         sharedModel.dataLoaded.then(() => {
