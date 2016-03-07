@@ -63,6 +63,7 @@
 
 .element-centered {
   margin: 0 auto;
+  float: none;
 }
 
 .pos-relative {
@@ -206,6 +207,80 @@ $inner-spacing-value : $spacing-value;
   }
   .force-inner-space-left-#{$value} {
     padding-left: #{$value/10}rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mb-text-center {
+    text-align: center !important;
+  }
+
+  .mb-text-right {
+    text-align: right !important;
+  }
+
+  .mb-text-left {
+    text-align: left !important;
+  }
+
+  // ~ Margin helper
+  $spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40;
+
+  @each $value in $spacing-value {
+    .mb-space-top-#{$value} {
+      margin-top: #{$value/10}rem;
+    }
+    .mb-space-right-#{$value} {
+      margin-right: #{$value/10}rem;
+    }
+    .mb-space-bottom-#{$value} {
+      margin-bottom: #{$value/10}rem;
+    }
+    .mb-space-left-#{$value} {
+      margin-left: #{$value/10}rem;
+    }
+    .mb-mb-force-space-top-#{$value} {
+      margin-top: #{$value/10}rem !important;
+    }
+    .mb-force-space-right-#{$value} {
+      margin-right: #{$value/10}rem !important;
+    }
+    .mb-force-space-bottom-#{$value} {
+      margin-bottom: #{$value/10}rem !important;
+    }
+    .mb-force-space-left-#{$value} {
+      margin-left: #{$value/10}rem !important;
+    }
+  }
+
+  // ~ Padding helper
+  $inner-spacing-value : $spacing-value;
+
+  @each $value in $inner-spacing-value {
+    .mb-inner-space-top-#{$value} {
+      padding-top: #{$value/10}rem;
+    }
+    .mb-inner-space-right-#{$value} {
+      padding-right: #{$value/10}rem;
+    }
+    .mb-inner-space-bottom-#{$value} {
+      padding-bottom: #{$value/10}rem;
+    }
+    .mb-inner-space-left-#{$value} {
+      padding-left: #{$value/10}rem;
+    }
+    .mb-force-inner-space-top-#{$value} {
+      padding-top: #{$value/10}rem !important;
+    }
+    .mb-force-inner-space-right-#{$value} {
+      padding-right: #{$value/10}rem !important;
+    }
+    .mb-force-inner-space-bottom-#{$value} {
+      padding-bottom: #{$value/10}rem !important;
+    }
+    .mb-force-inner-space-left-#{$value} {
+      padding-left: #{$value/10}rem !important;
+    }
   }
 }
 

@@ -50,6 +50,10 @@ button[type='file'] {
   border: 0;
   border-radius: 0;
 
+  &.btn-md {
+    height: 38px;
+  }
+
   &.btn-xlg {
     height: 64px;
     padding-left: 24px;
