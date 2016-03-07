@@ -16,29 +16,32 @@ export interface SpreadsheetContent {
 
 export type LineResult = {[key: string]: string};
 
-export interface ISpreadsheetReaderDescriptor<T,T2> {
+export interface ISpreadsheetReaderDescriptor {
     firstRow: Number;
-    columnFields: {[key: string]: string};
+    columnFields: LineResult;
     fieldsRequiredToConsiderFilledRow: string[];
     sortBy?: Function|Function[]|string|string[];
+}
+
+export interface IPostProcessableSpreadsheetReaderDescriptor<T,T2> extends ISpreadsheetReaderDescriptor {
     postProcess?: (results: T[]) => T2;
 }
 
-export class SpreadsheetReaderDescriptor {
+export class SpreadsheetReaderDescriptor implements ISpreadsheetReaderDescriptor {
     firstRow: Number;
-    columnFields: {[key: string]: string};
+    columnFields: LineResult;
     fieldsRequiredToConsiderFilledRow: string[];
     sortBy: Function|Function[]|string|string[];
 
-    constructor(opts: ISpreadsheetReaderDescriptor<any,any>) {
+    constructor(opts: ISpreadsheetReaderDescriptor) {
         _.extend(this, opts);
     }
 }
 
-export class PostProcessableSpreadsheetReaderDescriptor<T,T2> extends SpreadsheetReaderDescriptor {
+export class PostProcessableSpreadsheetReaderDescriptor<T,T2> extends SpreadsheetReaderDescriptor implements IPostProcessableSpreadsheetReaderDescriptor<T,T2> {
     postProcess: (results: T[]) => T2;
 
-    constructor(opts: ISpreadsheetReaderDescriptor<T,T2>) {
+    constructor(opts: IPostProcessableSpreadsheetReaderDescriptor<T,T2>) {
         super(opts);
     }
 }
@@ -48,10 +51,8 @@ export class SpreadsheetReader {
     constructor(private $q: ng.IQService) {
     }
 
-    public read<T,T2>(spreadsheetRepresentation: SpreadsheetContent, descriptor: ISpreadsheetReaderDescriptor<T,T2>): IPromise<T[]>|IPromise<T2> {
+    public read<T,T2>(spreadsheetRepresentation: SpreadsheetContent, descriptor: IPostProcessableSpreadsheetReaderDescriptor<T,T2>): IPromise<T[]>|IPromise<T2> {
         let defer = this.$q.defer<T[]|T2>();
-
-        let title = spreadsheetRepresentation.feed.title.$t;
 
         // First, reading every cells and building cell object like this :
         // { r: 1, c: "A", v: "Prénom" }
