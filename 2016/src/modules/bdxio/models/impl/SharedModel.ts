@@ -1,5 +1,8 @@
 import "lodash";
-import {ISharedModel, ISharedModelData} from "../int/ISharedModel";
+import {
+    ISharedModel, ISharedModelData, CompaniesByType, Company, Speaker,
+    TypedCompaniesByType
+} from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
     PostProcessableSpreadsheetReaderDescriptor,
@@ -22,93 +25,6 @@ class SpreadsheetTabDescriptor implements ISpreadsheetTabDescriptor {
 
     constructor(opts: ISpreadsheetTabDescriptor) {
         _.extend(this, opts);
-    }
-}
-
-interface ISpeaker {
-    firstName: string;
-    lastName: string;
-    bio: string;
-
-    company: string;
-    companyLogo: string;
-    companyLogoStyle?: { "background-color": string };
-
-    avatarUrl: string;
-    twitter: string;
-    linkedin: string;
-    gplus: string;
-
-    talk1: string;
-    talk2: string;
-    talks: string[];
-}
-export class Speaker implements ISpeaker {
-    firstName: string;
-    lastName: string;
-    bio: string;
-
-    company: string;
-    companyLogo: string;
-    companyLogoStyle: { "background-color": string };
-
-    avatarUrl: string;
-    twitter: string;
-    linkedin: string;
-    gplus: string;
-
-    talk1: string;
-    talk2: string;
-    talks: string[];
-
-    constructor(opts: ISpeaker) {
-        _.extend(this, opts);
-    }
-}
-
-interface ICompany {
-    active: string;
-    type: string;
-    name: string;
-
-    imgSrc: string;
-    website: string;
-    description: string;
-
-    imgHeight: string;
-    footerImgSrc: string;
-    footerImgHeight: string;
-
-    imgStyle?: string;
-    footerImgStyle?: string;
-}
-
-class Company implements ICompany {
-    active: string;
-    type: string;
-    name: string;
-
-    imgSrc: string;
-    website: string;
-    description: string;
-
-    imgHeight: string;
-    footerImgSrc: string;
-    footerImgHeight: string;
-
-    constructor(opts: ICompany) {
-        _.extend(this, opts);
-    }
-
-    get imgStyle() { return this.imgHeight?"height: "+this.imgHeight+"px":""; }
-    get footerImgStyle() { return this.footerImgHeight?"height: "+this.footerImgHeight+"px":""; }
-}
-
-interface CompanyTypeStats {
-    [companyType:string]: {
-        companies: Company[];
-        activeCount: number;
-        inactiveCount: number;
     }
 }
 
@@ -173,7 +89,7 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 5,
             dataField: "partners",
-            descriptor: new PostProcessableSpreadsheetReaderDescriptor<Company,CompanyTypeStats>({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<Company,TypedCompaniesByType>({
                 firstRow: 2,
                 columnFields: {
                     "A": "active", "B": "type", "C": "name",
@@ -185,10 +101,11 @@ export class SharedModel implements ISharedModel {
                     // Grouping results by type
                     var companiesGroupedByType = _.groupBy(results, "type");
 
-                    var companyTypeStats: CompanyTypeStats = <CompanyTypeStats>{};
+                    var companyTypeStats: TypedCompaniesByType = <TypedCompaniesByType>{};
 
                     _.each(_.keys(companiesGroupedByType), function(partnerType){
                         companyTypeStats[partnerType] = {
+                            type: partnerType,
                             // Filtering on active companies only
                             companies: _(companiesGroupedByType[partnerType]).filter(company => company.active=="1").map(function(company){
                                 return <Company>_.extend(company, {
