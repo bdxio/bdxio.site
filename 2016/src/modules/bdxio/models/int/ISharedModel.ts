@@ -27,6 +27,12 @@ export interface ISharedModelData {
     daySchedule?: any;
 }
 
+export interface ISpreadsheetTabDescriptor {
+    tabId: number;
+    dataField: string;
+    descriptor: SpreadsheetReaderDescriptor;
+}
+
 export interface ISharedModel {
     data: ISharedModelData;
     dataLoaded: IPromise<void>;

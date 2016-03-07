@@ -1,7 +1,7 @@
 import "lodash";
 import {
     ISharedModel, ISharedModelData,
-    ITypedCompaniesByType
+    ITypedCompaniesByType, ISpreadsheetTabDescriptor
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -13,12 +13,6 @@ import IHttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 import {errorMessage, rejectDeferred} from "../../../util/errors";
 import {ISpeaker} from "../int/ISpeaker";
 import {ICompany} from "../int/ICompany";
-
-interface ISpreadsheetTabDescriptor {
-    tabId: number;
-    dataField: string;
-    descriptor: SpreadsheetReaderDescriptor;
-}
 
 class SpreadsheetTabDescriptor implements ISpreadsheetTabDescriptor {
     tabId: number;
