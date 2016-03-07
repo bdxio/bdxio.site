@@ -1,16 +1,7 @@
-export interface ISpeaker {
-    firstName: string;
-    lastName: string;
-    bio: string;
+import {IAttendee} from "./IAttendee";
 
-    company: string;
-    companyLogo: string;
+export interface ISpeaker extends IAttendee {
     companyLogoStyle?: { "background-color": string };
-
-    avatarUrl: string;
-    twitter: string;
-    linkedin: string;
-    gplus: string;
 
     talk1: string;
     talk2: string;

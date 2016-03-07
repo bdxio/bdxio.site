@@ -1,6 +1,7 @@
 import IPromise = angular.IPromise;
 import {ISpeaker} from "./ISpeaker";
 import {ICompany} from "./ICompany";
+import {IAttendee} from "./IAttendee";
 
 
 export interface ICompaniesByType {
@@ -15,8 +16,8 @@ export interface ITypedCompaniesByType {
 }
 
 export interface ISharedModelData {
-    orgas?: any;
-    jurys?: any;
+    orgas?: IAttendee[];
+    jurys?: IAttendee[];
     speakers?: ISpeaker[];
     partners?: ITypedCompaniesByType;
     news?: any;

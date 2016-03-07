@@ -1,24 +1,16 @@
 import {ISpeaker} from "../int/ISpeaker";
+import {Attendee} from "./Attendee";
 
-export class Speaker implements ISpeaker {
-    firstName: string;
-    lastName: string;
-    bio: string;
-
-    company: string;
-    companyLogo: string;
+export class Speaker extends Attendee implements ISpeaker {
+    
     companyLogoStyle: { "background-color": string };
-
-    avatarUrl: string;
-    twitter: string;
-    linkedin: string;
-    gplus: string;
 
     talk1: string;
     talk2: string;
     talks: string[];
 
     constructor(opts: ISpeaker) {
+        super(opts);
         _.extend(this, opts);
     }
 }
