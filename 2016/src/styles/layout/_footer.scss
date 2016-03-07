@@ -4,8 +4,9 @@
 .footer {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: auto;
   padding-top: 40px;
+  padding-bottom: 40px;
   background-color: $dark-grey;
 
 
@@ -69,6 +70,51 @@
           transition: 240ms;
           color: white;
         }
+      }
+    }
+  }
+
+  .footer-list-sponsors {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .footer-item-sponsors {
+      display: inline-block;
+      vertical-align: middle;
+      height: 50px;
+      width: 200px;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      cursor: pointer;
+
+      &.capgemini {
+        transition: 240ms;
+        background: url("../../images/png/logos-footer/capgemini.png");
+        background-size: 100%;
+
+        &:hover, &:focus {
+          transition: 240ms;
+          background: url("../../images/png/logos-footer/capgemini-hover.png");
+          background-size: 100%;
+        }
+      }
+
+      &.doyoudreamup {
+        transition: 240ms;
+        background: url("../../images/png/logos-footer/doyodreamup.png");
+        background-size: 50%;
+
+        &:hover, &:focus {
+          transition: 240ms;
+          background: url("../../images/png/logos-footer/doyodreamup-hover.png");
+          background-size: 50%;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
     }
   }

@@ -18,12 +18,29 @@ export class AppFooterComponent implements ng.IDirective {
                         </span>
                     </div>
 
-                    <ul class="footer-list-networks space-top-30">
+                    <ul class="row footer-list-networks space-top-30 no-padding">
                          <li class="footer-item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
                          <li class="footer-item-networks"><a href="http://lanyrd.com/2015/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
                          <li class="footer-item-networks"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
                          <li class="footer-item-networks"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
                     </ul>
+
+                    <div clas="row space-top-30">
+                        <div class="col-xs-12 text-center">
+                            <h4 class="text-grey">NOS SPONSORS GOLD</h4>
+                        </div>
+
+                        <ul class="col-xs-12 text-center footer-list-sponsors">
+                            <li class="footer-item-sponsors capgemini"><a href="https://www.fr.capgemini.com/" target="_blank"></li>
+                            <li class="footer-item-sponsors doyoudreamup"><a href="https://www.fr.capgemini.com/" target="_blank"></li>
+                        </ul>
+                    </div>
+
+                    <div clas="row space-top-30">
+                        <div class="col-xs-12 text-center">
+                            <h6 class="text-white">© Copyright 2014-2016 BDX.io - Tous droits réservés:</h6>
+                        </div>
+                    </div>
                 </div>
           </div>
         </footer>
