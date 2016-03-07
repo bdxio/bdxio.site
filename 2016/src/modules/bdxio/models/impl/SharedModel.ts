@@ -1,5 +1,5 @@
 import "lodash";
-import {ISharedModel} from "../int/ISharedModel";
+import {ISharedModel, ISharedModelData} from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
     PostProcessableSpreadsheetReaderDescriptor,
@@ -231,15 +231,7 @@ export class SharedModel implements ISharedModel {
         })
     ];
 
-    private _data: {
-        orgas?: any,
-        jurys?: any,
-        speakers?: Speaker[],
-        partners?: any,
-        news?: any,
-        friends?: any,
-        daySchedule?: any
-    };
+    private _data: ISharedModelData;
     private _dataLoadedDefer;
 
     constructor($http: ng.IHttpService, $q: ng.IQService) {
@@ -292,8 +284,8 @@ export class SharedModel implements ISharedModel {
         }, rejectDeferred(this._dataLoadedDefer, "Error while fetching data"));
     }
 
-    public data(key) {
-        return this._data[key]?_.cloneDeep(this._data[key]):null;
+    public get data() {
+        return _.cloneDeep<ISharedModelData>(this._data);
     }
 
     public get dataLoaded(){
