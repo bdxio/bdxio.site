@@ -1,5 +1,6 @@
 import "angular";
 import "angular-route";
+
 import {HomePageComponent} from "./components/home/HomePageComponent";
 import {WelcomeContentComponent} from "./components/home/WelcomeContentComponent";
 import {NewsListComponent} from "./components/home/NewsListComponent";
@@ -8,6 +9,8 @@ import {LocationContentComponent} from "./components/home/LocationContentCompone
 import {NewsletterSubscriptionComponent} from "./components/home/NewsletterSubscriptionComponent";
 import {SharedModel} from "../models/impl/SharedModel";
 import {ISharedModel} from "../models/int/ISharedModel";
+import {AttendeesListComponent} from "./components/attendees/AttendeesListComponent";
+import {AttendeesPageComponent} from "./components/attendees/AttendeesPageComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -16,11 +19,15 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("summaryContent", new SummaryContentComponent())
     .component("locationContent", new LocationContentComponent())
     .component("newsletterSubscription", new NewsletterSubscriptionComponent())
+    .component("attendeesPage", new AttendeesPageComponent())
+    
+    .directive("attendeesList", () => new AttendeesListComponent())
+
     .service("ISharedModel", SharedModel)
+
     .config(["$routeProvider", ($routeProvider) => {
-        $routeProvider.when("/", {
-            template: "<home-page></home-page>"
-        });
+        $routeProvider.when("/", { template: "<home-page></home-page>" });
+        $routeProvider.when("/attendees", { template: "<attendees-page></attendees-page>" });
     }])
     .run(["ISharedModel", (sharedModel: ISharedModel) => {
         console.info("BDX I/O App module ran !");
