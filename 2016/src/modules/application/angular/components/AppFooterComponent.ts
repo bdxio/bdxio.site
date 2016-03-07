@@ -38,7 +38,7 @@ export class AppFooterComponent implements ng.IDirective {
 
                     <div clas="row space-top-30">
                         <div class="col-xs-12 text-center">
-                            <h6 class="text-white">© Copyright 2014-2016 BDX.io - Tous droits réservés:</h6>
+                            <h6 class="text-white">© Copyright 2014-2016 BDX.io - Tous droits réservés</h6>
                         </div>
                     </div>
                 </div>

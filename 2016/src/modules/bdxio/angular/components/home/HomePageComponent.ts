@@ -5,7 +5,6 @@ export class HomePageComponent implements ng.IDirective {
         <news-list></news-list>
         <summary-content></summary-content>
         <location-content></location-content>
-        <newsletter-subscription></newsletter-subscription>
     `
 }
 export class HomePageController {
