@@ -46,6 +46,7 @@
 
     .status-live {
       margin-left: 10px;
+      font-weight: bold;
 
       &.live-on { color: $green;}
       &.live-off { color: $primary;}

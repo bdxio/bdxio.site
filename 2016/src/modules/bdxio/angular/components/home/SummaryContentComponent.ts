@@ -4,7 +4,7 @@ export class SummaryContentComponent implements ng.IDirective {
         <section class="summary-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="text-primary space-top-40 space-bottom-40">Thèmes de la conférence</h1>
+                    <h1 class="section-title text-primary space-top-40 space-bottom-40">Thèmes de la conférence</h1>
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
