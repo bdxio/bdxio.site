@@ -132,3 +132,20 @@
     vertical-align: middle;
   }
 }
+
+// ~ ==== Location home
+
+.item-info-location {
+  height: 100px;
+
+  &:nth-child(1) { background-color: $primary;}
+  &:nth-child(2) { background-color: $secondary;}
+  &:nth-child(3) { background-color: $dark-grey;}
+
+  .title {
+    width: 60%;
+    margin: 15px 10px;
+    line-height: 1.3;
+    font-size: 18px;
+  }
+}

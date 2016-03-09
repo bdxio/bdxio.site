@@ -53,18 +53,27 @@
 .bdx-design:before {
   content: "\65";
 }
-.bdx-networks:before {
-  content: "\66";
-}
 .bdx-server:before {
   content: "\68";
-}
-.bdx-phone:before {
-  content: "\67";
 }
 .bdx-settings:before {
   content: "\69";
 }
+.bdx-networks:before {
+  content: "\66";
+}
+.bdx-phone:before {
+  content: "\67";
+}
 .bdx-tools:before {
   content: "\6a";
+}
+.bdx-users:before {
+  content: "\6b";
+}
+.bdx-micro:before {
+  content: "\6c";
+}
+.bdx-directions:before {
+  content: "\6d";
 }

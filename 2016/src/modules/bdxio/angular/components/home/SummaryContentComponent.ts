@@ -120,6 +120,11 @@ export class SummaryContentComponent implements ng.IDirective {
 }
 export class SummaryContentController {
     public static $inject: Array<string> = [];
+
+    public availableSummary: Array<{ title }> = [
+        { title: "Je déclare le CFP...OUVERT !"},
+    ];
+
     constructor() {
     }
 }
