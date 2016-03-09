@@ -79,3 +79,40 @@
 
   }
 }
+
+// ~ ==== Summary home
+
+.item-summary {
+  margin-bottom: 40px;
+
+  .content-cat-summary {
+    display: inline-block;
+    width: 190px;
+    height: 190px;
+    padding: 20px;
+    background: url("../../images/png/circles-summary.png") no-repeat;
+    background-size: 100%;
+    background-position: center center;
+
+    i {
+      display: block;
+      height: 70px;
+      font-size: 54px;
+      color: $secondary;
+    }
+
+    .title {
+      color: $primary;
+      font-size: 16px;
+    }
+  }
+
+  .container-cat-summary { width: 45%;}
+  .container-text-summary { width: 50%; padding-left: 20px;}
+
+  .container-cat-summary,
+  .container-text-summary {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
