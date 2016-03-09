@@ -1,0 +1,58 @@
+// ~ ATTENDEED
+// ====================================================================== >
+
+.item-attendees {
+  list-style: none;
+  margin-bottom: 30px;
+
+  .content-img-attendees {
+    position: relative;
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 30px !important;
+    background-color: $light-grey;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .desc-attendees {
+    padding: 0 20px;
+    text-align: justify;
+  }
+
+  .attendees-networks {
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    height: 34px;
+    width: 70%;
+    padding: 4px 10px;
+    background: $primary;
+    color: white;
+    text-align: right;
+
+    li {
+      display: inline-block;
+      height: 100%;
+      margin-right: 5px;
+
+      &:last-child { margin-right: 0;}
+
+      a {
+        font-size: 24px;
+        color: white;
+        opacity: 0.8;
+        transition: 240ms;
+
+        &:hover, &:focus {
+          transition: 240ms;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
