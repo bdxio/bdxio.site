@@ -6,6 +6,10 @@ body {
   color: $body-font-color;
   font-size: rem-calc(12px);
   margin: 0;
+  -webkit-text-stroke-width: .03px;
+  -webkit-font-smoothing:antialiased;
+  ::-moz-selection { color: white;  background: $secondary ;}
+  ::selection      { color: white;  background: $secondary; }
 }
 
 hr {
