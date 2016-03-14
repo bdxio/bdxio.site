@@ -7,6 +7,10 @@
   top: 0;
   width: 100%;
   z-index: 1;
+
+  @media screen and (min-width: 768px) {
+    min-width: 870px;
+  }
 }
 
 .top-header {
@@ -74,6 +78,39 @@
     .navbar-collapse {
       padding: 0;
       border: none;
+
+      @media screen and (max-width: 768px) {
+        &.collapse {
+          background-color: white;
+          margin-top: 1px;
+
+          .navbar-nav {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            border: none;
+
+            li {
+              border: none;
+              border-bottom: 1px solid $header-color-border;
+
+              a {
+                padding: 20px;
+              }
+            }
+
+            .btn-buy-ticket {
+              display: inline-block;
+              width: 60%;
+              height: 70px;
+              border: none;
+              float: right;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -245,6 +282,20 @@
   font-size: 24px;
   border: 0;
   transition: 240ms;
+
+  &.collapsed {
+    i {
+      &:before {
+        content: '\f0c9';
+      }
+    }
+  }
+
+  i {
+    &:before {
+      content: '\f068';
+    }
+  }
 
   &:hover, &:focus {
     transition: 240ms;

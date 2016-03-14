@@ -6,7 +6,7 @@ export class AppNavMenuComponent implements ng.IDirective {
         <header class="header">
              <div class="top-header">
                  <button type="button" class="btn btn-live-stream float-right">
-                    Livestream 
+                    Livestream
                     <span class="status-live live-on" ng-show="$ctrl.config.livestreamEnabled=='1'"><i class="fa fa-circle"></i>ON</span>
                     <span class="status-live live-off" ng-show="$ctrl.config.livestreamEnabled=='0'"><i class="fa fa-circle"></i>OFF</span>
                  </button>
@@ -50,10 +50,6 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     aria-haspopup="true" aria-expanded="true">
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a ng-class="{select: $ctrl.selectedMenu=='participant-speakers'}" ng-click="$ctrl.selectMenu('participant-speakers')">Speakers</a></li>
-                                    <li><a ng-class="{select: $ctrl.selectedMenu=='participant-orgas'}" ng-click="$ctrl.selectMenu('participant-orgas')">Orgas</a></li>
-                                </ul>
                             </li>
 
                             <li>
@@ -63,11 +59,11 @@ export class AppNavMenuComponent implements ng.IDirective {
                                 <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
                             </li>
                             <li class="btn-buy-ticket">
-                                <div class="col-sm-8 no-padding text-right">
-                                    <span>Acheter un billet</span>
+                                <div class="col-xs-6 col-sm-8 no-padding text-right">
+                                    <span>Acheter un billet</span><br>
                                     <span class="status-sale">Ventes Fermées</span>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xs-6 col-sm-4">
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
@@ -108,7 +104,7 @@ export class AppNavMenuController {
     public selectedMenuContains(str: string) {
         return this.selectedMenu && this.selectedMenu.indexOf(str) !== -1;
     }
-    
+
     public selectMenu(menuToSelect: SelectableMenu) {
         this.selectedMenu = menuToSelect;
 
