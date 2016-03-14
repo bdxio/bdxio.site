@@ -13,7 +13,7 @@ export class AttendeesListComponent implements ng.IDirective {
                     <h1 class="section-title text-primary space-top-40 space-left-50 space-bottom-40">{{title}}</h1>
                 </div>
                 <ul>
-                    <li class="col-sm-6 col-md-4 col-lg-3 text-center item-attendees" ng-repeat="attendee in attendees">
+                    <li class="col-sm-6 col-md-4 col-lg-3 text-left item-attendees" ng-repeat="attendee in attendees">
                         <span class="content-img-attendees">
                             <img ng-src="{{attendee.avatarUrl}}">
 
