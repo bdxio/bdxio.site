@@ -261,11 +261,11 @@
       transition: 240ms;
 
       &.open {
-        background-color: rgb(156, 207, 59);
+        background-color: #60C5EC;
 
         &:hover, &:focus {
           transition: 240ms;
-          background-color: #88B534;
+          background-color: darken(#60C5EC, 5%);
 
           i {  animation: rotate-bounce 350ms infinite;}
         }
