@@ -151,7 +151,7 @@
 }
 
 // ~ Margin helper
-$spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40;
+$spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70;
 
 @each $value in $spacing-value {
   .space-top-#{$value} {
@@ -224,7 +224,7 @@ $inner-spacing-value : $spacing-value;
   }
 
   // ~ Margin helper
-  $spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40;
+  $spacing-value : 0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70;
 
   @each $value in $spacing-value {
     .mb-space-top-#{$value} {

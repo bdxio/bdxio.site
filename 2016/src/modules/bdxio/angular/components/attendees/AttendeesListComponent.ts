@@ -10,7 +10,7 @@ export class AttendeesListComponent implements ng.IDirective {
        <section class="attendees-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="section-title text-primary space-top-40 space-bottom-40">{{title}}</h1>
+                    <h1 class="section-title text-primary space-top-40 space-left-50 space-bottom-40">{{title}}</h1>
                 </div>
                 <ul>
                     <li class="col-sm-6 col-md-4 col-lg-3 text-center item-attendees" ng-repeat="attendee in attendees">
