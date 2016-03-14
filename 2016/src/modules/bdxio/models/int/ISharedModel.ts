@@ -4,6 +4,7 @@ import {ICompany} from "./ICompany";
 import {IAttendee} from "./IAttendee";
 import {INews} from "./INews";
 import {IFriend} from "./IFriend";
+import {SpreadsheetReaderDescriptor} from "../../services/SpreadsheetReader";
 
 
 export interface ICompaniesByType {
