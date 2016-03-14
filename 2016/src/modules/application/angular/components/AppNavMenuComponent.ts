@@ -1,11 +1,14 @@
 import {BDXIORootScope} from "../index";
+import {IConfig, ISharedModel} from "../../../bdxio/models/int/ISharedModel";
 export class AppNavMenuComponent implements ng.IDirective {
     public controller: Function = AppNavMenuController;
     public template: string = `
         <header class="header">
              <div class="top-header">
                  <button type="button" class="btn btn-live-stream float-right">
-                    Livestream <span class="status-live live-off"><i class="fa fa-circle"></i>OFF</span>
+                    Livestream 
+                    <span class="status-live live-on" ng-show="$ctrl.config.livestreamEnabled=='1'"><i class="fa fa-circle"></i>ON</span>
+                    <span class="status-live live-off" ng-show="$ctrl.config.livestreamEnabled=='0'"><i class="fa fa-circle"></i>OFF</span>
                  </button>
                  <ul class="header-list-networks">
                      <li class="item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
@@ -91,10 +94,15 @@ export class AppNavMenuController {
         'prog': { path: '/prog' },
     };
 
-    public static $inject = ["$rootScope"];
+    public static $inject = ["$rootScope", "ISharedModel"];
 
     public selectedMenu: SelectableMenu;
-    constructor(private $rootScope: BDXIORootScope){
+    public config: IConfig;
+
+    constructor(private $rootScope: BDXIORootScope, sharedModel: ISharedModel){
+        sharedModel.dataLoaded.then(() => {
+            this.config = sharedModel.data.config;
+        });
     }
 
     public selectedMenuContains(str: string) {
