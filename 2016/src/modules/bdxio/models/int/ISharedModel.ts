@@ -18,7 +18,13 @@ export interface ITypedCompaniesByType {
     [companyType:string]: ICompaniesByType
 }
 
+export interface IConfig {
+    livestreamEnabled: string,
+    registrationOpened: string
+}
+
 export interface ISharedModelData {
+    config?: IConfig;
     orgas?: IAttendee[];
     jurys?: IAttendee[];
     speakers?: ISpeaker[];

@@ -1,7 +1,7 @@
 import "lodash";
 import {
     ISharedModel, ISharedModelData,
-    ITypedCompaniesByType, ISpreadsheetTabDescriptor
+    ITypedCompaniesByType, ISpreadsheetTabDescriptor, IConfig
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -24,10 +24,33 @@ class SpreadsheetTabDescriptor implements ISpreadsheetTabDescriptor {
     }
 }
 
+export interface IConfigEntry {
+    key: string, 
+    value: string
+}
+
 export class SharedModel implements ISharedModel {
     public static $inject: Array<string> = ["$http", "$q"];
 
     private static SPREADSHEET_TABS: Array<SpreadsheetTabDescriptor> = [
+        new SpreadsheetTabDescriptor({
+            tabId: 1,
+            dataField: "config",
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<IConfigEntry, IConfig>({
+                firstRow: 2,
+                columnFields: {
+                    "A": "key", "B": "value"
+                },
+                fieldsRequiredToConsiderFilledRow: [ "key", "value" ],
+                postProcess: function(configEntries: IConfigEntry[]): IConfig {
+                    let config = {};
+                    _.each(configEntries, (configEntry: IConfigEntry) => {
+                        config[configEntry.key] = configEntry.value;
+                    });
+                    return <IConfig>config;
+                }
+            })
+        }),
         new SpreadsheetTabDescriptor({
             tabId: 2,
             dataField: "orgas",
