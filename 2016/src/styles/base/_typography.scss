@@ -22,7 +22,13 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.4;}
 .text-secondary { color: $text-secondary;}
 .text-dark { color: $text-dark;}
 
-.section-title { text-transform: uppercase;}
+.section-title {
+  text-transform: uppercase;
+
+  &.gold { color: $gold;}
+  &.silver { color: $silver;}
+  &.bronze { color: $bronze;}
+}
 
 // ~ ==== Style / Color Link
 
