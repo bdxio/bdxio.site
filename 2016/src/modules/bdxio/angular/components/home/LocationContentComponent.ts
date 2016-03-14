@@ -29,7 +29,7 @@ export class LocationContentComponent implements ng.IDirective {
                     </adress>
                     <br>
                     <h4>Pour nous rejoindre en transport en commun,<br>
-                    choisissez le <a class="link link-white">Bus ou le Tram</a>.
+                    choisissez le <a href="http://www.infotbc.com/" class="link link-white" target="_blank">Bus ou le Tram</a>.
                     </h4>
                     <br>
                     <h4>  Si vous venez en voiture, le parking
