@@ -1,4 +1,6 @@
+import {BDXIORootScope} from "../index";
 export class AppNavMenuComponent implements ng.IDirective {
+    public controller: Function = AppNavMenuController;
     public template: string = `
         <header class="header">
              <div class="top-header">
@@ -25,33 +27,37 @@ export class AppNavMenuComponent implements ng.IDirective {
                     <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="dropdown open">
-                                <a href="#" class="dropdown-toggle"
+                                <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('partner')}"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
                                     Partenaires<i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" class="sponsor gold">Gold</a></li>
-                                    <li><a href="#" class="sponsor silver">Silver</a></li>
-                                    <li><a href="#" class="sponsor bronze">Bronze</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-gold'}" ng-click="$ctrl.selectMenu('partner-gold')" class="sponsor gold">Gold</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-silver'}" ng-click="$ctrl.selectMenu('partner-silver')" class="sponsor silver">Silver</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-bronze'}" ng-click="$ctrl.selectMenu('partner-bronze')" class="sponsor bronze">Bronze</a></li>
                                     <li><a href="#">La plaquette</a></li>
-                                    <li><a href="#">Press / Média</a></li>
-                                    <li><a href="#">Nos amis</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-press'}" ng-click="$ctrl.selectMenu('partner-press')">Press / Média</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-friends'}" ng-click="$ctrl.selectMenu('partner-friends')">Nos amis</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle"
+                            <li class="dropdown open">
+                                <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('participant')}"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='participant-speakers'}" ng-click="$ctrl.selectMenu('participant-speakers')">Speakers</a></li>
+                                    <li><a ng-class="{select: $ctrl.selectedMenu=='participant-orgas'}" ng-click="$ctrl.selectMenu('participant-orgas')">Orgas</a></li>
+                                </ul>
                             </li>
 
                             <li>
-                                <a class="select" href="#">FAQ</a>
+                                <a ng-class="{select: $ctrl.selectedMenu=='faq'}" ng-click="$ctrl.selectMenu('faq')">FAQ</a>
                             </li>
                             <li>
-                                <a href="#">Programme</a>
+                                <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
                             </li>
                             <li class="btn-buy-ticket">
                                 <div class="col-sm-8 no-padding text-right">
@@ -68,4 +74,37 @@ export class AppNavMenuComponent implements ng.IDirective {
             </nav>
         </header>
     `;
+}
+
+type SelectableMenu = 'partner-gold'|'partner-silver'|'partner-bronze'|'partner-press'|'partner-friends'|'participant-speakers'|'participant-orgas'|'faq'|'prog';
+
+export class AppNavMenuController {
+    private static SELECTED_MENU_PROPS: {[key: string]: {path: string, targetAnchorName?: string }} = {
+        'partner-gold': { path: '/partners', targetAnchorName: 'gold' },
+        'partner-silver': { path: '/partners', targetAnchorName: 'silver' },
+        'partner-bronze': { path: '/partners', targetAnchorName: 'bronze' },
+        'partner-press': { path: '/partners', targetAnchorName: 'press' },
+        'partner-friends': { path: '/partners', targetAnchorName: 'friends' },
+        'participant-speakers': { path: '/attendees', targetAnchorName: 'speakers' },
+        'participant-orgas': { path: '/attendees', targetAnchorName: 'orgas' },
+        'faq': { path: '/faq' },
+        'prog': { path: '/prog' },
+    };
+
+    public static $inject = ["$rootScope"];
+
+    public selectedMenu: SelectableMenu;
+    constructor(private $rootScope: BDXIORootScope){
+    }
+
+    public selectedMenuContains(str: string) {
+        return this.selectedMenu && this.selectedMenu.indexOf(str) !== -1;
+    }
+    
+    public selectMenu(menuToSelect: SelectableMenu) {
+        this.selectedMenu = menuToSelect;
+
+        var selectedMenuProps = AppNavMenuController.SELECTED_MENU_PROPS[menuToSelect];
+        this.$rootScope.goto(selectedMenuProps.path, selectedMenuProps.targetAnchorName);
+    }
 }
