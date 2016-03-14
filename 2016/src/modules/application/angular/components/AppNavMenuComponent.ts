@@ -26,7 +26,7 @@ export class AppNavMenuComponent implements ng.IDirective {
 
                     <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown open">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('partner')}"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
@@ -41,7 +41,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-friends'}" ng-click="$ctrl.selectMenu('partner-friends')">Nos amis</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown open">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('participant')}"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
