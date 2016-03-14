@@ -23,7 +23,7 @@ export class AttendeesListComponent implements ng.IDirective {
 
                             <span class="view-details">
                                 <button type="button" class="btn-round btn btn-white btn-r-medium">
-                                     <i class="fa fa-plus"></i>
+                                    <i class="fa fa-eye"></i>
                                 </button>
                             </span>
 
