@@ -15,7 +15,30 @@
     background-color: $light-grey;
     cursor: pointer;
 
-    img {
+    .company-affiliate {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      height: 60px;
+      width: 60px;
+      background-color: white;
+      border-radius: 100%;
+      -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+      -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+      box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+      transition: 240ms;
+      z-index: 1;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 60%;
+      }
+    }
+
+    .img-avatar {
       width: 100%;
       -webkit-filter: grayscale(100%);
       -moz-filter: grayscale(100%);
@@ -34,6 +57,11 @@
           background-color: $primary;
           color: white;
         }
+      }
+
+      .company-affiliate {
+        transition: 240ms;
+        transform: scale(1.3);
       }
     }
   }

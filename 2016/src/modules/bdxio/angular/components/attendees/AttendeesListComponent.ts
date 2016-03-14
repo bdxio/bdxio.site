@@ -15,7 +15,11 @@ export class AttendeesListComponent implements ng.IDirective {
                 <ul>
                     <li class="col-sm-6 col-md-4 col-lg-3 text-left item-attendees" ng-repeat="attendee in attendees">
                         <span class="content-img-attendees">
-                            <img ng-src="{{attendee.avatarUrl}}">
+                            <span class="company-affiliate">
+                                <img src="http://i.imgur.com/SoeLX45.png">
+                            </span>
+
+                            <img class="img-avatar" ng-src="{{attendee.avatarUrl}}">
 
                             <span class="view-details">
                                 <button type="button" class="btn-round btn btn-white btn-r-medium">
