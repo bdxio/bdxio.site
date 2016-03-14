@@ -195,8 +195,10 @@
     .dropdown {
 
       .dropdown-menu {
-        top: 99%;
+        top: 100%;
         padding: 0;
+        left: 0px;
+        border: 0;
 
         li {
           border: 0;
