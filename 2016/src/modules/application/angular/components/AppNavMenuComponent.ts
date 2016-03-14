@@ -58,7 +58,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <li>
                                 <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
                             </li>
-                            <li class="btn-buy-ticket">
+                            <li class="btn-buy-ticket open">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Acheter un billet</span><br>
                                     <span class="status-sale">Ventes Fermées</span>
