@@ -17,15 +17,21 @@ export class AttendeesListComponent implements ng.IDirective {
                         <span class="content-img-attendees">
                             <img ng-src="{{attendee.avatarUrl}}">
 
+                            <span class="view-details">
+                                <button type="button" class="btn-round btn btn-grey btn-r-medium">
+                                     <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
+
                             <ul class="attendees-networks">
                                 <li ng-show="attendee.twitter"><a ng-href="{{attendee.twitter}}" target="_blank"><i class="bdx-twitter"></i></a></li>
-                                <li><a href="http://lanyrd.com/2015/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                                <li ng-show="attendee.facebook"><a ng-href="{{attendee.facebook}}" target="_blank"><i class="bdx-facebook"></i></a></li>
                             </ul>
                         </span>
 
                         <h4 class="text-secondary highlight-text-bold">{{attendee.firstName}} {{attendee.lastName}}</h4>
 
-                        <p class="desc-attendees">
+                        <p class="desc-attendees" style="display: none;">
                             {{attendee.bio}}
                         </p>
 

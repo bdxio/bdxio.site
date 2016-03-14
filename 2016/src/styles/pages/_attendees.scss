@@ -13,10 +13,35 @@
     margin: 0 auto;
     margin-bottom: 30px !important;
     background-color: $light-grey;
+    cursor: pointer;
 
     img {
       width: 100%;
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+      filter: url("../../images/svg/grayscale.svg");
+      filter: gray;
     }
+
+    &:hover, &:focus {
+
+      .view-details {
+        button {
+          transition: 240ms;
+          background-color: $primary;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .view-details {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
   }
 
   .desc-attendees {

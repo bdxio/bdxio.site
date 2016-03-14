@@ -62,6 +62,24 @@ button[type='file'] {
   }
 }
 
+.btn-round {
+  margin: 0;
+  border: 0;
+  border-radius: 100%;
+
+  &.btn-r-small {
+    height: 24px;
+    width: 24px;
+  }
+
+  &.btn-r-medium {
+    height: 34px;
+    width: 34px;
+
+    padding: 8px;
+  }
+}
+
 .btn-primary {
   background-color: $primary;
   transition: 240ms;
@@ -69,5 +87,16 @@ button[type='file'] {
   &:hover, &:focus, &:active{
     transition: 240ms;
     background-color: $primary-dark !important;
+  }
+}
+
+.btn-grey {
+  background-color: darken($white-grey, 10%);
+  transition: 240ms;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $primary !important;
+    color: white;
   }
 }
