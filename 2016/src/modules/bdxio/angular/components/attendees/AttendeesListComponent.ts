@@ -18,7 +18,7 @@ export class AttendeesListComponent implements ng.IDirective {
                             <img ng-src="{{attendee.avatarUrl}}">
 
                             <span class="view-details">
-                                <button type="button" class="btn-round btn btn-grey btn-r-medium">
+                                <button type="button" class="btn-round btn btn-white btn-r-medium">
                                      <i class="fa fa-plus"></i>
                                 </button>
                             </span>

@@ -101,6 +101,21 @@ button[type='file'] {
   }
 }
 
+.btn-white {
+  background-color: white;
+  transition: 240ms;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  color: $secondary;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $primary !important;
+    color: white;
+  }
+}
+
 .btn-grey {
   background-color: darken($white-grey, 10%);
   transition: 240ms;
