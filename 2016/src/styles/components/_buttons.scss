@@ -90,6 +90,17 @@ button[type='file'] {
   }
 }
 
+.btn-secondary {
+  background-color: $secondary;
+  transition: 240ms;
+  color: white;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $secondary-dark !important;
+  }
+}
+
 .btn-grey {
   background-color: darken($white-grey, 10%);
   transition: 240ms;
