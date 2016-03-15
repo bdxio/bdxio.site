@@ -1,4 +1,6 @@
+import {ICompaniesByType, ISharedModel} from "../../../bdxio/models/int/ISharedModel";
 export class AppFooterComponent implements ng.IDirective {
+    public controller: Function = AppFooterController;
     public template: string = `
         <footer class="footer wrapper" itemscope itemtype="https://schema.org/WPFooter" >
          <div class="row">
@@ -31,8 +33,11 @@ export class AppFooterComponent implements ng.IDirective {
                         </div>
 
                         <ul class="col-xs-12 text-center footer-list-sponsors">
-                            <li class="footer-item-sponsors capgemini"><a href="https://www.fr.capgemini.com/" target="_blank"></li>
-                            <li class="footer-item-sponsors doyoudreamup"><a href="https://www.fr.capgemini.com/" target="_blank"></li>
+                            <li ng-repeat="goldCompany in $ctrl.goldPartners.companies" class="footer-item-sponsors">
+                                <a ng-href="{{goldCompany.website}}" target="_blank">
+                                    <img ng-src="{{goldCompany.footerImgSrc}}" height="{{goldCompany.footerImgHeight}}" />
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -45,4 +50,15 @@ export class AppFooterComponent implements ng.IDirective {
           </div>
         </footer>
     `;
+}
+export class AppFooterController {
+    public static $inject: Array<string> = ['ISharedModel'];
+
+    private goldPartners: ICompaniesByType;
+
+    constructor(sharedModel: ISharedModel) {
+        sharedModel.dataLoaded.then(() => {
+            this.goldPartners = sharedModel.data.partners["gold"];
+        });
+    }
 }
