@@ -233,6 +233,7 @@
       }
 
       &.open {
+
         .dropdown-toggle {
           background-color: white;
           color: $primary;
@@ -261,11 +262,11 @@
       transition: 240ms;
 
       &.open {
-        background-color: #60C5EC;
+        background-color: #60AAEC;
 
         &:hover, &:focus {
           transition: 240ms;
-          background-color: darken(#60C5EC, 5%);
+          background-color: darken(#60AAEC, 5%);
 
           i {  animation: rotate-bounce 350ms infinite;}
         }
