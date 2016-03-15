@@ -50,6 +50,10 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     aria-haspopup="true" aria-expanded="true">
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="">Speakers</a></li>
+                                    <li><a ng-click="">Organisateurs</a></li>
+                                </ul>
                             </li>
 
                             <li>
