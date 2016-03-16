@@ -12,5 +12,7 @@ export interface IAttendee {
     gplus?: string;
 
     blog?: string;
+    
+    atLeastOneSocial(): boolean;
 }
 

@@ -29,7 +29,7 @@ export class AttendeesListComponent implements ng.IDirective {
                                 </button>
                             </span>
 
-                            <ul class="attendees-networks">
+                            <ul class="attendees-networks" ng-show="attendee.atLeastOneSocial()">
                                 <li ng-show="attendee.twitter"><a ng-href="http://www.twitter.com/{{attendee.twitter}}" target="_blank"><i class="bdx-twitter"></i></a></li>
                                 <li ng-show="attendee.linkedin"><a ng-href="http://{{attendee.linkedin}}" target="_blank"><i class="bdx-linkedin"></i></a></li>
                                 <li ng-show="attendee.gplus"><a ng-href="http://plus.google.com/{{attendee.gplus}}/posts" target="_blank"><i class="bdx-gplus"></i></a></li>

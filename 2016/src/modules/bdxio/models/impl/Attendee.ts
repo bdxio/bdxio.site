@@ -17,4 +17,8 @@ export class Attendee implements IAttendee {
     constructor(opts: IAttendee) {
         _.extend(this, opts);
     }
+
+    atLeastOneSocial(): boolean {
+        return !!(this.twitter || this.linkedin || this.gplus || this.blog);
+    }
 }
