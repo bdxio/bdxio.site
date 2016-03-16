@@ -18,6 +18,8 @@ angular.module("app.application", [])
     .run([
         '$rootScope', '$location', '$anchorScroll', '$timeout',
         ($rootScope, $location: ILocationService, $anchorScroll: IAnchorScrollService, $timeout: ITimeoutService) => {
+            $anchorScroll.yOffset = 50;
+
             $rootScope.goto = (path: string, targetAnchorName?: string) => {
                 if(path !== $location.path()) {
                     // ga('send', 'screenview', { 'screenName': path });

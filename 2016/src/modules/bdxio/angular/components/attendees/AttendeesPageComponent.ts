@@ -2,8 +2,8 @@ import {ISharedModel} from "../../../models/int/ISharedModel";
 export class AttendeesPageComponent implements ng.IDirective {
     public controller: Function = AttendeesPageController;
     public template: string = `
-        <attendees-list title="Les speakers" attendees="$ctrl.speakers" />
-        <attendees-list title="L'équipe d'organisation" attendees="$ctrl.orgas" />
+        <attendees-list title="Les speakers" anchor="speakers" attendees="$ctrl.speakers" />
+        <attendees-list title="L'équipe d'organisation" anchor="orgas" attendees="$ctrl.orgas" />
     `
 }
 export class AttendeesPageController {

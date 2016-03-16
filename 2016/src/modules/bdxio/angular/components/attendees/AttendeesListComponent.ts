@@ -1,12 +1,14 @@
 export class AttendeesListComponent implements ng.IDirective {
     public scope = {
         title: '@',
+        anchor: '@',
         attendees: '='
     };
     
     // Pour une liste complète des attributs possibles sur un attendee, cf SharedModel dans les
     // columnFields de orgas/jurys/speakers
     public template: string = `
+       <div id="{{anchor}}">&nbsp;</div>
        <section class="attendees-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
