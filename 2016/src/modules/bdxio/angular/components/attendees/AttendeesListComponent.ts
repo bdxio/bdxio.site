@@ -17,8 +17,8 @@ export class AttendeesListComponent implements ng.IDirective {
                 <ul>
                     <li class="col-sm-6 col-md-4 col-lg-3 text-left item-attendees" ng-repeat="attendee in attendees">
                         <span class="content-img-attendees">
-                            <span class="company-affiliate">
-                                <img src="http://i.imgur.com/SoeLX45.png">
+                            <span class="company-affiliate" ng-show="attendee.companyLogo">
+                                <img ng-src="{{attendee.companyLogo}}">
                             </span>
 
                             <img class="img-avatar" ng-src="{{attendee.avatarUrl}}">
@@ -30,8 +30,10 @@ export class AttendeesListComponent implements ng.IDirective {
                             </span>
 
                             <ul class="attendees-networks">
-                                <li ng-show="attendee.twitter"><a ng-href="{{attendee.twitter}}" target="_blank"><i class="bdx-twitter"></i></a></li>
-                                <li ng-show="attendee.facebook"><a ng-href="{{attendee.facebook}}" target="_blank"><i class="bdx-facebook"></i></a></li>
+                                <li ng-show="attendee.twitter"><a ng-href="http://www.twitter.com/{{attendee.twitter}}" target="_blank"><i class="bdx-twitter"></i></a></li>
+                                <li ng-show="attendee.linkedin"><a ng-href="http://{{attendee.linkedin}}" target="_blank"><i class="bdx-linkedin"></i></a></li>
+                                <li ng-show="attendee.gplus"><a ng-href="http://plus.google.com/{{attendee.gplus}}/posts" target="_blank"><i class="bdx-gplus"></i></a></li>
+                                <li ng-show="attendee.blog"><a ng-href="{{attendee.blog}}" target="_blank"><i class="bdx-blog"></i></a></li>
                             </ul>
                         </span>
 
