@@ -34,10 +34,10 @@ export interface ISharedModelData {
     daySchedule?: any;
 }
 
-export interface ISpreadsheetTabDescriptor {
+export interface ISpreadsheetTabDescriptor<T> {
     tabId: number;
     dataField: string;
-    descriptor: SpreadsheetReaderDescriptor;
+    descriptor: SpreadsheetReaderDescriptor<T>;
 }
 
 export interface ISharedModel {

@@ -13,13 +13,15 @@ import IHttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 import {errorMessage, rejectDeferred} from "../../../util/errors";
 import {ISpeaker} from "../int/ISpeaker";
 import {ICompany} from "../int/ICompany";
+import {Attendee} from "./Attendee";
+import {Speaker} from "./Speaker";
 
-class SpreadsheetTabDescriptor implements ISpreadsheetTabDescriptor {
+class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
     dataField: string;
-    descriptor: SpreadsheetReaderDescriptor;
+    descriptor: SpreadsheetReaderDescriptor<T>;
 
-    constructor(opts: ISpreadsheetTabDescriptor) {
+    constructor(opts: ISpreadsheetTabDescriptor<T>) {
         _.extend(this, opts);
     }
 }
@@ -32,7 +34,7 @@ export interface IConfigEntry {
 export class SharedModel implements ISharedModel {
     public static $inject: Array<string> = ["$http", "$q"];
 
-    private static SPREADSHEET_TABS: Array<SpreadsheetTabDescriptor> = [
+    private static SPREADSHEET_TABS: Array<SpreadsheetTabDescriptor<any>> = [
         new SpreadsheetTabDescriptor({
             tabId: 1,
             dataField: "config",
@@ -54,7 +56,7 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 2,
             dataField: "orgas",
-            descriptor: new SpreadsheetReaderDescriptor({
+            descriptor: new SpreadsheetReaderDescriptor<Attendee>({
                 firstRow: 2,
                 columnFields: {
                     "A": "firstName", "B": "lastName", "C": "bio",
@@ -62,13 +64,14 @@ export class SharedModel implements ISharedModel {
                     "G": "linkedin", "H": "gplus"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName" ],
+                resultClass: Attendee,
                 sortBy: [ "lastName", "firstName" ]
             })
         }),
         new SpreadsheetTabDescriptor({
             tabId: 3,
             dataField: "jurys",
-            descriptor: new SpreadsheetReaderDescriptor({
+            descriptor: new SpreadsheetReaderDescriptor<Attendee>({
                 firstRow: 2,
                 columnFields: {
                     "A": "firstName", "B": "lastName", "C": "bio",
@@ -76,6 +79,7 @@ export class SharedModel implements ISharedModel {
                     "G": "linkedin", "H": "gplus"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName" ],
+                resultClass: Attendee,
                 sortBy: [ "lastName", "firstName" ]
             })
         }),
@@ -92,16 +96,18 @@ export class SharedModel implements ISharedModel {
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName", "bio" ],
                 sortBy: [ "lastName", "firstName" ],
+                resultClass: Speaker,
                 postProcess: function(speakers: ISpeaker[]) {
-                    _.each(speakers, (speaker: ISpeaker) => {
+                    return _.map(speakers, (speaker: ISpeaker) => {
                         speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
                         speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
                         if(speaker.companyLogo) {
                             speaker.companyLogoStyle = speaker.companyLogo.split(" ")[1]==="(white)"?{"background-color":"white"}:null;
                             speaker.companyLogo = speaker.companyLogo.split(" ")[0];
                         }
+
+                        return new Speaker(speaker);
                     });
-                    return speakers;
                 }
             })
         }),
@@ -221,7 +227,8 @@ export class SharedModel implements ISharedModel {
     }
 
     public get data() {
-        return _.cloneDeep<ISharedModelData>(this._data);
+        // return _.cloneDeep<ISharedModelData>(this._data);
+        return this._data;
     }
 
     public get dataLoaded(){

@@ -16,29 +16,31 @@ export interface SpreadsheetContent {
 
 export type LineResult = {[key: string]: string};
 
-export interface ISpreadsheetReaderDescriptor {
+export interface ISpreadsheetReaderDescriptor<T> {
     firstRow: Number;
     columnFields: LineResult;
     fieldsRequiredToConsiderFilledRow: string[];
     sortBy?: Function|Function[]|string|string[];
+    resultClass?: new (opts:any) => T;
 }
 
-export interface IPostProcessableSpreadsheetReaderDescriptor<T,T2> extends ISpreadsheetReaderDescriptor {
+export interface IPostProcessableSpreadsheetReaderDescriptor<T,T2> extends ISpreadsheetReaderDescriptor<T2> {
     postProcess?: (results: T[]) => T2;
 }
 
-export class SpreadsheetReaderDescriptor implements ISpreadsheetReaderDescriptor {
+export class SpreadsheetReaderDescriptor<T> implements ISpreadsheetReaderDescriptor<T> {
     firstRow: Number;
     columnFields: LineResult;
     fieldsRequiredToConsiderFilledRow: string[];
     sortBy: Function|Function[]|string|string[];
+    resultClass: new (opts:any) => T;
 
-    constructor(opts: ISpreadsheetReaderDescriptor) {
+    constructor(opts: ISpreadsheetReaderDescriptor<T>) {
         _.extend(this, opts);
     }
 }
 
-export class PostProcessableSpreadsheetReaderDescriptor<T,T2> extends SpreadsheetReaderDescriptor implements IPostProcessableSpreadsheetReaderDescriptor<T,T2> {
+export class PostProcessableSpreadsheetReaderDescriptor<T,T2> extends SpreadsheetReaderDescriptor<T2> implements IPostProcessableSpreadsheetReaderDescriptor<T,T2> {
     postProcess: (results: T[]) => T2;
 
     constructor(opts: IPostProcessableSpreadsheetReaderDescriptor<T,T2>) {
@@ -70,7 +72,11 @@ export class SpreadsheetReader {
                 _.each(cells, function(cell){
                     lineObj[descriptor.columnFields[cell.c]] = cell.v;
                 });
-                return <T>lineObj;
+                if(descriptor.resultClass) {
+                    return new descriptor.resultClass(lineObj);
+                } else {
+                    return <T>lineObj;
+                }
             }).values()
             .filter((obj: T) => {
                 let emptyRequiredColumns = _.filter(descriptor.fieldsRequiredToConsiderFilledRow, fieldRequiredToConsiderFilledRow => !obj[fieldRequiredToConsiderFilledRow]);
