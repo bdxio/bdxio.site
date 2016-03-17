@@ -82,39 +82,42 @@
       display: inline-block;
       vertical-align: middle;
       height: 50px;
-      width: 200px;
+      width: auto;
+      margin-right: 30px;
+      margin-bottom: 30px;
       background-repeat: no-repeat !important;
       background-position: center center !important;
       cursor: pointer;
-
-      &.capgemini {
-        transition: 240ms;
-        background: url("../../images/png/logos-footer/capgemini.png");
-        background-size: 100%;
-
-        &:hover, &:focus {
-          transition: 240ms;
-          background: url("../../images/png/logos-footer/capgemini-hover.png");
-          background-size: 100%;
-        }
-      }
-
-      &.doyoudreamup {
-        transition: 240ms;
-        background: url("../../images/png/logos-footer/doyodreamup.png");
-        background-size: 50%;
-
-        &:hover, &:focus {
-          transition: 240ms;
-          background: url("../../images/png/logos-footer/doyodreamup-hover.png");
-          background-size: 50%;
-        }
-      }
 
       a {
         display: block;
         width: 100%;
         height: 100%;
+
+        img {
+          height: 100%;
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+          -ms-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+          filter: url("../../images/svg/grayscale.svg");
+          filter: gray;
+          transition: 240ms;
+        }
+
+        &:hover, &:focus {
+
+          img {
+            transition: 240ms;
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            -ms-filter: grayscale(0%);
+            -o-filter: grayscale(0%);
+            filter: grayscale(0%);
+            filter: transparent;
+          }
+        }
       }
     }
   }
