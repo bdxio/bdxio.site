@@ -16,12 +16,14 @@ export class AttendeesListComponent implements ng.IDirective {
                 </div>
                 <ul>
                     <li class="col-sm-6 col-md-4 col-lg-3 text-left item-attendees" ng-repeat="attendee in attendees">
-                        <span class="content-img-attendees">
+                        <span class="content-attendees">
                             <span class="company-affiliate" ng-show="attendee.companyLogo">
                                 <img ng-src="{{attendee.companyLogo}}">
                             </span>
 
-                            <img class="img-avatar" ng-src="{{attendee.avatarUrl}}">
+                            <span class="container-avatar-attendees">
+                                <img class="img-avatar" ng-src="{{attendee.avatarUrl}}">
+                            </span>
 
                             <span class="view-details">
                                 <button type="button" class="btn-round btn btn-white btn-r-medium">

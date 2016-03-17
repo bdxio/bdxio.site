@@ -12,6 +12,7 @@
 
 }
 
+
 [data-icon]:before {
   font-family: "bdxio" !important;
   content: attr(data-icon);
@@ -76,4 +77,13 @@
 }
 .bdx-directions:before {
   content: "\6d";
+}
+.bdx-linkedin:before {
+  content: "\6e";
+}
+.bdx-gplus:before {
+  content: "\6f";
+}
+.bdx-blog:before {
+  content: "\70";
 }

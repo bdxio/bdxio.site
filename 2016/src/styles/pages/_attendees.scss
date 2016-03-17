@@ -5,7 +5,7 @@
   list-style: none;
   margin-bottom: 30px;
 
-  .content-img-attendees {
+  .content-attendees {
     position: relative;
     display: block;
     height: 200px;
@@ -14,6 +14,24 @@
     margin-bottom: 30px !important;
     background-color: $light-grey;
     cursor: pointer;
+
+    .container-avatar-attendees {
+      display: block;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+
+      .img-avatar {
+        width: 100%;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: url("../../images/svg/grayscale.svg");
+        filter: gray;
+      }
+    }
 
     .company-affiliate {
       position: absolute;
@@ -34,19 +52,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        width: 60%;
+        max-width: 65%;
+        max-height: 45%;
+        height: auto;
       }
-    }
-
-    .img-avatar {
-      width: 100%;
-      -webkit-filter: grayscale(100%);
-      -moz-filter: grayscale(100%);
-      -ms-filter: grayscale(100%);
-      -o-filter: grayscale(100%);
-      filter: grayscale(100%);
-      filter: url("../../images/svg/grayscale.svg");
-      filter: gray;
     }
 
     &:hover, &:focus {
