@@ -96,7 +96,6 @@ export class SharedModel implements ISharedModel {
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName", "bio" ],
                 sortBy: [ "lastName", "firstName" ],
-                resultClass: Speaker,
                 postProcess: function(speakers: ISpeaker[]) {
                     return _.map(speakers, (speaker: ISpeaker) => {
                         speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
