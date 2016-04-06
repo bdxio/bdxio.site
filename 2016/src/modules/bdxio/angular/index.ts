@@ -32,10 +32,13 @@ angular.module("bdxio.app", ["ngRoute"])
     .service("ISharedModel", SharedModel)
 
     .config(["$routeProvider", ($routeProvider) => {
-        $routeProvider.when("/", { template: "<home-page></home-page>" });
-        $routeProvider.when("/attendees", { template: "<attendees-page></attendees-page>" });
-        $routeProvider.when("/partners", { template: "<partners-page></partners-page>" });
-        $routeProvider.when("/faq", { template: "<faq-page></faq-page>" });
+        $routeProvider
+            .when("/", { template: "<home-page></home-page>" })
+            .when("/attendees", { template: "<attendees-page></attendees-page>" })
+            .when("/partners", { template: "<partners-page></partners-page>" })
+            .when("/faq", { template: "<faq-page></faq-page>" })
+            .when("", { redirectTo: "/" })
+            .otherwise({ redirectTo: "/" });
     }])
     .run(["ISharedModel", (sharedModel: ISharedModel) => {
         console.info("BDX I/O App module ran !");
