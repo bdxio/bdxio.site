@@ -13,6 +13,7 @@ import {AttendeesListComponent} from "./components/attendees/AttendeesListCompon
 import {AttendeesPageComponent} from "./components/attendees/AttendeesPageComponent";
 import {PartnersPageComponent} from "./components/partners/PartnersPageComponent";
 import {PartnersListComponent} from "./components/partners/PartnersListComponent";
+import {FAQPageComponent} from "./components/faq/FAQPageComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -23,6 +24,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("newsletterSubscription", new NewsletterSubscriptionComponent())
     .component("attendeesPage", new AttendeesPageComponent())
     .component("partnersPage", new PartnersPageComponent())
+    .component("faqPage", new FAQPageComponent())
 
     .directive("attendeesList", () => new AttendeesListComponent())
     .directive("partnersList", () => new PartnersListComponent())
@@ -33,6 +35,7 @@ angular.module("bdxio.app", ["ngRoute"])
         $routeProvider.when("/", { template: "<home-page></home-page>" });
         $routeProvider.when("/attendees", { template: "<attendees-page></attendees-page>" });
         $routeProvider.when("/partners", { template: "<partners-page></partners-page>" });
+        $routeProvider.when("/faq", { template: "<faq-page></faq-page>" });
     }])
     .run(["ISharedModel", (sharedModel: ISharedModel) => {
         console.info("BDX I/O App module ran !");
