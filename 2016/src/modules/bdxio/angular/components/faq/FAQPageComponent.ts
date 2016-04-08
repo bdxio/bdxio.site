@@ -1,7 +1,14 @@
 export class FAQPageComponent implements ng.IDirective {
     public controller: Function = FAQPageController;
     public template: string = `
-        <h1>Here we're on the FAQ page</h1>
+    <section class="attendees-content wrapper">
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+    </section>
+
     `
 }
 export class FAQPageController {
