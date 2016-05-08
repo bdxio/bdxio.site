@@ -190,16 +190,24 @@
 }
 
 .item-conf {
-  height: 100px;
-  padding: 0;
+  height: 140px;
+  padding: 22px 0;
   background: $primary;
   color: white;
+  border-right: 10px solid #FFFFFF;
+
+  @media screen and (max-width: 991px) {
+    border-right: 0;
+    border-bottom: 5px solid #ffffff;
+  }
+
+  &:last-child { border-right: 0;}
 
   i {
     display: inline-block;
     vertical-align: middle;
     width: 30%;
-    font-size: 54px;
+    font-size: 64px;
     text-align: center;
   }
 
@@ -207,6 +215,18 @@
     display: inline-block;
     vertical-align: middle;
     width: 65%;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.stats {
+  h2 {
+    font-size: 37.4px !important;
+    white-space: nowrap;
+
+    @media screen and (max-width: 991px) {
+      white-space: normal;
+    }
   }
 }

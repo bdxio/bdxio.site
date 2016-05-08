@@ -56,28 +56,24 @@ export class LocationContentComponent implements ng.IDirective {
 
                  <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-3 item-conf force-inner-space-top-20">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
                             <i class="fa fa-calendar-o"></i>
-                            <h4 class="title text-white">LE 17 OCTOBRE 2014</h4>
+                            <h4 class="title text-white"><br> LE 17 OCTOBRE 2014<br> <br></h4>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-1">&nbsp;</div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-3 item-conf force-inner-space-top-10">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
                            <i class="fa fa-commenting"></i>
                             <h4 class="title text-white">SDBX4, <br> UN ÉVÈNEMENT DE LA SEMAINE DIGITALE</h4>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-1">&nbsp;</div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-3 item-conf force-inner-space-top-10">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
                             <i class="fa fa-map-marker"></i>
                             <h4 class="title text-white">À L'ENSEIRB, INST. POLYTECHNIQUE DE BORDEAUX</h4>
                         </div>
                     </div>
                  </div>
 
-                 <div class="col-sm-12 space-top-30 space-bottom-30">
+                 <div class="stats col-sm-12 space-top-30 space-bottom-35">
                     <div class="row text-center">
                        <h2 class="text-secondary">
                            <strong class="text-primary">300</strong> PARTICIPANTS, DONT
