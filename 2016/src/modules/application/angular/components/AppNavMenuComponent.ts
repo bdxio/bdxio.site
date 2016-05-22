@@ -120,7 +120,7 @@ export class AppNavMenuController {
 
     public openRegistrationPopup() {
         if (this.config.registrationOpened == 1) {
-            var url = 'https://www.weezevent.com/widget_billeterie.php?id_evenement=169133&lg_billetterie=1&code=79002&width_auto=1&color_primary=00AEEF';
+            var url = 'https://www.weezevent.com/widget_billeterie.php?id_evenement=178103&lg_billetterie=1&code=20244&width_auto=1&color_primary=00AEEF';
             var w = window.open(url, 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no');
             w.focus();
         }
