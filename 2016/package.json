@@ -18,7 +18,7 @@
     "font-awesome": "4.5.0",
     "jquery": "2.2.0",
     "lodash": "4.0.1",
-    "angular-morph": "https://github.com/fcamblor/ngMorph.git#354c1a729f02a33b8f5d5e2f6c6ccb4781935ba7",
+    "angular-morph": "https://github.com/fcamblor/ngMorph.git#e7407b6bd13dc2d3f6d32bc451d68bb5e92845da",
     "slick-carousel": "1.4.1"
   },
   "devDependencies": {
