@@ -73,6 +73,16 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
+                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}">
+                                <div class="col-xs-6 col-sm-8 no-padding text-right">
+                                    <span>Proposer un talk</span><br>
+                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='0'">CFP Fermés</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='1'">CFP Ouvert</span>
+                                </div>
+                                <div class="col-xs-6 col-sm-4">
+                                   <i class="fa fa-commenting-o"></i>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
