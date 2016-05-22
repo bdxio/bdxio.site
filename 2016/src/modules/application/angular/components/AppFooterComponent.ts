@@ -12,11 +12,13 @@ export class AppFooterComponent implements ng.IDirective {
                         </span>
 
                          <span class="col-xs-12 col-md-5 col-lg-4 space-top-2 mb-space-bottom-15">
-                            <input class="input-newsletter" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <form name="newsletterSubscriptionForm">
+                                <input class="input-newsletter form-control" type="email" required placeholder="Email" ng-model="$ctrl.newsletterEmail" />
+                            </form>
                         </span>
 
                           <span class="col-xs-12 col-md-3 col-lg-3 text-left mb-text-center space-top-2">
-                             <button class="btn btn-primary btn-md has-icon-left" disabled><i class="fa fa-pencil"></i>S’inscrire</button>
+                             <button class="btn btn-primary btn-md has-icon-left" ng-click="$ctrl.subscribeToNewsletter()" ng-disabled="newsletterSubscriptionForm.$invalid" disabled><i class="fa fa-pencil"></i>S’inscrire</button>
                         </span>
                     </div>
 
@@ -55,10 +57,15 @@ export class AppFooterController {
     public static $inject: Array<string> = ['ISharedModel'];
 
     private goldPartners: ICompaniesByType;
+    private newsletterEmail: string;
 
     constructor(sharedModel: ISharedModel) {
         sharedModel.dataLoaded.then(() => {
             this.goldPartners = sharedModel.data.partners["gold"];
         });
+    }
+
+    public subscribeToNewsletter(){
+        window.location.href = 'https://docs.google.com/forms/d/1ZfLqPI2drGB9FwJgJeq5814jHvBj_siFs76QkEhQMGI/viewform?entry.763907914='+this.newsletterEmail;
     }
 }
