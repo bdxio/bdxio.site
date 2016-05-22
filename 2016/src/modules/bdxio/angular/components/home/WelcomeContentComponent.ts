@@ -6,7 +6,7 @@ export class WelcomeContentComponent implements ng.IDirective {
                 <div class="col-sm-12">
                      <h2 class="text-white">
                          C'est décidé bdx.io édition 2016 se déroulera le <br>
-                         Vendredi 23 Octobre 2016 à l'ENSEIRB-MATMECA !
+                         Vendredi 21 Octobre 2016 à l'ENSEIRB-MATMECA !
                      </h2>
                       <h4 class="text-white">
                         Le programme de l'évènement est disponible sur l'application<br>
