@@ -1,28 +1,30 @@
+import {ISharedModel} from "../../../models/int/ISharedModel";
+import {INews} from "../../../models/int/INews";
 export class NewsListComponent implements ng.IDirective {
     public controller: Function = NewsListController;
     public template: string = `
         <ul class="content-list-news">
-            <li class="item-new" ng-repeat="newsItem in $ctrl.availableNews">
-                <div class="container-img">
-                    <img src="https://i.ytimg.com/vi/GtAfp55gBeQ/maxresdefault.jpg">
-                </div>
-
-                <div class="content-title-new">
-                   <span class="date-new text-white"><i class="fa fa-calendar-o space-right-5"></i> Billet du 00.00.2016</span>
-                   <h3 class="text-white">{{::newsItem.title}}</h3>
-                   <button ng-morph-modal="$ctrl.settings" class="btn btn-primary btn-lg has-icon-left"><i class="fa fa-eye"></i>Lire l’article</button>
-                </div>
-            </li>
+            <carousel elements="$ctrl.availableNews">
+                <li class="item-new" ng-repeat="newsItem in $ctrl.availableNews">
+                    <div class="container-img">
+                        <img src="https://i.ytimg.com/vi/GtAfp55gBeQ/maxresdefault.jpg">
+                    </div>
+    
+                    <div class="content-title-new">
+                       <span class="date-new text-white"><i class="fa fa-calendar-o space-right-5"></i> Billet du 00.00.2016</span>
+                       <h3 class="text-white">{{::newsItem.title}}</h3>
+                       <button ng-morph-modal="$ctrl.settings" class="btn btn-primary btn-lg has-icon-left"><i class="fa fa-eye"></i>Lire l’article</button>
+                    </div>
+                </li>
+            </carousel>
         </ul>
     `
 }
 export class NewsListController {
-    public static $inject: Array<string> = [];
 
-    public availableNews: Array<{ title }> = [
-        { title: "Je déclare le CFP...OUVERT !"},
-        { title: "Une nouvelle affiche pour votre machine à café"}
-    ];
+    public static $inject: Array<string> = ['ISharedModel'];
+
+    public availableNews: Array<INews>;
 
     public settings = {
         closeEl: '.close',
@@ -75,6 +77,9 @@ export class NewsListController {
         }
     };
 
-    constructor() {
+    constructor(sharedModel: ISharedModel) {
+        sharedModel.dataLoaded.then(() => {
+            this.availableNews = sharedModel.data.news;
+        });
     }
 }
