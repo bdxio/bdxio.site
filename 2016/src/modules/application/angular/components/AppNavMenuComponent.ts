@@ -62,7 +62,8 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <li>
                                 <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
                             </li>
-                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}">
+                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}"
+                                ng-click="$ctrl.openRegistrationPopup()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Acheter un billet</span><br>
                                     <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='0'">Ventes Fermées</span>
@@ -115,5 +116,13 @@ export class AppNavMenuController {
 
         var selectedMenuProps = AppNavMenuController.SELECTED_MENU_PROPS[menuToSelect];
         this.$rootScope.goto(selectedMenuProps.path, selectedMenuProps.targetAnchorName);
+    }
+
+    public openRegistrationPopup() {
+        if (this.config.registrationOpened == 1) {
+            var url = 'https://www.weezevent.com/widget_billeterie.php?id_evenement=169133&lg_billetterie=1&code=79002&width_auto=1&color_primary=00AEEF';
+            var w = window.open(url, 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no');
+            w.focus();
+        }
     }
 }
