@@ -73,6 +73,8 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
+
+                            <!-- TODO Connect btn -->
                             <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Proposer un talk</span><br>
