@@ -111,7 +111,7 @@
               float: right;
 
               &.open {
-                border-right: 1px solid darken(#60AAEC, 10%);
+                border-bottom: 1px solid darken(#60AAEC, 10%);
               }
             }
           }
@@ -276,7 +276,7 @@
       transition: 240ms;
 
       &.open {
-        border-right: 1px solid darken(#60AAEC, 10%);
+        border-right: 1px solid darken(#60AAEC, 5%) !important;
         background-color: #60AAEC;
 
         &:hover, &:focus {
