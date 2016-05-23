@@ -111,7 +111,7 @@
               float: right;
 
               &.open {
-                border-bottom: 1px solid darken(#60AAEC, 10%);
+                border-bottom: 1px solid darken(#60AAEC, 5%) !important;
               }
             }
           }
