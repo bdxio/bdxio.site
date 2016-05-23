@@ -49,7 +49,7 @@
     }
 
     img {
-      width: 100%;
+      height: 100%;
     }
 
     .content-title-new {
@@ -58,7 +58,7 @@
       right: 0;
       height: 100%;
       padding: 30px;
-      width: 45%;
+      width: 50%;
       opacity: 0.95;
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e4d55+0,662835+100 */
       background: #1e4d55; /* Old browsers */
@@ -66,6 +66,11 @@
       background: -webkit-linear-gradient(left,  #1e4d55 0%,#662835 100%); /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to right,  #1e4d55 0%,#662835 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e4d55', endColorstr='#662835',GradientType=1 ); /* IE6-9 */
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
 
       .date-new {
         font-size: 12px;
@@ -79,6 +84,16 @@
     }
 
   }
+}
+
+.slick-dots {
+  bottom: -35px !important;
+  height: 35px;
+  padding-top: 5px !important;
+  background-color: $white-grey;
+
+  li button:before { font-size: 13px !important;}
+  li.slick-active button:before { color: $secondary !important;}
 }
 
 // ~ ==== Summary home
@@ -106,6 +121,7 @@
       color: $primary;
       font-size: 18px;
       font-weight: bold;
+      line-height: 0.7;
     }
   }
 

@@ -19,6 +19,11 @@
     margin: 0;
     padding: 4px;
 
+    @media (max-width: 1072px) {
+      float: left;
+      padding-left: 10px;
+    }
+
     .item-networks {
       display: inline-block;
       margin-right: 5px;
