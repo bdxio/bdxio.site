@@ -99,10 +99,15 @@
 
             .btn-buy-ticket {
               display: inline-block;
-              width: 50%;
+              width: 100%;
+              border-bottom: 1px solid darken($primary, 5%) !important;
               height: 70px;
               border: none;
               float: right;
+
+              &.open {
+                border-right: 1px solid darken(#60AAEC, 10%);
+              }
             }
           }
         }
@@ -126,6 +131,11 @@
     background-position: center 51%;
     border-right: 1px solid $header-color-border;
     cursor: pointer;
+
+    @media (max-width: 1024px) {
+      height: 68px;
+      margin-top: 0;
+    }
   }
 
   .nav {

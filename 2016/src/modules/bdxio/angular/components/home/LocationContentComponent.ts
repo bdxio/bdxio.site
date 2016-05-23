@@ -4,7 +4,7 @@ export class LocationContentComponent implements ng.IDirective {
         <section class="infos-location-content wrapper mb-wrapper force-space-top-30">
             <div class="row">
                  <div class="col-sm-12">
-                    <div class="row">
+                    <div>
                         <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
                             <h4 class="title text-white">A 10 minutes de <br> Bordeaux</h4>
                         </div>
