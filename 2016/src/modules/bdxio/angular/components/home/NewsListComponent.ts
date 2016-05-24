@@ -61,10 +61,10 @@ export class NewsListController {
                 </div>
               </div>
             </div>`,
-                position: {
-                    top: '20%',
-                    left: '30%'
-                },
+                // position: {
+                //     top: '10%',
+                //     left: '15%'
+                // },
                 fade: true
             }
         };
