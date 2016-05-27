@@ -3,21 +3,32 @@
 
 // ~ ==== General
 
-// ~ ==== FAQ Gold
+.faq {
+  padding-bottom: 30px;
 
-.faq-gold-content {
-  background-color: $gold;
+  .faq-container-sections {
+    padding-left: 30px;
+  }
+
+  .faq-question {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: $secondary;
+    cursor: pointer;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .faq-answer {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 26px
+  }
+
 }
-
-// ~ ==== FAQ Silver
-
-.faq-silver-content {
-  background-color: $silver;
-}
-
-// ~ ==== FAQ Bronze
-
-.faq-bronze-content {
-  background-color: $bronze;
-}
-

@@ -1,0 +1,56 @@
+// ~ TABS
+// ====================================================================== >
+
+// ~ ==== Nav Pills
+
+.nav-pills {
+  border-right: 1px solid #e3e3e3;
+  padding-right: 0;
+
+  @media screen and (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  li {
+    margin-top: 0 !important;
+    cursor: pointer;
+    border-bottom: 1px solid #e3e3e3;
+
+
+    @media screen and (max-width: 768px) {
+      display: inline-block;
+      border-bottom: none;
+      border-right: 1px solid #e3e3e3;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: $medium-grey;
+      transition: 240ms;
+      border-radius: 0 !important;
+      font-weight: bold;
+
+      &:hover, &:focus {
+        transition: 240ms;
+        background-color: $white-grey !important;
+        color: $primary;
+      }
+    }
+
+    &.active {
+
+      a {
+        background: $primary;
+        border-radius: 0;
+      }
+    }
+  }
+}
