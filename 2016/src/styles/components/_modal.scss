@@ -4,8 +4,9 @@
 // ~ ==== Morph Modal
 
 .modal-morph {
-  min-height: 100%;
-  min-width: 600px;
+  position: relative;
+  height: auto !important;
+  width: 650px;
   padding: 15px;
   padding-bottom: 100px;
   background-color: $primary;
@@ -19,10 +20,10 @@
     padding-top: 9px;
     text-align: center;
     text-shadow: none;
-    background-color: darken($primary, 30%);
+    background-color: darken($primary, 10%);
 
     &.glyphicon-remove {
-      color: white;
+      color: #ffffff;
 
       &:before {
         font-family: FontAwesome;
@@ -42,6 +43,19 @@
   .content-modal {
     line-height: 1.4;
     color: white;
+    height: 450px;
+    overflow-x: auto;
+
+    a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: underline;
+
+      &:hover {
+        transition: 240ms;
+        text-decoration: none;
+      }
+    }
 
     img {
       margin: 5px 0;
@@ -58,6 +72,7 @@
     position: absolute;
     height: auto;
     bottom: 0px;
+    left: 0;
     background-color: $secondary;
 
     .btn {

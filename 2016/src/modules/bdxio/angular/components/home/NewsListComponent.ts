@@ -44,8 +44,8 @@ export class NewsListController {
                 <div class="col-md-12 header-modal">
                     <div class="row">
                         <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${news.title}</h3>
-                        <div class="col-md-4">
-                            <span class="date-new text-white"><i class="fa fa-calendar-o space-right-5"></i> Billet du ${news.date}</span>
+                        <div class="col-md-4 text-right">
+                            <span class="date-new text-white inner-space-right-15"><i class="fa fa-calendar-o space-right-5"></i> Billet du ${news.date}</span>
                         </div>
                     </div>
                 </div>
@@ -55,11 +55,11 @@ export class NewsListController {
                         <img src="${news.picture}" style="${news.pictureStyles}">
                     </div>
                 </div>
-                <div class="col-md-12 footer-modal">
+              </div>
+              <!-- <div class="col-md-12 footer-modal">
                       <button class="btn btn-secondary btn-md has-icon-left float-left"><i class="fa fa-angle-left"></i>${news.title}</button>
                       <button class="btn btn-secondary btn-md has-icon-right float-right">${news.title}<i class="fa fa-angle-right"></i></button>
-                </div>
-              </div>
+              </div> !-->
             </div>`,
                 // position: {
                 //     top: '10%',
