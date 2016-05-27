@@ -3,17 +3,17 @@ export class FAQPageComponent implements ng.IDirective {
     public template: string = `
     <section class="faq wrapper">
             <div class="row">
-                <ul class="col-sm-3 nav nav-pills nav-stacked space-top-25">
-                  <li ng-class="{'active' : sectionSponsors}"><a ng-click="sectionSponsors = !sectionSponsors" ng-init="sectionSponsors = true">Sponsors</a></li>
-                  <li ng-class="{'active' : sectionSpeakers}"><a ng-click="sectionSpeakers = !sectionSpeakers">Speakers</a></li>
-                  <li ng-class="{'active' : sectionParticipants}"><a ng-click="sectionParticipants = !sectionParticipants">Participants</a></li>
-                  <li ng-class="{'active' : sectionJury}" ><a ng-click="sectionJury = !sectionJury">Jury</a></li>
+               <ul class="col-sm-3 nav nav-pills nav-stacked space-top-25">
+                    <li ng-class="{'active' : activeSection === 'sponsors'}"><a ng-click="activeSection = 'sponsors'" ng-init="activeSection = 'sponsors'">Sponsors</a></li>
+                    <li ng-class="{'active' : activeSection === 'speakers'}"><a ng-click="activeSection = 'speakers'">Speakers</a></li>
+                    <li ng-class="{'active' : activeSection === 'participants'}"><a ng-click="activeSection = 'participants'">Participants</a></li>
+                    <li ng-class="{'active' : activeSection === 'jury'}" ><a ng-click="activeSection = 'jury'">Jury</a></li>
                 </ul>
 
                 <div class="col-sm-9 faq-container-sections">
 
                     <!-- START FAQ Sponsors !-->
-                    <div ng-show="sectionSponsors" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'sponsors'" class="faq-content section-sponsors">
                         <h1 class="section-title text-primary">Sponsors</h1>
                         <h4 class="space-bottom-20">L’association BDX.IO, organisatrice de l’événement,
                         est composée exclusivement de bénévoles dont l’ambition est de créer
@@ -30,7 +30,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Sponsors !-->
 
                     <!-- START FAQ Speakers !-->
-                    <div ng-show="sectionSpeakers" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'speakers'" class="faq-content section-sponsors">
                         <h1 class="section-title text-primary">Speakers</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux speakers.</h4>
 
@@ -96,7 +96,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Speakers !-->
 
                      <!-- START FAQ Participants !-->
-                    <div ng-show="sectionParticipants" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'participants'" class="faq-content section-sponsors">
                         <h1 class="section-title text-primary">Participants</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux participants.</h4>
 
@@ -171,7 +171,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Participants !-->
 
                      <!-- START FAQ Jury !-->
-                    <div ng-show="sectionJury" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'jury'" class="faq-content section-sponsors">
                         <h1 class="section-title text-primary">Jury</h1>
                         <h4 class="space-bottom-20">Nous avons, comme pour l'édition précédente, sollicité les membres des différentes communautés techniques
                         bordelaises pour constituer le jury bdx.io. Le rôle des membres du jury est
