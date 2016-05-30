@@ -1,6 +1,7 @@
 var loaders = require("./loaders");
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
     entry: ['./src/index.ts'],
@@ -22,6 +23,9 @@ module.exports = {
             inject: 'body',
             hash: true
         }),
+        new CopyWebpackPlugin([
+            { from: './src/static', to: 'static' }
+        ]),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 8080,
