@@ -15,6 +15,7 @@ import {PartnersPageComponent} from "./components/partners/PartnersPageComponent
 import {PartnersListComponent} from "./components/partners/PartnersListComponent";
 import {FAQPageComponent} from "./components/faq/FAQPageComponent";
 import {CarouselComponent} from "./components/carousel/CarouselComponent";
+import {ErrorSourceComponent} from "./components/util/ErrorSourceComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -27,6 +28,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("partnersPage", new PartnersPageComponent())
     .component("faqPage", new FAQPageComponent())
 
+    .directive("errSrc", () => new ErrorSourceComponent())
     .directive("attendeesList", () => new AttendeesListComponent())
     .directive("partnersList", () => new PartnersListComponent())
     .directive("carousel", () => new CarouselComponent())
