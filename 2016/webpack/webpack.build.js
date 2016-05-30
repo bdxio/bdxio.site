@@ -1,5 +1,6 @@
 var loaders = require("./loaders");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
@@ -24,6 +25,9 @@ module.exports = {
                 comments: false
             }
         ),
+        new CopyWebpackPlugin([
+            { from: './src/static', to: 'static' }
+        ]),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body',
