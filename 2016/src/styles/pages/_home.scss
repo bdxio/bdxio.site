@@ -93,7 +93,24 @@
   background-color: $white-grey;
 
   li button:before { font-size: 13px !important;}
-  li.slick-active button:before { color: $secondary !important;}
+
+  li.slick-active button {
+   &:before {
+     color: $secondary !important;
+   }
+  }
+
+  li button:hover,
+  li button:focus  {
+    &:before {
+      color: $primary !important;
+    }
+  }
+
+  li.slick-active button:hover,
+  li.slick-active button:focus  {
+    cursor: default;
+  }
 }
 
 // ~ ==== Summary home
