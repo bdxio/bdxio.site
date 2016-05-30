@@ -60,7 +60,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                 <a ng-class="{select: $ctrl.selectedMenu=='faq'}" ng-click="$ctrl.selectMenu('faq')">FAQ</a>
                             </li>
                             <li>
-                                <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
+                                <a href="http://appv2.voxxr.in/#/events" target="_blank">Programme</a>
                             </li>
                             <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
                                 ng-click="$ctrl.openRegistrationPopup()">
