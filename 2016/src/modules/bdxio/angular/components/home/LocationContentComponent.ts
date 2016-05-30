@@ -71,10 +71,10 @@ export class LocationContentComponent implements ng.IDirective {
                  <div class="stats col-sm-12 space-top-30 space-bottom-35">
                     <div class="row text-center">
                        <h2 class="text-secondary">
-                           <strong class="text-primary">300</strong> PARTICIPANTS, DONT
-                           <strong class="text-primary">27</strong> ÉTUDIANTS,
-                           <strong class="text-primary">43</strong> TALKS ET
-                           <strong class="text-primary">42</strong> SPEAKERS
+                           <strong class="text-primary">+ de 350</strong> PARTICIPANTS, DONT
+                           <strong class="text-primary">68</strong> ÉTUDIANTS,
+                           <strong class="text-primary">58</strong> TALKS ET
+                           <strong class="text-primary">59</strong> SPEAKERS
                        </h3>
                     </div>
                  </div>
