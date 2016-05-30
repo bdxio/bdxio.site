@@ -16,6 +16,7 @@ import {PartnersListComponent} from "./components/partners/PartnersListComponent
 import {FAQPageComponent} from "./components/faq/FAQPageComponent";
 import {CarouselComponent} from "./components/carousel/CarouselComponent";
 import {ErrorSourceComponent} from "./components/util/ErrorSourceComponent";
+import {ConferenceLocationComponent} from "./components/util/ConferenceLocationComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -32,6 +33,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .directive("attendeesList", () => new AttendeesListComponent())
     .directive("partnersList", () => new PartnersListComponent())
     .directive("carousel", () => new CarouselComponent())
+    .directive("conferenceLocation", () => new ConferenceLocationComponent())
 
     .service("ISharedModel", SharedModel)
 

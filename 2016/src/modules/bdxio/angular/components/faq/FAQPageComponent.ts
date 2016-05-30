@@ -159,13 +159,7 @@ export class FAQPageComponent implements ng.IDirective {
                             <br>
                             <br>
                             Voici un plan d'accès :
-
-                             <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJv4tyl4HYVA0RLvkdcxUEhOw&key=AIzaSyDg2ljVHAdQPTt8kJgK-EAmdljqZzV_fXs"
-                                      width="100%" height="400px"
-                                      frameborder="0"
-                                      style="border:0"
-                                      allowfullscreen>
-                              </iframe>
+                             <conference-location></conference-location>
                         </span>
                     </div>
                     <!-- END FAQ Participants !-->

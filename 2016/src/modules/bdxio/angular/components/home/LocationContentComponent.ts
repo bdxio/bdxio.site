@@ -1,6 +1,6 @@
 export class LocationContentComponent implements ng.IDirective {
-    public controller: Function = LocationContentController;
-    public template: string = `
+    public controller:Function = LocationContentController;
+    public template:string = `
         <section class="infos-location-content wrapper mb-wrapper force-space-top-30">
             <div class="row">
                  <div class="col-sm-12">
@@ -39,12 +39,7 @@ export class LocationContentComponent implements ng.IDirective {
             </div>
 
             <div class="col-sm-12 col-md-6 no-padding map">
-              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJv4tyl4HYVA0RLvkdcxUEhOw&key=AIzaSyDg2ljVHAdQPTt8kJgK-EAmdljqZzV_fXs"
-                      width="100%" height="100%"
-                      frameborder="0"
-                      style="border:0"
-                      allowfullscreen>
-              </iframe>
+              <conference-location></conference-location>
             </div>
         </section>
 
@@ -88,7 +83,7 @@ export class LocationContentComponent implements ng.IDirective {
     `
 }
 export class LocationContentController {
-    public static $inject: Array<string> = [];
+    public static $inject:Array<string> = [];
 
     constructor() {
     }
