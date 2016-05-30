@@ -39,11 +39,11 @@ export class LocationContentComponent implements ng.IDirective {
             </div>
 
             <div class="col-sm-12 col-md-6 no-padding map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11316.506533089103!2d-0.6488516!3d44.8393544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1457533369309"
-              width="100%" height="100%"
-              frameborder="0"
-              style="border:0"
-              allowfullscreen>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJv4tyl4HYVA0RLvkdcxUEhOw&key=AIzaSyDg2ljVHAdQPTt8kJgK-EAmdljqZzV_fXs"
+                      width="100%" height="100%"
+                      frameborder="0"
+                      style="border:0"
+                      allowfullscreen>
               </iframe>
             </div>
         </section>
