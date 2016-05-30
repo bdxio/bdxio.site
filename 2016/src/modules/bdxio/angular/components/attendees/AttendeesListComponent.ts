@@ -83,7 +83,10 @@ export class AttendeesListController {
               <div class="row">
                 <div class="col-md-12 header-modal">
                     <div class="row">
-                        <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${attendee.firstName} ${attendee.lastName}</h3>
+                        <div class="col-md-3">
+                            <img ng-src="${attendee.avatarUrl}" width="100px" err-src="https://cdn.rawgit.com/bdxio/static/master/default-avatar.png">
+                        </div>
+                        <h3 class="col-md-5 text-white highlight-text-bold force-inner-space-left-30 title">${attendee.firstName} ${attendee.lastName}</h3>
                         <div class="col-md-4 text-right">
                             <span class="date-new text-white inner-space-right-15" ng-show="${attendee.company != null}">
                                 <i class="fa fa-building-o space-right-5"></i>${attendee.company}
@@ -92,6 +95,7 @@ export class AttendeesListController {
                     </div>
                 </div>
                 <div class="col-md-12 content-modal">
+                    <p>&nbsp;</p>
                     <p class="desc-attendees">${attendee.bio}</p>
                 </div>
               </div>
