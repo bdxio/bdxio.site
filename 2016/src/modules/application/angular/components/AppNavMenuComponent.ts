@@ -62,7 +62,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <li>
                                 <a ng-class="{select: $ctrl.selectedMenu=='prog'}" ng-click="$ctrl.selectMenu('prog')">Programme</a>
                             </li>
-                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}"
+                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
                                 ng-click="$ctrl.openRegistrationPopup()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Acheter un billet</span><br>
@@ -74,12 +74,12 @@ export class AppNavMenuComponent implements ng.IDirective {
                                 </div>
                             </li>
 
-                            <!-- TODO Connect btn -->
-                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"}">
+                            <li class="btn-cfp-link" ng-class="{ open: $ctrl.config.cfpOpened=='1' }"
+                                ng-click="$ctrl.openCFPAsTab()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Proposer un talk</span><br>
-                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='0'">CFP Fermés</span>
-                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='1'">CFP Ouvert</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.cfpOpened=='0'">CFP Fermé</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.cfpOpened=='1'">CFP Ouvert</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
                                    <i class="fa fa-commenting-o"></i>
@@ -135,6 +135,12 @@ export class AppNavMenuController {
             var url = 'https://www.weezevent.com/widget_billeterie.php?id_evenement=178103&lg_billetterie=1&code=20244&width_auto=1&color_primary=00AEEF';
             var w = window.open(url, 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no');
             w.focus();
+        }
+    }
+
+    public openCFPAsTab() {
+        if (this.config.cfpOpened == "1") {
+            window.open('https://cfp.bdx.io', '_blank');
         }
     }
 }

@@ -20,7 +20,8 @@ export interface ITypedCompaniesByType {
 
 export interface IConfig {
     livestreamEnabled: string,
-    registrationOpened: string
+    registrationOpened: string,
+    cfpOpened: string
 }
 
 export interface ISharedModelData {
