@@ -12,7 +12,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                  </button>
                  <ul class="header-list-networks">
                      <li class="item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
-                     <li class="item-networks"><a href="http://lanyrd.com/2015/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                     <li class="item-networks"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
                      <li class="item-networks"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
                      <li class="item-networks"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
                  </ul>

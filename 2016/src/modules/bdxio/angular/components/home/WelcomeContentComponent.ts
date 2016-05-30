@@ -13,7 +13,7 @@ export class WelcomeContentComponent implements ng.IDirective {
                         <a class="link link-white" href="http://www.voxxr.in/" target="_blank">Voxxrin</a> (en web, sur android, et sur iPhone).
                         <br>
                         <br>
-                        Vous pouvez également visiter la page <a class="link link-white" href="http://lanyrd.com/2015/bdxio/" target="_blank">Lanyrd</a> de l'évènement.
+                        Vous pouvez également visiter la page <a class="link link-white" href="http://lanyrd.com/2016/bdxio/" target="_blank">Lanyrd</a> de l'évènement.
                      </h4>
                 </div>
 
