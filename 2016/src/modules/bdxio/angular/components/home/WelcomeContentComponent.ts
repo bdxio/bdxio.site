@@ -18,7 +18,7 @@ export class WelcomeContentComponent implements ng.IDirective {
                 </div>
 
                 <button type="button" class="btn-view-talks btn btn-primary btn-xlg has-icon-left ">
-                     <i class="fa fa-play"></i>Vidéos des talks 2014
+                     <i class="fa fa-play"></i>Vidéos des talks 2015
                 </button>
             </div>
         </section>

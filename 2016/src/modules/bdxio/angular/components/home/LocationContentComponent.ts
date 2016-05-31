@@ -53,12 +53,12 @@ export class LocationContentComponent implements ng.IDirective {
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
                             <i class="fa fa-calendar-o"></i>
-                            <h4 class="title text-white"><br> LE 17 OCTOBRE 2014<br> <br></h4>
+                            <h4 class="title text-white"><br> LE 21 OCTOBRE 2016<br> <br></h4>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
                            <i class="fa fa-commenting"></i>
-                            <h4 class="title text-white">SDBX4, <br> UN ÉVÈNEMENT DE LA SEMAINE DIGITALE</h4>
+                            <h4 class="title text-white">SDBX5, <br> UN ÉVÈNEMENT DE LA SEMAINE DIGITALE</h4>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-4 item-conf">
@@ -71,7 +71,7 @@ export class LocationContentComponent implements ng.IDirective {
                  <div class="stats col-sm-12 space-top-30 space-bottom-35">
                     <div class="row text-center">
                        <h2 class="text-secondary">
-                           <strong class="text-primary">+ de 350</strong> PARTICIPANTS, DONT
+                           <strong class="text-primary">+ de 500</strong> PARTICIPANTS, DONT
                            <strong class="text-primary">68</strong> ÉTUDIANTS,
                            <strong class="text-primary">58</strong> TALKS ET
                            <strong class="text-primary">59</strong> SPEAKERS
