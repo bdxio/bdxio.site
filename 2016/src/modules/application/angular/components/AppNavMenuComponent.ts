@@ -20,16 +20,16 @@ export class AppNavMenuComponent implements ng.IDirective {
              <nav class="navbar navbar-inverse" role="navigation">
                 <div class="header-container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="#"></a>
                     </div>
 
-                    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
+                            <li class="dropdown collapse">
                                 <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('partner')}"
                                     data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="true">
