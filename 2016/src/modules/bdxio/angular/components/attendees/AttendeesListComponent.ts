@@ -23,7 +23,7 @@ export class AttendeesListComponent implements ng.IDirective {
                 </div>
                 <ul>
                     <li class="col-sm-6 col-md-4 col-lg-3 text-left item-attendees" ng-repeat="attendee in $ctrl.attendees">
-                        <span class="content-attendees">
+                        <span class="content-attendees" ng-morph-modal="$ctrl.createAttendeeDetailsSettings(attendee)">
                             <span class="company-affiliate" ng-show="attendee.companyLogo">
                                 <img ng-src="{{attendee.companyLogo}}"
                                      err-src="https://cdn.rawgit.com/bdxio/static/master/default-company-logo.png">
@@ -35,8 +35,7 @@ export class AttendeesListComponent implements ng.IDirective {
                             </span>
 
                             <span class="view-details">
-                                <button type="button" class="btn-round btn btn-white btn-r-medium"
-                                        ng-morph-modal="$ctrl.createAttendeeDetailsSettings(attendee)">
+                                <button type="button" class="btn-round btn btn-white btn-r-medium">
                                     <i class="fa fa-eye"></i>
                                 </button>
                             </span>

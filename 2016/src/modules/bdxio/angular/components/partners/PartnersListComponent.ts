@@ -22,9 +22,9 @@ export class PartnersListComponent implements ng.IDirective {
                 </div>
                 <ul class="row">
                     <li class="item-partner col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="partner in $ctrl.partnersByType.companies">
-                        <div class="content-partner {{partner.type}}">
+                        <div class="content-partner {{partner.type}}" ng-morph-modal="$ctrl.createPartnerDetailsSettings(partner)">
                             <img ng-src="{{partner.imgSrc}}">
-                            <div class="content-infos-partner" ng-morph-modal="$ctrl.createPartnerDetailsSettings(partner)">
+                            <div class="content-infos-partner">
                                 <span class="name-partner">{{partner.name}}</span>
                             </div>
                         </div>
