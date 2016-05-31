@@ -14,7 +14,7 @@ export class PartnersListComponent implements ng.IDirective {
     // columnFields de partners
     public template:string = `
         <div class="wrapper">
-            <div class="row">
+            <div class="row" id="{{$ctrl.partnersByType.type}}">
               <div class="col-sm-12">
                     <h1 class="section-title text-primary space-top-40 inner-space-left-20 space-bottom-40 {{$ctrl.partnersByType.type}}">
                         {{$ctrl.partnersByType.type}}

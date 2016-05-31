@@ -5,7 +5,7 @@ import {IFriend} from "../../../models/int/IFriend";
 export class PartnersPageComponent implements ng.IDirective {
     public controller:Function = PartnersPageController;
     public template:string = `
-        <section class="partners wrapper">
+        <section id="partners" class="partners wrapper">
             <div class="row">
                 <div class="col-sm-12">
                      <h2 class="text-white highlight-text-bold">Partenaires</h2>
@@ -31,7 +31,7 @@ export class PartnersPageComponent implements ng.IDirective {
         <partners-list partners-by-type="$ctrl.partnersByType.gold" />
         <partners-list partners-by-type="$ctrl.partnersByType.silver" />
         <partners-list partners-by-type="$ctrl.partnersByType.bronze" />
-        <section class="friends wrapper">
+        <section id="friends" class="friends wrapper">
             <div class="row">
                 <div class="col-sm-12">
                      <h2 class="text-white highlight-text-bold">Amis</h2>
