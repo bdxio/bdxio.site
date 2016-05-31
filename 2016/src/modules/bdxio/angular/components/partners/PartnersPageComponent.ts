@@ -1,8 +1,9 @@
 import {ISharedModel, ITypedCompaniesByType} from "../../../models/int/ISharedModel";
+import {BDXIORootScope} from "../../../../application/angular/index";
 
 export class PartnersPageComponent implements ng.IDirective {
-    public controller: Function = PartnersPageController;
-    public template: string = `
+    public controller:Function = PartnersPageController;
+    public template:string = `
         <section class="partners wrapper">
             <div class="row">
                 <div class="col-sm-12">
@@ -20,7 +21,8 @@ export class PartnersPageComponent implements ng.IDirective {
                      </h4>
                 </div>
 
-                <button type="button" class="btn-view-talks btn btn-primary btn-xlg has-icon-left ">
+                <button type="button" class="btn-view-talks btn btn-primary btn-xlg has-icon-left"
+                        ng-click="$ctrl.$rootScope.goto('/faq', 'sponsoring')">
                     <i class="fa fa-question-circle"></i>Comment devenir partenaire ?
                 </button>
             </div>
@@ -31,11 +33,12 @@ export class PartnersPageComponent implements ng.IDirective {
     `
 }
 export class PartnersPageController {
-    public static $inject: Array<string> = ['ISharedModel'];
-    
-    private partnersByType: ITypedCompaniesByType;
 
-    constructor(sharedModel: ISharedModel) {
+    public static $inject:Array<string> = ['$rootScope', 'ISharedModel',];
+
+    private partnersByType:ITypedCompaniesByType;
+
+    constructor(private $rootScope:BDXIORootScope, sharedModel:ISharedModel) {
         sharedModel.dataLoaded.then(() => {
             this.partnersByType = sharedModel.data.partners;
         });
