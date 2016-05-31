@@ -17,10 +17,9 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            CSS, Ergonomie & Design.
+                            <br>
+                            Experience utilisateur.
                         </h5>
                     </div>
                 </div>
@@ -35,10 +34,11 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            Frameworks côté serveur.
+                             <br>
+                            Cloud.
+                            <br>
+                            Base de données NoSQL.
                         </h5>
                     </div>
                 </div>
@@ -53,10 +53,11 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            Frameworks côté client.
+                            <br>
+                            Application web / mobiles (hybrides, natives) / progressives.
+                            <br>
+                            Outillage pour les jeux vidéos.
                         </h5>
                     </div>
                 </div>
@@ -71,10 +72,9 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            Outillage pour la productivité.
+                             <br>
+                            Outillage pour le build. IDE.
                         </h5>
                     </div>
                 </div>
@@ -89,10 +89,7 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            A la recherche des idées disruptives au service du monde de demain.
                         </h5>
                     </div>
                 </div>
@@ -107,10 +104,9 @@ export class SummaryContentComponent implements ng.IDirective {
 
                     <div class="container-text-summary">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                            Méthodologie comme SCRUM ou Kanban.
+                            <br>
+                            Principes d'artitecture.
                         </h5>
                     </div>
                 </div>
