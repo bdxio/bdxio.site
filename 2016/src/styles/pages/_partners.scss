@@ -3,7 +3,7 @@
 
 // ~ ==== Partners
 
-.partners {
+.partners, .friends {
   position: relative;
   height: auto;
   width: 100%;
@@ -21,12 +21,13 @@
   }
 }
 
-.item-partner {
+
+.item-partner, .item-friend {
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 20px;
 
-  .content-partner {
+  .content-partner, .content-friend {
     position: relative;
     height: 200px;
     width: 85%;
@@ -47,7 +48,7 @@
     }
 
     &:hover, &:focus {
-      .content-infos-partner {
+      .content-infos-partner, .content-infos-friend {
         transition: 240ms;
         bottom: 0;
       }
@@ -65,7 +66,9 @@
       .content-infos-partner { background: $bronze;}
     }
 
-    .content-infos-partner {
+    .content-infos-friend { background: $silver;}
+
+    .content-infos-partner, .content-infos-friend {
       transition: 240ms;
       position: absolute;
       bottom: -42px;
@@ -75,7 +78,7 @@
       padding: 10px;
       overflow: hidden;
 
-      .name-partner {
+      .name-partner, .name-friend {
         display: inline-block;
         vertical-align: middle;
         width: 100%;
