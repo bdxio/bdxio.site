@@ -128,6 +128,11 @@
     border-right: 1px solid $header-color-border;
     cursor: pointer;
 
+    @media (max-width: 568px) {
+      width: 130px;
+      background-size: 100px;
+    }
+
     @media (max-width: 1024px) {
       height: 68px;
       margin-top: 0;
