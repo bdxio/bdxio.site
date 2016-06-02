@@ -127,3 +127,19 @@ button[type='file'] {
     color: white;
   }
 }
+
+.btn-collapse-header {
+  font-size: 19px;
+  padding: 0 !important;
+  color: white;
+  background-color: $primary;
+  box-shadow: none;
+  margin-top: 18px;
+
+  @media (min-width: 1072px) {display: none;}
+
+  &.open {
+    background-color: #60AAEC;
+    color: white;
+  }
+}

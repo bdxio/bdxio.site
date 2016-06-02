@@ -103,16 +103,7 @@
             }
 
             .btn-buy-ticket, .btn-cfp-link {
-              display: inline-block;
-              width: 100%;
-              border-bottom: 1px solid darken($primary, 5%) !important;
-              height: 70px;
-              border: none;
-              float: right;
-
-              &.open {
-                border-bottom: 1px solid darken(#60AAEC, 5%) !important;
-              }
+              display: none;
             }
           }
         }
@@ -371,4 +362,12 @@
   .collapsing {
     overflow: hidden!important;
   }
+}
+
+.no-transition {
+  -webkit-transition: height 0.01s;
+  -moz-transition: height 0.01s;
+  -ms-transition: height 0.01s;
+  -o-transition: height 0.01s;
+  transition: height 0.01s;
 }

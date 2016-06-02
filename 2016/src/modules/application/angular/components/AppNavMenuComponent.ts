@@ -24,10 +24,20 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
+                        <button ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
+                                ng-click="$ctrl.openRegistrationPopup()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-ticket"></i>
+                        </button>
+                          <button ng-class="{ open: $ctrl.config.cfpOpened=='1' }"
+                                ng-click="$ctrl.openCFPAsTab()" type="button" class=" btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-commenting-o"></i>
+                        </button>
                         <a class="navbar-brand" href="#"></a>
                     </div>
 
-                    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-collapse collapse  no-transition" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="dropdown collapse">
                                 <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('partner')}"

@@ -49,18 +49,20 @@ export class PartnersListController {
               <div class="row">
                 <div class="col-md-12 header-modal">
                     <div class="row">
-                        <div class="col-md-3">
-                            <img ng-src="${partner.imgSrc}" width="150px" style="background-color: white"
-                                 err-src="https://cdn.rawgit.com/bdxio/static/master/default-company-logo.png">
+                        <div class="col-md-3 text-center">
+                            <span class="avatar-entity">
+                                <img ng-src="${partner.imgSrc}" width="150px" style="background-color: white"
+                                         err-src="https://cdn.rawgit.com/bdxio/static/master/default-company-logo.png">
+                            </span>
                         </div>
-                        <h3 class="col-md-5 text-white highlight-text-bold force-inner-space-left-30 title">${partner.name}</h3>
-                        <div class="col-md-4 text-right">
-                            <i class="fa fa-building-o space-right-5"></i><a href="${partner.website}" target="_blank">Site</a>
-                        </div>
+                        <h3 class="col-md-9 text-white highlight-text-bold force-inner-space-left-30 title">
+                        ${partner.name}<br>
+                        <i class="fa fa-link space-right-5" aria-hidden="true"></i><a href="${partner.website}" target="_blank">Site</a>
+                        </h3>
+
                     </div>
                 </div>
                 <div class="col-md-12 content-modal">
-                    <p>&nbsp;</p>
                     <p class="desc-attendees">${partner.description}</p>
                 </div>
               </div>
