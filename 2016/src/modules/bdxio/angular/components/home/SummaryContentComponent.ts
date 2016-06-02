@@ -16,11 +16,11 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             CSS, Ergonomie & Design.
                             <br>
                             Experience utilisateur.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
 
@@ -33,13 +33,13 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             Frameworks côté serveur.
                              <br>
                             Cloud.
                             <br>
                             Base de données NoSQL.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
 
@@ -52,13 +52,13 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             Frameworks côté client.
                             <br>
                             Application web / mobiles (hybrides, natives) / progressives.
                             <br>
                             Outillage pour les jeux vidéos.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
 
@@ -71,11 +71,11 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             Outillage pour la productivité.
                              <br>
                             Outillage pour le build. IDE.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
 
@@ -88,9 +88,9 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             A la recherche des idées disruptives au service du monde de demain.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
 
@@ -103,11 +103,11 @@ export class SummaryContentComponent implements ng.IDirective {
                     </div>
 
                     <div class="container-text-summary">
-                        <h5>
+                        <h4>
                             Méthodologie comme SCRUM ou Kanban.
                             <br>
                             Principes d'artitecture.
-                        </h5>
+                        </h4>
                     </div>
                 </div>
             </div>
