@@ -13,7 +13,7 @@ export class FAQPageComponent implements ng.IDirective {
                 <div class="col-sm-9 faq-container-sections">
 
                     <!-- START FAQ Sponsors !-->
-                    <div ng-show="activeSection === 'sponsors'" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'sponsors'" class="faq-content section-sponsors" ng-init="questionSponsors1 = true">
                         <h1 class="section-title text-primary">Sponsors</h1>
                         <h4 class="space-bottom-20">L’association BDX.IO, organisatrice de l’événement,
                         est composée exclusivement de bénévoles dont l’ambition est de créer
@@ -30,7 +30,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Sponsors !-->
 
                     <!-- START FAQ Speakers !-->
-                    <div ng-show="activeSection === 'speakers'" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'speakers'" class="faq-content section-sponsors" ng-init="questionSpeakers1 = true">
                         <h1 class="section-title text-primary">Speakers</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux speakers.</h4>
 
@@ -96,7 +96,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Speakers !-->
 
                      <!-- START FAQ Participants !-->
-                    <div ng-show="activeSection === 'participants'" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'participants'" class="faq-content section-sponsors" ng-init="questionParticipants1 = true">
                         <h1 class="section-title text-primary">Participants</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux participants.</h4>
 
@@ -165,7 +165,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Participants !-->
 
                      <!-- START FAQ Jury !-->
-                    <div ng-show="activeSection === 'jury'" class="faq-content section-sponsors">
+                    <div ng-show="activeSection === 'jury'" class="faq-content section-sponsors" ng-init="questionJury1 = true">
                         <h1 class="section-title text-primary">Jury</h1>
                         <h4 class="space-bottom-20">Nous avons, comme pour l'édition précédente, sollicité les membres des différentes communautés techniques
                         bordelaises pour constituer le jury bdx.io. Le rôle des membres du jury est
@@ -189,7 +189,7 @@ export class FAQPageComponent implements ng.IDirective {
                         </span>
 
                         <span class="faq-question" ng-click="questionJury2 = !questionJury2">
-                        <i class="fa" ng-class="{'fa-minus-circle' : questionJury1, 'fa-plus-circle' : !questionJury1}"></i>Quel est le processus de selection ?</span>
+                        <i class="fa" ng-class="{'fa-minus-circle' : questionJury2, 'fa-plus-circle' : !questionJury2}"></i>Quel est le processus de selection ?</span>
                         <span class="faq-answer" ng-show="questionJury2">
                            Les membres du jury sont tous membres des différentes communautés techniques bordelaises.
                            Ils ont pour mission de selectionner, au travers de leurs votes sur le CFP, les talks qui seront au programme de l'édition 2015 de bdx.io.
