@@ -29,17 +29,24 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-ticket"></i>
                         </button>
-                          <button ng-class="{ open: !$ctrl.isCfpClosed() }"
+                        <button ng-class="{ open: !$ctrl.isCfpClosed() }"
                                 ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpClosed() || $ctrl.isCfpOpened()"></i>
                             <i class="fa fa-calendar" ng-if="$ctrl.isProgramFenced()"></i>
+                        </button>
+                        <button ng-click="$ctrl.selectMenu('home')" type="button"
+                                class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <i class="fa fa-home"></i>
                         </button>
                         <a class="navbar-brand" href="#"></a>
                     </div>
 
                     <div class="navbar-collapse collapse  no-transition" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
+                            <li class="btn-home">
+                                <a ng-class="{select: $ctrl.selectedMenu=='home'}" ng-click="$ctrl.selectMenu('home')"><i class="fa fa-home"></i></a>
+                            </li>
                             <li class="dropdown collapse">
                                 <a href="#" class="dropdown-toggle" ng-class="{select: $ctrl.selectedMenuContains('partner')}"
                                     data-toggle="dropdown" role="button"
@@ -81,7 +88,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
-                                <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
+                            <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span ng-if="$ctrl.isCfpOpened() || $ctrl.isCfpClosed()">Proposer un talk</span>
                                     <span ng-if="$ctrl.isProgramFenced()">Consulter</span><br>
@@ -117,6 +124,7 @@ export class AppNavMenuController {
         'participant-orgas': { path: '/attendees', targetAnchorName: 'orgas' },
         'faq': { path: '/faq' },
         'prog': { path: '/prog' },
+        'home': { path: '/' },
     };
 
     public static $inject = ["$rootScope", "ISharedModel"];

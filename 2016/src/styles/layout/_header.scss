@@ -262,6 +262,10 @@
       }
     }
 
+    .btn-home {
+      i { font-size: 21px;}
+    }
+
     .btn-buy-ticket, .btn-cfp-link {
       border-right: 1px solid darken($primary, 5%) !important;
       background-color: $primary;
