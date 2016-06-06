@@ -74,7 +74,9 @@ export class SummaryContentComponent implements ng.IDirective {
                         <h4>
                             Outillage pour la productivité.
                              <br>
-                            Outillage pour le build. IDE.
+                            Outillage pour le build.
+                             <br>
+                            IDE.
                         </h4>
                     </div>
                 </div>
