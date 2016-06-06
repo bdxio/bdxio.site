@@ -153,7 +153,7 @@ export class SharedModel implements ISharedModel {
             dataField: "news",
             descriptor: new SpreadsheetReaderDescriptor({
                 firstRow: 2,
-                columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "content", "F": "picture", "G": "pictureStyles"},
+                columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "thumbnail", "F": "content", "G": "picture", "H": "pictureStyles"},
                 fieldsRequiredToConsiderFilledRow: [ "title" ]
             })
         }),

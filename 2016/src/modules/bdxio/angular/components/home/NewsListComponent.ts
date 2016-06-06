@@ -7,7 +7,7 @@ export class NewsListComponent implements ng.IDirective {
             <carousel elements="$ctrl.availableNews">
                 <li class="item-new" ng-repeat="newsItem in $ctrl.availableNews">
                     <div class="container-img">
-                        <img src="https://i.ytimg.com/vi/GtAfp55gBeQ/maxresdefault.jpg">
+                        <img ng-src="{{ newsItem.thumbnail }}" err-src="https://i.ytimg.com/vi/GtAfp55gBeQ/maxresdefault.jpg">
                     </div>
     
                     <div class="content-title-new">

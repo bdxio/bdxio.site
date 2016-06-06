@@ -7,7 +7,8 @@ export class News implements INews {
     title: string;
     date: string;
     content: string;
-    
+
+    thumbnail:string;
     picture: string;
     pictureStyles: string;
     

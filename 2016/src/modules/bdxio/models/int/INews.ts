@@ -6,6 +6,7 @@ export interface INews {
     date: string;
     content: string;
     
+    thumbnail: string;
     picture: string;
     pictureStyles?: string;
 }
