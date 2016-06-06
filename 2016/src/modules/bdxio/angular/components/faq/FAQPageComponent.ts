@@ -24,7 +24,7 @@ export class FAQPageComponent implements ng.IDirective {
                         <span class="faq-question" ng-click="questionSponsors1 = !questionSponsors1">
                         <i class="fa" ng-class="{'fa-minus-circle' : questionSponsors1, 'fa-plus-circle' : !questionSponsors1}"></i>Quelles sont les règles de participation ?</span>
                         <span class="faq-answer" ng-show="questionSponsors1">
-                            La plaquette est disponible au téléchargement <a href="/contents/33c7674d.Plaquette-2015.pdf" target="_blank">ici</a>.
+                            La plaquette est disponible au téléchargement <a href="static/plaquette2016.pdf" target="_blank">ici</a>.
                         </span>
                     </div>
                     <!-- END FAQ Sponsors !-->
