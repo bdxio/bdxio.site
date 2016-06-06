@@ -7,7 +7,7 @@ module.exports = {
     entry: ['./src/index.ts'],
     output: {
         filename: 'build.js',
-        path: 'dist-build'
+        path: 'dist'
     },
     devtool: 'source-map',
     resolve: {

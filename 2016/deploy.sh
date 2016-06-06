@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build the content of the website into dist-build folder
-rm -rf dist-build
+rm -rf dist
 webpack --config webpack/webpack.build.js --NODE_ENV=production
 
 # Cloning master branch (GH PAGES) into gh-pages folder
@@ -9,7 +9,7 @@ git clone -b master git@github.com:bdxio/bdxio.github.io.git gh-pages/
 cd gh-pages
 
 # Move dist-build into gh-pages/2016 folder (temporarly)
-mv ../dist-build 2016
+cp -fR ../dist/* 2016/
 
 # Add new resources
 git add 2016
@@ -23,4 +23,5 @@ cd ..
 
 # Clean generated folders
 rm -rf gh-pages
+rm -rf dist
 
