@@ -29,10 +29,11 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-ticket"></i>
                         </button>
-                          <button ng-class="{ open: $ctrl.config.cfpOpened=='1' }"
-                                ng-click="$ctrl.openCFPAsTab()" type="button" class=" btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <button ng-class="{ open: !$ctrl.isCfpClosed() }"
+                                ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
-                            <i class="fa fa-commenting-o"></i>
+                            <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpClosed() || $ctrl.isCfpOpened()"></i>
+                            <i class="fa fa-calendar" ng-if="$ctrl.isProgramFenced()"></i>
                         </button>
                         <a class="navbar-brand" href="#"></a>
                     </div>
@@ -69,9 +70,6 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <li>
                                 <a ng-class="{select: $ctrl.selectedMenu=='faq'}" ng-click="$ctrl.selectMenu('faq')">FAQ</a>
                             </li>
-                            <li>
-                                <a href="http://appv2.voxxr.in/#/events" target="_blank">Programme</a>
-                            </li>
                             <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
                                 ng-click="$ctrl.openRegistrationPopup()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
@@ -83,16 +81,19 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
-
-                            <li class="btn-cfp-link" ng-class="{ open: $ctrl.config.cfpOpened=='1' }"
-                                ng-click="$ctrl.openCFPAsTab()">
+                                <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
-                                    <span>Proposer un talk</span><br>
-                                    <span class="status-sale" ng-show="$ctrl.config.cfpOpened=='0'">CFP Fermé</span>
-                                    <span class="status-sale" ng-show="$ctrl.config.cfpOpened=='1'">CFP Ouvert</span>
+                                    <span ng-if="$ctrl.isCfpOpened() || $ctrl.isCfpClosed()">Proposer un talk</span>
+                                    <span ng-if="$ctrl.isProgramFenced()">Consulter</span><br>
+                                    <span class="status-sale" ng-if="$ctrl.isCfpClosed()">CFP Fermé</span>
+                                    <span class="status-sale" ng-if="$ctrl.isCfpOpened()">CFP Ouvert</span>
+                                    <span class="status-sale" ng-if="$ctrl.isProgramFenced()">Programme</span>
                                 </div>
-                                <div class="col-xs-6 col-sm-4">
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
                                    <i class="fa fa-commenting-o"></i>
+                                </div>
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isProgramFenced()">
+                                   <i class="fa fa-calendar"></i>
                                 </div>
                             </li>
                         </ul>
@@ -148,9 +149,23 @@ export class AppNavMenuController {
         }
     }
 
-    public openCFPAsTab() {
-        if (this.config.cfpOpened == "1") {
+    public isCfpOpened() {
+        return this.config && this.config.cfpStatus === 'opened';
+    }
+
+    public isCfpClosed() {
+        return this.config && this.config.cfpStatus === 'closed';
+    }
+
+    public isProgramFenced() {
+        return this.config && this.config.cfpStatus === 'fenced';
+    }
+
+    public openProgram() {
+        if (this.isCfpOpened()) {
             window.open('https://cfp.bdx.io', '_blank');
+        } else if (this.isProgramFenced()) {
+            window.open('http://appv2.voxxr.in', '_blank');
         }
     }
 }
