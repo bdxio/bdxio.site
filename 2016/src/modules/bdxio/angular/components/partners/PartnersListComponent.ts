@@ -44,7 +44,7 @@ export class PartnersListController {
             target: 'body',
             modal: {
                 template: `
-            <div class="modal-morph" style="max-height: 500px">
+            <div class="modal-morph">
               <span class="glyphicon glyphicon-remove close"></span>
               <div class="row">
                 <div class="col-md-12 header-modal">
