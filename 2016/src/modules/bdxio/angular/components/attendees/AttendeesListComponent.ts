@@ -16,7 +16,7 @@ export class AttendeesListComponent implements ng.IDirective {
 
     public template:string = `
        <div id="{{$ctrl.anchor}}">&nbsp;</div>
-       <section class="attendees-content wrapper">
+       <section class="attendees-content wrapper" ng-show="$ctrl.attendees.length">
             <div class="row">
                 <div class="col-sm-12">
                     <h1 class="section-title text-primary space-top-40 space-left-50 space-bottom-40">{{$ctrl.title}}</h1>
@@ -55,7 +55,7 @@ export class AttendeesListComponent implements ng.IDirective {
                     </li>
                 </ul>
             </div>
-        </div>
+        </section>
     `;
 }
 
