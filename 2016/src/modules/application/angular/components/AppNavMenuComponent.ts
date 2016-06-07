@@ -69,7 +69,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     Participants<i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a ng-click="$ctrl.selectMenu('participant-speakers')">Speakers</a></li>
+                                    <!-- <li><a ng-click="$ctrl.selectMenu('participant-speakers')">Speakers</a></li> -->
                                     <li><a ng-click="$ctrl.selectMenu('participant-orgas')">Organisateurs</a></li>
                                 </ul>
                             </li>
