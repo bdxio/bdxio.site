@@ -1,7 +1,7 @@
 export interface INews {
     id: number;
 
-    published: number;
+    published: string;
     title: string;
     date: string;
     content: string;

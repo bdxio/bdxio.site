@@ -3,7 +3,7 @@ import {INews} from "../int/INews";
 export class News implements INews {
     id: number;
 
-    published: number;
+    published: string;
     title: string;
     date: string;
     content: string;
