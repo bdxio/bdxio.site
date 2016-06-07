@@ -15,6 +15,7 @@ import {ISpeaker} from "../int/ISpeaker";
 import {ICompany} from "../int/ICompany";
 import {Attendee} from "./Attendee";
 import {Speaker} from "./Speaker";
+import {INews} from "../int/INews";
 
 class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
@@ -151,11 +152,16 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 6,
             dataField: "news",
-            descriptor: new SpreadsheetReaderDescriptor({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<INews, INews[]>({
                 firstRow: 2,
                 columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "thumbnail", "F": "content", "G": "picture", "H": "pictureStyles"},
-                fieldsRequiredToConsiderFilledRow: [ "title" ]
-            })
+                fieldsRequiredToConsiderFilledRow: [ "title" ],
+                postProcess: function(results: INews[]) {
+                    return _.filter(results, (news => {
+                        return news.published == '1';
+                    }));
+                }
+            }),
         }),
         new SpreadsheetTabDescriptor({
             tabId: 7,
