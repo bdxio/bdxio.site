@@ -10,11 +10,11 @@ export class LocationContentComponent implements ng.IDirective {
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
-                            <h4 class="title text-white">6 amphis <br> 5 Tracks en parallèle <br> + 40 conférences</h4>
+                            <h4 class="title text-white">6 amphis en parallèle<br> &gt; 50 conférences</h4>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
-                            <h4 class="title text-white">~15 Communautés <br> 400 Développeur(se)s</h4>
+                            <h4 class="title text-white">~15 Communautés <br> &gt; 500 Développeur(se)s</h4>
                         </div>
                     </div>
                  </div>
