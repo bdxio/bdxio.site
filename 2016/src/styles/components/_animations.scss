@@ -22,3 +22,21 @@
     transform: rotate(15deg);
   }
 }
+
+// ~ ==== Animation Gradient
+
+@-webkit-keyframes gradient-animation {
+  0%{background-position:92% 0%}
+  50%{background-position:9% 100%}
+  100%{background-position:92% 0%}
+}
+@-moz-keyframes gradient-animation {
+  0%{background-position:92% 0%}
+  50%{background-position:9% 100%}
+  100%{background-position:92% 0%}
+}
+@keyframes gradient-animation {
+  0%{background-position:92% 0%}
+  50%{background-position:9% 100%}
+  100%{background-position:92% 0%}
+}

@@ -123,19 +123,24 @@
     width: 190px;
     height: 190px;
     padding: 20px;
-    background: url("../../images/png/circles-summary.png") no-repeat;
-    background-size: 99%;
-    background-position: center center;
+    border-radius: 100%;
+    background: linear-gradient(219deg, #cf1633, #027d8e);
+    background-size: 400% 400%;
+
+    -webkit-animation: gradient-animation 7s ease infinite;
+    -moz-animation: gradient-animation 7s ease infinite;
+    animation: gradient-animation 7s ease infinite;
+
 
     i {
       display: block;
       height: 70px;
       font-size: 54px;
-      color: $secondary;
+      color: white;
     }
 
     .title {
-      color: $primary;
+      color: white;
       font-size: 18px;
       font-weight: bold;
       line-height: 0.7;

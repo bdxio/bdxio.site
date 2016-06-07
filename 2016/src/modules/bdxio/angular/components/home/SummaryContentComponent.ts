@@ -15,7 +15,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary " data-sr="enter top, hustle 50px">
                         <h4>
                             CSS, Ergonomie & Design.
                             <br>
