@@ -30,6 +30,9 @@ export class PartnersListComponent implements ng.IDirective {
                         </div>
                     </li>
                 </ul>
+                <div ng-if="!$ctrl.partnersByType.companies.length">
+                    <em>Pas encore d'annonce officielle...</em>
+                </div>
               </div>
             </div>
         </div>
