@@ -3,6 +3,7 @@ import "./modules/bdxio/angular/index";
 import "angular";
 import "angular-morph/dist/angular-morph";
 import "slick-carousel/slick/slick.min";
+import "scrollreveal/dist/scrollreveal";
 
 // load our default (non specific) css
 import "font-awesome/css/font-awesome.css";

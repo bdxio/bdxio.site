@@ -1,6 +1,14 @@
 export class SummaryContentComponent implements ng.IDirective {
     public controller: Function = SummaryContentController;
     public template: string = `
+
+     <script src="../node_modules/scrollreveal/scrollReveal.js"></script>
+
+    <script>
+
+        window.sr = new scrollReveal();
+
+    </script>
         <section class="summary-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
@@ -8,14 +16,14 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 20% reset'>
                         <div class="content-cat-summary">
                             <i class="bdx-design"></i>
                             <span class="title">Design, <br> UI & UX</span>
                         </div>
                     </div>
 
-                    <div class="container-text-summary " data-sr="enter top, hustle 50px">
+                    <div class="container-text-summary">
                         <h4>
                             CSS, Ergonomie & Design.
                             <br>
@@ -25,7 +33,7 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                  <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 30% reset'>
                         <div class="content-cat-summary">
                              <i class="bdx-server"></i>
                              <span class="title">Backends, <br> Cloud & BigData</span>
@@ -44,14 +52,14 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 40% reset'>
                         <div class="content-cat-summary">
                             <i class="bdx-phone"></i>
                             <span class="title">Frontend Web, Mobile <br> et VideoGames</span>
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter bottom and move 50px after 1s">
                         <h4>
                             Frameworks côté client.
                             <br>
@@ -63,7 +71,7 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 50% reset'>
                         <div class="content-cat-summary">
                             <i class="bdx-tools"></i>
                             <span class="title">Tooling</span>
@@ -82,7 +90,7 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 60% reset'>
                         <div class="content-cat-summary">
                             <i class="bdx-networks"></i>
                             <span class="title">Internet des objets <br> & marchés émergents</span>
@@ -97,7 +105,7 @@ export class SummaryContentComponent implements ng.IDirective {
                 </div>
 
                 <div class="col-sm-12 col-md-6 item-summary">
-                    <div class="container-cat-summary text-center">
+                    <div class="container-cat-summary text-center" data-sr='scale up 70% reset'>
                         <div class="content-cat-summary">
                             <i class="bdx-settings"></i>
                             <span class="title">Conception, Architecture & <br> Pratiques de dev</span>
