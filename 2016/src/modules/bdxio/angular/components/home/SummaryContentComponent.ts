@@ -2,13 +2,13 @@ export class SummaryContentComponent implements ng.IDirective {
     public controller: Function = SummaryContentController;
     public template: string = `
 
-     <script src="../node_modules/scrollreveal/scrollReveal.js"></script>
+        <!-- TODO Test scrollReveal by a noob !-->
+        <script src="https://cdn.jsdelivr.net/scrollreveal.js/2.3.2/scrollReveal.js"></script>
 
-    <script>
+        <script>
+            window.sr = new scrollReveal();
+        </script>
 
-        window.sr = new scrollReveal();
-
-    </script>
         <section class="summary-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
@@ -23,7 +23,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             CSS, Ergonomie & Design.
                             <br>
@@ -40,7 +40,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             Frameworks côté serveur.
                              <br>
@@ -59,7 +59,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary" data-sr="enter bottom and move 50px after 1s">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             Frameworks côté client.
                             <br>
@@ -78,7 +78,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             Outillage pour la productivité.
                              <br>
@@ -97,7 +97,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             A la recherche des idées disruptives au service du monde de demain.
                         </h4>
@@ -112,7 +112,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         </div>
                     </div>
 
-                    <div class="container-text-summary">
+                    <div class="container-text-summary" data-sr="enter left, move 24px, spin 30deg, reset">
                         <h4>
                             Méthodologie comme SCRUM ou Kanban.
                             <br>

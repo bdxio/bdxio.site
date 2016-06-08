@@ -5,15 +5,15 @@ export class LocationContentComponent implements ng.IDirective {
             <div class="row">
                  <div class="col-sm-12">
                     <div>
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location" data-sr="enter bottom, move 24px, reset">
                             <h4 class="title text-white">A 10 minutes de <br> Bordeaux</h4>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location" data-sr="enter bottom, move 24px, reset">
                             <h4 class="title text-white">6 amphis en parallèle<br> &gt; 50 conférences</h4>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location">
+                        <div class="col-xs-12 col-sm-12 col-md-4 item-info-location" data-sr="enter bottom, move 24px, reset">
                             <h4 class="title text-white">~15 Communautés <br> &gt; 500 Développeur(se)s</h4>
                         </div>
                     </div>
