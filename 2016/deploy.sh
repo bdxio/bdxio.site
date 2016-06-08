@@ -1,18 +1,21 @@
 #!/bin/bash
 
+echo "----------------------"
+echo "Deploying ${PWD##*/}"
+echo "----------------------"
+
 # Build the content of the website into dist-build folder
 rm -rf dist
+
+# Cloning master branch (GH PAGES) into dist folder
+git clone -b master git@github.com:bdxio/bdxio.github.io.git dist/
+
+# Build app
 webpack --config webpack/webpack.build.js --NODE_ENV=production
 
-# Cloning master branch (GH PAGES) into gh-pages folder
-git clone -b master git@github.com:bdxio/bdxio.github.io.git gh-pages/
-cd gh-pages
-
-# Move dist-build into gh-pages/2016 folder (temporarly)
-cp -fR ../dist/* 2016/
-
 # Add new resources
-git add 2016
+cd dist
+git add . 
 
 if [ $(git ls-files --deleted | wc -l) -ne 0 ]; then git ls-files --deleted | sed -e 's/^/"/g' -e 's/$/"/g' | xargs git rm; fi;
 git commit -m "Auto-deploy - dist - 2016"
@@ -22,6 +25,5 @@ if [ $(ls -al | wc -l) -ge 10 ]; then git push origin master; else echo "Avoidin
 cd ..
 
 # Clean generated folders
-rm -rf gh-pages
 rm -rf dist
 
