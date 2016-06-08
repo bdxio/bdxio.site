@@ -30,7 +30,7 @@ export class AppFooterComponent implements ng.IDirective {
                     </ul>
 
                     <div clas="row space-top-30">
-                        <div class="col-xs-12 text-center">
+                        <div class="col-xs-12 text-center" ng-show="$ctrl.goldPartners.companies && $ctrl.goldPartners.companies.length > 0">
                             <h4 class="text-grey">NOS SPONSORS GOLD</h4>
                         </div>
 
