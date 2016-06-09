@@ -35,14 +35,11 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpClosed() || $ctrl.isCfpOpened()"></i>
                             <i class="fa fa-calendar" ng-if="$ctrl.isProgramFenced()"></i>
                         </button>
-                        <button ng-click="$ctrl.selectMenu('home')" type="button"
-                                class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <i class="fa fa-home"></i>
-                        </button>
+
                         <a class="navbar-brand" href="#"></a>
                     </div>
 
-                    <div class="navbar-collapse collapse  no-transition" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-collapse collapse no-transition" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="btn-home">
                                 <a ng-class="{select: $ctrl.selectedMenu=='home'}" ng-click="$ctrl.selectMenu('home')"><i class="fa fa-home"></i></a>
