@@ -222,6 +222,10 @@
   background: linear-gradient(to right,  #1e4d55 0%,#662835 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e4d55', endColorstr='#662835',GradientType=1 ); /* IE6-9 */
   color: white;
+
+  @media screen and (max-width: 414px) {
+    height: auto;
+  }
 }
 
 .map {
