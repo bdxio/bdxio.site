@@ -103,9 +103,10 @@ export class FAQPageComponent implements ng.IDirective {
                         <span class="faq-question" ng-click="questionParticipants1 = !questionParticipants1">
                         <i class="fa" ng-class="{'fa-minus-circle' : questionParticipants1, 'fa-plus-circle' : !questionParticipants1}"></i>Comment puis-je acheter un billet ? Quels sont les différents pricings ?</span>
                         <span class="faq-answer" ng-show="questionParticipants1">
-                           L'achat des billets est possible ici (également intégré sur la page d'accueil du site bdx.io).
+                           L'achat des billets est possible <a href="http://reg.bdx.io">ici</a> (également intégré sur la page d'accueil du site bdx.io).
                            <br>
-                           <br>
+                           Chaque billet donne droit à un accès à la journée de conférence, mais également au petit déjeuner, au buffet du midi et au goûter. 
+                           <br><br>
                            Le détail des pricings est le suivant :
                            <table class="table table-bordered">
                                 <thead>
@@ -113,32 +114,46 @@ export class FAQPageComponent implements ng.IDirective {
                                     <th>Tarif</th>
                                     <th>Nombre de places</th>
                                     <th>Prix</th>
+                                    <th>Bon à savoir</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>Etudiant</td>
+                                    <td>Etudiant(e)</td>
                                     <td>32</td>
-                                    <td>8 €</td>
+                                   <td>8 €</td>
+                                   <td>Il vous sera demandé une carte d'étudiant(e) en cours de validité lors de la récupération de votre badge à l'entrée</td>
                                 </tr>
                                 <tr>
                                     <td>Early Bird</td>
                                     <td>128</td>
-                                    <td>32 €</td>
+                                   <td>32 €</td>
+                                    <td>Vous nous faites confiance en achetant une place alors que le programme n'est même pas dévoilé.</td>
+                                </tr>
+                                <tr>
+                                    <td>Golden ticket</td>
+                                    <td>16</td>
+                                   <td>32 €</td>
+                                    <td>
+                                    Il s'agit d'un <strong>Early bird++</strong> qui vous donne accès aux votes sur les propositions du call for paper. 
+                                    Vous pourrez ainsi avoir un poid sur les talks qui seront sélectionnées pour la conférence.<br/>
+                                    Mais à grands pouvoirs, grandes responsabilités : il vous faudra voter sur plus de 85% des propositions soumises dans le 
+                                    CFP pour être considéré comme un vrai jury du CFP et ainsi bénéficier d'une invitation au repas des speakers qui aura lieu 
+                                    la veille de l'évènement.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Normal</td>
-                                    <td>~256</td>
-                                    <td>64 €</td>
+                                    <td>&lt;160</td>
+                                   <td>64 €</td>
+                                    <td>Le nombre de places au tarif normal n'est pas déterminé à l'avance, car il dépend d'énormément de facteurs (nombre de speakers, de sponsors etc..). Le sold out interviendra à 512 participants !</td>
                                 </tr>
                                 </tbody>
                             </table>
                             <br>
                             Pour tous les participants, il ne sera pas nécessaire pour vous d'imprimer les billets.<br>
-                            Pour les étudiants, une carte d'étudiant sera demandée à l'entrée de la conférence.
                             <br>
-                            <br>
-                            <strong>A noter</strong>que les billets ne seront réservés qu'après paiement :
+                            <strong>A noter</strong> que les billets ne seront réservés qu'après paiement :
                             <ul>
                                 <li>Via site de ticketing, par CB</li>
                                 <li>Après emission de facture, par virement bancaire (avec supplement de 50€ pour frais de dossier)</li>
