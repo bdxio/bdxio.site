@@ -164,6 +164,15 @@ export class FAQPageComponent implements ng.IDirective {
                             </tbody>
                         </table>
                         </span>
+                        
+                        <span class="faq-question" ng-click="questionSpeakers4 = !questionSpeakers4">
+                        <i class="fa" ng-class="{'fa-minus-circle' : questionSpeakers4, 'fa-plus-circle' : !questionSpeakers4}"></i>Dois-je prévoir de prendre ma place en cas de refus de mes propositions sur le CFP ?</span>
+                        <span class="faq-answer" ng-show="questionSpeakers4">
+                           Non, l'équipe BDX I/O conserve un stock de places au tarif Early Bird pour les participants au CFP qui se seraient vu
+                           refuser toutes leurs propositions.<br/>
+                           Si vous faites malheureusement parti de ces personnes, nous vous enverrons un mail vous précisant la marche à suivre
+                           pour bénéficier de la place au tarif préférentiel, peu de temps avant l'annonce du programme.
+                        </span>
                     </div>
                     <!-- END FAQ Speakers !-->
 
