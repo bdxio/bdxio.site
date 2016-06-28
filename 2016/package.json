@@ -13,12 +13,13 @@
   "license": "MIT",
   "dependencies": {
     "angular": "1.5.3",
+    "angular-morph": "https://github.com/fcamblor/ngMorph.git#18bb4e949812a25b86079862140156ceaa32496c",
     "angular-route": "1.5.3",
     "bootstrap": "3.3.6",
     "font-awesome": "4.5.0",
     "jquery": "2.2.0",
     "lodash": "4.0.1",
-    "angular-morph": "https://github.com/fcamblor/ngMorph.git#18bb4e949812a25b86079862140156ceaa32496c",
+    "scrollreveal": "~3.1.4",
     "slick-carousel": "1.4.1"
   },
   "devDependencies": {
