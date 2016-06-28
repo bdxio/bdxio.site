@@ -263,27 +263,31 @@ export class FAQPageComponent implements ng.IDirective {
                      <!-- START FAQ Jury !-->
                     <div ng-show="activeSection === 'jury'" class="faq-content section-sponsors" ng-init="questionJury1 = true">
                         <h1 class="section-title text-primary">Jury</h1>
-                        <h4 class="space-bottom-20">Nous avons, comme pour l'édition précédente, sollicité les membres des différentes communautés techniques
-                        bordelaises pour constituer le jury bdx.io. Le rôle des membres du jury est
-                        de selectionner les talks qui seront présentés lors de la prochaine édition.</h4>
+                        <h4 class="space-bottom-20">
+                        Le rôle des membres du jury est de selectionner les talks qui seront présentés lors de la prochaine édition de BDX I/O.<br/>
+                        Cette année, les membres du jury seront sélectionnés parmi les participants à la conférence, via les places Golden Ticket.
+                        </h4>
 
                         <span class="faq-question" ng-click="questionJury1 = !questionJury1">
                         <i class="fa" ng-class="{'fa-minus-circle' : questionJury1, 'fa-plus-circle' : !questionJury1}"></i>Quelles sont les règles de participation ?</span>
                         <span class="faq-answer" ng-show="questionJury1">
                             Pour être membre du jury, il faut remplir les conditions suivantes :
                             <ul>
-                                <li>Avoir voté pour au moins 85% des conférences (sur le site du CFP)</li>
+                                <li>Avoir acheté une place Golden Ticket</li>
+                                <li>Avoir voté pour au moins 85% des conférences sur le site du CFP.</li>
                                 <li>Ne pas avoir proposé de sujet à la conférence.</li>
-                                <li>Etre présent à la réunion du choix des talks.</li>
                             </ul>
                             <br>
                             Vous aurez droit à :
                             <ul>
-                                <li>1 place offerte à la conférence.</li>
-                                <li>1 place offerte au repas des speakers.</li>
+                                <li>Influer sur le programme de votre conférence préférée via vos votes.</li>
+                                <li>Etre au courant, avant tout le monde, des tendances de talks qui seront présents à la conférence.</li>
+                                <li>Connaître les formats/sujets de propositions qui séduisent les membres du jury.</li>
+                                <li>Participer au repas des speakers, moment d'échange privilégié avec les référents dans leur domaine le temps d'une soirée.</li>
                             </ul>
                         </span>
-
+                        
+                        <div style="display:none">
                         <span class="faq-question" ng-click="questionJury2 = !questionJury2">
                         <i class="fa" ng-class="{'fa-minus-circle' : questionJury2, 'fa-plus-circle' : !questionJury2}"></i>Quel est le processus de selection ?</span>
                         <span class="faq-answer" ng-show="questionJury2">
@@ -293,6 +297,7 @@ export class FAQPageComponent implements ng.IDirective {
                            <br>
                            Enfin, dans l'optique d'équilibrer le contenu de la conférence, une dernière selection sera réalisée avant création définitive du programme.
                         </span>
+                        </div>
                     </div>
                     <!-- END FAQ Jury !-->
                 </div>
