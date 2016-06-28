@@ -1,14 +1,6 @@
 export class SummaryContentComponent implements ng.IDirective {
     public controller: Function = SummaryContentController;
     public template: string = `
-
-        <!-- TODO Test scrollReveal by a noob !-->
-        <script src="https://cdn.jsdelivr.net/scrollreveal.js/2.3.2/scrollReveal.js"></script>
-
-        <script>
-            window.sr = new scrollReveal();
-        </script>
-
         <section class="summary-content wrapper">
             <div class="row">
                 <div class="col-sm-12">
@@ -132,5 +124,6 @@ export class SummaryContentController {
     ];
 
     constructor() {
+        window['sr'] = new scrollReveal();
     }
 }
