@@ -3,7 +3,7 @@ export class WelcomeContentComponent implements ng.IDirective {
     public template: string = `
         <section class="welcome-home wrapper">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12" data-sr="opacity 0.5 1s, reset">
                      <h2 class="text-white">
                          C'est décidé bdx.io édition 2016 se déroulera le <br>
                          Vendredi 21 Octobre 2016 à l'ENSEIRB-MATMECA !

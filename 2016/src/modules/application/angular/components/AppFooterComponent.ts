@@ -6,7 +6,7 @@ export class AppFooterComponent implements ng.IDirective {
          <div class="row">
                 <div class="col-sm-12 col-md-8 element-centered">
                     <div class="row sign-newsletter text-right">
-                        <span class="col-xs-12 col-md-4 col-lg-5 mb-text-center mb-space-bottom-15">
+                        <span class="col-xs-12 col-md-4 col-lg-5 mb-text-center mb-space-bottom-15" data-sr="opacity 0.5 1s, reset">
                             <h5 class="label-newsletter text-white font-bold">Vous souhaitez être tenu(e) informé(e) ?</h5>
                             <h4 class="label-newsletter highlight-text-italic">Inscrivez-vous à la newsletter</h4>
                         </span>
@@ -18,15 +18,15 @@ export class AppFooterComponent implements ng.IDirective {
                         </span>
 
                           <span class="col-xs-12 col-md-3 col-lg-3 text-left mb-text-center space-top-2">
-                             <button class="btn btn-primary btn-md has-icon-left" ng-click="$ctrl.subscribeToNewsletter()" ng-disabled="newsletterSubscriptionForm.$invalid" disabled><i class="fa fa-pencil"></i>S’inscrire</button>
+                             <button data-sr='scale up 10%, reset' class="btn btn-primary btn-md has-icon-left" ng-click="$ctrl.subscribeToNewsletter()" ng-disabled="newsletterSubscriptionForm.$invalid" disabled><i class="fa fa-pencil"></i>S’inscrire</button>
                         </span>
                     </div>
 
                     <ul class="row footer-list-networks space-top-30 no-padding">
-                         <li class="footer-item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
-                         <li class="footer-item-networks"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
-                         <li class="footer-item-networks"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
-                         <li class="footer-item-networks"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
+                         <li class="footer-item-networks" data-sr="enter left and move 50px after 1.5s, reset"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
+                         <li class="footer-item-networks" data-sr="enter left and move 20px after 1s, reset"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                         <li class="footer-item-networks" data-sr="enter right and move 20px after 1s, reset"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
+                         <li class="footer-item-networks" data-sr="enter right and move 50px after 1.5s, reset"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
                     </ul>
 
                     <div clas="row space-top-30">
