@@ -119,6 +119,7 @@ export class AppNavMenuController {
         'partner-friends': { path: '/partners', targetAnchorName: 'friends' },
         'participant-speakers': { path: '/attendees', targetAnchorName: 'speakers' },
         'participant-orgas': { path: '/attendees', targetAnchorName: 'orgas' },
+        'program': { path: '/program' },
         'faq': { path: '/faq' },
         'prog': { path: '/prog' },
         'home': { path: '/' },

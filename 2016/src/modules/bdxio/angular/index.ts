@@ -18,6 +18,8 @@ import {CarouselComponent} from "./components/carousel/CarouselComponent";
 import {ErrorSourceComponent} from "./components/util/ErrorSourceComponent";
 import {ConferenceLocationComponent} from "./components/util/ConferenceLocationComponent";
 import {FriendsListComponent} from "./components/partners/FriendsListComponent";
+import {ProgramPageComponent} from "./components/program/ProgramPage";
+import {CFPProgramComponent} from "./components/program/CFPProgram";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -29,6 +31,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("attendeesPage", new AttendeesPageComponent())
     .component("partnersPage", new PartnersPageComponent())
     .component("faqPage", new FAQPageComponent())
+    .component("programPage", new ProgramPageComponent())
 
     .directive("errSrc", () => new ErrorSourceComponent())
     .directive("attendeesList", () => new AttendeesListComponent())
@@ -36,6 +39,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .directive("friendsList", () => new FriendsListComponent())
     .directive("carousel", () => new CarouselComponent())
     .directive("conferenceLocation", () => new ConferenceLocationComponent())
+    .directive("cfpProgram", () => new CFPProgramComponent())
 
     .service("ISharedModel", SharedModel)
 
@@ -45,6 +49,7 @@ angular.module("bdxio.app", ["ngRoute"])
             .when("/attendees", { template: "<attendees-page></attendees-page>" })
             .when("/partners", { template: "<partners-page></partners-page>" })
             .when("/faq", { template: "<faq-page></faq-page>" })
+            .when("/program", { template: "<program-page></program-page>" })
             .when("", { redirectTo: "/" })
             .otherwise({ redirectTo: "/" });
     }])
