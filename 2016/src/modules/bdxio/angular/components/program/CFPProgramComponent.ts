@@ -19,18 +19,18 @@ export class CFPProgramComponent implements ng.IDirective {
             </div>
             <div width="100%">
                 <div class="row program-header">
-                    <span ng-show="$ctrl.currentDayIndex">J {{ $ctrl.currentDayIndex }}</span>
-                    <span ng-repeat="room in $ctrl.currentDay.rooms">
+                    <div class="column" ng-show="$ctrl.currentDayIndex">J {{ $ctrl.currentDayIndex }}</div>
+                    <div class="column" ng-repeat="room in $ctrl.currentDay.rooms">
                         <b>{{ ::room }}</b>
-                    </span>
+                    </div>
                 </div>
                 <div class="row program-content" ng-repeat="slot in $ctrl.currentDay.slots">
-                    <span>
+                    <div class="column">
                         <b>{{ ::slot.from | date:$ctrl.timePattern }}</b>
-                    </span>
-                    <span ng-repeat="prez in slot.presentations">
+                    </div>
+                    <div class="column" ng-repeat="prez in slot.presentations">
                         <span ng-show="prez.title">{{ prez.title }} ({{ prez.room }})</span> |
-                    </span>
+                    </div>
                 </div>
             </div>
         </div>
