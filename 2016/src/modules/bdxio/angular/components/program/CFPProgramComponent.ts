@@ -14,6 +14,7 @@ export class CFPProgramComponent implements ng.IDirective {
 
     public template:string = `
         <div class="cfp-program">
+            <div class="cfp-program-event-title">{{ $ctrl.event.name }}</div>
             <div class="cfp-program-filter">
                 <!--Filtering bar-->
                 <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
