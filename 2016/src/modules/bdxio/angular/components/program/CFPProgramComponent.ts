@@ -2,6 +2,7 @@ import {ICFPEvent} from "../../../models/int/ICFPEvent";
 import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
+import {CFPEvent} from "../../../models/impl/CFPEvent";
 export class CFPProgramComponent implements ng.IDirective {
 
     public controller:Function = CFPProgramController;
@@ -61,6 +62,7 @@ export class CFPProgramController {
     public selectCurrentDay(day:ICFPDay, index:number):void {
         this.currentDay = day;
         this.currentDayIndex = index + 1;
+        this.filter = new CFPPresentation();
     }
 
     public filterByTrack(track:string):void {
