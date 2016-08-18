@@ -20,6 +20,6 @@ export class ProgramPageController {
     private event:ICFPEvent;
 
     public constructor(private cfpEventModel:ICFPEventModel) {
-        this.event = this.cfpEventModel.build('BDX I/O 2016', 'http://cfp.devoxx.fr/api/conferences/DevoxxFR2016/schedules/');
+        this.event = cfpEventModel.build('BDX I/O 2016', 'http://cfp.devoxx.fr/api/conferences/DevoxxFR2016/schedules/');
     }
 }

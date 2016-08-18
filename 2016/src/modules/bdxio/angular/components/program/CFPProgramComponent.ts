@@ -5,11 +5,13 @@ import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 export class CFPProgramComponent implements ng.IDirective {
 
     public controller:Function = CFPProgramController;
+    public controllerAs:string = '$ctrl';
+    public bindToController:boolean = true;
+
     public scope = {
         event: '='
     };
-    public controllerAs:string = '$ctrl';
-    public bindToController:boolean = true;
+
     public template:string = `
         <div class="cfp-program">
             <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
