@@ -1,44 +1,36 @@
-import {ICFPEvent} from "../../../models/int/ICFPEvent";
-import {CFPEvent} from "../../../models/impl/CFPEvent";
-import {CFPDay} from "../../../models/impl/CFPDay";
-import {ICFPDay} from "../../../models/int/ICFPDay";
-import {CFPPresentation} from "../../../models/impl/CFPPresentation";
-import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
-import {Speaker} from "../../../models/impl/Speaker";
-import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
-import {ICFPSpeaker} from "../../../models/int/ICFPSpeaker";
-import {CFPSlot} from "../../../models/impl/CFPSlot";
-export class ProgramPageComponent implements ng.IDirective {
-    public controller:Function = ProgramPageController;
-    public controllerAs:string = '$ctrl';
-    public bindToController:boolean = true;
-    public template:string = `
-    <section class="faq wrapper">
-        <div class="row">
-            <cfp-program event="$ctrl.event"></cfp-program>
-       </div>
-    </section>
-    `
-}
-export class ProgramPageController {
+import {ICFPEvent} from "../int/ICFPEvent";
+import {CFPEvent} from "./CFPEvent";
+import {CFPDay} from "./CFPDay";
+import {CFPPresentation} from "./CFPPresentation";
+import {ICFPPresentation} from "../int/ICFPPresentation";
+import {ICFPSpeaker} from "../int/ICFPSpeaker";
+import {CFPSlot} from "./CFPSlot";
+import {ICFPEventModel} from "../int/ICFPEventModel";
+
+export class CFPEventModel implements ICFPEventModel {
 
     public static $inject:Array<string> = ['$http', '$q'];
-    private event:ICFPEvent;
+    private $q:ng.IQService;
 
     constructor(private $http:ng.IHttpService, $q:ng.IQService) {
+        this.$q = $q;
+    }
 
-        this.event = new CFPEvent();
-        this.event.name = 'BDX I/O 2016';
-        $http.get('http://cfp.devoxx.fr/api/conferences/DevoxxFR2016/schedules/').then((days:any) => {
+    public build(eventName:string, apiUrl:string):ICFPEvent {
+
+        var event = new CFPEvent();
+        event.name = eventName;
+
+        this.$http.get(apiUrl).then((days:any) => {
 
             var promises = [];
-            this.event.days = _.map(days.data.links, (day:any) => {
+            event.days = _.map(days.data.links, (day:any) => {
 
                 var cfpDay = new CFPDay();
                 cfpDay.title = day.title;
                 cfpDay.href = day.href;
 
-                var promise = $http.get(cfpDay.href);
+                var promise = this.$http.get(cfpDay.href);
                 promises.push(promise);
 
                 promise.then((schedules:any) => {
@@ -59,8 +51,8 @@ export class ProgramPageController {
                 return cfpDay;
             });
 
-            $q.all(promises).then(() => {
-                this.event.days = _.chain(this.event.days)
+            this.$q.all(promises).then(() => {
+                event.days = _.chain(event.days)
                     .map((day:CFPDay) => {
                         day.date = day.schedules[0] ? day.schedules[0].from : null;
                         day.tracks = _.chain(day.schedules).map('track').uniq().filter((track) => track != undefined).value();
@@ -81,6 +73,8 @@ export class ProgramPageController {
                     .value();
             });
         });
+
+        return event;
     }
 
     private buildBaseSlot(slot:any) {

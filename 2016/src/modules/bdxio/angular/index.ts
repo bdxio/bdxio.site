@@ -18,8 +18,9 @@ import {CarouselComponent} from "./components/carousel/CarouselComponent";
 import {ErrorSourceComponent} from "./components/util/ErrorSourceComponent";
 import {ConferenceLocationComponent} from "./components/util/ConferenceLocationComponent";
 import {FriendsListComponent} from "./components/partners/FriendsListComponent";
-import {ProgramPageComponent} from "./components/program/ProgramPage";
-import {CFPProgramComponent} from "./components/program/CFPProgram";
+import {ProgramPageComponent} from "./components/program/ProgramPageComponent";
+import {CFPProgramComponent} from "./components/program/CFPProgramComponent";
+import {CFPEventModel} from "../models/impl/CFPEventModel";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -42,6 +43,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .directive("cfpProgram", () => new CFPProgramComponent())
 
     .service("ISharedModel", SharedModel)
+    .service("ICFPEventModel", CFPEventModel)
 
     .config(["$routeProvider", ($routeProvider) => {
         $routeProvider
