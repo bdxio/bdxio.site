@@ -1,58 +1,76 @@
 // ~ PROGRAM
 // ====================================================================== >
 
+// General Skin Program
+
 .cfp-program {
+  .column { display:inline;}
+}
 
-  // General Skin
+// Filter Bar Program
 
-  .column {
-    display:inline;
-  }
+.track-selector, .day-selector {
+  padding-top: 10px;
+  cursor: pointer;
+}
 
-  // Filter Bar
+.container-track-selector {
+  display: inline-block;
 
-  .track-selector, .day-selector {
-    padding-top: 10px;
-    cursor: pointer;
-  }
-
-  .container-day-selector {
-
-  }
-
-  .container-track-selector {
+  .track-selector {
     display: inline-block;
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 50px;
+    border: 1px solid $light-grey;
+    color: $light-grey;
+    font-weight: bold;
 
-    .track-selector {
+    &.select {
+      background: linear-gradient(219deg, #cf1633, #027d8e);
+      background-size: 400% 400%;
+      color: white;
+      border: none;
+      -webkit-animation: gradient-animation 7s ease infinite;
+      -moz-animation: gradient-animation 7s ease infinite;
+      animation: gradient-animation 7s ease infinite;
+    }
+
+    i {
       display: inline-block;
-      padding: 5px 10px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-      font-size: 12px;
-      border-radius: 50px;
-      border: 1px solid $light-grey;
-      color: $light-grey;
-      font-weight: bold;
-
-      &.select {
-        background: linear-gradient(219deg, #cf1633, #027d8e);
-        background-size: 400% 400%;
-        color: white;
-        border: none;
-        -webkit-animation: gradient-animation 7s ease infinite;
-        -moz-animation: gradient-animation 7s ease infinite;
-        animation: gradient-animation 7s ease infinite;
-      }
-
-      i {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 5px;
-      }
+      vertical-align: middle;
+      margin-right: 5px;
     }
   }
+}
 
-  // Table Program
+// Table Program
+
+.container-table-program {
+  display: inline-table;
+  width: 100%;
+  margin-top: 30px;
+
+  .program-header {
+    padding: 10px 0;
+    background-color: $secondary;
+    color: white;
+  }
 
 
+  .day, .time {
+    display: inline-table;
+    text-align: center;
+  }
+
+  .time {
+    background-color: $dark-grey;
+    color: white;
+  }
+
+  .prez {
+    display: inline-table;
+  }
 }

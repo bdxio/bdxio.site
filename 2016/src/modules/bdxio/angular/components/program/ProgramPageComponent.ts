@@ -6,10 +6,9 @@ export class ProgramPageComponent implements ng.IDirective {
     public controllerAs:string = '$ctrl';
     public bindToController:boolean = true;
     public template:string = `
-    <section class="faq wrapper">
-        <div class="row">
-            <cfp-program event="$ctrl.event"></cfp-program>
-       </div>
+    <section class="wrapper">
+        <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
+        <cfp-program event="$ctrl.event"></cfp-program>
     </section>
     `
 }

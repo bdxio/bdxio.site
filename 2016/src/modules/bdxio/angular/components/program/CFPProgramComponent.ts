@@ -20,38 +20,49 @@ export class CFPProgramComponent implements ng.IDirective {
             <div class="cfp-program-filter col-sm-12">
                 <div class="row">
                     <!--Filtering bar-->
-                    <div class="container-day-selector col-sm-6">
+                    <div class="container-day-selector col-sm-2">
                         <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
                             J {{ $index + 1 }} - {{ day.date | date: $ctrl.datePattern }}
                         </div>
                     </div>
 
+                    <div class="container-place-selector col-sm-4" ng-show="$ctrl.currentDay">
+                      <h4 class="text-primary space-left-10">Salles :</h4>
+                      <div class="place-selector" ng-class="{'select' : true}"></div>
+
+                    </div>
+
                     <div class="container-track-selector col-sm-6" ng-show="$ctrl.currentDay">
                       <h4 class="text-primary space-left-10">Tracks :</h4>
                       <div ng-repeat="track in $ctrl.currentDay.tracks" ng-click="$ctrl.filterByTrack(track)"
-                      class="track-selector" ng-class="{'select' : true}">
+                           class="track-selector" ng-class="{'select' : true}">
                            <!-- TODO Add dynamic icon track -->
                            <i class="bdx-design"></i>{{ track }}
+                       </div>
                     </div>
                 </div>
             </div>
 
-            <div width="100%">
+            <div class="container-table-program">
                 <!--Rooms columns-->
                 <div class="row program-header">
-                    <div class="column" ng-show="$ctrl.currentDayIndex">J {{ $ctrl.currentDayIndex }}</div>
+                    <div class="column day" ng-show="$ctrl.currentDayIndex">J {{ $ctrl.currentDayIndex }}</div>
                     <div class="column" ng-repeat="room in $ctrl.currentDay.rooms">
                         <b>{{ ::room }}</b>
                     </div>
                 </div>
+
                 <!--Iterate over slots-->
                 <div class="row program-content" ng-repeat="slot in $ctrl.currentDay.slots">
-                    <div class="column">
-                        <b>{{ ::slot.from | date:$ctrl.timePattern }}</b>
+                    <div class="column col-lg-1 col-sm-3 time">
+                        <b><i class="fa-clock-o"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
                     </div>
+
                     <!--Iterate over all slot's presentations-->
-                    <div class="column" ng-repeat="prez in slot.presentations | filter: $ctrl.filter">
+                    <div class="column col-lg-11 col-sm-9">
+                      <div class="prez" ng-repeat="prez in slot.presentations | filter: $ctrl.filter">
                         <span ng-show="prez.title">{{ prez.title }}</span> |
+                    </div>
                     </div>
                 </div>
             </div>
