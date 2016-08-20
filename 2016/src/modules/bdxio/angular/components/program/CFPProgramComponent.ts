@@ -14,17 +14,28 @@ export class CFPProgramComponent implements ng.IDirective {
     };
 
     public template:string = `
-        <div class="cfp-program">
-            <div class="cfp-program-event-title">{{ $ctrl.event.name }}</div>
-            <div class="cfp-program-filter">
-                <!--Filtering bar-->
-                <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
-                    J {{ $index + 1 }} - {{ day.date | date: $ctrl.datePattern }}
-                </div>
-                <div ng-repeat="track in $ctrl.currentDay.tracks" ng-click="$ctrl.filterByTrack(track)" class="track-selector" ng-show="$ctrl.currentDay">
-                    {{ track }}
+        <div class="row cfp-program">
+            <!--<div class="cfp-program-event-title">{{ $ctrl.event.name }}</div>-->
+
+            <div class="cfp-program-filter col-sm-12">
+                <div class="row">
+                    <!--Filtering bar-->
+                    <div class="container-day-selector col-sm-6">
+                        <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
+                            J {{ $index + 1 }} - {{ day.date | date: $ctrl.datePattern }}
+                        </div>
+                    </div>
+
+                    <div class="container-track-selector col-sm-6" ng-show="$ctrl.currentDay">
+                      <h4 class="text-primary space-left-10">Tracks :</h4>
+                      <div ng-repeat="track in $ctrl.currentDay.tracks" ng-click="$ctrl.filterByTrack(track)"
+                      class="track-selector" ng-class="{'select' : true}">
+                           <!-- TODO Add dynamic icon track -->
+                           <i class="bdx-design"></i>{{ track }}
+                    </div>
                 </div>
             </div>
+
             <div width="100%">
                 <!--Rooms columns-->
                 <div class="row program-header">
