@@ -103,6 +103,7 @@ export class CFPEventModel implements ICFPEventModel {
         cfpPresentation.title = slot.talk.title;
         cfpPresentation.track = slot.talk.track;
         cfpPresentation.summary = slot.talk.summary;
+        cfpPresentation.type = slot.talk.talkType;
         cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:ICFPSpeaker) => {
             return speaker;
         });

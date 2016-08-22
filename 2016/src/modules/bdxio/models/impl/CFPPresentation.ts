@@ -6,6 +6,7 @@ export class CFPPresentation implements ICFPPresentation {
     summary:string;
     speakers:Array<ICFPSpeaker>;
     track:string;
+    type:string;
     from:Date;
     to:Date;
     room:string;

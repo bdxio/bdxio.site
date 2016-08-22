@@ -82,7 +82,9 @@ export class CFPProgramComponent implements ng.IDirective {
                     <div class="col-lg-11 col-xs-9">
                         <div class="row">
                             <div class="prez large-item  col-xs-12" ng-repeat="prez in slot.presentations">
-                                <span ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">{{ prez.title }}</span>
+                                <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
+                                    {{ prez.title }}<span ng-show="prez.type"> ({{ prez.type }})</span>
+                                </div>
                             </div>
                         </div>
                     </div>

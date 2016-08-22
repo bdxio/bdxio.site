@@ -19,8 +19,8 @@ export class ProgramComponent implements ng.IDirective {
             <p>{{ track }}</p>
             <ul>
                 <li class="item-partner col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="prez in presentations">
-                    <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">>
-                        {{ prez.title }} ({{ $ctrl.toSpeakersList(prez) }})
+                    <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
+                        {{ prez.type }} - {{ prez.title }} ({{ $ctrl.toSpeakersList(prez) }})
                     </div>
                 </li>
             </ul>
@@ -52,6 +52,7 @@ export class ProgramController {
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {
+        var speakers = this.toSpeakersList(prez);
         return {
             closeEl: '.close',
             target: 'body',
@@ -62,18 +63,19 @@ export class ProgramController {
                     <div class="row">
                         <div class="col-md-12 header-modal">
                             <div class="row">
-                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title}</h3>
+                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title} (${prez.type})</h3>
                                 <div class="col-md-4 text-right">
                                     <span class="date-new text-white inner-space-right-15">
-                                        <i class="fa fa-users space-right-5"></i> ${prez.speakers[0].name}
+                                        <i class="fa fa-users space-right-5"></i> ${speakers}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12 content-modal">
                             <div class="col-md-12">
-                                <p class="row">Track - ${prez.track}</p><br>
-                                <p class="row">${prez.summary}</p><br>
+                                <p class="row"><b>Track : ${prez.track}</b></p>
+                                <p class="row"><b>Type : ${prez.type}</b></p>
+                                <p class="row">${prez.summary}</p>
                             </div>
                         </div>
                     </div>
