@@ -20,7 +20,7 @@ export class ProgramComponent implements ng.IDirective {
             <ul>
                 <li class="item-partner col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="prez in presentations">
                     <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
-                        {{ prez.type }} - {{ prez.title }} ({{ $ctrl.toSpeakersList(prez) }})
+                        <h4>{{ prez.title }}</h4><br><h5>{{ $ctrl.toSpeakersList(prez) }}</h5><br><b>{{ prez.type }} - {{ prez.track }}</b>
                     </div>
                 </li>
             </ul>
@@ -47,6 +47,7 @@ export class ProgramController {
     public tileStyle(prez:ICFPPresentation):any {
         return {
             'color': 'black',
+            'padding': '5px',
             'background-color': this.trackColors[prez.track]
         };
     }
