@@ -21,15 +21,13 @@ export class CFPProgramComponent implements ng.IDirective {
                 <div class="row">
                     <!--Filtering bar-->
                     <div class="container-day-selector col-sm-2">
-                        <div ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
+                        <h4 class="text-primary space-left-10">Jours :</h4>
+                        <div class="col-sm-12" ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
                             J {{ $index + 1 }} - {{ day.date | date: $ctrl.datePattern }}
                         </div>
-                    </div>
 
-                    <div class="container-place-selector col-sm-4" ng-show="$ctrl.currentDay">
-                      <h4 class="text-primary space-left-10">Salles :</h4>
-                      <div class="place-selector" ng-class="{'select' : true}"></div>
-
+                        <h4 class="text-primary space-left-10">Salles :</h4>
+                        <div class="place-selector" ng-class="{'select' : true}"></div>
                     </div>
 
                     <div class="container-track-selector col-sm-6" ng-show="$ctrl.currentDay">
@@ -45,24 +43,30 @@ export class CFPProgramComponent implements ng.IDirective {
 
             <div class="container-table-program">
                 <!--Rooms columns-->
-                <div class="row program-header">
-                    <div class="column day" ng-show="$ctrl.currentDayIndex">J {{ $ctrl.currentDayIndex }}</div>
-                    <div class="column" ng-repeat="room in $ctrl.currentDay.rooms">
-                        <b>{{ ::room }}</b>
+                <div class="row program-header" ng-show="$ctrl.currentDayIndex">
+                    <div class="column col-lg-1 col-sm-3 day ">J {{ $ctrl.currentDayIndex }}</div>
+                    <div class="column col-lg-11 col-sm-9">
+                        <div class="row hidden-xs">
+                            <div class="large-item text-center" ng-repeat="room in $ctrl.currentDay.rooms">
+                              <b>{{ ::room }}</b>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!--Iterate over slots-->
                 <div class="row program-content" ng-repeat="slot in $ctrl.currentDay.slots">
-                    <div class="column col-lg-1 col-sm-3 time">
-                        <b><i class="fa-clock-o"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
+                    <div class="col-lg-1 col-xs-3 time">
+                        <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
                     </div>
 
                     <!--Iterate over all slot's presentations-->
-                    <div class="column col-lg-11 col-sm-9">
-                      <div class="prez" ng-repeat="prez in slot.presentations | filter: $ctrl.filter">
-                        <span ng-show="prez.title">{{ prez.title }}</span> |
-                    </div>
+                    <div class="col-lg-11 col-xs-9">
+                        <div class="row">
+                            <div class="prez large-item  col-xs-12" ng-repeat="prez in slot.presentations | filter: $ctrl.filter">
+                                <span ng-show="prez.title">{{ prez.title }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

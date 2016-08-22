@@ -52,25 +52,46 @@
   display: inline-table;
   width: 100%;
   margin-top: 30px;
+  padding: 0 40px;
 
   .program-header {
-    padding: 10px 0;
     background-color: $secondary;
     color: white;
   }
 
-
   .day, .time {
     display: inline-table;
     text-align: center;
+    height: 100%;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
   }
+
+  .day { background-color: darken($secondary, 4%);}
 
   .time {
     background-color: $dark-grey;
-    color: white;
+    border-bottom: 1px solid lighten($dark-grey, 5%);
+
+    i {
+      float: left;
+    }
   }
 
   .prez {
     display: inline-table;
+    border: 1px solid $white-grey;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .large-item {
+    display: inline-block;
+    width: 20%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 }
