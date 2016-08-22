@@ -1,5 +1,7 @@
 import {ICFPEventModel} from "../../../models/int/ICFPEventModel";
 import {ICFPEvent} from "../../../models/int/ICFPEvent";
+import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
+import {ICFPDay} from "../../../models/int/ICFPDay";
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -16,9 +18,15 @@ export class ProgramPageComponent implements ng.IDirective {
 export class ProgramPageController {
 
     public static $inject:Array<string> = ['ICFPEventModel'];
-    private event:ICFPEvent;
+
+    public event:ICFPEvent;
+    public presentations:Array<ICFPPresentation>;
 
     public constructor(private cfpEventModel:ICFPEventModel) {
-        this.event = cfpEventModel.build('BDX I/O 2016', 'http://cfp-voxxed-lux.yajug.org/api/conferences/voxxeddaylux2016/schedules');
+        cfpEventModel.build('BDX I/O 2016', 'http://cfp-voxxed-lux.yajug.org/api/conferences/voxxeddaylux2016/schedules').then((_event:ICFPEvent) => {
+            this.event = _event;
+            this.presentations = _.flatten(_.map(_event.days, (day:ICFPDay) => day.schedules));
+            console.log(this.presentations);
+        });
     }
 }

@@ -6,6 +6,7 @@ import {ICFPPresentation} from "../int/ICFPPresentation";
 import {ICFPSpeaker} from "../int/ICFPSpeaker";
 import {CFPSlot} from "./CFPSlot";
 import {ICFPEventModel} from "../int/ICFPEventModel";
+import IPromise = angular.IPromise;
 
 export class CFPEventModel implements ICFPEventModel {
 
@@ -16,7 +17,9 @@ export class CFPEventModel implements ICFPEventModel {
         this.$q = $q;
     }
 
-    public build(eventName:string, apiUrl:string):ICFPEvent {
+    public build(eventName:string, apiUrl:string):IPromise<ICFPEvent> {
+
+        var defer = this.$q.defer<ICFPEvent>();
 
         var event = new CFPEvent();
         event.name = eventName;
@@ -71,10 +74,13 @@ export class CFPEventModel implements ICFPEventModel {
                     })
                     .sortBy('date')
                     .value();
-            });
-        });
 
-        return event;
+                defer.resolve(event);
+
+            }).catch(() => defer.reject());
+        }).catch(() => defer.reject());
+
+        return defer.promise;
     }
 
     private buildBaseSlot(slot:any) {
@@ -97,7 +103,9 @@ export class CFPEventModel implements ICFPEventModel {
         cfpPresentation.title = slot.talk.title;
         cfpPresentation.track = slot.talk.track;
         cfpPresentation.summary = slot.talk.summary;
-        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:ICFPSpeaker) => speaker);
+        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:ICFPSpeaker) => {
+            return speaker;
+        });
         return cfpPresentation;
     }
 }
