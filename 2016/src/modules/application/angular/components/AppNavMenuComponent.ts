@@ -95,7 +95,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <span ng-if="$ctrl.isCfpOpened()">Proposer un talk<br></span>
                                     <span class="status-sale" ng-if="$ctrl.isCfpOpened()">CFP Ouvert</span>
                                     <span ng-if="$ctrl.isCfpClosed() || $ctrl.isProgramPublished()">Consulter<br></span>
-                                    <span class="status-sale" ng-if="$ctrl.isCfpClosed()">Liste des talks</span>
+                                    <span class="status-sale" ng-if="$ctrl.isCfpClosed() && !$ctrl.isProgramPublished()">Liste des talks</span>
                                     <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened()">
