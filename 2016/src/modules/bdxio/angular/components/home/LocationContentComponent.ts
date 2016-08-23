@@ -71,6 +71,7 @@ export class LocationContentComponent implements ng.IDirective {
                  <div class="stats col-sm-12 space-top-30 space-bottom-35">
                     <div class="row text-center">
                        <h2 class="text-secondary">
+                           BDX I/O 2015 C'ÉTAIT <br>
                            <strong class="text-primary">+ de 500</strong> PARTICIPANTS, DONT
                            <strong class="text-primary">68</strong> ÉTUDIANTS,
                            <strong class="text-primary">58</strong> TALKS ET
