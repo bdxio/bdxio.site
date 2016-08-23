@@ -92,23 +92,24 @@ export class CFPProgramComponent implements ng.IDirective {
                             <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
 
                                 <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
-                                     <div class="header-prez">
+
+                                     <div class="header-prez" ng-show="prez.speakers">
                                         <ul class="container-avatar-speaker">
                                             <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
                                         </ul>
                                     </div>
 
-                                    <ul class="container-name-speaker">
-                                        <li>Robin Lopez</li>
+                                    <ul class="container-name-speaker" ng-show="prez.speakers">
+                                        <li ng-repeat="speaker in prez.speakers">{{ speaker.name }}</li>
                                     </ul>
 
                                     <h4 class="prez-title-track small-title">
                                         <i class="bdx-networks"></i>
-                                        {{ prez.track }}
+                                        {{ prez.title }}
                                     </h4>
-                                    {{ prez.title }}
+                                    {{ prez.track }}
 
-                                   <div class="footer-prez cat-4">
+                                   <div class="footer-prez cat-4" ng-show="prez.type">
                                         <span ng-show="prez.type">{{ prez.type }}</span>
                                     </div>
                                 </div>
