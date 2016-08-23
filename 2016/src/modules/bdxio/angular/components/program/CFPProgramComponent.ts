@@ -60,11 +60,15 @@ export class CFPProgramComponent implements ng.IDirective {
 
             <div class="container-table-program">
                 <!--Rooms columns-->
-                <div class="row program-header" ng-show="$ctrl.currentDayIndex">
-                    <div class="column col-lg-1 col-sm-3 day ">J {{ $ctrl.currentDayIndex }}</div>
-                    <div class="column col-lg-11 col-sm-9">
-                        <div class="row hidden-xs">
-                            <div class="large-item text-center" ng-repeat="room in $ctrl.currentDay.rooms">
+                <div class="row row-eq-height program-header" ng-show="$ctrl.currentDayIndex">
+                    <div class="column col-lg-1 col-sm-3 no-padding">
+                        <div class="day">
+                           J {{ $ctrl.currentDayIndex }}
+                        </div>
+                    </div>
+                    <div class="column col-lg-11 col-sm-9 no-padding">
+                        <div class="room hidden-xs">
+                            <div class="large-item text-center item-room" ng-repeat="room in $ctrl.currentDay.rooms">
                               <b>{{ ::room }}</b>
                             </div>
                         </div>
@@ -72,18 +76,28 @@ export class CFPProgramComponent implements ng.IDirective {
                 </div>
 
                 <!--Iterate over slots-->
-                <div class="row program-content" ng-repeat="slot in $ctrl.currentDay.slots">
+                <div class="row row-eq-height program-content" ng-repeat="slot in $ctrl.currentDay.slots">
 
-                    <div class="col-lg-1 col-xs-3 time">
-                        <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
+                    <div class="column col-lg-1 col-xs-3 inner-space-left-0 inner-space-right-0 time-container">
+                        <div class="time">
+                            <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
+                        </div>
                     </div>
 
                     <!--Iterate over all slot's presentations-->
-                    <div class="col-lg-11 col-xs-9">
-                        <div class="row">
-                            <div class="prez large-item  col-xs-12" ng-repeat="prez in slot.presentations">
+                    <div class="column col-lg-11 col-xs-9" >
+                        <div class="row prez-container">
+                            <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item  col-xs-12" ng-repeat="prez in slot.presentations">
                                 <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
-                                    {{ prez.title }}<span ng-show="prez.type"> ({{ prez.type }})</span>
+                                    <ul>
+                                        <li>{{ prez.speakers.name }}</li>
+                                    </ul>
+                                    {{ prez.title }}<span ng-show="prez.type">({{ prez.type }})</span>
+                                    <div class="footer-prez">
+                                        <ul class="container-avatar-speaker">
+                                            <li class="avatar-speaker"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

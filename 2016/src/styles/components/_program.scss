@@ -1,0 +1,196 @@
+// ~ PROGRAM
+// ====================================================================== >
+
+// General Skin Program
+
+.cfp-program {
+  .column { display:inline;}
+}
+
+// Filter Bar Program
+
+.track-selector, .day-selector {
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.container-track-selector {
+  display: inline-block;
+
+  .track-selector {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 50px;
+    border: 1px solid $light-grey;
+    color: $light-grey;
+    font-weight: bold;
+
+    &.select {
+      background: linear-gradient(219deg, #cf1633, #027d8e);
+      background-size: 400% 400%;
+      color: white;
+      border: none;
+      -webkit-animation: gradient-animation 7s ease infinite;
+      -moz-animation: gradient-animation 7s ease infinite;
+      animation: gradient-animation 7s ease infinite;
+    }
+
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+}
+
+// ==== Table Program
+
+.container-table-program {
+  display: inline-table;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0 30px;
+
+  .large-item {
+    display: inline-block;
+    width: 20%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+
+  // === Header  Table Program
+
+  .program-header {
+    background-color: $secondary;
+    color: white;
+
+    .room {
+      height: 100%;
+
+      .item-room {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        padding: 10px;
+        border-right: 2px solid darken($secondary, 3%);
+      }
+    }
+  }
+
+  // === Table Time and Day
+
+  .day, .time {
+    display: inline-table;
+    text-align: center;
+    height: 100%;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .day {
+    height: 100%;
+    width: 100%;
+    background-color: darken($secondary, 4%);
+  }
+
+  .time-container {
+    background-color: $primary;
+    border-bottom: 2px solid darken($primary, 5%);
+
+    .time {
+      width: 100%;
+
+      b {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+
+        i {
+          float: left;
+          margin-right: 0px;
+          padding-top: 5px;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  // === Table Prez
+
+  .footer-prez {
+    display: block;
+    width: 100%;
+    background-color: $white-grey;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    .container-avatar-speaker {
+      display: inline-block;
+      padding: 0;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 100%;
+
+      .avatar-speaker {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        margin-right: 5px;
+        background-color: $light-grey;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  .prez-container {
+    height: 100%;
+    border-bottom: 1px solid $white-grey;
+
+    .prez {
+      height: 100%;
+      padding: 60px 10px 10px 10px;
+      border-collapse: collapse;
+      text-align: center;
+      border-top: 1px solid $white-grey;
+      border-left: 1px solid $white-grey;
+      border-right: 1px solid $white-grey;
+
+      @media (max-width: 768px) {
+        height: auto;
+      }
+    }
+  }
+}
+
+// ==== Utils Program
+
+.col-height {
+  display: table-cell;
+  height: 100%;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+@media (max-width: 768px) {
+  .empty-slot {
+    display: none !important;
+  }
+}
