@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.min";
 import "scrollreveal/dist/scrollreveal";
 import "ui-select/dist/select.min";
 import "angular-sanitize/angular-sanitize.min";
+import "moment/moment";
 
 // load our default (non specific) css
 import "font-awesome/css/font-awesome.css";

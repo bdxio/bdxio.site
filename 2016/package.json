@@ -20,6 +20,7 @@
     "jquery": "2.2.0",
     "lodash": "4.0.1",
     "angular-morph": "https://github.com/fcamblor/ngMorph.git#18bb4e949812a25b86079862140156ceaa32496c",
+    "moment": "2.14.1",
     "scrollreveal": "2.3.3",
     "slick-carousel": "1.4.1",
     "ui-select": "0.19.4"
