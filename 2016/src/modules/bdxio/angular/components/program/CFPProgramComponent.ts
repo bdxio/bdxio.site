@@ -53,7 +53,9 @@ export class CFPProgramComponent implements ng.IDirective {
                     <!--Actions-->
                     <div class="col-sm-2">&nbsp;</div>
                     <div class="col-sm-2" ng-show="$ctrl.currentDay">
-                        <button ng-click="$ctrl.clearFilter()">Reinitialiser</button>
+                        <button class="btn btn-primary btn-md has-icon-left" ng-click="$ctrl.clearFilter()">
+                            <i class="fa fa-refresh"></i>Réinitialiser
+                        </button>
                     </div>
                 </div>
             </div>
@@ -61,12 +63,12 @@ export class CFPProgramComponent implements ng.IDirective {
             <div class="container-table-program">
                 <!--Rooms columns-->
                 <div class="row row-eq-height program-header" ng-show="$ctrl.currentDayIndex">
-                    <div class="column col-lg-1 col-sm-3 no-padding">
+                    <div class="column col-lg-1 col-sm-3 col-xs-12 no-padding">
                         <div class="day">
                            J {{ $ctrl.currentDayIndex }}
                         </div>
                     </div>
-                    <div class="column col-lg-11 col-sm-9 no-padding">
+                    <div class="column col-lg-11 col-sm-9 no-padding hidden-xs">
                         <div class="room hidden-xs">
                             <div class="large-item text-center item-room" ng-repeat="room in $ctrl.currentDay.rooms">
                               <b>{{ ::room }}</b>
@@ -87,16 +89,27 @@ export class CFPProgramComponent implements ng.IDirective {
                     <!--Iterate over all slot's presentations-->
                     <div class="column col-lg-11 col-xs-9" >
                         <div class="row prez-container">
-                            <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item  col-xs-12" ng-repeat="prez in slot.presentations">
+                            <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
+
                                 <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
-                                    <ul>
-                                        <li>{{ prez.speakers.name }}</li>
-                                    </ul>
-                                    {{ prez.title }}<span ng-show="prez.type">({{ prez.type }})</span>
-                                    <div class="footer-prez">
+                                     <div class="header-prez">
                                         <ul class="container-avatar-speaker">
-                                            <li class="avatar-speaker"></li>
+                                            <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
                                         </ul>
+                                    </div>
+
+                                    <ul class="container-name-speaker">
+                                        <li>Robin Lopez</li>
+                                    </ul>
+
+                                    <h4 class="prez-title-track small-title">
+                                        <i class="bdx-networks"></i>
+                                        {{ prez.track }}
+                                    </h4>
+                                    {{ prez.title }}
+
+                                   <div class="footer-prez cat-4">
+                                        <span ng-show="prez.type">{{ prez.type }}</span>
                                     </div>
                                 </div>
                             </div>

@@ -107,6 +107,18 @@
     .time {
       width: 100%;
 
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        height: 48%;
+        width: 100%;
+        background-position: center center;
+        background-size: cover !important;
+        background: url("../../images/png/bg-footer-left.png") no-repeat;
+      }
+
       b {
         position: absolute;
         top: 50%;
@@ -126,15 +138,14 @@
 
   // === Table Prez
 
-  .footer-prez {
+  .header-prez {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     width: 100%;
     background-color: $white-grey;
     height: 35px;
-    position: absolute;
-    top: 0;
-    left: 0;
-
 
     .container-avatar-speaker {
       display: inline-block;
@@ -151,7 +162,27 @@
         margin-right: 5px;
         background-color: $light-grey;
         border-radius: 100%;
+
+        &.no-avatar {
+          background: url("../../images/png/no-avatar.png");
+          background-size: 100%;
+          background-position: center center;
+        }
       }
+    }
+  }
+
+  // Content Prez
+
+  .container-name-speaker {
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: block;
+      list-style: none;
+      font-weight: bold;
+      color: $primary;
     }
   }
 
@@ -160,8 +191,9 @@
     border-bottom: 1px solid $white-grey;
 
     .prez {
+      position: relative;
       height: 100%;
-      padding: 60px 10px 10px 10px;
+      padding: 60px 10px 60px 10px;
       border-collapse: collapse;
       text-align: center;
       border-top: 1px solid $white-grey;
@@ -171,7 +203,37 @@
       @media (max-width: 768px) {
         height: auto;
       }
+
+      .prez-title-track {
+        i {
+          display: block;
+          font-size: 34px;
+        }
+      }
     }
+  }
+
+  // Footer Prez
+
+  .footer-prez {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 32px;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+
+    &.cat-1 { background-color: #b89ff4;}
+    &.cat-2 { background-color: #f13f42;}
+    &.cat-3 { background-color: #72c9d3;}
+    &.cat-4 { background-color: #f59600;}
   }
 }
 
