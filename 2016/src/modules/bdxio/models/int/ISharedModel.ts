@@ -5,7 +5,7 @@ import {IAttendee} from "./IAttendee";
 import {INews} from "./INews";
 import {IFriend} from "./IFriend";
 import {SpreadsheetReaderDescriptor} from "../../services/SpreadsheetReader";
-
+import * as moment from 'moment';
 
 export interface ICompaniesByType {
     type: string,
@@ -19,9 +19,11 @@ export interface ITypedCompaniesByType {
 }
 
 export interface IConfig {
-    livestreamEnabled: string,
-    registrationOpened: string,
-    cfpStatus: string
+    livestreamEnabled: string;
+    registrationOpened: string;
+    cfpOpeningDate: moment.Moment;
+    cfpClosingDate: moment.Moment;
+    programPublishingDate: moment.Moment;
 }
 
 export interface ISharedModelData {
