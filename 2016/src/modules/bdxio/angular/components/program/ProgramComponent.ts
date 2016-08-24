@@ -16,14 +16,27 @@ export class ProgramComponent implements ng.IDirective {
 
     public template:string = `
         <div class="row" ng-repeat="(track, presentations) in $ctrl.presentationsByTrack">
-            <p>{{ track }}</p>
-            <ul>
-                <li class="item-partner col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="prez in presentations">
-                    <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
-                        <h4>{{ prez.title }}</h4><br><h5>{{ $ctrl.toSpeakersList(prez) }}</h5><br><b>{{ prez.type }} - {{ prez.track }}</b>
-                    </div>
-                </li>
-            </ul>
+            <div class="col-sm-12">
+                <h3 class="title-track text-secondary"><i ng-class="{'bdx-design' : true}"></i>{{ track }}</h3>
+                <ul class="program-list-speaker">
+                    <li class="item-container col-xs-12 col-sm-6 col-md-4 col-lg-4 no-padding" ng-repeat="prez in presentations" data-sr="enter bottom, move 24px, reset">
+                        <div class="item-content">
+                            <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
+                                <div class="header-prez" ng-show="prez.speakers">
+                                    <ul class="container-avatar-speaker">
+                                        <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
+                                    </ul>
+                                </div>
+                                <span class="name-speaker">{{ $ctrl.toSpeakersList(prez) }}</span>
+                                <p class="desc-talk">{{ prez.title }}</p>
+                                <div class="footer-prez cat-4" ng-show="prez.type">
+                                    <span ng-show="prez.type">{{ prez.type }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     `
 }

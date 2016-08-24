@@ -1,7 +1,9 @@
 // ~ PROGRAM
 // ====================================================================== >
 
-// General Skin Program
+// ============================= //
+// General Skin Program Schedule //
+// ============================= //
 
 .cfp-program {
   .column { display:inline;}
@@ -254,5 +256,125 @@
 @media (max-width: 768px) {
   .empty-slot {
     display: none !important;
+  }
+}
+
+// ============================= //
+// General Skin Program Speakers //
+// ============================= //
+
+.title-track {
+  font-weight: bold;
+
+  i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
+.program-list-speaker {
+  display: inline-block;
+  padding: 0;
+  margin: 30px 0;
+
+  li {
+    list-style: none;
+  }
+
+  .item-container {
+    padding: 10px 20px 10px 0;
+
+    .item-content  {
+      position: relative;
+      min-height: 200px;
+      padding: 90px 0 50px 0;
+      background-color: #f9f9f9;
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 790 !important;
+
+      .content-partner {
+        background-color: transparent !important;
+
+        // === Table Prez
+
+        .header-prez {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          background-color: $primary;
+          height: 35px;
+
+          .container-avatar-speaker {
+            display: inline-block;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+
+            .avatar-speaker {
+              display: inline-block;
+              height: 70px;
+              width: 70px;
+              margin-right: 5px;
+              background-color: $light-grey;
+              border-radius: 100%;
+
+              &.no-avatar {
+                background: url("../../images/png/no-avatar.png");
+                background-size: 100%;
+                background-position: center center;
+              }
+            }
+          }
+        }
+
+        // Content
+
+        .name-speaker {
+          display: block;
+          width: 100%;
+          margin-bottom: 10px;
+          text-align: center;
+          color: $primary;
+          font-weight: bold;
+        }
+
+        .desc-talk {
+          padding: 0 20px;
+          text-align: center;
+        }
+
+        // Footer Prez
+
+        .footer-prez {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          display: block;
+          width: auto;
+          margin: 0 auto;
+          padding: 0 20px;
+          height: 32px;
+          border-radius: 50px;
+          color: white;
+          text-align: center;
+          padding-top: 5px;
+          font-weight: bold;
+
+          &.cat-1 { background-color: #b89ff4;}
+          &.cat-2 { background-color: #f13f42;}
+          &.cat-3 { background-color: #72c9d3;}
+          &.cat-4 { background-color: #f59600;}
+        }
+      }
+    }
   }
 }
