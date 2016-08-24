@@ -1,6 +1,7 @@
-# angular-typescript-webpack
+# BDX I/O Website
 
-Angular + Typescript + Webpack build with Karma and wallaby tests support.
+Project architecture is based on [angular-typescript-webpack](https://github.com/brechtbilliet/angular-typescript-webpack) project
+Stack is based on Angular 1 + Typescript + Webpack build with Karma and wallaby tests support.
 And this all with sourcemaps in production support!!
 
 ### Install
@@ -27,24 +28,13 @@ open reports/coverage/index.html
 Build
 ```sh
 npm install
-tsd install
+typings install
 npm run build
 ```
 
+### Deploy (requires write access to the repository)
 
-### Features
+```sh
+./deploy.sh
+```
 
-- [x] Build basic Angular app with webpack
-- [x] Simple twitter application
-- [x] fully tested with Jasmine
-- [x] sass support
-- [x] Coverage report
-- [x] Typescript support
-- [x] ES6 modules support
-- [x] Running tests in PhantomJS
-- [x] Wallaby.js support
-- [x] Karma support
-- [x] Optimized build package
-- [x] Minimal and straightforward setup
-- [x] Watches code and refreshes browser with latest changes automatically
-- [x] Sourcemap support in develop AND PRODUCTION!!! (don't deploy the js.map file with your application, but use it to debug your production app)
