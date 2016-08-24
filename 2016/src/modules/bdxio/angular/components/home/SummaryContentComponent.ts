@@ -108,7 +108,7 @@ export class SummaryContentComponent implements ng.IDirective {
                         <h4>
                             Méthodologie comme SCRUM ou Kanban.
                             <br>
-                            Principes d'artitecture.
+                            Principes d'architecture.
                         </h4>
                     </div>
                 </div>
