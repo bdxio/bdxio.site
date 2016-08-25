@@ -15,8 +15,11 @@ export class ProgramPageComponent implements ng.IDirective {
     <section class="wrapper">
         <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
         <div ng-if="$ctrl.config">
-            <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="!$ctrl.isProgramPublished() && $ctrl.presentations"></program>
+            <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="$ctrl.isTalksListPublished() && $ctrl.presentations"></program>
             <cfp-program options="$ctrl.options" event="$ctrl.event" ng-if="$ctrl.isProgramPublished()"></cfp-program>
+            <div class="row" ng-if="!$ctrl.isTalksListPublished() && !$ctrl.isProgramPublished()">
+                <h3>Un peu de patience ... </h3>
+            </div>
         </div>
     </section>
     `
@@ -44,7 +47,14 @@ export class ProgramPageController {
         this.options = this.buildOptions();
     }
 
-    public isProgramPublished():boolean {
+    public isTalksListPublished() {
+        if (this.config) {
+            return this.config.talksListPublishingDate && this.now.isAfter(this.config.talksListPublishingDate)
+                && this.config.programPublishingDate && this.now.isBefore(this.config.programPublishingDate);
+        }
+    }
+
+    public isProgramPublished() {
         if (this.config) {
             return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
         }

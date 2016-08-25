@@ -36,7 +36,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                 ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened()"></i>
-                            <i class="fa fa-calendar" ng-if="$ctrl.isCfpClosed() || $ctrl.isProgramPublished()"></i>
+                            <i class="fa fa-calendar" ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()"></i>
                         </button>
 
                         <a class="navbar-brand" href="#"></a>
@@ -88,20 +88,24 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
-                            <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpNotOpenedYet() }" ng-click="$ctrl.openProgram()">
+                            <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpNotOpenedYet() && !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
+                                    <!-- CFP Not opened yet or closed (only subtext changes) -->
                                     <span ng-if="$ctrl.isCfpNotOpenedYet()">Patience !<br></span>
-                                    <span class="status-sale" ng-if="$ctrl.isCfpNotOpenedYet()">CFP Fermé</span>
+                                    <span ng-if="$ctrl.isCfpClosed()">Délibération en cours<br></span>
+                                    <span class="status-sale" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpClosed()">CFP Fermé</span>
+                                    <!-- CFP Opened -->
                                     <span ng-if="$ctrl.isCfpOpened()">Proposer un talk<br></span>
                                     <span class="status-sale" ng-if="$ctrl.isCfpOpened()">CFP Ouvert</span>
-                                    <span ng-if="$ctrl.isCfpClosed() || $ctrl.isProgramPublished()">Consulter<br></span>
-                                    <span class="status-sale" ng-if="$ctrl.isCfpClosed() && !$ctrl.isProgramPublished()">Liste des talks</span>
+                                    <!-- Talks list or full program has been published (only subtext changes) -->
+                                    <span ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">Consulter<br></span>
+                                    <span class="status-sale" ng-if="$ctrl.isTalksListPublished()">Liste des talks</span>
                                     <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme</span>
                                 </div>
-                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened()">
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
                                    <i class="fa fa-commenting-o"></i>
                                 </div>
-                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpClosed() || $ctrl.isProgramPublished()">
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">
                                    <i class="fa fa-calendar"></i>
                                 </div>
                             </li>
@@ -177,7 +181,15 @@ export class AppNavMenuController {
 
     public isCfpClosed() {
         if (this.config) {
-            return this.config.cfpClosingDate && this.now.isAfter(this.config.cfpClosingDate);
+            return this.config.cfpClosingDate && this.now.isAfter(this.config.cfpClosingDate)
+                && this.config.talksListPublishingDate && this.now.isBefore(this.config.talksListPublishingDate);
+        }
+    }
+
+    public isTalksListPublished() {
+        if (this.config) {
+            return this.config.talksListPublishingDate && this.now.isAfter(this.config.talksListPublishingDate)
+                && this.config.programPublishingDate && this.now.isBefore(this.config.programPublishingDate);
         }
     }
 
@@ -190,7 +202,7 @@ export class AppNavMenuController {
     public openProgram() {
         if (this.isCfpOpened()) {
             window.open('https://cfp.bdx.io', '_blank');
-        } else if (this.isCfpClosed() || this.isProgramPublished()) {
+        } else if (this.isTalksListPublished() || this.isProgramPublished()) {
             this.$location.path("/program");
         }
     }

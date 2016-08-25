@@ -23,6 +23,7 @@ export interface IConfig {
     registrationOpened: string;
     cfpOpeningDate: moment.Moment;
     cfpClosingDate: moment.Moment;
+    talksListPublishingDate: moment.Moment;
     programPublishingDate: moment.Moment;
 }
 
