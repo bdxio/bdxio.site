@@ -93,7 +93,7 @@ export class CFPProgramComponent implements ng.IDirective {
                         <div class="row prez-container">
                             <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
 
-                                <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
+                                <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
 
                                      <div class="header-prez" ng-show="prez.speakers">
                                         <ul class="container-avatar-speaker">
@@ -165,4 +165,39 @@ export class CFPProgramController {
             })
             .value();
     }
+
+    public createMorphSettingsFor(prez:ICFPPresentation):any {
+        var speakers = prez.toSpeakersList();
+        return {
+            closeEl: '.close',
+            target: 'body',
+            modal: {
+                template: `
+                <div class="modal-morph">
+                    <span class="glyphicon glyphicon-remove close"></span>
+                    <div class="row">
+                        <div class="col-md-12 header-modal">
+                            <div class="row">
+                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title} (${prez.type})</h3>
+                                <div class="col-md-4 text-right">
+                                    <span class="date-new text-white inner-space-right-15">
+                                        <i class="fa fa-users space-right-5"></i> ${speakers}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 content-modal">
+                            <div class="col-md-12">
+                                <p class="row"><b>Track : ${prez.track}</b></p>
+                                <p class="row"><b>Type : ${prez.type}</b></p>
+                                <p class="row">${prez.summary}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`,
+                fade: true
+            }
+        };
+    }
+
 }
