@@ -7,6 +7,7 @@ import {ICFPSpeaker} from "../int/ICFPSpeaker";
 import {CFPSlot} from "./CFPSlot";
 import {ICFPEventModel} from "../int/ICFPEventModel";
 import IPromise = angular.IPromise;
+import {CFPSpeaker} from "./CFPSpeaker";
 
 export class CFPEventModel implements ICFPEventModel {
 
@@ -104,8 +105,13 @@ export class CFPEventModel implements ICFPEventModel {
         cfpPresentation.track = slot.talk.track;
         cfpPresentation.summary = slot.talk.summary;
         cfpPresentation.type = slot.talk.talkType;
-        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:ICFPSpeaker) => {
-            return speaker;
+        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:any) => {
+            var cfpSpeaker = new CFPSpeaker();
+            cfpSpeaker.name = speaker.name;
+            this.$http.get(speaker.link.href).then((fullSpeaker:any) => {
+                angular.extend(cfpSpeaker, fullSpeaker.data);
+            });
+            return cfpSpeaker;
         });
         return cfpPresentation;
     }

@@ -4,6 +4,7 @@ import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import {CFPEvent} from "../../../models/impl/CFPEvent";
 import Dictionary = _.Dictionary;
+import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
 export class ProgramComponent implements ng.IDirective {
 
     public controller:Function = ProgramController;
@@ -20,8 +21,8 @@ export class ProgramComponent implements ng.IDirective {
                 <h3 class="title-track text-secondary"><i ng-class="{'bdx-design' : true}"></i>{{ track }}</h3>
                 <ul class="program-list-speaker">
                     <li class="item-container col-xs-12 col-sm-6 col-md-4 col-lg-4 no-padding" ng-repeat="prez in presentations" data-sr="enter bottom, move 24px, reset">
-                        <div class="item-content">
-                            <div class="content-partner" ng-style="$ctrl.tileStyle(prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
+                        <div class="item-content" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
+                            <div class="content-partner">
                                 <div class="header-prez" ng-show="prez.speakers">
                                     <ul class="container-avatar-speaker">
                                         <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
@@ -29,7 +30,7 @@ export class ProgramComponent implements ng.IDirective {
                                 </div>
                                 <span class="name-speaker">{{ $ctrl.toSpeakersList(prez) }}</span>
                                 <p class="desc-talk">{{ prez.title }}</p>
-                                <div class="footer-prez cat-4" ng-show="prez.type">
+                                <div class="footer-prez" ng-class="$ctrl.typeClasses[prez.type]" ng-show="prez.type">
                                     <span ng-show="prez.type">{{ prez.type }}</span>
                                 </div>
                             </div>
@@ -43,26 +44,20 @@ export class ProgramComponent implements ng.IDirective {
 export class ProgramController {
 
     public static $inject:Array<string> = [];
+
     private presentations:Array<ICFPPresentation>;
     private presentationsByTrack:Dictionary<ICFPPresentation[]>;
-    private trackColors:any;
+    private typeClasses:any;
 
     public constructor() {
         this.presentationsByTrack = _.chain(this.presentations).filter((prez:ICFPPresentation) => prez.track).groupBy('track').value();
-        var tracks = _.keys(this.presentationsByTrack);
-        this.trackColors = _.zipObject(tracks, _.map(tracks, () => this.getRandomColor()));
+        var i = 1;
+        var types = _.chain(this.presentations).map('type').uniq().filter(type => type != undefined).value();
+        this.typeClasses = _.zipObject(types, _.map(types, (type) => 'cat-' + (i++)));
     }
 
     public toSpeakersList(prez:ICFPPresentation):string {
-        return _.map(prez.speakers, 'name').join(', ');
-    }
-
-    public tileStyle(prez:ICFPPresentation):any {
-        return {
-            'color': 'black',
-            'padding': '5px',
-            'background-color': this.trackColors[prez.track]
-        };
+        return _.map(prez.speakers, (speaker:CFPSpeaker) => speaker.name + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {
