@@ -3,7 +3,7 @@ export interface ICFPSpeaker extends IHypermediaElement {
     name: string;
     firstName:string;
     lastName:string;
-    avatarUrl: string;
+    avatarURL: string;
     company:string;
     href:string;
 }

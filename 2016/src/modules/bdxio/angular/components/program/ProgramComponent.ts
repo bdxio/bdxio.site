@@ -25,7 +25,8 @@ export class ProgramComponent implements ng.IDirective {
                             <div class="content-partner">
                                 <div class="header-prez" ng-show="prez.speakers">
                                     <ul class="container-avatar-speaker">
-                                        <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
+                                        <li class="avatar-speaker" class="no-avatar" ng-show="!$ctrl.firstSpeakerAvatar(prez)"></li>
+                                        <li class="avatar-speaker" ng-show="$ctrl.firstSpeakerAvatar(prez)" ng-style="$ctrl.getAvatarStyle(prez)"></li>
                                     </ul>
                                 </div>
                                 <span class="name-speaker">{{ $ctrl.toSpeakersList(prez) }}</span>
@@ -58,6 +59,16 @@ export class ProgramController {
 
     public toSpeakersList(prez:ICFPPresentation):string {
         return _.map(prez.speakers, (speaker:CFPSpeaker) => speaker.name + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');
+    }
+
+    public firstSpeakerAvatar(prez:ICFPPresentation):string {
+        return prez.speakers && prez.speakers[0] && prez.speakers[0].avatarURL ? prez.speakers[0].avatarURL : null;
+    }
+
+    public getAvatarStyle(prez:ICFPPresentation):any {
+        return {
+            background: 'url(' + this.firstSpeakerAvatar(prez) + ')'
+        };
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {

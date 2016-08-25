@@ -3,7 +3,7 @@ export class CFPSpeaker implements ICFPSpeaker {
     name: string;
     firstName:string;
     lastName:string;
-    avatarUrl: string;
+    avatarURL: string;
     company:string;
     href:string;
 }
