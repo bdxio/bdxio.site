@@ -20,7 +20,9 @@ export class ProgramComponent implements ng.IDirective {
     public template:string = `
         <div class="row" ng-repeat="(track, presentations) in $ctrl.presentationsByTrack">
             <div class="col-sm-12">
-                <h3 class="title-track text-secondary"><i ng-class="{'bdx-design' : true}"></i>{{ track }}</h3>
+                <h3 class="title-track text-secondary">
+                    <i ng-class="$ctrl.options.trackClasses[track]"></i>{{ track }}
+                </h3>
                 <ul class="program-list-speaker">
                     <li class="item-container col-xs-12 col-sm-6 col-md-4 col-lg-4 no-padding" ng-repeat="prez in presentations" data-sr="enter bottom, move 24px, reset">
                         <div class="item-content" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
@@ -33,10 +35,6 @@ export class ProgramComponent implements ng.IDirective {
                                 </div>
                                 <span class="name-speaker">{{ prez.toSpeakersList() }}</span>
                                 <h3 class="desc-talk">{{ prez.title }}</h3>
-                                <h5 class="desc-talk" ng-if="prez.track">
-                                    <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
-                                    {{ prez.track }}
-                                </h5>
                                 <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                     <span ng-show="prez.type">{{ prez.type }}</span>
                                 </div>
@@ -57,7 +55,7 @@ export class ProgramController {
     private options:ProgramOptions;
 
     public constructor() {
-        this.presentationsByTrack = _.chain(this.presentations).filter((prez:ICFPPresentation) => prez.track).groupBy('track').value();
+        this.presentationsByTrack = _.chain(this.presentations).filter((prez:ICFPPresentation) => prez.track).orderBy('type').groupBy('track').value();
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {
