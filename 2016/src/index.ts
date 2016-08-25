@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./styles/main.scss";
 import "bootstrap/dist/js/bootstrap.js";
 import "slick-carousel/slick/slick.scss";
-import "slick-carousel/slick/slick.scss";
+import "slick-carousel/slick/slick-theme.scss";
 import "ui-select/dist/select.min.css";
 
 angular.module("app", ["app.application", "bdxio.app", "ngMorph", "ui.select", "ngSanitize"]);
