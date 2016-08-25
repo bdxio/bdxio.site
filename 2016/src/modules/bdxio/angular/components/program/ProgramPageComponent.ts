@@ -5,6 +5,7 @@ import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ISharedModel} from "../../../models/int/ISharedModel";
 import {IConfig} from "../../../models/int/ISharedModel";
 import * as moment from 'moment';
+import {ProgramOptions} from "./ProgramOptions";
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -13,8 +14,10 @@ export class ProgramPageComponent implements ng.IDirective {
     public template:string = `
     <section class="wrapper">
         <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
-        <program presentations="$ctrl.presentations" ng-if="!$ctrl.isProgramPublished() && $ctrl.presentations"></program>
-        <cfp-program event="$ctrl.event" ng-if="$ctrl.isProgramPublished()"></cfp-program>
+        <div ng-if="$ctrl.config">
+            <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="!$ctrl.isProgramPublished() && $ctrl.presentations"></program>
+            <cfp-program options="$ctrl.options" event="$ctrl.event" ng-if="$ctrl.isProgramPublished()"></cfp-program>
+        </div>
     </section>
     `
 }
@@ -26,6 +29,8 @@ export class ProgramPageController {
     public event:ICFPEvent;
     public presentations:Array<ICFPPresentation>;
     public config:IConfig;
+    public options:ProgramOptions;
+
     public now:moment.Moment = moment();
 
     public constructor(private cfpEventModel:ICFPEventModel, private sharedModel:ISharedModel) {
@@ -36,11 +41,40 @@ export class ProgramPageController {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
         });
+        this.options = this.buildOptions();
     }
 
     public isProgramPublished():boolean {
         if (this.config) {
             return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
         }
+    }
+
+    private buildOptions():ProgramOptions {
+        var programOptions = new ProgramOptions();
+        programOptions.trackClasses = {
+            //'Java, JVM, Javas SE/EE': 'bdx-design',
+            //'Java, JVM, Javas SE/EE': 'bdx-server',
+            //'Java, JVM, Javas SE/EE': 'bdx-phone',
+            //'Java, JVM, Javas SE/EE': 'bdx-tools',
+            //'Java, JVM, Javas SE/EE': 'bdx-networks',
+            //'Java, JVM, Javas SE/EE': 'bdx-settings',
+            'Web, HTML5 et UX': 'bdx-settings',
+            'Architecture, Performance and Security': 'bdx-server',
+            'Alternate Languages': 'bdx-server',
+            'DevOps, Agile, Methodology & Tests': 'bdx-tools',
+            'Big Data & Analytics': 'bdx-networks',
+            'Future & Robotics': 'bdx-phone',
+            'Cloud & Scaling': 'bdx-phone',
+            'Mobile, IoT': 'bdx-phone',
+            'Java, JVM, Javas SE/EE': 'bdx-settings'
+        };
+        programOptions.typeClasses = {
+            'Conference': 'cat-4',
+            'Quickie': 'cat-3',
+            'Keynote': 'cat-2',
+            'Tools-in-Action': 'cat-1'
+        };
+        return programOptions;
     }
 }

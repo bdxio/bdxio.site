@@ -337,11 +337,11 @@
               margin-right: 5px;
               background-color: $light-grey;
               border-radius: 100%;
+              background-size: 100%;
+              background-position: center center;
 
               &.no-avatar {
                 background: url("../../images/png/no-avatar.png");
-                background-size: 100%;
-                background-position: center center;
               }
             }
           }

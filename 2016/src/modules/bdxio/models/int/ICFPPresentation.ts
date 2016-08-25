@@ -9,4 +9,8 @@ export interface ICFPPresentation {
     from: Date;
     to: Date;
     room: string;
+
+    firstSpeakerAvatar():string;
+    getAvatarStyle():any;
+    toSpeakersList():string;
 }

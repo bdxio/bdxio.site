@@ -5,6 +5,7 @@ import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import {CFPEvent} from "../../../models/impl/CFPEvent";
 import Dictionary = _.Dictionary;
 import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
+import {ProgramOptions} from "./ProgramOptions";
 export class ProgramComponent implements ng.IDirective {
 
     public controller:Function = ProgramController;
@@ -12,7 +13,8 @@ export class ProgramComponent implements ng.IDirective {
     public bindToController:boolean = true;
 
     public scope = {
-        presentations: '='
+        presentations: '=',
+        options: '='
     };
 
     public template:string = `
@@ -25,13 +27,13 @@ export class ProgramComponent implements ng.IDirective {
                             <div class="content-partner">
                                 <div class="header-prez" ng-show="prez.speakers">
                                     <ul class="container-avatar-speaker">
-                                        <li class="avatar-speaker" class="no-avatar" ng-show="!$ctrl.firstSpeakerAvatar(prez)"></li>
-                                        <li class="avatar-speaker" ng-show="$ctrl.firstSpeakerAvatar(prez)" ng-style="$ctrl.getAvatarStyle(prez)"></li>
+                                        <li class="avatar-speaker" class="no-avatar" ng-show="!prez.firstSpeakerAvatar()"></li>
+                                        <li class="avatar-speaker" ng-show="prez.firstSpeakerAvatar()" ng-style="prez.getAvatarStyle()"></li>
                                     </ul>
                                 </div>
-                                <span class="name-speaker">{{ $ctrl.toSpeakersList(prez) }}</span>
+                                <span class="name-speaker">{{ prez.toSpeakersList() }}</span>
                                 <h4 class="desc-talk">{{ prez.title }}</h4>
-                                <div class="footer-prez" ng-class="$ctrl.typeClasses[prez.type]" ng-show="prez.type">
+                                <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-show="prez.type">
                                     <span ng-show="prez.type">{{ prez.type }}</span>
                                 </div>
                             </div>
@@ -48,31 +50,14 @@ export class ProgramController {
 
     private presentations:Array<ICFPPresentation>;
     private presentationsByTrack:Dictionary<ICFPPresentation[]>;
-    private typeClasses:any;
+    private options:ProgramOptions;
 
     public constructor() {
         this.presentationsByTrack = _.chain(this.presentations).filter((prez:ICFPPresentation) => prez.track).groupBy('track').value();
-        var i = 1;
-        var types = _.chain(this.presentations).map('type').uniq().filter(type => type != undefined).value();
-        this.typeClasses = _.zipObject(types, _.map(types, (type) => 'cat-' + (i++)));
-    }
-
-    public toSpeakersList(prez:ICFPPresentation):string {
-        return _.map(prez.speakers, (speaker:CFPSpeaker) => speaker.name + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');
-    }
-
-    public firstSpeakerAvatar(prez:ICFPPresentation):string {
-        return prez.speakers && prez.speakers[0] && prez.speakers[0].avatarURL ? prez.speakers[0].avatarURL : null;
-    }
-
-    public getAvatarStyle(prez:ICFPPresentation):any {
-        return {
-            background: 'url(' + this.firstSpeakerAvatar(prez) + ')'
-        };
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {
-        var speakers = this.toSpeakersList(prez);
+        var speakers = prez.toSpeakersList();
         return {
             closeEl: '.close',
             target: 'body',
@@ -103,14 +88,5 @@ export class ProgramController {
                 fade: true
             }
         };
-    }
-
-    private getRandomColor():string {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
     }
 }

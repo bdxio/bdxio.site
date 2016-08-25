@@ -3,6 +3,7 @@ import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import {CFPEvent} from "../../../models/impl/CFPEvent";
+import {ProgramOptions} from "./ProgramOptions";
 export class CFPProgramComponent implements ng.IDirective {
 
     public controller:Function = CFPProgramController;
@@ -10,7 +11,8 @@ export class CFPProgramComponent implements ng.IDirective {
     public bindToController:boolean = true;
 
     public scope = {
-        event: '='
+        event: '=',
+        options: '='
     };
 
     public template:string = `
@@ -95,7 +97,8 @@ export class CFPProgramComponent implements ng.IDirective {
 
                                      <div class="header-prez" ng-show="prez.speakers">
                                         <ul class="container-avatar-speaker">
-                                            <li class="avatar-speaker" ng-class="{'no-avatar' : true}"></li>
+                                            <li class="avatar-speaker" class="no-avatar" ng-show="!prez.firstSpeakerAvatar()"></li>
+                                            <li class="avatar-speaker" ng-show="prez.firstSpeakerAvatar()" ng-style="prez.getAvatarStyle()"></li>
                                         </ul>
                                     </div>
 
@@ -103,13 +106,15 @@ export class CFPProgramComponent implements ng.IDirective {
                                         <li ng-repeat="speaker in prez.speakers">{{ speaker.name }}</li>
                                     </ul>
 
-                                    <h4 class="prez-title-track small-title">
-                                        <i class="bdx-networks"></i>
-                                        {{ prez.title }}
+                                    <h3>{{ prez.title }}</h3>
+                                    <h4 class="prez-title-track small-title" ng-if="prez.track">
+                                        <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
+                                        {{ prez.track }}
                                     </h4>
-                                    {{ prez.track }}
 
-                                   <div class="footer-prez cat-4" ng-show="prez.type">
+                                    <h5>{{ prez.room }}</h4>
+
+                                   <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                         <span ng-show="prez.type">{{ prez.type }}</span>
                                     </div>
                                 </div>
@@ -129,6 +134,7 @@ export class CFPProgramController {
     private currentDay:ICFPDay;
     private currentDayIndex:number;
     private filter:ICFPPresentation = new CFPPresentation();
+    private options:ProgramOptions;
 
     public datePattern:string = 'dd/MM/yyyy';
     public timePattern:string = 'HH:mm';
