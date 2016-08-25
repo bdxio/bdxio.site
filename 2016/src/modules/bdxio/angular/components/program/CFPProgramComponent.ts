@@ -107,12 +107,12 @@ export class CFPProgramComponent implements ng.IDirective {
                                     </ul>
 
                                     <h3>{{ prez.title }}</h3>
-                                    <h4 class="prez-title-track small-title">
-                                        <i class="bdx-networks"></i>
+                                    <h4 class="prez-title-track small-title" ng-if="prez.track">
+                                        <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
                                         {{ prez.track }}
-                                    </h4>
+                                    </h5>
 
-                                   <div class="footer-prez cat-4" ng-show="prez.type">
+                                   <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                         <span ng-show="prez.type">{{ prez.type }}</span>
                                     </div>
                                 </div>
