@@ -30,7 +30,7 @@ export class ProgramComponent implements ng.IDirective {
                                     </ul>
                                 </div>
                                 <span class="name-speaker">{{ $ctrl.toSpeakersList(prez) }}</span>
-                                <p class="desc-talk">{{ prez.title }}</p>
+                                <h4 class="desc-talk">{{ prez.title }}</h4>
                                 <div class="footer-prez" ng-class="$ctrl.typeClasses[prez.type]" ng-show="prez.type">
                                     <span ng-show="prez.type">{{ prez.type }}</span>
                                 </div>
