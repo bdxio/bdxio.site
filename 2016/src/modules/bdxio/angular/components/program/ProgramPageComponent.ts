@@ -19,7 +19,7 @@ export class ProgramPageComponent implements ng.IDirective {
         <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
         <div ng-if="$ctrl.config">
             <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="$ctrl.isTalksListPublished() && $ctrl.presentations"></program>
-            <cfp-program options="$ctrl.options" event="$ctrl.event" ng-if="$ctrl.isProgramPublished()"></cfp-program>
+            <cfp-program options="$ctrl.options" event="$ctrl.event" ng-if="$ctrl.isProgramPublished() && $ctrl.event"></cfp-program>
             <div class="row" ng-if="!$ctrl.isTalksListPublished() && !$ctrl.isProgramPublished()">
                 <h3>Un peu de patience ... </h3>
             </div>
@@ -44,7 +44,8 @@ export class ProgramPageController {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
             if (this.isProgramPublished()) {
-                cfpEventModel.build('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16/schedules').then((_event:ICFPEvent) => {
+                //cfpEventModel.build('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16/schedules').then((_event:ICFPEvent) => {
+                cfpEventModel.build('BDX I/O 2016', 'http://cfp-voxxed-lux.yajug.org/api/conferences/voxxeddaylux2016/schedules').then((_event:ICFPEvent) => {
                     this.event = _event;
                 });
             } else if (this.isTalksListPublished()) {

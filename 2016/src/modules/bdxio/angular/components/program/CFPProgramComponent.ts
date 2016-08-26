@@ -137,6 +137,12 @@ export class CFPProgramController {
     public datePattern:string = 'dd/MM/yyyy';
     public timePattern:string = 'HH:mm';
 
+    constructor() {
+        if (this.event.days && this.event.days.length > 0) {
+            this.selectCurrentDay(this.event.days[0], 0);
+        }
+    }
+
     public selectCurrentDay(day:ICFPDay, index:number):void {
         this.currentDay = day;
         this.currentDayIndex = index + 1;
