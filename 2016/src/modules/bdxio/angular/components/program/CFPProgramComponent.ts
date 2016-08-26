@@ -97,8 +97,7 @@ export class CFPProgramComponent implements ng.IDirective {
 
                                      <div class="header-prez" ng-show="prez.speakers">
                                         <ul class="container-avatar-speaker">
-                                            <li class="avatar-speaker" class="no-avatar" ng-show="!prez.firstSpeakerAvatar()"></li>
-                                            <li class="avatar-speaker" ng-show="prez.firstSpeakerAvatar()" ng-style="prez.getAvatarStyle()"></li>
+                                            <li class="avatar-speaker" ng-repeat="speaker in prez.speakers" ng-style="speaker.getAvatarStyle()"></li>
                                         </ul>
                                     </div>
 

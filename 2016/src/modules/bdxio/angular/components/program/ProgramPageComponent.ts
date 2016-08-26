@@ -9,6 +9,8 @@ import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import ILocationService = angular.ILocationService;
+import {ICFPSpeaker} from "../../../models/int/ICFPSpeaker";
+import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -53,7 +55,9 @@ export class ProgramPageController {
                         this.presentations = _.map(response.data, (cfpPresentation:any) => {
                             var prez = new CFPPresentation();
                             prez.type = cfpPresentation.talkType;
-                            return angular.extend(prez, cfpPresentation);
+                            angular.extend(prez, cfpPresentation);
+                            prez.speakers = _.map(cfpPresentation.speakers, (cfpSpeaker:any) => angular.extend(new CFPSpeaker(), cfpSpeaker));
+                            return prez;
                         });
                     });
             }

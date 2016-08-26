@@ -10,7 +10,5 @@ export interface ICFPPresentation {
     to: Date;
     room: string;
 
-    firstSpeakerAvatar():string;
-    getAvatarStyle():any;
     toSpeakersList():string;
 }

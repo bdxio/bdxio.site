@@ -12,14 +12,6 @@ export class CFPPresentation implements ICFPPresentation {
     to:Date;
     room:string;
 
-    public firstSpeakerAvatar():string {
-        return this.speakers && this.speakers[0] && this.speakers[0].avatarURL ? this.speakers[0].avatarURL : null;
-    }
-
-    public getAvatarStyle():any {
-        return {'background-image': 'url(' + this.firstSpeakerAvatar() + ')'};
-    }
-
     public toSpeakersList():string {
         return _.map(this.speakers, (speaker:ICFPSpeaker) => speaker.name + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');
     }
