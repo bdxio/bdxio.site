@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
+import ILocationService = angular.ILocationService;
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -29,7 +30,7 @@ export class ProgramPageComponent implements ng.IDirective {
 
 export class ProgramPageController {
 
-    public static $inject:Array<string> = ['ICFPEventModel', 'ISharedModel', '$http'];
+    public static $inject:Array<string> = ['ICFPEventModel', 'ISharedModel', '$http', '$location'];
 
     public event:ICFPEvent;
     public presentations:Array<ICFPPresentation>;
@@ -38,7 +39,7 @@ export class ProgramPageController {
 
     public now:moment.Moment = moment();
 
-    public constructor(private cfpEventModel:ICFPEventModel, private sharedModel:ISharedModel, private $http:IHttpService) {
+    public constructor(private cfpEventModel:ICFPEventModel, private sharedModel:ISharedModel, private $http:IHttpService, private $location:ILocationService) {
         this.options = this.buildOptions();
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
@@ -60,6 +61,7 @@ export class ProgramPageController {
     }
 
     public isTalksListPublished() {
+        if (this.$location.search().forceTalksList) return true;
         if (this.config) {
             return this.config.talksListPublishingDate && this.now.isAfter(this.config.talksListPublishingDate)
                 && this.config.programPublishingDate && this.now.isBefore(this.config.programPublishingDate);
@@ -67,6 +69,7 @@ export class ProgramPageController {
     }
 
     public isProgramPublished() {
+        if (this.$location.search().forceCfpProgram) return true;
         if (this.config) {
             return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
         }
