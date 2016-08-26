@@ -4,6 +4,9 @@ import "angular";
 import "angular-morph/dist/angular-morph";
 import "slick-carousel/slick/slick.min";
 import "scrollreveal/dist/scrollreveal";
+import "ui-select/dist/select.min";
+import "angular-sanitize/angular-sanitize.min";
+import "moment/moment";
 
 // load our default (non specific) css
 import "font-awesome/css/font-awesome.css";
@@ -12,8 +15,9 @@ import "./styles/main.scss";
 import "bootstrap/dist/js/bootstrap.js";
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
+import "ui-select/dist/select.min.css";
 
-angular.module("app", ["app.application", "bdxio.app", "ngMorph"]);
+angular.module("app", ["app.application", "bdxio.app", "ngMorph", "ui.select", "ngSanitize"]);
 angular.bootstrap(document, ["app"], {
     strictDi: true
 });

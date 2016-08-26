@@ -16,6 +16,7 @@ import {ICompany} from "../int/ICompany";
 import {Attendee} from "./Attendee";
 import {Speaker} from "./Speaker";
 import {INews} from "../int/INews";
+import * as moment from 'moment';
 
 class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
@@ -28,8 +29,9 @@ class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
 }
 
 export interface IConfigEntry {
-    key: string, 
-    value: string
+    key: string;
+    value: string;
+    type: string;
 }
 
 export class SharedModel implements ISharedModel {
@@ -42,13 +44,17 @@ export class SharedModel implements ISharedModel {
             descriptor: new PostProcessableSpreadsheetReaderDescriptor<IConfigEntry, IConfig>({
                 firstRow: 2,
                 columnFields: {
-                    "A": "key", "B": "value"
+                    "A": "key", "B": "value", "C": "type"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "key", "value" ],
                 postProcess: function(configEntries: IConfigEntry[]): IConfig {
                     let config = {};
                     _.each(configEntries, (configEntry: IConfigEntry) => {
-                        config[configEntry.key] = configEntry.value;
+                        if (configEntry.type === 'date') {
+                            config[configEntry.key] = moment(configEntry.value, 'DD/MM/YYYY');
+                        } else {
+                            config[configEntry.key] = configEntry.value;
+                        }
                     });
                     return <IConfig>config;
                 }

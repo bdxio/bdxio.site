@@ -1,8 +1,11 @@
 import {BDXIORootScope} from "../index";
 import {IConfig, ISharedModel} from "../../../bdxio/models/int/ISharedModel";
+import ILocationService = angular.ILocationService;
+import * as moment from 'moment';
+
 export class AppNavMenuComponent implements ng.IDirective {
-    public controller: Function = AppNavMenuController;
-    public template: string = `
+    public controller:Function = AppNavMenuController;
+    public template:string = `
         <header class="header">
              <div class="top-header">
                  <button type="button" class="btn btn-live-stream float-right">
@@ -29,11 +32,11 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-ticket"></i>
                         </button>
-                        <button ng-class="{ open: !$ctrl.isCfpClosed() }"
+                        <button ng-class="{ open: !$ctrl.isCfpNotOpenedYet() }"
                                 ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
-                            <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpClosed() || $ctrl.isCfpOpened()"></i>
-                            <i class="fa fa-calendar" ng-if="$ctrl.isProgramFenced()"></i>
+                            <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened()"></i>
+                            <i class="fa fa-calendar" ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()"></i>
                         </button>
 
                         <a class="navbar-brand" href="#"></a>
@@ -85,18 +88,24 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <i class="fa fa-ticket space-top-3"></i>
                                 </div>
                             </li>
-                            <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
+                            <li class="btn-cfp-link" ng-class="{ open: !$ctrl.isCfpNotOpenedYet() && !$ctrl.isCfpClosed() }" ng-click="$ctrl.openProgram()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
-                                    <span ng-if="$ctrl.isCfpOpened() || $ctrl.isCfpClosed()">Proposer un talk</span>
-                                    <span ng-if="$ctrl.isProgramFenced()">Consulter</span><br>
-                                    <span class="status-sale" ng-if="$ctrl.isCfpClosed()">CFP Fermé</span>
+                                    <!-- CFP Not opened yet or closed (only subtext changes) -->
+                                    <span ng-if="$ctrl.isCfpNotOpenedYet()">Patience !<br></span>
+                                    <span ng-if="$ctrl.isCfpClosed()">Délibération en cours<br></span>
+                                    <span class="status-sale" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpClosed()">CFP Fermé</span>
+                                    <!-- CFP Opened -->
+                                    <span ng-if="$ctrl.isCfpOpened()">Proposer un talk<br></span>
                                     <span class="status-sale" ng-if="$ctrl.isCfpOpened()">CFP Ouvert</span>
-                                    <span class="status-sale" ng-if="$ctrl.isProgramFenced()">Programme</span>
+                                    <!-- Talks list or full program has been published (only subtext changes) -->
+                                    <span ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">Consulter<br></span>
+                                    <span class="status-sale" ng-if="$ctrl.isTalksListPublished()">Liste des talks</span>
+                                    <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme</span>
                                 </div>
-                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
                                    <i class="fa fa-commenting-o"></i>
                                 </div>
-                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isProgramFenced()">
+                                <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">
                                    <i class="fa fa-calendar"></i>
                                 </div>
                             </li>
@@ -111,35 +120,38 @@ export class AppNavMenuComponent implements ng.IDirective {
 type SelectableMenu = 'partner-gold'|'partner-silver'|'partner-bronze'|'partner-press'|'partner-friends'|'participant-speakers'|'participant-orgas'|'faq'|'prog';
 
 export class AppNavMenuController {
-    private static SELECTED_MENU_PROPS: {[key: string]: {path: string, targetAnchorName?: string }} = {
-        'partner-gold': { path: '/partners', targetAnchorName: 'gold' },
-        'partner-silver': { path: '/partners', targetAnchorName: 'silver' },
-        'partner-bronze': { path: '/partners', targetAnchorName: 'bronze' },
-        'partner-press': { path: '/partners', targetAnchorName: 'press' },
-        'partner-friends': { path: '/partners', targetAnchorName: 'friends' },
-        'participant-speakers': { path: '/attendees', targetAnchorName: 'speakers' },
-        'participant-orgas': { path: '/attendees', targetAnchorName: 'orgas' },
-        'faq': { path: '/faq' },
-        'prog': { path: '/prog' },
-        'home': { path: '/' },
+
+    private static SELECTED_MENU_PROPS:{[key: string]: {path: string, targetAnchorName?: string }} = {
+        'partner-gold': {path: '/partners', targetAnchorName: 'gold'},
+        'partner-silver': {path: '/partners', targetAnchorName: 'silver'},
+        'partner-bronze': {path: '/partners', targetAnchorName: 'bronze'},
+        'partner-press': {path: '/partners', targetAnchorName: 'press'},
+        'partner-friends': {path: '/partners', targetAnchorName: 'friends'},
+        'participant-speakers': {path: '/attendees', targetAnchorName: 'speakers'},
+        'participant-orgas': {path: '/attendees', targetAnchorName: 'orgas'},
+        'program': {path: '/program'},
+        'faq': {path: '/faq'},
+        'prog': {path: '/prog'},
+        'home': {path: '/'},
     };
 
-    public static $inject = ["$rootScope", "ISharedModel"];
+    public static $inject = ["$rootScope", "ISharedModel", "$location"];
 
-    public selectedMenu: SelectableMenu;
-    public config: IConfig;
+    public selectedMenu:SelectableMenu;
+    public config:IConfig;
+    public now:moment.Moment = moment();
 
-    constructor(private $rootScope: BDXIORootScope, sharedModel: ISharedModel){
+    constructor(private $rootScope:BDXIORootScope, sharedModel:ISharedModel, private $location: ILocationService) {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
         });
     }
 
-    public selectedMenuContains(str: string) {
+    public selectedMenuContains(str:string) {
         return this.selectedMenu && this.selectedMenu.indexOf(str) !== -1;
     }
 
-    public selectMenu(menuToSelect: SelectableMenu) {
+    public selectMenu(menuToSelect:SelectableMenu) {
         this.selectedMenu = menuToSelect;
 
         var selectedMenuProps = AppNavMenuController.SELECTED_MENU_PROPS[menuToSelect];
@@ -154,23 +166,44 @@ export class AppNavMenuController {
         }
     }
 
+    public isCfpNotOpenedYet() {
+        if(this.config) {
+            return !this.config.cfpOpeningDate || this.now.isBefore(this.config.cfpOpeningDate);
+        }
+    }
+
     public isCfpOpened() {
-        return this.config && this.config.cfpStatus === 'opened';
+        if (this.config) {
+            return this.config.cfpOpeningDate && this.now.isAfter(this.config.cfpOpeningDate)
+                && this.config.cfpClosingDate && this.now.isBefore(this.config.cfpClosingDate);
+        }
     }
 
     public isCfpClosed() {
-        return this.config && this.config.cfpStatus === 'closed';
+        if (this.config) {
+            return this.config.cfpClosingDate && this.now.isAfter(this.config.cfpClosingDate)
+                && this.config.talksListPublishingDate && this.now.isBefore(this.config.talksListPublishingDate);
+        }
     }
 
-    public isProgramFenced() {
-        return this.config && this.config.cfpStatus === 'fenced';
+    public isTalksListPublished() {
+        if (this.config) {
+            return this.config.talksListPublishingDate && this.now.isAfter(this.config.talksListPublishingDate)
+                && this.config.programPublishingDate && this.now.isBefore(this.config.programPublishingDate);
+        }
+    }
+
+    public isProgramPublished() {
+        if (this.config) {
+            return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
+        }
     }
 
     public openProgram() {
         if (this.isCfpOpened()) {
             window.open('https://cfp.bdx.io', '_blank');
-        } else if (this.isProgramFenced()) {
-            window.open('http://appv2.voxxr.in', '_blank');
+        } else if (this.isTalksListPublished() || this.isProgramPublished()) {
+            this.$location.path("/program");
         }
     }
 }
