@@ -46,20 +46,13 @@ export class ProgramPageController {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
             if (this.isProgramPublished()) {
-                cfpEventModel.build('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16').then((_event:ICFPEvent) => {
+                cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16').then((_event:ICFPEvent) => {
                     this.event = _event;
                 });
             } else if (this.isTalksListPublished()) {
-                $http.get('https://gist.githubusercontent.com/walien/0eb62585c46b045ae73bd385adb7a70c/raw/0ee879ca82995d9bc521988a9a0969848859d06e/bdxio.2016.talks.json')
-                    .then((response:any) => {
-                        this.presentations = _.map(response.data, (cfpPresentation:any) => {
-                            var prez = new CFPPresentation();
-                            prez.type = cfpPresentation.talkType;
-                            angular.extend(prez, cfpPresentation);
-                            prez.speakers = _.map(cfpPresentation.speakers, (cfpSpeaker:any) => angular.extend(new CFPSpeaker(), cfpSpeaker));
-                            return prez;
-                        });
-                    });
+                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16').then((_presentations:Array<ICFPPresentation>) => {
+                    this.presentations = _presentations;
+                });
             }
         });
     }

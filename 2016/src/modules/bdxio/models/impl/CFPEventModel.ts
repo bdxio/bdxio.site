@@ -19,7 +19,7 @@ export class CFPEventModel implements ICFPEventModel {
         this.$q = $q;
     }
 
-    public build(eventName:string, apiUrl:string):IPromise<ICFPEvent> {
+    public buildEvent(eventName:string, apiUrl:string):IPromise<ICFPEvent> {
 
         var defer = this.$q.defer<ICFPEvent>();
 
@@ -28,14 +28,7 @@ export class CFPEventModel implements ICFPEventModel {
 
         this.$http.get(apiUrl + '/speakers').then((speakersList:any) => {
 
-            var cfpSpeakersList = _.chain(speakersList.data)
-                .map((speaker:any) => {
-                    var cfpSpeaker = new CFPSpeaker();
-                    return angular.extend(cfpSpeaker, speaker);
-                })
-                .keyBy('uuid')
-                .value();
-
+            var cfpSpeakersList = this.buildCFPSpeakersList(speakersList.data);
             this.$http.get(apiUrl + '/schedules').then((days:any) => {
 
                 var promises = [];
@@ -54,7 +47,7 @@ export class CFPEventModel implements ICFPEventModel {
                                 if (slot.break) {
                                     return this.buildBreak(slot);
                                 } else if (slot.talk) {
-                                    return this.buildTalk(slot, cfpSpeakersList, apiUrl);
+                                    return this.buildTalk(slot, cfpSpeakersList);
                                 } else {
                                     return null;
                                 }
@@ -96,6 +89,36 @@ export class CFPEventModel implements ICFPEventModel {
         return defer.promise;
     }
 
+    public buildPresentations(apiUrl:string):IPromise<Array<ICFPPresentation>> {
+
+        var defer = this.$q.defer();
+        this.$http.get(apiUrl + '/speakers').then((speakersList:any) => {
+            var cfpSpeakersList = this.buildCFPSpeakersList(speakersList.data);
+            this.$http.get(apiUrl + '/talks').then((talks:any) => {
+                var presentations = _.map(talks.data, (cfpPresentation:any) => {
+                    var prez = new CFPPresentation();
+                    prez.type = cfpPresentation.talkType;
+                    angular.extend(prez, cfpPresentation);
+                    prez.speakers = _.map(cfpPresentation.speakers, (cfpSpeaker:any) => this.buildSpeaker(cfpSpeaker, cfpSpeakersList));
+                    return prez;
+                });
+                defer.resolve(presentations);
+            });
+        });
+
+        return defer.promise;
+    }
+
+    private buildCFPSpeakersList(speakersList) {
+        return _.chain(speakersList)
+            .map((speaker:any) => {
+                var cfpSpeaker = new CFPSpeaker();
+                return angular.extend(cfpSpeaker, speaker);
+            })
+            .keyBy('uuid')
+            .value();
+    };
+
     private buildBaseSlot(slot:any) {
         var cfpPresentation = new CFPPresentation();
         cfpPresentation.room = slot.roomName;
@@ -110,26 +133,27 @@ export class CFPEventModel implements ICFPEventModel {
         return cfpPresentation;
     }
 
-    private buildTalk(slot:any, speakersList:Dictionary<ICFPSpeaker>, baseApiUrl:string):ICFPPresentation {
+    private buildTalk(slot:any, speakersList:Dictionary<ICFPSpeaker>):ICFPPresentation {
         var cfpPresentation = this.buildBaseSlot(slot);
         cfpPresentation.id = slot.talk.id;
         cfpPresentation.title = slot.talk.title;
         cfpPresentation.track = slot.talk.track;
         cfpPresentation.summary = slot.talk.summary;
         cfpPresentation.type = slot.talk.talkType;
-        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:any) => {
-            var uuid = speaker.link.href.replace(baseApiUrl + '/speakers/', '');
-            if (!speakersList[uuid]) {
-                var cfpSpeaker = new CFPSpeaker();
-                cfpSpeaker.name = speaker.name;
-                this.$http.get(speaker.link.href).then((fullSpeaker:any) => {
-                    angular.extend(cfpSpeaker, fullSpeaker.data);
-                });
-                return cfpSpeaker;
-            } else {
-                return speakersList[uuid];
-            }
-        });
+        cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:any) => this.buildSpeaker(speaker, speakersList));
         return cfpPresentation;
+    }
+
+    private buildSpeaker(speaker:any, speakersList:Dictionary<ICFPSpeaker>):ICFPSpeaker {
+        if (!speakersList[speaker.uuid]) {
+            var cfpSpeaker = new CFPSpeaker();
+            cfpSpeaker.name = speaker.name;
+            this.$http.get(speaker.link.href).then((fullSpeaker:any) => {
+                angular.extend(cfpSpeaker, fullSpeaker.data);
+            });
+            return cfpSpeaker;
+        } else {
+            return speakersList[speaker.uuid];
+        }
     }
 }
