@@ -161,7 +161,7 @@ export class SharedModel implements ISharedModel {
             dataField: "news",
             descriptor: new PostProcessableSpreadsheetReaderDescriptor<INews, INews[]>({
                 firstRow: 2,
-                columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "thumbnail", "F": "content", "G": "picture", "H": "pictureStyles"},
+                columnFields: { "A": "id", "B": "published", "C": "title", "D": "date", "E": "thumbnail", "F": "content", "G": "picture", "H": "pictureStyles", "I": "modalStyles"},
                 fieldsRequiredToConsiderFilledRow: [ "title" ],
                 postProcess: function(results: INews[]) {
                     return _.filter(results, (news => {

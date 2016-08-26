@@ -38,7 +38,7 @@ export class NewsListController {
             target: 'body',
             modal: {
                 template: `
-            <div class="modal-morph">
+            <div class="modal-morph" style="${news.modalStyles}">
               <span class="glyphicon glyphicon-remove close"></span>
               <div class="row">
                 <div class="col-md-12 header-modal">

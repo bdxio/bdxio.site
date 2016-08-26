@@ -11,7 +11,8 @@ export class News implements INews {
     thumbnail:string;
     picture: string;
     pictureStyles: string;
-    
+    modalStyles: string;
+
     constructor(opts: INews) {
         _.extend(this, opts);
     }

@@ -9,4 +9,5 @@ export interface INews {
     thumbnail: string;
     picture: string;
     pictureStyles?: string;
+    modalStyles?: string;
 }
