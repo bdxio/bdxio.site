@@ -51,8 +51,8 @@ export class NewsListController {
                 </div>
                 <div class="col-md-12 content-modal">
                     <div class="col-md-12">
-                        <p>${news.content}</p><br>
-                        <img src="${news.picture}" style="${news.pictureStyles}">
+                        <p>${news.content}</p>
+                        ${news.picture?"<br><img src=\""+news.picture+"\" style=\""+news.pictureStyles+"\">":""}
                     </div>
                 </div>
               </div>
