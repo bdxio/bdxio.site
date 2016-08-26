@@ -72,6 +72,7 @@ export class AttendeesListController {
     }
 
     public createAttendeeDetailsSettings(attendee:IAttendee) {
+        var company = attendee.company || '-';
         return {
             closeEl: '.close',
             target: 'body',
@@ -89,7 +90,7 @@ export class AttendeesListController {
                         </div>
                         <h3 class="col-md-9 text-white highlight-text-bold force-inner-space-left-30 title">
                             ${attendee.firstName} ${attendee.lastName}<br>
-                             <i class="fa fa-building-o space-right-10"></i>${attendee.company}
+                             <i class="fa fa-building-o space-right-10"></i>${company}
                         </h3>
                     </div>
                 </div>
