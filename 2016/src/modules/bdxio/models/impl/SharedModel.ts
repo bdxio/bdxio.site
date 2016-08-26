@@ -93,7 +93,7 @@ export class SharedModel implements ISharedModel {
                     "A": "firstName", "B": "lastName", "C": "bio",
                     "D": "company", "E": "companyLogo", "F": "avatarUrl", "G": "twitter",
                     "H": "linkedin", "I": "gplus", "J": "blog",
-                    "K": "talk1", "L": "talk2"
+                    "K": "talk1", "L": "talk2", "M": "talk3"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName", "bio" ],
                 sortBy: [ "lastName", "firstName" ],
@@ -101,6 +101,7 @@ export class SharedModel implements ISharedModel {
                     return _.map(speakers, (speaker: ISpeaker) => {
                         speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
                         speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
+                        speaker.talk3 = speaker.talk3?speaker.talk3.split(" (")[0]:"";
                         if(speaker.companyLogo) {
                             speaker.companyLogoStyle = speaker.companyLogo.split(" ")[1]==="(white)"?{"background-color":"white"}:null;
                             speaker.companyLogo = speaker.companyLogo.split(" ")[0];
