@@ -198,7 +198,10 @@ export class SharedModel implements ISharedModel {
         let fetchPromises = _.map(SharedModel.SPREADSHEET_TABS, (spreadsheetTabDescriptor) =>
             $http.jsonp<SpreadsheetContent>(urlFactory(spreadsheetTabDescriptor.tabId),{}).then((result) =>
                 new SpreadsheetReader($q).read(result.data, spreadsheetTabDescriptor.descriptor)
-            , errorMessage("Error while fetching spreadsheet info for tab "+spreadsheetTabDescriptor.tabId))
+            , () => {
+                errorMessage("Error while fetching spreadsheet info for tab " + spreadsheetTabDescriptor.tabId)(null);
+                return $q.reject();
+            })
         );
 
         this._data = {};
@@ -207,8 +210,14 @@ export class SharedModel implements ISharedModel {
             _.each(spreadsheetInfos, (spreadsheetInfo, idx) => {
                 this._data[SharedModel.SPREADSHEET_TABS[idx].dataField] = spreadsheetInfo;
             });
+            localStorage.setItem("data", JSON.stringify(this._data));
             spreadsheetsFetched.resolve();
-        }, rejectDeferred(spreadsheetsFetched, "Error while fetching spreadsheet data"));
+        }, () => {
+            // Falling back to load data from local storage
+            console.info("Cannot fetch spreadsheet data... falling back to localstorage data");
+            this._data = JSON.parse(localStorage.getItem("data"));
+            spreadsheetsFetched.resolve();
+        });
 
 
         // let voxxrinFetched = $q.defer();
