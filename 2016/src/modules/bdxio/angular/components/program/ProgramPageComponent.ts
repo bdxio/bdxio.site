@@ -46,7 +46,7 @@ export class ProgramPageController {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
             if (this.isProgramPublished()) {
-                cfpEventModel.build('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16/schedules').then((_event:ICFPEvent) => {
+                cfpEventModel.build('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16').then((_event:ICFPEvent) => {
                     this.event = _event;
                 });
             } else if (this.isTalksListPublished()) {

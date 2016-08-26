@@ -102,7 +102,7 @@ export class CFPProgramComponent implements ng.IDirective {
                                     </div>
 
                                     <ul class="container-name-speaker" ng-show="prez.speakers">
-                                        <li ng-repeat="speaker in prez.speakers">{{ speaker.name }}</li>
+                                        <li ng-repeat="speaker in prez.speakers">{{ speaker.firstName }} {{ speaker.lastName }}</li>
                                     </ul>
 
                                     <h3>{{ prez.title }}</h3>

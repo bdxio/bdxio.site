@@ -1,5 +1,6 @@
 import {IHypermediaElement} from "./IHypermediaElement";
 export interface ICFPSpeaker extends IHypermediaElement {
+    uuid: string;
     name: string;
     firstName:string;
     lastName:string;
