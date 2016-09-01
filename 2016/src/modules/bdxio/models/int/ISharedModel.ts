@@ -25,6 +25,7 @@ export interface IConfig {
     cfpClosingDate: moment.Moment;
     talksListPublishingDate: moment.Moment;
     programPublishingDate: moment.Moment;
+    hiddenTalks: string[];
 }
 
 export interface ISharedModelData {

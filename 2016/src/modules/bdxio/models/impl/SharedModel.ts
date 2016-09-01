@@ -52,6 +52,8 @@ export class SharedModel implements ISharedModel {
                     _.each(configEntries, (configEntry: IConfigEntry) => {
                         if (configEntry.type === 'date') {
                             config[configEntry.key] = moment(configEntry.value, 'DD/MM/YYYY');
+                        } else if(configEntry.type === 'comma-separated-string'){
+                            config[configEntry.key] = configEntry.value?configEntry.value.split(","):[];
                         } else {
                             config[configEntry.key] = configEntry.value;
                         }
