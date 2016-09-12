@@ -1,5 +1,6 @@
 import "angular";
 import "angular-route";
+import "marked";
 
 import {HomePageComponent} from "./components/home/HomePageComponent";
 import {WelcomeContentComponent} from "./components/home/WelcomeContentComponent";
@@ -48,6 +49,8 @@ angular.module("bdxio.app", ["ngRoute"])
 
     .service("ISharedModel", SharedModel)
     .service("ICFPEventModel", CFPEventModel)
+
+    .filter("marked", () => marked)
 
     .config(["$routeProvider", ($routeProvider) => {
         $routeProvider

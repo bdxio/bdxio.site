@@ -1,5 +1,7 @@
 import {ICFPPresentation} from "../int/ICFPPresentation";
 import {ICFPSpeaker} from "../int/ICFPSpeaker";
+import * as marked from "marked";
+
 export class CFPPresentation implements ICFPPresentation {
 
     id:string;
@@ -14,5 +16,9 @@ export class CFPPresentation implements ICFPPresentation {
 
     public toSpeakersList():string {
         return _.map(this.speakers, (speaker:ICFPSpeaker) => (speaker.firstName ? speaker.firstName + ' ' + speaker.lastName : speaker.name) + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');
+    }
+
+    public markedSummary() {
+        return marked(this.summary);
     }
 }

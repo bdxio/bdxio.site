@@ -1,10 +1,5 @@
-import {ICFPEvent} from "../../../models/int/ICFPEvent";
-import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
-import {CFPPresentation} from "../../../models/impl/CFPPresentation";
-import {CFPEvent} from "../../../models/impl/CFPEvent";
 import Dictionary = _.Dictionary;
-import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
 import {ProgramOptions} from "./ProgramOptions";
 export class ProgramComponent implements ng.IDirective {
 
@@ -81,7 +76,7 @@ export class ProgramController {
                             <div class="col-md-12">
                                 <p class="row"><b>Track : ${prez.track}</b></p>
                                 <p class="row"><b>Type : ${prez.type}</b></p>
-                                <p class="row">${prez.summary}</p>
+                                <p class="row">${prez.markedSummary()}</p>
                             </div>
                         </div>
                     </div>

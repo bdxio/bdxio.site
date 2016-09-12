@@ -11,4 +11,5 @@ export interface ICFPPresentation {
     room: string;
 
     toSpeakersList():string;
+    markedSummary(): string;
 }

@@ -8,6 +8,7 @@
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf",
     "jwt-decode": "github:DefinitelyTyped/DefinitelyTyped/jwt-decode/jwt-decode.d.ts#e2e1e881bb57431fbbe9289ac4da1fea928dc84c",
     "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#5ea7d92bb39c7a26f49dc3de2c566d5ae325e19e",
+    "marked": "github:DefinitelyTyped/DefinitelyTyped/marked/marked.d.ts#9cfdb11648f823b889287c770254b85b78a7a4a4",
     "source-map": "github:DefinitelyTyped/DefinitelyTyped/source-map/source-map.d.ts#5d0f2126c8dac8fce0ff020218aea06607213b0d",
     "uglify-js": "github:DefinitelyTyped/DefinitelyTyped/uglify-js/uglify-js.d.ts#5d0f2126c8dac8fce0ff020218aea06607213b0d"
   }
