@@ -6,6 +6,8 @@ import {INews} from "./INews";
 import {IFriend} from "./IFriend";
 import {SpreadsheetReaderDescriptor} from "../../services/SpreadsheetReader";
 import * as moment from 'moment';
+import {ICFPEvent} from "./ICFPEvent";
+import {ICFPPresentation} from "./ICFPPresentation";
 
 export interface ICompaniesByType {
     type: string,
@@ -37,6 +39,8 @@ export interface ISharedModelData {
     news?: INews[];
     friends?: IFriend[];
     daySchedule?: any;
+    event?: ICFPEvent;
+    presentations?: { [s: string]: ICFPPresentation };
 }
 
 export interface ISpreadsheetTabDescriptor<T> {

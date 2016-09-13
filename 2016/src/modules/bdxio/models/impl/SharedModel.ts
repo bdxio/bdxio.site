@@ -17,6 +17,9 @@ import {Attendee} from "./Attendee";
 import {Speaker} from "./Speaker";
 import {INews} from "../int/INews";
 import * as moment from 'moment';
+import {ICFPEventModel} from "../int/ICFPEventModel";
+import {ICFPPresentation} from "../int/ICFPPresentation";
+import {ICFPEvent} from "../int/ICFPEvent";
 
 class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
@@ -35,7 +38,7 @@ export interface IConfigEntry {
 }
 
 export class SharedModel implements ISharedModel {
-    public static $inject: Array<string> = ["$http", "$q"];
+    public static $inject: Array<string> = ["$http", "$q", "ICFPEventModel"];
 
     private static SPREADSHEET_TABS: Array<SpreadsheetTabDescriptor<any>> = [
         new SpreadsheetTabDescriptor({
@@ -190,7 +193,7 @@ export class SharedModel implements ISharedModel {
     private _data: ISharedModelData;
     private _dataLoadedDefer;
 
-    constructor($http: ng.IHttpService, $q: ng.IQService) {
+    constructor($http: ng.IHttpService, $q: ng.IQService, cfpEventModel: ICFPEventModel) {
         this._dataLoadedDefer = $q.defer<void>();
 
         let urlFactory = (tabId) => {
@@ -231,7 +234,13 @@ export class SharedModel implements ISharedModel {
         $q.all([
             spreadsheetsFetched.promise,
             // voxxrinFetched.promise
-        ]).then(() => {
+        ]).then(([_, event, presentations]) => {
+            return $q.all([
+                cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16'),
+                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', this)
+            ]);
+        }, rejectDeferred(this._dataLoadedDefer, "Error while fetching data"))
+        .then(([event, presentations]) => {
             // let daySchedule = this._data.daySchedule;
             //
             // // Updating speakers data
@@ -245,8 +254,12 @@ export class SharedModel implements ISharedModel {
             //     }
             // });
 
+            this._data.event = <ICFPEvent>event;
+            this._data.presentations = {};
+            _.each(<Array<ICFPPresentation>>presentations, (prez) => this._data.presentations[prez.id] = prez)
+
             this._dataLoadedDefer.resolve();
-        }, rejectDeferred(this._dataLoadedDefer, "Error while fetching data"));
+        }, rejectDeferred(this._dataLoadedDefer, "Error while fetching schedule and talks"));
     }
 
     public get data() {

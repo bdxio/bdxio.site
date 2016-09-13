@@ -1,16 +1,13 @@
 import {ICFPEventModel} from "../../../models/int/ICFPEventModel";
 import {ICFPEvent} from "../../../models/int/ICFPEvent";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
-import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ISharedModel} from "../../../models/int/ISharedModel";
 import {IConfig} from "../../../models/int/ISharedModel";
 import * as moment from 'moment';
+import * as _ from 'lodash';
 import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
-import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import ILocationService = angular.ILocationService;
-import {ICFPSpeaker} from "../../../models/int/ICFPSpeaker";
-import {CFPSpeaker} from "../../../models/impl/CFPSpeaker";
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -45,15 +42,8 @@ export class ProgramPageController {
         this.options = this.buildOptions();
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
-            if (this.isProgramPublished()) {
-                cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16').then((_event:ICFPEvent) => {
-                    this.event = _event;
-                });
-            } else if (this.isTalksListPublished()) {
-                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', sharedModel).then((_presentations:Array<ICFPPresentation>) => {
-                    this.presentations = _presentations;
-                });
-            }
+            this.event = sharedModel.data.event;
+            this.presentations = _.values<ICFPPresentation>(sharedModel.data.presentations);
         });
     }
 
