@@ -50,7 +50,7 @@ export class ProgramPageController {
                     this.event = _event;
                 });
             } else if (this.isTalksListPublished()) {
-                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16').then((_presentations:Array<ICFPPresentation>) => {
+                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', sharedModel).then((_presentations:Array<ICFPPresentation>) => {
                     this.presentations = _presentations;
                 });
             }

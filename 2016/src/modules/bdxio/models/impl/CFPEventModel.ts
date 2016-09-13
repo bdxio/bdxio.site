@@ -13,9 +13,9 @@ import {ISharedModel} from "../int/ISharedModel";
 
 export class CFPEventModel implements ICFPEventModel {
 
-    public static $inject:Array<string> = ['$http', '$q', 'ISharedModel'];
+    public static $inject:Array<string> = ['$http', '$q'];
 
-    constructor(private $http:ng.IHttpService, private $q:ng.IQService, private sharedModel: ISharedModel) {
+    constructor(private $http:ng.IHttpService, private $q:ng.IQService) {
     }
 
     public buildEvent(eventName:string, apiUrl:string):IPromise<ICFPEvent> {
@@ -88,7 +88,7 @@ export class CFPEventModel implements ICFPEventModel {
         return defer.promise;
     }
 
-    public buildPresentations(apiUrl:string):IPromise<Array<ICFPPresentation>> {
+    public buildPresentations(apiUrl:string, sharedModel: ISharedModel):IPromise<Array<ICFPPresentation>> {
 
         var defer = this.$q.defer();
         this.$http.get(apiUrl + '/speakers').then((speakersList:any) => {
@@ -96,7 +96,7 @@ export class CFPEventModel implements ICFPEventModel {
             this.$http.get(apiUrl + '/talks').then((talks:any) => {
                 var presentations = _(talks.data)
                     .filter((cfpPresentation:any) => {
-                        return _.indexOf(this.sharedModel.data.config.hiddenTalks, cfpPresentation.id) === -1;
+                        return _.indexOf(sharedModel.data.config.hiddenTalks, cfpPresentation.id) === -1;
                     })
                     .map((cfpPresentation:any) => {
                         var prez = new CFPPresentation();
