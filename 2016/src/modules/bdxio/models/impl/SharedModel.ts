@@ -110,9 +110,13 @@ export class SharedModel implements ISharedModel {
                 sortBy: [ "lastName", "firstName" ],
                 postProcess: function(speakers: ISpeaker[]) {
                     return _.map(speakers, (speaker: ISpeaker) => {
-                        speaker.talk1 = speaker.talk1?speaker.talk1.split(" (")[0]:"";
-                        speaker.talk2 = speaker.talk2?speaker.talk2.split(" (")[0]:"";
-                        speaker.talk3 = speaker.talk3?speaker.talk3.split(" (")[0]:"";
+                        speaker.talks = [];
+                        _.each(_.range(1, 4), function(talkIdx) {
+                            speaker["talk"+talkIdx] = speaker["talk"+talkIdx]?speaker["talk"+talkIdx].split(" (")[0]:"";
+                            if(speaker["talk"+talkIdx]) {
+                                speaker.talks.push(speaker["talk"+talkIdx]);
+                            }
+                        });
                         if(speaker.companyLogo) {
                             speaker.companyLogoStyle = speaker.companyLogo.split(" ")[1]==="(white)"?{"background-color":"white"}:null;
                             speaker.companyLogo = speaker.companyLogo.split(" ")[0];

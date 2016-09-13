@@ -1,6 +1,8 @@
 import {IAttendee} from "../../../models/int/IAttendee";
 import {IConfig} from "../../../models/int/ISharedModel";
 import {ISharedModel} from "../../../models/int/ISharedModel";
+import * as _ from 'lodash';
+import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 export class AttendeesListComponent implements ng.IDirective {
 
     public controller:Function = AttendeesListController;
@@ -64,10 +66,12 @@ export class AttendeesListController {
     public static $inject = ["ISharedModel"];
 
     public config:IConfig;
+    private presentations: { [s: string]: ICFPPresentation };
 
     constructor(sharedModel:ISharedModel) {
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
+            this.presentations = sharedModel.data.presentations;
         });
     }
 
@@ -96,7 +100,10 @@ export class AttendeesListController {
                 </div>
                 <div class="col-md-12 content-modal">
                     <p>&nbsp;</p>
-                    <p class="desc-attendees">${attendee.bio}</p>
+                    <p class="desc-attendees">
+                        ${attendee.bio}
+                        ${attendee['talks']?"<br/>Ses talks :<ul>"+_(attendee['talks']).map(talk => "<li>["+this.presentations[talk].type+"] "+this.presentations[talk].title+"</li>").value().join("")+"</ul>":""}
+                    </p>
                 </div>
               </div>
             </div>`,
