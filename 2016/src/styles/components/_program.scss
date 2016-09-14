@@ -313,13 +313,13 @@
           left: 0;
           display: block;
           width: 100%;
-          background: linear-gradient(219deg, #cf1633, #027d8e);
-          background-size: 400% 400%;
-
-          -webkit-animation: gradient-animation 7s ease infinite;
-          -moz-animation: gradient-animation 7s ease infinite;
-          animation: gradient-animation 7s ease infinite;
+          background-size: 100% 100%;
           height: 35px;
+
+          &.cat-1 { background-color: #b89ff4;}
+          &.cat-2 { background-color: #f13f42;}
+          &.cat-3 { background-color: #72c9d3;}
+          &.cat-4 { background-color: #f59600;}
 
           .container-avatar-speaker {
             display: inline-block;

@@ -22,13 +22,13 @@ export class ProgramComponent implements ng.IDirective {
                     <li class="item-container col-xs-12 col-sm-6 col-md-4 col-lg-4 no-padding" ng-repeat="prez in presentations" data-sr="enter bottom, move 24px, reset">
                         <div class="item-content" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
                             <div class="content-partner">
-                                <div class="header-prez" ng-show="prez.speakers">
+                                <div class="header-prez" ng-show="prez.speakers" ng-class="$ctrl.options.typeClasses[prez.type]">
                                     <ul class="container-avatar-speaker">
                                         <li class="avatar-speaker" ng-repeat="speaker in prez.speakers" ng-style="speaker.getAvatarStyle()"></li>
                                     </ul>
                                 </div>
                                 <span class="name-speaker">{{ prez.toSpeakersList() }}</span>
-                                <h3 class="desc-talk">{{ prez.title }}</h3>
+                                <h4 class="desc-talk">{{ prez.title }}</h4>
                                 <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                     <span ng-show="prez.type">{{ prez.type }}</span>
                                 </div>
