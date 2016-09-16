@@ -27,7 +27,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
-                        <button ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
+                        <button ng-class="{ open: $ctrl.config.registrationOpened=='opened' }"
                                 ng-click="$ctrl.openRegistrationPopup()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-ticket"></i>
@@ -78,12 +78,13 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <li>
                                 <a ng-class="{select: $ctrl.selectedMenu=='faq'}" ng-click="$ctrl.selectMenu('faq')">FAQ</a>
                             </li>
-                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='1' }"
+                            <li class="btn-buy-ticket" ng-class="{ open: $ctrl.config.registrationOpened=='opened' }"
                                 ng-click="$ctrl.openRegistrationPopup()">
                                 <div class="col-xs-6 col-sm-8 no-padding text-right">
                                     <span>Acheter un billet</span><br>
-                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='0'">Ventes Fermées</span>
-                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='1'">Ventes Ouvertes</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='closed'">Ventes Fermées</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='opened'">Ventes Ouvertes</span>
+                                    <span class="status-sale" ng-show="$ctrl.config.registrationOpened=='soldout'">SOLD OUT</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
                                     <i class="fa fa-ticket space-top-3"></i>
@@ -160,7 +161,7 @@ export class AppNavMenuController {
     }
 
     public openRegistrationPopup() {
-        if (this.config.registrationOpened == "1") {
+        if (this.config.registrationOpened == "opened") {
             var url = 'https://www.weezevent.com/widget_billeterie.php?id_evenement=178103&lg_billetterie=1&code=20244&width_auto=1&color_primary=00AEEF';
             var w = window.open(url, 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no');
             w.focus();
