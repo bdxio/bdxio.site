@@ -1,6 +1,7 @@
 import {ICFPPresentation} from "../int/ICFPPresentation";
 import {ICFPSpeaker} from "../int/ICFPSpeaker";
 import * as marked from "marked";
+import * as moment from 'moment';
 
 export class CFPPresentation implements ICFPPresentation {
 
@@ -10,8 +11,8 @@ export class CFPPresentation implements ICFPPresentation {
     speakers:Array<ICFPSpeaker>;
     track:string;
     type:string;
-    from:Date;
-    to:Date;
+    from:moment.Moment;
+    to:moment.Moment;
     room:string;
 
     public toSpeakersList():string {

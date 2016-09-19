@@ -1,4 +1,6 @@
 import {ICFPSpeaker} from "./ICFPSpeaker";
+import * as moment from 'moment';
+
 export interface ICFPPresentation {
     id:string;
     title: string;
@@ -6,8 +8,8 @@ export interface ICFPPresentation {
     speakers: Array<ICFPSpeaker>;
     track: string;
     type:string;
-    from: Date;
-    to: Date;
+    from: moment.Moment;
+    to: moment.Moment;
     room: string;
 
     toSpeakersList():string;

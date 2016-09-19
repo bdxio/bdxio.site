@@ -29,7 +29,7 @@ export class ProgramPageComponent implements ng.IDirective {
 
 export class ProgramPageController {
 
-    public static $inject:Array<string> = ['ICFPEventModel', 'ISharedModel', '$http', '$location'];
+    public static $inject:Array<string> = ['ISharedModel', '$http', '$location'];
 
     public event:ICFPEvent;
     public presentations:Array<ICFPPresentation>;
@@ -38,7 +38,7 @@ export class ProgramPageController {
 
     public now:moment.Moment = moment();
 
-    public constructor(private cfpEventModel:ICFPEventModel, private sharedModel:ISharedModel, private $http:IHttpService, private $location:ILocationService) {
+    public constructor(private sharedModel:ISharedModel, private $http:IHttpService, private $location:ILocationService) {
         this.options = this.buildOptions();
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;

@@ -10,6 +10,7 @@ import IPromise = angular.IPromise;
 import {CFPSpeaker} from "./CFPSpeaker";
 import Dictionary = _.Dictionary;
 import {ISharedModel} from "../int/ISharedModel";
+import * as moment from 'moment';
 
 export class CFPEventModel implements ICFPEventModel {
 
@@ -70,6 +71,8 @@ export class CFPEventModel implements ICFPEventModel {
                                 .map((cfpPresentations:Array<ICFPPresentation>) => {
                                     var cfpSlot = new CFPSlot();
                                     cfpSlot.from = _.first(cfpPresentations) ? _.first(cfpPresentations).from : null;
+                                    var lastPrez = _.chain(cfpPresentations).sortBy('to').value();
+                                    cfpSlot.to = lastPrez && lastPrez[0] ? lastPrez[0].to : null;
                                     cfpSlot.presentations = _.map(day.rooms, (room:string) => _.find(cfpPresentations, {room: room}) || new CFPPresentation());
                                     return cfpSlot;
                                 })
@@ -125,8 +128,8 @@ export class CFPEventModel implements ICFPEventModel {
     private buildBaseSlot(slot:any) {
         var cfpPresentation = new CFPPresentation();
         cfpPresentation.room = slot.roomName;
-        cfpPresentation.from = new Date(slot.fromTimeMillis);
-        cfpPresentation.to = new Date(slot.toTimeMillis);
+        cfpPresentation.from = moment(new Date(slot.fromTimeMillis));
+        cfpPresentation.to = moment(new Date(slot.toTimeMillis));
         return cfpPresentation;
     }
 

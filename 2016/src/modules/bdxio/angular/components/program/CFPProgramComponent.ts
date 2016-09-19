@@ -27,7 +27,7 @@ export class CFPProgramComponent implements ng.IDirective {
                         <div class="row">
                             <h4 class="text-primary space-left-10">Jours</h4>
                             <div class="col-sm-12" ng-repeat="day in $ctrl.event.days" ng-click="$ctrl.selectCurrentDay(day, $index)" class="day-selector">
-                                J {{ $index + 1 }} - {{ day.date | date: $ctrl.datePattern }}
+                                J {{ $index + 1 }} - {{ day.date.toDate() | date: $ctrl.datePattern }}
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@ export class CFPProgramComponent implements ng.IDirective {
 
                     <div class="column col-lg-1 col-xs-3 inner-space-left-0 inner-space-right-0 time-container">
                         <div class="time">
-                            <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from | date:$ctrl.timePattern }}</b>
+                            <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from.toDate() | date:$ctrl.timePattern }}</b>
                         </div>
                     </div>
 
