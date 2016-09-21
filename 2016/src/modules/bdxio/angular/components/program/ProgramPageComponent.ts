@@ -15,7 +15,7 @@ export class ProgramPageComponent implements ng.IDirective {
     public bindToController:boolean = true;
     public template:string = `
     <section style="padding: 10px">
-        <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
+        <h1 class="section-title text-primary inner-space-left-15">Programme BDX.IO 2016</h1>
         <div ng-if="$ctrl.config">
             <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="$ctrl.isTalksListPublished() && $ctrl.presentations"></program>
             <cfp-program options="$ctrl.options" event="$ctrl.event" ng-if="$ctrl.isProgramPublished() && $ctrl.event"></cfp-program>

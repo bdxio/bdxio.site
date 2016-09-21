@@ -20,7 +20,7 @@ export class CFPProgramComponent implements ng.IDirective {
             <div class="cfp-program-filter col-sm-12">
 
                 <!--Filtering bar-->
-                <div class="row">
+                <div class="row inner-space-left-20 inner-space-right-20">
 
                     <div class="col-sm-2">
                         <!--Days-->
@@ -65,7 +65,7 @@ export class CFPProgramComponent implements ng.IDirective {
             <div class="container-table-program">
                 <!--Rooms columns-->
                 <div class="row row-eq-height program-header" ng-show="$ctrl.currentDayIndex">
-                    <div class="column col-lg-1 col-sm-3 col-xs-12 no-padding">
+                    <div class="column col-lg-1 col-md-1 col-sm-1 col-xs-12 no-padding">
                         <div class="day">
                            J {{ $ctrl.currentDayIndex }}
                         </div>
@@ -82,34 +82,37 @@ export class CFPProgramComponent implements ng.IDirective {
                 <!--Iterate over slots-->
                 <div class="row row-eq-height program-content" ng-repeat="slot in $ctrl.currentDay.slots">
 
-                    <div class="column col-lg-1 col-xs-3 inner-space-left-0 inner-space-right-0 time-container">
+                    <div class="column col-lg-1 col-md-1 col-sm-1 col-xs-3 inner-space-left-0 inner-space-right-0 time-container">
                         <div class="time">
                             <b><i class="fa fa-clock-o space-right-10"></i>{{ ::slot.from.toDate() | date:$ctrl.timePattern }}</b>
                         </div>
                     </div>
 
                     <!--Iterate over all slot's presentations-->
-                    <div class="column col-lg-11 col-xs-9" >
+                    <div class="column col-lg-11 col-md-11 col-sm-11 col-xs-9" >
                         <div class="row prez-container">
                             <div ng-class="{'empty-slot' : !prez.title}" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
 
-                                <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
+                                <div class="content-prez" ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
 
-                                     <div class="header-prez" ng-show="prez.speakers">
+                                    <div class="header-prez" ng-show="prez.speakers">
                                         <ul class="container-avatar-speaker">
                                             <li class="avatar-speaker" ng-repeat="speaker in prez.speakers" ng-style="speaker.getAvatarStyle()"></li>
                                         </ul>
+
+                                        <span class="mobile-room">{{ prez.room }}</span>
                                     </div>
 
                                     <ul class="container-name-speaker" ng-show="prez.speakers">
                                         <li ng-repeat="speaker in prez.speakers">{{ speaker.fullName() }}</li>
                                     </ul>
 
-                                    <h3>{{ prez.title }}</h3>
                                     <h4 class="prez-title-track small-title" ng-if="prez.track">
                                         <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
-                                        {{ prez.track }}
-                                    </h5>
+                                        <label>{{ prez.track }}</label>
+                                    </h4>
+
+                                    <h4 class="prez-title-talk">{{ prez.title }}</h3>
 
                                    <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                         <span ng-show="prez.type">{{ prez.type }}</span>

@@ -172,9 +172,36 @@
         }
       }
     }
+
+    .mobile-room {
+      display: none;
+      padding: 8px;
+      background: $secondary;
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      position: absolute;
+      left: 0;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
   }
 
   // Content Prez
+
+  .content-prez {
+    height: 100%;
+    padding: 60px 10px 60px 10px;
+    cursor: pointer;
+    transition: 340ms;
+
+    &:hover, &:focus {
+      transition: 340ms;
+      background-color: lighten($light-grey, 31%);
+    }
+  }
 
   .container-name-speaker {
     padding: 0;
@@ -195,7 +222,7 @@
     .prez {
       position: relative;
       height: 100%;
-      padding: 60px 10px 60px 10px;
+      padding: 0;
       border-collapse: collapse;
       text-align: center;
       border-top: 1px solid $white-grey;
@@ -207,10 +234,42 @@
       }
 
       .prez-title-track {
+        color: $secondary;
+        font-weight: bold;
+
         i {
+          position: relative;
           display: block;
-          font-size: 34px;
+          font-size: 28px;
+          border-radius: 100%;
+          height: 52px;
+          width: 52px;
+          margin: 0 auto;
+          margin-bottom: 10px;
+          line-height: 1;
+          border: 1px solid $secondary;
+
+          &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
         }
+
+        label {
+          display: block;
+          min-height: 43px;
+          padding-left: 5px;
+          font-size: 15px;
+
+        }
+      }
+
+      .prez-title-talk {
+        text-align: justify;
+        text-align-last: center;
+        font-size: 17px;
       }
     }
   }
