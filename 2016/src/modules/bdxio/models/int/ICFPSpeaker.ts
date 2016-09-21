@@ -9,4 +9,5 @@ export interface ICFPSpeaker extends IHypermediaElement {
     href:string;
 
     getAvatarStyle():any;
+    fullName():string;
 }
