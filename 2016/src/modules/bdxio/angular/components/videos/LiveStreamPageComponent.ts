@@ -30,7 +30,7 @@ export class LiveStreamPageComponent implements ng.IDirective {
                     <div class="content-infos-amphi">
                         <span class="title-live-track">{{ channel.talk.title }}</span>
                         <span class="schedule-live">
-                            <i class="fa fa-users space-right-5" aria-hidden="true"></i>{{ channel.talk.speakers[0].name }}
+                            <i class="fa fa-users space-right-5" aria-hidden="true"></i>{{ channel.talk.toSpeakersList() }}
                         </span>
                     </div>
                 </li>
@@ -77,10 +77,9 @@ export class LiveStreamPageController {
         new ChannelDef("Grand Amphi", "GA", true, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi A", "A", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi B", "B", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi C", "C", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
+        //new ChannelDef("Amphi C", "C", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi D", "D", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi E", "E", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi F", "F", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY"))
     ];
 
     public constructor(private sharedModel:ISharedModel, private $sce:ISCEService, private $log:ILogService) {
@@ -95,8 +94,8 @@ export class LiveStreamPageController {
     }
 
     private computeNow():any {
-        //return moment('2016-04-21T14:00:00+02:00');
-        return moment();
+        return moment('2016-10-21T15:50:00+02:00');
+        //return moment();
     }
 
     public selectChannel(channelDef:ChannelDef):void {
@@ -114,7 +113,7 @@ export class LiveStreamPageController {
         var slot = _.find(day.slots, (slot:ICFPSlot) => {
             return slot.from.isBefore(now) && slot.to.isSameOrAfter(now);
         });
-        if (!slot) throw new Error('current slot not found');
+        if (!slot) return;
 
         _.each(channels, (channel:ChannelDef) => {
             var talk = _.find(slot.presentations, (prez:ICFPPresentation) => prez.room === channel.roomId);

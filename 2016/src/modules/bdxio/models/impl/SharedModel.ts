@@ -241,7 +241,6 @@ export class SharedModel implements ISharedModel {
         ]).then(([_, event, presentations]) => {
             return $q.all([
                 cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16'),
-                //cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.devoxx.fr/api/conferences/DevoxxFR16'),
                 cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', this)
             ]);
         }, rejectDeferred(this._dataLoadedDefer, "Error while fetching data"))
