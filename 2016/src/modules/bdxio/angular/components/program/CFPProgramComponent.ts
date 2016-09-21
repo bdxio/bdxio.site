@@ -172,7 +172,10 @@ export class CFPProgramController {
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {
+        if (!prez.track) return null;
         var speakers = prez.toSpeakersList();
+        var from = prez.from.format('HH:mm');
+        var to = prez.to.format('HH:mm');
         return {
             closeEl: '.close',
             target: 'body',
@@ -183,7 +186,7 @@ export class CFPProgramController {
                     <div class="row">
                         <div class="col-md-12 header-modal">
                             <div class="row">
-                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title} (${prez.type})</h3>
+                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title}</h3>
                                 <div class="col-md-4 text-right">
                                     <span class="date-new text-white inner-space-right-15">
                                         <i class="fa fa-users space-right-5"></i> ${speakers}
@@ -193,8 +196,11 @@ export class CFPProgramController {
                         </div>
                         <div class="col-md-12 content-modal">
                             <div class="col-md-12">
-                                <p class="row"><b>Track : ${prez.track}</b></p>
-                                <p class="row"><b>Type : ${prez.type}</b></p>
+                                <div class="row"><b>Slot : ${from} - ${to}</b></div>
+                                <div class="row"><b>Track : ${prez.track}</b></div>
+                                <div class="row"><b>Type : ${prez.type}</b></div>
+                                <div class="row"><b>Salle : ${prez.room}</b></div>
+                                <div class="row">&nbsp;</div>
                                 <p class="row">${prez.summary}</p>
                             </div>
                         </div>

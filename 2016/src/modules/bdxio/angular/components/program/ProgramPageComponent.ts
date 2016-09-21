@@ -14,7 +14,7 @@ export class ProgramPageComponent implements ng.IDirective {
     public controllerAs:string = '$ctrl';
     public bindToController:boolean = true;
     public template:string = `
-    <section class="wrapper">
+    <section style="padding: 10px">
         <h1 class="section-title text-primary">Programme BDX.IO 2016</h1>
         <div ng-if="$ctrl.config">
             <program options="$ctrl.options" presentations="$ctrl.presentations" ng-if="$ctrl.isTalksListPublished() && $ctrl.presentations"></program>
@@ -49,6 +49,7 @@ export class ProgramPageController {
 
     public isTalksListPublished() {
         if (this.$location.search().forceTalksList) return true;
+        if (this.$location.search().forceCfpProgram) return false;
         if (this.config) {
             return this.config.talksListPublishingDate && this.now.isAfter(this.config.talksListPublishingDate)
                 && this.config.programPublishingDate && this.now.isBefore(this.config.programPublishingDate);
