@@ -38,13 +38,36 @@ export class LiveStreamPageComponent implements ng.IDirective {
 
             <div class="col-md-8">
                 <div ng-repeat="channel in $ctrl.channels" ng-if="$ctrl.currentChannel === channel">
-                    <iframe class="space-top-40" width="100%" height="450"
+                    <iframe width="100%" height="450"
                             ng-src="{{ channel.url }}" frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
 
-                <div ng-if="$ctrl.currentChannel && $ctrl.currentChannel.talk">
-                    <h4>{{ $ctrl.currentChannel.talk.toSpeakersList() }} - {{ $ctrl.currentChannel.talk.title }}</h4>
+                <div class="live-desc-container" ng-if="$ctrl.currentChannel && $ctrl.currentChannel.talk">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <ul class="container-avatar-speaker">
+                                <li class="avatar-speaker">
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-5">
+                           <h4 class="text-primary space-top-0">{{ $ctrl.currentChannel.talk.toSpeakersList() }}</h4>
+                           <h5>{{ $ctrl.currentChannel.talk.title }}</h5>
+                           <a>+ de détails</a>
+                        </div>
+
+                         <div class="col-md-4">
+                             <h4 class="prez-title-track small-title">
+                                <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
+                                <label>{{ prez.track }}</label>
+                            </h4>
+                            <span class="prez-type"  ng-class="{'cat-1': true}">{{ prez.type }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

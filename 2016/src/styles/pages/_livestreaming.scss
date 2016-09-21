@@ -3,7 +3,6 @@
 
 // ~ ==== Filter Canal
 
-
 .list-amphi {
   display: block;
 
@@ -21,11 +20,10 @@
     vertical-align: middle;
     width: 100%;
     margin-right: -4px;
-    padding: 10px 10px;
+    padding: 10px 10px 20px 10px;
     background-color: $white-grey;
     border: 1px solid darken($white-grey, 5%);
     cursor: pointer;
-    white-space: nowrap;
     transition:240ms;
 
     &:hover, &:focus {
@@ -130,5 +128,33 @@
       color: $secondary;
       font-size: 12px;
     }
+  }
+}
+
+// ~ ==== Live desc
+
+.live-desc-container {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
+
+  .prez-type {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 32px;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+
+    &.cat-1 { background-color: #b89ff4;}
+    &.cat-2 { background-color: #f13f42;}
+    &.cat-3 { background-color: #72c9d3;}
+    &.cat-4 { background-color: #f59600;}
   }
 }
