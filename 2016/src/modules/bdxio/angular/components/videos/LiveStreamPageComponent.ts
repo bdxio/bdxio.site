@@ -9,6 +9,7 @@ import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import {ICFPSlot} from "../../../models/int/ICFPSlot";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 import ILogService = angular.ILogService;
+import {ProgramOptions} from "../program/ProgramOptions";
 
 export class LiveStreamPageComponent implements ng.IDirective {
 
@@ -38,9 +39,7 @@ export class LiveStreamPageComponent implements ng.IDirective {
 
             <div class="col-md-8">
                 <div ng-repeat="channel in $ctrl.channels" ng-if="$ctrl.currentChannel === channel">
-                    <iframe width="100%" height="450"
-                            ng-src="{{ channel.url }}" frameborder="0" allowfullscreen>
-                    </iframe>
+                    <iframe width="100%" height="450" ng-src="{{ channel.url }}" frameborder="0" allowfullscreen></iframe>
                 </div>
 
                 <div class="live-desc-container" ng-if="$ctrl.currentChannel && $ctrl.currentChannel.talk">
@@ -48,24 +47,25 @@ export class LiveStreamPageComponent implements ng.IDirective {
 
                         <div class="col-md-3">
                             <ul class="container-avatar-speaker">
-                                <li class="avatar-speaker">
-
-                                </li>
+                                <li class="avatar-speaker" ng-repeat="speaker in $ctrl.currentChannel.talk.speakers"
+                                    ng-style="speaker.getAvatarStyle()"></li>
                             </ul>
                         </div>
 
                         <div class="col-md-5">
                            <h4 class="text-primary space-top-0">{{ $ctrl.currentChannel.talk.toSpeakersList() }}</h4>
                            <h5>{{ $ctrl.currentChannel.talk.title }}</h5>
-                           <a>+ de détails</a>
+                           <a ng-morph-modal="$ctrl.createMorphSettingsFor($ctrl.currentChannel.talk)" class="more-details">+ de détails</a>
                         </div>
 
                          <div class="col-md-4">
-                             <h4 class="prez-title-track small-title">
-                                <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
-                                <label>{{ prez.track }}</label>
+                            <h4 class="prez-title-track small-title" ng-if="$ctrl.currentChannel.talk.track">
+                                <i ng-class="$ctrl.options.trackClasses[$ctrl.currentChannel.talk.track]"></i>
+                                <label>{{ $ctrl.currentChannel.talk.track }}</label>
                             </h4>
-                            <span class="prez-type"  ng-class="{'cat-1': true}">{{ prez.type }}</span>
+                            <span class="prez-type" ng-class="$ctrl.options.typeClasses[$ctrl.currentChannel.talk.type]">
+                                {{ $ctrl.currentChannel.talk.type }}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -95,17 +95,18 @@ export class LiveStreamPageController {
 
     public static $inject:Array<string> = ['ISharedModel', '$sce', '$log'];
 
+    public options:ProgramOptions;
     public currentChannel:ChannelDef;
     public channels:Array<ChannelDef> = [
         new ChannelDef("Grand Amphi", "GA", true, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi A", "A", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi B", "B", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        //new ChannelDef("Amphi C", "C", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi D", "D", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
         new ChannelDef("Amphi E", "E", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
     ];
 
     public constructor(private sharedModel:ISharedModel, private $sce:ISCEService, private $log:ILogService) {
+        this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
             this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days);
             setInterval(() => this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days), 10000);
@@ -143,4 +144,45 @@ export class LiveStreamPageController {
             if (talk !== channel.talk) channel.talk = talk;
         });
     }
+
+    public createMorphSettingsFor(prez:ICFPPresentation):any {
+        if (!prez.track) return null;
+        var speakers = prez.toSpeakersList();
+        var from = prez.from.format('HH:mm');
+        var to = prez.to.format('HH:mm');
+        return {
+            closeEl: '.close',
+            target: 'body',
+            modal: {
+                template: `
+                <div class="modal-morph">
+                    <span class="glyphicon glyphicon-remove close"></span>
+                    <div class="row">
+                        <div class="col-md-12 header-modal">
+                            <div class="row">
+                                <h3 class="col-md-8 text-white highlight-text-bold force-inner-space-left-30 title">${prez.title}</h3>
+                                <div class="col-md-4 text-right">
+                                    <span class="date-new text-white inner-space-right-15">
+                                        <i class="fa fa-users space-right-5"></i> ${speakers}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 content-modal">
+                            <div class="col-md-12">
+                                <div class="row"><b>Slot : ${from} - ${to}</b></div>
+                                <div class="row"><b>Track : ${prez.track}</b></div>
+                                <div class="row"><b>Type : ${prez.type}</b></div>
+                                <div class="row"><b>Salle : ${prez.room}</b></div>
+                                <div class="row">&nbsp;</div>
+                                <p class="row">${prez.summary}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`,
+                fade: true
+            }
+        };
+    }
+
 }

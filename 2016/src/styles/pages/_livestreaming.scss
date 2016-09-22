@@ -157,4 +157,37 @@
     &.cat-3 { background-color: #72c9d3;}
     &.cat-4 { background-color: #f59600;}
   }
+
+  .prez-title-track {
+    text-align: center;
+  }
+
+  .container-avatar-speaker {
+    display: inline-block;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+
+    .avatar-speaker {
+      display: inline-block;
+      height: 70px;
+      width: 70px;
+      margin-right: 5px;
+      background-color: $light-grey;
+      border-radius: 100%;
+      background-size: 100%;
+      background-position: center center;
+
+      &.no-avatar {
+        background: url("../../images/png/no-avatar.png");
+      }
+    }
+  }
+
+  .more-details {
+    cursor: pointer;
+  }
 }

@@ -39,7 +39,7 @@ export class ProgramPageController {
     public now:moment.Moment = moment();
 
     public constructor(private sharedModel:ISharedModel, private $http:IHttpService, private $location:ILocationService) {
-        this.options = this.buildOptions();
+        this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
             this.config = sharedModel.data.config;
             this.event = sharedModel.data.event;
@@ -61,30 +61,5 @@ export class ProgramPageController {
         if (this.config) {
             return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
         }
-    }
-
-    private buildOptions():ProgramOptions {
-        var programOptions = new ProgramOptions();
-        programOptions.trackClasses = {
-            //'Java, JVM, Javas SE/EE': 'bdx-design',
-            //'Java, JVM, Javas SE/EE': 'bdx-server',
-            //'Java, JVM, Javas SE/EE': 'bdx-phone',
-            //'Java, JVM, Javas SE/EE': 'bdx-tools',
-            //'Java, JVM, Javas SE/EE': 'bdx-networks',
-            //'Java, JVM, Javas SE/EE': 'bdx-settings',
-            'Internet of things & emerging markets': 'bdx-networks',
-            'Tooling': 'bdx-tools',
-            'Frontend Web, Mobile & Video games': 'bdx-phone',
-            'Design, UI & UX': 'bdx-design',
-            'Conception, Architecture & Dev practices': 'bdx-settings',
-            'Backends, Cloud & Big Data': 'bdx-server'
-        };
-        programOptions.typeClasses = {
-            'Conference': 'cat-4',
-            'Lightning talk': 'cat-3',
-            'Keynote': 'cat-2',
-            "Hand's on Labs": 'cat-1'
-        };
-        return programOptions;
     }
 }
