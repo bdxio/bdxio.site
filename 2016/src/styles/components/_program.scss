@@ -217,7 +217,6 @@
 
   .prez-container {
     height: 100%;
-    border-bottom: 1px solid $white-grey;
 
     .prez {
       position: relative;
@@ -225,9 +224,15 @@
       padding: 0;
       border-collapse: collapse;
       text-align: center;
+      border-bottom: 1px solid $white-grey;
       border-top: 1px solid $white-grey;
       border-left: 1px solid $white-grey;
       border-right: 1px solid $white-grey;
+
+      &.overflow {
+        border-bottom: 0 solid $white-grey;
+        border-top: 0 solid $white-grey;
+      }
 
       @media (max-width: 768px) {
         height: auto;

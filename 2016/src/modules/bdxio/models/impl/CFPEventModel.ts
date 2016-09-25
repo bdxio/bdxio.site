@@ -65,6 +65,7 @@ export class CFPEventModel implements ICFPEventModel {
                             day.date = day.schedules[0] ? day.schedules[0].from : null;
                             day.tracks = _.chain(day.schedules).map('track').uniq().filter((track) => track != undefined).value();
                             day.rooms = _.chain(day.schedules).map('room').uniq().filter((track) => track != undefined).value();
+                            var prezByRoom = _.groupBy(day.schedules, (cfpPresentation:ICFPPresentation) => cfpPresentation.room);
                             day.slots = _.chain(day.schedules)
                                 .groupBy((cfpPresentation:ICFPPresentation) => cfpPresentation.from)
                                 .values()
@@ -73,7 +74,20 @@ export class CFPEventModel implements ICFPEventModel {
                                     cfpSlot.from = _.first(cfpPresentations) ? _.first(cfpPresentations).from : null;
                                     var lastPrez = _.chain(cfpPresentations).sortBy('to').value();
                                     cfpSlot.to = lastPrez && lastPrez[0] ? lastPrez[0].to : null;
-                                    cfpSlot.presentations = _.map(day.rooms, (room:string) => _.find(cfpPresentations, {room: room}) || new CFPPresentation());
+                                    cfpSlot.presentations = _.chain(day.rooms)
+                                        .map((room:string) => {
+                                            var newPrez = new CFPPresentation();
+                                            newPrez.room = room;
+                                            return _.find(cfpPresentations, {room: room}) || newPrez;
+                                        })
+                                        .map((prez:ICFPPresentation) => {
+                                            prez.overflow = _.find(prezByRoom[prez.room], (anotherPrez:ICFPPresentation) => {
+                                                return anotherPrez.from.isSameOrBefore(cfpSlot.from)
+                                                    && anotherPrez.to.isSameOrAfter(cfpSlot.to);
+                                            }) ? true : false;
+                                            return prez;
+                                        })
+                                        .value();
                                     return cfpSlot;
                                 })
                                 .value();
