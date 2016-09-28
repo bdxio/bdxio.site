@@ -24,6 +24,7 @@ import {CFPProgramComponent} from "./components/program/CFPProgramComponent";
 import {CFPEventModel} from "../models/impl/CFPEventModel";
 import {ProgramComponent} from "./components/program/ProgramComponent";
 import {LiveStreamPageComponent} from "./components/videos/LiveStreamPageComponent";
+import {ProgramPrintPageComponent} from "./components/program/ProgramPrintPageComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -36,6 +37,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .component("partnersPage", new PartnersPageComponent())
     .component("faqPage", new FAQPageComponent())
     .component("programPage", new ProgramPageComponent())
+    .component("programPrintPage", new ProgramPrintPageComponent())
     .component("liveStreamPage", new LiveStreamPageComponent())
 
     .directive("errSrc", () => new ErrorSourceComponent())
@@ -59,6 +61,7 @@ angular.module("bdxio.app", ["ngRoute"])
             .when("/partners", { template: "<partners-page></partners-page>" })
             .when("/faq", { template: "<faq-page></faq-page>" })
             .when("/program", { template: "<program-page></program-page>" })
+            .when("/program/print", { template: "<program-print-page></program-print-page>" })
             .when("/livestream", { template: "<live-stream-page></live-stream-page>" })
             .when("", { redirectTo: "/" })
             .otherwise({ redirectTo: "/" });
