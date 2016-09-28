@@ -82,9 +82,9 @@ export class CFPEventModel implements ICFPEventModel {
                                         })
                                         .map((prez:ICFPPresentation) => {
                                             prez.overflow = _.find(prezByRoom[prez.room], (anotherPrez:ICFPPresentation) => {
-                                                return anotherPrez.from.isSameOrBefore(cfpSlot.from)
+                                                return anotherPrez.from.isBefore(cfpSlot.from)
                                                     && anotherPrez.to.isSameOrAfter(cfpSlot.to);
-                                            }) ? true : false;
+                                            }) || (prez.to && prez.to.isAfter(cfpSlot.to));
                                             return prez;
                                         })
                                         .value();
