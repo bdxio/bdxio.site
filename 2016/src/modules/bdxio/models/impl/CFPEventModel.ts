@@ -84,7 +84,8 @@ export class CFPEventModel implements ICFPEventModel {
                                             prez.overflow = _.find(prezByRoom[prez.room], (anotherPrez:ICFPPresentation) => {
                                                 return anotherPrez.from.isBefore(cfpSlot.from)
                                                     && anotherPrez.to.isSameOrAfter(cfpSlot.to);
-                                            }) || (prez.to && prez.to.isAfter(cfpSlot.to));
+                                            }) ? true : false;
+                                            prez.overflowThrough = prez.to && prez.to.isAfter(cfpSlot.to);
                                             return prez;
                                         })
                                         .value();
@@ -150,6 +151,7 @@ export class CFPEventModel implements ICFPEventModel {
     private buildBreak(slot:any):ICFPPresentation {
         var cfpPresentation = this.buildBaseSlot(slot);
         cfpPresentation.title = slot.break.nameFR || slot.break.nameEN;
+        cfpPresentation.isBreak = true;
         return cfpPresentation;
     }
 

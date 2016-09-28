@@ -91,7 +91,7 @@ export class CFPProgramComponent implements ng.IDirective {
                     <!--Iterate over all slot's presentations-->
                     <div class="column col-lg-11 col-md-11 col-sm-11 col-xs-9" >
                         <div class="row prez-container">
-                            <div ng-class="{'empty-slot' : !prez.title, 'overflow': prez.overflow}" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
+                            <div ng-class="{'empty-slot' : !prez.title, 'overflow': prez.overflow || prez.overflowThrough }" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
 
                                 <div class="content-prez" ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
 

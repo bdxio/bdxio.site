@@ -12,6 +12,8 @@ export interface ICFPPresentation {
     to: moment.Moment;
     room: string;
     overflow:boolean;
+    overflowThrough:boolean;
+    isBreak:boolean;
 
     toSpeakersList():string;
     markedSummary(): string;
