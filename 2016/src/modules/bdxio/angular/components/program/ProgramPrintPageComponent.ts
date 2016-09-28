@@ -34,7 +34,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                         <div ng-show="prez.title">
                             <p>{{ prez.title }}</p>
                             <div ng-show="!prez.isBreak">
-                                {{ prez.toSpeakersList() }} - {{ prez.track }} - {{ prez.type }} - {{ prez.room }}
+                                {{ prez.toSpeakersList() }} - {{ prez.track }} - {{ prez.type }}
                             </div>
                         </div>
                     </td>
