@@ -4,6 +4,18 @@
 
 @media print {
 
+  thead {
+    display: table-header-group;
+  }
+
+  .general-container {
+    padding-top: 0 !important;
+  }
+
+  .break {
+    display: none;
+  }
+
   .print {
     -webkit-print-color-adjust: exact;
 
@@ -25,7 +37,7 @@
       }
 
       td {
-        font-size: 9px !important;
+        font-size: 7px !important;
         color: black;
         padding: 0px 5px;
       }
@@ -37,6 +49,7 @@
       .time-slot-print {
         background-color: $primary !important;
         color: white !important;
+        width: 50px;
         -webkit-print-color-adjust: exact;
       }
     }

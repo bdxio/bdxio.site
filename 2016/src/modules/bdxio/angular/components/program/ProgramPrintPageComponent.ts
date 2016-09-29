@@ -28,13 +28,15 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="slot in $ctrl.currentDay.slots">
+                <tr ng-repeat="slot in $ctrl.currentDay.slots"">
                     <td class="time-slot-print">{{ slot.from.toDate() | date: $ctrl.timePattern }} - {{ slot.to.toDate() | date: $ctrl.timePattern }}</td>
-                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow">
+                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow" ng-class="{ 'break': prez.isBreak }">
                         <div ng-show="prez.title">
                             <p>{{ prez.title }}</p>
-                            <div class="name-speaker-print" ng-show="!prez.isBreak">
-                                {{ prez.toSpeakersList() }} - {{ prez.track }} - {{ prez.type }}
+                            <div ng-show="!prez.isBreak">
+                                <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
+                                <div class="name-track-print" ng-class="$ctrl.options.trackClasses[prez.track]">{{ prez.track }}</div>
+                                <div class="name-type-print" ng-class="$ctrl.options.typeClasses[prez.type]">{{ prez.type }}</div>
                             </div>
                         </div>
                     </td>
