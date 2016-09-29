@@ -21,19 +21,19 @@ export class ProgramPrintPageComponent implements ng.IDirective {
         <table class="cfp-program-print">
             <thead>
                 <tr>
-                    <th><b>Slot</b></th>
-                    <th ng-repeat="room in $ctrl.currentDay.rooms">
+                    <th class="slot-print">Slot</th>
+                    <th class="room-print" ng-repeat="room in $ctrl.currentDay.rooms">
                         {{ room }}
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="slot in $ctrl.currentDay.slots">
-                    <td><b>{{ slot.from.toDate() | date: $ctrl.timePattern }} - {{ slot.to.toDate() | date: $ctrl.timePattern }}</b></td>
+                    <td class="time-slot-print">{{ slot.from.toDate() | date: $ctrl.timePattern }} - {{ slot.to.toDate() | date: $ctrl.timePattern }}</td>
                     <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow">
                         <div ng-show="prez.title">
                             <p>{{ prez.title }}</p>
-                            <div ng-show="!prez.isBreak">
+                            <div class="name-speaker-print" ng-show="!prez.isBreak">
                                 {{ prez.toSpeakersList() }} - {{ prez.track }} - {{ prez.type }}
                             </div>
                         </div>

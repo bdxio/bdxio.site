@@ -1,0 +1,45 @@
+// ~ MEDIA PRINT
+// ====================================================================== >
+
+
+@media print {
+
+  .print {
+    -webkit-print-color-adjust: exact;
+
+    header, footer {
+      display: none;
+    }
+
+    .cfp-program-print {
+
+      .slot-print {
+        background-color: darken($secondary, 5%) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+      }
+      .room-print {
+        background-color: $secondary !important;
+        color: white !important;
+        text-align: center;
+      }
+
+      td {
+        font-size: 9px !important;
+        color: black;
+        padding: 0px 5px;
+      }
+
+      .name-speaker-print {
+        font-weight: bold;
+      }
+
+      .time-slot-print {
+        background-color: $primary !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  }
+}
+
