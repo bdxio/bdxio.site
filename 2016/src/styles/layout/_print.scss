@@ -23,12 +23,16 @@
       display: none;
     }
 
-    .title-prez-print {
-      margin-bottom: 5px !important;
-      margin-top: 2px !important;
+    .break {
+      background: repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(lighten($light-grey, 5%), 0.6) 1px, rgba(lighten($light-grey, 5%), 0.6) 14px) !important;
     }
 
     .cfp-program-print {
+
+      .title-prez-print {
+        margin-bottom: 5px !important;
+        margin-top: 2px !important;
+      }
 
       .name-speaker-print {
         color: $primary !important;
@@ -52,6 +56,7 @@
         color: white !important;
         -webkit-print-color-adjust: exact;
         border: 1px solid darken($secondary, 10%) !important;
+        text-align: center;
       }
 
       .room-print {
@@ -78,7 +83,7 @@
       .split-info {
         display: inline-block;
         vertical-align: middle;
-        width: 48%;
+        width: 49%;
       }
 
       .name-type-print {
