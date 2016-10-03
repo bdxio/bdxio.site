@@ -4,10 +4,10 @@
 
 @media print {
 
-  .cat-1 { background-color: #b89ff4 !important;}
-  .cat-2 { background-color: #f13f42 !important;}
-  .cat-3 { background-color: #72c9d3 !important;}
-  .cat-4 { background-color: #f59600 !important;}
+  .cat-1 { background-color: lighten(#b89ff4, 15%) !important;}
+  .cat-2 { background-color: lighten(#f13f42, 15%) !important;}
+  .cat-3 { background-color: lighten(#72c9d3, 15%) !important;}
+  .cat-4 { background-color: lighten(#f59600, 15%) !important;}
 
   thead {
     display: table-header-group;
