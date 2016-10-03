@@ -42,6 +42,7 @@
       }
 
       td {
+        position: relative;
         font-size: 7px !important;
         color: black;
         padding: 0px 5px;
@@ -49,6 +50,13 @@
 
       .name-speaker-print {
         font-weight: bold;
+      }
+
+      .name-track-print {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        font-size: 14px;
       }
 
       .time-slot-print {
@@ -59,5 +67,54 @@
       }
     }
   }
-}
 
+  .container-legend {
+    white-space: nowrap;
+    margin-top: 10px;
+  }
+
+  .legend-list, .legend-tracks {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+  }
+
+  .legend-list {
+
+    .cat-1 {background: transparent !important; color: #b89ff4 !important; .bullet-type {background-color: #b89ff4 !important;}}
+    .cat-2 {background: transparent !important; color: #f13f42 !important; .bullet-type {background-color: #f13f42 !important;}}
+    .cat-3 {background: transparent !important; color: #72c9d3 !important; .bullet-type {background-color: #72c9d3 !important;}}
+    .cat-4 {background: transparent !important; color: #f59600 !important; .bullet-type {background-color: #f59600 !important;}}
+
+    .bullet-type {
+      display: inline-block;
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+      margin-right: 5px;
+      border-radius: 100%;
+    }
+  }
+
+  .legend-tracks {
+    white-space: normal;
+    font-size: 12px;
+
+    li {
+      &:before {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        color: $secondary !important;
+        font-size: 18px;
+      }
+    }
+  }
+}

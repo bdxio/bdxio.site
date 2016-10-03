@@ -42,13 +42,21 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                     </td>
                 </tr>
             </tbody>
-            <tfoot>
-                <!-- Types Legend -->
-                <div ng-repeat="(type, class) in $ctrl.options.typeClasses" ng-class="class">{{ type }}</div>
-                <!-- Tracks Legend -->
-                <div ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ track }}</div>
-            </tfoot>
         </table>
+
+
+        <div class="container-legend">
+               <!-- Types Legend -->
+                <ul class="legend-list">
+                    <li ng-repeat="(type, class) in $ctrl.options.typeClasses" ng-class="class"><span class="bullet-type"></span> {{ type }}</li>
+                </ul>
+
+                <!-- Tracks Legend -->
+                <ul class="legend-tracks">
+                    <li ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ track }}</li>
+                </ul>
+        </div>
+
     </section>
     `
 }
