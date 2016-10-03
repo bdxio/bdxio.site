@@ -28,24 +28,26 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="slot in $ctrl.currentDay.slots">
+                <tr ng-repeat="slot in $ctrl.currentDay.slots"">
                     <td class="time-slot-print">{{ slot.from.toDate() | date: $ctrl.timePattern }} - {{ slot.to.toDate() | date: $ctrl.timePattern }}</td>
-                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow" ng-class="{ 'break': prez.isBreak }" style="position: relative; overflow: hidden;">
+                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow"
+                        ng-class="$ctrl.talkClasses(prez)">
                         <div ng-show="prez.title">
-                            <p class="title-prez-print">{{ prez.title }}</p>
+                            <p>{{ prez.title }}</p>
                             <div ng-show="!prez.isBreak">
-                                <span class="split-info">
-                                    <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
-                                    <div class="name-type-print" ng-class="$ctrl.options.typeClasses[prez.type]">{{ prez.type }}</div>
-                                </span>
-                               <span class="split-info">
-                                 <div class="name-track-print text-center" ng-class="$ctrl.options.trackClasses[prez.track]">{{ prez.track }}</div>
-                               </span>
+                                <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
+                                <div class="name-track-print" ng-class="$ctrl.options.trackClasses[prez.track]"></div>
                             </div>
                         </div>
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <!-- Types Legend -->
+                <div ng-repeat="(type, class) in $ctrl.options.typeClasses" ng-class="class">{{ type }}</div>
+                <!-- Tracks Legend -->
+                <div ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ track }}</div>
+            </tfoot>
         </table>
     </section>
     `
@@ -69,5 +71,16 @@ export class ProgramPrintPageController {
             this.event = sharedModel.data.event;
             this.currentDay = this.event.days[0];
         });
+    }
+
+    public talkClasses(prez:ICFPPresentation):any {
+        var classes = [];
+        if (prez && prez.isBreak) {
+            classes.push('break')
+        }
+        if (prez && prez.type && this.options) {
+            classes.push(this.options.typeClasses[prez.type])
+        }
+        return classes;
     }
 }

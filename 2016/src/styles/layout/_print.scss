@@ -4,6 +4,11 @@
 
 @media print {
 
+  .cat-1 { background-color: #b89ff4 !important;}
+  .cat-2 { background-color: #f13f42 !important;}
+  .cat-3 { background-color: #72c9d3 !important;}
+  .cat-4 { background-color: #f59600 !important;}
+
   thead {
     display: table-header-group;
   }
@@ -23,83 +28,23 @@
       display: none;
     }
 
-    .break {
-      background: repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(lighten($light-grey, 5%), 0.6) 1px, rgba(lighten($light-grey, 5%), 0.6) 14px) !important;
-    }
-
     .cfp-program-print {
 
-      .title-prez-print {
-        margin-bottom: 5px !important;
-        margin-top: 2px !important;
-      }
-
-      .name-speaker-print {
-        color: $primary !important;
-      }
-
-      .name-track-print {
-        color: $secondary !important;
-
-        &:before {
-          display: block;
-          color: $secondary !important;
-          margin-bottom: 5px !important;
-          font-size: 18px;
-          margin: 0 auto;
-        }
-      }
-
       .slot-print {
-        font-size: 10px !important;
         background-color: darken($secondary, 5%) !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
-        border: 1px solid darken($secondary, 10%) !important;
-        text-align: center;
       }
-
       .room-print {
-        font-size: 10px !important;
         background-color: $secondary !important;
         color: white !important;
         text-align: center;
-        padding: 2px !important;
-        border: 1px solid darken($secondary, 10%) !important;
       }
 
       td {
         font-size: 7px !important;
-        line-height: 1.2 !important;
-        color: $medium-grey;
-        padding: 2px 5px 1px 5px !important;
-        border: 1px solid $light-grey !important;
-
-        &.time-slot-print {
-          border: 1px solid darken($primary, 10%) !important;
-        }
-      }
-
-      .split-info {
-        display: inline-block;
-        vertical-align: middle;
-        width: 49%;
-      }
-
-      .name-type-print {
-        display: inline-block !important;
-        width: auto !important;
-        color: white !important;
-        border-radius: 30px !important;
-        padding: 2px 10px !important;
-        text-align: center;
-        margin: 2px 0;
-        font-size: 8px;
-
-        &.cat-1 { background-color: #b89ff4 !important;}
-        &.cat-2 { background-color: #f13f42 !important;}
-        &.cat-3 { background-color: #72c9d3 !important;}
-        &.cat-4 { background-color: #f59600 !important;}
+        color: black;
+        padding: 0px 5px;
       }
 
       .name-speaker-print {
@@ -111,8 +56,8 @@
         color: white !important;
         width: 50px;
         -webkit-print-color-adjust: exact;
-        text-align: center;
       }
     }
   }
 }
+
