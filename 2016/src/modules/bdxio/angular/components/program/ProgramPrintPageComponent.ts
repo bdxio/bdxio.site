@@ -33,7 +33,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                     <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow"
                         ng-class="$ctrl.talkClasses(prez)">
                         <div ng-show="prez.title">
-                            <p>{{ prez.title }}</p>
+                            <p class="title">{{ prez.title }}</p>
                             <div ng-show="!prez.isBreak">
                                 <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
                                 <div class="name-track-print" ng-class="$ctrl.options.trackClasses[prez.track]"></div>

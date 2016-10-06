@@ -30,6 +30,10 @@
 
     .cfp-program-print {
 
+      .title {
+        max-width: 90%;
+      }
+
       .slot-print {
         background-color: darken($secondary, 5%) !important;
         color: white !important;
@@ -55,7 +59,7 @@
       .name-track-print {
         position: absolute;
         right: 5px;
-        bottom: 0;
+        top: 5px;
         font-size: 14px;
       }
 
