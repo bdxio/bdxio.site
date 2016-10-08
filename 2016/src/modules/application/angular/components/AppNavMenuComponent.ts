@@ -32,13 +32,11 @@ export class AppNavMenuComponent implements ng.IDirective {
                             <i class="fa fa-bars"></i>
                         </button>
                         <button ng-class="{ open: $ctrl.config.registrationOpened=='opened' }"
-                                ng-click="$ctrl.openRegistrationPopup()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
+                                ng-click="$ctrl.openRegistrationPopup()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20">
                             <i class="fa fa-ticket"></i>
                         </button>
                         <button ng-class="{ open: !$ctrl.isCfpNotOpenedYet() }"
-                                ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
+                                ng-click="$ctrl.openProgram()" type="button" class="btn-collapse-header btn-round btn btn-white btn-r-medium float-right force-space-right-20">
                             <i class="fa fa-commenting-o" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened()"></i>
                             <i class="fa fa-calendar" ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()"></i>
                         </button>
