@@ -26,6 +26,10 @@
     cursor: pointer;
     transition:240ms;
 
+    &.soon {
+      background-image: $livestream-soon-talk-background;
+    }
+
     &:hover, &:focus {
       transition:240ms;
       background-color: darken($white-grey, 5%);

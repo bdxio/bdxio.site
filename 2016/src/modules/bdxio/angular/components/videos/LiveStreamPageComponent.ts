@@ -30,15 +30,22 @@ export class LiveStreamPageComponent implements ng.IDirective {
 
         <div class="row" ng-show="$ctrl.livestreamEnabled">
             <ul class="col-md-4 list-amphi">
-                <li class="item-amphi" ng-class="{ 'selected': false }" ng-click="$ctrl.selectChannel(channel)" ng-repeat="channel in $ctrl.channels">
+                <li class="item-amphi" ng-class="{ 'selected': false, 'soon': channel.nextTalk.title }" ng-click="$ctrl.selectChannel(channel)" ng-repeat="channel in $ctrl.channels">
                     <div class="bullet-amphi">
                         <i ng-if="channel.mainRoom" class="fa fa-university" aria-hidden="true"></i>
                         <span ng-if="!channel.mainRoom">{{ channel.roomName }}</span>
                     </div>
-                    <div class="content-infos-amphi">
+                    <div class="content-infos-amphi" ng-show="channel.talk.title">
                         <span class="title-live-track">{{ channel.talk.title }}</span>
                         <span class="schedule-live" ng-show="channel.talk.speakers">
                             <i class="fa fa-users space-right-5" aria-hidden="true"></i>{{ channel.talk.toSpeakersList() }}
+                        </span>
+                    </div>
+                    <div class="content-infos-amphi" ng-show="channel.nextTalk.title">
+                        <span style="color:red">A VENIR</span>
+                        <span class="title-live-track">{{ channel.nextTalk.title }}</span>
+                        <span class="schedule-live" ng-show="channel.nextTalk.speakers">
+                            <i class="fa fa-users space-right-5" aria-hidden="true"></i>{{ channel.nextTalk.toSpeakersList() }}
                         </span>
                     </div>
                 </li>
@@ -95,6 +102,7 @@ export class ChannelDef {
     public mainRoom:boolean = false;
     public url:string;
     public talk:CFPPresentation;
+    public nextTalk:CFPPresentation;
 
     public constructor(roomId:string, roomName:string, mainRoom:boolean, url:string) {
         this.roomId = roomId;
@@ -166,6 +174,18 @@ export class LiveStreamPageController {
 
         _.each(channels, (channel:ChannelDef) => {
             var talk = _.find(slot.presentations, (prez:ICFPPresentation) => prez.room === channel.roomId);
+            if (!talk.id && !channel.nextTalk) {
+                var nextSlot = _.first(_.chain(day.slots)
+                    .sortBy('from')
+                    .filter((slot:ICFPSlot) => slot.from.isAfter(this.now))
+                    .value());
+                if (nextSlot) {
+                    channel.nextTalk = _.first(_.chain(nextSlot.presentations)
+                        .filter((prez:ICFPPresentation) => !_.isUndefined(prez))
+                        .filter((prez:ICFPPresentation) => prez.room === channel.roomId)
+                        .value());
+                }
+            }
             if (talk !== channel.talk) channel.talk = talk;
         });
     }

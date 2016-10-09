@@ -34,6 +34,8 @@ $link-dark :                                  $dark-grey !default;
 $link-primary :                               $primary !default;
 $link-secondary :                             $secondary !default;
 
+$livestream-soon-talk-background :            repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba($secondary-dark, 0.1) 1px, rgba($secondary-dark, 0.1) 14px);
+
 // ================ //
 // Variables HEADER
 // ================ //
