@@ -8,10 +8,14 @@ export class AppNavMenuComponent implements ng.IDirective {
     public template:string = `
         <header class="header">
              <div class="top-header">
-                 <button type="button" class="btn btn-live-stream float-right">
+                 <button type="button" class="btn btn-live-stream float-right" ng-click="$ctrl.selectMenu('livestream')"
+                         ng-show="$ctrl.isLivestreamEnabled()">
                     Livestream
-                    <span class="status-live live-on" ng-show="$ctrl.config.livestreamEnabled=='1'"><i class="fa fa-circle"></i>ON</span>
-                    <span class="status-live live-off" ng-show="$ctrl.config.livestreamEnabled=='0'"><i class="fa fa-circle"></i>OFF</span>
+                    <span class="status-live live-on"><i class="fa fa-circle"></i>ON</span>
+                 </button>
+                 <button type="button" class="btn btn-live-stream float-right" ng-show="!$ctrl.isLivestreamEnabled()">
+                    Livestream
+                    <span class="status-live live-off"><i class="fa fa-circle"></i>OFF</span>
                  </button>
                  <ul class="header-list-networks">
                      <li class="item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
@@ -132,6 +136,7 @@ export class AppNavMenuController {
         'participant-speakers': {path: '/attendees', targetAnchorName: 'speakers'},
         'participant-orgas': {path: '/attendees', targetAnchorName: 'orgas'},
         'program': {path: '/program'},
+        'livestream': {path: '/livestream'},
         'faq': {path: '/faq'},
         'prog': {path: '/prog'},
         'home': {path: '/'},
@@ -168,8 +173,14 @@ export class AppNavMenuController {
         }
     }
 
+    public isLivestreamEnabled() {
+        if (this.config) {
+            return this.config.livestreamOpeningDate && this.now.isAfter(this.config.livestreamOpeningDate);
+        }
+    }
+
     public isCfpNotOpenedYet() {
-        if(this.config) {
+        if (this.config) {
             return !this.config.cfpOpeningDate || this.now.isBefore(this.config.cfpOpeningDate);
         }
     }

@@ -21,7 +21,11 @@ export class LiveStreamPageComponent implements ng.IDirective {
     <section class="wrapper force-space-bottom-30">
         <h1 class="section-title text-primary space-bottom-20">Livestreaming</h1>
 
-        <div class="row">
+        <div class="row" ng-show="!$ctrl.isLivestreamEnabled()">
+            <h4><i>Le livestream n'est pas encore disponible pour le moment ! Démarrage le {{ $ctrl.livestreamOpeningDate.toDate() | date: 'dd/MM/yyyy' }} à {{ $ctrl.livestreamOpeningDate.toDate() | date: 'HH:mm' }} pétante !</i></h4>
+        </div>
+
+        <div class="row" ng-show="$ctrl.isLivestreamEnabled()">
             <ul class="col-md-4 list-amphi">
                 <li class="item-amphi" ng-class="{ 'selected': false }" ng-click="$ctrl.selectChannel(channel)" ng-repeat="channel in $ctrl.channels">
                     <div class="bullet-amphi">
@@ -96,6 +100,9 @@ export class LiveStreamPageController {
     public static $inject:Array<string> = ['ISharedModel', '$sce', '$log'];
 
     public options:ProgramOptions;
+    public config:IConfig;
+    public livestreamOpeningDate:moment.Moment;
+    public now:moment.Moment;
     public currentChannel:ChannelDef;
     public channels:Array<ChannelDef> = [
         new ChannelDef("Grand Amphi", "GA", true, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
@@ -108,34 +115,41 @@ export class LiveStreamPageController {
     public constructor(private sharedModel:ISharedModel, private $sce:ISCEService, private $log:ILogService) {
         this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
-            this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days);
-            setInterval(() => this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days), 10000);
+            this.config = sharedModel.data.config;
+            this.livestreamOpeningDate = this.config.livestreamOpeningDate;
+            this.updateModel(sharedModel);
+            setInterval(() => this.updateModel(sharedModel), 10000);
         });
     }
 
-    private url(url:string) {
-        return this.$sce.trustAsResourceUrl(url);
-    }
-
     private computeNow():any {
-        return moment('2016-10-21T15:50:00+02:00');
-        //return moment();
+        //return moment('2016-10-21T15:50:00+02:00');
+        return moment();
     }
 
-    public selectChannel(channelDef:ChannelDef):void {
-        this.currentChannel = channelDef;
+    public isLivestreamEnabled() {
+        if (this.config) {
+            return this.config.livestreamOpeningDate && this.now.isAfter(this.config.livestreamOpeningDate);
+        }
+    }
+
+    public updateModel(sharedModel:ISharedModel) {
+        this.now = this.computeNow();
+        this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days);
     }
 
     public enrichChannelsWithProgram(channels:Array<ChannelDef>, days:Array<CFPDay>):void {
 
-        this.$log.info('enrich channels with CFP program');
+        this.$log.info('enriching channels with CFP program');
 
         var day = _.find(days, (day:CFPDay) => this.computeNow().startOf('day').isSame(day.date.startOf('day')));
-        if (!day) throw new Error('current day not found');
+        if (!day) {
+            this.$log.error('current day not found');
+            return;
+        }
 
-        var now = this.computeNow();
         var slot = _.find(day.slots, (slot:ICFPSlot) => {
-            return slot.from.isBefore(now) && slot.to.isSameOrAfter(now);
+            return slot.from.isBefore(this.now) && slot.to.isSameOrAfter(this.now);
         });
         if (!slot) return;
 
@@ -143,6 +157,14 @@ export class LiveStreamPageController {
             var talk = _.find(slot.presentations, (prez:ICFPPresentation) => prez.room === channel.roomId);
             if (talk !== channel.talk) channel.talk = talk;
         });
+    }
+
+    private url(url:string) {
+        return this.$sce.trustAsResourceUrl(url);
+    }
+
+    public selectChannel(channelDef:ChannelDef):void {
+        this.currentChannel = channelDef;
     }
 
     public createMorphSettingsFor(prez:ICFPPresentation):any {

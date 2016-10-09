@@ -21,8 +21,8 @@ export interface ITypedCompaniesByType {
 }
 
 export interface IConfig {
-    livestreamEnabled: string;
     registrationOpened: string;
+    livestreamOpeningDate: moment.Moment;
     cfpOpeningDate: moment.Moment;
     cfpClosingDate: moment.Moment;
     talksListPublishingDate: moment.Moment;
