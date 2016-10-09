@@ -4,10 +4,29 @@
 
 @media print {
 
-  .cat-1 { background-color: lighten(#b89ff4, 15%) !important;}
-  .cat-2 { background-color: lighten(#f13f42, 15%) !important;}
-  .cat-3 { background-color: lighten(#72c9d3, 15%) !important;}
-  .cat-4 { background-color: lighten(#f59600, 15%) !important;}
+  .bdx-server {
+    color: $violet !important;
+  }
+  .bdx-design {
+    color: $green !important;
+  }
+  .bdx-settings {
+    color: $bronze !important;
+  }
+  .bdx-networks {
+    color: $primary !important;
+  }
+  .bdx-phone {
+    color: $gold !important;
+  }
+  .bdx-tools {
+    color: $secondary !important;
+  }
+
+  .cat-1 { background-color: lighten(#b89ff4, 20%) !important;}
+  .cat-2 { background-color: lighten(#f13f42, 35%) !important;}
+  .cat-3 { background-color: lighten(#72c9d3, 35%) !important;}
+  .cat-4 { background-color: lighten(#f59600, 50%) !important;}
 
   thead {
     display: table-header-group;
@@ -18,7 +37,9 @@
   }
 
   .break {
-    display: none;
+    .slot-content {
+      display: none;
+    }
   }
 
   .print {
