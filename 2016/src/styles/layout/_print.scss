@@ -1,6 +1,13 @@
 // ~ MEDIA PRINT
 // ====================================================================== >
 
+.voxxrin-qrcode {
+  width: 50px;
+  height: 50px;
+  background-position: center center;
+  background-size: cover !important;
+  background: url("../../images/png/voxxrin_qrcode.png") no-repeat;
+}
 
 @media print {
 

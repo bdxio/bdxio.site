@@ -36,6 +36,9 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                     </li>
                  </ul>
               </div>
+              <div class="row">
+                <div class="voxxrin-qrcode">&nbsp;</div>
+              </div>
             </div>
         </div>
 
@@ -98,7 +101,6 @@ export class ProgramPrintPageController {
         this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
             this.partnersByType = sharedModel.data.partners;
-            console.log(this.partnersByType);
             this.event = sharedModel.data.event;
             this.currentDay = this.event.days[0];
         });
