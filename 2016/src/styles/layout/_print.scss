@@ -4,6 +4,13 @@
 
 @media print {
 
+  .page-break {
+    page-break-after: always;
+  }
+
+  .text-primary { color: $primary !important;}
+  .text-secondary { color: $secondary !important;}
+
   .bdx-server {
     color: $violet !important;
   }
@@ -142,4 +149,23 @@
       }
     }
   }
+
+  .print-lightning-talks {
+    padding-top: 30px;
+
+    ul {
+      line-height: 1.2 !important;
+    }
+  }
+}
+
+.logo-event-print {
+  display: block;
+  height: 100px;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: url("../../images/png/logo-bdxio.png") no-repeat !important;
+  background-size: 100% !important;
+  background-position: top !important;
 }
