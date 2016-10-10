@@ -9,6 +9,7 @@ import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
 import ILocationService = angular.ILocationService;
 import {ICFPDay} from "../../../models/int/ICFPDay";
+import {ITypedCompaniesByType} from "../../../models/int/ISharedModel";
 
 export class ProgramPrintPageComponent implements ng.IDirective {
 
@@ -18,55 +19,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
 
     public template:string = `
     <section>
-    <div class="row page-break">
-            <div class="col-sm-6 print-lightning-talks">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4 class="section-title text-primary text-center">Lightning talks</h4>
-                    </div>
-
-                     <h4 class="col-sm-12 text-secondary text-center">12h00</h4>
-                     <ul class="col-sm-12">
-                        <li><strong class="text-primary">Grand amphi :</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi A</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi B</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi D</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi E</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">TD 17</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                     </ul>
-
-                     <h4 class="col-sm-12 text-secondary text-center">12h25</h4>
-                     <ul class="col-sm-12">
-                        <li><strong class="text-primary">Grand amphi :</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi A</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi B</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi D</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi E</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">TD 17</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                     </ul>
-
-                      <h4 class="col-sm-12 text-secondary text-center">13h10</h4>
-                     <ul class="col-sm-12">
-                        <li><strong class="text-primary">Grand amphi :</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi A</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi B</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi D</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi E</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">TD 17</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                     </ul>
-
-                      <h4 class="col-sm-12 text-secondary text-center">13h35</h4>
-                     <ul class="col-sm-12">
-                        <li><strong class="text-primary">Grand amphi :</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi A</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi B</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi D</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">Amphi E</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                        <li><strong class="text-primary">TD 17</strong> Aurelia est-elle une concurrente sérieuse pour Angular 2 ? par Philippe Charrière</li>
-                     </ul>
-                </div>
-            </div>
-
+        <div class="row page-break">
             <div class="col-sm-6">
               <div class="row">
                 <span class="logo-event-print"></span>
@@ -74,11 +27,13 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                   <h1 class="section-title text-primary text-center">PROGRAMME</h1>
                  </div>
                  <div class="col-sm-12">
-                  <h5 class="section-title text-secondary text-center">Merci à nos sponsors :</h1>
+                    <h5 class="section-title text-secondary text-center">Merci à nos sponsors :</h1>
                  </div>
-
-                 <ul class="col-sm-12">
-                    <li ng-repeat="partner in $ctrl.partnersByType.companies"><img ng-src="{{partner.imgSrc}}"></li>
+                 <ul class="col-sm-12" ng-repeat="(type, partners) in $ctrl.partnersByType">
+                    {{ type }}
+                    <li ng-repeat="company in partners.companies">
+                        <img style="width: 50px" ng-src="{{ company.imgSrc }}">
+                    </li>
                  </ul>
               </div>
             </div>
@@ -133,6 +88,7 @@ export class ProgramPrintPageController {
     public event:ICFPEvent;
     public currentDay:ICFPDay;
     public config:IConfig;
+    private partnersByType:ITypedCompaniesByType;
     public options:ProgramOptions;
 
     public timePattern:string = 'HH:mm';
@@ -141,6 +97,8 @@ export class ProgramPrintPageController {
     public constructor(private sharedModel:ISharedModel) {
         this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
+            this.partnersByType = sharedModel.data.partners;
+            console.log(this.partnersByType);
             this.event = sharedModel.data.event;
             this.currentDay = this.event.days[0];
         });
