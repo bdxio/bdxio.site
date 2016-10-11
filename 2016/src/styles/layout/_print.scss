@@ -2,7 +2,6 @@
 // ====================================================================== >
 
 @media print {
-
   .voxxrin-qrcode {
     width: 80px;
     height: 80px;
@@ -29,7 +28,7 @@
 
     tr th {
       &:nth-child(2) {
-        width: 6% !important;
+        width: 3% !important;
       }
     }
   }
@@ -73,6 +72,7 @@
     &.name-track-print { background-color: $secondary !important;}
     &:before {color: $secondary !important;}
   }
+
   .bdx-design {
     color: darken($green, 15%) !important;
     &.name-track-print { background-color: darken($green, 15%) !important;}
@@ -110,7 +110,7 @@
         font-size: 8px !important;
         color: black;
         padding: 0px 5px;
-        line-height: 1;
+        line-height: 1.1;
       }
 
       .name-track-print {
@@ -180,11 +180,26 @@
     font-size: 12px;
 
     li {
+
+      &.bdx-server    { &:before { background-color: $violet!important;}}
+      &.bdx-settings  { &:before { background-color: $bronze !important;}}
+      &.bdx-networks  { &:before { background-color: $primary !important;}}
+      &.bdx-phone     { &:before { background-color: $gold !important;}}
+      &.bdx-tools     { &:before { background-color: $secondary !important;}}
+      &.bdx-design    { &:before { background-color: darken($green, 15%) !important;}}
+
       &:before {
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px;
         font-size: 18px;
+        height: 26px;
+        width: 26px;
+        border-radius: 100%;
+        color: white !important;
+        text-align: center;
+        padding-top: 6px;
+        font-size: 15px;
       }
     }
   }
