@@ -1,15 +1,16 @@
 // ~ MEDIA PRINT
 // ====================================================================== >
 
-.voxxrin-qrcode {
-  width: 50px;
-  height: 50px;
-  background-position: center center;
-  background-size: cover !important;
-  background: url("../../images/png/voxxrin_qrcode.png") no-repeat;
-}
-
 @media print {
+
+  .voxxrin-qrcode {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-position: center center;
+    background-size: 80px !important;
+    background-image: url("../../images/png/voxxrin_qrcode.png")!important;
+  }
 
   .page-break {
     page-break-after: always;
@@ -18,32 +19,19 @@
   .text-primary { color: $primary !important;}
   .text-secondary { color: $secondary !important;}
 
-  .bdx-server {
-    color: $violet !important;
-  }
-  .bdx-design {
-    color: $green !important;
-  }
-  .bdx-settings {
-    color: $bronze !important;
-  }
-  .bdx-networks {
-    color: $primary !important;
-  }
-  .bdx-phone {
-    color: $gold !important;
-  }
-  .bdx-tools {
-    color: $secondary !important;
-  }
-
-  .cat-1 { background-color: lighten(#b89ff4, 20%) !important;}
-  .cat-2 { background-color: lighten(#f13f42, 35%) !important;}
-  .cat-3 { background-color: lighten(#72c9d3, 35%) !important;}
-  .cat-4 { background-color: lighten(#f59600, 50%) !important;}
+  .cat-1 { background-color: lighten(#b89ff4, 15%) !important;}
+  .cat-2 { background-color: lighten(#f13f42, 28%) !important;}
+  .cat-3 { background-color: lighten(#72c9d3, 28%) !important;}
+  .cat-4 { background-color: lighten(#f59600, 28%) !important;}
 
   thead {
-    display: table-header-group;
+    display: table-row-group !important;
+
+    tr th {
+      &:nth-child(2) {
+        width: 6% !important;
+      }
+    }
   }
 
   .general-container {
@@ -54,6 +42,41 @@
     .slot-content {
       display: none;
     }
+  }
+
+  .bdx-server {
+    color: $violet !important;
+    &.name-track-print { background-color: $violet !important;}
+    &:before {color: $violet !important;}
+  }
+
+  .bdx-settings {
+    color: $bronze !important;
+    &.name-track-print { background-color: $bronze !important;}
+    &:before {color: $bronze !important;}
+  }
+
+  .bdx-networks {
+    color: $primary !important;
+    &.name-track-print { background-color: $primary !important;}
+    &:before {color: $primary !important;}
+  }
+
+  .bdx-phone {
+    color: $gold !important;
+    &.name-track-print { background-color: $gold !important;}
+    &:before {color: $gold !important;}
+  }
+
+  .bdx-tools {
+    color: $secondary !important;
+    &.name-track-print { background-color: $secondary !important;}
+    &:before {color: $secondary !important;}
+  }
+  .bdx-design {
+    color: darken($green, 15%) !important;
+    &.name-track-print { background-color: darken($green, 15%) !important;}
+    &:before {color: darken($green, 15%) !important;}
   }
 
   .print {
@@ -67,6 +90,7 @@
 
       .title {
         max-width: 90%;
+        font-weight: bold;
       }
 
       .slot-print {
@@ -75,6 +99,7 @@
         -webkit-print-color-adjust: exact;
       }
       .room-print {
+        width: 15%;
         background-color: $secondary !important;
         color: white !important;
         text-align: center;
@@ -82,20 +107,28 @@
 
       td {
         position: relative;
-        font-size: 7px !important;
+        font-size: 8px !important;
         color: black;
         padding: 0px 5px;
-      }
-
-      .name-speaker-print {
-        font-weight: bold;
+        line-height: 1;
       }
 
       .name-track-print {
         position: absolute;
         right: 5px;
         top: 5px;
-        font-size: 14px;
+        height: 22px;
+        width: 22px;
+        border-radius: 100%;
+        font-size: 13px;
+
+        &:before {
+          position: absolute;
+          top:50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          color: white !important;
+        }
       }
 
       .time-slot-print {
@@ -127,10 +160,10 @@
 
   .legend-list {
 
-    .cat-1 {background: transparent !important; color: #b89ff4 !important; .bullet-type {background-color: #b89ff4 !important;}}
-    .cat-2 {background: transparent !important; color: #f13f42 !important; .bullet-type {background-color: #f13f42 !important;}}
-    .cat-3 {background: transparent !important; color: #72c9d3 !important; .bullet-type {background-color: #72c9d3 !important;}}
-    .cat-4 {background: transparent !important; color: #f59600 !important; .bullet-type {background-color: #f59600 !important;}}
+    .cat-1 { background: transparent !important; color: #b89ff4 !important; .bullet-type {background-color: #b89ff4 !important;}}
+    .cat-2 { background: transparent !important; color: #f13f42 !important; .bullet-type {background-color: #f13f42 !important;}}
+    .cat-3 { background: transparent !important; color: #72c9d3 !important; .bullet-type {background-color: #72c9d3 !important;}}
+    .cat-4 { background: transparent !important; color: #f59600 !important; .bullet-type {background-color: #f59600 !important;}}
 
     .bullet-type {
       display: inline-block;
@@ -151,17 +184,31 @@
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px;
-        color: $secondary !important;
         font-size: 18px;
       }
     }
   }
 
   .print-lightning-talks {
-    padding-top: 30px;
+    padding-top: 0 !important;
 
     ul {
       line-height: 1.2 !important;
+    }
+  }
+
+  .partner-print {
+    margin: 0 auto;
+    text-align:  center;
+    margin-bottom: 20px;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 10px;
+      img {
+        width: 70px !important;
+      }
     }
   }
 }
@@ -173,6 +220,15 @@
   margin: 0 auto;
   margin-top: 30px;
   background: url("../../images/png/logo-bdxio.png") no-repeat !important;
+  background-size: 100% !important;
+  background-position: top !important;
+}
+
+.illu-first-couv {
+  display: block;
+  height: 780px;
+  margin: 0 auto;
+  background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: 100% !important;
   background-position: top !important;
 }

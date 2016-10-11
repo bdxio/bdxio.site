@@ -19,25 +19,33 @@ export class ProgramPrintPageComponent implements ng.IDirective {
 
     public template:string = `
     <section>
-        <div class="row page-break">
+        <div class="row">
+            <div class="col-sm-6 first-couv">
+             <span class="illu-first-couv"></span>
+            </div>
+
             <div class="col-sm-6">
               <div class="row">
-                <span class="logo-event-print"></span>
-                 <div class="col-sm-12">
-                  <h1 class="section-title text-primary text-center">PROGRAMME</h1>
-                 </div>
                  <div class="col-sm-12">
                     <h5 class="section-title text-secondary text-center">Merci à nos sponsors :</h1>
                  </div>
-                 <ul class="col-sm-12" ng-repeat="(type, partners) in $ctrl.partnersByType">
-                    {{ type }}
+                 <ul class="col-sm-12 partner-print" ng-repeat="(type, partners) in $ctrl.partnersByType">
+                    <h4 class="section-title">{{ type }}</h4>
                     <li ng-repeat="company in partners.companies">
                         <img style="width: 50px" ng-src="{{ company.imgSrc }}">
                     </li>
                  </ul>
               </div>
-              <div class="row">
-                <div class="voxxrin-qrcode">&nbsp;</div>
+              <div class="row text-center">
+                <div class="col-sm-6 text-center">
+                    <strong>Voxxrin programme</strong>
+                    <div class="voxxrin-qrcode">&nbsp;</div>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Code SSID </strong>
+                    <h4>colloque</h4>
+                </div>
               </div>
             </div>
         </div>
