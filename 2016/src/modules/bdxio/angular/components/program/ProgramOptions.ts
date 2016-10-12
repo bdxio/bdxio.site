@@ -3,6 +3,7 @@ export class ProgramOptions {
 
     public trackClasses:{ [s: string]: string; };
     public typeClasses:{ [s: string]: string; };
+    public i18n:{ [s: string]: string; };
     public prezModifier:(prez:ICFPPresentation) => ICFPPresentation;
 
     public static BDXIO:ProgramOptions = {
@@ -25,6 +26,11 @@ export class ProgramOptions {
             'Lightning talk': 'cat-3',
             'Keynote': 'cat-2',
             'Hand\'s on Labs': 'cat-1'
+        },
+        i18n: {
+            'Internet of things & emerging markets': 'Internet des objets & marchés émergents',
+            'Frontend Web, Mobile & Video games': 'Frontend Web, Mobile & Jeux vidéos',
+            'Conception, Architecture & Dev practices': 'Conception, Architecture & Pratiques de dev'
         },
         prezModifier: (prez:ICFPPresentation) => {
             prez.isLunch = prez.title && prez.title === 'Pause déjeuner';

@@ -38,13 +38,13 @@ export class ProgramPrintPageComponent implements ng.IDirective {
               </div>
               <div class="row text-center">
                  <div class="col-sm-4 text-center">
-                    <strong>Voxxrin programme</strong>
-                    <strong>http://appv2.voxxr.in </strong>
+                    <strong>Programme - Voxxrin</strong>
+                    <p>https://goo.gl/8oK4Gd</p>
                     <div class="voxxrin-qrcode">&nbsp;</div>
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Code SSID </strong>
+                    <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Wifi - SSID </strong>
                     <h4>REAUMUR</h4>
                     <h6>Ou</h4>
                     <h4>Bordeaux-INP</h4>
@@ -52,17 +52,16 @@ export class ProgramPrintPageComponent implements ng.IDirective {
 
                  <div class="col-sm-4 text-center">
                    <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
-                   <strong>/bdxio</strong>
+                   <strong>#bdxio</strong><br>
                 </div>
               </div>
 
               <div class="row legal-mentions-print">
-                <p>
+                <p style="padding-left: 30px; padding-right: 30px">
                     Les comptes peuvent être utilisés aussi bien sur le wifi REAUMUR que sur le wifi Bordeaux-INP : selon les périphériques, la configuration sur l'un ou l'autre des wifi est plus aisée.
-
-Procédure REAUMUR : pour se connecter, choisir le réseau wifi REAUMUR, ouvrir son navigateur, on est automatiquement redirigé vers une page de portail captif : se connecter puis choisir ".Conférences/Invités" et cliquer sur le bouton "Selection". Entrer l'identifiant et le mot de passe ci-dessus.
-
-Informations supplémentaires : http://www.u-bordeaux.fr/Vie-des-campus/Services-numeriques/Wifi/REAUMUR</p>
+                    Procédure REAUMUR : pour se connecter, choisir le réseau wifi REAUMUR, ouvrir son navigateur, on est automatiquement redirigé vers une page de portail captif : se connecter puis choisir ".Conférences/Invités" et cliquer sur le bouton "Selection". Entrer l'identifiant et le mot de passe ci-dessus.
+                    Informations supplémentaires : http://www.u-bordeaux.fr/Vie-des-campus/Services-numeriques/Wifi/REAUMUR
+                </p>
               </div>
             </div>
         </div>
@@ -102,7 +101,7 @@ Informations supplémentaires : http://www.u-bordeaux.fr/Vie-des-campus/Services
 
                 <!-- Tracks Legend -->
                 <ul class="legend-tracks">
-                    <li ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ track }}</li>
+                    <li ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ $ctrl.options.i18n[track] || track }}</li>
                 </ul>
         </div>
     </section>
