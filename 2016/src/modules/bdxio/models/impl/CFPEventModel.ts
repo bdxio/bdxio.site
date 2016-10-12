@@ -11,6 +11,7 @@ import {CFPSpeaker} from "./CFPSpeaker";
 import Dictionary = _.Dictionary;
 import {ISharedModel} from "../int/ISharedModel";
 import * as moment from 'moment';
+import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
 
 export class CFPEventModel implements ICFPEventModel {
 
@@ -27,7 +28,7 @@ export class CFPEventModel implements ICFPEventModel {
         }
     }
 
-    public buildEvent(eventName:string, apiUrl:string):IPromise<ICFPEvent> {
+    public buildEvent(eventName:string, apiUrl:string, options:ProgramOptions):IPromise<ICFPEvent> {
 
         var urlTransformer = this.getUrlTransformer(apiUrl);
         var defer = this.$q.defer<ICFPEvent>();
@@ -54,9 +55,9 @@ export class CFPEventModel implements ICFPEventModel {
                         cfpDay.schedules = _.chain(schedules.data.slots)
                             .map((slot:any) => {
                                 if (slot.break) {
-                                    return this.buildBreak(slot);
+                                    return options.prezModifier(this.buildBreak(slot));
                                 } else if (slot.talk) {
-                                    return this.buildTalk(slot, cfpSpeakersList, urlTransformer);
+                                    return options.prezModifier(this.buildTalk(slot, cfpSpeakersList, urlTransformer));
                                 } else {
                                     return null;
                                 }
@@ -174,6 +175,7 @@ export class CFPEventModel implements ICFPEventModel {
         cfpPresentation.summary = slot.talk.summary;
         cfpPresentation.type = slot.talk.talkType;
         cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:any) => this.buildSpeaker(speaker, speakersList, urlTransformer));
+
         return cfpPresentation;
     }
 

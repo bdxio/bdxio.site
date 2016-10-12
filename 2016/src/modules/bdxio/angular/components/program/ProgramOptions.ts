@@ -1,7 +1,9 @@
+import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 export class ProgramOptions {
 
     public trackClasses:{ [s: string]: string; };
     public typeClasses:{ [s: string]: string; };
+    public prezModifier:(prez:ICFPPresentation) => ICFPPresentation;
 
     public static BDXIO:ProgramOptions = {
         trackClasses: {
@@ -23,6 +25,11 @@ export class ProgramOptions {
             'Lightning talk': 'cat-3',
             'Keynote': 'cat-2',
             'Hand\'s on Labs': 'cat-1'
+        },
+        prezModifier: (prez:ICFPPresentation) => {
+            prez.isLunch = prez.title && prez.title === 'Pause déjeuner';
+            if (prez.isLunch) prez.isBreak = false;
+            return prez;
         }
     };
 }

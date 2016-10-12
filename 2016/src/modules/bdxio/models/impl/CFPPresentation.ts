@@ -16,7 +16,9 @@ export class CFPPresentation implements ICFPPresentation {
     room:string;
     overflow:boolean;
     overflowThrough:boolean;
+
     isBreak:boolean;
+    isLunch:boolean;
 
     public toSpeakersList():string {
         return _.map(this.speakers, (speaker:ICFPSpeaker) => (speaker.fullName()) + (speaker.company ? ' (' + speaker.company + ')' : '')).join(', ');

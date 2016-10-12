@@ -75,9 +75,9 @@ Informations supplémentaires : http://www.u-bordeaux.fr/Vie-des-campus/Services
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="slot in $ctrl.currentDay.slots"">
+                <tr ng-repeat="slot in $ctrl.currentDay.slots" ng-if="!slot.presentations[0].isBreak">
                     <td class="time-slot-print">{{ slot.from.toDate() | date: $ctrl.timePattern }} - {{ slot.to.toDate() | date: $ctrl.timePattern }}</td>
-                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 3 : 1 }}" ng-hide="prez.overflow"
+                    <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 2 : 1 }}" ng-hide="prez.overflow"
                         ng-class="$ctrl.talkClasses(prez)">
                         <div class="slot-content" ng-show="prez.title">
                             <p class="title">{{ prez.title }}</p>

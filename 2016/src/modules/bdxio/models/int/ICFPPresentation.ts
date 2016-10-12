@@ -13,7 +13,9 @@ export interface ICFPPresentation {
     room: string;
     overflow:boolean;
     overflowThrough:boolean;
+
     isBreak:boolean;
+    isLunch:boolean;
 
     toSpeakersList():string;
     markedSummary(): string;
