@@ -8,6 +8,7 @@ import {SpreadsheetReaderDescriptor} from "../../services/SpreadsheetReader";
 import * as moment from 'moment';
 import {ICFPEvent} from "./ICFPEvent";
 import {ICFPPresentation} from "./ICFPPresentation";
+import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
 
 export interface ICompaniesByType {
     type: string,
@@ -41,6 +42,7 @@ export interface ISharedModelData {
     daySchedule?: any;
     event?: ICFPEvent;
     presentations?: { [s: string]: ICFPPresentation };
+    cfpProgramOptions?: ProgramOptions;
 }
 
 export interface ISpreadsheetTabDescriptor<T> {

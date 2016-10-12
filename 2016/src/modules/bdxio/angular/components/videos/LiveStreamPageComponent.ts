@@ -135,8 +135,8 @@ export class LiveStreamPageController {
                        private $log:ILogService,
                        private $location:ILocationService,
                        private $interval:IIntervalService) {
-        this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
+            this.options = sharedModel.data.cfpProgramOptions;
             this.updateModel(sharedModel);
             $interval(() => this.updateModel(sharedModel), 10000);
         });

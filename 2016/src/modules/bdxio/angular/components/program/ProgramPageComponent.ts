@@ -39,8 +39,8 @@ export class ProgramPageController {
     public now:moment.Moment = moment();
 
     public constructor(private sharedModel:ISharedModel, private $http:IHttpService, private $location:ILocationService) {
-        this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
+            this.options = sharedModel.data.cfpProgramOptions;
             this.config = sharedModel.data.config;
             this.event = sharedModel.data.event;
             this.presentations = _.values<ICFPPresentation>(sharedModel.data.presentations);

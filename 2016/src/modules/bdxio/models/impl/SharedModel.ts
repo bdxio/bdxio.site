@@ -20,6 +20,7 @@ import * as moment from 'moment';
 import {ICFPEventModel} from "../int/ICFPEventModel";
 import {ICFPPresentation} from "../int/ICFPPresentation";
 import {ICFPEvent} from "../int/ICFPEvent";
+import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
 
 class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
@@ -236,6 +237,8 @@ export class SharedModel implements ISharedModel {
         //     self._data["daySchedule"] = daySchedule;
         //     voxxrinFetched.resolve();
         // });
+
+        this._data.cfpProgramOptions = ProgramOptions.BDXIO;
 
         $q.all([
             spreadsheetsFetched.promise,

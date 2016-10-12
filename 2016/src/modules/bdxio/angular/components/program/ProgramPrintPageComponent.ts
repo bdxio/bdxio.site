@@ -114,15 +114,15 @@ export class ProgramPrintPageController {
     public event:ICFPEvent;
     public currentDay:ICFPDay;
     public config:IConfig;
-    private partnersByType:ITypedCompaniesByType;
+    public partnersByType:ITypedCompaniesByType;
     public options:ProgramOptions;
 
     public timePattern:string = 'HH:mm';
     public now:moment.Moment = moment();
 
     public constructor(private sharedModel:ISharedModel) {
-        this.options = ProgramOptions.buildDefault();
         sharedModel.dataLoaded.then(() => {
+            this.options = sharedModel.data.cfpProgramOptions;
             this.partnersByType = sharedModel.data.partners;
             this.event = sharedModel.data.event;
             this.currentDay = this.event.days[0];
