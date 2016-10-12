@@ -97,6 +97,7 @@
         background-color: darken($secondary, 5%) !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
+        width: 3%;
       }
       .room-print {
         width: 15%;
@@ -107,7 +108,7 @@
 
       td {
         position: relative;
-        font-size: 8px !important;
+        font-size: 9px !important;
         color: black;
         padding: 0px 5px;
         line-height: 1.1;
@@ -192,7 +193,6 @@
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px;
-        font-size: 18px;
         height: 26px;
         width: 26px;
         border-radius: 100%;
@@ -221,15 +221,43 @@
   .partner-print {
     margin: 0 auto;
     text-align:  center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
+    &.gold {
+      .section-title {color: $gold !important;}
+
+      li {
+        img { width: 150px !important;}
+      }
+    }
+
+    &.silver {
+      .section-title {color: $silver !important;}
+
+      li {
+        &:nth-child(2n) { img { height: 50px !important; width: auto !important;}}
+        &:nth-child(3n) { img { width: 110px !important; height: auto !important;}}
+        &:nth-child(4n) { img { width: 130px !important; height: auto !important;}}
+        &:nth-child(5n) { img { width: 100px !important; height: auto !important;}}
+        &:nth-child(6n) { img { width: 70px !important; height: auto !important;}}
+        &:nth-child(7n) { img { width: 80px !important; height: auto !important;}}
+        &:nth-child(8n) { img { width: 100px !important; height: auto !important;}}
+      }
+    }
+
+    &.bronze {
+      .section-title {color: $bronze !important;}
+
+      li {
+        &:nth-child(2n) { img { width: 60px !important; height: auto !important;}}
+        &:nth-child(3n) { img { height: 40px !important; width: auto !important;}}
+      }
+    }
 
     li {
       display: inline-block;
       vertical-align: middle;
       margin: 10px;
-      img {
-        width: 70px !important;
-      }
     }
   }
 }
@@ -247,9 +275,9 @@
 
 .illu-first-couv {
   display: block;
-  height: 780px;
+  height: 201mm;
   margin: 0 auto;
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
-  background-size: 100% !important;
+  background-size: cover !important;
   background-position: top !important;
 }

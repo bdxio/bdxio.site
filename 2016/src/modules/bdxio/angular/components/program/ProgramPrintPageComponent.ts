@@ -29,7 +29,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                  <div class="col-sm-12 space-top-20">
                     <h4 class="section-title text-secondary text-center">Merci à nos sponsors :</h1>
                  </div>
-                 <ul class="col-sm-12 partner-print" ng-repeat="(type, partners) in $ctrl.partnersByType">
+                 <ul class="col-sm-12 partner-print {{ type }}" ng-repeat="(type, partners) in $ctrl.partnersByType">
                     <h4 class="section-title">{{ type }}</h4>
                     <li ng-repeat="company in partners.companies">
                         <img style="width: 50px" ng-src="{{ company.imgSrc }}">
@@ -46,6 +46,8 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                 <div class="col-sm-4 text-center">
                     <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Code SSID </strong>
                     <h4>REAUMUR</h4>
+                    <h6>Ou</h4>
+                    <h4>Bordeaux-INP</h4>
                 </div>
 
                  <div class="col-sm-4 text-center">
