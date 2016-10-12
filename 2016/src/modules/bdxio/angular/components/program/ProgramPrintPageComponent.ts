@@ -81,7 +81,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                     <td ng-repeat="prez in slot.presentations" rowspan="{{ prez.overflowThrough && !prez.isBreak ? 2 : 1 }}" ng-hide="prez.overflow"
                         ng-class="$ctrl.talkClasses(prez)">
                         <div class="slot-content" ng-show="prez.title">
-                            <p class="title">{{ prez.title }}</p>
+                            <div class="title">{{ prez.title }}</div>
                             <div ng-show="!prez.isBreak">
                                 <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
                                 <div class="name-track-print" ng-class="$ctrl.options.trackClasses[prez.track]"></div>
@@ -134,6 +134,9 @@ export class ProgramPrintPageController {
         var classes = [];
         if (prez && prez.isBreak) {
             classes.push('break')
+        }
+        if (prez && prez.isLunch) {
+            classes.push('lunch')
         }
         if (prez && prez.type && this.options) {
             classes.push(this.options.typeClasses[prez.type])

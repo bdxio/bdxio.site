@@ -37,9 +37,20 @@
     padding-top: 0 !important;
   }
 
+  .slot-content {
+    padding: 5px;
+  }
+
+  .lunch {
+    .slot-content {
+      padding: 0;
+    }
+  }
+
   .break {
     .slot-content {
       display: none;
+      padding: 0;
     }
   }
 
@@ -89,6 +100,7 @@
     .cfp-program-print {
 
       .title {
+        padding-bottom: 3px;
         max-width: 85%;
         font-weight: bold;
       }
@@ -275,7 +287,7 @@
 
 .illu-first-couv {
   display: block;
-  height: 201mm;
+  height: 210mm;
   margin: 0 auto;
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: cover !important;
