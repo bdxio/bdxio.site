@@ -20,7 +20,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
     public template:string = `
     <section>
         <div class="row">
-            <div class="col-sm-6 first-couv">
+            <div class="col-sm-6 first-couv float-right">
              <span class="illu-first-couv"></span>
             </div>
 
