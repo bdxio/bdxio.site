@@ -37,13 +37,13 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                  </ul>
               </div>
               <div class="row text-center">
-                 <div class="col-sm-4 text-center">
+                 <div class="col-sm-12 text-center">
                     <strong>Programme - Voxxrin</strong>
                     <p>https://goo.gl/8oK4Gd</p>
                     <div class="voxxrin-qrcode">&nbsp;</div>
                 </div>
 
-                <div class="col-sm-4 text-center">
+                <!-- <div class="col-sm-4 text-center">
                     <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Wifi - SSID </strong>
                     <h4>REAUMUR</h4>
                     <h6>Ou</h4>
@@ -53,7 +53,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                  <div class="col-sm-4 text-center">
                    <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
                    <strong>#bdxio</strong><br>
-                </div>
+                </div> -->
               </div>
 
               <div class="row legal-mentions-print">
