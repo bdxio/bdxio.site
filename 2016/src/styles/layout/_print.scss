@@ -73,9 +73,9 @@
   }
 
   .bdx-phone {
-    color: $gold !important;
-    &.name-track-print { background-color: $gold !important;}
-    &:before {color: $gold !important;}
+    color: black !important;
+    &.name-track-print { background-color: black !important;}
+    &:before {color: black !important;}
   }
 
   .bdx-tools {
@@ -197,7 +197,7 @@
       &.bdx-server    { &:before { background-color: $violet!important;}}
       &.bdx-settings  { &:before { background-color: $bronze !important;}}
       &.bdx-networks  { &:before { background-color: $primary !important;}}
-      &.bdx-phone     { &:before { background-color: $gold !important;}}
+      &.bdx-phone     { &:before { background-color: black !important;}}
       &.bdx-tools     { &:before { background-color: $secondary !important;}}
       &.bdx-design    { &:before { background-color: darken($green, 15%) !important;}}
 
@@ -287,7 +287,7 @@
 
 .illu-first-couv {
   display: block;
-  height: 201mm;
+  height: 210mm;
   margin: 0 auto;
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: cover !important;
