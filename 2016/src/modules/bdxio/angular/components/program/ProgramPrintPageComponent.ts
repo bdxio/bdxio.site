@@ -133,10 +133,10 @@ export class ProgramPrintPageController {
     public talkClasses(prez:ICFPPresentation):any {
         var classes = [];
         if (prez && prez.isBreak) {
-            classes.push('break')
+            classes.push('break');
         }
         if (prez && prez.isLunch) {
-            classes.push('lunch')
+            classes.push('lunch');
         }
         if (prez && prez.type && this.options) {
             classes.push(this.options.typeClasses[prez.type])
