@@ -1,6 +1,11 @@
 // ~ MEDIA PRINT
 // ====================================================================== >
 
+$cat-1: lighten(#b89ff4, 15%);
+$cat-2: lighten(#f13f42, 28%);
+$cat-3: lighten(#72c9d3, 28%);
+$cat-4: lighten(#f59600, 28%);
+
 @media print {
   .voxxrin-qrcode {
     width: 80px;
@@ -18,10 +23,10 @@
   .text-primary { color: $primary !important;}
   .text-secondary { color: $secondary !important;}
 
-  .cat-1 { background-color: lighten(#b89ff4, 15%) !important;}
-  .cat-2 { background-color: lighten(#f13f42, 28%) !important;}
-  .cat-3 { background-color: lighten(#72c9d3, 28%) !important;}
-  .cat-4 { background-color: lighten(#f59600, 28%) !important;}
+  .cat-1 { background-color: $cat-1 !important; }
+  .cat-2 { background-color: $cat-2 !important; }
+  .cat-3 { background-color: $cat-3 !important; }
+  .cat-4 { background-color: $cat-4 !important; }
 
   thead {
     display: table-row-group !important;
@@ -173,10 +178,10 @@
 
   .legend-list {
 
-    .cat-1 { background: transparent !important; color: #b89ff4 !important; .bullet-type {background-color: #b89ff4 !important;}}
-    .cat-2 { background: transparent !important; color: #f13f42 !important; .bullet-type {background-color: #f13f42 !important;}}
-    .cat-3 { background: transparent !important; color: #72c9d3 !important; .bullet-type {background-color: #72c9d3 !important;}}
-    .cat-4 { background: transparent !important; color: #f59600 !important; .bullet-type {background-color: #f59600 !important;}}
+    .cat-1 { background: transparent !important; color: darken($cat-1, 50%) !important; .bullet-type {background-color: $cat-1 !important;}}
+    .cat-2 { background: transparent !important; color: darken($cat-2, 50%) !important; .bullet-type {background-color: $cat-2 !important;}}
+    .cat-3 { background: transparent !important; color: darken($cat-3, 50%) !important; .bullet-type {background-color: $cat-3 !important;}}
+    .cat-4 { background: transparent !important; color: darken($cat-4, 50%) !important; .bullet-type {background-color: $cat-4 !important;}}
 
     .bullet-type {
       display: inline-block;

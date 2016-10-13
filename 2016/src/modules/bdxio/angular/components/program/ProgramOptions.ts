@@ -35,6 +35,7 @@ export class ProgramOptions {
         prezModifier: (prez:ICFPPresentation) => {
             prez.isLunch = prez.title && prez.title === 'Pause déjeuner';
             if (prez.isLunch) prez.isBreak = false;
+            if (prez.type === 'Keynote') prez.track = null;
             return prez;
         }
     };
