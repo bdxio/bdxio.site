@@ -41,7 +41,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                     <strong>Programme - Voxxrin</strong>
                     <p>https://goo.gl/8oK4Gd</p>
                     <div class="voxxrin-qrcode">&nbsp;</div>
-                </div>
+                 </div>
 
                 <!-- <div class="col-sm-4 text-center">
                     <strong><i class="fa fa-wifi" aria-hidden="true" style="margin-right: 5px"></i>Wifi - SSID </strong>
@@ -56,10 +56,16 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                 </div> -->
               </div>
 
+              <div class="row">&nbsp;</div>
+
+              <div class="col-sm-12 text-center">
+                <strong>Wifi - Procédure</strong>
+              </div>
               <div class="row legal-mentions-print">
                 <p style="padding-left: 30px; padding-right: 30px">
                     Les comptes peuvent être utilisés aussi bien sur le wifi REAUMUR que sur le wifi Bordeaux-INP : selon les périphériques, la configuration sur l'un ou l'autre des wifi est plus aisée.
-                    Procédure REAUMUR : pour se connecter, choisir le réseau wifi REAUMUR, ouvrir son navigateur, on est automatiquement redirigé vers une page de portail captif : se connecter puis choisir ".Conférences/Invités" et cliquer sur le bouton "Selection". Entrer l'identifiant et le mot de passe ci-dessus.
+                    Procédure REAUMUR : pour se connecter, choisir le réseau wifi REAUMUR, ouvrir son navigateur, on est automatiquement redirigé vers une page de portail captif : se connecter puis choisir "Conférences/Invités" et cliquer sur le bouton "Selection".
+                    Entrer l'identifiant et le mot de passe inscrits sur votre badge. <br>
                     Informations supplémentaires : http://www.u-bordeaux.fr/Vie-des-campus/Services-numeriques/Wifi/REAUMUR
                 </p>
               </div>
