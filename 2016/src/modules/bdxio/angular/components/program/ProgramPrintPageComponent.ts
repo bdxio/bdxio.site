@@ -10,6 +10,7 @@ import IHttpService = angular.IHttpService;
 import ILocationService = angular.ILocationService;
 import {ICFPDay} from "../../../models/int/ICFPDay";
 import {ITypedCompaniesByType} from "../../../models/int/ISharedModel";
+import {ICFPSlot} from "../../../models/int/ICFPSlot";
 
 export class ProgramPrintPageComponent implements ng.IDirective {
 
@@ -116,7 +117,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
 
 export class ProgramPrintPageController {
 
-    public static $inject:Array<string> = ['ISharedModel'];
+    public static $inject:Array<string> = ['ISharedModel', '$location'];
 
     public event:ICFPEvent;
     public currentDay:ICFPDay;
@@ -127,12 +128,20 @@ export class ProgramPrintPageController {
     public timePattern:string = 'HH:mm';
     public now:moment.Moment = moment();
 
-    public constructor(private sharedModel:ISharedModel) {
+    public constructor(private sharedModel:ISharedModel, private $location:ILocationService) {
+        var roomFilter = $location.search().room;
         sharedModel.dataLoaded.then(() => {
             this.options = sharedModel.data.cfpProgramOptions;
             this.partnersByType = sharedModel.data.partners;
             this.event = sharedModel.data.event;
             this.currentDay = this.event.days[0];
+            if (roomFilter) {
+                this.currentDay.rooms = _.filter(this.currentDay.rooms, (room:any) => room === this.options.mainRoomName || room === roomFilter);
+                this.currentDay.slots = _.map(this.currentDay.slots, (slot:ICFPSlot) => {
+                    slot.presentations = _.filter(slot.presentations, (prez:ICFPPresentation) => prez.room === this.options.mainRoomName || prez.room === roomFilter);
+                    return slot;
+                });
+            }
         });
     }
 

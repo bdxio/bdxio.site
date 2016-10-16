@@ -3,6 +3,7 @@ export class ProgramOptions {
 
     public trackClasses:{ [s: string]: string; };
     public typeClasses:{ [s: string]: string; };
+    public mainRoomName: string;
     public i18n:{ [s: string]: string; };
     public prezModifier:(prez:ICFPPresentation) => ICFPPresentation;
 
@@ -21,6 +22,7 @@ export class ProgramOptions {
             'Conception, Architecture & Dev practices': 'bdx-settings',
             'Backends, Cloud & Big Data': 'bdx-server'
         },
+        mainRoomName: 'Hall',
         typeClasses: {
             'Conference': 'cat-4',
             'Lightning talk': 'cat-3',
