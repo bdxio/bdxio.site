@@ -60,6 +60,8 @@ export class SharedModel implements ISharedModel {
                             config[configEntry.key] = moment(configEntry.value, 'DD/MM/YYYY HH:mm');
                         } else if(configEntry.type === 'comma-separated-string'){
                             config[configEntry.key] = configEntry.value?configEntry.value.split(","):[];
+                        } else if (configEntry.type === 'json') {
+                            config[configEntry.key] = JSON.parse(configEntry.value);
                         } else {
                             config[configEntry.key] = configEntry.value;
                         }

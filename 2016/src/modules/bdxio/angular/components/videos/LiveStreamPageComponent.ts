@@ -13,6 +13,10 @@ import {ProgramOptions} from "../program/ProgramOptions";
 import IIntervalService = angular.IIntervalService;
 import {CFPSlot} from "../../../models/impl/CFPSlot";
 import ILocationService = angular.ILocationService;
+import {ILivestreamChannel} from "../../../models/int/ILivestreamChannel";
+import {LivestreamChannel} from "../../../models/impl/LivestreamChannel";
+import IRootScopeService = angular.IRootScopeService;
+import IAngularEvent = angular.IAngularEvent;
 
 export class LiveStreamPageComponent implements ng.IDirective {
 
@@ -52,10 +56,10 @@ export class LiveStreamPageComponent implements ng.IDirective {
             </ul>
 
             <div class="col-md-8">
-                <div ng-repeat="channel in $ctrl.channels" ng-if="$ctrl.currentChannel === channel && $ctrl.currentChannel.talk && $ctrl.currentChannel.talk.title">
+                <div ng-repeat="channel in $ctrl.channels" ng-if="$ctrl.currentChannel === channel">
                     <h2 style="margin-top: 0">
                         {{ $ctrl.currentChannel.roomId }}
-                        <span ng-if="$ctrl.currentChannel.talk.title">
+                        <span ng-if="$ctrl.currentChannel.talk && $ctrl.currentChannel.talk.title">
                             ({{ $ctrl.currentChannel.talk.from.format('HH:mm') }} - {{ $ctrl.currentChannel.talk.to.format('HH:mm') }})
                         </span>
                     </h2>
@@ -96,88 +100,68 @@ export class LiveStreamPageComponent implements ng.IDirective {
     `
 }
 
-export class ChannelDef {
-    public roomId:string;
-    public roomName:string;
-    public mainRoom:boolean = false;
-    public url:string;
-    public talk:CFPPresentation;
-    public nextTalk:CFPPresentation;
-
-    public constructor(roomId:string, roomName:string, mainRoom:boolean, url:string) {
-        this.roomId = roomId;
-        this.roomName = roomName;
-        this.mainRoom = mainRoom;
-        this.url = url;
-    }
-}
-
 export class LiveStreamPageController {
 
-    public static $inject:Array<string> = ['ISharedModel', '$sce', '$log', '$location', '$interval'];
+    public static $inject:Array<string> = ['ISharedModel', '$sce', '$log', '$location', '$interval', '$rootScope'];
 
-    public now:moment.Moment;
+    public forceNow:moment.Moment;
     public livestreamEnabled:boolean;
     public livestreamOpeningDate:moment.Moment;
 
     public options:ProgramOptions;
-    public currentChannel:ChannelDef;
-    public channels:Array<ChannelDef> = [
-        new ChannelDef("Grand Amphi", "GA", true, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi A", "A", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi B", "B", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi D", "D", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-        new ChannelDef("Amphi E", "E", false, this.url("https://www.youtube.com/embed/Xm2rywDLsEY")),
-    ];
+    public currentChannel:ILivestreamChannel;
+    public channels:Array<ILivestreamChannel> = [];
 
     public constructor(private sharedModel:ISharedModel,
                        private $sce:ISCEService,
                        private $log:ILogService,
                        private $location:ILocationService,
-                       private $interval:IIntervalService) {
+                       private $interval:IIntervalService,
+                       private $rootScope:IRootScopeService) {
         sharedModel.dataLoaded.then(() => {
+            this.channels = _.map(sharedModel.data.config.livestreamChannels, (rawChannel:any) => {
+                return new LivestreamChannel(rawChannel.roomId, rawChannel.roomName, rawChannel.mainRoom, this.$sce.trustAsResourceUrl(rawChannel.url))
+            });
             this.options = sharedModel.data.cfpProgramOptions;
             this.updateModel(sharedModel);
             $interval(() => this.updateModel(sharedModel), 10000);
         });
-    }
-
-    private computeNow():any {
-        var forceNow = this.$location.search().forceNow;
-        if (forceNow && forceNow !== '') {
-            return moment(forceNow);
-        }
-        return moment();
+        var forceNowParam = this.$location.search().forceNow;
+        this.forceNow = forceNowParam && forceNowParam !== '' ? moment(forceNowParam) : null;
+        this.$rootScope.$on('livestream:forcenow', (event:IAngularEvent, now:any) => {
+            this.$log.log('received forcenow event. now = ' + now);
+            this.forceNow = moment(now);
+        });
     }
 
     public updateModel(sharedModel:ISharedModel) {
-        this.now = this.computeNow();
+        var now = this.forceNow || moment();
         this.livestreamOpeningDate = sharedModel.data.config.livestreamOpeningDate;
-        this.livestreamEnabled = this.now.isAfter(sharedModel.data.config.livestreamOpeningDate);
-        this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days);
+        this.livestreamEnabled = now.isAfter(sharedModel.data.config.livestreamOpeningDate);
+        this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days, now);
     }
 
-    public enrichChannelsWithProgram(channels:Array<ChannelDef>, days:Array<CFPDay>):void {
+    public enrichChannelsWithProgram(channels:Array<ILivestreamChannel>, days:Array<CFPDay>, now:moment.Moment):void {
 
-        this.$log.info('enriching channels with CFP program, now = ' + this.now.format());
+        this.$log.info('enriching channels with CFP program, now = ' + now.format());
 
-        var day = _.find(days, (day:CFPDay) => this.computeNow().startOf('day').isSame(day.date.startOf('day')));
+        var day = _.find(days, (day:CFPDay) => moment(now).startOf('day').isSame(day.date.startOf('day')));
         if (!day) {
             this.$log.error('current day not found');
             return;
         }
 
         var slot = _.find(day.slots, (slot:ICFPSlot) => {
-            return slot.from.isBefore(this.now) && slot.to.isSameOrAfter(this.now);
+            return slot.from.isBefore(now) && slot.to.isSameOrAfter(now);
         });
         if (!slot) return;
 
-        _.each(channels, (channel:ChannelDef) => {
+        _.each(channels, (channel:ILivestreamChannel) => {
             var talk = _.find(slot.presentations, (prez:ICFPPresentation) => prez.room === channel.roomId);
             if (!talk.id && !channel.nextTalk) {
                 var nextSlot = _.first(_.chain(day.slots)
                     .sortBy('from')
-                    .filter((slot:ICFPSlot) => slot.from.isAfter(this.now))
+                    .filter((slot:ICFPSlot) => slot.from.isAfter(now))
                     .value());
                 if (nextSlot) {
                     channel.nextTalk = _.first(_.chain(nextSlot.presentations)
@@ -186,15 +170,11 @@ export class LiveStreamPageController {
                         .value());
                 }
             }
-            if (talk !== channel.talk) channel.talk = talk;
+            if (talk && talk !== channel.talk) channel.talk = talk;
         });
     }
 
-    private url(url:string) {
-        return this.$sce.trustAsResourceUrl(url);
-    }
-
-    public selectChannel(channelDef:ChannelDef):void {
+    public selectChannel(channelDef:ILivestreamChannel):void {
         this.currentChannel = channelDef;
     }
 }

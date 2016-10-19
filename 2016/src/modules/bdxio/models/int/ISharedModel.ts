@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import {ICFPEvent} from "./ICFPEvent";
 import {ICFPPresentation} from "./ICFPPresentation";
 import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
+import {LivestreamChannel} from "../impl/LivestreamChannel";
 
 export interface ICompaniesByType {
     type: string,
@@ -29,6 +30,7 @@ export interface IConfig {
     talksListPublishingDate: moment.Moment;
     programPublishingDate: moment.Moment;
     hiddenTalks: string[];
+    livestreamChannels: any;
 }
 
 export interface ISharedModelData {
