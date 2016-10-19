@@ -131,6 +131,13 @@ $cat-4: lighten(#f59600, 28%);
         line-height: 1.1;
       }
 
+      &.full {
+        td {
+          height: 5vh !important;
+          font-size: 13px !important;
+        }
+      }
+
       .name-track-print {
         position: absolute;
         right: 5px;
