@@ -124,7 +124,7 @@ export class LiveStreamPageController {
             });
             this.options = sharedModel.data.cfpProgramOptions;
             this.updateModel(sharedModel);
-            $interval(() => this.updateModel(sharedModel), 10000);
+            $interval(() => this.updateModel(sharedModel), 5000);
         });
         var forceNowParam = this.$location.search().forceNow;
         this.forceNow = forceNowParam && forceNowParam !== '' ? moment(forceNowParam) : null;
