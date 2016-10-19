@@ -168,9 +168,15 @@ export class LiveStreamPageController {
                         .filter((prez:ICFPPresentation) => !_.isUndefined(prez))
                         .filter((prez:ICFPPresentation) => prez.room === channel.roomId)
                         .value());
+                    channel.talk = null;
                 }
             }
-            if (talk && talk !== channel.talk) channel.talk = talk;
+            if (talk && talk.title) {
+                channel.nextTalk = null;
+                if (talk !== channel.talk) {
+                    channel.talk = talk;
+                }
+            }
         });
     }
 
