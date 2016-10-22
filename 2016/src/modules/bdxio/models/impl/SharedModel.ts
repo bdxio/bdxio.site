@@ -1,7 +1,7 @@
 import "lodash";
 import {
     ISharedModel, ISharedModelData,
-    ISpreadsheetTabDescriptor, IConfig, ICompaniesByType
+    ISpreadsheetTabDescriptor, IConfig, IRawTalkAsset, ICompaniesByType, ITalkAsset
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -196,6 +196,34 @@ export class SharedModel implements ISharedModel {
                     "I": "url", "J": "label", "K": "itemType"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "stdImage", "mobileImage", "url", "label" ]
+            })
+        }),
+        new SpreadsheetTabDescriptor({
+            tabId: 8,
+            dataField: "talkAssets",
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<IRawTalkAsset, Dictionary<ITalkAsset[]>>({
+                firstRow: 2,
+                columnFields: {
+                    "A": "talkId", "B": "assetType", "C": "url", "D": "title"
+                },
+                fieldsRequiredToConsiderFilledRow: [ "talkId", "assetType", "url" ],
+                postProcess: function(results: IRawTalkAsset[]) {
+                    var talkAssets: Dictionary<ITalkAsset[]> = {};
+
+                    var talkAssetsByTalkId = _.groupBy<IRawTalkAsset>(results, "talkId");
+                    _.each(_.keys(talkAssetsByTalkId), function(talkId: string) {
+                        var rawTalkAssets = talkAssetsByTalkId[talkId];
+                        talkAssets[talkId] = _.map(rawTalkAssets, (rawTalkAsset) => {
+                            return {
+                                assetType: rawTalkAsset.assetType,
+                                url: rawTalkAsset.url,
+                                title: rawTalkAsset.title
+                            };
+                        });
+                    });
+
+                    return talkAssets;
+                }
             })
         })
     ];

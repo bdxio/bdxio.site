@@ -19,6 +19,18 @@ export interface ICompaniesByType {
     inactiveCount: number;
 }
 
+export interface IRawTalkAsset {
+    talkId: string;
+    assetType: "livestream"|"slides"|"sources"|"transcript"|"photo"|"writeup";
+    url: string;
+    title: string;
+}
+
+export interface ITalkAsset {
+    assetType: "livestream"|"slides"|"sources"|"transcript"|"photo"|"writeup";
+    url: string;
+    title: string;
+}
 
 export interface IConfig {
     registrationOpened: string;
@@ -43,6 +55,7 @@ export interface ISharedModelData {
     event?: ICFPEvent;
     presentations?: { [s: string]: ICFPPresentation };
     cfpProgramOptions?: ProgramOptions;
+    talkAssets?: Dictionary<ITalkAsset[]>
 }
 
 export interface ISpreadsheetTabDescriptor<T> {
