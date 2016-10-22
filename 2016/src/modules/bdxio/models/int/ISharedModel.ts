@@ -10,6 +10,7 @@ import {ICFPEvent} from "./ICFPEvent";
 import {ICFPPresentation} from "./ICFPPresentation";
 import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
 import {LivestreamChannel} from "../impl/LivestreamChannel";
+import Dictionary = _.Dictionary;
 
 export interface ICompaniesByType {
     type: string,
@@ -18,9 +19,6 @@ export interface ICompaniesByType {
     inactiveCount: number;
 }
 
-export interface ITypedCompaniesByType {
-    [companyType:string]: ICompaniesByType
-}
 
 export interface IConfig {
     registrationOpened: string;
@@ -38,7 +36,7 @@ export interface ISharedModelData {
     orgas?: IAttendee[];
     jurys?: IAttendee[];
     speakers?: ISpeaker[];
-    partners?: ITypedCompaniesByType;
+    partners?: Dictionary<ICompaniesByType>;
     news?: INews[];
     friends?: IFriend[];
     daySchedule?: any;

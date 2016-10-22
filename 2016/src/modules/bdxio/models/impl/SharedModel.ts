@@ -1,7 +1,7 @@
 import "lodash";
 import {
     ISharedModel, ISharedModelData,
-    ITypedCompaniesByType, ISpreadsheetTabDescriptor, IConfig
+    ISpreadsheetTabDescriptor, IConfig, ICompaniesByType
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -21,6 +21,7 @@ import {ICFPEventModel} from "../int/ICFPEventModel";
 import {ICFPPresentation} from "../int/ICFPPresentation";
 import {ICFPEvent} from "../int/ICFPEvent";
 import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
+import Dictionary = _.Dictionary;
 
 class SpreadsheetTabDescriptor<T> implements ISpreadsheetTabDescriptor<T> {
     tabId: number;
@@ -135,7 +136,7 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 5,
             dataField: "partners",
-            descriptor: new PostProcessableSpreadsheetReaderDescriptor<ICompany,ITypedCompaniesByType>({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<ICompany,Dictionary<ICompaniesByType>>({
                 firstRow: 2,
                 columnFields: {
                     "A": "active", "B": "type", "C": "name",
@@ -147,7 +148,7 @@ export class SharedModel implements ISharedModel {
                     // Grouping results by type
                     var companiesGroupedByType = _.groupBy(results, "type");
 
-                    var companyTypeStats: ITypedCompaniesByType = <ITypedCompaniesByType>{};
+                    var companyTypeStats: Dictionary<ICompaniesByType> = {};
 
                     _.each(_.keys(companiesGroupedByType), function(partnerType){
                         companyTypeStats[partnerType] = {

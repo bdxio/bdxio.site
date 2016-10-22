@@ -1,6 +1,7 @@
-import {ISharedModel, ITypedCompaniesByType} from "../../../models/int/ISharedModel";
 import {BDXIORootScope} from "../../../../application/angular/index";
 import {IFriend} from "../../../models/int/IFriend";
+import Dictionary = _.Dictionary;
+import {ICompaniesByType, ISharedModel} from "../../../models/int/ISharedModel";
 
 export class PartnersPageComponent implements ng.IDirective {
     public controller:Function = PartnersPageController;
@@ -51,7 +52,7 @@ export class PartnersPageController {
 
     public static $inject:Array<string> = ['$rootScope', 'ISharedModel',];
 
-    private partnersByType:ITypedCompaniesByType;
+    private partnersByType:Dictionary<ICompaniesByType>;
     private friends:Array<IFriend>;
 
     constructor(private $rootScope:BDXIORootScope, sharedModel:ISharedModel) {

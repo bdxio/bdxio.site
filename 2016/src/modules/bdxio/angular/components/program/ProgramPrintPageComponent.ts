@@ -1,7 +1,6 @@
-import {ICFPEventModel} from "../../../models/int/ICFPEventModel";
 import {ICFPEvent} from "../../../models/int/ICFPEvent";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
-import {ISharedModel} from "../../../models/int/ISharedModel";
+import {ISharedModel, ICompaniesByType} from "../../../models/int/ISharedModel";
 import {IConfig} from "../../../models/int/ISharedModel";
 import * as moment from 'moment';
 import * as _ from 'lodash';
@@ -9,8 +8,8 @@ import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
 import ILocationService = angular.ILocationService;
 import {ICFPDay} from "../../../models/int/ICFPDay";
-import {ITypedCompaniesByType} from "../../../models/int/ISharedModel";
 import {ICFPSlot} from "../../../models/int/ICFPSlot";
+import Dictionary = _.Dictionary;
 
 export class ProgramPrintPageComponent implements ng.IDirective {
 
@@ -122,7 +121,7 @@ export class ProgramPrintPageController {
     public event:ICFPEvent;
     public currentDay:ICFPDay;
     public config:IConfig;
-    public partnersByType:ITypedCompaniesByType;
+    public partnersByType:Dictionary<ICompaniesByType>;
     public options:ProgramOptions;
 
     public timePattern:string = 'HH:mm';
