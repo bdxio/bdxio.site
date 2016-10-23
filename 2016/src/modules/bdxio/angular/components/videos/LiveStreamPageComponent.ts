@@ -29,7 +29,7 @@ export class LiveStreamPageComponent implements ng.IDirective {
         <h1 class="section-title text-primary space-bottom-20">Livestreaming</h1>
 
         <div class="row" ng-show="!$ctrl.livestreamEnabled">
-            <h4><i>Le livestream n'est pas encore disponible pour le moment ! Démarrage le <b>{{ $ctrl.livestreamOpeningDate.toDate() | date: 'dd/MM/yyyy' }} à {{ $ctrl.livestreamOpeningDate.toDate() | date: 'HH:mm' }}</b> pétante !</i></h4>
+            <h4><i>Le livestream n'est pas disponible ! Démarrage le <b>{{ $ctrl.livestreamOpeningDate.toDate() | date: 'dd/MM/yyyy' }} à {{ $ctrl.livestreamOpeningDate.toDate() | date: 'HH:mm' }}</b> pétante et clôture le <b>{{ $ctrl.livestreamClosingDate.toDate() | date: 'dd/MM/yyyy' }} à {{ $ctrl.livestreamClosingDate.toDate() | date: 'HH:mm' }}</b> !</i></h4>
         </div>
 
         <div class="row" ng-show="$ctrl.livestreamEnabled">
@@ -107,6 +107,7 @@ export class LiveStreamPageController {
     public forceNow:moment.Moment;
     public livestreamEnabled:boolean;
     public livestreamOpeningDate:moment.Moment;
+    public livestreamClosingDate:moment.Moment;
 
     public options:ProgramOptions;
     public currentChannel:ILivestreamChannel;
@@ -137,7 +138,8 @@ export class LiveStreamPageController {
     public updateModel(sharedModel:ISharedModel) {
         var now = this.forceNow || moment();
         this.livestreamOpeningDate = sharedModel.data.config.livestreamOpeningDate;
-        this.livestreamEnabled = now.isAfter(sharedModel.data.config.livestreamOpeningDate);
+        this.livestreamClosingDate = sharedModel.data.config.livestreamClosingDate;
+        this.livestreamEnabled = now.isAfter(this.livestreamOpeningDate) && now.isBefore(this.livestreamClosingDate);
         this.enrichChannelsWithProgram(this.channels, sharedModel.data.event.days, now);
     }
 

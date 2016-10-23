@@ -173,7 +173,10 @@ export class AppNavMenuController {
 
     public isLivestreamEnabled() {
         if (this.config) {
-            return this.config.livestreamOpeningDate && this.now.isAfter(this.config.livestreamOpeningDate);
+            return this.config.livestreamOpeningDate
+                && this.config.livestreamClosingDate
+                && this.now.isAfter(this.config.livestreamOpeningDate)
+                && this.now.isBefore(this.config.livestreamClosingDate);
         }
     }
 

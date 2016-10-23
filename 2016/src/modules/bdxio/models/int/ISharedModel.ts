@@ -35,6 +35,7 @@ export interface ITalkAsset {
 export interface IConfig {
     registrationOpened: string;
     livestreamOpeningDate: moment.Moment;
+    livestreamClosingDate: moment.Moment;
     cfpOpeningDate: moment.Moment;
     cfpClosingDate: moment.Moment;
     talksListPublishingDate: moment.Moment;
