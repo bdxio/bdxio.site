@@ -101,6 +101,14 @@ export class CFPProgramComponent implements ng.IDirective {
                                         <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
                                     </div>
                                 </div>
+                                <div class="footer-prez">
+                                    <div class="assets-prez" ng-if="prez.assets && prez.assets.length > 0">
+                                        <talk-assets assets="prez.assets"></talk-assets>
+                                    </div>
+                                    <div class="prez-type" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
+                                        <span>{{ prez.type }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
