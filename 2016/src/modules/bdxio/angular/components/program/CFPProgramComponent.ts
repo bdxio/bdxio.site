@@ -92,21 +92,24 @@ export class CFPProgramComponent implements ng.IDirective {
                     <!--Iterate over all slot's presentations-->
                     <div class="column col-lg-11 col-md-11 col-sm-11 col-xs-9" >
                         <div class="row prez-container">
-                            <div ng-class="{'empty-slot' : !prez.title, 'overflow': prez.overflow || prez.overflowThrough }" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
-                                <div class="content-prez" ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
-                                    <div ng-morph-modal="$ctrl.createMorphSettingsFor(prez)" ng-if="prez.track">
-                                        <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
+                            <div ng-class="{'empty-slot' : !prez.title, 'overflow': prez.overflow || prez.overflowThrough }"
+                                 class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
+                                <div ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
+                                    <div class="content-prez">
+                                        <div ng-morph-modal="$ctrl.createMorphSettingsFor(prez)" ng-if="prez.track">
+                                            <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
+                                        </div>
+                                        <div ng-if="!prez.track">
+                                            <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
+                                        </div>
                                     </div>
-                                    <div ng-if="!prez.track">
-                                        <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
-                                    </div>
-                                </div>
-                                <div class="footer-prez">
-                                    <div class="assets-prez" ng-if="prez.assets && prez.assets.length > 0">
-                                        <talk-assets assets="prez.assets"></talk-assets>
-                                    </div>
-                                    <div class="prez-type" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
-                                        <span>{{ prez.type }}</span>
+                                    <div class="footer-prez">
+                                        <div class="assets-prez" ng-if="prez.assets && prez.assets.length > 0">
+                                            <talk-assets assets="prez.assets"></talk-assets>
+                                        </div>
+                                        <div class="prez-type" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
+                                            <span>{{ prez.type }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
