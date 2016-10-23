@@ -10,7 +10,7 @@ export class TalkAssetsComponent implements ng.IDirective {
     };
 
     public template:string = `
-        <div ng-repeat="asset in $ctrl.assets" class="talk-assets">
+        <div ng-repeat="asset in $ctrl.assets" class="talk-asset">
             <a ng-href="{{ asset.url }}" target="_blank" ng-if="asset.url">
                 <i class="fa fa-video-camera" aria-hidden="true" class="talk-asset" ng-if="asset.assetType === 'livestream'"></i>
             </a>

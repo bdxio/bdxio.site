@@ -93,35 +93,12 @@ export class CFPProgramComponent implements ng.IDirective {
                     <div class="column col-lg-11 col-md-11 col-sm-11 col-xs-9" >
                         <div class="row prez-container">
                             <div ng-class="{'empty-slot' : !prez.title, 'overflow': prez.overflow || prez.overflowThrough }" class="prez large-item col-xs-12" ng-repeat="prez in slot.presentations">
-
-                                <div class="content-prez" ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)" ng-morph-modal="$ctrl.createMorphSettingsFor(prez)">
-
-                                    <div class="header-prez" ng-show="prez.speakers">
-                                        <ul class="container-avatar-speaker">
-                                            <li class="avatar-speaker" ng-repeat="speaker in prez.speakers" ng-style="speaker.getAvatarStyle()"></li>
-                                        </ul>
-
-                                        <span class="mobile-room">{{ prez.room }}</span>
+                                <div class="content-prez" ng-show="prez.title && $ctrl.matchFilter($ctrl.filter, prez)">
+                                    <div ng-morph-modal="$ctrl.createMorphSettingsFor(prez)" ng-if="prez.track">
+                                        <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
                                     </div>
-
-                                    <ul class="container-name-speaker" ng-show="prez.speakers">
-                                        <li ng-repeat="speaker in prez.speakers">{{ speaker.fullName() }}</li>
-                                    </ul>
-
-                                    <h4 class="prez-title-track small-title" ng-if="prez.track">
-                                        <i ng-class="$ctrl.options.trackClasses[prez.track]"></i>
-                                        <label>{{ prez.track }}</label>
-                                    </h4>
-
-                                    <h4 class="prez-title-talk">{{ prez.title }}</h3>
-
-                                    <div class="footer-prez">
-                                        <div class="assets-prez" ng-if="prez.assets && prez.assets.length > 0">
-                                            <talk-assets assets="prez.assets"></talk-assets>
-                                        </div>
-                                        <div class="prez-type" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
-                                            <span ng-show="prez.type">{{ prez.type }}</span>
-                                        </div>
+                                    <div ng-if="!prez.track">
+                                        <cfp-presentation-details presentation="prez" options="$ctrl.options"></cfp-presentation-details>
                                     </div>
                                 </div>
                             </div>
