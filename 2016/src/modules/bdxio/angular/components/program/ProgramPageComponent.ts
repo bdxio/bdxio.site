@@ -8,6 +8,8 @@ import * as _ from 'lodash';
 import {ProgramOptions} from "./ProgramOptions";
 import IHttpService = angular.IHttpService;
 import ILocationService = angular.ILocationService;
+import {ITalkAsset} from "../../../models/int/ISharedModel";
+import {ICFPDay} from "../../../models/int/ICFPDay";
 
 export class ProgramPageComponent implements ng.IDirective {
     public controller:Function = ProgramPageController;
@@ -42,7 +44,7 @@ export class ProgramPageController {
         sharedModel.dataLoaded.then(() => {
             this.options = sharedModel.data.cfpProgramOptions;
             this.config = sharedModel.data.config;
-            this.event = sharedModel.data.event;
+            this.event = this.enrichWithAssets(sharedModel.data.event, sharedModel.data.talkAssets);
             this.presentations = _.values<ICFPPresentation>(sharedModel.data.presentations);
         });
     }
@@ -61,5 +63,16 @@ export class ProgramPageController {
         if (this.config) {
             return this.config.programPublishingDate && this.now.isAfter(this.config.programPublishingDate);
         }
+    }
+
+    private enrichWithAssets(event:ICFPEvent, talkAssets:_.Dictionary<ITalkAsset[]>):ICFPEvent {
+        event.days = _.map(event.days, (day:ICFPDay) => {
+            day.schedules = _.map(day.schedules, (prez:ICFPPresentation) => {
+                prez.assets = talkAssets[prez.id];
+                return prez;
+            });
+            return day;
+        });
+        return event;
     }
 }

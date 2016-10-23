@@ -115,13 +115,13 @@ export class CFPProgramComponent implements ng.IDirective {
 
                                     <h4 class="prez-title-talk">{{ prez.title }}</h3>
 
-                                    <i class="fa fa-video-camera" aria-hidden="true" style="
-                                        height: 30px;
-                                        width: 30px;
-                                        font-size: 18px;
-                                    " ng-if="$ctrl.prezUrl(prez)"></i>
-                                   <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
-                                        <span ng-show="prez.type">{{ prez.type }}</span>
+                                    <div class="footer-prez">
+                                        <div class="assets-prez" ng-if="prez.assets && prez.assets.length > 0">
+                                            <talk-assets assets="prez.assets"></talk-assets>
+                                        </div>
+                                        <div class="prez-type" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
+                                            <span ng-show="prez.type">{{ prez.type }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -137,13 +137,14 @@ export class CFPProgramController {
     public static $inject:Array<string> = [ 'ISharedModel' ];
 
     private event:ICFPEvent;
+    private options:ProgramOptions;
+
     private currentDay:ICFPDay;
     private currentDayIndex:number;
     private filter:ICFPPresentation = new CFPPresentation();
-    private options:ProgramOptions;
 
-    public datePattern:string = 'dd/MM/yyyy';
-    public timePattern:string = 'HH:mm';
+    private datePattern:string = 'dd/MM/yyyy';
+    private timePattern:string = 'HH:mm';
 
     constructor(private sharedModel: ISharedModel) {
         if (this.event.days && this.event.days.length > 0) {
@@ -167,15 +168,6 @@ export class CFPProgramController {
         } else {
             this.filter.track = track;
         }
-    }
-
-    public prezUrl(prez: ICFPPresentation): string {
-        if(!prez || !prez.id || !this.sharedModel.data.talkAssets[prez.id]) {
-            return "";
-        }
-
-        var talkAssets = this.sharedModel.data.talkAssets[prez.id];
-        return _.filter<ITalkAsset>(talkAssets, (talkAsset) => talkAsset.assetType==='livestream')[0].url;
     }
 
     public matchFilter(filter:ICFPPresentation, prez:ICFPPresentation):boolean {

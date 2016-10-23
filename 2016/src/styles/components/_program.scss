@@ -243,24 +243,32 @@
   // Footer Prez
 
   .footer-prez {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-    height: 32px;
-    border-radius: 50px;
-    color: white;
-    text-align: center;
-    padding-top: 5px;
-    font-weight: bold;
 
-    &.cat-1 { background-color: #b89ff4;}
-    &.cat-2 { background-color: #f13f42;}
-    &.cat-3 { background-color: #72c9d3;}
-    &.cat-4 { background-color: #f59600;}
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, 0);
+    display: block;
+    margin: 0 auto;
+
+    .assets-prez {
+      padding-bottom: 5px;
+    }
+
+    .prez-type {
+      border-radius: 50px;
+      height: 32px;
+      color: white;
+      text-align: center;
+      padding-top: 5px;
+      font-weight: bold;
+
+      &.cat-1 { background-color: #b89ff4;}
+      &.cat-2 { background-color: #f13f42;}
+      &.cat-3 { background-color: #72c9d3;}
+      &.cat-4 { background-color: #f59600;}
+    }
   }
 }
 

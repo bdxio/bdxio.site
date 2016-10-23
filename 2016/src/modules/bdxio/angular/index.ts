@@ -25,6 +25,7 @@ import {CFPEventModel} from "../models/impl/CFPEventModel";
 import {ProgramComponent} from "./components/program/ProgramComponent";
 import {LiveStreamPageComponent} from "./components/videos/LiveStreamPageComponent";
 import {ProgramPrintPageComponent} from "./components/program/ProgramPrintPageComponent";
+import {TalkAssetsComponent} from "./components/program/TalkAssetsComponent";
 
 angular.module("bdxio.app", ["ngRoute"])
     .component("homePage", new HomePageComponent())
@@ -47,6 +48,7 @@ angular.module("bdxio.app", ["ngRoute"])
     .directive("carousel", () => new CarouselComponent())
     .directive("conferenceLocation", () => new ConferenceLocationComponent())
     .directive("cfpProgram", () => new CFPProgramComponent())
+    .directive("talkAssets", () => new TalkAssetsComponent())
     .directive("program", () => new ProgramComponent())
 
     .service("ISharedModel", SharedModel)
