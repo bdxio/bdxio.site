@@ -4,6 +4,7 @@ import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
 import {CFPPresentation} from "../../../models/impl/CFPPresentation";
 import {CFPEvent} from "../../../models/impl/CFPEvent";
 import {ProgramOptions} from "./ProgramOptions";
+import {ISharedModel, ITalkAsset} from "../../../models/int/ISharedModel";
 export class CFPProgramComponent implements ng.IDirective {
 
     public controller:Function = CFPProgramController;
@@ -114,6 +115,11 @@ export class CFPProgramComponent implements ng.IDirective {
 
                                     <h4 class="prez-title-talk">{{ prez.title }}</h3>
 
+                                    <i class="fa fa-video-camera" aria-hidden="true" style="
+                                        height: 30px;
+                                        width: 30px;
+                                        font-size: 18px;
+                                    " ng-if="$ctrl.prezUrl(prez)"></i>
                                    <div class="footer-prez" ng-class="$ctrl.options.typeClasses[prez.type]" ng-if="prez.type">
                                         <span ng-show="prez.type">{{ prez.type }}</span>
                                     </div>
@@ -128,7 +134,7 @@ export class CFPProgramComponent implements ng.IDirective {
 }
 export class CFPProgramController {
 
-    public static $inject:Array<string> = [];
+    public static $inject:Array<string> = [ 'ISharedModel' ];
 
     private event:ICFPEvent;
     private currentDay:ICFPDay;
@@ -139,7 +145,7 @@ export class CFPProgramController {
     public datePattern:string = 'dd/MM/yyyy';
     public timePattern:string = 'HH:mm';
 
-    constructor() {
+    constructor(private sharedModel: ISharedModel) {
         if (this.event.days && this.event.days.length > 0) {
             this.selectCurrentDay(this.event.days[0], 0);
         }
@@ -161,6 +167,15 @@ export class CFPProgramController {
         } else {
             this.filter.track = track;
         }
+    }
+
+    public prezUrl(prez: ICFPPresentation): string {
+        if(!prez || !prez.id || !this.sharedModel.data.talkAssets[prez.id]) {
+            return "";
+        }
+
+        var talkAssets = this.sharedModel.data.talkAssets[prez.id];
+        return _.filter<ITalkAsset>(talkAssets, (talkAsset) => talkAsset.assetType==='livestream')[0].url;
     }
 
     public matchFilter(filter:ICFPPresentation, prez:ICFPPresentation):boolean {
