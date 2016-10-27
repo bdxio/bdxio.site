@@ -29,7 +29,6 @@ export interface IRawTalkAsset {
 export interface ITalkAssets {
     livestream?: ITalkAsset;
     videocapture?: ITalkAsset;
-    slides?: ITalkAsset;
     others: ITalkAsset[];
 }
 

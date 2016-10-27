@@ -226,12 +226,10 @@ export class SharedModel implements ISharedModel {
                                 url: rawTalkAsset.url,
                                 title: rawTalkAsset.title
                             };
-                            if(rawTalkAsset.assetType === 'livestream') {
+                            if (rawTalkAsset.assetType === 'livestream') {
                                 talkAssets.livestream = asset;
-                            } else if(rawTalkAsset.assetType === 'videocapture') {
+                            } else if (rawTalkAsset.assetType === 'videocapture') {
                                 talkAssets.videocapture = asset;
-                            } else if(rawTalkAsset.assetType === 'slides') {
-                                talkAssets.slides = asset;
                             } else {
                                 talkAssets.others.push(asset);
                             }

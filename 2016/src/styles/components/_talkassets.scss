@@ -3,10 +3,13 @@
 
 .talk-asset {
   cursor: pointer;
+  padding-right: 5px;
+  display: inline-flex;
   i {
     font-size: 18px;
   }
 
   .livestream { color: #337ab7; }
   .videocapture { color: $gold; }
+  .other { color: #337ab7; }
 }

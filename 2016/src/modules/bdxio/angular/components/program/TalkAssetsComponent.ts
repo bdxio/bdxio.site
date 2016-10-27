@@ -1,4 +1,6 @@
 import {ITalkAssets} from "../../../models/int/ISharedModel";
+import {ITalkAsset} from "../../../models/int/ISharedModel";
+import Dictionary = _.Dictionary;
 export class TalkAssetsComponent implements ng.IDirective {
 
     public controller:Function = TalkAssetsController;
@@ -20,11 +22,26 @@ export class TalkAssetsComponent implements ng.IDirective {
                 <i class="fa fa-video-camera" aria-hidden="true" class="talk-asset"></i>
             </a>
         </div>
+        <div class="talk-asset" ng-repeat="asset in $ctrl.assets.others">
+            <a ng-href="{{ asset.url }}" target="_blank" ng-if="asset.url" class="other">
+                <i class="fa fa-{{ $ctrl.getAssetIcon(asset) }}" aria-hidden="true" class="talk-asset"></i>
+            </a>
+        </div>
     `;
 }
 
 export class TalkAssetsController {
 
     public assets:ITalkAssets;
+    public assetTypeIcons:Dictionary<string> = {
+        "slides": "slideshare",
+        "sources": "github",
+        "transcript": "file-text-o",
+        "photo": "picture-o",
+        "writeup": "pencil"
+    };
 
+    public getAssetIcon(asset:ITalkAsset):string {
+        return this.assetTypeIcons[asset.assetType];
+    }
 }
