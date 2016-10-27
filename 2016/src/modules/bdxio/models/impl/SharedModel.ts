@@ -1,7 +1,7 @@
 import "lodash";
 import {
     ISharedModel, ISharedModelData,
-    ISpreadsheetTabDescriptor, IConfig, IRawTalkAsset, ICompaniesByType, ITalkAsset
+    ISpreadsheetTabDescriptor, IConfig, IRawTalkAsset, ICompaniesByType, ITalkAsset, ITalkAssets
 } from "../int/ISharedModel";
 import {
     SpreadsheetReaderDescriptor,
@@ -201,28 +201,46 @@ export class SharedModel implements ISharedModel {
         new SpreadsheetTabDescriptor({
             tabId: 8,
             dataField: "talkAssets",
-            descriptor: new PostProcessableSpreadsheetReaderDescriptor<IRawTalkAsset, Dictionary<ITalkAsset[]>>({
+            descriptor: new PostProcessableSpreadsheetReaderDescriptor<IRawTalkAsset, Dictionary<ITalkAssets>>({
                 firstRow: 2,
                 columnFields: {
                     "A": "talkId", "B": "assetType", "C": "url", "D": "title"
                 },
                 fieldsRequiredToConsiderFilledRow: [ "talkId", "assetType", "url" ],
                 postProcess: function(results: IRawTalkAsset[]) {
-                    var talkAssets: Dictionary<ITalkAsset[]> = {};
+                    var talkAssetsByTalkId: Dictionary<ITalkAssets> = {};
 
-                    var talkAssetsByTalkId = _.groupBy<IRawTalkAsset>(results, "talkId");
-                    _.each(_.keys(talkAssetsByTalkId), function(talkId: string) {
-                        var rawTalkAssets = talkAssetsByTalkId[talkId];
-                        talkAssets[talkId] = _.map(rawTalkAssets, (rawTalkAsset) => {
-                            return {
+                    var rawTalkAssetsByTalkId = _.groupBy<IRawTalkAsset>(results, "talkId");
+                    _.each(_.keys(rawTalkAssetsByTalkId), function(talkId: string) {
+                        var rawTalkAssets = rawTalkAssetsByTalkId[talkId];
+                        var talkAssets = {
+                            livestream: null,
+                            videocapture: null,
+                            slides: null,
+                            others: []
+                        };
+
+                        _.each(rawTalkAssets, (rawTalkAsset) => {
+                            var asset = {
                                 assetType: rawTalkAsset.assetType,
                                 url: rawTalkAsset.url,
                                 title: rawTalkAsset.title
                             };
+                            if(rawTalkAsset.assetType === 'livestream') {
+                                talkAssets.livestream = asset;
+                            } else if(rawTalkAsset.assetType === 'videocapture') {
+                                talkAssets.videocapture = asset;
+                            } else if(rawTalkAsset.assetType === 'slides') {
+                                talkAssets.slides = asset;
+                            } else {
+                                talkAssets.others.push(asset);
+                            }
                         });
+
+                        talkAssetsByTalkId[talkId] = talkAssets;
                     });
 
-                    return talkAssets;
+                    return talkAssetsByTalkId;
                 }
             })
         })

@@ -21,13 +21,20 @@ export interface ICompaniesByType {
 
 export interface IRawTalkAsset {
     talkId: string;
-    assetType: "livestream"|"slides"|"sources"|"transcript"|"photo"|"writeup";
+    assetType: "livestream"|"videocapture"|"slides"|"sources"|"transcript"|"photo"|"writeup";
     url: string;
     title: string;
 }
 
+export interface ITalkAssets {
+    livestream?: ITalkAsset;
+    videocapture?: ITalkAsset;
+    slides?: ITalkAsset;
+    others: ITalkAsset[];
+}
+
 export interface ITalkAsset {
-    assetType: "livestream"|"slides"|"sources"|"transcript"|"photo"|"writeup";
+    assetType: "livestream"|"videocapture"|"slides"|"sources"|"transcript"|"photo"|"writeup";
     url: string;
     title: string;
 }
@@ -56,7 +63,7 @@ export interface ISharedModelData {
     event?: ICFPEvent;
     presentations?: { [s: string]: ICFPPresentation };
     cfpProgramOptions?: ProgramOptions;
-    talkAssets?: Dictionary<ITalkAsset[]>
+    talkAssets?: Dictionary<ITalkAssets>
 }
 
 export interface ISpreadsheetTabDescriptor<T> {

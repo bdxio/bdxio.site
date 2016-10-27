@@ -1,6 +1,6 @@
 import {ICFPSpeaker} from "./ICFPSpeaker";
 import * as moment from 'moment';
-import {ITalkAsset} from "./ISharedModel";
+import {ITalkAssets} from "./ISharedModel";
 
 export interface ICFPPresentation {
     id:string;
@@ -14,7 +14,7 @@ export interface ICFPPresentation {
     room: string;
     overflow:boolean;
     overflowThrough:boolean;
-    assets:Array<ITalkAsset>;
+    assets:ITalkAssets;
 
     isBreak:boolean;
     isLunch:boolean;

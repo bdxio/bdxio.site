@@ -1,7 +1,7 @@
 import {ICFPEventModel} from "../../../models/int/ICFPEventModel";
 import {ICFPEvent} from "../../../models/int/ICFPEvent";
 import {ICFPPresentation} from "../../../models/int/ICFPPresentation";
-import {ISharedModel} from "../../../models/int/ISharedModel";
+import {ISharedModel, ITalkAssets} from "../../../models/int/ISharedModel";
 import {IConfig} from "../../../models/int/ISharedModel";
 import * as moment from 'moment';
 import * as _ from 'lodash';
@@ -65,7 +65,7 @@ export class ProgramPageController {
         }
     }
 
-    private enrichWithAssets(event:ICFPEvent, talkAssets:_.Dictionary<ITalkAsset[]>):ICFPEvent {
+    private enrichWithAssets(event:ICFPEvent, talkAssets:_.Dictionary<ITalkAssets>):ICFPEvent {
         event.days = _.map(event.days, (day:ICFPDay) => {
             day.schedules = _.map(day.schedules, (prez:ICFPPresentation) => {
                 prez.assets = talkAssets[prez.id];
