@@ -1,0 +1,31 @@
+// ~ BASE
+// ====================================================================== >
+
+html {
+  overflow-x:hidden;
+}
+
+body {
+  position: relative;
+  font-family: $text-font;
+  color: $body-font-color;
+  font-size: rem-calc(12px);
+  margin: 0;
+  -webkit-text-stroke-width: .03px;
+  -webkit-font-smoothing:antialiased;
+  ::-moz-selection { color: white;  background: $secondary ;}
+  ::selection      { color: white;  background: $secondary; }
+  overflow-x: hidden;
+}
+
+hr {
+  border-bottom: rem-calc(1px) solid $white-grey;
+  max-width:  inherit;
+}
+
+a {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  font-weight: bold;
+}

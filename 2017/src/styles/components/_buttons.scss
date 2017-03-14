@@ -1,0 +1,145 @@
+// ~ BUTTONS
+// ====================================================================== >
+
+.has-icon-left {
+  i {
+    margin-right: 0.7em;
+  }
+}
+
+.has-icon-right {
+  i {
+    margin-left: 0.7em;
+  }
+}
+
+.round {
+  border-radius: 100%;
+  padding: 0.9em !important;
+
+  i {
+    font-size: 1.5em;
+  }
+
+  &.small {
+    width: 28px;
+    height: 28px;
+    padding: 0 !important;
+  }
+
+  &.medium {
+    width: 38px;
+    height: 38px;
+    padding: 6px 0px !important;
+  }
+
+  &.default {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// Adjust style boostrap
+
+button[type='file'] {
+  width: auto;
+}
+
+.btn {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+
+  &.btn-md {
+    height: 38px;
+  }
+
+  &.btn-xlg {
+    height: 64px;
+    padding-left: 24px;
+    padding-right: 20px;
+    font-size: 24px;
+    line-height: 2.3 !important;
+  }
+}
+
+.btn-round {
+  margin: 0;
+  border: 0;
+  border-radius: 100%;
+
+  &.btn-r-small {
+    height: 24px;
+    width: 24px;
+  }
+
+  &.btn-r-medium {
+    height: 34px;
+    width: 34px;
+
+    padding: 8px;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  transition: 240ms;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $primary-dark !important;
+  }
+}
+
+.btn-secondary {
+  background-color: $secondary;
+  transition: 240ms;
+  color: white;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $secondary-dark !important;
+  }
+}
+
+.btn-white {
+  background-color: white;
+  transition: 240ms;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.3);
+  color: $secondary;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $primary !important;
+    color: white;
+  }
+}
+
+.btn-grey {
+  background-color: darken($white-grey, 10%);
+  transition: 240ms;
+
+  &:hover, &:focus, &:active{
+    transition: 240ms;
+    background-color: $primary !important;
+    color: white;
+  }
+}
+
+.btn-collapse-header {
+  font-size: 19px;
+  padding: 0 !important;
+  color: white;
+  background-color: $primary;
+  box-shadow: none;
+  margin-top: 18px;
+
+  @media (min-width: 1072px) {display: none;}
+
+  &.open {
+    background-color: #60AAEC;
+    color: white;
+  }
+}

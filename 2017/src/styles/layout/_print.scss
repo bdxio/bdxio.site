@@ -1,0 +1,307 @@
+// ~ MEDIA PRINT
+// ====================================================================== >
+
+$cat-1: lighten(#b89ff4, 15%);
+$cat-2: lighten(#f13f42, 28%);
+$cat-3: lighten(#72c9d3, 28%);
+$cat-4: lighten(#f59600, 28%);
+
+@media print {
+  .voxxrin-qrcode {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-position: center center;
+    background-size: 80px !important;
+    background-image: url("../../images/png/voxxrin_qrcode.png")!important;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+
+  .text-primary { color: $primary !important;}
+  .text-secondary { color: $secondary !important;}
+
+  .cat-1 { background-color: $cat-1 !important; }
+  .cat-2 { background-color: $cat-2 !important; }
+  .cat-3 { background-color: $cat-3 !important; }
+  .cat-4 { background-color: $cat-4 !important; }
+
+  thead {
+    display: table-row-group !important;
+
+    tr th {
+      &:nth-child(2) {
+        width: 3% !important;
+      }
+    }
+  }
+
+  .general-container {
+    padding-top: 0 !important;
+  }
+
+  .slot-content {
+    padding: 5px;
+  }
+
+  .lunch {
+    .slot-content {
+      padding: 0;
+    }
+  }
+
+  .break {
+    .slot-content {
+      display: none;
+      padding: 0;
+    }
+  }
+
+  .bdx-server {
+    color: $violet !important;
+    &.name-track-print { background-color: $violet !important;}
+    &:before {color: $violet !important;}
+  }
+
+  .bdx-settings {
+    color: $bronze !important;
+    &.name-track-print { background-color: $bronze !important;}
+    &:before {color: $bronze !important;}
+  }
+
+  .bdx-networks {
+    color: $primary !important;
+    &.name-track-print { background-color: $primary !important;}
+    &:before {color: $primary !important;}
+  }
+
+  .bdx-phone {
+    color: black !important;
+    &.name-track-print { background-color: black !important;}
+    &:before {color: black !important;}
+  }
+
+  .bdx-tools {
+    color: $secondary !important;
+    &.name-track-print { background-color: $secondary !important;}
+    &:before {color: $secondary !important;}
+  }
+
+  .bdx-design {
+    color: darken($green, 15%) !important;
+    &.name-track-print { background-color: darken($green, 15%) !important;}
+    &:before {color: darken($green, 15%) !important;}
+  }
+
+  .print {
+    -webkit-print-color-adjust: exact;
+
+    header, footer {
+      display: none;
+    }
+
+    .cfp-program-print {
+
+      .title {
+        padding-bottom: 3px;
+        max-width: 85%;
+        font-weight: bold;
+      }
+
+      .slot-print {
+        background-color: darken($secondary, 5%) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        width: 3%;
+      }
+      .room-print {
+        width: 15%;
+        background-color: $secondary !important;
+        color: white !important;
+        text-align: center;
+      }
+
+      td {
+        position: relative;
+        font-size: 9px !important;
+        color: black;
+        padding: 0px 5px;
+        line-height: 1.1;
+      }
+
+      &.full {
+        td {
+          height: 5vh !important;
+          font-size: 13px !important;
+        }
+      }
+
+      .name-track-print {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 22px;
+        width: 22px;
+        border-radius: 100%;
+        font-size: 13px;
+
+        &:before {
+          position: absolute;
+          top:50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          color: white !important;
+        }
+      }
+
+      .time-slot-print {
+        background-color: $primary !important;
+        color: white !important;
+        width: 50px;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  }
+
+  .container-legend {
+    white-space: nowrap;
+    margin-top: 10px;
+  }
+
+  .legend-list, .legend-tracks {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+  }
+
+  .legend-list {
+
+    .cat-1 { background: transparent !important; color: darken($cat-1, 50%) !important; .bullet-type {background-color: $cat-1 !important;}}
+    .cat-2 { background: transparent !important; color: darken($cat-2, 50%) !important; .bullet-type {background-color: $cat-2 !important;}}
+    .cat-3 { background: transparent !important; color: darken($cat-3, 50%) !important; .bullet-type {background-color: $cat-3 !important;}}
+    .cat-4 { background: transparent !important; color: darken($cat-4, 50%) !important; .bullet-type {background-color: $cat-4 !important;}}
+
+    .bullet-type {
+      display: inline-block;
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+      margin-right: 5px;
+      border-radius: 100%;
+    }
+  }
+
+  .legend-tracks {
+    white-space: normal;
+    font-size: 12px;
+
+    li {
+
+      &.bdx-server    { &:before { background-color: $violet!important;}}
+      &.bdx-settings  { &:before { background-color: $bronze !important;}}
+      &.bdx-networks  { &:before { background-color: $primary !important;}}
+      &.bdx-phone     { &:before { background-color: black !important;}}
+      &.bdx-tools     { &:before { background-color: $secondary !important;}}
+      &.bdx-design    { &:before { background-color: darken($green, 15%) !important;}}
+
+      &:before {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        height: 26px;
+        width: 26px;
+        border-radius: 100%;
+        color: white !important;
+        text-align: center;
+        padding-top: 6px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .legal-mentions-print {
+    margin-top: 20px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .print-lightning-talks {
+    padding-top: 0 !important;
+
+    ul {
+      line-height: 1.2 !important;
+    }
+  }
+
+  .partner-print {
+    margin: 0 auto;
+    text-align:  center;
+    margin-bottom: 10px;
+
+    &.gold {
+      .section-title {color: $gold !important;}
+
+      li {
+        img { width: 150px !important;}
+      }
+    }
+
+    &.silver {
+      .section-title {color: $silver !important;}
+
+      li {
+        &:nth-child(2n) { img { height: 50px !important; width: auto !important;}}
+        &:nth-child(3n) { img { width: 110px !important; height: auto !important;}}
+        &:nth-child(4n) { img { width: 130px !important; height: auto !important;}}
+        &:nth-child(5n) { img { width: 100px !important; height: auto !important;}}
+        &:nth-child(6n) { img { width: 70px !important; height: auto !important;}}
+        &:nth-child(7n) { img { width: 80px !important; height: auto !important;}}
+        &:nth-child(8n) { img { width: 100px !important; height: auto !important;}}
+      }
+    }
+
+    &.bronze {
+      .section-title {color: $bronze !important;}
+
+      li {
+        &:nth-child(2n) { img { width: 60px !important; height: auto !important;}}
+        &:nth-child(3n) { img { height: 40px !important; width: auto !important;}}
+      }
+    }
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 10px;
+    }
+  }
+}
+
+.logo-event-print {
+  display: block;
+  height: 100px;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: url("../../images/png/logo-bdxio.png") no-repeat !important;
+  background-size: 100% !important;
+  background-position: top !important;
+}
+
+.illu-first-couv {
+  display: block;
+  height: 210mm;
+  margin: 0 auto;
+  background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
+  background-size: cover !important;
+  background-position: top !important;
+}

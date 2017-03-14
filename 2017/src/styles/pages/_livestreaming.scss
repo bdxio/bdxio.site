@@ -1,0 +1,197 @@
+// ~ LIVE STREAM
+// ====================================================================== >
+
+// ~ ==== Filter Canal
+
+.list-amphi {
+  display: block;
+
+  @media (max-width: 990px) {
+   display: none;
+  }
+
+  .all-views {
+    display: inline-block;
+  }
+
+  .item-amphi {
+    position: relative;
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+    margin-right: -4px;
+    padding: 10px 10px 20px 10px;
+    background-color: $white-grey;
+    border: 1px solid darken($white-grey, 5%);
+    cursor: pointer;
+    transition:240ms;
+
+    &.soon {
+      background-image: $livestream-soon-talk-background;
+    }
+
+    &:hover, &:focus {
+      transition:240ms;
+      background-color: darken($white-grey, 5%);
+    }
+
+    &.selected {
+      background-color: $secondary;
+
+      .title-amphi, .title-live-track { color: white;}
+
+      .bullet-amphi {
+        z-index: 2;
+
+        &:after {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: -6px;
+          right: -6px;
+
+          content: '';
+          display: block;
+          background: darken($secondary,5%);
+          border-radius: 50%;
+          opacity: 0;
+          animation: pulsate 2400ms ease-out infinite;
+          z-index: -2 !important;
+
+          @media (max-width: 1170px) {
+            top: -11px;
+            right: -11px;
+          }
+        }
+      }
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(0.1) translateZ(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+        transform: translateZ(0);
+      }
+      100% {
+        transform: scale(1.2) translateZ(0);
+        opacity: 0;
+      }
+    }
+
+  }
+
+  .bullet-amphi {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 38px;
+    width: 38px;
+    margin-right: 10px;
+    padding-top: 8px;
+    border-radius: 100%;
+    background-color: $primary;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+
+    @media (max-width: 1170px) {
+      margin-right: 5px;
+      height: 28px;
+      width: 28px;
+      padding-top: 3px;
+    }
+  }
+
+  .content-infos-amphi {
+    display: inline-block;
+    vertical-align: middle;
+    width: 65%;
+
+    .title-amphi {
+      display: block;
+      font-size: 18px;
+      color: $primary;
+      font-weight: bold;
+    }
+
+    .title-live-track {
+      display: block;
+      font-size: 13px;
+      height: 100%;
+    }
+
+    .schedule-live {
+      //position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-weight: bold;
+      color: $secondary;
+      font-size: 12px;
+    }
+  }
+}
+
+// ~ ==== Live desc
+
+.live-desc-container {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
+
+  .prez-type {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 32px;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+
+    &.cat-1 { background-color: #b89ff4;}
+    &.cat-2 { background-color: #f13f42;}
+    &.cat-3 { background-color: #72c9d3;}
+    &.cat-4 { background-color: #f59600;}
+  }
+
+  .prez-title-track {
+    text-align: center;
+  }
+
+  .container-avatar-speaker {
+    display: inline-block;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+
+    .avatar-speaker {
+      display: inline-block;
+      height: 70px;
+      width: 70px;
+      margin-right: 5px;
+      background-color: $light-grey;
+      border-radius: 100%;
+      background-size: 100%;
+      background-position: center center;
+
+      &.no-avatar {
+        background: url("../../images/png/no-avatar.png");
+      }
+    }
+  }
+
+  .more-details {
+    cursor: pointer;
+  }
+}

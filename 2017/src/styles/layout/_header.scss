@@ -1,0 +1,382 @@
+// ~ HEADER
+// ====================================================================== >
+
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-header {
+  height: $height-top-header;
+  background-color: $white-grey;
+
+  .header-list-networks {
+    float: right;
+    height: 100%;
+    margin: 0;
+    padding: 4px;
+
+    @media (max-width: 1072px) {
+      float: left;
+      padding-left: 10px;
+    }
+
+    .item-networks {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 20px;
+
+      a {
+        color: $primary;
+        transition: 240ms;
+
+        &:hover {
+          transition: 240ms;
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+
+  .btn-live-stream {
+    width: $width-special-btn-header;
+    height: 100%;
+    padding: 0;
+    background-color: $dark-grey;
+    color: white;
+    border-radius: 0;
+
+    .status-live {
+      margin-left: 10px;
+      font-weight: bold;
+
+      &.live-on { color: $green;}
+      &.live-off { color: $primary;}
+
+      i { margin-right: 5px}
+    }
+  }
+}
+
+.navbar {
+  height: $height-nav-header;
+  background: #ffffff;
+  border: 0;
+  border-top: 1px solid $header-color-border;
+  border-bottom: 1px solid $header-color-border;
+  border-radius: 0;
+  color: #ffffff;
+
+  .header-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    .navbar-collapse {
+      padding: 0;
+      border: none;
+
+      @media screen and (max-width: 1072px) {
+        &.collapse {
+          background-color: white;
+          margin-top: 1px;
+
+          .navbar-nav {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            border: none;
+
+            li {
+              border: none;
+              border-bottom: 1px solid $header-color-border;
+
+              a {
+                padding: 20px;
+              }
+            }
+
+            .btn-buy-ticket, .btn-cfp-link {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-header {
+    height: 100%;
+  }
+
+  .navbar-brand {
+    height: 101px;
+    width: 170px;
+    margin-top: -33px;
+    padding: 20px 25px 10px 25px;
+    background-color: white !important;
+    background: url("../../images/png/logo-bdxio.png");
+    background-size: 125px;
+    background-repeat: no-repeat;
+    background-position: center 51%;
+    border-right: 1px solid $header-color-border;
+    cursor: pointer;
+
+    @media (max-width: 568px) {
+      width: 130px;
+      background-size: 100px;
+    }
+
+    @media (max-width: 1024px) {
+      height: 68px;
+      margin-top: 0;
+    }
+  }
+
+  .nav {
+    height: 69px;
+  }
+
+  .navbar-nav {
+    float: right;
+
+    &:first-child {
+      border-left: 1px solid $header-color-border;
+    }
+
+    li {
+      height: 100%;
+      border-right: 1px solid $header-color-border;
+
+      a {
+        position: relative;
+        height: 100%;
+        padding-top: 25px;
+        padding: 25px 25px 10px 25px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        color: $link-color-nav-menu;
+        cursor: pointer;
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: -1px;
+          content: '';
+          height: 3px;
+          width: 0;
+          background-color: $primary;
+          transition: 240ms;
+        }
+
+        &:hover, &:focus {
+          color: $primary;
+
+          &:after {
+            transition: 240ms;
+            width: 102%;
+          }
+        }
+
+        &.select, &.open {
+          color: $primary;
+
+          &:after {
+            position: absolute;
+            bottom: 0;
+            content: '';
+            height: 3px;
+            width: 100.5%;
+            background-color: $primary;
+            transition: 240ms;
+          }
+        }
+      }
+    }
+
+    .dropdown {
+
+      .dropdown-menu {
+        top: 100%;
+        padding: 0;
+        left: 0px;
+        border: 0;
+
+        li {
+          border: 0;
+        }
+
+        a {
+          padding: 25px;
+          cursor: pointer;
+
+          &.sponsor {
+            color: white;
+            transition: 240ms;
+
+            &.gold { background-color: $gold;}
+            &.silver { background-color: $silver;}
+            &.bronze { background-color: $bronze;}
+          }
+        }
+      }
+
+      .dropdown-toggle {
+
+        &:hover, &:focus {
+          transition: 240ms;
+          color: $primary !important;
+        }
+
+        i {
+          margin-left: 10px;
+          font-size: 16px;
+        }
+      }
+
+      &.open {
+
+        .dropdown-toggle {
+          background-color: white;
+          color: $primary;
+
+          .fa-angle-down { &:before {content: '\f102';}}
+        }
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: -1px;
+          content: '';
+          height: 3px;
+          width: 0;
+          background-color: $primary;
+        }
+      }
+    }
+
+    .btn-home {
+      i { font-size: 21px;}
+    }
+
+    .btn-buy-ticket, .btn-cfp-link {
+      border-right: 1px solid darken($primary, 5%) !important;
+      background-color: $primary;
+      width: $width-special-btn-header;
+      padding: 15px 10px 0 10px;
+      cursor: pointer;
+      border: none;
+      transition: 240ms;
+
+      &.open {
+        border-right: 1px solid darken(#60AAEC, 5%) !important;
+        background-color: #60AAEC;
+
+        &:hover, &:focus {
+          transition: 240ms;
+          background-color: darken(#60AAEC, 5%);
+
+          i {  animation: rotate-bounce 350ms infinite;}
+        }
+      }
+
+      &:hover, &:focus {
+        transition: 240ms;
+        background-color: $primary-dark;
+
+        i {  animation: rotate-bounce 350ms infinite;}
+      }
+
+      .status-sale {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      i { font-size: 34px;}
+    }
+  }
+}
+
+
+// ~ ==== Header Responsive
+
+.navbar-toggle {
+  background: white;
+  color: $link-color-nav-menu;
+  font-size: 24px;
+  border: 0;
+  transition: 240ms;
+
+  &.collapsed {
+    i {
+      &:before {
+        content: '\f0c9';
+      }
+    }
+  }
+
+  i {
+    &:before {
+      content: '\f068';
+    }
+  }
+
+  &:hover, &:focus {
+    transition: 240ms;
+    background-color: white !important;
+    color: $primary;
+  }
+}
+
+@media (max-width: 1072px) {
+  .navbar-header {
+    float: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+    margin: 7.5px -15px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navbar-text {
+    float: none;
+    margin: 15px 0;
+  }
+  /* since 3.1.0 */
+  .navbar-collapse.collapse.in {
+    display: block!important;
+  }
+  .collapsing {
+    overflow: hidden!important;
+  }
+}
+
+.no-transition {
+  -webkit-transition: height 0.01s;
+  -moz-transition: height 0.01s;
+  -ms-transition: height 0.01s;
+  -o-transition: height 0.01s;
+  transition: height 0.01s;
+}

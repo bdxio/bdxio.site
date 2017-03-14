@@ -1,0 +1,124 @@
+// ~ FOOTER
+// ====================================================================== >
+
+.footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: $dark-grey;
+
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    height: 60%;
+    width: 35%;
+    background: url("../../images/png/bg-footer-left.png") no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+  }
+  
+  &:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '';
+    height: 60%;
+    width: 35%;
+    background: url("../../images/png/bg-footer-right.png") no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+  }
+
+  .sign-newsletter {
+    .label-newsletter {
+      margin: 0;
+    }
+  }
+
+  .input-newsletter {
+    width: 100%;
+    height: 38px;
+    padding-left: 10px;
+    background-color: transparent;
+    border: 2px solid $medium-grey;
+    transition: 240ms;
+
+    &:focus {
+      transition: 240ms;
+      border-color: white;
+      color: white;
+    }
+  }
+
+  .footer-list-networks {
+    text-align: center;
+    .footer-item-networks {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 34px;
+
+      a {
+        color: $medium-grey;
+        transition: 240ms;
+
+        &:hover, &:focus {
+          transition: 240ms;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .footer-list-sponsors {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .footer-item-sponsors {
+      display: inline-block;
+      vertical-align: middle;
+      height: 65px;
+      width: auto;
+      margin-right: 30px;
+      margin-bottom: 30px;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      cursor: pointer;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        img {
+          height: 100%;
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+          -ms-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+          filter: url("../../images/svg/grayscale.svg");
+          filter: gray;
+          transition: 240ms;
+        }
+
+        &:hover, &:focus {
+
+          img {
+            transition: 240ms;
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            -ms-filter: grayscale(0%);
+            -o-filter: grayscale(0%);
+            filter: grayscale(0%);
+            filter: transparent;
+          }
+        }
+      }
+    }
+  }
+}

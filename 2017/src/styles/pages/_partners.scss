@@ -1,0 +1,102 @@
+// ~ PARTNERS
+// ====================================================================== >
+
+// ~ ==== Partners
+
+.partners, .friends {
+  position: relative;
+  height: auto;
+  width: 100%;
+  background: url("../../images/png/bg-welcome-home.png");
+  background-color: $secondary;
+  background-size: cover;
+  background-position: bottom center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  .btn-view-talks {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+
+.item-partner, .item-friend {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 20px;
+
+  .content-partner, .content-friend {
+    position: relative;
+    height: 200px;
+    width: 85%;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 790 !important;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      max-width: 62%;
+      max-height: 42%;
+      height: auto;
+    }
+
+    &:hover, &:focus {
+      .content-infos-partner, .content-infos-friend {
+        transition: 240ms;
+        bottom: 0;
+      }
+    }
+
+    &.gold {
+      .content-infos-partner { background: $gold;}
+    }
+
+    &.silver {
+      .content-infos-partner { background: $silver;}
+    }
+
+    &.bronze {
+      .content-infos-partner { background: $bronze;}
+    }
+
+    .content-infos-friend { background: $silver;}
+
+    .content-infos-partner, .content-infos-friend {
+      transition: 240ms;
+      position: absolute;
+      bottom: -42px;
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      overflow: hidden;
+
+      .name-partner, .name-friend {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        color: white;
+        font-weight: bold;
+
+        &:after {
+          font-family: FontAwesome;
+          position: absolute;
+          top: 50%;
+          right: 5px;
+          transform: translate(-50%,-50%);
+          content: '\f06e';
+          color: white;
+          font-size: 24px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

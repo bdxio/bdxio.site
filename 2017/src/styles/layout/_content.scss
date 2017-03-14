@@ -1,0 +1,24 @@
+// ~ CONTENT
+// ====================================================================== >
+
+// ~ ==== Utils class content
+
+.general-container {
+  padding-top: $height-top-header + $height-nav-header ;
+}
+
+section {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.wrapper {
+  padding: 0 10%;
+
+  &.mb-wrapper {
+
+    @media screen and (max-width: 768px) {
+     padding: 0;
+    }
+  }
+}
