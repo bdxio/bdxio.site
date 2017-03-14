@@ -83,7 +83,7 @@ export class SharedModel implements ISharedModel {
                 },
                 fieldsRequiredToConsiderFilledRow: [ "firstName", "lastName" ],
                 resultClass: Attendee,
-                sortBy: [ "lastName", "firstName" ]
+                sortBy: [ "firstName", "lastName" ]
             })
         }),
         new SpreadsheetTabDescriptor({
@@ -251,7 +251,7 @@ export class SharedModel implements ISharedModel {
         this._dataLoadedDefer = $q.defer<void>();
 
         let urlFactory = (tabId) => {
-            return "https://spreadsheets.google.com/feeds/cells/1aRUhS3HB1tu3zP9Mz8reug-B6jzyQ67YzkLoAK-7CNE/"+tabId+"/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
+            return "https://spreadsheets.google.com/feeds/cells/1bXJCYX-b4cyDW4sT2xWTx5rYL6Mb3LmBTMthge_J6KA/" + tabId + "/public/basic?alt=json&callback=JSON_CALLBACK&v=3.0";
         };
 
         let fetchPromises = _.map(SharedModel.SPREADSHEET_TABS, (spreadsheetTabDescriptor) =>

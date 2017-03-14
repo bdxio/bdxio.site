@@ -28,7 +28,6 @@ export class FAQPageComponent implements ng.IDirective {
                         <ul>
                             <li>par email : team@bdx.io</li>
                             <li>par twitter : <a href="https://twitter.com/bdxio">@bdxio</a></li>
-                            <li>par téléphone : 06 07 50 53 73</li>
                         </ul>
 
                         <h4 class="space-bottom-20">Notre conférence se veut une expérience sans harcèlement, quelque soit
@@ -93,11 +92,11 @@ export class FAQPageComponent implements ng.IDirective {
                         c’est l’occasion unique de toucher un public parfaitement ciblé et d’associer
                         votre image avec une conférence majeure des développeurs.</h4>
 
-                        <span class="faq-question" ng-click="questionSponsors1 = !questionSponsors1">
-                        <i class="fa" ng-class="{'fa-minus-circle' : questionSponsors1, 'fa-plus-circle' : !questionSponsors1}"></i>Quelles sont les règles de participation ?</span>
-                        <span class="faq-answer" ng-show="questionSponsors1">
-                            La plaquette est disponible au téléchargement <a href="static/plaquette2016.pdf" target="_blank">ici</a>.
-                        </span>
+                        <!--<span class="faq-question" ng-click="questionSponsors1 = !questionSponsors1">-->
+                        <!--<i class="fa" ng-class="{'fa-minus-circle' : questionSponsors1, 'fa-plus-circle' : !questionSponsors1}"></i>Quelles sont les règles de participation ?</span>-->
+                        <!--<span class="faq-answer" ng-show="questionSponsors1"> -->
+                            <!--La plaquette est disponible au téléchargement <a href="static/plaquette2016.pdf" target="_blank">ici</a>.-->
+                        <!--</span>-->
                     </div>
                     <!-- END FAQ Sponsors !-->
 

@@ -19,7 +19,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                  </button>
                  <ul class="header-list-networks">
                      <li class="item-networks"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
-                     <li class="item-networks"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                     <!-- <li class="item-networks"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li> -->
                      <li class="item-networks"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
                      <li class="item-networks"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
                  </ul>
@@ -59,7 +59,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-gold'}" ng-click="$ctrl.selectMenu('partner-gold')" class="sponsor gold">Gold</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-silver'}" ng-click="$ctrl.selectMenu('partner-silver')" class="sponsor silver">Silver</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-bronze'}" ng-click="$ctrl.selectMenu('partner-bronze')" class="sponsor bronze">Bronze</a></li>
-                                    <li><a href="static/plaquette2016.pdf" target="_blank">La plaquette</a></li>
+                                    <!--<li><a href="static/plaquette2016.pdf" target="_blank">La plaquette</a></li> -->
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-press'}" ng-click="$ctrl.selectMenu('partner-press')">Press / Média</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-friends'}" ng-click="$ctrl.selectMenu('partner-friends')">Nos amis</a></li>
                                 </ul>
@@ -104,7 +104,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <!-- Talks list or full program has been published (only subtext changes) -->
                                     <span ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">Consulter<br></span>
                                     <span class="status-sale" ng-if="$ctrl.isTalksListPublished()">Liste des talks</span>
-                                    <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme</span>
+                                    <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme 2016</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
                                    <i class="fa fa-commenting-o"></i>

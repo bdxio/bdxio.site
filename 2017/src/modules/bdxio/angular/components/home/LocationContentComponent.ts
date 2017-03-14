@@ -53,13 +53,13 @@ export class LocationContentComponent implements ng.IDirective {
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset">
                             <i class="fa fa-calendar-o" data-sr="enter left and move 50px after 1s, reset"></i>
-                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> LE 21 OCTOBRE 2016<br> <br></h4>
+                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> DERNIER TRIMESTRE 2017<br> <br></h4>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset">
-                           <i class="fa fa-commenting" data-sr="enter left and move 50px after 1s, reset"></i>
-                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset">SDBX5, <br> UN ÉVÈNEMENT DE LA SEMAINE DIGITALE</h4>
-                        </div>
+                        <!-- <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset"> -->
+                            <!-- <i class="fa fa-commenting" data-sr="enter left and move 50px after 1s, reset"></i> -->
+                            <!-- <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> <br> <br></h4> -->
+                        <!--</div> -->
 
                         <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset">
                             <i class="fa fa-map-marker" data-sr="enter left and move 50px after 1s, reset"></i>
@@ -71,11 +71,10 @@ export class LocationContentComponent implements ng.IDirective {
                  <div class="stats col-sm-12 space-top-30 space-bottom-35">
                     <div class="row text-center" data-sr="opacity 0.5 1s, reset">
                        <h2 class="text-secondary">
-                           BDX I/O 2015 C'ÉTAIT <br>
-                           <strong class="text-primary">+ de 500</strong> PARTICIPANTS, DONT
-                           <strong class="text-primary">68</strong> ÉTUDIANTS,
-                           <strong class="text-primary">58</strong> TALKS ET
-                           <strong class="text-primary">59</strong> SPEAKERS
+                           BDX I/O 2016 C'ÉTAIT <br>
+                           <strong class="text-primary">+ de 500</strong> PARTICIPANTS
+                           <strong class="text-primary">55</strong> TALKS ET
+                           <strong class="text-primary">52</strong> SPEAKERS
                        </h3>
                     </div>
                  </div>

@@ -24,7 +24,7 @@ export class AppFooterComponent implements ng.IDirective {
 
                     <ul class="row footer-list-networks space-top-30 no-padding">
                          <li class="footer-item-networks" data-sr="enter left and move 50px after 1.5s, reset"><a href="https://twitter.com/bdxio?lang=fr" target="_blank"><i class="bdx-twitter"></i></a></li>
-                         <li class="footer-item-networks" data-sr="enter left and move 20px after 1s, reset"><a href="http://lanyrd.com/2016/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li>
+                         <!-- <li class="footer-item-networks" data-sr="enter left and move 20px after 1s, reset"><a href="http://lanyrd.com/2017/bdxio/" target="_blank"><i class="bdx-lanyrd"></i></a></li> -->
                          <li class="footer-item-networks" data-sr="enter right and move 20px after 1s, reset"><a href="https://www.facebook.com/bdxio" target="_blank"><i class="bdx-facebook"></i></a></li>
                          <li class="footer-item-networks" data-sr="enter right and move 50px after 1.5s, reset"><a href="mailto:team@bdx.io"><i class="bdx-mail"></i></a></li>
                     </ul>
@@ -45,7 +45,7 @@ export class AppFooterComponent implements ng.IDirective {
 
                     <div clas="row space-top-30">
                         <div class="col-xs-12 text-center">
-                            <h6 class="text-white">© Copyright 2014-2016 BDX.io - Tous droits réservés</h6>
+                            <h6 class="text-white">© Copyright 2014-2017 BDX.io - Tous droits réservés</h6>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ export class AppFooterController {
         });
     }
 
-    public subscribeToNewsletter(){
-        window.location.href = 'https://docs.google.com/forms/d/1ZfLqPI2drGB9FwJgJeq5814jHvBj_siFs76QkEhQMGI/viewform?entry.763907914='+this.newsletterEmail;
+    public subscribeToNewsletter() {
+        window.location.href = 'https://docs.google.com/forms/d/1ZfLqPI2drGB9FwJgJeq5814jHvBj_siFs76QkEhQMGI/viewform?entry.763907914=' + this.newsletterEmail;
     }
 }
