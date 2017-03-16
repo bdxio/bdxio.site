@@ -11,6 +11,7 @@ rm -rf dist
 git clone -b master git@github.com:bdxio/bdxio.github.io.git dist/
 
 # Build app
+PATH=$(npm bin):$PATH
 webpack --config webpack/webpack.build.js --NODE_ENV=production
 cp config/* dist
 
