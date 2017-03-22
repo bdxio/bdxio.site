@@ -9,13 +9,11 @@ export class WelcomeContentComponent implements ng.IDirective {
                      </h1>
                      <h3 class="text-white">
                         <b>Merci !</b>
-                         Un grand merci à tous de votre participation à l'édition 2016 de bdx.io ! 
+                         Un grand merci à tous de votre participation à l'édition 2016 de bdx.io !
                         <br/>
                         <br/>
-                        Lors de cette édition, vous avez été très nombreux à nous soutenir et à nous encourager, et on compte bien remettre ça en 2017 ! 
+                        C'est décidé, la prochaine édition se déroulera le <strong>10 Novembre 2017 à l'ENSEIRB-MATMECA</strong> : save the date !
                         <br/>
-                        A très vite !
-                        <br/><br/>
                         <!--Le programme de l'évènement est disponible sur l'application<br/>-->
                         <!--<a class="link link-white" href="http://www.voxxr.in/" target="_blank">Voxxrin</a> (en web, sur android, et sur iPhone).-->
                         <!--<br/>-->

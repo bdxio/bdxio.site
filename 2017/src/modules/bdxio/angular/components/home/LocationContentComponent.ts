@@ -51,9 +51,9 @@ export class LocationContentComponent implements ng.IDirective {
 
                  <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset">
+                        <div class="col-xs-12 col-sm-12 col-md-6 item-conf" data-sr="opacity 0.5 1s, reset">
                             <i class="fa fa-calendar-o" data-sr="enter left and move 50px after 1s, reset"></i>
-                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> DERNIER TRIMESTRE 2017<br> <br></h4>
+                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> 10 NOVEMBRE 2017<br> <br></h4>
                         </div>
 
                         <!-- <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset"> -->
@@ -61,9 +61,9 @@ export class LocationContentComponent implements ng.IDirective {
                             <!-- <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset"><br> <br> <br></h4> -->
                         <!--</div> -->
 
-                        <div class="col-xs-12 col-sm-12 col-md-4 item-conf" data-sr="opacity 0.5 1s, reset">
+                        <div class="col-xs-12 col-sm-12 col-md-6 item-conf" data-sr="opacity 0.5 1s, reset">
                             <i class="fa fa-map-marker" data-sr="enter left and move 50px after 1s, reset"></i>
-                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset">À L'ENSEIRB, INST. POLYTECHNIQUE DE BORDEAUX</h4>
+                            <h4 class="title text-white" data-sr="enter bottom and move 50px after 1s, reset">À L'ENSEIRB-MATMECA, INST. POLYTECHNIQUE DE BORDEAUX</h4>
                         </div>
                     </div>
                  </div>
