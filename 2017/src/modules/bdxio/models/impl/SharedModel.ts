@@ -292,8 +292,11 @@ export class SharedModel implements ISharedModel {
             // voxxrinFetched.promise
         ]).then(([_, event, presentations]) => {
             return $q.all([
-                cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16', this._data.cfpProgramOptions),
-                cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', this)
+                // PUT BACK this CFP URLs once CFP 2017 is setup and you don't want to reference 2016 talks anymore
+                // cfpEventModel.buildEvent('BDX I/O 2016', 'https://cfp.bdx.io/api/conferences/BdxIO16', this._data.cfpProgramOptions),
+                // cfpEventModel.buildPresentations('https://cfp.bdx.io/api/conferences/BdxIO16', this)
+                cfpEventModel.buildEvent('BDX I/O 2016', window.location.origin+'/static/prog2016', this._data.cfpProgramOptions),
+                cfpEventModel.buildPresentations(window.location.origin+'/static/prog2016', this)
             ]);
         }, rejectDeferred(this._dataLoadedDefer, "Error while fetching data"))
         .then(([event, presentations]) => {
