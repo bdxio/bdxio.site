@@ -12,7 +12,7 @@ export class WelcomeContentComponent implements ng.IDirective {
                          Un grand merci à tous de votre participation à l'édition 2016 de bdx.io !
                         <br/>
                         <br/>
-                        C'est décidé, la prochaine édition se déroulera le <strong>10 Novembre 2017 à l'ENSEIRB-MATMECA</strong> : save the date !
+                        La prochaine édition se déroulera le <strong>10 Novembre 2017 à l'ENSEIRB-MATMECA</strong> : save the date !
                         <br/>
                         <br/>
                         La billeterie et le CFP sont ouverts, alors n'hesitez pas à : 
