@@ -15,7 +15,13 @@ export class WelcomeContentComponent implements ng.IDirective {
                         C'est décidé, la prochaine édition se déroulera le <strong>10 Novembre 2017 à l'ENSEIRB-MATMECA</strong> : save the date !
                         <br/>
                         <br/>
-                        Nous n'avons pas encore statué sur les dates d'ouverture de la billeterie et du CFP, on ne manquera pas de vous prévenir sur ces sujets. 
+                        La billeterie et le CFP sont ouverts, alors n'hesitez pas à : 
+                        <ul>
+                        <li> reserver d'ores et déjà votre place ! </li>
+                        <li> soumettre vos propositions de talk !</li>
+                        </ul>
+                        <br/>
+                        A bientôt !
                         <!--Le programme de l'évènement est disponible sur l'application<br/>-->
                         <!--<a class="link link-white" href="http://www.voxxr.in/" target="_blank">Voxxrin</a> (en web, sur android, et sur iPhone).-->
                         <!--<br/>-->
