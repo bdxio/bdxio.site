@@ -9,13 +9,13 @@ export class PartnersPageComponent implements ng.IDirective {
         <section id="partners" class="partners wrapper">
             <div class="row">
                 <div class="col-sm-12">
-                     <h2 class="text-white highlight-text-bold">Partenaires</h2>
+                     <h2 class="text-white highlight-text-bold">Sponsors</h2>
                 </div>
 
                 <div class="col-xs-12 col-sm-6">
 
                     <h4 class="text-white highlight-text-bold">
-                        Chaque partenaire soutient financièrement la conférence.
+                        Chaque sponsor soutient financièrement la conférence.
                         Sans ces sociétés, l'organisation de BDX.io n'aurait pas été possible :
                         le prix de l'entrée aurait coûté plus cher, certains speakers ne pourraient pas être défrayés,
                         le repas du midi ne pourrait pas être offert...
@@ -24,7 +24,7 @@ export class PartnersPageComponent implements ng.IDirective {
                 </div>
 
                 <button type="button" class="btn-view-talks btn btn-primary btn-xlg has-icon-left"
-                        ng-click="$ctrl.$rootScope.goto('/faq', 'sponsoring')">
+                        ng-click="$ctrl.$rootScope.goto('/faq', 'sponsors')">
                     <i class="fa fa-question-circle"></i>Comment devenir partenaire ?
                 </button>
             </div>
@@ -35,12 +35,12 @@ export class PartnersPageComponent implements ng.IDirective {
         <section id="friends" class="friends wrapper">
             <div class="row">
                 <div class="col-sm-12">
-                     <h2 class="text-white highlight-text-bold">Amis</h2>
+                     <h2 class="text-white highlight-text-bold">Presse / Media</h2>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <h4 class="text-white highlight-text-bold">
-                        Il s'agit là des associations / écoles / communautés qui ont participé de près ou de loin à l'organisation de
-                        l'évènement : par de la communication, des jurys du CFP, du hardware, du software, de l'hébergement etc..
+                        Il s'agit de partenaires (associations / écoles / communautés / sociétés) qui nous accompagnent 
+                        dans la promotion de l'évènement.
                      </h4>
                 </div>
             </div>
