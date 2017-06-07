@@ -1,20 +1,22 @@
+import ILocationService = angular.ILocationService;
+import IRootScopeService = angular.IRootScopeService;
 export class FAQPageComponent implements ng.IDirective {
     public controller: Function = FAQPageController;
     public template: string = `
     <section class="faq wrapper">
             <div class="row">
                <ul class="col-sm-3 nav nav-pills nav-stacked space-top-25">
-                    <li ng-class="{'active' : activeSection === 'coc'}" ><a ng-click="activeSection = 'coc'" ng-init="activeSection = 'coc'">Code de Conduite</a></li>
-                    <li ng-class="{'active' : activeSection === 'sponsors'}"><a ng-click="activeSection = 'sponsors'">Sponsors</a></li>
-                    <li ng-class="{'active' : activeSection === 'speakers'}"><a ng-click="activeSection = 'speakers'">Speakers</a></li>
-                    <li ng-class="{'active' : activeSection === 'participants'}"><a ng-click="activeSection = 'participants'">Participants</a></li>
-                    <li ng-class="{'active' : activeSection === 'jury'}" ><a ng-click="activeSection = 'jury'">Jury</a></li>
+                    <li ng-class="{'active' : $ctrl.isActiveSection('coc') }"><a ng-click="$ctrl.selectSection('coc')">Code de Conduite</a></li>
+                    <li ng-class="{'active' : $ctrl.isActiveSection('sponsors') }"><a ng-click="$ctrl.selectSection('sponsors')">Sponsors</a></li>
+                    <li ng-class="{'active' : $ctrl.isActiveSection('speakers') }"><a ng-click="$ctrl.selectSection('speakers')">Speakers</a></li>
+                    <li ng-class="{'active' : $ctrl.isActiveSection('participants') }"><a ng-click="$ctrl.selectSection('participants')">Participants</a></li>
+                    <li ng-class="{'active' : $ctrl.isActiveSection('jury') }"><a ng-click="$ctrl.selectSection('jury')">Jury</a></li>
                 </ul>
 
                 <div class="col-sm-9 faq-container-sections">
 
                     <!-- START FAQ Code de Conduite !-->
-                    <div ng-show="activeSection === 'coc'" class="faq-content section-sponsors" ng-init="questionCoc1 = true">
+                    <div ng-show="$ctrl.isActiveSection('coc')" class="faq-content section-sponsors" ng-init="questionCoc1 = true">
                         <h1 class="section-title text-primary">Code de Conduite</h1>
 
                         <h4 class="space-bottom-20">Toutes les personnes qui participent à la
@@ -84,7 +86,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Code de Conduite !-->
  
                      <!-- START FAQ Sponsors !-->
-                    <div ng-show="activeSection === 'sponsors'" class="faq-content section-sponsors" ng-init="questionSponsors1 = true">
+                    <div ng-show="$ctrl.isActiveSection('sponsors')" class="faq-content section-sponsors" ng-init="questionSponsors1 = true">
                         <h1 class="section-title text-primary">Sponsors</h1>
                         <h4 class="space-bottom-20">L’association BDX.IO, organisatrice de l’événement,
                         est composée exclusivement de bénévoles dont l’ambition est de créer
@@ -101,7 +103,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Sponsors !-->
 
                     <!-- START FAQ Speakers !-->
-                    <div ng-show="activeSection === 'speakers'" class="faq-content section-sponsors" ng-init="questionSpeakers1 = true">
+                    <div ng-show="$ctrl.isActiveSection('speakers')" class="faq-content section-sponsors" ng-init="questionSpeakers1 = true">
                         <h1 class="section-title text-primary">Speakers</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux speakers.</h4>
 
@@ -260,7 +262,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Participants !-->
 
                      <!-- START FAQ Jury !-->
-                    <div ng-show="activeSection === 'jury'" class="faq-content section-sponsors" ng-init="questionJury1 = true">
+                    <div ng-show="$ctrl.isActiveSection('jury')" class="faq-content section-sponsors" ng-init="questionJury1 = true">
                         <h1 class="section-title text-primary">Jury</h1>
                         <h4 class="space-bottom-20">
                         Le rôle des membres du jury est de selectionner les talks qui seront présentés lors de la prochaine édition de BDX I/O.<br/>
@@ -305,7 +307,24 @@ export class FAQPageComponent implements ng.IDirective {
     `
 }
 export class FAQPageController {
-    public static $inject: Array<string> = [];
-    constructor() {
+
+    activeSection: string;
+    public static $inject: Array<string> = ['$rootScope', '$location'];
+
+    constructor(private $rootScope: IRootScopeService, private $location: ILocationService) {
+        this.selectSection('coc');
+        this.$rootScope.$watch(function () {
+            return $location.search()
+        }, () => this.selectSection($location.hash()));
+    }
+
+    public selectSection(id: string) {
+        if (id) {
+            this.activeSection = id;
+        }
+    }
+
+    public isActiveSection(id: string) {
+        return this.activeSection === id;
     }
 }
