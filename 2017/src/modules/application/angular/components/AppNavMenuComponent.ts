@@ -59,9 +59,8 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-gold'}" ng-click="$ctrl.selectMenu('partner-gold')" class="sponsor gold">Gold</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-silver'}" ng-click="$ctrl.selectMenu('partner-silver')" class="sponsor silver">Silver</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-bronze'}" ng-click="$ctrl.selectMenu('partner-bronze')" class="sponsor bronze">Bronze</a></li>
-                                    <li><a href="static/plaquette.pdf" target="_blank">La plaquette</a></li>
                                     <li><a ng-class="{select: $ctrl.selectedMenu=='partner-press'}" ng-click="$ctrl.selectMenu('partner-press')">Presse / Média</a></li>
-                                    <li><a ng-class="{select: $ctrl.selectedMenu=='partner-friends'}" ng-click="$ctrl.selectMenu('partner-friends')">Nos amis</a></li>
+                                    <li><a href="static/plaquette.pdf" target="_blank">La plaquette</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -121,7 +120,7 @@ export class AppNavMenuComponent implements ng.IDirective {
     `;
 }
 
-type SelectableMenu = 'partner-gold'|'partner-silver'|'partner-bronze'|'partner-press'|'partner-friends'|'participant-speakers'|'participant-orgas'|'faq'|'prog';
+type SelectableMenu = 'partner-gold'|'partner-silver'|'partner-bronze'|'partner-press'|'participant-speakers'|'participant-orgas'|'faq'|'prog';
 
 export class AppNavMenuController {
 
@@ -130,7 +129,6 @@ export class AppNavMenuController {
         'partner-silver': {path: '/partners', targetAnchorName: 'silver'},
         'partner-bronze': {path: '/partners', targetAnchorName: 'bronze'},
         'partner-press': {path: '/partners', targetAnchorName: 'press'},
-        'partner-friends': {path: '/partners', targetAnchorName: 'friends'},
         'participant-speakers': {path: '/attendees', targetAnchorName: 'speakers'},
         'participant-orgas': {path: '/attendees', targetAnchorName: 'orgas'},
         'program': {path: '/program'},

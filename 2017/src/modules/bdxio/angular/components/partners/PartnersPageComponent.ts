@@ -32,7 +32,7 @@ export class PartnersPageComponent implements ng.IDirective {
         <partners-list partners-by-type="$ctrl.partnersByType.gold" />
         <partners-list partners-by-type="$ctrl.partnersByType.silver" />
         <partners-list partners-by-type="$ctrl.partnersByType.bronze" />
-        <section id="friends" class="friends wrapper">
+        <section id="press" class="friends wrapper">
             <div class="row">
                 <div class="col-sm-12">
                      <h2 class="text-white highlight-text-bold">Presse / Media</h2>
