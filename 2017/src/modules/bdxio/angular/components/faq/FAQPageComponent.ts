@@ -178,7 +178,7 @@ export class FAQPageComponent implements ng.IDirective {
                     <!-- END FAQ Speakers !-->
 
                      <!-- START FAQ Participants !-->
-                    <div ng-show="activeSection === 'participants'" class="faq-content section-sponsors" ng-init="questionParticipants1 = true">
+                    <div ng-show="$ctrl.isActiveSection('participants')" class="faq-content section-sponsors" ng-init="questionParticipants1 = true">
                         <h1 class="section-title text-primary">Participants</h1>
                         <h4 class="space-bottom-20">Toutes les informations pratiques nécessaires aux participants.</h4>
 
