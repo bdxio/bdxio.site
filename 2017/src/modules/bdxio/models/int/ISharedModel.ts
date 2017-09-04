@@ -1,16 +1,15 @@
 import IPromise = angular.IPromise;
-import {ISpeaker} from "./ISpeaker";
-import {ICompany} from "./ICompany";
-import {IAttendee} from "./IAttendee";
-import {INews} from "./INews";
-import {IFriend} from "./IFriend";
-import {SpreadsheetReaderDescriptor} from "../../services/SpreadsheetReader";
-import * as moment from 'moment';
-import {ICFPEvent} from "./ICFPEvent";
-import {ICFPPresentation} from "./ICFPPresentation";
-import {ProgramOptions} from "../../angular/components/program/ProgramOptions";
-import {LivestreamChannel} from "../impl/LivestreamChannel";
 import Dictionary = _.Dictionary;
+import { ISpeaker } from './ISpeaker';
+import { ICompany } from './ICompany';
+import { IAttendee } from './IAttendee';
+import { INews } from './INews';
+import { IFriend } from './IFriend';
+import { SpreadsheetReaderDescriptor } from '../../services/SpreadsheetReader';
+import * as moment from 'moment';
+import { ICFPEvent } from './ICFPEvent';
+import { ICFPPresentation } from './ICFPPresentation';
+import { ProgramOptions } from '../../angular/components/program/ProgramOptions';
 
 export interface ICompaniesByType {
     type: string,
