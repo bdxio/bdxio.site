@@ -8,18 +8,17 @@ export class WelcomeContentComponent implements ng.IDirective {
                          Eyh ! On vous prépare l'édition 2017 de BDX I/O !
                      </h1>
                      <h3 class="text-white">
-                        <b>Merci !</b>
-                         Un grand merci à tous de votre participation à l'édition 2016 de bdx.io !
-                        <br/>
+                        <!--<b>Merci !</b>-->
+                         <!--Un grand merci à tous de votre participation à l'édition 2016 de bdx.io !-->
+                        <!--<br/>-->
                         <br/>
                         La prochaine édition se déroulera le <strong>10 Novembre 2017 à l'ENSEIRB-MATMECA</strong> : save the date !
                         <br/>
                         <br/>
-                        La billeterie et le CFP sont ouverts, alors n'hesitez pas à : 
-                        <ul>
-                        <li> reserver d'ores et déjà votre place ! </li>
-                        <li> soumettre vos propositions de talk !</li>
-                        </ul>
+                        La billetterie est maintenant fermée, merci à vous tous pour votre confiance ! On vous prépare un programme qui, 
+                        nous l'esperons, vous plaira ! D'autre part, le CFP est maintenant fermé, merci à tous les orateurs pour 
+                        leurs propositions !
+                        <br/>
                         <br/>
                         A bientôt !
                         <!--Le programme de l'évènement est disponible sur l'application<br/>-->
