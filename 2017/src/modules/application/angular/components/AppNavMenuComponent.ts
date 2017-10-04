@@ -103,7 +103,7 @@ export class AppNavMenuComponent implements ng.IDirective {
                                     <!-- Talks list or full program has been published (only subtext changes) -->
                                     <span ng-if="$ctrl.isTalksListPublished() || $ctrl.isProgramPublished()">Consulter<br></span>
                                     <span class="status-sale" ng-if="$ctrl.isTalksListPublished()">Liste des talks</span>
-                                    <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme 2016</span>
+                                    <span class="status-sale" ng-if="$ctrl.isProgramPublished()">Programme 2017</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-4" ng-if="$ctrl.isCfpNotOpenedYet() || $ctrl.isCfpOpened() || $ctrl.isCfpClosed()">
                                    <i class="fa fa-commenting-o"></i>
