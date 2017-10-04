@@ -39,7 +39,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
               <div class="row text-center">
                  <div class="col-sm-12 text-center">
                     <strong>Programme - Voxxrin</strong>
-                    <p>https://goo.gl/8oK4Gd</p>
+                    <p>https://goo.gl/bjPU4j</p>
                     <div class="voxxrin-qrcode">&nbsp;</div>
                  </div>
 
