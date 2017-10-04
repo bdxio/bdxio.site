@@ -259,13 +259,11 @@ $cat-4: lighten(#f59600, 28%);
       .section-title {color: $silver !important;}
 
       li {
-        &:nth-child(2n) { img { height: 50px !important; width: auto !important;}}
-        &:nth-child(3n) { img { width: 110px !important; height: auto !important;}}
-        &:nth-child(4n) { img { width: 130px !important; height: auto !important;}}
-        &:nth-child(5n) { img { width: 100px !important; height: auto !important;}}
-        &:nth-child(6n) { img { width: 70px !important; height: auto !important;}}
-        &:nth-child(7n) { img { width: 80px !important; height: auto !important;}}
-        &:nth-child(8n) { img { width: 100px !important; height: auto !important;}}
+        &:nth-child(2) { img { width: 70px !important; height: auto !important;}}
+        &:nth-child(3) { img { width: 110px !important; height: auto !important;}}
+        &:nth-child(4) { img { width: 130px !important; height: auto !important;}}
+        &:nth-child(5) { img { width: 100px !important; height: auto !important;}}
+        &:nth-child(6) { img { width: 110px !important; height: auto !important;}}
       }
     }
 
