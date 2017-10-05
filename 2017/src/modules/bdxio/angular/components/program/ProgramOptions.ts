@@ -17,10 +17,13 @@ export class ProgramOptions {
             //'Java, JVM, Javas SE/EE': 'bdx-networks',
             //'Java, JVM, Javas SE/EE': 'bdx-settings',
             'Internet of things & emerging markets': 'bdx-networks',
+            'Internet des objets & marchés émergents': 'bdx-networks',
             'Tooling': 'bdx-tools',
             'Frontend Web, Mobile & Video games': 'bdx-phone',
+            'Frontend Web, Mobile & Jeux vidéos': 'bdx-phone',
             'Design, UI & UX': 'bdx-design',
             'Conception, Architecture & Dev practices': 'bdx-settings',
+            'Conception, Architecture & Pratiques de dev': 'bdx-settings',
             'Backends, Cloud & Big Data': 'bdx-server'
         },
         mainRoomName: 'Hall',
