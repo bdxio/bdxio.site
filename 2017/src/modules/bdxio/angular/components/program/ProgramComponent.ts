@@ -16,7 +16,7 @@ export class ProgramComponent implements ng.IDirective {
         <div class="row" ng-repeat="(track, presentations) in $ctrl.presentationsByTrack">
             <div class="col-sm-12">
                 <h3 class="title-track text-secondary">
-                    <i ng-class="$ctrl.options.trackClasses[track]"></i>{{ track }}
+                    <i ng-class="$ctrl.options.tracks[track].cssClass"></i>{{ $ctrl.options.tracks[track].label }}
                 </h3>
                 <ul class="program-list-speaker">
                     <li class="item-container col-xs-12 col-sm-6 col-md-4 col-lg-4 no-padding" ng-repeat="prez in presentations" data-sr="enter bottom, move 24px, reset">

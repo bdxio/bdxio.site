@@ -23,8 +23,8 @@ export class CFPPresentationDetailsComponent implements ng.IDirective {
         </ul>
 
         <h4 class="prez-title-track small-title" ng-if="$ctrl.presentation.track">
-            <i ng-class="$ctrl.options.trackClasses[$ctrl.presentation.track]"></i>
-            <label>{{ $ctrl.presentation.track }}</label>
+            <i ng-class="$ctrl.options.tracks[$ctrl.presentation.track].cssClass"></i>
+            <label>{{ $ctrl.options.tracks[$ctrl.presentation.track].label }}</label>
         </h4>
 
         <h4 class="prez-title-talk">{{ $ctrl.presentation.title }}</h3>

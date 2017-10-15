@@ -49,7 +49,7 @@ export class CFPProgramComponent implements ng.IDirective {
                       <h4 class="text-primary space-left-10">Tracks</h4>
                       <div ng-repeat="track in $ctrl.currentDay.tracks" ng-click="$ctrl.toggleFilteringByTrack(track)"
                            class="track-selector" ng-class="{'select' : $ctrl.filter.track === track }">
-                           <i class="bdx-design"></i>{{ track }}
+                           <i ng-class="$ctrl.options.tracks[track].cssClass"></i>{{ $ctrl.options.tracks[track].label }}
                        </div>
                     </div>
 

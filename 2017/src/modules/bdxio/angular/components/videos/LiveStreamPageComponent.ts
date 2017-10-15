@@ -84,8 +84,8 @@ export class LiveStreamPageComponent implements ng.IDirective {
 
                          <div class="col-md-4">
                             <h4 class="prez-title-track small-title" ng-if="$ctrl.currentChannel.talk.track">
-                                <i ng-class="$ctrl.options.trackClasses[$ctrl.currentChannel.talk.track]"></i>
-                                <label>{{ $ctrl.currentChannel.talk.track }}</label>
+                                <i ng-class="$ctrl.options.tracks[$ctrl.currentChannel.talk.track].cssClass"></i>
+                                <label>{{ $ctrl.options.tracks[$ctrl.currentChannel.talk.track].label }}</label>
                             </h4>
                             <span class="prez-type" ng-class="$ctrl.options.typeClasses[$ctrl.currentChannel.talk.type]">
                                 {{ $ctrl.currentChannel.talk.type }}

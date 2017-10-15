@@ -90,7 +90,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
                             <div class="title">{{ prez.title }}</div>
                             <div ng-show="!prez.isBreak">
                                 <div class="name-speaker-print">{{ prez.toSpeakersList() }}</div>
-                                <div class="name-track-print" ng-class="$ctrl.options.trackClasses[prez.track]"></div>
+                                <div class="name-track-print" ng-class="$ctrl.options.tracks[prez.track].cssClass"></div>
                             </div>
                         </div>
                     </td>
@@ -107,7 +107,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
 
                 <!-- Tracks Legend -->
                 <ul class="legend-tracks">
-                    <li ng-repeat="(track, class) in $ctrl.options.trackClasses" ng-class="class">{{ $ctrl.options.i18n[track] || track }}</li>
+                    <li ng-repeat="descriptor in $ctrl.footerTracks()" ng-class="descriptor.cssClass">{{ descriptor.label }}</li>
                 </ul>
         </div>
     </section>
@@ -158,5 +158,12 @@ export class ProgramPrintPageController {
             classes.push(this.options.typeClasses[prez.type])
         }
         return classes;
+    }
+
+    public footerTracks() {
+        if (this.options && this.options.tracks) {
+            return _(this.options.tracks).keys().map(key => this.options.tracks[key]).uniqBy(descriptor => descriptor.label).value();
+        }
+        return [];
     }
 }
