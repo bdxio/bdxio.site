@@ -245,7 +245,6 @@ $cat-4: lighten(#f59600, 28%);
   .partner-print {
     margin: 0 auto;
     text-align:  center;
-    margin-bottom: 10px;
 
     &.gold {
       .section-title {color: $gold !important;}
@@ -297,7 +296,7 @@ $cat-4: lighten(#f59600, 28%);
 
 .illu-first-couv {
   display: block;
-  height: 210mm;
+  height: 209.8mm;
   margin: 0 auto;
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: cover !important;
