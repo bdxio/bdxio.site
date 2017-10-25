@@ -301,4 +301,14 @@ $cat-4: lighten(#f59600, 28%);
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: cover !important;
   background-position: top !important;
+
+  .wifi-code {
+    position: absolute;
+    bottom: 56mm;
+    left: 46mm;
+    color: $dark-grey;
+    font-size: 18px;
+    font-weight: 700;
+
+  }
 }
