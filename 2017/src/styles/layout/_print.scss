@@ -173,17 +173,18 @@ $cat-4: lighten(#f59600, 28%);
   .legend-list, .legend-tracks {
     display: inline-block;
     vertical-align: top;
-    width: 50%;
     padding: 0;
 
     li {
       display: inline-block;
       vertical-align: middle;
+      margin-bottom: 5px;
       margin-left: 10px;
     }
   }
 
   .legend-list {
+    width: 45%;
 
     .cat-1 { background: transparent !important; color: darken($cat-1, 50%) !important; .bullet-type {background-color: $cat-1 !important;}}
     .cat-2 { background: transparent !important; color: darken($cat-2, 50%) !important; .bullet-type {background-color: $cat-2 !important;}}
@@ -203,7 +204,7 @@ $cat-4: lighten(#f59600, 28%);
   .legend-tracks {
     white-space: normal;
     font-size: 12px;
-
+    width: 55%;
     li {
 
       &.bdx-server    { &:before { background-color: $violet!important;}}
@@ -296,7 +297,7 @@ $cat-4: lighten(#f59600, 28%);
 
 .illu-first-couv {
   display: block;
-  height: 209.8mm;
+  height: 215mm;
   margin: 0 auto;
   background: url("../../images/jpg/first-couv.jpg") no-repeat !important;
   background-size: cover !important;
@@ -304,9 +305,9 @@ $cat-4: lighten(#f59600, 28%);
 
   .wifi-code {
     position: absolute;
-    bottom: 56mm;
-    left: 46mm;
-    color: $dark-grey;
+    bottom: 23mm;
+    left: 56mm;
+    color: lighten($dark-grey, 10%);
     font-size: 18px;
     font-weight: 700;
 

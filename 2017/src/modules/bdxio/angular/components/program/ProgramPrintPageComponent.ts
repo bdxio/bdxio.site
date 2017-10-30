@@ -21,9 +21,7 @@ export class ProgramPrintPageComponent implements ng.IDirective {
     <section>
         <div class="row">
             <div class="col-sm-6 first-couv float-right">
-             <span class="illu-first-couv">
-                <span class="wifi-code">Code wifi</span>
-             </span>
+             <span class="illu-first-couv"></span>
             </div>
 
             <div class="col-sm-6">
