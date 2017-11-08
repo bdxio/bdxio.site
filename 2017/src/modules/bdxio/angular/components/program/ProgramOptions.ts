@@ -5,7 +5,6 @@ export class ProgramOptions {
     public tracks: { [s: string]: { cssClass: string, label: string }; };
     public typeClasses: { [s: string]: string; };
     public mainRoomName: string;
-    public roomSorter: (room1: string, room2: string) => number;
     public prezModifier: (prez: ICFPPresentation) => ICFPPresentation;
 
     public static BDXIO: ProgramOptions = {
@@ -30,19 +29,21 @@ export class ProgramOptions {
             'Keynote': 'cat-2',
             'Hand\'s on Labs': 'cat-1'
         },
-        roomSorter: (room1: string, room2: string) => {
-            if (room1 === 'Hall') {
-                return -1;
-            } else if (room1 === 'Grand Amphi') {
-                return -1;
-            } else {
-                return room1 > room2 ? 1 : -1;
-            }
-        },
         prezModifier: (prez: ICFPPresentation) => {
+            const roomIndexes = {
+                'Hall': 0,
+                'Grand Amphi': 1,
+                'Amphi A': 2,
+                'Amphi B': 3,
+                'Amphi C': 4,
+                'Amphi D': 5,
+                'Amphi E': 6
+            };
             prez.isLunch = prez.title && prez.title === 'Pause déjeuner';
             if (prez.isLunch) prez.isBreak = false;
             if (prez.type === 'Keynote') prez.track = null;
+            prez.roomIndex = prez.room ? roomIndexes[prez.room] : 0;
+            console.log(prez.title, prez.roomIndex);
             return prez;
         }
     };

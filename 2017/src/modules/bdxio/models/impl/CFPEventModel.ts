@@ -74,7 +74,7 @@ export class CFPEventModel implements ICFPEventModel {
                         .map((day:CFPDay) => {
                             day.date = day.schedules[0] ? day.schedules[0].from : null;
                             day.tracks = _.chain(day.schedules).map('track').uniq().filter((track) => track != undefined).value();
-                            day.rooms = _.chain(day.schedules).map('room').uniq().filter((track) => track != undefined).value().sort(options.roomSorter);
+                            day.rooms = _.chain(day.schedules).sortBy(prez => prez.roomIndex).map('room').uniq().value();
                             var prezByRoom = _.groupBy(day.schedules, (cfpPresentation:ICFPPresentation) => cfpPresentation.room);
                             day.slots = _.chain(day.schedules)
                                 .groupBy((cfpPresentation:ICFPPresentation) => cfpPresentation.from)
@@ -85,24 +85,27 @@ export class CFPEventModel implements ICFPEventModel {
                                     var lastPrez = _.chain(cfpPresentations).sortBy('to').value();
                                     cfpSlot.to = lastPrez && lastPrez[0] ? lastPrez[0].to : null;
                                     cfpSlot.presentations = _.chain(day.rooms)
-                                        .map((room:string) => {
+                                        .map((room: string) => {
                                             var newPrez = new CFPPresentation();
                                             newPrez.room = room;
-                                            return _.find(cfpPresentations, {room: room}) || newPrez;
+                                            return _.find(cfpPresentations, { room: room }) || newPrez;
+
                                         })
-                                        .map((prez:ICFPPresentation) => {
-                                            prez.overflow = _.find(prezByRoom[prez.room], (anotherPrez:ICFPPresentation) => {
+                                        .map(prez => options.prezModifier(prez))
+                                        .map((prez: ICFPPresentation) => {
+                                            prez.overflow = _.find(prezByRoom[prez.room], (anotherPrez: ICFPPresentation) => {
                                                 return anotherPrez.from.isBefore(cfpSlot.from)
                                                     && anotherPrez.to.isSameOrAfter(cfpSlot.to);
                                             }) ? true : false;
                                             prez.overflowThrough = prez.to && prez.to.isAfter(cfpSlot.to);
                                             return prez;
                                         })
-                                        .value()
-                                        .sort((prez1:ICFPPresentation, prez2:ICFPPresentation) => options.roomSorter(prez1.room, prez2.room));
+                                        .sortBy(prez => prez.roomIndex)
+                                        .value();
                                     return cfpSlot;
                                 })
                                 .value();
+                            console.log(day.slots);
                             return day;
                         })
                         .sortBy('date')
@@ -176,7 +179,6 @@ export class CFPEventModel implements ICFPEventModel {
         cfpPresentation.summary = slot.talk.summary;
         cfpPresentation.type = slot.talk.talkType;
         cfpPresentation.speakers = _.map(slot.talk.speakers, (speaker:any) => this.buildSpeaker(speaker, speakersList, urlTransformer));
-
         return cfpPresentation;
     }
 

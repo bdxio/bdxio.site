@@ -15,6 +15,7 @@ export class CFPPresentation implements ICFPPresentation {
     from:moment.Moment;
     to:moment.Moment;
     room:string;
+    roomIndex:number;
     overflow:boolean;
     overflowThrough:boolean;
     assets:ITalkAssets;
