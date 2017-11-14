@@ -28,9 +28,9 @@ export class WelcomeContentComponent implements ng.IDirective {
                         <!--Vous pouvez également visiter la page <a class="link link-white" href="http://lanyrd.com/2016/bdxio/" target="_blank">Lanyrd</a> de l'évènement.-->
                      </h3>
                 </div>
-                <a href="https://www.youtube.com/playlist?list=PLUJzERpatfsXGv1q1kolSgriwVZXRqKVw"
+                <a href="https://www.youtube.com/playlist?list=PLUJzERpatfsW5PbUcMAIOIqfCoqS7K1F1"
                 class="btn-view-talks btn btn-primary btn-xlg has-icon-left" target="_blank">
-                     <i class="fa fa-play"></i>Vidéos des talks 2016
+                     <i class="fa fa-play"></i>Vidéos des talks 2017
                 </a>
             </div>
         </section>
