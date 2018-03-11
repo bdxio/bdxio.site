@@ -1,0 +1,33 @@
+$text-color:                                      #525356 !default;
+
+$primary :                                        #86d0e2 !default;
+$primary-gradient:                                linear-gradient(135deg, $primary 0%,#51c4db 100%);
+$primary-dark :                                   #3b6778 !default;
+
+$red-light :                                      #ff2d39 !default;
+$red :                                            #ff2d39 !default;
+$yellow :                                         #ffb600 !default;
+$green :                                          #4dbb4d !default;
+
+$grey-line:                                       1px solid rgba(0, 0, 0, 0.1) !default;
+$grey-special:                                    #8193ab !default;
+$grey-white:                                      #f3f3f3 !default;
+$grey-very-light:                                 #d8e1f0 !default;
+$grey-light:                                      #cdcccc !default;
+$grey:                                            #939baa !default;
+$grey-dark:                                       #39414a !default;
+$white:                                           #F8F8F8 !default;
+$white-grey:                                      #F4F7FC !default;
+
+$container-block:                                 #f8f5f4 !default;
+$separator-color:                                 $grey-white !default;
+
+
+//FONTS and PATHS
+// ===================================================================
+
+// ==== FONTS
+
+// ==== PATHS
+$img-path :                                     '/static/img/' !default;
+$font-path :                                    '/static/fonts/' !default;

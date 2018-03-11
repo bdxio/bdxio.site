@@ -1,5 +1,7 @@
 var path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
  entry: './src/app/index.js',
@@ -10,6 +12,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': `"production"`
+      }
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
@@ -24,6 +31,8 @@ module.exports = {
         screw_ie8: true
       },
       comments: false
-    })
+    }),
+    new CopyWebpackPlugin([{ from: './src/static' }]),
+    new ExtractTextPlugin('bundle.css'),
   ]
 }

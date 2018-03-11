@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the BASE base.
+// -----------------------------------------------------------------------------
+html {
+    height: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    height: 100%;
+    //font-family: $montserrat-light;
+    color: $text-color !important;
+    background-color: white;
+    font-size: 13px;
+    * {
+        outline: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+hr {
+    border-bottom: 1px solid $grey-light;
+    max-width: inherit;
+}
+
+p {
+    line-height: 1.5;
+}
+
+[data-hidden="true"] {
+    display: none !important
+}
+
+hr {
+    margin: 4px 0;
+    border-bottom: 0;
+}
