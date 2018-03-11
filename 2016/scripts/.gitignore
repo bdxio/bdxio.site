@@ -1,9 +1,0 @@
-**/.DS_Store
-node_modules
-dist
-dist-build
-reports
-typings
-out
-typings
-.idea/
