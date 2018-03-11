@@ -20,9 +20,9 @@ class Navbar extends Component {
                 <li><Link to="/contact">Contact</Link></li>
             </ul>
                <ul>
-                   <li><Link to="/">twitter</Link></li>
-                   <li><Link to="/">facebook</Link></li>
-                   <li><Link to="/">youtube</Link></li>
+                   <li><a href="https://twitter.com/bdxio">twitter logo</a></li>
+                   <li><a href="https://www.facebook.com/bdxio">Facebook logo</a></li>
+                   <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">youtube logo</a></li>
                </ul>
                 <div>LiveStream component</div>
             </div>
