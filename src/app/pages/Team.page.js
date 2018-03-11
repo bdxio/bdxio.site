@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import displayPage          from './_PageContainer';
 
-class About extends Component {
+class Team extends Component {
     constructor() {
         super();
     }
@@ -9,10 +9,10 @@ class About extends Component {
     render() {
         return (
             <div>
-                <h1>About</h1>
+                <h1>Team</h1>
             </div>
         );
     }
 }
 
-export default displayPage(About)
+export default displayPage(Team)
