@@ -5,6 +5,8 @@ import MetricsBar               from '../components/MetricsBar.component';
 import Link                     from 'react-router-dom/es/Link';
 import ConferenceThemes         from '../components/ConferenceThemes.component';
 import SomeSpeakersPresentation from '../components/SomeSpeakersPresentation.component';
+import SomeNews                 from '../components/SomeNews.component';
+import TicketingAccess          from '../components/TicketingAccess.component';
 
 class Home extends Component {
     constructor() {
@@ -46,7 +48,9 @@ class Home extends Component {
 
                 <SomeSpeakersPresentation/>
 
+                <SomeNews/>
 
+                <TicketingAccess/>
             </div>
         );
     }

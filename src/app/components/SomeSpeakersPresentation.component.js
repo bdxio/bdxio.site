@@ -5,7 +5,7 @@ class SomeSpeakersPresentation extends Component {
     constructor() {
         super();
     }
-
+/* TODO add fetch to get 4 speakers randomly */
     render() {
         return (
             <div>
@@ -14,6 +14,7 @@ class SomeSpeakersPresentation extends Component {
                        <h3>Nos speakers</h3>
                        <h6>On vous a choisi quelques profils de façon aléatoire de façon à vous mettre l'eau à la bouche</h6>
                    </div>
+
 
                    <div>
                        <div>
