@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Layout from '../layout';
-
-import Countdown from './Countdown'
+import displayPage          from './_PageContainer';
+import Countdown            from '../components/Countdown.component';
 
 class Home extends Component {
     constructor() {
@@ -10,7 +9,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Layout>
+            <div>
                 <h1>Bienvenue à BDX I/O 2018 !</h1>
                 <div>
                     <span>10 novembre</span>
@@ -18,9 +17,9 @@ class Home extends Component {
                 </div>
 
                 <Countdown />
-            </Layout>
+            </div>
         );
     }
 }
 
-export default Home
+export default displayPage(Home)

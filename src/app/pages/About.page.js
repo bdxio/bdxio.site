@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from '../layout';
+import displayPage          from './_PageContainer';
 
 class About extends Component {
     constructor() {
@@ -8,11 +8,11 @@ class About extends Component {
 
     render() {
         return (
-            <Layout>
+            <div>
                 <h1>About</h1>
-            </Layout>
+            </div>
         );
     }
 }
 
-export default About
+export default displayPage(About)

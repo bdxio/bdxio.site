@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 
 import reducers from './reducers';
 
-import Home from './components/Home';
-import About from './components/About';
+import Home from './pages/Home.page';
+import About from './pages/About.page';
 
 const store = createStore(reducers);
 const history = createHistory();
