@@ -1,13 +1,19 @@
 import React, { Component }  from 'react';
+import { connect } from 'react-redux';
 import Navbar from '../components/Navbar.componet';
 import Footer from '../components/Footer.component';
 
+import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
 const displayPage = ( Page ) => {
-    return class DisplayPage extends Component {
+    class DisplayPage extends Component {
 
         constructor(props){
             super(props)
+        }
+
+        componentWillMount() {
+            this.props.dispatch(GSheetActions.fetch());
         }
 
         render(){
@@ -20,6 +26,14 @@ const displayPage = ( Page ) => {
             )
         }
     };
+
+    const mapStateToProps = (state) => {
+        return {
+            gsheet: state.gsheet
+        };
+    };
+
+    return connect(mapStateToProps)(DisplayPage)
 };
 
 export default displayPage;
