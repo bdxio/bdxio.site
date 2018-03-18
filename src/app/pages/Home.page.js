@@ -16,7 +16,7 @@ class Home extends Component {
     }
 
     render() {
-        const { Config } = this.props.gsheet;
+        const { News } = this.props.gsheet;
         return (
             <div>
                 <h1>Bienvenue à BDX I/O 2018 !</h1>
@@ -51,7 +51,7 @@ class Home extends Component {
 
                 <SomeSpeakersPresentation />
 
-                <SomeNews />
+                <SomeNews news={ News } />
 
                 <TicketingAccess />
             </div>
