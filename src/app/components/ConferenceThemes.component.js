@@ -8,10 +8,9 @@ class ConferenceThemes extends Component {
 
     render() {
         return (
-            <div>
-
-                <div>
-                    <h3>Les thèmes de la conférence</h3>
+            <div className="row">
+                <div className="columns text-center">
+                    <h5 className="sectionTitle">Les thèmes de la conférence</h5>
                     <h6>nedjdejdej denjdek</h6>
                 </div>
 

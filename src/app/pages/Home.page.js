@@ -34,18 +34,22 @@ class Home extends Component {
                     <button type="button">Programme</button>
                 </div>
 
-                <div>
-                    <h4>A propos</h4>
-                    <h6>
-                        BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
-                        Pour cette nouvelle edition, nous recevrons encore 500 personnes passionées pour une journée stimulante et de bonne
-                        humeur
+                <div className="columns">
+                    <div className="row">
+                        <h5 className="columns shrink text-center sectionTitle">À propos de Bdxio</h5>
+                        <h6 className="columns auto text-center">
+                            BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
+                            Pour cette nouvelle edition, nous recevrons encore 500 personnes passionées pour une journée stimulante et de bonne
+                            humeur
                     </h6>
+                    </div>
                 </div>
 
                 <MetricsBar />
 
-                <Link to="/gallery">Voir la galerie</Link>
+                <div className="row text-center">
+                    <Link className="columns button small primary" to="/gallery">Voir la galerie</Link>
+                </div>
 
                 <ConferenceThemes />
 
