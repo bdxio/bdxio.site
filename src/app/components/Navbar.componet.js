@@ -19,7 +19,8 @@ class Navbar extends Component {
                     <li className="columns shrink menu-item-content"><Link to="/faq">FAQ</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
-                <ul>
+                <ul className=" columns shrink align-center menu-socialNetwork">
+                <i class="fi-social-zurb"></i>
                    <li><a href="https://twitter.com/bdxio">twitter logo</a></li>
                    <li><a href="https://www.facebook.com/bdxio">Facebook logo</a></li>
                    <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">youtube logo</a></li>
