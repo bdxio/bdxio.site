@@ -8,18 +8,18 @@ class Navbar extends Component {
 
     render() {
         return (
-            <div>
-                <div> LOGO </div>
-            <ul>
-                <li><Link to="/">Accueil</Link></li>
-                <li><Link to="/team">La team</Link></li>
-                <li><Link to="/news">Actualités</Link></li>
-                <li><Link to="/speakers">Speakers</Link></li>
-                <li><Link to="/partnerships">Partenaires</Link></li>
-                <li><Link to="/faq">FAQ</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-            </ul>
-               <ul>
+            <div className="row align-middle menu">
+                <div className="columns shrink menu-logo"> LOGO </div>
+                <ul className=" columns shrink align-center menu-item">
+                    <li className="columns shrink menu-item-content"><Link to="/">Accueil</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/news">Actualités</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/speakers">Speakers</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/partnerships">Partenaires</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/faq">FAQ</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
+                </ul>
+                <ul>
                    <li><a href="https://twitter.com/bdxio">twitter logo</a></li>
                    <li><a href="https://www.facebook.com/bdxio">Facebook logo</a></li>
                    <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">youtube logo</a></li>
