@@ -15,7 +15,7 @@ module.exports = {
             template: 'src/static/index.html'
         }),
         new HtmlWebpackPlugin({
-            inject: false,
+            inject: true,
             filename: 'styleguide.html',
             template: 'src/static/styleguide.html'
         }),
@@ -37,7 +37,8 @@ module.exports = {
         //Be possible go back pressing the "back" button at chrome
         historyApiFallback: true,
         //hotmodulereplacementeplugin
-        hot: true
+        hot: true,
+        contentBase: path.join(__dirname, 'src/static/')
     },
     module: {
         rules: [
