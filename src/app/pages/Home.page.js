@@ -18,11 +18,13 @@ class Home extends Component {
     render() {
         const { News } = this.props.gsheet;
         return (
-            <div>
-                <h1>Bienvenue à BDX I/O 2018 !</h1>
-                <div>
-                    <span>10 novembre</span>
-                    <span>EINSERB</span>
+            <div className="row home">
+                <div className="columns home-header">
+                    <h1>Bienvenue à BDX I/O 2018 !</h1>
+                    <div>
+                        <span>10 novembre</span>
+                        <span>EINSERB</span>
+                    </div>
                 </div>
 
                 <Countdown />
@@ -51,7 +53,7 @@ class Home extends Component {
 
                 <SomeSpeakersPresentation />
 
-                <SomeNews news={ News } />
+                <SomeNews news={News} />
 
                 <TicketingAccess />
             </div>
