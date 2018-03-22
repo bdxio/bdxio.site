@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the BUTTON base.
+// -----------------------------------------------------------------------------
+// -- General
+.button {
+    &.primary {
+        background: transparent;
+        border: 2px solid $primary !important;
+        color: $primary !important; 
+        
+        &:hover {
+            background : $primary;
+            color: white !important;
+        }
+    }
+
+    &.secondary {
+        background: transparent;
+        border: 2px solid $red !important;
+        color: $red !important; 
+        text-transform: none !important;
+        
+        &:hover {
+            background : $red;
+            color: white !important;
+        }
+    }
+}
