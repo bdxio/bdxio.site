@@ -11,10 +11,14 @@
 // ~ BASE
 // ====================================================================== >
 @import 'base/base';
+@import 'base/typographie';
+@import 'base/button';
 
 // ~ COMPONENTS
 // ====================================================================== >
 @import 'components/navbar';
+@import 'components/metricsbar';
+@import 'components/somenews';
 
 // ~ PAGES
 // ====================================================================== >
