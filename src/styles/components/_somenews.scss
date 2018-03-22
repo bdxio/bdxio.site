@@ -1,0 +1,7 @@
+.someNews {
+    background: $primary;
+
+    &-content {
+        display: flex;
+    }
+}
