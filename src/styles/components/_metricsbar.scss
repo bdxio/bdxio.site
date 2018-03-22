@@ -1,0 +1,15 @@
+.metricsBar {
+    display: flex;
+    background-color: $primary; 
+    height: rem-calc(150px);
+    margin: rem-calc(24px 0);
+
+    &-content {
+        display: flex;
+        color: white;
+
+        &-number {
+            font-weight: bold;
+        }
+    }
+}
