@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the TYPOGRAPHIE base.
+// -----------------------------------------------------------------------------
+
+h6 {
+    font-size: rem-calc(14px);
+}
+
+.sectionTitle {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold; 
+    margin-top: rem-calc(64px);
+}
+
+.sectionTitleBg {
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bold; 
+    margin-top: rem-calc(64px);
+    padding-top: 16px;
+}
+
+.sectionSubtitleBg {
+    color: $white;
+    margin-bottom: rem-calc(16px);
+}
