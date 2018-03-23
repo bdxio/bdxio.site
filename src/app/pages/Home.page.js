@@ -8,6 +8,7 @@ import SomeSpeakersPresentation from '../components/home/SomeSpeakersPresentatio
 import SomeNews                 from '../components/home/SomeNews.component';
 import TicketingAccess          from '../components/home/TicketingAccess.component';
 import Location                 from '../components/home/Location.component';
+import SponsorsBar              from '../components/common/SponsorsBar.component';
 
 
 class Home extends Component {
@@ -64,6 +65,8 @@ class Home extends Component {
                 <TicketingAccess/>
 
                 <Location/>
+
+                <SponsorsBar />
             </div>
         );
     }
