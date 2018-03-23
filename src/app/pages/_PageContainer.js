@@ -1,7 +1,7 @@
-import React, { Component }  from 'react';
-import { connect } from 'react-redux';
-import Navbar from '../components/Navbar.componet';
-import Footer from '../components/Footer.component';
+import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+import Navbar               from '../components/common/Navbar.componet';
+import Footer               from '../components/common/Footer.component';
 
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
