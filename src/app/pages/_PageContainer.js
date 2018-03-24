@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import { connect } from 'react-redux';
-import Navbar from '../components/Navbar.componet';
+import Navbar from '../components/Navbar.component';
 import Footer from '../components/Footer.component';
 
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
