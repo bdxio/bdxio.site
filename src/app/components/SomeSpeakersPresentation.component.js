@@ -8,15 +8,12 @@ class SomeSpeakersPresentation extends Component {
     /* TODO add fetch to get 4 speakers randomly */
     render() {
         return (
-            <div className="row text-center">
-                <div className="columns">
-                    <div className="row">
-                        <div className="columns text-center">
-                            <h5 className="sectionTitle">Nos speakers</h5>
-                            <h6>On vous a choisi quelques profils de façon aléatoire de façon à vous mettre l'eau à la bouche</h6>
-                        </div>
+            <div className="row speakers">
+                <div className="sectionTitle">
+                    <div>
+                        <h5 className="sectionTitle">Nos speakers</h5>
+                        <h6 className="sectionSubTitle">On vous a choisi quelques profils de façon aléatoire de façon à vous mettre l'eau à la bouche</h6>
                     </div>
-
 
                     <div>
                         <div>

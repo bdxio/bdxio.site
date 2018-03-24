@@ -53,11 +53,9 @@ class Home extends Component {
 
                 <ConferenceThemes />
 
-                <div className="row home-team">
-                    <div>Image de l'équipe avec un message sympa !!!</div>
+                <div className="row align-middle home-team">
+                    <h6 className="columns text-center home-team-content">Image de l'équipe avec un message sympa !!!</h6>
                 </div>
-
-
 
                 <SomeSpeakersPresentation />
 

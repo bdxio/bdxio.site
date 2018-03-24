@@ -27,25 +27,25 @@ class SomeNews extends Component {
         const newsDisplayed = news.slice(3 * index, 3 + 3 * index);
         const nbSelectors = Math.ceil(news.length / 3);
         return (
-            <div className="row text-center someNews">
-                <div className="columns">
+            <div className="row someNews">
+                <div className="columns text-center">
                     <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
                     <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX i/o ?</h6>
 
-                    <div className="row">
-                        <div className="columns someNews-content">
-                            {newsDisplayed.map((n, i) => {
-                                return (
-                                    <div key={`'news_'${i}`}>
+                    <div className="row align-center someNews-content">
+                        {newsDisplayed.map((n, i) => {
+                            return (
+                                <div className="columns small-3 someNews-content-item">
+                                    <div className="row" key={`'news_'${i}`}>
                                         <img src={n.Thumbnail} />
-                                        <div>{n.Titre}</div>
+                                        <div className="columns shrink someNews-content-item-title">{n.Titre}</div>
                                         <div dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
                                         <div><Link to={'/news'}>Lire l'article ></Link></div>
                                     </div>
+                                </div>
 
-                                );
-                            })}
-                        </div>
+                            );
+                        })}
                     </div>
 
                     <div>
