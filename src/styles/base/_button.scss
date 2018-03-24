@@ -5,8 +5,9 @@
 .button {
     &.primary {
         background: transparent;
-        border: 2px solid $primary !important;
+        border: 1px solid $primary !important;
         color: $primary !important; 
+        text-transform: uppercase;
         
         &:hover {
             background : $primary;
