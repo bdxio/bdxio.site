@@ -1,11 +1,10 @@
 $text-color:                                      #525356 !default;
 
 $primary :                                        #2b2d42 !default;
-$primary-gradient:                                linear-gradient(135deg, $primary 0%,#51c4db 100%);
+$gradient:                                linear-gradient(45deg, #cc0625 0%, #fac319 100%);
 
-$red :                                            #cf1633 !default;
-$red :                                            #ff2d39 !default;
-$yellow :                                         #ffb600 !default;
+$red :                                            #cc0625 !default;
+$yellow :                                         #fac319 !default;
 $green :                                          #4dbb4d !default;
 
 $grey-line:                                       1px solid rgba(0, 0, 0, 0.1) !default;
