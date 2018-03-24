@@ -3,25 +3,25 @@
 // -----------------------------------------------------------------------------
 
 h6 {
-    font-size: rem-calc(14px);
+    font-size: 14px;
 }
 
 .sectionTitle {
     text-transform: uppercase;
     color: black;
     font-weight: bold; 
-    margin-top: rem-calc(64px);
+    margin-top: 64px;
 }
 
 .sectionTitleBg {
     text-transform: uppercase;
     color: $white;
     font-weight: bold; 
-    margin-top: rem-calc(64px);
+    margin-top: 64px;
     padding-top: 16px;
 }
 
 .sectionSubtitleBg {
     color: $white;
-    margin-bottom: rem-calc(16px);
+    margin-bottom: 16px;
 }
