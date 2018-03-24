@@ -18,10 +18,10 @@ class Home extends Component {
     render() {
         const { News } = this.props.gsheet;
         return (
-            <div className="row home">
-                <div className="columns home-header">
-                    <h1>Bienvenue à BDX I/O 2018 !</h1>
-                    <div>
+            <div className="home">
+                <div className="row home-header">
+                    <h1 className="columns text-center">Bienvenue à BDX I/O 2018 !</h1>
+                    <div className="home-header-content">
                         <span>10 novembre</span>
                         <span>EINSERB</span>
                     </div>
@@ -34,33 +34,37 @@ class Home extends Component {
                     <button type="button">Programme</button>
                 </div>
 
-                <div className="columns">
-                    <div className="row">
-                        <h5 className="columns shrink text-center sectionTitle">À propos de Bdxio</h5>
-                        <h6 className="columns auto text-center">
-                            BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
-                            Pour cette nouvelle edition, nous recevrons encore 500 personnes passionées pour une journée stimulante et de bonne
-                            humeur
+                <div className="row text-center home-about">
+                    <h5 className="sectionTitle">À propos de Bdxio</h5>
+                    <h6>
+                        BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
+                        Pour cette nouvelle edition, nous recevrons encore 500 personnes passionées pour une journée stimulante et de bonne
+                        humeur
                     </h6>
-                    </div>
                 </div>
 
                 <MetricsBar />
 
-                <div className="row text-center">
-                    <Link className="columns button small primary" to="/gallery">Voir la galerie</Link>
+                <div className="row align-center">
+                    <Link className="columns shrink button small primary" to="/gallery">Voir la galerie</Link>
                 </div>
+
+                <i className="fa fa-twitter"></i>
 
                 <ConferenceThemes />
 
-                <div>Image de l'équipe avec un message sympa !!!</div>
+                <div className="row home-team">
+                    <div>Image de l'équipe avec un message sympa !!!</div>
+                </div>
+
+
 
                 <SomeSpeakersPresentation />
 
                 <SomeNews news={News} />
 
                 <TicketingAccess />
-            </div>
+            </div >
         );
     }
 }

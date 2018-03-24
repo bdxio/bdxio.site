@@ -8,46 +8,58 @@ class ConferenceThemes extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="columns text-center">
+            <div className="row conference">
+                <div className="columns text-center conference-themes">
                     <h5 className="sectionTitle">Les thèmes de la conférence</h5>
                     <h6>nedjdejdej denjdek</h6>
                 </div>
 
-                <div>
-                    <div>
-                        <div>
-                            <h4>Design, UI & UX</h4>
+                <div className="columns conference-container">
+                    <div className="row auto text-center align-middle conference-container-content">
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Design, UI & UX</h6>
                             <div>CSS, Ergonomie & Design.
                                 Experience utilisateur.</div>
                         </div>
-                        <div>
-                            <h4>Backends, Cloud & BigData</h4>
-                             <div>Frameworks côté serveur.
-                                 Cloud.
+
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Backends, Cloud & BigData</h6>
+                            <div>Frameworks côté serveur.
+                                Cloud.
                                  Base de données NoSQL.</div>
                         </div>
-                        <div>
-                            <h4>Frontend Web, Mobile et VideoGames</h4>
-                             <div>Frameworks côté client.
-                                 Application web / mobiles (hybrides, natives) / progressives.
+
+
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Frontend Web, Mobile et VideoGames</h6>
+                            <div>Frameworks côté client.
+                                Application web / mobiles (hybrides, natives) / progressives.
                                  Outillage pour les jeux vidéos.</div>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <h4>Tooling</h4>
-                             <div>Outillage pour la productivité.
-                                 Outillage pour le build.
+
+
+
+                    <div className="row align-middle text-center text-middle conference-container-content">
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Tooling</h6>
+                            <div>Outillage pour la productivité.
+                                Outillage pour le build.
                                  IDE.</div>
                         </div>
-                        <div>
-                            <h4>Internet des objets & marchés émergents</h4>
-                             <div>A la recherche des idées disruptives au service du monde de demain.</div>
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Internet des objets & marchés émergents</h6>
+                            <div>A la recherche des idées disruptives au service du monde de demain.</div>
                         </div>
-                        <div>
-                            <h4>Conception, Architecture & Pratiques de dev</h4>
-                             <div>Méthodologie comme SCRUM ou Kanban.
+                        <div className="columns small-4 conference-container-content-item">
+                            <div>I</div>
+                            <h6>Conception, Architecture & Pratiques de dev</h6>
+                            <div>Méthodologie comme SCRUM ou Kanban.
                                  Principes d'architecture.</div>
                         </div>
                     </div>

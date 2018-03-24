@@ -8,28 +8,33 @@ class MetricsBar extends Component {
 
     render() {
         return (
-            <div className="columns align-middle metricsBar">
-                <div className="row">
-                    <div className="columns small-6 align-center align-middle metricsBar-content"><Link to="/gallery">+</Link></div>
+            <div className="row  align-middle metricsBar">
+                <div className="columns small-2 align-center metricsBar-picture">
+                    <Link to="/gallery">+</Link>
+                </div>
 
-                    <div className="columns auto align-center align-middle metricsBar-content">
-                        <div className="row">
-                            <h4 className="columns metricsBar-content-number">500</h4>
-                            <div className="columns">PARTICIPANTS</div>
+                <div className="columns auto">
+                    <div className="row metricsBar-content text-center">
+                        <div className="columns small-4">
+                            <h3 className="metricsBar-content-number">500</h3>
+                            <div className="">PARTICIPANTS</div>
                         </div>
-                        <div className="row">
-                            <h4 className="columns metricsBar-content-number">52</h4>
-                            <div className="columns">TALKS</div>
+                        <div className="columns small-4 seperateElement">
+                            <h3 className="metricsBar-content-number">52</h3>
+                            <div className="">TALKS</div>
                         </div>
-                        <div className="row">
-                            <h4 className="columns metricsBar-content-number">52</h4>
-                            <div className="columns">SPEAKERS</div>
+                        <div className="columns small-4">
+                            <h3 className="metricsBar-content-number">52</h3>
+                            <div className="">SPEAKERS</div>
                         </div>
                     </div>
+                </div>
 
-                    <div className="columns small-6 align-center align-middle metricsBar-content"><Link to="/videos">Play</Link></div>
+                <div className="columns small-2 align-center metricsBar-video">
+                    <Link to="/videos">Play</Link>
                 </div>
             </div>
+
 
         );
     }
