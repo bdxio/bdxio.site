@@ -1,8 +1,36 @@
 .metricsBar {
     display: flex;
     background-color: $primary; 
-    height: rem-calc(150px);
-    margin: rem-calc(24px 0);
+    height: 200px;
+    margin: 16px 0;
+
+    &-picture {
+        height: 100%;
+        background-image: url($img-path+'about_img.jpg');
+        background-size: cover;
+
+        a {
+            position: relative;
+            color: white;
+            font-size: 30px;
+            left: 50px;
+            top: 50px;
+        }
+    }
+
+    &-video {
+        height: 100%;
+        background-image: url($img-path+'about_video.jpg');
+        background-size: cover;
+
+        a {
+            position: relative;
+            color: white;
+            font-size: 30px;
+            left: 50px;
+            top: 50px;
+        } 
+    }
 
     &-content {
         display: flex;
@@ -12,4 +40,9 @@
             font-weight: bold;
         }
     }
+}
+
+.seperateElement {
+    border-left: 1px solid $white; 
+    border-right: 1px solid $white; 
 }

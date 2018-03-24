@@ -1,0 +1,25 @@
+.conference {
+    display: block;
+
+    &-themes {
+        display: block
+    }
+
+    &-container {
+        display:block;
+        background: $gradient;
+        margin: 0 100px;
+
+        &-content {
+            height: 200px;
+
+            &-item {
+                color: $white;
+        
+                    h6 {
+                        font-weight: bold;
+                    }
+                }
+        }
+    }
+}
