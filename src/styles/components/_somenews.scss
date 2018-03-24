@@ -1,7 +1,24 @@
 .someNews {
-    background: $primary;
+    display: block;
+    background-image: url($img-path+'bdxio_pattern');
+    background-color: $primary;
 
     &-content {
         display: flex;
+
+        &-item {
+            background: $white;
+            margin: 0 8px;
+
+            img {
+                height: 200px;
+                width: 430px;
+            }
+
+            &-title {
+                background: $yellow;
+                padding:4px;
+            }
+        }
     }
 }

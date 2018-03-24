@@ -1,5 +1,38 @@
+
 .home {
     &-header {
+        position: relative;
+        display: block;
         background-image: url($img-path+'header_image.png');
+        width: 100%;
+
+        h1 {
+            color: $white;
+        }
+
+        &-content {
+            position: relative;
+        }
+   }
+
+    &-about {
+        display: block;
+    }
+
+    &-team {
+        height: 200px;
+        background: url($img-path+'team_img.jpg'), blue; 
+        background-size: cover;
+        background-position-y: -200px;
+        margin-top: 64px;
+
+        &-content {
+            background-color: $white;
+            opacity: 0.7;
+            font-weight: bold;
+            margin: 0 100px;
+            padding: 30px;
+        }
     }
 }
+
