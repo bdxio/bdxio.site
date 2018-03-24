@@ -7,6 +7,8 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 // https://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output
 @include foundation-everything;
+@include foundation-flex-classes;
+@include foundation-flex-grid;
 
 // ~ BASE
 // ====================================================================== >
@@ -19,6 +21,7 @@
 @import 'components/navbar';
 @import 'components/metricsbar';
 @import 'components/somenews';
+@import 'components/conferenceThemes';
 
 // ~ PAGES
 // ====================================================================== >
