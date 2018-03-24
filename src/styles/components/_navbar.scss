@@ -1,7 +1,14 @@
 .menu {
-    &-item, &-socialNetwork {
+    position: absolute;
+    z-index: 1;
+
+   &-item, &-socialNetwork {
         display: flex;
         list-style-type: none;
         margin: 0;
+
+        a{
+            color: $white;
+        }
     }
 }
