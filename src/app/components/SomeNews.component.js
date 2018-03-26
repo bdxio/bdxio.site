@@ -35,8 +35,8 @@ class SomeNews extends Component {
                     <div className="row align-center someNews-content">
                         {newsDisplayed.map((n, i) => {
                             return (
-                                <div className="columns small-3 someNews-content-item">
-                                    <div className="row" key={`'news_'${i}`}>
+                                <div key={`'news_'${i}`} className="columns small-3 someNews-content-item">
+                                    <div className="row">
                                         <img src={n.Thumbnail} />
                                         <div className="columns shrink someNews-content-item-title">{n.Titre}</div>
                                         <div dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
