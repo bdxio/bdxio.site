@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import displayPage from './_PageContainer';
-import Countdown from '../components/Countdown.component';
-import MetricsBar from '../components/MetricsBar.component';
-import Link from 'react-router-dom/es/Link';
-import ConferenceThemes from '../components/ConferenceThemes.component';
-import SomeSpeakersPresentation from '../components/SomeSpeakersPresentation.component';
-import SomeNews from '../components/SomeNews.component';
-import TicketingAccess from '../components/TicketingAccess.component';
+import React, { Component }     from 'react';
+import displayPage              from './_PageContainer';
+import Countdown                from '../components/Countdown.component';
+import MetricsBar               from '../components/home/MetricsBar.component';
+import Link                     from 'react-router-dom/es/Link';
+import ConferenceThemes         from '../components/home/ConferenceThemes.component';
+import SomeSpeakersPresentation from '../components/home/SomeSpeakersPresentation.component';
+import SomeNews                 from '../components/home/SomeNews.component';
+import TicketingAccess          from '../components/home/TicketingAccess.component';
+import Location                 from '../components/home/Location.component';
+import SponsorsBar              from '../components/common/SponsorsBar.component';
 
 
 class Home extends Component {
@@ -27,7 +29,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <Countdown />
+                <Countdown/>
 
                 <div>
                     <button type="button">S'inscrire</button>
@@ -43,28 +45,30 @@ class Home extends Component {
                     </h6>
                 </div>
 
-                <MetricsBar />
+                <MetricsBar/>
 
                 <div className="row align-center">
                     <Link className="columns shrink button small primary" to="/gallery">Voir la galerie</Link>
                 </div>
 
-                <i className="fa fa-twitter"></i>
-
-                <ConferenceThemes />
+                <ConferenceThemes/>
 
                 <div className="row align-middle home-team">
                     <h6 className="columns text-center home-team-content">Image de l'équipe avec un message sympa !!!</h6>
                 </div>
 
-                <SomeSpeakersPresentation />
+                <SomeSpeakersPresentation/>
 
-                <SomeNews news={News} />
+                <SomeNews news={News}/>
 
-                <TicketingAccess />
-            </div >
+                <TicketingAccess/>
+
+                <Location/>
+
+                <SponsorsBar />
+            </div>
         );
     }
 }
 
-export default displayPage(Home)
+export default displayPage( Home )

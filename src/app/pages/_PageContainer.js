@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar.component';
 import Footer from '../components/Footer.component';
+=======
+import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+import Navbar               from '../components/common/Navbar.componet';
+import Footer               from '../components/common/Footer.component';
+>>>>>>> ca0a55060bb02a4b2a1aaa20e09400a55b9fbaef
 
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
