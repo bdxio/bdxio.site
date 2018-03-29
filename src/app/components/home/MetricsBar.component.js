@@ -15,23 +15,31 @@ class MetricsBar extends Component {
 
                 <div className="columns auto">
                     <div className="row metricsBar-content text-center">
-                        <div className="columns small-4">
+                        <div className="columns small-2 ">
+                            <h3 className="metricsBar-content-number">46</h3>
+                            <div className="">TALKS</div>
+                        </div>
+                        <div className="columns small-2 seperateElement">
+                            <h3 className="metricsBar-content-number">~50</h3>
+                            <div className="">SPEAKERS</div>
+                        </div>
+                        <div className="columns small-3 seperateElement">
                             <h3 className="metricsBar-content-number">500</h3>
                             <div className="">PARTICIPANTS</div>
                         </div>
-                        <div className="columns small-4 seperateElement">
-                            <h3 className="metricsBar-content-number">52</h3>
-                            <div className="">TALKS</div>
+                        <div className="columns small-2 seperateElement">
+                            <h3 className="metricsBar-content-number">1</h3>
+                            <div className="">Hackerspace</div>
                         </div>
-                        <div className="columns small-4">
-                            <h3 className="metricsBar-content-number">52</h3>
-                            <div className="">SPEAKERS</div>
+                        <div className="columns small-2">
+                            <h3 className="metricsBar-content-number">3</h3>
+                            <div className="">Hands'on</div>
                         </div>
                     </div>
                 </div>
 
                 <div className="columns small-2 align-center metricsBar-video">
-                    <Link to="/videos">Play</Link>
+                    <a herf="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">Play</a>
                 </div>
             </div>
 

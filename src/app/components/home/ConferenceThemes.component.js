@@ -11,7 +11,9 @@ class ConferenceThemes extends Component {
             <div className="row conference">
                 <div className="columns text-center conference-themes">
                     <h5 className="sectionTitle">Les thèmes de la conférence</h5>
-                    <h6>nedjdejdej denjdek</h6>
+                    <h6>Elles permettent de donner une coloration à la
+                        conférence. L’édition 2018 sera articulée autours
+                        de 6 thématiques.</h6>
                 </div>
 
                 <div className="columns conference-container">
