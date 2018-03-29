@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Navbar extends Component {
+class Header extends Component {
     constructor() {
         super();
     }
@@ -9,13 +9,13 @@ class Navbar extends Component {
     render() {
         return (
             <div className="row align-middle menu">
-                <div className="columns shrink menu-logo"> LOGO </div>
+                <div className="columns shrink menu-logo"><Link to="/home"> LOGO </Link></div>
                 <ul className=" columns shrink align-center menu-item">
-                    <li className="columns shrink menu-item-content"><Link to="/">Accueil</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/home">Accueil</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/news">Actualités</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/speakers">Speakers</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/partnerships">Partenaires</Link></li>
+                    <li className="columns shrink menu-item-content"><Link to="/partnerships">Sponsors</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/faq">FAQ</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
@@ -31,4 +31,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default Header

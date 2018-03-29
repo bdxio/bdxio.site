@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
-import Navbar               from '../components/common/Navbar.componet';
 import Footer               from '../components/common/Footer.component';
+import Header               from '../components/common/Header.componet';
 
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
@@ -19,7 +19,7 @@ const displayPage = ( Page ) => {
         render(){
             return (
                 <div>
-                    <Navbar />
+                    <Header />
                     <Page {...this.props} />
                     <Footer />
                 </div>

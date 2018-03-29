@@ -40,8 +40,8 @@ class Home extends Component {
                     <h5 className="sectionTitle">À propos de Bdxio</h5>
                     <h6>
                         BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
-                        Pour cette nouvelle edition, nous recevrons encore 500 personnes passionées pour une journée stimulante et de bonne
-                        humeur
+                        Pour cette cinquième édition, nous recevrons encore 500 passionées pour une journée nouvelle de découverte dans la bonne
+                        humeur !!!
                     </h6>
                 </div>
 
@@ -54,7 +54,12 @@ class Home extends Component {
                 <ConferenceThemes/>
 
                 <div className="row align-middle home-team">
-                    <h6 className="columns text-center home-team-content">Image de l'équipe avec un message sympa !!!</h6>
+                    <h6 className="columns text-center home-team-content">“Each of us is a unique strand in the intricate web of life and here to make a contribution.” <br/> Deepak Chopra </h6>
+                    {/*<h6 className="columns text-center home-team-content">"Le fossé séparant théorie et pratique est moins large en théorie qu’il ne l’est en pratique."</h6>*/}
+                    {/*<h6 className="columns text-center home-team-content">"The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past."<br>Tim Berners-Lee</h6>*/}
+                    {/*<h6 className="columns text-center home-team-content">"On the Web we all become small-town visitors lost in the big city."<br>Alison Gopnik</h6>*/}
+                    {/*<h6 className="columns text-center home-team-content">"Everyday life is like programming, I guess. If you love something you can put beauty into it."<br>Donald Knuth</h6>*/}
+
                 </div>
 
                 <SomeSpeakersPresentation/>

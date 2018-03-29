@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Router, Switch } from 'react-router-dom';
+import { Route, Router, Switch, Redirect } from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
 
 import { createStore, applyMiddleware } from 'redux';
@@ -28,7 +28,8 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Redirect exact from='/' to="/home" />
+                <Route path="/home" component={Home} />
                 <Route path="/team" component={Team} />
                 <Route path="/news" component={News} />
                 <Route path="/speakers" component={Speakers} />
