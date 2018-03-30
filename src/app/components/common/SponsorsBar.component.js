@@ -15,8 +15,8 @@ class SponsorsBar extends Component {
                     <h6>Merci à nos sponsors pour leur soutient !!! \( ^  ^)°/</h6>
 
                     <div>
-                        {partners.map((p) => (
-                            <img src={p['Logo url']} alt={p['Société']} width="100" />
+                        {partners.map((p, i) => (
+                            <img key={`sb_${i}`} src={p['Logo url']} alt={p['Société']} width="100" />
                         ))}
                     </div>
                 </div>
