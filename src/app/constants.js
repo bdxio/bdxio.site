@@ -2,7 +2,7 @@ import Moment from 'moment';
 
 export const Constant = {
     gSheetKey: '1bXJCYX-b4cyDW4sT2xWTx5rYL6Mb3LmBTMthge_J6KA',
-    eventDate: Moment([2018, 11, 9, 8]),
+    eventDate: Moment("09-11-2018", "DD-MM-YYYY"),
     quotes: [
         {
             text: '"Each of us is a unique strand in the intricate web of life and here to make a contribution."',
