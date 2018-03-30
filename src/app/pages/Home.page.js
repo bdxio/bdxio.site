@@ -19,7 +19,10 @@ class Home extends Component {
     }
 
     render() {
-        const { News } = this.props.gsheet;
+        const { News, Sponsors } = this.props.gsheet;
+        // TODO: FILTER WITH CORRECT NEW NAME
+        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'GOLD');
+
         return (
             <div className="home">
                 <div className="row home-header">
@@ -71,7 +74,7 @@ class Home extends Component {
 
                 <Location />
 
-                <SponsorsBar />
+                <SponsorsBar partners={IMPERIAL} />
             </div>
         );
     }
