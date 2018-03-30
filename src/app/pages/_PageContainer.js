@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes }        from 'prop-types';
 import { connect }          from 'react-redux';
 import Footer               from '../components/common/Footer.component';
 import Header               from '../components/common/Header.componet';
@@ -26,6 +27,10 @@ const displayPage = ( Page ) => {
             )
         }
     };
+
+    DisplayPage.propTypes = {
+        gsheet: PropTypes.object.isRequired,
+    }
 
     const mapStateToProps = (state) => {
         return {

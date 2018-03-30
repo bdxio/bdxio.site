@@ -1,14 +1,15 @@
-import React, { Component }     from 'react';
-import displayPage              from './_PageContainer';
-import Countdown                from '../components/Countdown.component';
-import MetricsBar               from '../components/home/MetricsBar.component';
-import Link                     from 'react-router-dom/es/Link';
-import ConferenceThemes         from '../components/home/ConferenceThemes.component';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import displayPage from './_PageContainer';
+import Countdown from '../components/Countdown.component';
+import MetricsBar from '../components/home/MetricsBar.component';
+import Link from 'react-router-dom/es/Link';
+import ConferenceThemes from '../components/home/ConferenceThemes.component';
 import SomeSpeakersPresentation from '../components/home/SomeSpeakersPresentation.component';
-import SomeNews                 from '../components/home/SomeNews.component';
-import TicketingAccess          from '../components/home/TicketingAccess.component';
-import Location                 from '../components/home/Location.component';
-import SponsorsBar              from '../components/common/SponsorsBar.component';
+import SomeNews from '../components/home/SomeNews.component';
+import TicketingAccess from '../components/home/TicketingAccess.component';
+import Location from '../components/home/Location.component';
+import SponsorsBar from '../components/common/SponsorsBar.component';
 
 
 class Home extends Component {
@@ -29,7 +30,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <Countdown/>
+                <Countdown />
 
                 <div>
                     <button type="button">S'inscrire</button>
@@ -45,16 +46,16 @@ class Home extends Component {
                     </h6>
                 </div>
 
-                <MetricsBar/>
+                <MetricsBar />
 
                 <div className="row align-center">
                     <Link className="columns shrink button small primary" to="/gallery">Voir la galerie</Link>
                 </div>
 
-                <ConferenceThemes/>
+                <ConferenceThemes />
 
                 <div className="row align-middle home-team">
-                    <h6 className="columns text-center home-team-content">“Each of us is a unique strand in the intricate web of life and here to make a contribution.” <br/> Deepak Chopra </h6>
+                    <h6 className="columns text-center home-team-content">“Each of us is a unique strand in the intricate web of life and here to make a contribution.” <br /> Deepak Chopra </h6>
                     {/*<h6 className="columns text-center home-team-content">"Le fossé séparant théorie et pratique est moins large en théorie qu’il ne l’est en pratique."</h6>*/}
                     {/*<h6 className="columns text-center home-team-content">"The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past."<br>Tim Berners-Lee</h6>*/}
                     {/*<h6 className="columns text-center home-team-content">"On the Web we all become small-town visitors lost in the big city."<br>Alison Gopnik</h6>*/}
@@ -62,13 +63,13 @@ class Home extends Component {
 
                 </div>
 
-                <SomeSpeakersPresentation/>
+                <SomeSpeakersPresentation />
 
-                <SomeNews news={News}/>
+                <SomeNews news={News} />
 
-                <TicketingAccess/>
+                <TicketingAccess />
 
-                <Location/>
+                <Location />
 
                 <SponsorsBar />
             </div>
@@ -76,4 +77,8 @@ class Home extends Component {
     }
 }
 
-export default displayPage( Home )
+Home.propTypes = {
+    gsheet: PropTypes.object.isRequired,
+}
+
+export default displayPage(Home)

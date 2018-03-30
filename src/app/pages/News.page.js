@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
 
 class News extends Component {
@@ -27,6 +28,10 @@ class News extends Component {
             </div>
         );
     }
+}
+
+News.propTypes = {
+    gsheet: PropTypes.object.isRequired,
 }
 
 export default displayPage(News)

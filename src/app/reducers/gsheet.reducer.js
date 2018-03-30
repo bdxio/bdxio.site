@@ -1,7 +1,7 @@
 import { Types } from '../actions/gsheet.actions';
 
 const defaultState = {
-    'Jurys': [],
+    'Sponsors': [],
     'Orgas': [],
     'Config': [],
     'News': [],
