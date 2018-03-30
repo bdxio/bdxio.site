@@ -5,6 +5,7 @@ import Countdown from '../components/Countdown.component';
 import MetricsBar from '../components/home/MetricsBar.component';
 import Link from 'react-router-dom/es/Link';
 import ConferenceThemes from '../components/home/ConferenceThemes.component';
+import Quote from '../components/home/Quote.component';
 import SomeSpeakersPresentation from '../components/home/SomeSpeakersPresentation.component';
 import SomeNews from '../components/home/SomeNews.component';
 import TicketingAccess from '../components/home/TicketingAccess.component';
@@ -57,14 +58,7 @@ class Home extends Component {
 
                 <ConferenceThemes />
 
-                <div className="row align-middle home-team">
-                    <h6 className="columns text-center home-team-content">“Each of us is a unique strand in the intricate web of life and here to make a contribution.” <br /> Deepak Chopra </h6>
-                    {/*<h6 className="columns text-center home-team-content">"Le fossé séparant théorie et pratique est moins large en théorie qu’il ne l’est en pratique."</h6>*/}
-                    {/*<h6 className="columns text-center home-team-content">"The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past."<br>Tim Berners-Lee</h6>*/}
-                    {/*<h6 className="columns text-center home-team-content">"On the Web we all become small-town visitors lost in the big city."<br>Alison Gopnik</h6>*/}
-                    {/*<h6 className="columns text-center home-team-content">"Everyday life is like programming, I guess. If you love something you can put beauty into it."<br>Donald Knuth</h6>*/}
-
-                </div>
+                <Quote />
 
                 <SomeSpeakersPresentation />
 
