@@ -1,8 +1,12 @@
 .footer {
     display: block;
     background : $primary;
+    background-image: url($img-path+'bdxio_pattern.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
-    padding: 16px;
+    padding: 30px 16px;
+    margin-top: 64px;
 
     &-signIn {
         display: flex;  

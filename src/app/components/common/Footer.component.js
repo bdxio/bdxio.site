@@ -22,9 +22,9 @@ class Footer extends Component {
                         <li className="columns shrink">Termes et conditions</li>
                         <li className="columns shrink">A propos</li>
                         <li className="columns shrink">Contact</li>
-                        <li className="columns auto text-right">twitter</li>
-                        <li className="columns shrink text-right">facebook</li>
-                        <li className="columns shrink text-right">linkedin</li>
+                        <li className="columns auto text-right"><i className="fa fa-twitter"></i></li>
+                        <li className="columns shrink text-right"><i className="fa fa-facebook-f"></i></li>
+                        <li className="columns shrink text-right"><i className="fa fa-linkedin"></i></li>
                     </ul>
                 </div>
 
