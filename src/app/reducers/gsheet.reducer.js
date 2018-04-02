@@ -6,6 +6,7 @@ const defaultState = {
     'Config': [],
     'News': [],
     'Talk assets': [],
+    'Speakers': [],
     loaded: false
 }
 

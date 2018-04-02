@@ -10,7 +10,6 @@ class PartnerCard extends Component {
         const { partner } = this.props;
         return (
             <div>
-                {partner['Société']}
                 <img src={partner['Logo url']} alt={partner['Société']} width="100" />
                 <a href={partner['Site']}>Site web</a>
             </div>
@@ -20,6 +19,6 @@ class PartnerCard extends Component {
 
 PartnerCard.propTypes = {
     partner: PropTypes.object.isRequired,
-}
+};
 
 export default PartnerCard;

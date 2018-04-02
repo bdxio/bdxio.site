@@ -26,11 +26,11 @@ const displayPage = ( Page ) => {
                 </div>
             )
         }
-    };
+    }
 
     DisplayPage.propTypes = {
         gsheet: PropTypes.object.isRequired,
-    }
+    };
 
     const mapStateToProps = (state) => {
         return {
