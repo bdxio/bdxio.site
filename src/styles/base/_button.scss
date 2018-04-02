@@ -3,38 +3,40 @@
 // -----------------------------------------------------------------------------
 // -- General
 .button {
+    background: transparent !important;
+    border: 2px solid !important;
+
     &.primary {
-        background: transparent;
-        border: 1px solid $primary !important;
+        border-color: $primary !important;
         color: $primary !important; 
         text-transform: uppercase;
         
         &:hover {
-            background : $primary;
+            background : $primary !important;
             color: white !important;
         }
     }
 
     &.secondary {
         background: transparent;
-        border: 2px solid $red !important;
+        border-color: $red !important;
         color: $red !important; 
         text-transform: none !important;
         
         &:hover {
-            background : $red;
+            background : $red !important;
             color: white !important;
         }
     }
 
     &.white {
         background: transparent;
-        border: 2px solid $white !important;
+        border-color: $white !important;
         color: $white !important; 
         text-transform: none !important;
         
         &:hover {
-            background : $white;
+            background : $white !important;
             color: $primary !important;
         }
     }
