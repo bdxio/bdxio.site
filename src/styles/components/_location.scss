@@ -1,0 +1,47 @@
+.location {
+    display: flex;
+
+    &-infos {
+        display: flex;
+        margin-top: 64px;
+
+            &-place {
+                background: $black;
+                color: $white;
+                font-weight: bold;
+                padding: 8px 16px;
+            }
+
+            &-amphis {
+                background: $red;
+                color: $white;
+                font-weight: bold;
+                padding: 8px 16px;
+            }
+    
+            &-dev {
+                background: $yellow;
+                color: $white;
+                font-weight: bold;
+                padding: 8px 16px;
+            }
+    }
+
+    &-site {
+        &-place {
+            background : $gradient;
+            color: $white;
+            height: 220px;
+            padding:16px;
+        }
+
+        &-map {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+iframe {
+    border: none !important;
+}
