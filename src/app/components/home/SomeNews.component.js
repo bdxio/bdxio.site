@@ -64,7 +64,6 @@ class SomeNews extends Component {
                     <Link to={"/news"}>Les voir tous</Link>
                 </div>
             </div>
-            </div >
         );
     }
 }
