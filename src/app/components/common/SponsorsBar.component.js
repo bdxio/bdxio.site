@@ -9,16 +9,16 @@ class SponsorsBar extends Component {
     render() {
         const { partners } = this.props;
         return (
-            <div className="row">
+            <div className="row sponsorBar">
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Nos sponsors Impériaux</h5>
                     <h6>Merci à nos sponsors pour leur soutient !!! \( ^  ^)°/</h6>
+                </div>
 
-                    <div>
-                        {partners.map((p, i) => (
-                            <img key={`sb_${i}`} src={p['Logo url']} alt={p['Société']} width="100" />
-                        ))}
-                    </div>
+                <div className="columns auto text-center">
+                    {partners.map((p, i) => (
+                        <img className="columns small-3" key={`sb_${i}`} src={p['Logo url']} alt={p['Société']} width="100" />
+                    ))}
                 </div>
             </div>
         );
