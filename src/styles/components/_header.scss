@@ -1,0 +1,17 @@
+.menu {
+    &-item, &-socialNetwork {
+         display: flex;
+         list-style-type: none;
+         margin: 0;
+ 
+         a{
+             color: $white;
+         }
+     }
+
+     &-liveStream {
+        background: $white;
+        color: $yellow;
+        padding: 8px 16px;
+    }
+ }
