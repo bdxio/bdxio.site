@@ -1,0 +1,25 @@
+.ticketingAccess {
+    display: block;
+
+    &-container {
+        display: flex;
+
+        &-item {
+            border: 1px solid red;
+
+            &-title {
+                background: $yellow;
+            }
+
+            &-status {
+                background: $red;
+                padding:4px 16px;
+            }
+
+            &-content {
+                background: gray;
+            }
+
+        }
+    }
+}
