@@ -26,4 +26,16 @@
             color: white !important;
         }
     }
+
+    &.white {
+        background: transparent;
+        border: 2px solid $white !important;
+        color: $white !important; 
+        text-transform: none !important;
+        
+        &:hover {
+            background : $white;
+            color: $primary !important;
+        }
+    }
 }
