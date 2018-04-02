@@ -6,33 +6,52 @@
         margin-top: 64px;
 
             &-place {
-                background: $black;
+                background: $primary;
                 color: $white;
                 font-weight: bold;
-                padding: 8px 16px;
+                padding: 16px 16px;
+                background-image: url($img-path+'location_place.svg');
+                background-repeat: no-repeat;
+                background-size: 20%;
+                background-position: bottom right;
             }
 
             &-amphis {
                 background: $red;
                 color: $white;
                 font-weight: bold;
-                padding: 8px 16px;
+                padding: 16px 16px;
+                background-image: url($img-path+'location_amphis.svg');
+                background-repeat: no-repeat;
+                background-size: 20%;
+                background-position: bottom right;
             }
     
             &-dev {
                 background: $yellow;
                 color: $white;
                 font-weight: bold;
-                padding: 8px 16px;
+                padding: 16px 16px;
+                background-image: url($img-path+'location_dev.svg');
+                background-repeat: no-repeat;
+                background-size: 20%;
+                background-position: bottom right;
             }
     }
 
     &-site {
         &-place {
-            background : $gradient;
+            background: url($img-path+'bdxio_pattern.svg') no-repeat, $gradient;
+            background-size: cover;
+            background-repeat: no-repeat;
             color: $white;
             height: 220px;
-            padding:16px;
+            padding: 24px 30px;
+
+            h5 {
+                font-weight: bold;
+                margin-bottom: 16px;
+            }
         }
 
         &-map {
