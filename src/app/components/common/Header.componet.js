@@ -8,8 +8,8 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="row align-middle menu">
-                <div className="columns shrink menu-logo"><Link to="/home"> LOGO </Link></div>
+            <div className="row align-middle small-24 menu">
+                <div className="columns shrink menu-logo"><Link to="/home"></Link></div>
                 <ul className=" columns shrink align-center menu-item">
                     <li className="columns shrink menu-item-content"><Link to="/home">Accueil</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
@@ -20,12 +20,12 @@ class Header extends Component {
                     <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
                 <ul className=" columns shrink align-center menu-socialNetwork">
-                <i className="fi-social-zurb"></i>
-                   <li><a href="https://twitter.com/bdxio">twitter logo</a></li>
-                   <li><a href="https://www.facebook.com/bdxio">Facebook logo</a></li>
-                   <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">youtube logo</a></li>
+                   <li><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
+                   <li><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
+                   <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
+                   <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i class="fa fa-youtube"></i></a></li>
                </ul>
-                <div>LiveStream component</div>
+                <div className=" columns auto text-center menu-liveStream">LiveStream component</div>
             </div>
         );
     }
