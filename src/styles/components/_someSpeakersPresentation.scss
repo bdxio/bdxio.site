@@ -1,3 +1,23 @@
 .speakers {
     display: block;
+
+    &-container {
+        margin: 16px 0;
+
+        &-content {
+            display: flex;
+
+            &-picture {
+                max-width: 400px;
+                max-height: 200px;
+                background : red; 
+            }
+
+            &-text {
+                max-width: 400px;
+                max-height: 200px;
+                background : blue; 
+            }
+        }
+    }
 }
