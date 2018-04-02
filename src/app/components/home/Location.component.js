@@ -18,7 +18,7 @@ class Location extends Component {
                 <div className="columns small-12 location-site">
                     <div className="row">
                         <div className="columns shrink location-site-place">
-                            <h4>ENSEIRB</h4>
+                            <h5>ENSEIRB</h5>
                             <div>
                                 1 Avenue de docteur Albert Schweitzer <br />
                                 33400 Talence
