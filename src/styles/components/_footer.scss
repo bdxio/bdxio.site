@@ -1,0 +1,28 @@
+.footer {
+    display: block;
+    background : $primary;
+    color: white;
+    padding: 16px;
+
+    &-signIn {
+        display: flex;  
+
+        input {
+            margin: 0 8px 0 16px;
+        }
+
+        button {
+            margin-bottom: 0; 
+            padding: rem-calc(11.5px 10px) !important;
+        }
+    }
+
+    &-item {
+        margin-top: 60px;
+
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+    }
+}
