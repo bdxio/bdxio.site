@@ -5,19 +5,44 @@
         display: flex;
 
         &-item {
-            border: 1px solid red;
+            padding: 0;
+            margin: 0 8px;
 
             &-title {
                 background: $yellow;
+                padding: 8px;
+
+                &-euros {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: $white;
+                }
+
+                &-classe {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: $white;
+                    text-transform: uppercase;
+                }
             }
 
             &-status {
                 background: $red;
-                padding:4px 16px;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 4px;
             }
 
             &-content {
-                background: gray;
+                background: $grey-white;
+                padding: 16px;
+                height: 180px;
+
+                span {
+                    color: $red;
+                }
             }
 
         }
