@@ -28,17 +28,17 @@ class Home extends Component {
             <div className="home">
                 <div className="row home-header">
                     <h1 className="columns text-center">Bienvenue à BDX I/O 2018 !</h1>
-                    <div className="home-header-content">
-                        <span>10 novembre</span>
-                        <span>EINSERB</span>
+                    <div className="columns home-header-content">
+                        <span><i className="fa fa-calendar"></i>10 novembre</span>
+                        <span><i className="fa fa-map-marker"></i>EINSERB</span>
                     </div>
-                </div>
 
-                <Countdown />
+                    <Countdown />
 
-                <div>
-                    <button type="button">S'inscrire</button>
-                    <button type="button">Programme</button>
+                    <div className="columns text-center home-header-button">
+                        <button className="button medium white" type="button">S'inscrire</button>
+                        <button className="button medium white" type="button">Programme</button>
+                    </div>
                 </div>
 
                 <div className="row text-center home-about">

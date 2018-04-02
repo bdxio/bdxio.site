@@ -1,9 +1,11 @@
 
 .home {
     &-header {
-        position: relative;
         display: block;
-        background-image: url($img-path+'header_image.png');
+        background-color: $primary;
+        background-image: url($img-path+'bdxio_pattern.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
         width: 100%;
 
         h1 {
@@ -11,7 +13,28 @@
         }
 
         &-content {
-            position: relative;
+            background: $white;
+            padding: 8px 16px;
+            margin: 0 500px;
+            color: $red;
+            font-size: 14px;
+            font-weight: bold;
+
+            span {
+                padding: 0 16px;
+
+                i {
+                    padding-right: 8px;
+                }
+            }
+        }
+
+        &-button {
+            margin-top: 40px;
+
+            button {
+                margin: 0 8px 16px 8px;
+            }
         }
    }
 
@@ -35,4 +58,3 @@
         }
     }
 }
-

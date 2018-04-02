@@ -1,0 +1,10 @@
+.countdown {
+    display: flex;
+    color: $white;
+    margin-top: 40px;
+
+    &-border {
+        border-left: 1px solid $white;
+        border-right: 1px solid $white;
+    }
+}

@@ -1,6 +1,9 @@
 .metricsBar {
     display: flex;
-    background-color: $primary; 
+    background : $primary;
+    background-image: url($img-path+'bdxio_pattern.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 200px;
     margin: 16px 0;
 
@@ -12,7 +15,7 @@
         a {
             position: relative;
             color: white;
-            font-size: 30px;
+            font-size: 40px;
             top: 40%;
         }
     }
@@ -25,7 +28,7 @@
         a {
             position: relative;
             color: white;
-            font-size: 30px;
+            font-size: 40px;
             top: 40%;
         } 
     }

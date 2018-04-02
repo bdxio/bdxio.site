@@ -32,10 +32,44 @@ class Countdown extends Component {
     render() {
         const { timeRemaining } = this.state;
         return (
-            <div className={'text-center'}>
-                {timeRemaining &&
-                    <div>{timeRemaining._data.months} mois {timeRemaining._data.days} jours {timeRemaining._data.hours} heures {timeRemaining._data.minutes} minutes {timeRemaining._data.seconds} secondes</div>
-                }
+            <div className={'columns align-center countdown'}>
+                <div className="small-1 text-center">
+                    {timeRemaining &&
+                        <h2 className="">{timeRemaining._data.months}</h2>
+                    }
+                    <div className="">mois</div>
+                </div>
+
+                <div className="small-1 text-center countdown-border">
+                    {timeRemaining &&
+                        <h2 className="">{timeRemaining._data.days}</h2>
+                    }
+                    <div className="">jours</div>
+                </div>
+
+                <div className="small-1 text-center">
+
+                    {timeRemaining &&
+                        <h2 className="">{timeRemaining._data.hours}</h2>
+                    }
+                    <div className="">heures</div>
+                </div>
+
+                <div className="small-1 text-center countdown-border">
+
+                    {timeRemaining &&
+                        <h2 className="">{timeRemaining._data.minutes}</h2>
+                    }
+                    <div className="">minutes</div>
+                </div>
+
+                <div className="small-1 text-center">
+
+                    {timeRemaining &&
+                        <h2 className="">{timeRemaining._data.seconds}</h2>
+                    }
+                    <div className="">secondes</div>
+                </div>
             </div>
         );
     }
