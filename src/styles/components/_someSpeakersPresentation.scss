@@ -2,22 +2,57 @@
     display: block;
 
     &-container {
-        margin: 16px 0;
+        margin: 0;
 
         &-content {
             display: flex;
 
-            &-picture {
-                max-width: 400px;
-                max-height: 200px;
-                background : red; 
-            }
+            &-item {
+                display: flex;
+                padding: 0;
 
-            &-text {
-                max-width: 400px;
-                max-height: 200px;
-                background : blue; 
+                &-picture {
+                    padding: 0;
+                    max-width: 400px;
+                    max-height: 200px;
+                    background : red; 
+                }
+    
+                &-text {
+                    padding : 16px 8px;
+                    max-width: 400px;
+                    max-height: 200px;
+                    background : $red;
+                    color: white;
+                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-repeat: no-repeat;
+                    background-size: 200%;
+
+                    &-bio {
+                        display: none;
+                        visibility: hidden;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                    }
+
+                    &-socialNetwork {
+                        padding: 0 8px;
+                    }
+                    
+                    &:nth-child(even) {
+                        background : $yellow;
+                        background-image: url($img-path+'bdxio_pattern.svg');
+                        background-repeat: no-repeat;
+                        background-size: 200%;
+                    }
+                }
             }
         }
+    }
+
+    &-button {
+        margin-top: 16px;
     }
 }
