@@ -5,11 +5,15 @@
         display: flex;
 
         &-item {
-            padding: 0;
             margin: 0 8px;
+            background: $grey-white;
 
             &-title {
+                display: block;
                 background: $yellow;
+                background-image: url($img-path+'bdxio_pattern.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
                 padding: 8px;
 
                 &-euros {
@@ -28,6 +32,9 @@
 
             &-status {
                 background: $red;
+                background-image: url($img-path+'bdxio_pattern.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
                 color: white;
                 font-size: 12px;
                 font-weight: bold;
@@ -36,15 +43,18 @@
             }
 
             &-content {
-                background: $grey-white;
+                display: block;
                 padding: 16px;
-                height: 180px;
+                line-height: 30px;
 
                 span {
                     color: $red;
                 }
-            }
 
+                &-button {
+                    margin-top: 16px;
+                }
+            }
         }
     }
 }

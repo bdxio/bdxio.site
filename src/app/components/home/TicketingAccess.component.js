@@ -16,26 +16,29 @@ class TicketingAccess extends Component {
                 <div className="columns text-center">
                     <div className="row align-center ticketingAccess-container">
                         <div className="columns small-3 ticketingAccess-container-item">
-                            <div className="ticketingAccess-container-item-title">
-                                <div className="ticketingAccess-container-item-title-euros">32,00 €</div>
-                                <div className="ticketingAccess-container-item-title-classe">Early Bird</div>
+                            <div className="row align-center ticketingAccess-container-item-title">
+                                <div className="columns ticketingAccess-container-item-title-euros">32,00 €</div>
+                                <div className="columns ticketingAccess-container-item-title-classe">Early Bird</div>
                             </div>
-                            <div className="ticketingAccess-container-item-status">Individuel</div>
-                            <div className="ticketingAccess-container-item-content">
+                            <div className="row align-center ticketingAccess-container-item-status">Individuel</div>
+                            <div className="row align-center ticketingAccess-container-item-content">
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
                                 <div>Repas <span>offert</span> le midi</div>
                                 <div>Accès aux stands</div>
                                 <div>Accès à <span>toutes</span> les conférences</div>
                             </div>
+                            <div className="row shrink align-center">
+                                <a className="button small secondary">Acheter</a>
+                            </div>
                         </div>
 
                         <div className="columns small-3 ticketingAccess-container-item">
-                            <div className="ticketingAccess-container-item-title">
-                                <div className="ticketingAccess-container-item-title-euros">64,00 €</div>
-                                <div className="ticketingAccess-container-item-title-classe">Golden Ticket</div>
+                            <div className="row align-center ticketingAccess-container-item-title">
+                                <div className="columns ticketingAccess-container-item-title-euros">64,00 €</div>
+                                <div className="columns ticketingAccess-container-item-title-classe">Golden Ticket</div>
                             </div>
-                            <div className="ticketingAccess-container-item-status">Individuel</div>
-                            <div className="ticketingAccess-container-item-content">
+                            <div className="row align-center ticketingAccess-container-item-status">Individuel</div>
+                            <div className="row align-center ticketingAccess-container-item-content">
                                 <div>Donner votre <span>avis</span> concernant les talks</div>
                                 <div>Invitation au <span>diner speaker</span> si vous votez au moins pour 80% des talks</div>
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
@@ -43,20 +46,26 @@ class TicketingAccess extends Component {
                                 <div>Accès aux stands</div>
                                 <div>Accès à <span>toutes</span> les conférences</div>
                             </div>
+                            <div className="row shrink align-center">
+                                <a className="button small secondary">Acheter</a>
+                            </div>
                         </div>
 
                         <div className="columns small-3 ticketingAccess-container-item">
-                            <div className="ticketingAccess-container-item-title">
-                                <div className="ticketingAccess-container-item-title-euros">64,00 €</div>
-                                <div className="ticketingAccess-container-item-title-classe">Classic</div>
+                            <div className="row align-center ticketingAccess-container-item-title">
+                                <div className="columns ticketingAccess-container-item-title-euros">64,00 €</div>
+                                <div className="columns ticketingAccess-container-item-title-classe">Classic</div>
                             </div>
-                            <div className="ticketingAccess-container-item-status">Individuel</div>
-                            <div className="ticketingAccess-container-item-content">
+                            <div className="row align-center ticketingAccess-container-item-status">Individuel</div>
+                            <div className="row align-center ticketingAccess-container-item-content">
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
                                 <div>Repas <span>offert</span> le midi</div>
                                 <div>Accès aux stands</div>
                                 <div>Accès à <span>toutes</span> les conférences</div>
                                 <div>Soutenez l'événement</div>
+                                <div className="row shrink ticketingAccess-container-item-content-button align-center">
+                                    <a className="button small secondary">Acheter</a>
+                                </div>
                             </div>
                         </div>
                     </div>
