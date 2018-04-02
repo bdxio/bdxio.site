@@ -16,8 +16,17 @@
             }
 
             &-title {
+                position: relative;
+                bottom: 15px;
+                color: white;
+                text-transform: uppercase;
+                font-weight: bold;
                 background: $yellow;
-                padding:4px;
+                padding:4px 16px;
+            }
+
+            &-button {
+                padding-top: 16px;
             }
         }
     }

@@ -28,19 +28,23 @@ class SomeNews extends Component {
         const nbSelectors = Math.ceil(news.length / 3);
         return (
             <div className="row someNews">
-                <div className="columns text-center">
+                <div className="columns">
                     <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
                     <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX i/o ?</h6>
+                </div>
 
+                <div className="columns">
                     <div className="row align-center someNews-content">
                         {newsDisplayed.map((n, i) => {
                             return (
                                 <div key={`'news_'${i}`} className="columns small-3 someNews-content-item">
-                                    <div className="row">
+                                    <div className="row small-24 align-center">
                                         <img src={n.Thumbnail} />
                                         <div className="columns shrink someNews-content-item-title">{n.Titre}</div>
-                                        <div dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
-                                        <div><Link to={'/news'}>Lire l'article ></Link></div>
+                                        <div className="columns shrink someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
+                                        <div className="columns shrink text-center someNews-content-item-button">
+                                            <Link className="button tiny secondary" to={'/news'}>Lire l'article ></Link>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -60,6 +64,7 @@ class SomeNews extends Component {
                     <Link to={"/news"}>Les voir tous</Link>
                 </div>
             </div>
+            </div >
         );
     }
 }

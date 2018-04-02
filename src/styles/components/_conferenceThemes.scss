@@ -8,18 +8,35 @@
     &-container {
         display:block;
         background: $gradient;
-        margin: 0 100px;
+        margin: 16px 212px;
 
         &-content {
-            height: 250px;
+            height: 180px;
 
             &-item {
                 color: $white;
+                border: 1px solid $white;
         
                     h6 {
                         font-weight: bold;
                     }
                 }
+
+            &-contentBottom {
+                 padding: 37px 16px; 
+            }
         }
     }
+}
+
+.oneLine {
+    padding: 58px 16px
+}
+
+.twoLines {
+    padding: 49px 16px
+}
+
+.threeLines {
+    padding: 39px 16px
 }
