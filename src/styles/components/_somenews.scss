@@ -1,12 +1,17 @@
 .someNews {
     display: block;
-    background-image: url($img-path+'bdxio_pattern');
-    background-color: $primary;
+    background : $primary;
+    background-image: url($img-path+'bdxio_pattern.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
     &-content {
         display: flex;
 
         &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             background: $white;
             margin: 0 8px;
 
@@ -27,6 +32,22 @@
 
             &-button {
                 padding-top: 16px;
+            }
+        }
+    }
+
+    &-navigate {
+        margin: 16px;
+
+        i {
+            cursor: pointer;
+            padding: 4px;
+            color: $white;
+
+            &:hover {
+                opacity: 0.7;
+
+               
             }
         }
     }

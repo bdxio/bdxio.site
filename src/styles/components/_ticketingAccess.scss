@@ -5,54 +5,61 @@
         display: flex;
 
         &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             margin: 0 8px;
             background: $grey-white;
 
-            &-title {
+            &-infos {
                 display: block;
-                background: $yellow;
-                background-image: url($img-path+'bdxio_pattern.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-                padding: 8px;
-
-                &-euros {
-                    font-size: 24px;
-                    font-weight: bold;
-                    color: $white;
+                
+                &-title {
+                    display: block;
+                    background: $yellow;
+                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding: 8px;
+    
+                    &-euros {
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: $white;
+                    }
+    
+                    &-classe {
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: $white;
+                        text-transform: uppercase;
+                    }
                 }
-
-                &-classe {
-                    font-size: 14px;
+    
+                &-status {
+                    background: $red;
+                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    color: white;
+                    font-size: 12px;
                     font-weight: bold;
-                    color: $white;
                     text-transform: uppercase;
+                    padding: 4px;
                 }
-            }
-
-            &-status {
-                background: $red;
-                background-image: url($img-path+'bdxio_pattern.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-                color: white;
-                font-size: 12px;
-                font-weight: bold;
-                text-transform: uppercase;
-                padding: 4px;
-            }
-
-            &-content {
-                display: block;
-                padding: 16px;
-                line-height: 30px;
-
-                span {
-                    color: $red;
-                }
-
-                &-button {
-                    margin-top: 16px;
+    
+                &-content {
+                    display: block;
+                    padding: 16px;
+                    line-height: 30px;
+    
+                    span {
+                        color: $red;
+                    }
+    
+                    &-button {
+                        margin-top: 16px;
+                    }
                 }
             }
         }

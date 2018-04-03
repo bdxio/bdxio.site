@@ -9,21 +9,27 @@
 
     &-picture {
         height: 100%;
-        background-image: url($img-path+'about_img.jpg');
+        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path+'about_img.jpg');
         background-size: cover;
+        cursor: pointer;
 
         a {
             position: relative;
             color: white;
             font-size: 40px;
             top: 40%;
+
+            &:hover {
+                animation-name: zoomIn;
+             }
         }
     }
 
     &-video {
         height: 100%;
-        background-image: url($img-path+'about_video.jpg');
+        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path+'about_video.jpg');
         background-size: cover;
+        cursor: pointer;
 
         a {
             position: relative;
