@@ -12,10 +12,14 @@ class Quote extends Component {
 
         return (
             <div className="row align-middle home-team">
-                <h6 className="columns text-center home-team-content">
-                    {quote.text}<br />
-                    {quote.author}
-                </h6>
+                <div className="home-team-content">
+                    <h5 className="columns text-center ">
+                        {quote.text}
+                    </h5>
+                    <h6 className="columns text-center">
+                        {quote.author}
+                    </h6>
+                </div>
             </div>
         );
     }

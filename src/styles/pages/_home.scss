@@ -44,9 +44,9 @@
 
     &-team {
         height: 200px;
-        background: url($img-path+'team_img.jpg'), blue; 
+        background: linear-gradient(45deg,rgba($red, 0.55), rgba($yellow, 0.65)), url($img-path+'bdxio_team.jpg');
         background-size: cover;
-        background-position-y: -200px;
+        background-position-y: -64px;
         margin-top: 64px;
 
         &-content {
@@ -55,6 +55,15 @@
             font-weight: bold;
             margin: 0 100px;
             padding: 30px;
+
+            h5 {
+                color: $black;
+                font-weight: bold;
+            }
+
+            h6 {
+                color: $black;
+            }
         }
     }
 }
