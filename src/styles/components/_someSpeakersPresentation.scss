@@ -19,18 +19,29 @@
                 }
     
                 &-text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
                     padding : 16px 8px;
                     max-width: 400px;
                     max-height: 200px;
                     background : $red;
                     color: white;
-                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-image: url($img-path+'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
                     background-size: 200%;
 
                     &-bio {
                         display: none;
                         visibility: hidden;
+                    }
+
+                    &-trait {
+                        display: inline-block;
+                        background-color: $white;
+                        height: 1pt;
+                        width: 50%;  
+                        margin-bottom: 8px; 
                     }
 
                     h6 {
@@ -43,7 +54,7 @@
                     
                     &:nth-child(even) {
                         background : $yellow;
-                        background-image: url($img-path+'bdxio_pattern.svg');
+                        background-image: url($img-path+'svg/bdxio_pattern.svg');
                         background-repeat: no-repeat;
                         background-size: 200%;
                     }
