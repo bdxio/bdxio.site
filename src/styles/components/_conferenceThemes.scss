@@ -7,23 +7,36 @@
 
     &-container {
         display:block;
-        background: $gradient;
-        margin: 16px 212px;
+        background: url($img-path+'svg/bdxio_pattern.svg') no-repeat, $gradient;
+        background-size: cover;
+        background-repeat: no-repeat;
 
         &-content {
-            height: 180px;
+            display: flex;
 
             &-item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 color: $white;
                 border: 1px solid $white;
+                max-height: 300px;
+                min-height: 200px;
+
+                img {
+                    color: $white;
+                    width: 50px;
+                    margin-bottom: 4px;
+                }
         
                     h6 {
                         font-weight: bold;
+                        margin-bottom: 8px; 
                     }
                 }
 
             &-contentBottom {
-                 padding: 37px 16px; 
+                 padding: 38px 16px; 
             }
         }
     }
