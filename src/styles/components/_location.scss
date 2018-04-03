@@ -10,7 +10,7 @@
                 color: $white;
                 font-weight: bold;
                 padding: 16px 16px;
-                background-image: url($img-path+'location_place.svg');
+                background-image: url($img-path+'svg/location_place.svg');
                 background-repeat: no-repeat;
                 background-size: 20%;
                 background-position: bottom right;
@@ -21,7 +21,7 @@
                 color: $white;
                 font-weight: bold;
                 padding: 16px 16px;
-                background-image: url($img-path+'location_amphis.svg');
+                background-image: url($img-path+'svg/location_amphis.svg');
                 background-repeat: no-repeat;
                 background-size: 20%;
                 background-position: bottom right;
@@ -32,7 +32,7 @@
                 color: $white;
                 font-weight: bold;
                 padding: 16px 16px;
-                background-image: url($img-path+'location_dev.svg');
+                background-image: url($img-path+'svg/location_dev.svg');
                 background-repeat: no-repeat;
                 background-size: 20%;
                 background-position: bottom right;
@@ -41,7 +41,7 @@
 
     &-site {
         &-place {
-            background: url($img-path+'bdxio_pattern.svg') no-repeat, $gradient;
+            background: url($img-path+'svg/bdxio_pattern.svg') no-repeat, $gradient;
             background-size: cover;
             background-repeat: no-repeat;
             color: $white;

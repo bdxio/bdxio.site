@@ -17,7 +17,7 @@
                 &-title {
                     display: block;
                     background: $yellow;
-                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-image: url($img-path+'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
                     background-size: cover;
                     padding: 8px;
@@ -38,7 +38,7 @@
     
                 &-status {
                     background: $red;
-                    background-image: url($img-path+'bdxio_pattern.svg');
+                    background-image: url($img-path+'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
                     background-size: cover;
                     color: white;
