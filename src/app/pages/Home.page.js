@@ -43,6 +43,8 @@ class Home extends Component {
                     </div>
                 </div>
 
+                <div className="home-headerBackground"><img className="" src="img/svg/header_form.svg"/></div>
+
                 <div className="row text-center home-about">
                     <h5 className="sectionTitle align-center">À propos de Bdxio</h5>
                     <h6>
