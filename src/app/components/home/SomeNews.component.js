@@ -55,10 +55,10 @@ class SomeNews extends Component {
                         })}
                     </div>
 
-                    <div>
+                    <div className="row align-center someNews-navigate">
                         {[...Array(nbSelectors)].map((v, i) => {
                             return (
-                                <button key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}>•</button>
+                                <button key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
                             );
                         })}
                     </div>
