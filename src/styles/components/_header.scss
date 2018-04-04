@@ -1,13 +1,40 @@
+    /* Nous définirons ici le style de notre menu pour les grands écrans (>900px) */ 
 .menu {
+    padding: 0;
+    background: $primary;
+
+    &-logo {
+        width: 10%;
+    }
+
     &-item, &-socialNetwork {
          display: flex;
          list-style-type: none;
          margin: 0;
- 
-         a{
-             color: $white;
-         }
-     }
+     
+         &-content {
+            position: relative;
+            a {
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 100%;
+                    height: 2px;
+                    position: absolute;
+                    left: 0;
+                    bottom: -4px;
+                    border-bottom: solid 2px #333;
+                    transform: scaleX(0);
+                    transition: transform .2s cubic-bezier(0.7, 0, 0.4, 1);
+               
+            }
+            &:hover {
+                &:after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
 
      &-liveStream {
         background: $white;
@@ -15,3 +42,4 @@
         padding: 8px 16px;
     }
  }
+
