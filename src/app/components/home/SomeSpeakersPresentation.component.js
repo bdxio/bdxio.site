@@ -49,7 +49,7 @@ class SomeSpeakersPresentation extends Component {
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
                                     <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
                                     <div>
-                                        <div className="speakers-container-content-item-text-trait">&nbsp;</div>
+                                        <hr/>
                                         <span>{speaker['Twitter']}<i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></span>
                                         <span>{speaker['Linkedin']}<i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></span>
                                         <span>{speaker['Google+']}<i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></span>
@@ -70,11 +70,11 @@ class SomeSpeakersPresentation extends Component {
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
                                     <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
                                     <div>
-                                        <div className="speakers-container-content-item-text-trait">&nbsp;</div>
-                                        <span>{speaker['Twitter']}</span>
-                                        <span>{speaker['Linkedin']}</span>
-                                        <span>{speaker['Google+']}</span>
-                                        <span>{speaker['Blog']}</span>
+                                        <hr/>
+                                        <span>{speaker['Twitter']}<i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></span>
+                                        <span>{speaker['Linkedin']}<i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></span>
+                                        <span>{speaker['Google+']}<i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></span>
+                                        <span>{speaker['Blog']}<i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></span>
                                     </div>
                                 </div>
                                 <img className="column auto align-center speakers-container-content-item-picture"
