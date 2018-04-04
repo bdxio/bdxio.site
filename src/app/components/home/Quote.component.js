@@ -11,7 +11,7 @@ class Quote extends Component {
         const quote = Constant.quotes[rnd];
 
         return (
-            <div className="row align-middle home-team">
+            <div className="row align-middle align-center home-team">
                 <div className="home-team-content">
                     <h5 className="columns text-center ">
                         {quote.text}
