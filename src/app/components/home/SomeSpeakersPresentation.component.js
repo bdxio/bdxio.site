@@ -38,7 +38,7 @@ class SomeSpeakersPresentation extends Component {
             <div className="row speakers text-center">
                 <div className="column small-24 sectionTitle">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6 className="sectionSubTitle">On vous a choisi quelques profils de façon aléatoire de façon à vous mettre l'eau à la bouche</h6>
+                    <h6 className="sectionSubTitle">On vous a choisi quelques profils 2017 de façon aléatoire pour vous mettre l\'eau à la bouche</h6>
                 </div>
 
                 <div className="column small-24 speakers-container">
