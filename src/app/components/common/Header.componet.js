@@ -25,7 +25,7 @@ class Header extends Component {
                     <li><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
                     <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
                 </ul>
                 <span className=" columns auto text-center menu-liveStream">LiveStream component</span>
             </nav>
