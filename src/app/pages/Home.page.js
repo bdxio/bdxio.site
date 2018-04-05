@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
 import Countdown from '../components/Countdown.component';
@@ -20,7 +20,7 @@ class Home extends Component {
     }
 
     render() {
-        const { News, Sponsors, Speakers } = this.props.gsheet;
+        const {News, Sponsors, Speakers} = this.props.gsheet;
         // TODO: FILTER WITH CORRECT NEW NAME
         const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'GOLD');
 
@@ -35,7 +35,7 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    <Countdown />
+                    <Countdown/>
 
                     <div className="columns text-center home-header-button">
                         <button className="button medium white" type="button">S'inscrire</button>
@@ -43,36 +43,55 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div className="home-headerBackground"></div>
+                <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 12 50 28" xmlSpace="preserve">
+                    <title>Plan de travail 1</title>
+                    <g>
+                        <defs>
+                            <polygon id="SVGID_1_" points="0,11.7 0,24.8 25,38.3 50,24.8 50,11.7"/>
+                        </defs>
+                        <clipPath id="SVGID_2_">
+                            <use xlinkHref="#SVGID_1_"/>
+                        </clipPath>
+                        <g style={{'clipPath':'url(#SVGID_2_)'}}>
+
+                            <image width="4653" height="3020" xlinkHref="img/jpg/bdxio_team.jpg"
+                                   transform="matrix(1.256919e-02 0 0 1.256919e-02 -3.513 3.5492)">
+                            </image>
+                        </g>
+                    </g>
+                </svg>
 
                 <div className="row text-center home-about">
                     <h5 className="sectionTitle align-center">À propos de Bdxio</h5>
                     <h6>
-                        BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
-                        Pour cette cinquième édition, nous recevrons encore 500 passionées pour une journée nouvelle de découverte dans la bonne
+                        BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br/>
+                        Pour cette cinquième édition, nous recevrons encore 500 passionées pour une journée nouvelle de
+                        découverte dans la bonne
                         humeur !!!
                     </h6>
                 </div>
 
-                <MetricsBar />
+                <MetricsBar/>
 
                 <div className="row align-center">
                     <Link className="columns shrink button small primary" to="/gallery">Voir la galerie</Link>
                 </div>
 
-                <ConferenceThemes />
+                <ConferenceThemes/>
 
-                <Quote />
+                <Quote/>
 
-                <SomeSpeakersPresentation speakers={Speakers} />
+                <SomeSpeakersPresentation speakers={Speakers}/>
 
-                <SomeNews news={News} />
+                <SomeNews news={News}/>
 
-                <TicketingAccess />
+                <TicketingAccess/>
 
-                <Location />
+                <Location/>
 
-                <SponsorsBar partners={IMPERIAL} />
+                <SponsorsBar partners={IMPERIAL}/>
             </div>
         );
     }
