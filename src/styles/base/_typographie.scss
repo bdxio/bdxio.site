@@ -10,18 +10,20 @@ h6 {
     text-transform: uppercase;
     color: black;
     font-weight: bold; 
-    margin-top: 64px;
+    margin-top: 80px;
+    margin-bottom: 24px;
 }
 
 .sectionTitleBg {
     text-transform: uppercase;
     color: $white;
     font-weight: bold; 
-    margin-top: 64px;
-    padding-top: 16px;
+    margin-top: 80px;
+    margin-bottom: 24px;
+    padding-top: 24px;
 }
 
 .sectionSubtitleBg {
     color: $white;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }

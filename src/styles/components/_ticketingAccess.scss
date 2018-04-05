@@ -3,6 +3,7 @@
 
     &-container {
         display: flex;
+        margin-top: rem-calc(64px);
 
         &-item {
             display: flex;
@@ -10,6 +11,7 @@
             justify-content: space-between;
             margin: 0 8px;
             background: $grey-white;
+            min-height: rem-calc(450px);
 
             &-infos {
                 display: block;
@@ -19,7 +21,7 @@
                     background: $yellow;
                     background-image: url($img-path+'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
-                    background-size: cover;
+                    background-size: 200%;
                     padding: 8px;
     
                     &-euros {
@@ -40,26 +42,26 @@
                     background: $red;
                     background-image: url($img-path+'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
-                    background-size: cover;
+                    background-size: 200%;
                     color: white;
                     font-size: 12px;
                     font-weight: bold;
                     text-transform: uppercase;
                     padding: 4px;
                 }
-    
-                &-content {
-                    display: block;
-                    padding: 16px;
-                    line-height: 30px;
-    
-                    span {
-                        color: $red;
-                    }
-    
-                    &-button {
-                        margin-top: 16px;
-                    }
+            }
+
+            &-content {
+                display: block;
+                padding: 24px;
+                line-height: 40px;
+
+                span {
+                    color: $red;
+                }
+
+                &-button {
+                    margin-top: 16px;
                 }
             }
         }

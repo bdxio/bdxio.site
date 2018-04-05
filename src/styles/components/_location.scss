@@ -45,7 +45,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             color: $white;
-            height: 220px;
+            min-height: calc(1024px - 756px);
             padding: 24px 30px;
 
             h5 {

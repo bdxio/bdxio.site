@@ -7,17 +7,27 @@
 
     &-content {
         display: flex;
-
+        margin-top: rem-calc(64px);
+        
         &-item {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: $white;
             margin: 0 8px;
+            min-height: rem-calc(450px);
 
-            img {
-                height: 200px;
-                width: 430px;
+            &-picture {
+                display: block;
+                max-height: 200px;
+                width: 100%;
+                overflow: hidden;
+                padding: 0;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
             }
 
             &-title {

@@ -39,7 +39,7 @@ class SomeNews extends Component {
                             return (
                                 <div key={`'news_'${i}`} className="columns small-3 someNews-content-item">
                                     <div className="row small-24">
-                                        <img src={n.Thumbnail} />
+                                        <img className="someNews-content-item-picture" src={n.Thumbnail} />
                                         <div className="columns shrink someNews-content-item-title">{n.Titre}</div>
                                         <div className="columns shrink someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
                                     </div>

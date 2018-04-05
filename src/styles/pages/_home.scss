@@ -7,6 +7,7 @@
     z-index: 999;
     top: 15%;
 
+
     h1 {
       color: $white;
     }
@@ -14,10 +15,14 @@
     &-content {
       background: $white;
       padding: 8px 16px;
-      margin: 0 500px;
+      margin: 24px 0;
       color: $red;
       font-size: 14px;
       font-weight: bold;
+      position: absolute;
+      z-index: 999;
+      top: 15%;
+    
 
       span {
         padding: 0 16px;
@@ -26,6 +31,13 @@
           padding-right: 8px;
         }
       }
+    }
+
+    &-background {
+      background : $primary;
+      background-image: url($img-path+'svg/bdxio_pattern.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     &-button {
@@ -54,17 +66,17 @@
   }
 
   &-team {
-    height: 200px;
+    min-height: calc(1024px - 756px);
     background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)), url($img-path+ 'jpg/bdxio_team.jpg');
     background-size: cover;
     background-position-y: 48%;
-    margin-top: 64px;
+    margin-top: calc(80px + 16px);
 
     &-content {
       background-color: $white;
       opacity: 0.7;
       font-weight: bold;
-      padding: 30px;
+      padding: 50px;
 
       h5 {
         color: $black;
