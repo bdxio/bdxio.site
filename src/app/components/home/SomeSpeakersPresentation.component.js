@@ -47,6 +47,9 @@ class SomeSpeakersPresentation extends Component {
                             return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                 <div className="column auto align-center speakers-container-content-item-picture">
                                     <img src={speaker['Avatar url']} />
+                                    
+                                    {/* TODO : fix image for bad pixel picture */}
+                                    <img src="img/svg/bdxio_no_speaker.svg"/>
                                 </div>
                                 <div className="column auto align-center speakers-container-content-item-text">
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
