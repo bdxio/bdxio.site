@@ -1,5 +1,6 @@
-    /* Nous définirons ici le style de notre menu pour les grands écrans (>900px) */ 
 .menu {
+    position: absolute;
+    z-index: 999;
     padding: 0;
     
 
