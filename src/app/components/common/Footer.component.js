@@ -17,14 +17,13 @@ class Footer extends Component {
 
                 <div className="columns footer-item">
                     <ul className="row">
-                        <li className="columns shrink">Accueil</li>
-                        <li className="columns shrink">Privacy</li>
-                        <li className="columns shrink">Termes et conditions</li>
-                        <li className="columns shrink">A propos</li>
-                        <li className="columns shrink">Contact</li>
-                        <li className="columns auto text-right"><i className="fa fa-twitter"></i></li>
-                        <li className="columns shrink text-right"><i className="fa fa-facebook-f"></i></li>
-                        <li className="columns shrink text-right"><i className="fa fa-linkedin"></i></li>
+                        <li className="columns shrink"><Link to="/home">Accueil</Link></li>
+                        <li className="columns shrink"><Link to="/contact">Contact</Link></li>
+                        <li className="columns shrink text-right"><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
+                        <li className="columns shrink text-right"><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
+                        <li className="columns shrink text-right"><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
+                        <li className="columns shrink text-right"><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
+                        <li className="columns shrink text-right"><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
                     </ul>
                 </div>
 
