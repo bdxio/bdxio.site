@@ -8,32 +8,48 @@ const COUNT_DISPLAYED_SPEAKERS = 4;
 class SomeSpeakersPresentation extends Component {
     constructor(props) {
         super(props);
-        this.getRandomSpeaker = this.getRandomSpeaker.bind(this);
-        this.getRandomSpeakers = this.getRandomSpeakers.bind(this);
+        this.state = {
+            speakers: [],
+        }
     }
 
-    getRandomSpeaker(ref) {
-        const { speakers } = this.props;
+    componentWillReceiveProps(nextProps) {
+        this.getRandomSpeakers(nextProps.speakers)
+            .then(speakers => this.setState({ speakers }));
+    }
+
+    getImageSize(url) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve({ width: img.width, height: img.height });
+            img.onerror = () => resolve({ width: 0, height: 0 });
+            img.src = url;
+        })
+    }
+
+    getRandomSpeaker(ref, speakers) {
         const randomSpeaker = speakers[Math.floor(Math.random() * speakers.length)];
         const isSelected = (ref.findIndex(r => r['Nom'] === randomSpeaker['Nom']) > -1);
 
-        return (isSelected || (randomSpeaker['Nom'] === "")) ? this.getRandomSpeaker(ref) : randomSpeaker;
+        return (isSelected || (randomSpeaker['Nom'] === "")) ? this.getRandomSpeaker(ref, speakers) : randomSpeaker;
     }
 
-    getRandomSpeakers() {
-        const speakers = [];
-        if (this.props.speakers.length > 0) {
-            const LIMIT = this.props.speakers.length >= COUNT_DISPLAYED_SPEAKERS ? COUNT_DISPLAYED_SPEAKERS : this.props.speakers.length;
+    async getRandomSpeakers(speakers) {
+        const randomSpeakers = [];
+        if (speakers.length > 0) {
+            const LIMIT = speakers.length >= COUNT_DISPLAYED_SPEAKERS ? COUNT_DISPLAYED_SPEAKERS : speakers.length;
             for (let i = 0; i < LIMIT; i++) {
-                speakers.push(this.getRandomSpeaker(speakers));
+                const speaker = this.getRandomSpeaker(randomSpeakers, speakers);
+                const size = await this.getImageSize(speaker['Avatar url']);
+                speaker['Avatar url'] = (size.width < 150 || size.height < 150) ? '/img/svg/bdxio_no_speaker.svg' : speaker['Avatar url'];
+                randomSpeakers.push(speaker);
             }
         }
-        return speakers;
+        return randomSpeakers;
     }
 
     render() {
-        const randomSpeakers = this.getRandomSpeakers();
-        console.log(randomSpeakers)
+        const { speakers } = this.state;
         return (
             <div className="row speakers text-center">
                 <div className="column small-24 sectionTitle">
@@ -43,17 +59,14 @@ class SomeSpeakersPresentation extends Component {
 
                 <div className="column small-24 speakers-container">
                     <div className="row align-center speakers-container-content">
-                        {randomSpeakers.slice(0, 2).map((speaker, i) => {
+                        {speakers.slice(0, 2).map((speaker, i) => {
                             return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                 <div className="column auto align-center speakers-container-content-item-picture">
                                     <img src={speaker['Avatar url']} />
-                                    
-                                    {/* TODO : fix image for bad pixel picture */}
-                                    <img src="img/svg/bdxio_no_speaker.svg"/>
                                 </div>
                                 <div className="column auto align-center speakers-container-content-item-text">
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0,150)}...</div>
+                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0, 150)}...</div>
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
@@ -78,11 +91,11 @@ class SomeSpeakersPresentation extends Component {
 
                 <div className="column small-24 speakers-container">
                     <div className="row align-center speakers-container-content">
-                        {randomSpeakers.slice(-2).map((speaker, i) => {
+                        {speakers.slice(-2).map((speaker, i) => {
                             return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                 <div className="column auto align-center speakers-container-content-item-text">
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0,150)}...</div>
+                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0, 150)}...</div>
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
