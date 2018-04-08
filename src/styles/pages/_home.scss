@@ -1,3 +1,9 @@
+.homeBg {
+  position: absolute;
+  z-index: -1;
+  max-height: 500px;
+  width: 100%;
+}
 
 .home {
   &-header {
@@ -7,9 +13,16 @@
     z-index: 999;
     top: 15%;
 
-
     h1 {
       color: $white;
+      font-weight: bold;
+    }
+
+    img {
+      position: absolute;
+      max-width: 26%;
+      left: 84%;
+      top: 76%;
     }
 
     &-content {
@@ -63,6 +76,8 @@
 
   &-about {
     display: block;
+
+    h5 {margin-top: 0;}
   }
 
   &-team {
