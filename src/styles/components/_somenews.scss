@@ -6,22 +6,24 @@
     background-size: cover;
 
     &-content {
-        display: flex;        
+        display: flex;  
+
         &-item {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: $white;
             margin: 0 8px;
-            min-height: rem-calc(450px);
+            height: rem-calc(450px);
 
-            &-picture {
-                display: block;
-                max-height: 200px;
-                width: 100%;
+            .news-container {
+                overflow: auto;
+            }
+
+            .img-container {
+                width: auto;
+                height: rem-calc(200px);
                 overflow: hidden;
-                padding: 0;
-                object-fit: cover;
 
                 img {
                     height: 100%;
@@ -36,6 +38,7 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 background: $yellow;
+                max-width: rem-calc(200px);
                 padding:4px 16px;
             }
 
@@ -46,6 +49,11 @@
 
             &-button {
                 padding-top: 16px;
+            }
+
+            .text-content {
+                padding: 0 16px;
+                text-align: justify;
             }
         }
     }

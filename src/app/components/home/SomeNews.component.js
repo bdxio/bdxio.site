@@ -34,21 +34,20 @@ class SomeNews extends Component {
                 </div>
 
                 <div className="columns">
-                    <div className="row align-center someNews-content">
+                    <div className="row collapse align-center someNews-content">
                         {newsDisplayed.map((n, i) => {
                             return (
                                 <div key={`'news_'${i}`} className="columns small-3 someNews-content-item">
-                                    <div className="row small-24">
+                                    <div class="news-container">
+                                        <div class="img-container">
                                         <img className="someNews-content-item-picture" src={n.Thumbnail} />
-                                        <div className="columns shrink someNews-content-item-title">{n.Titre}</div>
-                                        <div className="columns shrink someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
-                                    </div>
-
-                                    <div className="row small-24 align-center ">
-                                        <div className="columns shrink text-center someNews-content-item-button">
+                                        </div>
+                                        <div className="someNews-content-item-title">{n.Titre}</div>
+                                        <div className="text-content someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
+                                        </div>
+                                        <div className="text-center someNews-content-item-button">
                                             <Link className="button tiny secondary" to={'/news'}>Lire l'article ></Link>
                                         </div>
-                                    </div>
                                 </div>
 
                             );
