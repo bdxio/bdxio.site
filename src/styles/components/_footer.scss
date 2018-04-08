@@ -27,6 +27,15 @@
         ul {
             display: flex;
             list-style-type: none;
+            margin: 0px !important;
+
+            a {
+                color: white;
+            }
         }
+    }
+
+    &-date {
+        margin: 0 16px !important;
     }
 }

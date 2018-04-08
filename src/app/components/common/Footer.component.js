@@ -19,7 +19,7 @@ class Footer extends Component {
                     <ul className="row">
                         <li className="columns shrink"><Link to="/home">Accueil</Link></li>
                         <li className="columns shrink"><Link to="/contact">Contact</Link></li>
-                        <li className="columns shrink text-right"><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
+                        <li className="columns auto text-right"><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
                         <li className="columns shrink text-right"><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
                         <li className="columns shrink text-right"><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
                         <li className="columns shrink text-right"><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
