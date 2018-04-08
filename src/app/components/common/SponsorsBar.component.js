@@ -10,6 +10,7 @@ class SponsorsBar extends Component {
         const { partners } = this.props;
         return (
             <div className="row sponsorBar">
+             <img className="homeFlottant" src="img/svg/sponsor_flottant.svg" />
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Nos sponsors Impériaux</h5>
                     <h6>Merci à nos sponsors pour leur soutient !!! \( ^  ^)°/</h6>
@@ -20,6 +21,7 @@ class SponsorsBar extends Component {
                         <img className="columns small-3" key={`sb_${i}`} src={p['Logo url']} alt={p['Société']} width="100" />
                     ))}
                 </div>
+                <img className="homeFlottant1" src="img/svg/footer_flottant.svg" />
             </div>
         );
     }

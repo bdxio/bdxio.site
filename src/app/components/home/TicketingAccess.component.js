@@ -82,6 +82,7 @@ class TicketingAccess extends Component {
                         </div>
                     </div>
                 </div>
+                <img className="homeFlottant" src="img/svg/price_flottant.svg" />
             </div>
         );
     }

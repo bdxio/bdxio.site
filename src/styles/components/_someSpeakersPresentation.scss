@@ -1,6 +1,16 @@
 .speakers {
     display: block;
+    position: relative;
     margin-top: rem-calc(64px);
+
+    .homeFlottant {
+        display: block;
+        float: right;
+        position: absolute;
+        max-width: 18%;
+        right: -2%;
+        top: -16%;
+      }
 
     &-container {
         margin: 0;
@@ -18,7 +28,6 @@
                     width: 100%;
                     overflow: hidden;
                     padding: 0;
-                    background-color: $primary;
 
                     img {
                         height: 100%;
@@ -33,7 +42,7 @@
                     height: 100%;
                     width: 100%;
                     overflow: hidden;
-                    padding: 8px 8px;
+                    padding: 8px 0;
                     background : $red;
                     color: white;
                     background-image: url($img-path+'svg/bdxio_pattern.svg');

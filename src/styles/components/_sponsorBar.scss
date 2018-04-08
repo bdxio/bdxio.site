@@ -1,5 +1,23 @@
 .sponsorBar {
     display: block;
+    position: relative;
+
+    .homeFlottant {
+        display: block;
+        float: left;
+        position: absolute;
+        max-width: 20%;
+        top: -30%;
+    }
+
+    .homeFlottant1 {
+        display: block;
+        float: right;
+        position: absolute;
+        max-width: 20%;
+        bottom: -54%;
+        right: -12px;
+    }
 
     img {
         width: 15%;

@@ -12,7 +12,6 @@ class MetricsBar extends Component {
                 <div className="columns small-2 text-center metricsBar-picture">
                     <Link to="/gallery"><i className="fa fa-plus-circle"></i></Link>
                 </div>
-
                 <div className="columns auto">
                     <div className="row metricsBar-content text-center">
                         <div className="columns">

@@ -1,8 +1,29 @@
 .conference {
     display: block;
+    position: relative;
+    
+    .homeFlottant {
+        display: block;
+        float: right;
+        position: absolute;
+        max-width: 32%;
+        right: -20%;
+        top: -44%;
+      }
 
     &-themes {
         display: block
+    }
+
+    &-flottant {
+        .homeFlottant1 {
+            display: block;
+            float: left;
+            position: absolute;
+            max-width: 22%;
+            left: -6%;
+            top: 60%;
+          }
     }
 
     &-container {

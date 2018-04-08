@@ -21,7 +21,7 @@
     img {
       position: absolute;
       max-width: 26%;
-      left: 84%;
+      right: -9%;
       top: 76%;
     }
 
@@ -76,8 +76,18 @@
 
   &-about {
     display: block;
+    position: relative;
 
     h5 {margin-top: 0;}
+
+    img {
+      display: block;
+      float: left;
+      position: absolute;
+      max-width: 17%;
+      left: -9%;
+      top: -14%;
+    }
   }
 
   &-team {

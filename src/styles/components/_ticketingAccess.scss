@@ -1,5 +1,15 @@
 .ticketingAccess {
     display: block;
+    position: relative;
+
+    .homeFlottant {
+        display: block;
+        float: right;
+        position: absolute;
+        max-width: 26%;
+        right: -12%;
+        bottom: -14%;
+      }
 
     &-container {
         display: flex;

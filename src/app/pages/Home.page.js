@@ -72,6 +72,7 @@ class Home extends Component {
                         découverte dans la bonne
                         humeur !!!
                     </h6>
+                    <img className="homeFlottant" src="img/svg/about_flottant.svg" />
                 </div>
 
                 <MetricsBar />
