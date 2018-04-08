@@ -12,7 +12,7 @@ class Header extends Component {
                 <span className="columns shrink menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
-                <ul className=" columns shrink align-center menu-item">
+                <ul className=" columns auto align-center menu-item">
                     <li className="columns shrink menu-item-content"><Link to="/home">Accueil</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/news">Actualités</Link></li>
@@ -27,7 +27,7 @@ class Header extends Component {
                     <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
                     <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
                 </ul>
-                <span className=" columns auto text-center menu-liveStream">LiveStream component</span>
+                <span className=" columns shrink text-center menu-liveStream">LiveStream component</span>
             </nav>
         )
     }
