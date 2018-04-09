@@ -10,9 +10,9 @@ class Location extends Component {
         return (
             <div className="row location">
                 <div className="columns small-12 align-center location-infos">
-                    <div className="small-3 location-infos-place">A 10 minute de <br />Bordeaux</div>
+                    <div className="small-3 location-infos-place">A 10 minute de <br />> Bordeaux</div>
                     <div className="small-3 location-infos-amphis">6 amphis en parallèle <br />> 50 conférences</div>
-                    <div className="small-3 location-infos-dev">15 communautés <br />> 500 Développeur(se)s</div>
+                    <div className="small-3 location-infos-dev">15 communautés <br />> 500 Développeur·se·s</div>
                 </div>
 
                 <div className="columns small-12 location-site">

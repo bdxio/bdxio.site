@@ -16,9 +16,10 @@ class Header extends Component {
                     <li className="columns shrink menu-item-content"><Link to="/home">Accueil</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/news">Actualités</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/speakers">Speakers</Link></li>
+                    {/*  FIXME added disabled class on link, thank you for adding a style to show it's disabled*/}
+                    <li className="columns shrink menu-item-content"><Link className="disabled" to={false?'/speakers': '/home'} >Speakers</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/partnerships">Sponsors</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/faq">FAQ</Link></li>
+                    <li className="columns shrink menu-item-content"><Link className="disabled" to={false?'/faq': '/home'}>FAQ</Link></li>
                     <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
                 <ul className=" columns shrink align-center menu-socialNetwork">
@@ -27,7 +28,8 @@ class Header extends Component {
                     <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
                     <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
                 </ul>
-                <span className=" columns shrink text-center menu-liveStream">LiveStream component</span>
+                {/* FIXME Add liveStream component*/}
+                {/*<span className=" columns shrink text-center menu-liveStream">LiveStream component</span>*/}
             </nav>
         )
     }

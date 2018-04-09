@@ -29,10 +29,10 @@ class Home extends Component {
                 <img className="homeBg" src="img/png/header_bg.png" />
                 <div className="row home-header">
                 <img className="homeFlottant" src="img/svg/home_flottant.svg" />
-                    <h1 className="columns text-center">Bienvenue à BDX I/O 2018 !</h1>
+                    <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
                     <div className="row align-center">
                         <div className="columns shrink home-header-content">
-                            <span><i className="fa fa-calendar"></i>10 novembre</span>
+                            <span><i className="fa fa-calendar"></i>9 novembre</span>
                             <span><i className="fa fa-map-marker"></i>EINSERB</span>
                         </div>
                     </div>
@@ -77,9 +77,9 @@ class Home extends Component {
 
                 <MetricsBar />
 
-                <div className="row align-center">
-                    <Link className="columns shrink button small primary" to="/gallery">Voir la galerie</Link>
-                </div>
+                {/*<div className="row align-center">*/}
+                    {/*<Link className="columns shrink button small primary disabled" to="/gallery">Voir la galerie</Link>*/}
+                {/*</div>*/}
 
                 <ConferenceThemes />
 

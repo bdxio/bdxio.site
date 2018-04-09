@@ -55,7 +55,7 @@ class SomeSpeakersPresentation extends Component {
             <img className="homeFlottant" src="img/svg/speakers_flottant.svg" />
                 <div className="column small-24 sectionTitle">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6 className="sectionSubTitle">On vous a choisi quelques profils 2017 de façon aléatoire pour vous mettre l\'eau à la bouche</h6>
+                    <h6 className="sectionSubTitle">On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
                 </div>
 
                 <div className="column small-24 speakers-container">
