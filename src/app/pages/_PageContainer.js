@@ -18,16 +18,25 @@ const displayPage = (Page) => {
         }
 
         render() {
-            const { Sponsors } = this.props.gsheet;
+            const { loaded, Sponsors } = this.props.gsheet;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
 
-            return (
-                <div>
-                    <Header />
-                    <Page {...this.props} />
-                    <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px': '64px') }} />
-                </div>
-            )
+            if (loaded) {
+                return (
+                    <div>
+                        <Header />
+                        <Page {...this.props} />
+                        <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
+                    </div>
+                );
+            }
+            else {
+                return (
+                    <div>
+                        <p>Loading...</p>
+                    </div>
+                );
+            }
         }
     }
 

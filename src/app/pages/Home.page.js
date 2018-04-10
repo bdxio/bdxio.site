@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import displayPage from './_PageContainer';
 import Countdown from '../components/Countdown.component';
 import MetricsBar from '../components/home/MetricsBar.component';
@@ -21,7 +22,7 @@ class Home extends Component {
     }
 
     render() {
-        const { News, Sponsors, Speakers } = this.props.gsheet;
+        const { News, Sponsors, Speakers, Config } = this.props.gsheet;
 
         const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
 
@@ -41,8 +42,15 @@ class Home extends Component {
                     <Countdown />
 
                     <div className="columns text-center home-header-button">
-                        <button className="button medium white" type="button">S'inscrire</button>
-                        <button className="button medium white" type="button">Programme</button>
+                        {Config.registrationOpened === 'opened' &&
+                            <button className="button medium white" type="button">S'inscrire</button>
+                        }
+                        {moment().isSameOrAfter(moment(Config.talksListPublishingDate)) &&
+                            <button className="button medium white" type="button">Programme</button>
+                        }
+                        {Config.registrationOpened !== 'opened' && moment().isBefore(moment(Config.talksListPublishingDate)) &&
+                            <button className="button medium white" type="button">Devenir sponsors</button>
+                        }
                     </div>
                 </div>
 

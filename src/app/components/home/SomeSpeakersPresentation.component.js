@@ -13,8 +13,8 @@ class SomeSpeakersPresentation extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.getRandomSpeakers(nextProps.speakers)
+    componentWillMount() {
+        this.getRandomSpeakers(this.props.speakers)
             .then(speakers => this.setState({ speakers }));
     }
 

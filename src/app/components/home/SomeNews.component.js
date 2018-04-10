@@ -16,9 +16,9 @@ class SomeNews extends Component {
         this.setState({ index })
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillMount() {
         this.setState({
-            news: nextProps.news.filter(n => n['Publiée'] == '1')
+            news: this.props.news.filter(n => n['Publiée'] == '1')
         });
     }
 
