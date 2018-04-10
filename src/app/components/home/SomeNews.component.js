@@ -58,7 +58,7 @@ class SomeNews extends Component {
                     <div className="row align-center someNews-navigate">
                         {[...Array(nbSelectors)].map((v, i) => {
                             return (
-                                <button key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
+                                <button className={(index === i ? 'selected' : '')} key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
                             );
                         })}
                     </div>

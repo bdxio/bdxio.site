@@ -41,6 +41,11 @@
                 padding:4px 16px;
             }
 
+            &-news {
+                height: 155px;
+                overflow: hidden;
+            }
+
             &-button {
                 padding-top: 16px;
             }
@@ -57,8 +62,12 @@
 
             &:hover {
                 opacity: 0.7;
+            }
+        }
 
-               
+        .selected {
+            i {
+                color: $yellow;
             }
         }
     }
