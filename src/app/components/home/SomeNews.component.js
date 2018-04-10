@@ -56,11 +56,12 @@ class SomeNews extends Component {
                     </div>
 
                     <div className="row align-center someNews-navigate">
-                        {[...Array(nbSelectors)].map((v, i) => {
-                            return (
-                                <button className={(index === i ? 'selected' : '')} key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
-                            );
-                        })}
+                        {nbSelectors > 1 &&
+                            [...Array(nbSelectors)].map((v, i) => {
+                                return (
+                                    <button className={(index === i ? 'selected' : '')} key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
+                                );
+                            })}
                     </div>
                 </div>
                 <div className="columns shrink text-center">
