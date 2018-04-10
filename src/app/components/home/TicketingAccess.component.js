@@ -12,7 +12,7 @@ class TicketingAccess extends Component {
             <div className="row ticketingAccess">
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Achetez votre place</h5>
-                    <h6 className="sectionSubtitle">Lorem Upsom</h6>
+                    <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition</h6>
                 </div>
 
                 <div className="columns text-center">

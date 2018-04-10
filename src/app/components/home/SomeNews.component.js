@@ -30,7 +30,7 @@ class SomeNews extends Component {
             <div className="row someNews">
                 <div className="columns text-center">
                     <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
-                    <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX i/o ?</h6>
+                    <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX I/O ?</h6>
                 </div>
 
                 <div className="columns">
