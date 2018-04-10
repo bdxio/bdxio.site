@@ -50,8 +50,8 @@
                     background-image: url($img-path+'svg/bdxio_pattern.svg');
 
                     &-bio {
-                        display: none;
-                        visibility: hidden;
+                        max-height: 100px;
+                        overflow: hidden;
                     }
 
                     h6 {

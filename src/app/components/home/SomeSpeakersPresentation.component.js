@@ -67,7 +67,7 @@ class SomeSpeakersPresentation extends Component {
                                 </div>
                                 <div className="column auto align-center speakers-container-content-item-text">
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0, 150)}...</div>
+                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
@@ -96,7 +96,7 @@ class SomeSpeakersPresentation extends Component {
                             return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                 <div className="column auto align-center speakers-container-content-item-text">
                                     <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio'].substring(0, 150)}...</div>
+                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
