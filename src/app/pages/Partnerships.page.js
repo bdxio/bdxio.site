@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
+import Header from '../components/common/Header.component';
 import PartnerCard from '../components/patnerships/PartnerCard.component';
 
 import Constant from '../constants';
@@ -20,19 +21,21 @@ class Partnerships extends Component {
 
         return (
             <div>
-                <h1>Partnerships</h1>
-                <h2>IMPERIAL</h2>
-                {IMPERIAL.map((sponsor, i) => (
-                    <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
-                ))}
-                <h2>MAGNUM</h2>
-                {MAGNUM.map((sponsor, i) => (
-                    <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
-                ))}
-                <h2>CHOPINE</h2>
-                {CHOPINE.map((sponsor, i) => (
-                    <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
-                ))}
+                <Header title="PARTENAIRES" />
+                <div className="row">
+                    <h2>IMPERIAL</h2>
+                    {IMPERIAL.map((sponsor, i) => (
+                        <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
+                    ))}
+                    <h2>MAGNUM</h2>
+                    {MAGNUM.map((sponsor, i) => (
+                        <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
+                    ))}
+                    <h2>CHOPINE</h2>
+                    {CHOPINE.map((sponsor, i) => (
+                        <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
+                    ))}
+                </div>
             </div>
         );
     }

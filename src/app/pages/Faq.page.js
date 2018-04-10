@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import displayPage          from './_PageContainer';
+import displayPage from './_PageContainer';
+import Header from '../components/common/Header.component';
 
 class Faq extends Component {
     constructor() {
@@ -9,7 +10,10 @@ class Faq extends Component {
     render() {
         return (
             <div>
-                <h1>Faq</h1>
+                <Header title="FAQ" />
+                <div className="row">
+
+                </div>
             </div>
         );
     }

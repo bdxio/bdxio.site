@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import Footer from '../components/common/Footer.component';
-import Header from '../components/common/Header.componet';
+import Menu from '../components/common/Menu.componet';
 
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
@@ -24,7 +24,7 @@ const displayPage = (Page) => {
             if (loaded) {
                 return (
                     <div>
-                        <Header />
+                        <Menu />
                         <Page {...this.props} />
                         <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
                     </div>

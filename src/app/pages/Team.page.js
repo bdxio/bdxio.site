@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
+import Header from '../components/common/Header.component';
 
 import TeamCard from '../components/team/TeamCard.component'
 
@@ -13,10 +14,12 @@ class Team extends Component {
         const { Orgas } = this.props.gsheet;
         return (
             <div>
-                <h1>Team</h1>
-                {Orgas.map((member, i) => (
-                    <TeamCard key={`member_${i}`} member={member} />
-                ))}
+                <Header title="LA TEAM" />
+                <div className="row">
+                    {Orgas.map((member, i) => (
+                        <TeamCard key={`member_${i}`} member={member} />
+                    ))}
+                </div>
             </div>
         );
     }
