@@ -12,6 +12,7 @@ import TicketingAccess from '../components/home/TicketingAccess.component';
 import Location from '../components/home/Location.component';
 import SponsorsBar from '../components/common/SponsorsBar.component';
 
+import Constant from '../constants';
 
 class Home extends Component {
 
@@ -21,14 +22,14 @@ class Home extends Component {
 
     render() {
         const { News, Sponsors, Speakers } = this.props.gsheet;
-        // TODO: FILTER WITH CORRECT NEW NAME
-        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'GOLD');
+
+        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
 
         return (
             <div className="home">
                 <img className="homeBg" src="img/png/header_bg.png" />
                 <div className="row home-header">
-                <img className="homeFlottant" src="img/svg/home_flottant.svg" />
+                    <img className="homeFlottant" src="img/svg/home_flottant.svg" />
                     <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
                     <div className="row align-center">
                         <div className="columns shrink home-header-content">
@@ -78,7 +79,7 @@ class Home extends Component {
                 <MetricsBar />
 
                 {/*<div className="row align-center">*/}
-                    {/*<Link className="columns shrink button small primary disabled" to="/gallery">Voir la galerie</Link>*/}
+                {/*<Link className="columns shrink button small primary disabled" to="/gallery">Voir la galerie</Link>*/}
                 {/*</div>*/}
 
                 <ConferenceThemes />
@@ -93,7 +94,9 @@ class Home extends Component {
 
                 <Location />
 
-                <SponsorsBar partners={IMPERIAL} />
+                {IMPERIAL.length > 0 &&
+                    <SponsorsBar partners={IMPERIAL} />
+                }
             </div>
         );
     }

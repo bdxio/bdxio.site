@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
 import PartnerCard from '../components/patnerships/PartnerCard.component';
 
+import Constant from '../constants';
+
 class Partnerships extends Component {
     constructor() {
         super();
@@ -12,10 +14,9 @@ class Partnerships extends Component {
         const { Sponsors } = this.props.gsheet;
         const sponsorsEnabled = Sponsors.filter((s) => s['Actif'] === '1');
 
-        // TODO: FILTER WITH CORRECT NEW NAME
-        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'GOLD');
-        const MAGNUM = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'SILVER');
-        const CHOPINE = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === 'BRONZE');
+        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
+        const MAGNUM = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.MAGNUM);
+        const CHOPINE = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.CHOPINE);
 
         return (
             <div>

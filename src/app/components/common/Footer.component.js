@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class Footer extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     render() {
+        const { style } = this.props;
         return (
-            <div className="row footer">
+            <div className="row footer" style={style}>
                 <div className="columns align-center align-middle footer-signIn">
                     <div>Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
                     <input className="small-2" type="text" placeholder={'Email'} />
@@ -32,5 +34,10 @@ class Footer extends Component {
         );
     }
 }
+
+Footer.propTypes = {
+    style: PropTypes.object.isRequired,
+}
+
 
 export default Footer

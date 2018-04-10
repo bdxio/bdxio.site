@@ -45,7 +45,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             color: $white;
-            min-height: calc(1024px - 756px);
+            min-height: 300px;
             padding: 24px 30px;
 
             h5 {
@@ -56,7 +56,7 @@
 
         &-map {
             padding: 0;
-            margin: 0;
+            margin: 0 0 -5px 0;
         }
     }
 }

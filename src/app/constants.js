@@ -24,5 +24,12 @@ export const Constant = {
             text: '"Everyday life is like programming, I guess. If you love something you can put beauty into it."',
             author: 'Donald Knuth'
         },
-    ]
+    ],
+    sponsors: {
+        types: {
+            IMPERIAL: 'IMPERIAL',
+            MAGNUM: 'MAGNUM',
+            CHOPINE: 'CHOPINE',
+        },
+    }
 }
