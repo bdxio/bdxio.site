@@ -71,16 +71,16 @@ class SomeSpeakersPresentation extends Component {
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></span>
+                                            <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
                                         }
                                         {speaker['Linkedin'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></span>
+                                            <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
                                         }
                                         {speaker['Google+'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></span>
+                                            <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
                                         }
                                         {speaker['Blog'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></span>
+                                            <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
                                         }
                                     </div>
                                 </div>
@@ -100,16 +100,16 @@ class SomeSpeakersPresentation extends Component {
                                     <div>
                                         <hr />
                                         {speaker['Twitter'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></span>
+                                            <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
                                         }
                                         {speaker['Linkedin'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></span>
+                                            <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
                                         }
                                         {speaker['Google+'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></span>
+                                            <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
                                         }
                                         {speaker['Blog'] &&
-                                            <span><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></span>
+                                            <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
                                         }
                                     </div>
                                 </div>
