@@ -8,16 +8,39 @@
         width: 10%;
     }
 
+    &-item {
+        width: 60%;
+    }
+
+    &-socialNetwork {
+        width: 12%;
+    }
+
     &-item, &-socialNetwork {
          display: flex;
          list-style-type: none;
          margin: 0;
          text-transform: uppercase;
          font-weight: bold;
+         justify-content: space-around;
  
          a{
              color: $white;
              padding: 0 8px;
+             transition: color 1s, letter-spacing 1s;
+             padding: 0;
+
+             &:hover {
+                color: $gradient;
+                letter-spacing: .3em;
+                transition: color .5s, letter-spacing .5s;
+             }
+         }
+     }
+
+     &-socialNetwork {
+         i {
+             font-size: 1.2rem;
          }
      }
 

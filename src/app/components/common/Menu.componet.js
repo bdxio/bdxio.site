@@ -12,17 +12,17 @@ class Menu extends Component {
                 <span className="columns shrink menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
-                <ul className=" columns auto align-center menu-item">
-                    <li className="columns shrink menu-item-content"><Link to="/home">Accueil</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/team">La team</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/news">Actualités</Link></li>
+                <ul className="columns align-center menu-item">
+                    <li className="shrink menu-item-content"><Link to="/home">Accueil</Link></li>
+                    <li className="shrink menu-item-content"><Link to="/team">La team</Link></li>
+                    <li className="shrink menu-item-content"><Link to="/news">Actualités</Link></li>
                     {/*  FIXME added disabled class on link, thank you for adding a style to show it's disabled*/}
-                    <li className="columns shrink menu-item-content"><Link className="disabled" to={false?'/speakers': '/home'} >Speakers</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/partnerships">Sponsors</Link></li>
-                    <li className="columns shrink menu-item-content"><Link className="disabled" to={false?'/faq': '/home'}>FAQ</Link></li>
-                    <li className="columns shrink menu-item-content"><Link to="/contact">Contact</Link></li>
+                    <li className="shrink menu-item-content"><Link className="disabled" to={false?'/speakers': '/home'} >Speakers</Link></li>
+                    <li className="shrink menu-item-content"><Link to="/partnerships">Sponsors</Link></li>
+                    <li className="shrink menu-item-content"><Link className="disabled" to={false?'/faq': '/home'}>FAQ</Link></li>
+                    <li className="shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
-                <ul className=" columns shrink align-center menu-socialNetwork">
+                <ul className="columns shrink align-center menu-socialNetwork">
                     <li><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
                     <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
