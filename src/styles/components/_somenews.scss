@@ -6,9 +6,7 @@
     background-size: cover;
 
     &-content {
-        display: flex;
-        margin-top: rem-calc(64px);
-        
+        display: flex;        
         &-item {
             display: flex;
             flex-direction: column;

@@ -98,7 +98,7 @@ class Home extends Component {
 
                 <SomeNews news={News} />
 
-                <TicketingAccess />
+                <TicketingAccess registrationIsOpened={(Config.registrationOpened === 'opened')} />
 
                 <Location />
 

@@ -15,6 +15,13 @@
             background : $primary !important;
             color: white !important;
         }
+
+        &.disabled {
+            &:hover {
+                background: inherit !important;
+                color: $primary !important; 
+            }
+        }
     }
 
     &.secondary {
@@ -27,6 +34,12 @@
             background : $red !important;
             color: white !important;
         }
+        &.disabled {
+            &:hover {
+                background: inherit !important;
+                color: $red !important; 
+            }
+        }
     }
 
     &.white {
@@ -38,6 +51,13 @@
         &:hover {
             background : $white !important;
             color: $primary !important;
+        }
+
+        &.disabled {
+            &:hover {
+                background: inherit !important;
+                color: $white !important; 
+            }
         }
     }
 }

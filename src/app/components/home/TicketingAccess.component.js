@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class TicketingAccess extends Component {
     constructor() {
@@ -6,6 +7,7 @@ class TicketingAccess extends Component {
     }
 
     render() {
+        const { registrationIsOpened } = this.props;
         return (
             <div className="row ticketingAccess">
                 <div className="columns text-center">
@@ -25,19 +27,23 @@ class TicketingAccess extends Component {
                                     Individuel
                                 </div>
                             </div>
-                            <div className="row ticketingAccess-container-item-content">
+                            <div className={'row ticketingAccess-container-item-content ' + (!registrationIsOpened ? 'disabled' : '')}>
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
                                 <div>Repas <span>offert</span> le midi</div>
                                 <div>Accès aux stands</div>
                                 <div>Accès à <span>toutes</span> les conférences</div>
                             </div>
                             <div className="row shrink align-center">
-                                <a className="button small secondary">Acheter</a>
+                                {registrationIsOpened ?
+                                    <a className="button small secondary">Acheter</a>
+                                    :
+                                    <span className="button small secondary disabled">Pas encore disponible</span>
+                                }
                             </div>
                         </div>
 
                         <div className="columns small-3 ticketingAccess-container-item">
-                        <div className="row align-center ticketingAccess-container-item-infos">
+                            <div className="row align-center ticketingAccess-container-item-infos">
                                 <div className="columns ticketingAccess-container-item-infos-title">
                                     <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
                                     <div className="columns ticketingAccess-container-item-infos-title-classe">Golden Ticket</div>
@@ -46,7 +52,7 @@ class TicketingAccess extends Component {
                                     Individuel
                                 </div>
                             </div>
-                            <div className="row ticketingAccess-container-item-content">
+                            <div className={'row ticketingAccess-container-item-content ' + (!registrationIsOpened ? 'disabled' : '')}>
                                 <div>Donner votre <span>avis</span> concernant les talks</div>
                                 <div>Invitation au <span>diner speaker</span> si vous votez au moins pour 80% des talks</div>
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
@@ -55,12 +61,16 @@ class TicketingAccess extends Component {
                                 <div>Accès à <span>toutes</span> les conférences</div>
                             </div>
                             <div className="row shrink align-center">
-                                <a className="button small secondary">Acheter</a>
+                                {registrationIsOpened ?
+                                    <a className="button small secondary">Acheter</a>
+                                    :
+                                    <span className="button small secondary disabled">Pas encore disponible</span>
+                                }
                             </div>
                         </div>
 
                         <div className="columns small-3 ticketingAccess-container-item">
-                        <div className="row align-center ticketingAccess-container-item-infos">
+                            <div className="row align-center ticketingAccess-container-item-infos">
                                 <div className="columns ticketingAccess-container-item-infos-title">
                                     <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
                                     <div className="columns ticketingAccess-container-item-infos-title-classe">Classic</div>
@@ -69,7 +79,7 @@ class TicketingAccess extends Component {
                                     Individuel
                                 </div>
                             </div>
-                            <div className="row ticketingAccess-container-item-content">
+                            <div className={'row ticketingAccess-container-item-content ' + (!registrationIsOpened ? 'disabled' : '')}>
                                 <div>Accès a partir de 8H30 au <span>petit déjeuner</span></div>
                                 <div>Repas <span>offert</span> le midi</div>
                                 <div>Accès aux stands</div>
@@ -77,8 +87,12 @@ class TicketingAccess extends Component {
                                 <div>Soutenez l'événement</div>
                             </div>
                             <div className="row shrink ticketingAccess-container-item-content-button align-center">
+                                {registrationIsOpened ?
                                     <a className="button small secondary">Acheter</a>
-                                </div>
+                                    :
+                                    <span className="button small secondary disabled">Pas encore disponible</span>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,5 +101,10 @@ class TicketingAccess extends Component {
         );
     }
 }
+
+TicketingAccess.propTypes = {
+    registrationIsOpened: PropTypes.bool.isRequired,
+}
+
 
 export default TicketingAccess
