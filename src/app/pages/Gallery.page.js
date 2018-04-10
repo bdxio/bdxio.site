@@ -15,6 +15,4 @@ class Gallery extends Component {
     }
 }
 
-// so happy !!!!
-
 export default displayPage(Gallery)
