@@ -9,7 +9,7 @@ class TicketingAccess extends Component {
     render() {
         const { registrationIsOpened } = this.props;
         return (
-            <div className="row ticketingAccess">
+            <section className="row ticketingAccess">
                 <div className="ticketingAccess-ticketingAccessFlottant">
                     <img src="img/svg/theme1_flottant.svg" />
                 </div>
@@ -99,7 +99,7 @@ class TicketingAccess extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

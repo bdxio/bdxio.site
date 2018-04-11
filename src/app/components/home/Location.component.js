@@ -8,7 +8,7 @@ class Location extends Component {
 
     render() {
         return (
-            <div className="row location">
+            <section className="row location">
                 <div className="columns small-12 align-center location-infos">
                     <div className="small-3 location-infos-place">A 10 minute de <br />> Bordeaux</div>
                     <div className="small-3 location-infos-amphis">6 amphis en parallèle <br />> 50 conférences</div>
@@ -40,7 +40,7 @@ class Location extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

@@ -9,7 +9,7 @@ class SponsorsBar extends Component {
     render() {
         const { partners } = this.props;
         return (
-            <div className="row sponsorBar">
+            <section className="row sponsorBar">
              <img className="homeFlottant" src="img/svg/sponsor_flottant.svg" />
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Nos sponsors Impériaux</h5>
@@ -22,7 +22,7 @@ class SponsorsBar extends Component {
                     ))}
                 </div>
                 <img className="homeFlottant1" src="img/svg/footer_flottant.svg" />
-            </div>
+            </section>
         );
     }
 }

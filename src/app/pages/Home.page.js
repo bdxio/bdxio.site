@@ -75,7 +75,7 @@ class Home extends Component {
                     </g>
                 </svg>
 
-                <div className="row text-center home-about">
+                <section className="row text-center home-about">
                     <div className="home-about-aboutFlottant">
                         <img className="aboutFlottant" src="img/svg/about_flottant.svg" />
                     </div>
@@ -86,7 +86,7 @@ class Home extends Component {
                         découverte dans la bonne
                         humeur !!!
                     </h6>
-                </div>
+                </section>
 
                 <MetricsBar />
 
