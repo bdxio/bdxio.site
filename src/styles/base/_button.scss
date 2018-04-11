@@ -5,11 +5,14 @@
 .button {
     background: transparent !important;
     border: 2px solid !important;
+    min-width: map-clac(56px) !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    min-width: 12% !important;
 
     &.primary {
         border-color: $primary !important;
         color: $primary !important; 
-        text-transform: uppercase;
         
         &:hover {
             background : $primary !important;
@@ -28,7 +31,6 @@
         background: transparent;
         border-color: $red !important;
         color: $red !important; 
-        text-transform: none !important;
         
         &:hover {
             background : $red !important;
@@ -46,7 +48,6 @@
         background: transparent;
         border-color: $white !important;
         color: $white !important; 
-        text-transform: none !important;
         
         &:hover {
             background : $white !important;
