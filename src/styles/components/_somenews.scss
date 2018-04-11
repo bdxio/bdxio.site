@@ -5,6 +5,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    &-container {
+        margin-top: 64px;
+        margin-bottom: 40px;
+    }
+
     &-content {
         display: flex;  
 

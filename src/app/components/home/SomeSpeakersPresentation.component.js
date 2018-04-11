@@ -55,71 +55,74 @@ class SomeSpeakersPresentation extends Component {
                 <div className="speakers-speakersFlottant">
                     <img src="img/svg/about_flottant.svg" />
                 </div>
-                <div className="column small-24 sectionTitle">
+                <div className="column small-24">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6 className="sectionSubTitle">On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
+                    <h6>On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
                 </div>
 
-                <div className="column small-24 speakers-container">
-                    <div className="row align-center speakers-container-content">
-                        {speakers.slice(0, 2).map((speaker, i) => {
-                            return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
-                                <div className="column auto align-center speakers-container-content-item-picture">
-                                    <img src={speaker['Avatar url']} />
-                                </div>
-                                <div className="column auto align-center speakers-container-content-item-text">
-                                    <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                    <div>
-                                        <hr />
-                                        {speaker['Twitter'] &&
-                                            <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                        }
-                                        {speaker['Linkedin'] &&
-                                            <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                        }
-                                        {speaker['Google+'] &&
-                                            <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                        }
-                                        {speaker['Blog'] &&
-                                            <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                        }
+                <div className="row speakers-container">
+                    <div className="column">
+                        <div className="row align-center speakers-container-content">
+                            {speakers.slice(0, 2).map((speaker, i) => {
+                                return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
+                                    <div className="column auto align-center speakers-container-content-item-picture">
+                                        <img src={speaker['Avatar url']} />
+                                    </div>
+                                    <div className="column auto align-center speakers-container-content-item-text">
+                                        <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
+                                        <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
+                                        <div>
+                                            <hr />
+                                            {speaker['Twitter'] &&
+                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                                            }
+                                            {speaker['Linkedin'] &&
+                                                <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                                            }
+                                            {speaker['Google+'] &&
+                                                <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                                            }
+                                            {speaker['Blog'] &&
+                                                <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            )
-                        })}
+                                )
+                            })}
+                        </div>
                     </div>
-                </div>
 
-                <div className="column small-24 speakers-container">
-                    <div className="row align-center speakers-container-content">
-                        {speakers.slice(-2).map((speaker, i) => {
-                            return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
-                                <div className="column auto align-center speakers-container-content-item-text">
-                                    <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                    <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                    <div>
-                                        <hr />
-                                        {speaker['Twitter'] &&
-                                            <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                        }
-                                        {speaker['Linkedin'] &&
-                                            <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                        }
-                                        {speaker['Google+'] &&
-                                            <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                        }
-                                        {speaker['Blog'] &&
-                                            <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                        }
+
+                    <div className="column">
+                        <div className="row align-center speakers-container-content">
+                            {speakers.slice(-2).map((speaker, i) => {
+                                return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
+                                    <div className="column auto align-center speakers-container-content-item-text">
+                                        <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
+                                        <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
+                                        <div>
+                                            <hr />
+                                            {speaker['Twitter'] &&
+                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                                            }
+                                            {speaker['Linkedin'] &&
+                                                <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                                            }
+                                            {speaker['Google+'] &&
+                                                <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                                            }
+                                            {speaker['Blog'] &&
+                                                <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                                            }
+                                        </div>
                                     </div>
+                                    <img className="column auto align-center speakers-container-content-item-picture"
+                                        src={speaker['Avatar url']} />
                                 </div>
-                                <img className="column auto align-center speakers-container-content-item-picture"
-                                    src={speaker['Avatar url']} />
-                            </div>
-                            )
-                        })}
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
 

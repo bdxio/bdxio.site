@@ -23,7 +23,7 @@ class ConferenceThemes extends Component {
                 </div>
 
                 <div className="columns">
-                    <div className="row auto align-center conference-flottant">
+                    <div className="row auto align-center">
                         <div className="column small-8 conference-container">
                             <div className="row conference-container-content">
                                 <div className="columns text-center conference-container-content-item">

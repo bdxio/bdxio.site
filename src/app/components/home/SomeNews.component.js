@@ -33,8 +33,13 @@ class SomeNews extends Component {
                     <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX I/O ?</h6>
                 </div>
 
+<<<<<<< HEAD
                 <div className="columns">
                     <div className="row collapse align-center someNews-content">
+=======
+                <div className="columns someNews-container">
+                    <div className="row align-center someNews-content">
+>>>>>>> margin element
                         {newsDisplayed.map((n, i) => {
                             return (
                                 <div key={`'news_'${i}`} className="columns small-3 someNews-content-item">
@@ -64,7 +69,7 @@ class SomeNews extends Component {
                     </div>
                 </div>
                 <div className="columns shrink text-center">
-                    <Link className="button small white" to={"/news"}>Tous voir</Link>
+                    <Link className="button medium white" to={"/news"}>Tous voir</Link>
                 </div>
             </div>
         );

@@ -8,6 +8,7 @@
         height: 180%;
         overflow: hidden;
         position: absolute;
+        z-index: -1;
 
         img {
             position: relative;
@@ -18,7 +19,9 @@
     }
 
     &-container {
-        margin: 0;
+        display: block;
+        margin-top: 64px;
+        margin-bottom: 40px;
 
         &-content {
             display: flex;
