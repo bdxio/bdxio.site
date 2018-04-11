@@ -3,7 +3,6 @@
     z-index: 999;
     padding: 0;
     
-
     &-logo {
         width: 10%;
     }
@@ -23,6 +22,15 @@
          text-transform: uppercase;
          font-weight: bold;
          justify-content: space-around;
+
+         .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:hover {
+                letter-spacing: inherit;
+            }
+        }
  
          a{
              color: $white;
@@ -30,10 +38,18 @@
              transition: color 1s, letter-spacing 1s;
              padding: 0;
 
+             .selected {
+                 &:after {
+                    border-bottom: 2px solid white;
+                 }
+            }
+
              &:hover {
-                color: $gradient;
                 letter-spacing: .3em;
                 transition: color .5s, letter-spacing .5s;
+                background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
              }
          }
      }
