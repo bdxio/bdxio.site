@@ -13,10 +13,10 @@ class Menu extends Component {
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
                 <ul className="columns align-center menu-item">
-                    <li className="shrink menu-item-content"><Link to="/home">Accueil</Link></li>
+                {/*  FIXME added selected class on link, thank you for adding a link for this commande work*/}
+                    <li className="shrink menu-item-content"><Link className="selected" to="/home">Accueil</Link></li>
                     <li className="shrink menu-item-content"><Link to="/team">La team</Link></li>
                     <li className="shrink menu-item-content"><Link to="/news">Actualités</Link></li>
-                    {/*  FIXME added disabled class on link, thank you for adding a style to show it's disabled*/}
                     <li className="shrink menu-item-content"><Link className="disabled" to={false?'/speakers': '/home'} >Speakers</Link></li>
                     <li className="shrink menu-item-content"><Link to="/partnerships">Sponsors</Link></li>
                     <li className="shrink menu-item-content"><Link className="disabled" to={false?'/faq': '/home'}>FAQ</Link></li>

@@ -38,18 +38,15 @@
              transition: color 1s, letter-spacing 1s;
              padding: 0;
 
-             .selected {
-                 &:after {
-                    border-bottom: 2px solid white;
-                 }
+             &.selected {
+                padding-bottom: 4px;
+                border-bottom: 2px solid white;
             }
 
              &:hover {
                 letter-spacing: .3em;
                 transition: color .5s, letter-spacing .5s;
-                background: -webkit-linear-gradient(#eee, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+                display: inline-block;
              }
          }
      }
