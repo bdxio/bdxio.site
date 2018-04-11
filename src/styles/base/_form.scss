@@ -8,4 +8,9 @@
     border: 2px solid $white;
     color: $white;
     margin: 0;
+
+    &:focus {
+        background: transparent;
+        border: 2px solid;
+    }
 }
