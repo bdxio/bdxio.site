@@ -9,18 +9,30 @@ class TeamCard extends Component {
     render() {
         const { member } = this.props;
         return (
-            <div>
-                <img src={member['Avatar url']} alt={member['Nom']} width="100" />
-                <h4>{`${member['Prénom']} ${member['Nom']}`}</h4>
-                <p>{member['Bio']}</p>
-                {!!member['Twitter'] &&
-                    <a href={`https://twitter.com/${member['Twitter']}`}>Twitter</a>
-                }
-                {!!member['Linkedin'] &&
-                    <a href={member['Linkedin']}>LinkedIn</a>
-                }
+            <div className="column small-4 align-center speakers-container-content-item">
+                <div className="column auto align-center speakers-container-content-item-text">
+                    <h6>{member['Prénom']} {member['Nom']}</h6>
+                    <div className="speakers-container-content-item-text-bio">{member['Bio']}</div>
+                    <div>
+                        <hr />
+                        {member['Twitter'] &&
+                            <span><a href={`https://twitter.com/${member['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                        }
+                        {member['Linkedin'] &&
+                            <span><a href={member['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                        }
+                        {member['Google+'] &&
+                            <span><a href={member['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                        }
+                        {member['Blog'] &&
+                            <span><a href={member['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                        }
+                    </div>
+                </div>
+                <img className="column auto align-center speakers-container-content-item-picture"
+                    src={member['Avatar url']} alt={member['Nom']} />
             </div>
-        );
+        )
     }
 }
 

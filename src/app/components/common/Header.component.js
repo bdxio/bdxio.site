@@ -9,8 +9,10 @@ class Header extends Component {
     render() {
         return (
             <div className="page-header">
+                <div className="home-homeFlottant">
+                    <img className="homeFlottant" src="img/svg/home_flottant.svg" />
+                </div>
                 <div className="row home-header">
-                    <img className="homeFlottant" src="/img/svg/home_flottant.svg" />
                     <h1 className="columns text-center">{this.props.title}</h1>
                 </div>
             </div>
