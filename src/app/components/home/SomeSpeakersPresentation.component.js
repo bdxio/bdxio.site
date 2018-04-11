@@ -74,16 +74,16 @@ class SomeSpeakersPresentation extends Component {
                                         <div>
                                             <hr />
                                             {speaker['Twitter'] &&
-                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
                                             }
                                             {speaker['Linkedin'] &&
-                                                <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                                                <span><a href={speaker['Linkedin']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
                                             }
                                             {speaker['Google+'] &&
-                                                <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                                                <span><a href={speaker['Google+']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
                                             }
                                             {speaker['Blog'] &&
-                                                <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                                                <span><a href={speaker['Blog']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
                                             }
                                         </div>
                                     </div>
