@@ -10,6 +10,9 @@ class TicketingAccess extends Component {
         const { registrationIsOpened } = this.props;
         return (
             <div className="row ticketingAccess">
+                <div className="ticketingAccess-ticketingAccessFlottant">
+                    <img src="img/svg/theme1_flottant.svg" />
+                </div>
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Achetez votre place</h5>
                     <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition</h6>
@@ -96,7 +99,6 @@ class TicketingAccess extends Component {
                         </div>
                     </div>
                 </div>
-                <img className="homeFlottant" src="img/svg/price_flottant.svg" />
             </div>
         );
     }

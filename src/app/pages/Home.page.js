@@ -28,9 +28,11 @@ class Home extends Component {
 
         return (
             <div className="home">
+                <div className="home-homeFlottant">
+                    <img className="homeFlottant" src="img/svg/home_flottant.svg" />
+                </div>
                 <img className="homeBg" src="img/png/header_bg.png" />
                 <div className="row home-header">
-                    <img className="homeFlottant" src="img/svg/home_flottant.svg" />
                     <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
                     <div className="row align-center">
                         <div className="columns shrink home-header-content">
@@ -66,7 +68,7 @@ class Home extends Component {
                         </clipPath>
                         <g style={{ 'clipPath': 'url(#SVGID_2_)' }}>
 
-                            <image width="4653" height="2700" xlinkHref="img/png/bdxio_header.png"
+                            <image width="4500" height="2700" xlinkHref="img/png/bdxio_header.png"
                                 transform="matrix(1.256919e-02 0 0 1.256919e-02 -3.513 3.5492)">
                             </image>
                         </g>
@@ -74,6 +76,9 @@ class Home extends Component {
                 </svg>
 
                 <div className="row text-center home-about">
+                    <div className="home-about-aboutFlottant">
+                        <img className="aboutFlottant" src="img/svg/about_flottant.svg" />
+                    </div>
                     <h5 className="sectionTitle align-center">À propos de Bdxio</h5>
                     <h6>
                         BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes <br />
@@ -81,7 +86,6 @@ class Home extends Component {
                         découverte dans la bonne
                         humeur !!!
                     </h6>
-                    <img className="homeFlottant" src="img/svg/about_flottant.svg" />
                 </div>
 
                 <MetricsBar />

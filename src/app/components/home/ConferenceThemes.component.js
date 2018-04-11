@@ -9,7 +9,12 @@ class ConferenceThemes extends Component {
     render() {
         return (
             <div className="row conference">
-                <img className="homeFlottant" src="img/svg/theme1_flottant.svg" />
+                <div className="conference-conferenceFlottantRight">
+                    <img src="img/svg/theme1_flottant.svg" />
+                </div>
+                <div className="conference-conferenceFlottantLeft">
+                    <img src="img/svg/theme2_flottant.svg" />
+                </div>
                 <div className="columns text-center conference-themes">
                     <h5 className="sectionTitle">Les thèmes de la conférence</h5>
                     <h6>Elles permettent de donner une coloration à la
@@ -69,7 +74,6 @@ class ConferenceThemes extends Component {
                                 </div>
                             </div>
                         </div>
-                        <img className="homeFlottant1" src="img/svg/theme2_flottant.svg" />
                     </div>
                 </div>
             </div>
