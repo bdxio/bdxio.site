@@ -30,6 +30,8 @@
             min-height: rem-calc(450px);
             position: relative;
             overflow: hidden;
+            opacity: 0.4;
+            cursor: not-allowed;
 
             &-infos {
                 display: block;
