@@ -68,8 +68,23 @@
     }
  }
 
- .page-header {
-     background: url('/img/png/header_bg.png');
-     height: 150px;
+ .pageHeader {
+    background: url($img-path+'svg/bdxio_pattern.svg') no-repeat, $gradient;
+    background-size: cover;
+    background-repeat: no-repeat;
+     height: 50px;
+
+     h1 {
+       color: $black;
+     }
+
+     img {
+        position: relative;
+        float: left;
+        max-width: 22%;
+        right: 11%;
+        top: 100%;
+    }
+    
  }
 
