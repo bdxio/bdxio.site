@@ -11,7 +11,7 @@ class Contact extends Component {
         return (
             <div>
                 <Header title="CONTACT" />
-                <div className="row">
+                <div className="row contact">
 
                 </div>
             </div>

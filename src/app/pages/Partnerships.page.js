@@ -22,7 +22,7 @@ class Partnerships extends Component {
         return (
             <div>
                 <Header title="PARTENAIRES" />
-                <div className="row">
+                <div className="row partnership">
                     <h2>IMPERIAL</h2>
                     {IMPERIAL.map((sponsor, i) => (
                         <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
