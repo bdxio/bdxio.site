@@ -52,11 +52,12 @@
           padding: 8px 0;
           color: white;
           background-image: url($img-path + 'svg/bdxio_pattern.svg');
-          background-image: url($img-path + 'svg/bdxio_pattern.svg');
-          background-image: url($img-path + 'svg/bdxio_pattern.svg');
+          background-repeat: no-repeat;
+          background-size: 380%;
+          transition: flex 2s;
 
           &-bio {
-            max-height: 100px;
+            max-height: 99px;
             overflow: hidden;
             padding: 0 8px;
           }
@@ -74,17 +75,16 @@
               cursor: pointer;
             }
           }
-
-          &:nth-child(even) {
-            background-image: url($img-path + 'svg/bdxio_pattern.svg');
-            background-repeat: no-repeat;
-            background-size: 200%;
-          }
         }
 
         &.speaker-open {
+          .speakers-container-content-item-arrow {
+            display: none;
+          }
+
           .speakers-container-content-item-text {
             flex: 2;
+            transition: flex 2s;
           }
 
           .speakers-container-content-item-picture {
@@ -105,6 +105,7 @@
             border-right: rem-calc(15px) solid $red;
             top: calc(50% - 15px);
             left: calc(50% - 30px);
+            cursor: pointer;
           }
 
           &:nth-child(even) {

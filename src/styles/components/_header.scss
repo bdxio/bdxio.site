@@ -36,8 +36,7 @@
     a {
       color: $white;
       transition:letter-spacing 1s;
-      padding: 0;
-      padding-bottom: 4px;
+      padding: 0 0 4px 0;
       border-bottom: 2px solid transparent;
 
       &.selected {
