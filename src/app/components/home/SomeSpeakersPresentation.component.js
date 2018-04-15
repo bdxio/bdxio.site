@@ -62,7 +62,7 @@ class SomeSpeakersPresentation extends Component {
 
                 <div className="row speakers-container">
                     <div className="column">
-                        <div className="row align-center speakers-container-content">
+                        <div className="row align-center speakers-row-1 speakers-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => {
                                 return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                     <div className="column auto align-center speakers-container-content-item-picture">
@@ -95,7 +95,7 @@ class SomeSpeakersPresentation extends Component {
 
 
                     <div className="column">
-                        <div className="row align-center speakers-container-content">
+                        <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
                                 return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
                                     <div className="column auto align-center speakers-container-content-item-text">

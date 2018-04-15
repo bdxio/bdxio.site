@@ -1,101 +1,120 @@
 .speakers {
+  display: block;
+  position: relative;
+  margin-top: rem-calc(64px);
+
+  &-speakersFlottant {
+    width: 100%;
+    height: 180%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    img {
+      position: relative;
+      float: right;
+      max-width: 15%;
+      right: -2%;
+    }
+  }
+
+  &-container {
     display: block;
-    position: relative;
-    margin-top: rem-calc(64px);
+    margin-top: 64px;
+    margin-bottom: 40px;
 
-    &-speakersFlottant {
-        width: 100%;
-        height: 180%;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
+    &-content {
+      display: flex;
 
-        img {
-            position: relative;
-            float: right;
-            max-width: 15%;
-            right: -2%;
+      &-item {
+        display: flex;
+        padding: 0;
+
+        &-picture {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          padding: 0;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
         }
-    }
 
-    &-container {
-        display: block;
-        margin-top: 64px;
-        margin-bottom: 40px;
+        &-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          padding: 8px 0;
+          color: white;
+          background-image: url($img-path + 'svg/bdxio_pattern.svg');
+          background-image: url($img-path + 'svg/bdxio_pattern.svg');
+          background-image: url($img-path + 'svg/bdxio_pattern.svg');
 
-        &-content {
-            display: flex;
+          &-bio {
+            max-height: 100px;
+            overflow: hidden;
+          }
 
-            &-item {
-                display: flex;
-                padding: 0;
+          h6 {
+            font-weight: bold;
+          }
 
-                &-picture {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    padding: 0;
-
-                    img {
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                }
-    
-                &-text {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    height: 100%;
-                    width: 100%;
-                    overflow: hidden;
-                    padding: 8px 0;
-                    background : $red;
-                    color: white;
-                    background-image: url($img-path+'svg/bdxio_pattern.svg');
-                    background-image: url($img-path+'svg/bdxio_pattern.svg');
-                    background-image: url($img-path+'svg/bdxio_pattern.svg');
-
-                    &-bio {
-                        max-height: 100px;
-                        overflow: hidden;
-                    }
-
-                    h6 {
-                        font-weight: bold;
-                    }
-
-                    &-socialNetwork {
-                        padding: 0 8px;
-                        color:$white;
-                        &:hover {
-                            opacity: 0.6;
-                            cursor: pointer;
-                        }
-                    }
-                    
-                    &:nth-child(even) {
-                        background : $yellow;
-                        background-image: url($img-path+'svg/bdxio_pattern.svg');
-                        background-repeat: no-repeat;
-                        background-size: 200%;
-                    }
-                }
+          &-socialNetwork {
+            padding: 0 8px;
+            color: $white;
+            &:hover {
+              opacity: 0.6;
+              cursor: pointer;
             }
-        }
-    }
+          }
 
-    &-button {
-        margin-top: 16px;
+          &:nth-child(even) {
+            background-image: url($img-path + 'svg/bdxio_pattern.svg');
+            background-repeat: no-repeat;
+            background-size: 200%;
+          }
+        }
+      }
+
+      &.speakers-row-1 {
+        .speakers-container-content-item {
+          background: $red !important;
+
+          &:nth-child(even) {
+            background: $yellow !important;
+          }
+        }
+      }
+
+      &.speakers-row-2 {
+        .speakers-container-content-item {
+          background: $yellow !important;
+
+          &:nth-child(even) {
+            background: $red !important;
+          }
+        }
+      }
     }
+  }
+
+  &-button {
+    margin-top: 16px;
+  }
+
 }
 
 hr {
-    height: 1pt;
-    margin: 10px 50px;
-    padding: 0;
-    color: $white;
-    background-color: $white;
-    border: 0;
+  height: 1pt;
+  margin: 10px 50px;
+  padding: 0;
+  color: $white;
+  background-color: $white;
+  border: 0;
 }
