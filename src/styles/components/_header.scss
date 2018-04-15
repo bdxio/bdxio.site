@@ -70,7 +70,14 @@
 }
 
 .pageHeader {
+  // TODO added this BACKGROUND for NEWS page class on link, thank you for adding a link for this commande work //
   background: url($img-path+ 'jpg/header_news.jpg');
+  
+  // TODO added this BACKGROUND for TEAM page class on link, thank you for adding a link for this commande work 
+  // background: url($img-path+ 'jpg/header_team.jpg');
+  //
+
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 18%;
@@ -78,7 +85,6 @@
   h2 {
     position: relative;
     color: $white;
-    // TODO added this BACKGROUND for NEWS page class on link, thank you for adding a link for this commande work //
     background: linear-gradient(45deg, rgba($red, 0.4), rgba($yellow, 0.4))
   }
 
