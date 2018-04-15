@@ -1,90 +1,90 @@
 .menu {
-    position: absolute;
-    z-index: 999;
-    padding: 0;
-    
-    &-logo {
-        width: 10%;
+  position: absolute;
+  z-index: 999;
+  padding: 0;
+  width: 100%;
+
+  &-logo {
+    width: 10rem;
+  }
+
+  &-item {
+    width: 60%;
+  }
+
+  &-socialNetwork {
+    width: 12%;
+  }
+
+  &-item, &-socialNetwork {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    justify-content: space-around;
+
+    .disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        letter-spacing: inherit;
+      }
     }
 
-    &-item {
-        width: 60%;
+    a {
+      color: $white;
+      transition:letter-spacing 1s;
+      padding: 0;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+
+      &.selected {
+        border-bottom: 2px solid white;
+      }
+
+      &:hover {
+        letter-spacing: .3em;
+        transition: letter-spacing .5s;
+      }
     }
+  }
 
-    &-socialNetwork {
-        width: 12%;
+  &-socialNetwork {
+    i {
+      font-size: 1.2rem;
     }
+  }
 
-    &-item, &-socialNetwork {
-         display: flex;
-         list-style-type: none;
-         margin: 0;
-         text-transform: uppercase;
-         font-weight: bold;
-         justify-content: space-around;
+  &-liveStream {
+    background: $white;
+    color: $yellow;
+    padding: 8px 16px;
+  }
 
-         .disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+  &-burger {
+    width: 36px;
+  }
+}
 
-            &:hover {
-                letter-spacing: inherit;
-            }
-        }
- 
-         a{
-             color: $white;
-             padding: 0 8px;
-             transition: color 1s, letter-spacing 1s;
-             padding: 0;
+.pageHeader {
+  background: url($img-path + 'svg/bdxio_pattern.svg') no-repeat, $gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50px;
 
-             &.selected {
-                padding-bottom: 4px;
-                border-bottom: 2px solid white;
-            }
+  h1 {
+    color: $black;
+  }
 
-             &:hover {
-                letter-spacing: .3em;
-                transition: color .5s, letter-spacing .5s;
-                display: inline-block;
-             }
-         }
-     }
+  img {
+    position: relative;
+    float: left;
+    max-width: 22%;
+    right: 11%;
+    top: 100%;
+  }
 
-     &-socialNetwork {
-         i {
-             font-size: 1.2rem;
-         }
-     }
-
-     &-liveStream {
-        background: $white;
-        color: $yellow;
-        padding: 8px 16px;
-    }
-
-    &-burger {
-        width: 36px; 
-    }
- }
-
- .pageHeader {
-    background: url($img-path+'svg/bdxio_pattern.svg') no-repeat, $gradient;
-    background-size: cover;
-    background-repeat: no-repeat;
-     height: 50px;
-
-     h1 {
-       color: $black;
-     }
-
-     img {
-        position: relative;
-        float: left;
-        max-width: 22%;
-        right: 11%;
-        top: 100%;
-    }
-    
- }
+}
 
