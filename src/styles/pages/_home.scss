@@ -1,8 +1,6 @@
 .homeBg {
   position: absolute;
   z-index: -1;
-  height: auto;
-  width: 100%;
 }
 
 .home {
@@ -26,7 +24,7 @@
     width: 100%;
     position: absolute;
     z-index: 999;
-    top: 15%;
+    top: rem-calc(62px);
 
     h1 {
       color: $white;
@@ -43,7 +41,7 @@
       position: absolute;
       z-index: 999;
       top: 15%;
-    
+
 
       span {
         padding: 0 16px;
@@ -55,8 +53,8 @@
     }
 
     &-background {
-      background : $primary;
-      background-image: url($img-path+'svg/bdxio_pattern.svg');
+      background: $primary;
+      background-image: url($img-path + 'svg/bdxio_pattern.svg');
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -102,7 +100,7 @@
       height: 180%;
       overflow: hidden;
       position: absolute;
-  
+
       img {
         position: relative;
         float: left;
@@ -115,7 +113,7 @@
 
   &-team {
     min-height: calc(1024px - 756px);
-    background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)), url($img-path+ 'jpg/bdxio_team.jpg');
+    background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)), url($img-path + 'jpg/bdxio_team.jpg');
     background-size: cover;
     background-position-y: 48%;
     margin-top: calc(80px + 16px);
