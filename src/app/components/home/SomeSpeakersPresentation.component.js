@@ -71,12 +71,12 @@ class SomeSpeakersPresentation extends Component {
                     <h6>On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
                 </div>
 
-                <div className="row speakers-container">
-                    <div className="column">
+                <div className="row align-center speakers-container">
+                    <div className="column small-10">
                         <div className="row align-center speakers-row-1 speakers-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => {
                                 return (
-                                    <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
                                         onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-picture">
@@ -109,11 +109,11 @@ class SomeSpeakersPresentation extends Component {
                     </div>
 
 
-                    <div className="column">
+                    <div className="column small-10">
                         <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
                                 return (
-                                    <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
                                         onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-text">
