@@ -20,9 +20,8 @@ class News extends Component {
                     {newsDisplayed.map((news, i) => {
                         return (
                             <div className="columns small-24">
-                                <div className="row" key={`'news_${i}`}>
-
-                                </div>
+                                <div className="row" key={`'news_${i}`}></div>
+                                
                                 <section className="row">
                                     <div className="columns newsContainer-img small-4">
                                         <img src={news.Thumbnail} />
