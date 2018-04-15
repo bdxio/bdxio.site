@@ -25,10 +25,13 @@
 
     &-content {
       display: flex;
+      flex-wrap: wrap;
 
       &-item {
         display: flex;
         padding: 0;
+        min-width: rem-calc(400px);
+        height: rem-calc(200px);
 
         &-picture {
           height: 100%;

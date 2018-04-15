@@ -9,10 +9,11 @@ class Menu extends Component {
     render() {
         return (
             <nav className="row align-middle small-24 menu">
-                <span className="columns shrink menu-logo">
+                <span className="columns menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
-                <ul className="columns align-center menu-item">
+                <div className="main-menu">
+                <ul className="columns align-center main-menu-item">
                 {/*  FIXME added selected class on link, thank you for adding a link for this commande work*/}
                     <li className="shrink menu-item-content"><Link className="selected" to="/home">Accueil</Link></li>
                     <li className="shrink menu-item-content"><Link to="/team">La team</Link></li>
@@ -23,18 +24,19 @@ class Menu extends Component {
                     <li className="shrink menu-item-content"><Link to="/contact">Contact</Link></li>
                 </ul>
 
-                {/*<div className="menu-toggle">*/}
-                    {/*<span></span>*/}
-                    {/*<span></span>*/}
-                    {/*<span></span>*/}
-                {/*</div>*/}
-
-                <ul className="columns shrink align-center menu-socialNetwork">
+                <ul className="columns shrink align-center main-menu-socialNetwork">
                     <li><a href="https://twitter.com/bdxio"><i className="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/bdxio"><i className="fa fa-facebook-f"></i></a></li>
                     <li><a href="https://www.linkedin.com/bdxio"><i className="fa fa-linkedin"></i></a></li>
                     <li><a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-youtube"></i></a></li>
                 </ul>
+                </div>
+
+                <div className="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 {/* FIXME Add liveStream component*/}
                 {/*<span className=" columns shrink text-center menu-liveStream">LiveStream component</span>*/}
             </nav>
