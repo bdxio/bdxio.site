@@ -15,21 +15,21 @@ class Team extends Component {
         return (
             <div>
                 <Header title="LA TEAM"/>
-                <div className="row auto align-center team">
+                <div className="row align-center team">
                     <div className="column small-12">
                         <h4>/ LE BUREAU</h4>
                         {/* TODO fix class "team-open" like in component speakers for see all the content of the person */} 
-                        <div className="row team-row-1 team-content">
+                        <div className="row align-center team-container">
                             {Orgas.map((member, i) => (
                                 <TeamCard key={`member_${i}`} member={member} />
                             ))}
                         </div>
                     </div>
 
-                    <div className="column small-12 team">
+                    <div className="column small-12">
                         <h4>/ LES AUTRES MEMBRES</h4>
                         {/* TODO fix class "team-open" like in component speakers for see all the content of the person */} 
-                        <div className="row team-row-2 team-content">
+                        <div className="row align-center team-container">
                             {Orgas.map((member, i) => (
                                 <TeamCard key={`member_${i}`} member={member} />
                             ))}

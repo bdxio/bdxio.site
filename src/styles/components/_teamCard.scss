@@ -1,84 +1,100 @@
 .team {
-    display: block;
-    position: relative;
-    margin-top: rem-calc(64px);
-  
-      &-content {
+  display: block;
+  position: relative;
+  margin-top: rem-calc(64px);
+
+  &-speakersFlottant {
+    width: 100%;
+    height: 180%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    img {
+      position: relative;
+      float: right;
+      max-width: 15%;
+      right: -2%;
+    }
+  }
+
+  &-container {
+    margin-top: 64px;
+    margin-bottom: 40px;
+
+    &-content {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-item {
         display: flex;
-        flex-wrap: wrap;
-  
-        &-item {
-          display: flex;
+        padding: 0;
+        min-width: rem-calc(400px);
+        height: 50%;
+
+        &-picture {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
           padding: 0;
-          min-width: rem-calc(400px);
-          height: rem-calc(200px);
-  
-          &-picture {
+
+          img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            padding: 0;
-  
-            img {
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-            }
           }
-  
-          &-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            width: 100%;
-            padding: 8px 0;
-            color: white;
-            background-image: url($img-path + 'svg/bdxio_pattern.svg');
-            background-repeat: no-repeat;
-            background-size: 380%;
-            transition: flex 2s;
-
-            &-bio {
-              max-height: 99px;
-              overflow: hidden;
-              padding: 0 8px;
-            }
-  
-            h6 {
-              font-weight: bold;
-              padding: 0 8px;
-            }
-  
-            &-socialNetwork {
-              padding: 0 8px;
-              color: $white;
-              &:hover {
-                opacity: 0.6;
-                cursor: pointer;
-              }
-            }
-          }
-      }
-
-      &.team-open {
-        .team-content-item-arrow {
-          display: none;
         }
 
-        .team-content-item-text {
-          flex: 2;
+        &-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 8px 0;
+          color: white;
+          background-image: url($img-path + 'svg/bdxio_pattern.svg');
+          background-repeat: no-repeat;
+          background-size: 380%;
           transition: flex 2s;
+
+          &-bio {
+            max-height: 99px;
+            overflow: hidden;
+            padding: 0 8px;
+          }
+
+          h6 {
+            font-weight: bold;
+            padding: 0 8px;
+          }
+
+          &-socialNetwork {
+            padding: 0 8px;
+            color: $white;
+            &:hover {
+              opacity: 0.6;
+              cursor: pointer;
+            }
+          }
         }
 
-        .team-content-item-picture {
-          display: none;
+        &.team-open {
+          .team-container-content-item-arrow {
+            display: none;
+          }
+
+          .team-container-content-item-text {
+            flex: 2;
+            transition: flex 2s;
+          }
+
+          .team-container-content-item-picture {
+            display: none;
+          }
         }
       }
-    }
 
       &.team-row-1 {
-        .team-content-item {
+        .team-container-content-item {
           position: relative;
           background: $red;
 
@@ -95,15 +111,15 @@
           &:nth-child(even) {
             background: $yellow;
 
-            .speakers-container-content-item-arrow {
+            .team-container-content-item-arrow {
               border-right: rem-calc(15px) solid $yellow;
             }
           }
         }
       }
 
-      &.speakers-row-2 {
-        .speakers-container-content-item {
+      &.team-row-2 {
+        .team-container-content-item {
           position: relative;
           background: $yellow;
 
@@ -119,22 +135,21 @@
           &:nth-child(even) {
             background: $red;
 
-            .speakers-container-content-item-arrow {
+            .team-container-content-item-arrow {
               border-left: rem-calc(15px) solid $red;
             }
           }
         }
       }
     }
-
-  hr {
-    height: 1pt;
-    margin: 10px 50px;
-    padding: 0;
-    color: $white;
-    background-color: $white;
-    border: 0;
   }
+}
 
-
-  
+hr {
+  height: 1pt;
+  margin: 10px 50px;
+  padding: 0;
+  color: $white;
+  background-color: $white;
+  border: 0;
+}
