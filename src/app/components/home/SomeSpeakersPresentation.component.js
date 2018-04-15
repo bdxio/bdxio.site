@@ -11,11 +11,18 @@ class SomeSpeakersPresentation extends Component {
         this.state = {
             speakers: [],
         }
+        this.expandSpeaker = this.expandSpeaker.bind(this);
     }
 
     componentWillMount() {
         this.getRandomSpeakers(this.props.speakers)
             .then(speakers => this.setState({ speakers }));
+    }
+
+    expandSpeaker(i) {
+        const { speakers } = this.state;
+        speakers[i].expanded = !speakers[i].expanded;
+        this.setState({ speakers: [...speakers] });
     }
 
     getImageSize(url) {
@@ -50,6 +57,7 @@ class SomeSpeakersPresentation extends Component {
 
     render() {
         const { speakers } = this.state;
+        
         return (
             <div className="row speakers text-center">
                 <div className="speakers-speakersFlottant">
@@ -64,31 +72,34 @@ class SomeSpeakersPresentation extends Component {
                     <div className="column">
                         <div className="row align-center speakers-row-1 speakers-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => {
-                                return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
-                                    <div className="column auto align-center speakers-container-content-item-picture">
-                                        <img src={speaker['Avatar url']} />
-                                    </div>
-                                    <div className="column auto align-center speakers-container-content-item-text">
-                                        <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                        <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                        <div>
-                                            <hr />
-                                            {speaker['Twitter'] &&
-                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                            }
-                                            {speaker['Linkedin'] &&
-                                                <span><a href={speaker['Linkedin']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                            }
-                                            {speaker['Google+'] &&
-                                                <span><a href={speaker['Google+']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                            }
-                                            {speaker['Blog'] &&
-                                                <span><a href={speaker['Blog']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                            }
+                                return (
+                                    <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                        onClick={() => this.expandSpeaker(i)}
+                                        key={`'speaker_${i}`}>
+                                        <div className="column auto align-center speakers-container-content-item-picture">
+                                            <img src={speaker['Avatar url']} />
                                         </div>
-                                    </div>
+                                        <div className="column auto align-center speakers-container-content-item-text">
+                                            <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
+                                            <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
+                                            <div>
+                                                <hr />
+                                                {speaker['Twitter'] &&
+                                                    <span><a href={`https://twitter.com/${speaker['Twitter']}`} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                                                }
+                                                {speaker['Linkedin'] &&
+                                                    <span><a href={speaker['Linkedin']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                                                }
+                                                {speaker['Google+'] &&
+                                                    <span><a href={speaker['Google+']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                                                }
+                                                {speaker['Blog'] &&
+                                                    <span><a href={speaker['Blog']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                                                }
+                                            </div>
+                                        </div>
                                         <span className="speakers-container-content-item-arrow"></span>
-                                </div>
+                                    </div>
                                 )
                             })}
                         </div>
@@ -98,30 +109,33 @@ class SomeSpeakersPresentation extends Component {
                     <div className="column">
                         <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
-                                return (<div className="column small-4 align-center speakers-container-content-item speaker-open" key={`'speaker_${i}`}>
-                                    <div className="column auto align-center speakers-container-content-item-text">
-                                        <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                        <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                        <div>
-                                            <hr />
-                                            {speaker['Twitter'] &&
-                                                <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                            }
-                                            {speaker['Linkedin'] &&
-                                                <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                            }
-                                            {speaker['Google+'] &&
-                                                <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                            }
-                                            {speaker['Blog'] &&
-                                                <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                            }
+                                return (
+                                    <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                        onClick={() => this.expandSpeaker(i)}
+                                        key={`'speaker_${i}`}>
+                                        <div className="column auto align-center speakers-container-content-item-text">
+                                            <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
+                                            <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
+                                            <div>
+                                                <hr />
+                                                {speaker['Twitter'] &&
+                                                    <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
+                                                }
+                                                {speaker['Linkedin'] &&
+                                                    <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
+                                                }
+                                                {speaker['Google+'] &&
+                                                    <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
+                                                }
+                                                {speaker['Blog'] &&
+                                                    <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
                                         <span className="speakers-container-content-item-arrow"></span>
-                                    <img className="column auto align-center speakers-container-content-item-picture"
-                                        src={speaker['Avatar url']} />
-                                </div>
+                                        <img className="column auto align-center speakers-container-content-item-picture"
+                                            src={speaker['Avatar url']} />
+                                    </div>
                                 )
                             })}
                         </div>
