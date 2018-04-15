@@ -19,10 +19,13 @@ class SomeSpeakersPresentation extends Component {
             .then(speakers => this.setState({ speakers }));
     }
 
-    expandSpeaker(i) {
+    expandSpeaker(speaker) {
         const { speakers } = this.state;
-        speakers[i].expanded = !speakers[i].expanded;
-        this.setState({ speakers: [...speakers] });
+        const idx = speakers.findIndex(s => s['Nom'] === speaker['Nom']);
+        if (idx > -1){
+            speakers[idx].expanded = !speakers[idx].expanded;
+            this.setState({ speakers: [...speakers] });
+        }
     }
 
     getImageSize(url) {
@@ -74,7 +77,7 @@ class SomeSpeakersPresentation extends Component {
                             {speakers.slice(0, 2).map((speaker, i) => {
                                 return (
                                     <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
-                                        onClick={() => this.expandSpeaker(i)}
+                                        onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-picture">
                                             <img src={speaker['Avatar url']} />
@@ -111,7 +114,7 @@ class SomeSpeakersPresentation extends Component {
                             {speakers.slice(-2).map((speaker, i) => {
                                 return (
                                     <div className={`column small-4 align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
-                                        onClick={() => this.expandSpeaker(i)}
+                                        onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-text">
                                             <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
