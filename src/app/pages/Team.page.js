@@ -16,7 +16,17 @@ class Team extends Component {
             <div>
                 <Header title="LA TEAM" />
                 <div className="row auto align-center">
-                    <div className="column small-10">
+                    <div className="column small-12">
+                        <h4>/ LE BUREAU</h4>
+                        <div className="row">
+                            {Orgas.map((member, i) => (
+                                <TeamCard key={`member_${i}`} member={member} />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="column small-12">
+                        <h4>/ LES AUTRES MEMBRES</h4>
                         <div className="row">
                             {Orgas.map((member, i) => (
                                 <TeamCard key={`member_${i}`} member={member} />

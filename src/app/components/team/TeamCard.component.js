@@ -10,6 +10,9 @@ class TeamCard extends Component {
         const { member } = this.props;
         return (
             <div className="column small-4 align-center speakers-container-content-item">
+                <img className="column auto align-center speakers-container-content-item-picture"
+                    src={member['Avatar url']} alt={member['Nom']} />
+
                 <div className="column auto align-center speakers-container-content-item-text">
                     <h6>{member['Prénom']} {member['Nom']}</h6>
                     <div className="speakers-container-content-item-text-bio">{member['Bio']}</div>
@@ -29,8 +32,6 @@ class TeamCard extends Component {
                         }
                     </div>
                 </div>
-                <img className="column auto align-center speakers-container-content-item-picture"
-                    src={member['Avatar url']} alt={member['Nom']} />
             </div>
         )
     }
