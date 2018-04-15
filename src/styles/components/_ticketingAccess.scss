@@ -19,15 +19,18 @@
 
     &-container {
         display: flex;
-        margin-top: rem-calc(64px);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: calc(64px - 8px);
 
         &-item {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            margin: 0 8px;
+            margin: 8px;
             background: $grey-white;
             min-height: rem-calc(450px);
+            width: rem-calc(263px);
             position: relative;
             overflow: hidden;
             opacity: 0.4;
@@ -39,7 +42,7 @@
                 &-title {
                     display: block;
                     background: $yellow;
-                    background-image: url($img-path+'svg/bdxio_pattern.svg');
+                    background-image: url($img-path + 'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
                     background-size: 200%;
                     padding: 8px;
@@ -60,7 +63,7 @@
     
                 &-status {
                     background: $red;
-                    background-image: url($img-path+'svg/bdxio_pattern.svg');
+                    background-image: url($img-path + 'svg/bdxio_pattern.svg');
                     background-repeat: no-repeat;
                     background-size: 200%;
                     color: white;
