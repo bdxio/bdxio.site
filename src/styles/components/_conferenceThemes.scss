@@ -38,7 +38,7 @@
 
     &-container {
         display:block;
-        background: url($img-path+'svg/bdxio_pattern.svg') no-repeat, $gradient;
+        background: url($img-path + 'svg/bdxio_pattern.svg') no-repeat, $gradient;
         background-size: cover;
         background-repeat: no-repeat;
         margin-top: 64px;
@@ -46,6 +46,7 @@
 
         &-content {
             display: flex;
+            flex-wrap: wrap;
 
             &-item {
                 display: flex;
@@ -53,8 +54,10 @@
                 justify-content: center;
                 color: $white;
                 border: 1px solid $white;
-                max-height: 300px;
-                min-height: 200px;
+                max-height: rem-calc(300px);;
+                min-height: rem-calc(200px);;
+                min-width: rem-calc(200px);
+                padding: 8px;
 
                 img {
                     color: $white;

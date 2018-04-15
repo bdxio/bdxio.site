@@ -49,9 +49,7 @@ class ConferenceThemes extends Component {
                                         Application web / mobiles (hybrides, natives) / progressives.
                                  Outillage pour les jeux vidéos.</div>
                                 </div>
-                            </div>
 
-                            <div className="row conference-container-content">
                                 <div className="columns text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_tooling.svg" /></div>
                                     <h6>Tooling</h6>
