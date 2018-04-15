@@ -1,4 +1,15 @@
 .newsContainer {
+
+    &-newsFlottant {
+        img {
+            position: absolute;
+            float: right;
+            max-width: 14%;
+            right: -4%;
+            top: 138px;
+          }
+    }
+
     &-content {
         h4 {
             font-weight: bold;

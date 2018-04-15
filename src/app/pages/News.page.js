@@ -21,8 +21,11 @@ class News extends Component {
                         return (
                             <div className="columns small-24">
                                 <div className="row" key={`'news_${i}`}></div>
-                                
+
                                 <section className="row">
+                                    <div className="newsContainer-newsFlottant">
+                                        <img src="img/svg/price_flottant.svg" />
+                                    </div>
                                     <div className="columns newsContainer-img small-4">
                                         <img src={news.Thumbnail} />
                                     </div>

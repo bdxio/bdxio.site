@@ -12,9 +12,6 @@ class Header extends Component {
                 <div className="columns small-24 pageHeader-title">
                     <h2 className="sectionTitle text-center">{this.props.title}</h2>
                 </div>
-                <div className="newsFlottant">
-                    <img className="newsFlottant" src="img/svg/price_flottant.svg" />
-                </div>
             </div>
         )
     }
