@@ -87,6 +87,7 @@ class SomeSpeakersPresentation extends Component {
                                             }
                                         </div>
                                     </div>
+                                        <span className="speakers-container-content-item-arrow"></span>
                                 </div>
                                 )
                             })}
@@ -117,6 +118,7 @@ class SomeSpeakersPresentation extends Component {
                                             }
                                         </div>
                                     </div>
+                                        <span className="speakers-container-content-item-arrow"></span>
                                     <img className="column auto align-center speakers-container-content-item-picture"
                                         src={speaker['Avatar url']} />
                                 </div>
