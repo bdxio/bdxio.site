@@ -30,7 +30,7 @@
         display: flex;
         padding: 0;
         min-width: rem-calc(400px);
-        height: rem-calc(200px);
+        height: 50%;
 
         &-picture {
           height: 100%;
@@ -49,8 +49,6 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          height: 100%;
-          width: 100%;
           padding: 8px 0;
           color: white;
           background-image: url($img-path + 'svg/bdxio_pattern.svg');
