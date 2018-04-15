@@ -98,7 +98,7 @@ class SomeSpeakersPresentation extends Component {
                     <div className="column">
                         <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
-                                return (<div className="column small-4 align-center speakers-container-content-item" key={`'speaker_${i}`}>
+                                return (<div className="column small-4 align-center speakers-container-content-item speaker-open" key={`'speaker_${i}`}>
                                     <div className="column auto align-center speakers-container-content-item-text">
                                         <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
                                         <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
