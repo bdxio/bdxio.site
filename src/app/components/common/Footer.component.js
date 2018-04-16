@@ -10,11 +10,11 @@ class Footer extends Component {
     render() {
         const { style } = this.props;
         return (
-            <div className="row footer" style={style}>
-                <div className="columns align-center align-middle footer-signIn">
+            <div className="footer" style={style}>
+                <div className="footer-signIn">
                     <div>Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
-                    <input className="small-2" type="text" placeholder={'Email'} />
-                    <div><button type={'button'} className={'button small white'}>S'inscrire</button></div>
+                    <input  type="text" placeholder={'Email'} />
+                    <button type={'button'} className={'button small white'}>S'inscrire</button>
                 </div>
 
                 <div className="columns footer-item">

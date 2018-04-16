@@ -1,7 +1,7 @@
 .footer {
     display: block;
     background : $primary;
-    background-image: url($img-path+'svg/bdxio_pattern.svg');
+    background-image: url($img-path +'svg/bdxio_pattern.svg');
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -9,16 +9,55 @@
     margin-top: 64px;
 
     &-signIn {
-        display: flex;  
-
+        @include grid-row;
         input {
             margin: 0 8px 0 16px;
         }
 
         button {
-            margin-bottom: 0; 
+            margin-bottom: 0;
             padding: rem-calc(11.5px 10px) !important;
         }
+
+        @include breakpoint(medium down) {
+
+            div {
+                text-align: center;
+                @include grid-column;
+            }
+
+            input {
+                margin-top: 10px;
+                @include grid-column(60%);
+                max-width: 300px;
+            }
+
+            button {
+                margin-top: 10px;
+                @include grid-column(30%);
+                max-width: 100px;
+            }
+        }
+
+        @media screen and #{breakpoint(large)} {
+
+            @include grid-column-offset(20%);
+
+            div {
+                text-align: right;
+                @include grid-column(25%);
+            }
+
+            input {
+                @include grid-column(30%);
+            }
+
+            button {
+                @include grid-column(10%);
+                @include grid-column-end;
+            }
+        }
+
     }
 
     &-item {
