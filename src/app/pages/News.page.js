@@ -26,10 +26,10 @@ class News extends Component {
 
                             <div className="columns small-12 large-10 large-offset-1">
                                 <section className="row">
-                                    <div className="newsContainer-newsFlottant">
+                                    <div className="newsContainer-newsFlottant small-12">
                                         <img src="img/svg/price_flottant.svg" />
                                     </div>
-                                    <div className="columns newsContainer-img small-4">
+                                    <div className="columns newsContainer-img small-12 large-4">
                                         <img src={news.Thumbnail} />
                                     </div>
                                     <div className="columns small-24 newsContainer-content" key={`'news_${i}`}>
