@@ -76,7 +76,7 @@ class SomeSpeakersPresentation extends Component {
                         <div className="row align-center speakers-row-1 speakers-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => {
                                 return (
-                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'card-open' : '')}`}
                                         onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-picture">
@@ -113,7 +113,7 @@ class SomeSpeakersPresentation extends Component {
                         <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
                                 return (
-                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'speaker-open' : '')}`}
+                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'card-open' : '')}`}
                                         onClick={() => this.expandSpeaker(speaker)}
                                         key={`'speaker_${i}`}>
                                         <div className="column auto align-center speakers-container-content-item-text">
