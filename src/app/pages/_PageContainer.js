@@ -21,11 +21,11 @@ const displayPage = (Page) => {
         render() {
             const { loaded, Sponsors } = this.props.gsheet;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
-
+            
             if (loaded) {
                 return (
                     <div>
-                        <Menu />
+                        <Menu pathname={this.props.location.pathname}/>
                         <Page {...this.props} />
                         <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
                     </div>
