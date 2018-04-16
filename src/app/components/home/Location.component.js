@@ -8,13 +8,11 @@ class Location extends Component {
 
     render() {
         return (
-            <section className="row location">
-                <div className="columns small-12 align-center location-infos">
-                    <div className="small-3 location-infos-place">A 10 minute de <br />> Bordeaux</div>
-                    <div className="small-3 location-infos-amphis">6 amphis en parallèle <br />> 50 conférences</div>
-                    <div className="small-3 location-infos-dev">15 communautés <br />> 500 Développeur·se·s</div>
-                </div>
-
+            <section className="row location align-center location-infos">
+                <div className="columns small-12 large-3 location-infos-place">A 10 minute de <br />> Bordeaux</div>
+                <div className="columns small-12 large-3 location-infos-amphis">6 amphis en parallèle <br />> 50 conférences</div>
+                <div className="columns small-12 large-3 location-infos-dev">15 communautés <br />> 500 Développeur·se·s</div>
+                
                 <div className="columns small-12 location-site">
                     <div className="row">
                         <div className="columns shrink location-site-place">
@@ -34,7 +32,7 @@ class Location extends Component {
                             </div>
                         </div>
 
-                         <div className="columns location-site-map">
+                        <div className="columns location-site-map">
                             <IframeContainer src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJv4tyl4HYVA0RLvkdcxUEhOw&key=AIzaSyBQYTDJ5joswWG8lQ-Wv9MGYUqHhD9LfCc"
                                 height="300" width="100%" allowFullScreen />
                         </div>

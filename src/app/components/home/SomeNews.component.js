@@ -30,25 +30,25 @@ class SomeNews extends Component {
             <div className="row someNews">
                 <div className="columns text-center">
                     <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
-                    <h6 className="sectionSubtitleBg">Que se passe-t-il avec BDX I/O ?</h6>
+                    {/* <h6 className="sectionSubtitleBg">Que se passe-t-il à BDX I/O ?</h6> */}
                 </div>
 
-                <div className="row align-center">
-                <div className="columns small-8 someNews-container">
+                <div className="align-center">
+
                     <div className="row collapse align-center someNews-content">
                         {newsDisplayed.map((n, i) => {
                             return (
-                                <div key={`'news_'${i}`} className="columns someNews-content-item">
+                                <div key={`'news_'${i}`} className="columns small-12 large-3 someNews-content-item">
                                     <div class="news-container">
                                         <div class="img-container">
-                                        <img className="someNews-content-item-picture" src={n.Thumbnail} />
+                                            <img className="someNews-content-item-picture" src={n.Thumbnail} />
                                         </div>
                                         <div className="someNews-content-item-title">{n.Titre}</div>
                                         <div className="text-content someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
-                                        </div>
-                                        <div className="text-center someNews-content-item-button">
-                                            <Link className="button tiny secondary" to={'/news'}>Lire l'article ></Link>
-                                        </div>
+                                    </div>
+                                    <div className="text-center someNews-content-item-button">
+                                        <Link className="button tiny secondary" to={'/news'}>Lire l'article ></Link>
+                                    </div>
                                 </div>
 
                             );
@@ -64,7 +64,6 @@ class SomeNews extends Component {
                             })}
                     </div>
                 </div>
-            </div>
 
                 <div className="columns shrink text-center">
                     <Link className="button small white" to={"/news"}>Tous voir</Link>

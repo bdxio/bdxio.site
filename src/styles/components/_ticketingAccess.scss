@@ -33,8 +33,12 @@
             width: rem-calc(263px);
             position: relative;
             overflow: hidden;
-            opacity: 0.4;
-            cursor: not-allowed;
+            text-align: center;
+            
+            &.disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+            }
 
             &-infos {
                 display: block;
@@ -85,19 +89,6 @@
 
                 &-button {
                     margin-top: 16px;
-                }
-
-                &.disabled{
-                    &:after {
-                        background-color: rgba($grey-dark, .6);
-                        content: "";
-                        position: absolute;
-                        width: 50px;
-                        height: 370%;
-                        top: -50%;
-                        left: -50%;
-                        transform: rotate(40deg);
-                    }
                 }
             }
         }

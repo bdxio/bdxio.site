@@ -24,7 +24,7 @@ class ConferenceThemes extends Component {
 
                 <div className="columns">
                     <div className="row auto align-center">
-                        <div className="column small-10 conference-container">
+                        <div className="column small-8 conference-container">
                             <div className="row conference-container-content">
                                 <div className="columns text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_design.svg" /></div>

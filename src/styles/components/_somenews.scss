@@ -5,11 +5,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    &-container {
-        margin-top: 64px;
-        margin-bottom: 40px;
-    }
-
     &-content {
         display: flex;  
 
@@ -20,7 +15,6 @@
             background: $white;
             margin: 0 8px;
             height: rem-calc(450px);
-            max-width: rem-calc(450px);
 
             .news-container {
                 overflow: auto;
@@ -44,7 +38,7 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 background: $yellow;
-                max-width: rem-calc(200px);
+                max-width: fit-content;
                 padding:4px 16px;
             }
 

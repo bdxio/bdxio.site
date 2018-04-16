@@ -72,7 +72,7 @@ class SomeSpeakersPresentation extends Component {
                 </div>
 
                 <div className="row align-center speakers-container">
-                    <div className="column small-10">
+                    <div className="column small-8">
                         <div className="row align-center speakers-row-1 speakers-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => {
                                 return (
@@ -109,7 +109,7 @@ class SomeSpeakersPresentation extends Component {
                     </div>
 
 
-                    <div className="column small-10">
+                    <div className="column small-8">
                         <div className="row align-center speakers-row-2 speakers-container-content">
                             {speakers.slice(-2).map((speaker, i) => {
                                 return (
