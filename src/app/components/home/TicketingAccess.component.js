@@ -19,7 +19,7 @@ class TicketingAccess extends Component {
                 </div>
 
                 <div className="row collapse align-center ticketingAccess-container">
-                    <div className={"column small-12 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                    <div className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
                         <div className="columns ticketingAccess-container-item-infos-title">
                             <div className="ticketingAccess-container-item-infos-title-euros">32,00 €</div>
@@ -47,7 +47,7 @@ class TicketingAccess extends Component {
                     </div>
                 </div>
 
-                <div className={"column small-12 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                <div className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                     <div className="row align-center ticketingAccess-container-item-infos">
                         <div className="columns ticketingAccess-container-item-infos-title">
                             <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
@@ -80,7 +80,7 @@ class TicketingAccess extends Component {
                     </div>
                 </div>
 
-                <div className={"column small-12 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                <div className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                     <div className="row align-center ticketingAccess-container-item-infos">
                         <div className="columns ticketingAccess-container-item-infos-title">
                             <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
