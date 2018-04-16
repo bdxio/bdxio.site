@@ -19,6 +19,12 @@
         right: -12px;
     }
 
+    @include breakpoint(small down) {
+        .homeFlottant, .homeFlottant1 {
+            display: none;
+        }
+    }
+
     img {
         width: 15%;
     }

@@ -17,6 +17,12 @@
         }
     }
 
+    @include breakpoint(small down) {
+        &-ticketingAccessFlottant {
+            display: none;
+        }
+    }
+
     &-container {
         display: flex;
         flex-wrap: wrap;
@@ -89,6 +95,15 @@
 
                 &-button {
                     margin-top: 16px;
+                }
+            }
+
+            @include breakpoint(small down) {
+                min-height: rem-calc(250px);
+                &-content {
+                    display: block;
+                    padding: 24px;
+                    line-height: 17px;
                 }
             }
         }

@@ -31,6 +31,12 @@
             top: 35%;
         }
       }
+
+    @include breakpoint(small down) {
+        &-conferenceFlottantRight, &-conferenceFlottantLeft {
+            display: none;
+        }
+    }
     
     &-themes {
         display: block

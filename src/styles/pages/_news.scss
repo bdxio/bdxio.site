@@ -10,6 +10,12 @@
           }
     }
 
+    @include breakpoint(small down) {
+        &-newsFlottant {
+            display: none;
+        }
+    }
+
     &-content {
         @media screen and (max-width: 600px) {
             margin-top: 20px;

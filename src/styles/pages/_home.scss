@@ -19,6 +19,12 @@
     }
   }
 
+  @include breakpoint(small down) {
+    &-homeFlottant {
+      display: none;
+    }
+  }
+
   &-header {
     display: flex;
     width: 100%;

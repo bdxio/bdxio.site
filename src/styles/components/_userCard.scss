@@ -17,6 +17,12 @@
         right: -2%;
       }
     }
+
+  @include breakpoint(small down) {
+    &-usersFlottant {
+      display: none;
+    }
+  }
   
     &-container {
       margin-top: 64px;

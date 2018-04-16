@@ -18,6 +18,13 @@
     }
   }
 
+  @include breakpoint(small down) {
+    &-speakersFlottant {
+      display: none;
+    }
+  }
+
+
   &-container {
     margin-top: 64px;
     margin-bottom: 40px;
