@@ -39,8 +39,8 @@ class SomeNews extends Component {
                         {newsDisplayed.map((n, i) => {
                             return (
                                 <div key={`'news_'${i}`} className="columns small-12 large-3 someNews-content-item">
-                                    <div class="news-container">
-                                        <div class="img-container">
+                                    <div className="news-container">
+                                        <div className="img-container">
                                             <img className="someNews-content-item-picture" src={n.Thumbnail} />
                                         </div>
                                         <div className="someNews-content-item-title">{n.Titre}</div>

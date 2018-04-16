@@ -9,6 +9,10 @@ class News extends Component {
         super(props);
     }
 
+    componentWillMount() {
+        window.scrollTo(0, 0)
+    }
+
     render() {
         const { News } = this.props.gsheet;
         const newsDisplayed = News.filter(n => n['Publiée'] == '1');
