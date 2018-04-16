@@ -14,11 +14,6 @@ module.exports = {
             inject: true,
             template: 'src/static/index.html'
         }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            filename: 'styleguide.html',
-            template: 'src/static/styleguide.html'
-        }),
         //Auto replacement of page when i save some file, even css
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin('bundle.css')
