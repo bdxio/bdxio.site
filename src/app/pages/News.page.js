@@ -16,12 +16,11 @@ class News extends Component {
         return (
             <div>
                 <Header title="NEWS" />
-                <div className="row newsContainer">
-                    {newsDisplayed.map((news, i) => {
-                        return (
-                            <div className="columns small-24">
-                                <div className="row" key={`'news_${i}`}></div>
+                {newsDisplayed.map((news, i) => {
+                    return (
+                        <div className="row newsContainer" key={`'news_${i}`}>
 
+                            <div className="columns small-12 large-10 large-offset-1">
                                 <section className="row">
                                     <div className="newsContainer-newsFlottant">
                                         <img src="img/svg/price_flottant.svg" />
@@ -36,9 +35,9 @@ class News extends Component {
                                     </div>
                                 </section>
                             </div>
-                        )
-                    })}
-                </div>
+                        </div>
+                    )
+                })}
             </div>
         );
     }
