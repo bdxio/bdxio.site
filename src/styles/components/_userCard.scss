@@ -31,16 +31,52 @@
           padding: 0;
           min-width: rem-calc(400px);
           height: auto;
+          position: relative;
           background: $red;
 
+          .user-card-arrow {
+            position: absolute;
+            width:0;
+            border: rem-calc(15px) solid transparent;
+            border-right: rem-calc(15px) solid $red;
+            top: calc(50% - 15px);
+            left: calc(50% - 29px);
+            cursor: pointer;
+          }
+
           &.alternative {
-              background: $yellow
+            background: $yellow;
+
+            .user-card-arrow  {
+              position: absolute;
+              width:0;
+              border: rem-calc(15px) solid transparent;
+              border-left: rem-calc(15px) solid $yellow;
+              top: calc(50% - 15px);
+              left: calc(50% - 29px);
+              cursor: pointer;
+            }
           }
 
           &:nth-child(even) {
             background: $yellow;
+
+            .user-card-arrow {
+              position: absolute;
+              width:0;
+              border: rem-calc(15px) solid transparent;
+              border-right: rem-calc(15px) solid $yellow;
+              top: calc(50% - 15px);
+              left: calc(50% - 29px);
+              cursor: pointer;
+            }
+
             &.alternative {
-                background: $red;
+              background: $red;
+
+              .user-card-arrow {
+                border-left: rem-calc(15px) solid $red;
+              }
             }
           }
   

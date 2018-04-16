@@ -38,7 +38,7 @@ class UserCard extends Component {
                         }
                     </div>
                 </div>
-                <span className="users-container-content-item-arrow"></span>
+                <span className="user-card-arrow"></span>
                 {imageAtRight &&
                     <div className="columns align-center users-container-content-item-picture">
                         <img src={user['Avatar url']} />
