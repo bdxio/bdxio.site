@@ -10,7 +10,7 @@ class Menu extends Component {
     render() {
         const { pathname, isOnTop } = this.props;
         return (
-            <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' :'')}>
+            <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' : '')}>
                 <span className="columns menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
@@ -19,9 +19,9 @@ class Menu extends Component {
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} className="disabled" to={false ? '/speakers' : '/home'} >Speakers</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/partnerships' ? 'selected' : '')} to="/partnerships">Sponsors</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} className="disabled" to={false ? '/faq' : '/home'}>FAQ</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} className="disabled" to='/speakers' onClick={e => e.preventDefault()} >Speakers</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/partnerships' ? 'selected' : '')} className="disabled" to="/partnerships" onClick={e => e.preventDefault()}>Sponsors</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} className="disabled" to='/faq' onClick={e => e.preventDefault()}>FAQ</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/contact' ? 'selected' : '')} to="/contact">Contact</Link></li>
                     </ul>
 

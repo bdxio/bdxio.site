@@ -17,6 +17,8 @@ import Partnerships from './pages/Partnerships.page';
 import Faq from './pages/Faq.page';
 import Contact from './pages/Contact.page';
 
+import { default as Speakers2017 } from './pages/2017/Speakers.page';
+
 const store = createStore(
     reducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
@@ -32,8 +34,9 @@ ReactDOM.render(
                 <Route path="/home" component={Home} />
                 <Route path="/team" component={Team} />
                 <Route path="/news" component={News} />
-                <Route path="/speakers" component={Speakers} />
-                <Route path="/partnerships" component={Partnerships} />
+                <Route path="/2017/speakers" component={Speakers2017} />
+                {/* <Route path="/speakers" component={Speakers} /> */}
+                {/* <Route path="/partnerships" component={Partnerships} /> */}
                 <Route path="/faq" component={Faq} />
                 <Route path="/contact" component={Contact} />
             </Switch>

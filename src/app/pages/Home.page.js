@@ -22,7 +22,7 @@ class Home extends Component {
     }
 
     render() {
-        const { News, Sponsors, Speakers, Config } = this.props.gsheet;
+        const { News, Sponsors, Speakers, Speakers17, Config } = this.props.gsheet;
 
         const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
@@ -98,7 +98,7 @@ class Home extends Component {
 
                 <Quote />
 
-                <SomeSpeakersPresentation speakers={Speakers} />
+                <SomeSpeakersPresentation speakers={(Speakers.length > 0 ? Speakers : Speakers17)} isPrevious={(Speakers.length === 0)} />
 
                 <SomeNews news={News} />
 
