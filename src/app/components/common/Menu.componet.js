@@ -16,7 +16,6 @@ class Menu extends Component {
                 </span>
                 <div className="main-menu">
                     <ul className="columns align-center main-menu-item">
-                        {/*  TODO added selected class on link, thank you for adding a link for this commande work*/}
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>
