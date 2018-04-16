@@ -1,6 +1,6 @@
 import Moment from 'moment';
 
-export const Constant = {
+export const Constants = {
     gSheetKey: '1Xa5_JN0KSTvG2sxj57Zr5cWEaOppMIprytPCwrLeP5k',
     eventDate: Moment("09-11-2018", "DD-MM-YYYY"),
     quotes: [

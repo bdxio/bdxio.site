@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Footer from '../components/common/Footer.component';
 import Menu from '../components/common/Menu.componet';
 
+import { Constants } from '../constants';
 import { Actions as GSheetActions } from '../actions/gsheet.actions';
 
 const displayPage = (Page) => {
@@ -19,7 +20,7 @@ const displayPage = (Page) => {
 
         render() {
             const { loaded, Sponsors } = this.props.gsheet;
-            const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
+            const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
             if (loaded) {
                 return (

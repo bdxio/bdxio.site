@@ -13,7 +13,6 @@ class SponsorsBar extends Component {
              <img className="homeFlottant" src="img/svg/sponsor_flottant.svg" />
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Nos sponsors Impériaux</h5>
-                    <h6>Merci à nos sponsors pour leur soutient !!! \( ^  ^)°/</h6>
                 </div>
 
                 <div className="columns auto text-center">

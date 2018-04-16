@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
-import { Constant } from '../constants';
-
+import { Constants } from '../constants';
 
 class Countdown extends Component {
 
@@ -25,7 +24,7 @@ class Countdown extends Component {
 
     tick() {
         this.setState({
-            timeRemaining: Moment.duration(Constant.eventDate.diff(Moment.now()))
+            timeRemaining: Moment.duration(Constants.eventDate.diff(Moment.now()))
         })
     }
 

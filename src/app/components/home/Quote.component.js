@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Constant } from '../../constants';
+import { Constants } from '../../constants';
 
 class Quote extends Component {
     constructor(props) {
@@ -7,8 +7,8 @@ class Quote extends Component {
     }
 
     render() {
-        const rnd = Math.floor(Math.random() * Constant.quotes.length);
-        const quote = Constant.quotes[rnd];
+        const rnd = Math.floor(Math.random() * Constants.quotes.length);
+        const quote = Constants.quotes[rnd];
 
         return (
             <div className="row align-middle align-center home-team">

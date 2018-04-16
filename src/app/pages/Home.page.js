@@ -13,7 +13,7 @@ import TicketingAccess from '../components/home/TicketingAccess.component';
 import Location from '../components/home/Location.component';
 import SponsorsBar from '../components/common/SponsorsBar.component';
 
-import Constant from '../constants';
+import { Constants } from '../constants';
 
 class Home extends Component {
 
@@ -24,7 +24,7 @@ class Home extends Component {
     render() {
         const { News, Sponsors, Speakers, Config } = this.props.gsheet;
 
-        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constant.sponsors.types.IMPERIAL);
+        const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
         return (
             <div className="home">
