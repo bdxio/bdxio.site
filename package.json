@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --open --mode development",
-    "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:dist": "webpack --env=prod --progress --profile --colors"
+    "build": "webpack --config webpack.prod.js --env=prod --progress --profile --colors",
+    "start": "webpack-dev-server --open --mode development"
   },
   "keywords": [],
   "author": "",

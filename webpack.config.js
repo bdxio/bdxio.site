@@ -1,7 +1,6 @@
 var path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     //Content 
@@ -15,8 +14,7 @@ module.exports = {
             template: 'src/static/index.html'
         }),
         //Auto replacement of page when i save some file, even css
-        new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('bundle.css')
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     output: {
