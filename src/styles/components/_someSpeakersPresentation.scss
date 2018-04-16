@@ -55,7 +55,8 @@
           background-image: url($img-path + 'svg/bdxio_pattern.svg');
           background-repeat: no-repeat;
           background-size: 380%;
-          transition: flex 2s;
+          //transition: flex 2s;
+          min-height: 245px;
 
           &-bio {
             max-height: 99px;
@@ -85,7 +86,7 @@
 
           .speakers-container-content-item-text {
             flex: 2;
-            transition: flex 2s;
+            //transition: flex 2s;
           }
 
           .speakers-container-content-item-picture {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SomeNews from './SomeNews.component';
+import UserCard from '../common/UserCard.component';
 
 const COUNT_DISPLAYED_SPEAKERS = 4;
 
@@ -22,7 +23,7 @@ class SomeSpeakersPresentation extends Component {
     expandSpeaker(speaker) {
         const { speakers } = this.state;
         const idx = speakers.findIndex(s => s['Nom'] === speaker['Nom']);
-        if (idx > -1){
+        if (idx > -1) {
             speakers[idx].expanded = !speakers[idx].expanded;
             this.setState({ speakers: [...speakers] });
         }
@@ -60,7 +61,7 @@ class SomeSpeakersPresentation extends Component {
 
     render() {
         const { speakers } = this.state;
-        
+
         return (
             <div className="row speakers text-center">
                 <div className="speakers-speakersFlottant">
@@ -74,73 +75,14 @@ class SomeSpeakersPresentation extends Component {
                 <div className="row align-center speakers-container">
                     <div className="column small-8">
                         <div className="row align-center speakers-row-1 speakers-container-content">
-                            {speakers.slice(0, 2).map((speaker, i) => {
-                                return (
-                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'card-open' : '')}`}
-                                        onClick={() => this.expandSpeaker(speaker)}
-                                        key={`'speaker_${i}`}>
-                                        <div className="column auto align-center speakers-container-content-item-picture">
-                                            <img src={speaker['Avatar url']} />
-                                        </div>
-                                        <div className="column auto align-center speakers-container-content-item-text">
-                                            <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                            <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                            <div>
-                                                <hr />
-                                                {speaker['Twitter'] &&
-                                                    <span><a href={`https://twitter.com/${speaker['Twitter']}`} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                                }
-                                                {speaker['Linkedin'] &&
-                                                    <span><a href={speaker['Linkedin']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                                }
-                                                {speaker['Google+'] &&
-                                                    <span><a href={speaker['Google+']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                                }
-                                                {speaker['Blog'] &&
-                                                    <span><a href={speaker['Blog']} target="_blank"><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                                }
-                                            </div>
-                                        </div>
-                                        <span className="speakers-container-content-item-arrow"></span>
-                                    </div>
-                                )
-                            })}
+                            {speakers.slice(0, 2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} />)}
                         </div>
                     </div>
 
 
                     <div className="column small-8">
                         <div className="row align-center speakers-row-2 speakers-container-content">
-                            {speakers.slice(-2).map((speaker, i) => {
-                                return (
-                                    <div className={`column align-center speakers-container-content-item ${(speaker.expanded ? 'card-open' : '')}`}
-                                        onClick={() => this.expandSpeaker(speaker)}
-                                        key={`'speaker_${i}`}>
-                                        <div className="column auto align-center speakers-container-content-item-text">
-                                            <h6>{speaker['Prénom']} {speaker['Nom']}</h6>
-                                            <div className="speakers-container-content-item-text-bio">{speaker['Bio']}</div>
-                                            <div>
-                                                <hr />
-                                                {speaker['Twitter'] &&
-                                                    <span><a href={`https://twitter.com/${speaker['Twitter']}`}><i className="speakers-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
-                                                }
-                                                {speaker['Linkedin'] &&
-                                                    <span><a href={speaker['Linkedin']}><i className="speakers-container-content-item-text-socialNetwork fa fa-linkedin"></i></a></span>
-                                                }
-                                                {speaker['Google+'] &&
-                                                    <span><a href={speaker['Google+']}><i className="speakers-container-content-item-text-socialNetwork fa fa-google-plus"></i></a></span>
-                                                }
-                                                {speaker['Blog'] &&
-                                                    <span><a href={speaker['Blog']}><i className="speakers-container-content-item-text-socialNetwork fa fa-globe"></i></a></span>
-                                                }
-                                            </div>
-                                        </div>
-                                        <span className="speakers-container-content-item-arrow"></span>
-                                        <img className="column auto align-center speakers-container-content-item-picture"
-                                            src={speaker['Avatar url']} />
-                                    </div>
-                                )
-                            })}
+                            {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} imageAtRight />)}
                         </div>
                     </div>
                 </div>
