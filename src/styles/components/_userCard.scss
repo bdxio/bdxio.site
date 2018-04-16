@@ -1,0 +1,118 @@
+.users {
+    display: block;
+    position: relative;
+    margin-top: rem-calc(64px);
+  
+    &-usersFlottant {
+      width: 100%;
+      height: 180%;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+  
+      img {
+        position: relative;
+        float: right;
+        max-width: 15%;
+        right: -2%;
+      }
+    }
+  
+    &-container {
+      margin-top: 64px;
+      margin-bottom: 40px;
+  
+      &-content {
+        display: flex;
+        flex-wrap: wrap;
+  
+        &-item {
+          display: flex;
+          padding: 0;
+          min-width: rem-calc(400px);
+          height: auto;
+          background: $red;
+
+          &.alternative {
+              background: $yellow
+          }
+
+          &:nth-child(even) {
+            background: $yellow;
+            &.alternative {
+                background: $red;
+            }
+          }
+  
+          &-picture {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            padding: 0;
+            background: $white-grey;
+  
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+  
+          &-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8px 0;
+            color: white;
+            background-image: url($img-path + 'svg/bdxio_pattern.svg');
+            background-repeat: no-repeat;
+            background-size: 380%;
+            //transition: flex 2s;
+            min-height: 245px;
+  
+            &-bio {
+              max-height: 99px;
+              overflow: hidden;
+              padding: 0 8px;
+            }
+  
+            h6 {
+              font-weight: bold;
+              padding: 0 8px;
+            }
+  
+            &-socialNetwork {
+              padding: 0 8px;
+              color: $white;
+              &:hover {
+                opacity: 0.6;
+                cursor: pointer;
+              }
+            }
+          }
+  
+          &.card-open {
+            .users-container-content-item-arrow {
+              display: none;
+            }
+  
+            .users-container-content-item-text {
+              flex: 2;
+              //transition: flex 2s;
+            }
+  
+            .users-container-content-item-picture {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  
+    &-button {
+      margin-top: 16px;
+    }
+  
+  }
+
+  

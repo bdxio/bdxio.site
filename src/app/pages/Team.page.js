@@ -14,27 +14,30 @@ class Team extends Component {
         const { Orgas } = this.props.gsheet;
         const office = Orgas.filter(o => o['Bur'] == '1')
         const members = Orgas.filter(o => o['Bur'] != '1')
+        let line = 0;
         return (
             <div>
                 <Header title="LA TEAM" />
 
-                <div className="row align-center speakers-container">
+                <div className="row align-center users-container">
                     <div className="column small-12 large-8">
                         <h4>/ LE BUREAU</h4>
-                        <div className="row speakers-row-1 speakers-container-content">
-                            {office.map((member, i) => (
-                                <UserCard key={`member_${i}`} user={member} />
-                            ))}
+                        <div className="row users-container-content">
+                            {office.map((member, i) => {
+                                if (i % 2 === 0) line++
+                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
+                            })}
                         </div>
                     </div>
 
 
                     <div className="column small-12 large-8">
                         <h4>/ LES MEMBRES</h4>
-                        <div className="row speakers-row-2 speakers-container-content">
-                            {members.map((member, i) => (
-                                <UserCard key={`member_${i}`} user={member} />
-                            ))}
+                        <div className="row users-container-content">
+                            {members.map((member, i) => {
+                                if (i % 2 === 0) line++
+                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
+                            })}
                         </div>
                     </div>
                 </div>

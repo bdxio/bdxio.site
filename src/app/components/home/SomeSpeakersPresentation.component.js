@@ -63,8 +63,8 @@ class SomeSpeakersPresentation extends Component {
         const { speakers } = this.state;
 
         return (
-            <div className="row speakers text-center">
-                <div className="speakers-speakersFlottant">
+            <div className="row users text-center">
+                <div className="users-usersFlottant">
                     <img src="img/svg/about_flottant.svg" />
                 </div>
                 <div className="column small-24">
@@ -72,22 +72,22 @@ class SomeSpeakersPresentation extends Component {
                     <h6>On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
                 </div>
 
-                <div className="row align-center speakers-container">
+                <div className="row align-center users-container">
                     <div className="column small-8">
-                        <div className="row align-center speakers-row-1 speakers-container-content">
+                        <div className="row align-center users-row-1 users-container-content">
                             {speakers.slice(0, 2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} />)}
                         </div>
                     </div>
 
 
                     <div className="column small-8">
-                        <div className="row align-center speakers-row-2 speakers-container-content">
+                        <div className="row align-center users-row-1 users-container-content">
                             {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} imageAtRight />)}
                         </div>
                     </div>
                 </div>
 
-                <div className="column align-center speakers-button">
+                <div className="column align-center users-button">
                     <Link className="columns shrink text-center button small secondary" to={"/speakers"}>Les voir tous</Link>
                 </div>
             </div>
