@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import SomeNews from './SomeNews.component';
 import UserCard from '../common/UserCard.component';
 
 const COUNT_DISPLAYED_SPEAKERS = 4;
@@ -11,7 +10,7 @@ class SomeSpeakersPresentation extends Component {
         super(props);
         this.state = {
             speakers: [],
-        }
+        };
         this.expandSpeaker = this.expandSpeaker.bind(this);
     }
 
@@ -61,7 +60,7 @@ class SomeSpeakersPresentation extends Component {
 
     render() {
         const { speakers } = this.state;
-
+        const { isPrevious } = this.props;
         return (
             <div className="row users text-center">
                 <div className="users-usersFlottant">
@@ -69,7 +68,7 @@ class SomeSpeakersPresentation extends Component {
                 </div>
                 <div className="column small-24">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6>On vous a choisi quelques profils <strong className="red">2017</strong> de façon aléatoire pour vous mettre l'eau à la bouche</h6>
+                    <h6>Quelques profils <strong className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire pour vous mettre l'eau à la bouche</h6>
                 </div>
 
                 <div className="row align-center users-container">
@@ -88,7 +87,7 @@ class SomeSpeakersPresentation extends Component {
                 </div>
 
                 <div className="column align-center users-button">
-                    <Link className="columns shrink text-center button small secondary" to={"/speakers"}>Les voir tous</Link>
+                    <Link className="columns shrink text-center button small secondary"  to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
                 </div>
             </div>
         );
@@ -97,6 +96,7 @@ class SomeSpeakersPresentation extends Component {
 
 SomeSpeakersPresentation.propTypes = {
     speakers: PropTypes.array.isRequired,
-}
+    isPrevious: PropTypes.bool.isRequired,
+};
 
 export default SomeSpeakersPresentation
