@@ -21,31 +21,40 @@
 
         @include breakpoint(medium down) {
 
-            div {
+            .info {
                 text-align: center;
                 @include grid-column;
             }
 
-            input {
-                margin-top: 10px;
-                @include grid-column(60%);
-                max-width: 300px;
+            .email {
+                @include grid-column;
+                text-align: center;
+
+                input {
+                    margin-top: 20px;
+                    width: 50%;
+                    max-width: 300px;
+                    margin-left: 0;
+                    display: inline-block;
+                }
+
+                button {
+                    margin-top: -7px;
+                    width: 20%;
+                    min-width: 88px !important;
+                    max-width: 100px;
+                    display: inline-block;
+                }
             }
 
-            button {
-                margin-top: 10px;
-                @include grid-column(30%);
-                max-width: 100px;
-            }
+
         }
 
         @media screen and #{breakpoint(large)} {
 
-            @include grid-column-offset(20%);
-
-            div {
+            .info {
                 text-align: right;
-                @include grid-column(25%);
+                @include grid-column(40%);
             }
 
             input {
