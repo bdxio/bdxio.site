@@ -26,14 +26,14 @@ class ConferenceThemes extends Component {
                     <div className="row auto align-center">
                         <div className="column small-8 conference-container">
                             <div className="row conference-container-content">
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_design.svg" /></div>
                                     <h6>Design, UI & UX</h6>
                                     <div>CSS, Ergonomie & Design.
                                 Experience utilisateur.</div>
                                 </div>
 
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_back.svg" /></div>
                                     <h6>Backends, Cloud & BigData</h6>
                                     <div>Frameworks côté serveur.
@@ -42,7 +42,7 @@ class ConferenceThemes extends Component {
                                 </div>
 
 
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_front.svg" /></div>
                                     <h6>Frontend Web, Mobile et VideoGames</h6>
                                     <div>Frameworks côté client.
@@ -50,7 +50,7 @@ class ConferenceThemes extends Component {
                                  Outillage pour les jeux vidéos.</div>
                                 </div>
 
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_tooling.svg" /></div>
                                     <h6>Tooling</h6>
                                     <div>Outillage pour la productivité.
@@ -58,13 +58,13 @@ class ConferenceThemes extends Component {
                                  IDE.</div>
                                 </div>
 
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_internet.svg" /></div>
                                     <h6>Internet des objets & marchés émergents</h6>
                                     <div>A la recherche des idées disruptives au service du monde de demain.</div>
                                 </div>
 
-                                <div className="columns text-center conference-container-content-item">
+                                <div className="columns small-12 medium-4 text-center conference-container-content-item">
                                     <div><img src="img/svg/icon_theme_dev.svg" /></div>
                                     <h6>Conception, Architecture & Pratiques de dev</h6>
                                     <div>Méthodologie comme SCRUM ou Kanban.
