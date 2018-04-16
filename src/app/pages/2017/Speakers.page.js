@@ -6,9 +6,30 @@ import UserCard from '../../components/common/UserCard.component';
 class Speakers extends Component {
     constructor() {
         super();
+        this.state = {
+            isMobile: false,
+        };
+        this._onResize = this._onResize.bind(this);
+    }
+
+    componentWillMount() {
+        this._onResize();
+        window.addEventListener('resize', this._onResize);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('resize', this._onResize);
+    }
+
+    _onResize() {
+        const isMobile = window.innerWidth <= 500;
+        if (isMobile !== this.state.isMobile) {
+            this.setState({ isMobile })
+        }
     }
 
     render() {
+        const { isMobile } = this.state;
         const { Speakers17 } = this.props.gsheet;
         let line = 0;
         return (
@@ -18,7 +39,7 @@ class Speakers extends Component {
                     <div className="column small-12 large-8">
                         <div className="row users-container-content">
                             {Speakers17.map((member, i) => {
-                                if (i % 2 === 0) line++
+                                if (!isMobile && i % 2 === 0) line++
                                 return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}
                         </div>

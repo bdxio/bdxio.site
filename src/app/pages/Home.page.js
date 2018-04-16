@@ -19,9 +19,30 @@ class Home extends Component {
 
     constructor() {
         super();
+        this.state = {
+            isMobile: false,
+        };
+        this._onResize = this._onResize.bind(this);
+    }
+
+    componentWillMount() {
+        this._onResize();
+        window.addEventListener('resize', this._onResize);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('resize', this._onResize);
+    }
+
+    _onResize() {
+        const isMobile = window.innerWidth <= 500;
+        if (isMobile !== this.state.isMobile) {
+            this.setState({ isMobile })
+        }
     }
 
     render() {
+        const { isMobile } = this.state;
         const { News, Sponsors, Speakers, Speakers17, Config } = this.props.gsheet;
 
         const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
@@ -98,7 +119,10 @@ class Home extends Component {
 
                 <Quote />
 
-                <SomeSpeakersPresentation speakers={(Speakers.length > 0 ? Speakers : Speakers17)} isPrevious={(Speakers.length === 0)} />
+                <SomeSpeakersPresentation
+                    speakers={(Speakers.length > 0 ? Speakers : Speakers17)}
+                    isPrevious={(Speakers.length === 0)}
+                    isMobile={isMobile} />
 
                 <SomeNews news={News} />
 

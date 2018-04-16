@@ -60,7 +60,7 @@ class SomeSpeakersPresentation extends Component {
 
     render() {
         const { speakers } = this.state;
-        const { isPrevious } = this.props;
+        const { isPrevious, isMobile } = this.props;
         return (
             <div className="row users text-center">
                 <div className="users-usersFlottant">
@@ -81,7 +81,7 @@ class SomeSpeakersPresentation extends Component {
 
                     <div className="column small-8">
                         <div className="row align-center users-row-1 users-container-content">
-                            {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} imageAtRight />)}
+                            {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} imageAtRight={!isMobile} />)}
                         </div>
                     </div>
                 </div>
@@ -97,6 +97,7 @@ class SomeSpeakersPresentation extends Component {
 SomeSpeakersPresentation.propTypes = {
     speakers: PropTypes.array.isRequired,
     isPrevious: PropTypes.bool.isRequired,
+    isMobile: PropTypes.bool.isRequired,
 };
 
 export default SomeSpeakersPresentation
