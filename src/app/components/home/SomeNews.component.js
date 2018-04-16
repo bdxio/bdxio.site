@@ -38,7 +38,7 @@ class SomeNews extends Component {
                     <div className="row collapse align-center someNews-content">
                         {newsDisplayed.map((n, i) => {
                             return (
-                                <div key={`'news_'${i}`} className="columns small-12 large-3 someNews-content-item">
+                                <div key={`'news_'${i}`} className="columns small-10 large-3 someNews-content-item">
                                     <div className="news-container">
                                         <div className="img-container">
                                             <img className="someNews-content-item-picture" src={n.Thumbnail} />
