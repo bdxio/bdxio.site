@@ -20,6 +20,7 @@
             background: $white;
             margin: 0 8px;
             height: rem-calc(450px);
+            max-width: rem-calc(450px);
 
             .news-container {
                 overflow: auto;
