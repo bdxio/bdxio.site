@@ -11,21 +11,39 @@ const displayPage = (Page) => {
     class DisplayPage extends Component {
 
         constructor(props) {
-            super(props)
+            super(props);
+            this.state = {
+                isOnTop: true,
+            };
+            this._onScroll = this._onScroll.bind(this);
         }
 
         componentWillMount() {
             this.props.dispatch(GSheetActions.fetch());
+
+            document.addEventListener('scroll', this._onScroll);
+        }
+
+        componentWillUnmount() {
+            document.removeEventListener('scroll', this._onScroll);
+        }
+
+        _onScroll() {
+            const isOnTop = window.scrollY < 100;
+            if (isOnTop !== this.state.isOnTop) {
+                this.setState({ isOnTop })
+            }
         }
 
         render() {
+            const { isOnTop } = this.state;
             const { loaded, Sponsors } = this.props.gsheet;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
             if (loaded) {
                 return (
                     <div>
-                        <Menu pathname={this.props.location.pathname} />
+                        <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
                         <Page {...this.props} />
                         <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
                     </div>

@@ -8,9 +8,9 @@ class Menu extends Component {
     }
 
     render() {
-        const { pathname } = this.props;
+        const { pathname, isOnTop } = this.props;
         return (
-            <nav className="row align-middle small-24 menu">
+            <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' :'')}>
                 <span className="columns menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
@@ -47,6 +47,7 @@ class Menu extends Component {
 
 Menu.propTypes = {
     pathname: PropTypes.string.isRequired,
+    isOnTop: PropTypes.bool.isRequired,
 }
 
 export default Menu

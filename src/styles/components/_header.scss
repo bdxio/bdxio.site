@@ -3,7 +3,11 @@
   z-index: 99999;
   padding: 0;
   width: 100%;
-  background-color: #2b2d43;
+
+  &.scroll{
+    background-color: #2b2d43;
+    transition: all .5s;
+  }
 
   &-logo {
     width: 10rem;
