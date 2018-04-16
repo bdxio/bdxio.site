@@ -41,20 +41,20 @@ const displayPage = (Page) => {
             const { loaded, Sponsors } = this.props.gsheet;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
-            // if (loaded) {
-            //     return (
-            //         <div>
-            //             <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
-            //             <Page {...this.props} />
-            //             <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
-            //         </div>
-            //     );
-            // }
-            // else {
+            if (loaded) {
+                return (
+                    <div>
+                        <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
+                        <Page {...this.props} />
+                        <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
+                    </div>
+                );
+            }
+            else {
                 return (
                    <Loader />
                 );
-            //}
+            }
         }
     }
 
