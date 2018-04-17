@@ -13,26 +13,26 @@ class MetricsBar extends Component {
                     <Link to="/home"><i className="fa fa-2x fa-plus-circle"></i></Link>
                 </div>
                 <div className="columns small-12 medium-7">
-                    <div className="row metricsBar-content text-center">
-                        <div className="columns small-6 medium-2 medium-offset-1">
+                    <div className="row metricsBar-content align-center">
+                        <div className="columns small-2 medium-4 large-2 text-center">
                             <h3 className="metricsBar-content-number">46</h3>
-                            <div className="">TALKS</div>
+                            <div className="metricsBar-content-text">Talks</div>
                         </div>
-                        <div className="columns small-6 medium-2 seperateElement">
+                        <div className="columns small-2 medium-4 large-2 seperateElement text-center">
                             <h3 className="metricsBar-content-number">~50</h3>
-                            <div className="">SPEAKERS</div>
+                            <div className="metricsBar-content-text">Speakers</div>
                         </div>
-                        <div className="columns small-6 medium-2">
+                        <div className="columns small-3 medium-4 large-2 text-center">
                             <h3 className="metricsBar-content-number">500</h3>
-                            <div className="">PARTICIPANTS</div>
+                            <div className="metricsBar-content-text">Participants</div>
                         </div>
-                        <div className="columns small-6 medium-2 seperateElement">
+                        <div className="columns small-3 medium-4 large-2 seperateElement text-center">
                             <h3 className="metricsBar-content-number">1</h3>
-                            <div className="">Hackerspace</div>
+                            <div className="metricsBar-content-text">Hackerspace</div>
                         </div>
-                        <div className="columns medium-2">
+                        <div className="columns small-2 medium-4 large-2 text-center">
                             <h3 className="metricsBar-content-number">3</h3>
-                            <div className="">Hands'on</div>
+                            <div className="metricsBar-content-text">Hands'on</div>
                         </div>
                     </div>
                 </div>
