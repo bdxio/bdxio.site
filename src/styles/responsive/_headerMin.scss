@@ -24,88 +24,75 @@
       display: block;
       height: 3px;
       border-radius: 5px;
-      background: $red;
+      background: $white;
       width: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
 
       &:nth-child(1) {
-        background: $white !important;
         top: 32% !important;
         left: 50% !important;
       }
 
       &:nth-child(2) {
-        background: $white !important;
         top: 50% !important;
         left: 50% !important;
       }
 
       &:nth-child(3) {
-        background: $white !important;
         top: 66% !important;
         left: 50% !important;
+      }
+    }
+    &.active{
+      span {
+        background: $yellow;
       }
     }
   }
 
   .menu-responsive {
-
-  }
-
-  .menu-toggle-active {
-    span {
+    &.active {
+      margin: 0;
+      padding-left: 0;
       position: absolute;
-      display: block;
-      height: 3px;
-      border-radius: 5px;
-      background: $red;
-      width: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 73px;
+      right: 0;
+      height: 100%;
+      display: block !important;
+      width: rem-calc(200px);
+      opacity: 1;
+      width: 100%;
 
-      &:nth-child(1) {
-        top: 35%;
-      }
-
-      &:nth-child(2) {
-        opacity: 0;
-      }
-
-      &:nth-child(3) {
-        top: 65%;
-      }
-    }
-  }
-
-  .menu-responsive-active {
-    margin: 0;
-    padding-left: 0;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    height: 100%;
-    display: block !important;
-    width: rem-calc(200px);
-    opacity: 1;
-
-    ul {
-      list-style-type: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      justify-content: space-around;
-
-      li {
-        width: 100%;
-        background: $white;
+      ul {
+        margin: 0;
+        list-style-type: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        justify-content: space-around;
         border-bottom: $white-grey 1px solid;
 
-        a {
-          color: $primary;
+        li {
+          width: 100%;
+          background: $white;
+          border-bottom: $white-grey 1px solid;
+
+          a {
+            color: $primary;
+            &.selected {
+              color: $yellow;
+              border-left: 2px solid $yellow;
+            }
+
+            &.disabled {
+              opacity: 0.2;
+              cursor: not-allowed;
+            }
+          }
         }
       }
-    }
+    } 
   }
+
 }

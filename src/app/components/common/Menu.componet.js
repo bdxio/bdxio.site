@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 class Menu extends Component {
     constructor() {
         super();
+        this.state = {
+            menuOpened: false,
+        }
     }
 
     render() {
         const { pathname, isOnTop } = this.props;
+        const { menuOpened } = this.state;
         return (
             <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' : '')}>
                 <span className="columns menu-logo">
@@ -33,13 +37,13 @@ class Menu extends Component {
                     </ul>
                 </div>
 
-                <div className="menu-toggle">
+                <div className={`menu-toggle ${(menuOpened ? 'active':'')}`} onClick={() => this.setState({ menuOpened: !menuOpened })}>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
 
-                <div className="menu-responsive">
+                <div className={`menu-responsive ${(menuOpened ? 'active':'')}`}>
                     <ul>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
