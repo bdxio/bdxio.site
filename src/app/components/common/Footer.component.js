@@ -61,10 +61,10 @@ class Footer extends Component {
                 <div className="footer-signIn">
                     <div className="info">Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
                     <div className="email">
-                            <input type="email"
-                                   placeholder={'Email'}
-                                   value={email}
-                                   onChange={this.handleChange} />
+                        <input type="email"
+                            placeholder={'Email'}
+                            value={email}
+                            onChange={this.handleChange} />
                         <button type={'button'}
                             className={'button small white'}
                             onClick={this.subscribe}>
@@ -72,10 +72,7 @@ class Footer extends Component {
                         </button>
                     </div>
                 </div>
-                {/* {!!status && */}
-                    <div className={'subscription-message column'}>{message}</div>
-                {/* } */}
-
+                <div className={`subscription-message column ${(status ? 'show' : '')}`}>{message}</div>
                 <div className="columns footer-item">
                     <ul className="row">
                         <li className="columns shrink"><Link to="/home">Accueil</Link></li>

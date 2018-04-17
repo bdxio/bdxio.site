@@ -74,6 +74,11 @@
         color: $yellow;
         text-align: center;
         font-weight: bold;
+        height: 10px;
+
+        &.show {
+            animation: scale-up-center 350ms ease-in-out;    
+        }
     }
 
     &-item {
