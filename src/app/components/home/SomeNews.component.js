@@ -47,7 +47,10 @@ class SomeNews extends Component {
                                         <div className="text-content someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
                                     </div>
                                     <div className="text-center someNews-content-item-button">
-                                        <Link className="button tiny secondary" to={'/news'}>Lire l'article ></Link>
+                                        <Link className="button tiny secondary" to={'/news'}>Lire l'article<i
+                                            className="fas fa-angle-right"></i>
+
+                                        </Link>
                                     </div>
                                 </div>
 

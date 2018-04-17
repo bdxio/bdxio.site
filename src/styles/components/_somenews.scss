@@ -48,6 +48,12 @@
 
             &-button {
                 padding-top: 16px;
+                font-family: Roboto, FontAwesome;
+
+                i {
+                    margin-left: 8px;
+                    font-style: normal;
+                }
             }
 
             .text-content {
