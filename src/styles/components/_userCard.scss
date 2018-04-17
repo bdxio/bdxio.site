@@ -142,7 +142,7 @@
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           text-align: center;
-          animation: scale-down-center 350ms ease-in-out;
+          animation: scale-down-center 400ms ease-in-out;
         }
 
         h6 {
@@ -183,7 +183,7 @@
         }
 
         .users-container-content-item-picture {
-          flex: 0.0001;
+          flex: 0.00001;
           transition: flex 350ms;
         }
       }

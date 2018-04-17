@@ -1,3 +1,110 @@
 .contact {
-    min-height: 280px;
+  &-container {
+    display: flex;
+    margin-top: 64px;
+    margin-bottom: 40px;
+
+    &-content {
+      display: flex;
+      justify-content: center;
+      border: 4px solid $white;
+      min-height: rem-calc(412px);
+      padding: 8px;
+      cursor: pointer;
+
+      &-partner {
+        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 4px solid white;
+
+        &-title {
+          color: white;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .textGradient {
+          background:  linear-gradient(45deg, #cc0625 0%, #fac319 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+
+        .contact-container-content-partner-adress {
+          visibility: hidden;
+        }
+
+        &:hover, &:focus, &:active {
+          transition: scale-up-center 350ms ease-in-out;
+
+          .contact-container-content-partner-title, a {
+            display: none;
+          }
+
+          .contact-container-content-partner-adress {
+            visibility: inherit;
+          }
+        }
+      }
+
+      &-speaker {
+        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 4px solid white;
+
+        &-title {
+          color: white;
+          font-weight: bold;
+        }
+
+        .contact-container-content-speaker-adress {
+          visibility: hidden;
+        }
+
+        &:hover, &:focus, &:active {
+          transition: scale-up-center 350ms ease-in-out;
+
+          .contact-container-content-speaker-title, a {
+            display: none;
+          }
+
+          .contact-container-content-speaker-adress {
+            visibility: inherit;
+          }
+        }
+      }
+
+      &-news {
+        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 4px solid white;
+
+        &-title {
+          color: white;
+          font-weight: bold;
+        }
+
+        .contact-container-content-partner-adress {
+          visibility: hidden;
+        }
+
+        &:hover, &:focus, &:active {
+          transition: scale-up-center 350ms ease-in-out;
+
+          .contact-container-content-partner-title, a {
+            display: none;
+          }
+
+          .contact-container-content-partner-adress {
+            visibility: inherit;
+          }
+        }
+      }
+    }
+  }
 }
+
+

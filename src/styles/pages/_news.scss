@@ -1,14 +1,18 @@
 .newsContainer {
-
     &-newsFlottant {
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+
         img {
-            position: absolute;
+            position: relative;
             float: right;
-            max-width: 14%;
-            right: -4%;
-            top: 138px;
-          }
+            max-width: 26%;
+            right: -9%;
+            top: 30%;
+        }
     }
+
 
     @include breakpoint(small down) {
         &-newsFlottant {
@@ -38,7 +42,6 @@
         height: rem-calc(250px);
 
         img {
-           height: 100%;
            width: 100%;
            object-fit: cover;
             }

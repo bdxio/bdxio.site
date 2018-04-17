@@ -45,3 +45,13 @@ hr {
 section {
     margin-top: 10vh;
 }
+
+.fixContainer {
+    height: calc(100vh - 334px);
+    display: block;
+
+    @include breakpoint(medium down) {
+        display: inherit;
+        height: inherit;
+    }
+}

@@ -55,9 +55,20 @@
             font-weight: bold;
         }
     }
+
+
+    .metricsBar-content-text {
+        @include breakpoint(small only) {
+            font-size: 9px;
+        }
+    }
 }
 
 .seperateElement {
     border-left: 1px solid $white; 
-    border-right: 1px solid $white; 
+    border-right: 1px solid $white;
+
+    @include breakpoint(medium only) {
+        border: none;
+    }
 }
