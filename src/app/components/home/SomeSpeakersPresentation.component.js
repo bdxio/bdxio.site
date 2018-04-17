@@ -58,6 +58,8 @@ class SomeSpeakersPresentation extends Component {
         return randomSpeakers;
     }
 
+{/* TODO fix woman background '/img/svg/bdxio_no_speaker_woman.svg'*/}
+
     render() {
         const { speakers } = this.state;
         const { isPrevious, isMobile } = this.props;
