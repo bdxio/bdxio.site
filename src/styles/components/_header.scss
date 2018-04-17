@@ -4,6 +4,11 @@
   padding: 0;
   width: 100%;
 
+  @include breakpoint(small down) {
+    top: 0;
+    background: #2b2d43;
+  }    
+
   &.scroll{
     background-color: #2b2d43;
     transition: all .5s;

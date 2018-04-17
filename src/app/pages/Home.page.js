@@ -54,12 +54,8 @@ class Home extends Component {
                 </div>
                 <img className="homeBg" src="img/png/header_bg.png" />
 
-                // TODO : Supprimer la div header-height en dessous de 930px
-                // TODO : Assigner la height de homeBG à header-height
-
-                <div className="header-height">
                 <div className="row home-header">
-                    <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
+                    <h1 className="columns text-center">Bienvenue à BDX I/O 2018 !</h1>
                     <div className="row align-center">
                         <div className="columns shrink home-header-content">
                             <span><i className="fa fa-calendar"></i>9 novembre</span>
@@ -80,7 +76,6 @@ class Home extends Component {
                             <button className="button medium white" type="button">Devenir sponsors</button>
                         }
                     </div>
-                </div>
                 </div>
 
                 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
