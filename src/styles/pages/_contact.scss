@@ -1,5 +1,4 @@
 .contact {
-
   &-contactFlottant {
     width: 100%;
     overflow: hidden;
@@ -7,10 +6,10 @@
 
     img {
       position: relative;
-      float: right;
-      max-width: 24%;
-      right: -6%;
-      bottom: -20%;
+      float: left;
+      max-width: 17%;
+      left: -10%;
+      top: -20%;
     }
 
     @include breakpoint(medium down) {
@@ -19,14 +18,18 @@
   }
 
   &-container {
+    position: relative;
     margin-top: 64px;
     margin-bottom: 40px;
+
+    &-block {
+      display: block;
+    }
 
     &-content {
       display: flex;
       position: relative;
       justify-content: center;
-      border: 4px solid $white;
       min-height: rem-calc(412px);
       padding: 8px;
 
