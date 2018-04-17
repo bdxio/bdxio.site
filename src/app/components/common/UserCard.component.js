@@ -9,6 +9,10 @@ class UserCard extends Component {
         }
     }
 
+    hasSocialLink(user){
+        return (!!user['Twitter'] || !!user['Linkedin'] || !!user['Google+'] || !!user['Blog'])
+    }
+
     render() {
         const { user, imageAtRight } = this.props;
         return (
@@ -24,8 +28,7 @@ class UserCard extends Component {
                 <div className="columns text-center users-container-content-item-text">
                     <h6>{user['Prénom']} {user['Nom']}</h6>
                     <div className="users-container-content-item-text-bio text-center">{user['Bio']}</div>
-                    {/* TODO branch NOLINK class when they are not social network's link */}
-                    <div className="text-center noLink">
+                    <div className={`text-center ${(!this.hasSocialLink(user) ? 'noLink': '')}`}>
                         <hr />
                         {user['Twitter'] &&
                             <span><a href={`https://twitter.com/${user['Twitter']}`} target="_blank"><i className="users-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
