@@ -102,7 +102,17 @@
     display: block;
     position: relative;
 
-    h5 {margin-top: 0;}
+    h5 {
+      margin-top: 0;
+
+      @include breakpoint(medium) {
+        margin-top: 15vh;
+      }
+
+      @include breakpoint(small down) {
+        margin-top: 28vh;
+      }
+    }
 
     img {
       display: block;
