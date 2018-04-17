@@ -1,107 +1,84 @@
 .contact {
+
+  &-contactFlottant {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+
+    img {
+      position: relative;
+      float: right;
+      max-width: 24%;
+      right: -6%;
+      bottom: -20%;
+    }
+
+    @include breakpoint(medium down) {
+     display: none;
+    }
+  }
+
   &-container {
-    display: flex;
     margin-top: 64px;
     margin-bottom: 40px;
 
     &-content {
       display: flex;
+      position: relative;
       justify-content: center;
       border: 4px solid $white;
       min-height: rem-calc(412px);
       padding: 8px;
-      cursor: pointer;
 
-      &-partner {
-        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        border: 4px solid white;
+      img {
+        width: rem-calc(90px);
+        margin-bottom: rem-calc(24px);
+      }
 
-        &-title {
-          color: white;
-          font-weight: bold;
-          text-transform: uppercase;
-        }
+      h5 {
+        margin-bottom: rem-calc(80px);
+      }
 
-        .textGradient {
-          background:  linear-gradient(45deg, #cc0625 0%, #fac319 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+      .textGradient {
+        background: linear-gradient(45deg, #cc0625, #fac319);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
+      &-partner, &-speaker, &-news {
+        &-adress {
+          display: flex;
+          cursor: pointer;
 
-        .contact-container-content-partner-adress {
-          visibility: hidden;
-        }
-
-        &:hover, &:focus, &:active {
-          transition: scale-up-center 350ms ease-in-out;
-
-          .contact-container-content-partner-title, a {
-            display: none;
-          }
-
-          .contact-container-content-partner-adress {
-            visibility: inherit;
+          a {
+            font-weight: bold;
+            margin-left: 30%;
+            color: $primary;
           }
         }
       }
 
       &-speaker {
-        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        border: 4px solid white;
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient(to top, #cc0625, #fac319) 1 100%;
+        padding-left: rem-calc(30px);
 
-        &-title {
-          color: white;
-          font-weight: bold;
-        }
-
-        .contact-container-content-speaker-adress {
-          visibility: hidden;
-        }
-
-        &:hover, &:focus, &:active {
-          transition: scale-up-center 350ms ease-in-out;
-
-          .contact-container-content-speaker-title, a {
-            display: none;
-          }
-
-          .contact-container-content-speaker-adress {
-            visibility: inherit;
-          }
+        @include breakpoint(medium down) {
+          border: none;
+          margin: rem-calc(60px 0);
         }
       }
 
       &-news {
-        background: linear-gradient(rgba(43, 45, 66, 0.65), rgba(43, 45, 66, 0.75)), url(/img/jpg/contact_speaker.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        border: 4px solid white;
+        padding-left: rem-calc(30px);
+      }
 
-        &-title {
-          color: white;
-          font-weight: bold;
-        }
-
-        .contact-container-content-partner-adress {
-          visibility: hidden;
-        }
-
-        &:hover, &:focus, &:active {
-          transition: scale-up-center 350ms ease-in-out;
-
-          .contact-container-content-partner-title, a {
-            display: none;
-          }
-
-          .contact-container-content-partner-adress {
-            visibility: inherit;
-          }
-        }
+      i {
+        color: $primary;
+        font-size: rem-calc(24px);
+        animation: slide-right 2s ease-in-out infinite;
       }
     }
   }
