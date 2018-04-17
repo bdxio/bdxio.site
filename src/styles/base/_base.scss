@@ -47,7 +47,7 @@ section {
 }
 
 .fixContainer {
-    height: calc(100vh - 334px);
+    // height: calc(100vh - 334px);
     display: block;
 
     @include breakpoint(medium down) {
