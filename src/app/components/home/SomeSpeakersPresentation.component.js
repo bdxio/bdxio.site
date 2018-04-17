@@ -11,30 +11,11 @@ class SomeSpeakersPresentation extends Component {
         this.state = {
             speakers: [],
         };
-        this.expandSpeaker = this.expandSpeaker.bind(this);
     }
 
     componentWillMount() {
-        this.getRandomSpeakers(this.props.speakers)
-            .then(speakers => this.setState({ speakers }));
-    }
-
-    expandSpeaker(speaker) {
-        const { speakers } = this.state;
-        const idx = speakers.findIndex(s => s['Nom'] === speaker['Nom']);
-        if (idx > -1) {
-            speakers[idx].expanded = !speakers[idx].expanded;
-            this.setState({ speakers: [...speakers] });
-        }
-    }
-
-    getImageSize(url) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve({ width: img.width, height: img.height });
-            img.onerror = () => resolve({ width: 0, height: 0 });
-            img.src = url;
-        })
+        const speakers = this.getRandomSpeakers(this.props.speakers);
+        this.setState({ speakers });
     }
 
     getRandomSpeaker(ref, speakers) {
@@ -44,14 +25,12 @@ class SomeSpeakersPresentation extends Component {
         return (isSelected || (randomSpeaker['Nom'] === "")) ? this.getRandomSpeaker(ref, speakers) : randomSpeaker;
     }
 
-    async getRandomSpeakers(speakers) {
+    getRandomSpeakers(speakers) {
         const randomSpeakers = [];
         if (speakers.length > 0) {
             const LIMIT = speakers.length >= COUNT_DISPLAYED_SPEAKERS ? COUNT_DISPLAYED_SPEAKERS : speakers.length;
             for (let i = 0; i < LIMIT; i++) {
                 const speaker = this.getRandomSpeaker(randomSpeakers, speakers);
-                const size = await this.getImageSize(speaker['Avatar url']);
-                speaker['Avatar url'] = (size.width < 150 || size.height < 150) ? ( speaker['gender'] === 'male' ? '/img/svg/bdxio_male_speaker.svg' : '/img/svg/bdxio_female_speaker.svg') : speaker['Avatar url'];
                 randomSpeakers.push(speaker);
             }
         }
@@ -87,7 +66,7 @@ class SomeSpeakersPresentation extends Component {
                 </div>
 
                 <div className="column align-center users-button">
-                    <Link className="columns shrink text-center button small secondary"  to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
+                    <Link className="columns shrink text-center button small secondary" to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
                 </div>
             </div>
         );

@@ -6,18 +6,35 @@ class UserCard extends Component {
         super(props);
         this.state = {
             expanded: false,
+            user: null
         }
     }
 
-    hasSocialLink(user){
+    componentDidMount() {
+        const { user } = this.props;
+        this.getImageSize(user['Avatar url']).then(size => {
+            user['Avatar url'] = (size.width < 150 || size.height < 150) ? (user['gender'] === 'male' ? '/img/svg/bdxio_male_speaker.svg' : '/img/svg/bdxio_female_speaker.svg') : user['Avatar url'];
+            this.setState({ user })
+        })
+    }
+
+    getImageSize(url) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve({ width: img.width, height: img.height });
+            img.onerror = () => resolve({ width: 0, height: 0 });
+            img.src = url;
+        })
+    }
+
+    hasSocialLink(user) {
         return (!!user['Twitter'] || !!user['Linkedin'] || !!user['Google+'] || !!user['Blog'])
     }
 
     render() {
-        const { user, imageAtRight } = this.props;
+        const { imageAtRight } = this.props;
+        const user = this.state.user || this.props.user;
         return (
-            //TODO : Ouvrir qu'une card à la fois
-
             <div className={`columns small-12 large-6 align-center users-container-content-item ${(this.state.expanded ? 'card-open' : '')} ${(imageAtRight ? 'alternative' : '')}`}
                 onClick={() => this.setState({ expanded: !this.state.expanded })}>
                 {!imageAtRight &&
@@ -28,7 +45,7 @@ class UserCard extends Component {
                 <div className="columns text-center users-container-content-item-text">
                     <h6>{user['Prénom']} {user['Nom']}</h6>
                     <div className="users-container-content-item-text-bio text-center">{user['Bio']}</div>
-                    <div className={`text-center ${(!this.hasSocialLink(user) ? 'noLink': '')}`}>
+                    <div className={`text-center ${(!this.hasSocialLink(user) ? 'noLink' : '')}`}>
                         <hr />
                         {user['Twitter'] &&
                             <span><a href={`https://twitter.com/${user['Twitter']}`} target="_blank"><i className="users-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
