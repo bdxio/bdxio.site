@@ -9,7 +9,7 @@ class Footer extends Component {
         this.state = {
             email: '',
             status: null,
-            message: 'Messageeeeee'
+            message: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.subscribe = this.subscribe.bind(this);
