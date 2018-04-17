@@ -47,7 +47,7 @@ class Footer extends Component {
                     });
                 }
                 //Clear message
-                setTimeout(() => this.setState({ status: null, message: '' }), 2000)
+                setTimeout(() => this.setState({ status: null, message: '' }), 5000)
             }
         )
 
@@ -61,21 +61,22 @@ class Footer extends Component {
                 <div className="footer-signIn">
                     <div className="info">Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
                     <div className="email">
-                        <input type="email"
-                            placeholder={'Email'}
-                            value={email}
-                            onChange={this.handleChange} />
+                        <div className={'inputDisplay'}>
+                            <input type="email"
+                                   placeholder={'Email'}
+                                   value={email}
+                                   onChange={this.handleChange} />
+                        </div>
                         <button type={'button'}
                             className={'button small white'}
-                            onClick={this.subscribe}
-                        >
+                            onClick={this.subscribe}>
                             S'inscrire
                         </button>
                     </div>
-                     {/* {!!status && */}
-                     <div>{message}</div>
-                        {/* } */}
                 </div>
+                {/* {!!status && */}
+                    <div className={'subscription-message column'}>{message}</div>
+                {/* } */}
 
                 <div className="columns footer-item">
                     <ul className="row">
