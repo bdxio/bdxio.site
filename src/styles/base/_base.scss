@@ -12,6 +12,7 @@ body {
     color: $text-color !important;
     background-color: white;
     font-size: 13px;
+    overflow-x: hidden;
     * {
         outline: 0;
         -webkit-font-smoothing: antialiased;

@@ -53,7 +53,7 @@ class Team extends Component {
 
 
                     <div className="column small-12 large-8">
-                        <h4>/ LES MEMBRES</h4>
+                        <h4 className="users-container-content-titleMember">/ LES MEMBRES</h4>
                         <div className="row users-container-content">
                             {members.map((member, i) => {
                                 if (!isMobile && i % 2 === 0) line++

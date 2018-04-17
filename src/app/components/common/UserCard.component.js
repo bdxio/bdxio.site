@@ -15,14 +15,15 @@ class UserCard extends Component {
             <div className={`columns small-12 large-6 align-center users-container-content-item ${(this.state.expanded ? 'card-open' : '')} ${(imageAtRight ? 'alternative' : '')}`}
                 onClick={() => this.setState({ expanded: !this.state.expanded })}>
                 {!imageAtRight &&
-                    <div className="columns align-center users-container-content-item-picture">
+                    <div className="columns text-center users-container-content-item-picture">
                         <img src={user['Avatar url']} />
                     </div>
                 }
-                <div className="columns align-center users-container-content-item-text">
+                <div className="columns text-center users-container-content-item-text">
                     <h6>{user['Prénom']} {user['Nom']}</h6>
                     <div className="users-container-content-item-text-bio text-center">{user['Bio']}</div>
-                    <div className="text-center">
+                    {/* TODO branch NOLINK class when they are not social network's link */}
+                    <div className="text-center noLink">
                         <hr />
                         {user['Twitter'] &&
                             <span><a href={`https://twitter.com/${user['Twitter']}`} target="_blank"><i className="users-container-content-item-text-socialNetwork fa fa-twitter"></i></a></span>
