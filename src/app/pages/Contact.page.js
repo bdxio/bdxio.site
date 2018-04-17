@@ -49,10 +49,10 @@ class Contact extends Component {
 
                                     <div className="columns small-12 medium-12 large-4 text-left contact-container-content-news">
                                         <img src="img/svg/icon_about_contact.svg"/>
-                                        <h5 className="contact-container-content-pa-title">Vous souhaitez nous
+                                        <h5 className="contact-container-content-news-title">Vous souhaitez nous
                                             contacter pour devenir sponsor ou vous avez des questions
                                             concernant les partenariats c'est ici :</h5>
-                                        <span className="contact-container-content-ns">
+                                        <span className="contact-container-content-news-adress">
                                          <i className="fa fa-arrow-right"></i>
                                        <a href="mailto:" target="_blank"
                                           className="button small primary">partenariats@bdx.io</a>
