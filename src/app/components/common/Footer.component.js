@@ -61,12 +61,10 @@ class Footer extends Component {
                 <div className="footer-signIn">
                     <div className="info">Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
                     <div className="email">
-                        <div className={'inputDisplay'}>
                             <input type="email"
                                    placeholder={'Email'}
                                    value={email}
                                    onChange={this.handleChange} />
-                        </div>
                         <button type={'button'}
                             className={'button small white'}
                             onClick={this.subscribe}>
