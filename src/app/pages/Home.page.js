@@ -73,7 +73,7 @@ class Home extends Component {
                             <button className="button medium white" type="button">Programme</button>
                         }
                         {Config.registrationOpened !== 'opened' && moment().isBefore(moment(Config.talksListPublishingDate)) &&
-                            <button className="button medium white" type="button">Devenir sponsors</button>
+                            <a href="//plaquette.bdx.io" className="button medium white" target="_blank">Devenir sponsors</a>
                         }
                     </div>
                 </div>
