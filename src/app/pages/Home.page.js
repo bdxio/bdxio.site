@@ -53,6 +53,7 @@ class Home extends Component {
                     <img className="homeFlottant" src="img/svg/home_flottant.svg" />
                 </div>
                 <img className="homeBg" src="img/png/header_bg.png" />
+                <div className="header-height">
                 <div className="row home-header">
                     <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
                     <div className="row align-center">
@@ -75,6 +76,7 @@ class Home extends Component {
                             <button className="button medium white" type="button">Devenir sponsors</button>
                         }
                     </div>
+                </div>
                 </div>
 
                 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
