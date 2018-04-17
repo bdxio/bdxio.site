@@ -1,74 +1,109 @@
 .metricsBar {
-    display: flex;
-    background : $primary;
-    background-image: url($img-path + 'svg/bdxio_pattern.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  background: $primary;
+  background-image: url($img-path + 'svg/bdxio_pattern.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(1024px - 756px);
+  margin-top: 64px;
+  margin-bottom: 40px;
+
+  &-picture {
+    position: relative;
     min-height: calc(1024px - 756px);
-    margin-top: 64px;
-    margin-bottom: 40px;
+    background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_img.jpg');
+    background-size: cover;
+    cursor: pointer;
 
-    &-picture {
-        position: relative;
-        min-height: calc(1024px - 756px);
-        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_img.jpg');
-        background-size: cover;
-        cursor: pointer;
+    a {
+      position: absolute;
+      color: white;
+      font-size: 40px;
+      top: 40%;
+      right: 40%;
+      transform: translate(-40% -40%);
 
-        a {
-            position: absolute;
-            color: white;
-            font-size: 40px;
-            top: 40%;
-            right: 40%;
-            transform: translate(-40% -40%);
+      &:hover {
+        animation-name: zoomIn;
+      }
+    }
+  }
 
-            &:hover {
-                animation-name: zoomIn;
-             }
+  &-video {
+    position: relative;
+    min-height: calc(1024px - 756px);
+    background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_video.jpg');
+    background-size: cover;
+    cursor: pointer;
+
+    a {
+      position: absolute;
+      color: white;
+      font-size: 40px;
+      top: 40%;
+      right: 40%;
+      transform: translate(-40% -40%);
+    }
+  }
+
+  &-content {
+    display: flex;
+    color: white;
+    text-transform: uppercase;
+
+    &-number {
+      font-weight: bold;
+    }
+
+    .metrics-item {
+      @include breakpoint(large) {
+
+        @include grid-column(4);
+        margin-top: 20px;
+      }
+
+      @include breakpoint(medium only) {
+        @include grid-column(4);
+        margin-top: 20px;
+      }
+
+      @include breakpoint(small only) {
+
+        @include grid-column(7);
+        border-bottom: 1px solid white;
+        padding: 5px 0 5px 0 ;
+
+        @include first-child {
+          border-top: 1px solid white;
+          padding-top: 5px;
         }
-    }
 
-    &-video {
-        position: relative;
-        min-height: calc(1024px - 756px);
-        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_video.jpg');
-        background-size: cover;
-        cursor: pointer;
-
-        a {
-            position: absolute;
-            color: white;
-            font-size: 40px;
-            top: 40%;
-            right: 40%;
-            transform: translate(-40% -40%);
-        } 
-    }
-
-    &-content {
-        display: flex;
-        color: white;
-        text-transform: uppercase;
-
-        &-number {
-            font-weight: bold;
+        h3 {
+          text-align: right;
+          padding-right: 10px;
+          width: 30%;
+          display: inline-block;
         }
-    }
-
-
-    .metricsBar-content-text {
-        @include breakpoint(small only) {
-            font-size: 9px;
+        div {
+          text-align: left;
+          width: 30%;
+          display: inline-block;
         }
+      }
     }
+  }
+
+  .metricsBar-content-text {
+    @include breakpoint(small only) {
+      font-size: 9px;
+    }
+  }
 }
 
-.seperateElement {
-    border-left: 1px solid $white; 
-    border-right: 1px solid $white;
+.separate-Element {
+  border-left: 1px solid $white;
 
-    @include breakpoint(medium only) {
-        border: none;
-    }
+  @include breakpoint(small only) {
+    border: none;
+  }
 }

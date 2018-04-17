@@ -14,23 +14,23 @@ class MetricsBar extends Component {
                 </div>
                 <div className="columns small-12 medium-7">
                     <div className="row metricsBar-content align-center">
-                        <div className="columns small-2 medium-4 large-2 text-center">
+                        <div className="metrics-item text-center">
                             <h3 className="metricsBar-content-number">46</h3>
                             <div className="metricsBar-content-text">Talks</div>
                         </div>
-                        <div className="columns small-2 medium-4 large-2 seperateElement text-center">
+                        <div className="metrics-item text-center separate-Element">
                             <h3 className="metricsBar-content-number">~50</h3>
                             <div className="metricsBar-content-text">Speakers</div>
                         </div>
-                        <div className="columns small-3 medium-4 large-2 text-center">
+                        <div className="metrics-item text-center separate-Element">
                             <h3 className="metricsBar-content-number">500</h3>
                             <div className="metricsBar-content-text">Participants</div>
                         </div>
-                        <div className="columns small-3 medium-4 large-2 seperateElement text-center">
+                        <div className="metrics-item text-center">
                             <h3 className="metricsBar-content-number">1</h3>
                             <div className="metricsBar-content-text">Hackerspace</div>
                         </div>
-                        <div className="columns small-2 medium-4 large-2 text-center">
+                        <div className="metrics-item text-center separate-Element">
                             <h3 className="metricsBar-content-number">3</h3>
                             <div className="metricsBar-content-text">Hands'on</div>
                         </div>
