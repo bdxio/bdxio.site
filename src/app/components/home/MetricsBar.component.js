@@ -19,14 +19,14 @@ class MetricsBar extends Component {
                             <div className="metricsBar-content-text">Talks</div>
                         </div>
                         <div className="metrics-item text-center separate-Element">
-                            <h3 className="metricsBar-content-number">~50</h3>
+                            <h3 className="metricsBar-content-number">50</h3>
                             <div className="metricsBar-content-text">Speakers</div>
                         </div>
                         <div className="metrics-item text-center separate-Element">
                             <h3 className="metricsBar-content-number">500</h3>
                             <div className="metricsBar-content-text">Participants</div>
                         </div>
-                        <div className="metrics-item text-center">
+                        <div className="metrics-item text-center separate-Element">
                             <h3 className="metricsBar-content-number">1</h3>
                             <div className="metricsBar-content-text">Hackerspace</div>
                         </div>
