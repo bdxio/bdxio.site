@@ -12,6 +12,8 @@ class UserCard extends Component {
     render() {
         const { user, imageAtRight } = this.props;
         return (
+            //TODO : Ouvrir qu'une card à la fois
+
             <div className={`columns small-12 large-6 align-center users-container-content-item ${(this.state.expanded ? 'card-open' : '')} ${(imageAtRight ? 'alternative' : '')}`}
                 onClick={() => this.setState({ expanded: !this.state.expanded })}>
                 {!imageAtRight &&

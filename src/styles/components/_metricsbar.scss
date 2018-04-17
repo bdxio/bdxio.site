@@ -1,7 +1,7 @@
 .metricsBar {
     display: flex;
     background : $primary;
-    background-image: url($img-path+'svg/bdxio_pattern.svg');
+    background-image: url($img-path + 'svg/bdxio_pattern.svg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(1024px - 756px);
@@ -11,7 +11,7 @@
     &-picture {
         position: relative;
         min-height: calc(1024px - 756px);
-        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path+'jpg/about_img.jpg');
+        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_img.jpg');
         background-size: cover;
         cursor: pointer;
 
@@ -32,7 +32,7 @@
     &-video {
         position: relative;
         min-height: calc(1024px - 756px);
-        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path+'jpg/about_video.jpg');
+        background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_video.jpg');
         background-size: cover;
         cursor: pointer;
 
