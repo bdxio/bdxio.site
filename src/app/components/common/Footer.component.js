@@ -38,7 +38,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
     style: PropTypes.object.isRequired,
-}
+};
 
 
 export default Footer

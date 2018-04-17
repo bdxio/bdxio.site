@@ -51,7 +51,7 @@ class SomeSpeakersPresentation extends Component {
             for (let i = 0; i < LIMIT; i++) {
                 const speaker = this.getRandomSpeaker(randomSpeakers, speakers);
                 const size = await this.getImageSize(speaker['Avatar url']);
-                speaker['Avatar url'] = (size.width < 150 || size.height < 150) ? '/img/svg/bdxio_no_speaker.svg' : speaker['Avatar url'];
+                speaker['Avatar url'] = (size.width < 150 || size.height < 150) ? ( speaker['gender'] === 'male' ? '/img/svg/bdxio_male_speaker.svg' : '/img/svg/bdxio_female_speaker.svg') : speaker['Avatar url'];
                 randomSpeakers.push(speaker);
             }
         }
