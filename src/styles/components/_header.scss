@@ -4,7 +4,7 @@
   padding: 0;
   width: 100%;
 
-  @include breakpoint(small down) {
+  @include breakpoint(medium down) {
     top: 0;
     background: #2b2d43;
   }    

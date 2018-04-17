@@ -34,7 +34,7 @@
     flex-direction: column;
     z-index: 999;
     top: rem-calc(100px);
-    @include breakpoint(small down) {
+    @include breakpoint(medium down) {
       top: 73px;
       padding-top: 40px;
       height: 400px;
@@ -56,7 +56,7 @@
       font-weight: bold;
       position: absolute;
       z-index: 999;
-      @include breakpoint(medium) {
+      @include breakpoint(large) {
         top: 15%;
       }  
 
