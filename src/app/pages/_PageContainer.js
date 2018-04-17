@@ -21,7 +21,7 @@ const displayPage = (Page) => {
 
         componentWillMount() {
             this.props.dispatch(GSheetActions.fetch());
-
+            window.scrollTo(0, 0)
             document.addEventListener('scroll', this._onScroll);
         }
 
