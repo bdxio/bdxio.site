@@ -35,7 +35,7 @@ class Home extends Component {
     }
 
     _onResize() {
-        const isMobile = window.innerWidth <= 500;
+        const isMobile = window.innerWidth <= 768;
         if (isMobile !== this.state.isMobile) {
             this.setState({ isMobile })
         }

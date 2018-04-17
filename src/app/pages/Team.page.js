@@ -14,7 +14,7 @@ class Team extends Component {
         this._onResize = this._onResize.bind(this);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this._onResize();
         window.addEventListener('resize', this._onResize);
     }
@@ -23,8 +23,8 @@ class Team extends Component {
         document.removeEventListener('resize', this._onResize);
     }
 
-    _onResize(){
-        const isMobile = window.innerWidth <= 500;
+    _onResize() {
+        const isMobile = window.innerWidth <= 768;
         if (isMobile !== this.state.isMobile) {
             this.setState({ isMobile })
         }
@@ -41,6 +41,9 @@ class Team extends Component {
                 <Header title="LA TEAM" />
 
                 <div className="row align-center users-container">
+                    <div className="flottant-right">
+                        <img src="img/svg/about_flottant.svg" />
+                    </div>
                     <div className="column small-12 large-8">
                         <h4>/ LE BUREAU</h4>
                         <div className="row users-container-content">
@@ -60,6 +63,9 @@ class Team extends Component {
                                 return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}
                         </div>
+                    </div>
+                    <div class="flottant-left">
+                        <img src="img/svg/theme2_flottant.svg" />
                     </div>
                 </div>
             </div>

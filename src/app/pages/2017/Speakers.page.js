@@ -36,6 +36,11 @@ class Speakers extends Component {
             <div>
                 <Header title="SPEAKERS 2017" />
                 <div className="row align-center users-container">
+                
+                    <div className="flottant-right">
+                        <img src="img/svg/about_flottant.svg" />
+                    </div>
+
                     <div className="column small-12 large-8">
                         <div className="row users-container-content">
                             {Speakers17.map((member, i) => {
@@ -43,6 +48,10 @@ class Speakers extends Component {
                                 return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}
                         </div>
+                    </div>
+
+                    <div class="flottant-left">
+                        <img src="img/svg/theme2_flottant.svg" />
                     </div>
                 </div>
             </div>
