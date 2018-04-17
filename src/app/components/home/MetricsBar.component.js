@@ -10,7 +10,7 @@ class MetricsBar extends Component {
         return (
             <div className="row  align-middle metricsBar">
                 <div className="columns hide-for-small-only auto text-center metricsBar-picture">
-                    <Link to="/home"><i className="fa fa-2x fa-plus-circle"></i></Link>
+                    {/* <Link to="/gallery"><i className="fa fa-2x fa-plus-circle"></i></Link> */}
                 </div>
                 <div className="columns small-12 medium-7">
                     <div className="row metricsBar-content align-center">
@@ -38,7 +38,7 @@ class MetricsBar extends Component {
                 </div>
 
                 <div className="columns hide-for-small-only auto text-center metricsBar-video">
-                    <a herf="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-2x fa-play-circle"></i></a>
+                    {/* <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-2x fa-play-circle"></i></a> */}
                 </div>
             </div>
 
