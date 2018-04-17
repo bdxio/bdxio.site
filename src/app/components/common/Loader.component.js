@@ -83,25 +83,15 @@ export default () => {
                     <path className="st0" d="M196.1,113.6l-9.5-16.5c-3.9-6.3-6.3-10.4-8.6-14.7h-0.2c-2.1,4.3-4.2,8.3-8.1,14.8l-9,16.3h-11.1L172.4,76
                         l-21.9-36.8h11.2l9.9,17.4c2.8,4.9,4.9,8.6,6.9,12.6h0.3c2.1-4.4,4-7.8,6.8-12.6l10.2-17.4h11.1L184,75.4l23.3,38.2H196.1z"/>
                     <g>
-                        <linearGradient id="SVGID_1_" gradient-units="userSpaceOnUse" x1="224.5824" y1="76.5303" x2="440.5824" y2="73.197">
-                            <stop offset="0%" stopColor="#D42B23">
-                                <animate attributeName="stop-color" values="#D42B23; #FAC31A; #D42B23" dur="4s" repeatCount="indefinite"></animate>
-                            </stop>
-
-                            <stop offset="100%" stopColor="#FAC31A">
-                                <animate attributeName="stop-color" values="#FAC31A; #D42B23; #FAC31A" dur="4s" repeatCount="indefinite"></animate>
-                            </stop>
-                        </linearGradient>
-
                         <path className="st1" d="M356,43.7c-9.5,0-14.3,5.1-14.3,15.2V90c0,10.2,4.8,15.3,14.3,15.3c9.5,0,14.3-5.1,14.3-15.3V58.9
                             C370.2,48.8,365.5,43.7,356,43.7z"/>
                         <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="224.5611" y1="75.148" x2="440.67" y2="71.813">
                              <stop offset="0%" stopColor="#D42B23">
-                                <animate attributeName="stop-color" values="#D42B23; #FAC31A; #D42B23" dur="4s" repeatCount="indefinite"></animate>
+                                <animate attributeName="stop-color" values="#D42B23; #FAC31A; #D42B23" dur="2s" repeatCount="indefinite"></animate>
                             </stop>
 
                             <stop offset="100%" stopColor="#FAC31A">
-                                <animate attributeName="stop-color" values="#FAC31A; #D42B23; #FAC31A" dur="4s" repeatCount="indefinite"></animate>
+                                <animate attributeName="stop-color" values="#FAC31A; #D42B23; #FAC31A" dur="2s" repeatCount="indefinite"></animate>
                             </stop>
                         </linearGradient>
                         <path className="st2" d="M406,51.1l-0.1-0.1V23.2c0-5.8-4.7-10.6-10.6-10.6h-94.4h-40.2h-12.8c-5.8,0-10.6,4.7-10.6,10.6v27.6l-0.1,0.2
