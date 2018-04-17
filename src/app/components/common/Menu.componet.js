@@ -10,6 +10,9 @@ class Menu extends Component {
     render() {
         const { pathname, isOnTop } = this.props;
         return (
+
+            // TODO : Laisser la class scroll en dessous de 930px
+
             <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' : '')}>
                 <span className="columns menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>

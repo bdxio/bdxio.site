@@ -53,10 +53,10 @@ class Home extends Component {
                     <img className="homeFlottant" src="img/svg/home_flottant.svg" />
                 </div>
                 <img className="homeBg" src="img/png/header_bg.png" />
-                {/*
-                TODO : Supprimer la div header-height en dessous de 930px
-                TODO : Assigner la height de homeBG à header-height
-                */}
+
+                // TODO : Supprimer la div header-height en dessous de 930px
+                // TODO : Assigner la height de homeBG à header-height
+
                 <div className="header-height">
                 <div className="row home-header">
                     <h1 className="columns text-center">Bienvenue au BDX I/O 2018 !</h1>
