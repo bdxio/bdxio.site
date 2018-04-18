@@ -20,58 +20,63 @@ class Contact extends Component {
         return (
 
             <div className="contact">
-                <Header title="CONTACT" />
+                <Header title="CONTACT"/>
                 <div className="row auto align-center contact-container">
                     <div className="contact-contactFlottant">
-                        <img src="img/svg/theme2_flottant.svg" />
+                        <img src="img/svg/theme2_flottant.svg"/>
                     </div>
 
                     <div className="column small-12">
                         <div className="row align-middle contact-container-block">
                             <div className="column">
                                 <div className="row contact-container-content">
-                                    <div className="contact-container-content-partner contact-item">
+
+                                    <div className="columns small-12 medium-12 large-3
+                                    contact-container-content-partner">
                                         <div>
-                                            <img src="img/svg/icon_partner_contact.svg" />
+                                            <img src="img/svg/icon_partner_contact.svg"/>
                                             <h5 className="contact-container-content-partner-title">Vous souhaitez nous
                                                 contacter pour devenir <span className="textGradient">sponsor</span> ou
                                                 vous
                                                 avez des questions concernant les <span
                                                     className="textGradient">partenariats</span> c'est ici :</h5>
                                         </div>
-                                        <span className="contact-container-content-partner-adress align-middle">
-                                            <i className="fa fa-arrow-right slideRight"></i>
-                                            <a href="mailto:" target="_blank"
-                                                className="button small primary">partenariats@bdx.io</a>
-                                        </span>
+                                        <span className="contact-container-content-partner-address align-middle">
+                                         <i className="fa fa-arrow-right slideRight"></i>
+                                        <a href="mailto:" target="_blank"
+                                           className="button small primary">partenariats@bdx.io</a>
+                                    </span>
                                     </div>
 
-                                    <div className="contact-container-content-speaker  contact-item">
+                                    <div className="columns small-12 medium-12 large-3
+                                    contact-container-content-speaker separate-contact-item">
                                         <div>
-                                            <img src="img/svg/icon_speaker_contact.svg" />
+                                            <img src="img/svg/icon_speaker_contact.svg"/>
                                             <h5 className="contact-container-content-partner-title">Vous êtes <span
                                                 className="textGradient">speaker</span> ou vous cherchez à le devenir,
                                                 attendez <span className="textGradient">l'ouverture du CFP </span>
-                                                début juin ou contactez nous ici :
+                                                début juin <br/>
+                                                ou contacter nous ici :
                                         </h5>
                                         </div>
-                                        <span className="contact-container-content-speaker-adress align-middle">
-                                            <i className="fa fa-arrow-right slideRight"></i>
-                                            <a href="mailto:" target="_blank"
-                                                className="button small primary">team@bdx.io</a>
-                                        </span>
+                                        <span className="contact-container-content-speaker-address align-middle">
+                                         <i className="fa fa-arrow-right slideRight"></i>
+                                        <a href="mailto:" target="_blank"
+                                           className="button small primary">team@bdx.io</a>
+                                    </span>
                                     </div>
 
-                                    <div className="contact-container-content-news  contact-item">
+                                    <div className="columns small-12 medium-12 large-3
+                                        contact-container-content-news separate-contact-item">
                                         <div>
-                                            <img src="img/svg/icon_about_contact.svg" />
+                                            <img src="img/svg/icon_about_contact.svg"/>
                                             <h5 className="contact-container-content-news-title">
                                                 Vous voulez tout savoir de
                                                 <span className="textGradient"> BDX I/O
                                                     </span> vous avez le choix ici :
                                             </h5>
                                         </div>
-                                        <div className="contact-container-content-news-adress align-middle">
+                                        <div className="contact-container-content-news-address align-middle">
                                             <div>
                                                 <i className="fa fa-arrow-right slideRight"></i>
                                                 <a href="https://www.facebook.com/bdxio" target="_blank" className="button small primary">
@@ -85,28 +90,29 @@ class Contact extends Component {
                                                 </a>
                                             </div>
 
-                                            <div className="contact-container-content-news-adress-mail">
+                                            <div className="contact-container-content-news-address-mail">
                                                 <span>
-                                                    <i className="fa fa-arrow-right slideRight"></i>
-                                                    <a className="button small primary" onClick={this.focusSubscription}>Inscription newletter</a>
+                                                     <i className="fa fa-arrow-right slideRight"></i>
+                                                        <a className="button small primary"onClick={this.focusSubscription} >Inscription newletter</a>
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div
-                                        className="contact-container-content-contact  contact-item">
+                                        className="columns small-12 medium-12 large-3
+                                        contact-container-content-contact separate-contact-item">
                                         <div>
-                                            <img src="img/svg/icon_contact_contact.svg" />
+                                            <img src="img/svg/icon_contact_contact.svg"/>
                                             <h5 className="contact-container-content-contact-title">Vous souhaitez
                                                 contacter un <span className="textGradient">membre de la team</span> en particulier
                                                 c'est ici :</h5>
                                         </div>
-                                        <span className="contact-container-content-contact-adress align-middle">
-                                            <i className="fa fa-arrow-right slideRight"></i>
-                                            <a href="#/team"
-                                                className="button small primary">Voir la team</a>
-                                        </span>
+                                        <span className="contact-container-content-contact-address align-middle">
+                                         <i className="fa fa-arrow-right slideRight"></i>
+                                        <a href="#/team"
+                                           className="button small primary">Voir la team</a>
+                                    </span>
                                     </div>
                                 </div>
                             </div>
