@@ -80,7 +80,7 @@ class Footer extends Component {
                     </form>
                 </div>
                 <div className={`subscription-message column ${(status ? 'show' : '')}`}>{message}</div>
-                <div className="columns footer-item">
+                <div className="footer-item">
                     <ul className="row">
                         <li className="columns shrink"><Link to="/home">Accueil</Link></li>
                         <li className="columns shrink"><Link to="/contact">Contact</Link></li>
@@ -91,7 +91,7 @@ class Footer extends Component {
                     </ul>
                 </div>
 
-                <small className="columns footer-date">@2018 - BDX I / O</small>
+                <small className="footer-date">@2018 - BDX I / O</small>
             </div >
         );
     }

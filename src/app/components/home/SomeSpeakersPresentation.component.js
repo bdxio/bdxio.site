@@ -68,7 +68,7 @@ class SomeSpeakersPresentation extends Component {
                     </div>
                 </div>
 
-                <div className="column align-center users-button">
+                <div className="align-center users-button">
                     <Link className="shrink text-center button small secondary"
                           to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
                 </div>

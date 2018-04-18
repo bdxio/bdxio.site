@@ -41,8 +41,6 @@ class MetricsBar extends Component {
                     {/* <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"><i className="fa fa-2x fa-play-circle"></i></a> */}
                 </div>
             </div>
-
-
         );
     }
 }

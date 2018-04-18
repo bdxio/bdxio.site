@@ -28,7 +28,7 @@ class SomeNews extends Component {
         const nbSelectors = Math.ceil(news.length / 3);
         return (
             <div className="row someNews">
-                <div className="columns text-center">
+                <div className="columns small-12 text-center">
                     <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
                     {/* <h6 className="sectionSubtitleBg">Que se passe-t-il à BDX I/O ?</h6> */}
                 </div>

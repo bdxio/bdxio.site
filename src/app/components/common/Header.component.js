@@ -9,7 +9,7 @@ class Header extends Component {
     render() {
         return (
             <div className="row pageHeader">
-                <div className="columns pageHeader-title">
+                <div className="columns small-12 pageHeader-title">
                     <h2 className="sectionTitle text-center">{this.props.title}</h2>
                 </div>
             </div>

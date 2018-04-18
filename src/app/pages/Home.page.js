@@ -55,7 +55,7 @@ class Home extends Component {
                 <img className="homeBg" src="img/png/header_bg.png"/>
 
                 <div className="row home-header">
-                    <h1 className="columns text-center">Bienvenue à BDX I/O 2018 !</h1>
+                    <h1 className="columns auto text-center">Bienvenue à BDX I/O 2018 !</h1>
                     <div className="row align-center">
                         <div className="columns shrink home-header-content">
                             <span><i className="fa fa-calendar"></i>9 novembre</span>
@@ -65,7 +65,7 @@ class Home extends Component {
 
                     <Countdown/>
 
-                    <div className="columns text-center home-header-button">
+                    <div className="columns auto text-center home-header-button">
                         {Config.registrationOpened === 'opened' &&
                         <button className="button medium white" type="button">S'inscrire</button>
                         }

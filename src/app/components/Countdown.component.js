@@ -31,7 +31,7 @@ class Countdown extends Component {
     render() {
         const { timeRemaining } = this.state;
         return (
-            <div className={'columns align-center countdown'}>
+            <div className={'columns small-12 align-center countdown'}>
                 <div className="small-2 medium-1 text-center">
                     {timeRemaining &&
                         <h2 className="">{timeRemaining._data.months}</h2>

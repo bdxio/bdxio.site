@@ -13,7 +13,7 @@ class TicketingAccess extends Component {
                 <div className="ticketingAccess-ticketingAccessFlottant">
                     <img src="img/svg/theme1_flottant.svg"/>
                 </div>
-                <div className="columns text-center">
+                <div className="columns small-12 text-center">
                     <h5 className="sectionTitle">Achetez votre place</h5>
                     <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition.</h6>
                 </div>
@@ -22,13 +22,13 @@ class TicketingAccess extends Component {
                     <div
                         className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
-                            <div className="columns ticketingAccess-container-item-infos-title">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">32,00 €</div>
                                 <div className="ticketingAccess-container-item-infos-title-classe">Early
                                     Bird
                                 </div>
                             </div>
-                            <div className="columns ticketingAccess-container-item-infos-status">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-status">
                                 Individuel
                             </div>
                         </div>
@@ -51,14 +51,14 @@ class TicketingAccess extends Component {
                     <div
                         className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
-                            <div className="columns ticketingAccess-container-item-infos-title">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
                                 <div
                                     className="ticketingAccess-container-item-infos-title-classe">Golden
                                     Ticket
                                 </div>
                             </div>
-                            <div className="columns ticketingAccess-container-item-infos-status">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-status">
                                 Individuel
                             </div>
                         </div>
@@ -85,13 +85,13 @@ class TicketingAccess extends Component {
                     <div
                         className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
-                            <div className="columns ticketingAccess-container-item-infos-title">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
                                 <div
                                     className="ticketingAccess-container-item-infos-title-classe">Classic
                                 </div>
                             </div>
-                            <div className="columns ticketingAccess-container-item-infos-status">
+                            <div className="columns small-12 ticketingAccess-container-item-infos-status">
                                 Individuel
                             </div>
                         </div>

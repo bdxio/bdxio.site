@@ -15,11 +15,11 @@ class Menu extends Component {
         const { menuOpened } = this.state;
         return (
             <nav className={"row align-middle menu " + (!isOnTop ? 'scroll' : '')}>
-                <span className="columns menu-logo">
+                <span className="columns shrink menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
                 <div className="row collapse main-menu">
-                    <ul className="columns align-center main-menu-item">
+                    <ul className="columns auto align-center main-menu-item">
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>

@@ -11,7 +11,7 @@ class SponsorsBar extends Component {
         return (
             <section className="row sponsorBar">
                 <img className="homeFlottant" src="img/svg/sponsor_flottant.svg"/>
-                <div className="columns text-center">
+                <div className="columns shrink text-center">
                     <h5 className="sectionTitle">Nos sponsors Impériaux</h5>
                 </div>
 

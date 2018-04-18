@@ -35,7 +35,7 @@ class Location extends Component {
                             </div>
                         </div>
 
-                        <div className="columns location-site-map">
+                        <div className="columns auto location-site-map">
                             <IframeContainer
                                 src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJv4tyl4HYVA0RLvkdcxUEhOw&key=AIzaSyBQYTDJ5joswWG8lQ-Wv9MGYUqHhD9LfCc"
                                 height="300" width="100%" allowFullScreen/>

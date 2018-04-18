@@ -39,11 +39,11 @@ class UserCard extends Component {
                 className={`row collapse small-12 large-6 align-center users-container-content-item ${(this.state.expanded ? 'card-open' : '')} ${(imageAtRight ? 'alternative' : '')}`}
                 onClick={() => this.setState({expanded: !this.state.expanded})}>
                 {!imageAtRight &&
-                <div className="columns text-center users-container-content-item-picture">
+                <div className="columns small-6 users-container-content-item-picture">
                     <img src={user['Avatar url']}/>
                 </div>
                 }
-                <div className="columns text-center users-container-content-item-text">
+                <div className="columns text-center auto users-container-content-item-text">
                     <h6>{user['Prénom']} {user['Nom']}</h6>
                     <div className="users-container-content-item-text-bio text-center">{user['Bio']}</div>
                     <div className={`text-center ${(!this.hasSocialLink(user) ? 'noLink' : '')}`}>
@@ -68,7 +68,7 @@ class UserCard extends Component {
                 </div>
                 <span className="user-card-arrow"></span>
                 {imageAtRight &&
-                <div className="columns align-center users-container-content-item-picture">
+                <div className="columns small-6 users-container-content-item-picture">
                     <img src={user['Avatar url']}/>
                 </div>
                 }
