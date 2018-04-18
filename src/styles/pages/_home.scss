@@ -163,3 +163,47 @@
     }
   }
 }
+
+
+// IE STYLE
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  .home {
+    svg,
+    .homeBg,
+    .header-height,
+    .home-homeFlottant,
+    .home-about-aboutFlottant,
+    .conference-conferenceFlottantLeft,
+    .conference-conferenceFlottantRight,
+    .users-usersFlottant,
+    .ticketingAccess-ticketingAccessFlottant {
+      display: none;
+    }
+  }
+
+  .home-header {
+    background-image: url($img-path + 'png/bdxio_header.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: rem-calc(60px);
+    position: relative;
+    height: 20rem;
+  }
+
+  .home-about {
+    margin-top: 20vh;
+  }
+
+  .metricsBar,
+  .someNews {
+    background-image: none;
+  }
+
+  .conference-container,
+  .location-site-place {
+    background: none;
+    background-color: $gradient;
+  }
+}

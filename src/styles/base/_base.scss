@@ -67,3 +67,24 @@ section {
         height: inherit;
     }
 }
+
+
+// IE STYLE
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+
+    .flottant-right,
+    .flottant-left,
+    .users-container-content-item-text {
+        display: none;
+    }
+
+    .textGradient {
+        background: none;
+        -webkit-text-fill-color: inherit;
+    }
+
+    footer {
+        background-image: none;
+    }
+}
