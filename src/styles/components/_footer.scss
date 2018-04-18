@@ -1,104 +1,106 @@
 .footer {
-    background : $primary;
-    background-image: url($img-path +'svg/bdxio_pattern.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    padding: 30px 16px;
+  background: $primary;
+  background-image: url($img-path +'svg/bdxio_pattern.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 30px 16px;
 
-    &-signIn {
-        @include grid-row;
+  &-signIn {
+    @include grid-row;
+    input {
+      margin: 0 8px 0 16px;
+    }
+
+    button {
+      margin-bottom: 0;
+      padding: rem-calc(11.5px 10px) !important;
+    }
+
+    @include breakpoint(medium down) {
+
+      .info {
+        text-align: center;
+        @include grid-column;
+      }
+
+      .email {
+        @include grid-column;
+        text-align: center;
+
         input {
-            margin: 0 8px 0 16px;
+          margin-top: 20px;
+          width: 50%;
+          max-width: 300px;
+          margin-left: 0;
+          display: inline-block;
         }
 
         button {
-            margin-bottom: 0;
-            padding: rem-calc(11.5px 10px) !important;
+          margin-top: -7px;
+          width: 20%;
+          min-width: 88px !important;
+          max-width: 100px;
+          display: inline-block;
         }
-
-        @include breakpoint(medium down) {
-
-            .info {
-                text-align: center;
-                @include grid-column;
-            }
-
-            .email {
-                @include grid-column;
-                text-align: center;
-
-                input {
-                    margin-top: 20px;
-                    width: 50%;
-                    max-width: 300px;
-                    margin-left: 0;
-                    display: inline-block;
-                }
-
-                button {
-                    margin-top: -7px;
-                    width: 20%;
-                    min-width: 88px !important;
-                    max-width: 100px;
-                    display: inline-block;
-                }
-            }
-
-
-        }
-
-        @media screen and #{breakpoint(large)} {
-
-            .info {
-                text-align: right;
-                @include grid-column(40%);
-            }
-
-            input {
-                @include grid-column(30%);
-            }
-
-            button {
-                @include grid-column(10%);
-                @include grid-column-end;
-            }
-        }
+      }
 
     }
 
-    .subscription-message {
-        margin-top: 10px;
-        color: $yellow;
-        text-align: center;
-        font-weight: bold;
-        height: 10px;
+    @media screen and #{breakpoint(large)} {
 
-        &.show {
-            animation: scale-up-center 350ms ease-in-out;    
+      .info {
+        text-align: right;
+        @include grid-column(40%);
+      }
+
+      input {
+        @include grid-column(30%);
+      }
+
+      button {
+        @include grid-column(10%);
+        @include grid-column-end;
+      }
+    }
+
+  }
+
+  .subscription-message {
+    margin-top: 10px;
+    color: $yellow;
+    text-align: center;
+    font-weight: bold;
+    height: 10px;
+
+    &.show {
+      animation: scale-up-center 350ms ease-in-out;
+    }
+  }
+
+  &-item {
+    margin-top: 60px;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0px !important;
+
+      a {
+        color: white;
+
+        i {
+          font-size: rem-calc(20px);
         }
-    }
 
-    &-item {
-        margin-top: 60px;
-
-        ul {
-            display: flex;
-            list-style-type: none;
-            margin: 0px !important;
-
-            a {
-                color: white;
-                font-size: rem-calc(20px);
-
-                &:hover{
-                    color:$yellow;
-                }
-            }
+        &:hover {
+          color: $yellow;
         }
+      }
     }
+  }
 
-    &-date {
-        margin: 0 16px !important;
-    }
+  &-date {
+    margin: 0 16px !important;
+  }
 }
