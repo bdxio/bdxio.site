@@ -10,6 +10,7 @@ class Videos extends Component {
         return (
             <div>
                 <h1>Videos</h1>
+                {this.props.children}
             </div>
         );
     }

@@ -14,6 +14,7 @@ class Faq extends Component {
                 <div className="row">
 
                 </div>
+                {this.props.children}
             </div>
         );
     }

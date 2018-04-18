@@ -10,6 +10,7 @@ class Gallery extends Component {
         return (
             <div>
                 <h1>Gallery</h1>
+                {this.props.children}
             </div>
         );
     }

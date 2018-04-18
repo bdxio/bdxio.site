@@ -36,6 +36,7 @@ class Partnerships extends Component {
                         <PartnerCard key={`sponsor_${i}`} partner={sponsor}/>
                     ))}
                 </div>
+                {this.props.children}
             </div>
         );
     }

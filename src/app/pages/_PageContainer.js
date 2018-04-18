@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {PropTypes} from 'prop-types';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 import Footer from '../components/common/Footer.component';
 import Menu from '../components/common/Menu.componet';
 
-import {Constants} from '../constants';
-import {Actions as GSheetActions} from '../actions/gsheet.actions';
+import { Constants } from '../constants';
+import { Actions as GSheetActions } from '../actions/gsheet.actions';
 import Loader from '../components/common/Loader.component';
 
 const displayPage = (Page) => {
@@ -32,28 +32,29 @@ const displayPage = (Page) => {
         _onScroll() {
             const isOnTop = window.scrollY < 50;
             if (isOnTop !== this.state.isOnTop) {
-                this.setState({isOnTop})
+                this.setState({ isOnTop })
             }
         }
 
         render() {
-            const {isOnTop} = this.state;
-            const {loaded, Sponsors} = this.props.gsheet;
-            const {subscriptionHasFocused} = this.props.navigate;
+            const { isOnTop } = this.state;
+            const { loaded, Sponsors } = this.props.gsheet;
+            const { subscriptionHasFocused } = this.props.navigate;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
             if (loaded) {
                 return (
                     <div className="pageContainer">
-                        <Menu pathname={this.props.location.pathname} isOnTop={isOnTop}/>
-                        <Page {...this.props} />
-                        <Footer subscriptionHasFocused={subscriptionHasFocused}/>
+                        <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
+                        <Page {...this.props} >
+                            <Footer subscriptionHasFocused={subscriptionHasFocused} />
+                        </Page>
                     </div>
                 );
             }
             else {
                 return (
-                    <Loader/>
+                    <Loader />
                 );
             }
         }

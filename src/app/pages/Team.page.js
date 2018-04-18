@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import displayPage from './_PageContainer';
 import Header from '../components/common/Header.component';
@@ -26,30 +26,30 @@ class Team extends Component {
     _onResize() {
         const isMobile = window.innerWidth <= 768;
         if (isMobile !== this.state.isMobile) {
-            this.setState({isMobile})
+            this.setState({ isMobile })
         }
     }
 
     render() {
-        const {isMobile} = this.state;
-        const {Orgas} = this.props.gsheet;
+        const { isMobile } = this.state;
+        const { Orgas } = this.props.gsheet;
         const office = Orgas.filter(o => o['Bur'] == '1')
         const members = Orgas.filter(o => o['Bur'] != '1')
         let line = 0;
         return (
             <div>
-                <Header title="LA TEAM"/>
+                <Header title="LA TEAM" />
 
                 <div className="row align-center users-container">
                     <div className="flottant-right">
-                        <img src="img/svg/about_flottant.svg"/>
+                        <img src="img/svg/about_flottant.svg" />
                     </div>
                     <div className="column small-12 large-8">
                         <h4>/ LE BUREAU</h4>
                         <div className="row users-container-content">
                             {office.map((member, i) => {
                                 if (!isMobile && i % 2 === 0) line++
-                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)}/>
+                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}
                         </div>
                     </div>
@@ -60,14 +60,15 @@ class Team extends Component {
                         <div className="row users-container-content">
                             {members.map((member, i) => {
                                 if (!isMobile && i % 2 === 0) line++
-                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)}/>
+                                return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}
                         </div>
                     </div>
                     <div class="flottant-left">
-                        <img src="img/svg/theme2_flottant.svg"/>
+                        <img src="img/svg/theme2_flottant.svg" />
                     </div>
                 </div>
+                {this.props.children}
             </div>
         );
     }

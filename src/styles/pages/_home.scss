@@ -197,13 +197,18 @@
   }
 
   .metricsBar,
-  .someNews {
+  .someNews,
+  .footer {
     background-image: none !important;
   }
 
   .conference-container,
   .location-site-place {
-    background: none !important;
+    background: $gradient !important;
     background-color: $gradient !important;
+  }
+
+  .menu{
+    background: #2b2d43 !important;
   }
 }

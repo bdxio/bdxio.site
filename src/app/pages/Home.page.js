@@ -135,6 +135,7 @@ class Home extends Component {
                 {IMPERIAL.length > 0 &&
                 <SponsorsBar partners={IMPERIAL}/>
                 }
+                {this.props.children}
             </div>
         );
     }
