@@ -46,7 +46,7 @@ const displayPage = (Page) => {
                     <div className="pageContainer">
                         <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
                         <Page {...this.props} />
-                        <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
+                        <Footer />
                     </div>
                 );
             }
