@@ -1,49 +1,59 @@
 .newsContainer {
+  &-newsFlottant {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    margin-top: 15px;
+
+    img {
+      position: relative;
+      float: right;
+      max-width: 24%;
+      right: -6%;
+      bottom: -20%;
+    }
+  }
+
+  @include breakpoint(small down) {
     &-newsFlottant {
-        width: 100%;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-        margin-top: 15px;    
+      display: none;
+    }
+  }
 
-        img {
-            position: relative;
-            float: right;
-            max-width: 24%;
-            right: -6%;
-            bottom: -20%;
-        }
+  &-content {
+    @media screen and (max-width: 600px) {
+      margin-top: 20px;
+    }
+    h4 {
+      font-weight: bold;
     }
 
-
-    @include breakpoint(small down) {
-        &-newsFlottant {
-            display: none;
-        }
+    h6 {
+      font-size: 10px;
     }
+  }
 
-    &-content {
-        @media screen and (max-width: 600px) {
-            margin-top: 20px;
-        }
-        h4 {
-            font-weight: bold;
-        }
+  section {
+    margin: 30px;
+  }
 
-        h6 {
-            font-size: 10px;
-        }
+  &-img {
+    width: auto;
+    img {
+      width: 100%;
+      object-fit: cover;
     }
-
-    section {
-        margin: 30px;
-    }
-
-    &-img {
-        width: auto;
-        img {
-           width: 100%;
-           object-fit: cover;
-            }
-        }
+  }
 }
+
+// IE STYLE
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+
+  .newsContainer-newsFlottant {
+    display: none;
+  }
+}
+
+
