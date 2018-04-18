@@ -23,8 +23,10 @@ rm -rf dist
 
 # Cloning master branch (GH PAGES) into dist folder
 git clone -b master git@github.com:bdxio/bdxio.github.io.git dist/
+cd dist
+ls | grep -v -E ".git" | xargs rm -rf
 
-
+cd ..
 # Build app
 echo -e "* Build : ${Gre}(2/5)${RCol}"
 npm run build
@@ -34,13 +36,12 @@ cd dist
 git add .
 
 echo -e "* Commit : ${Gre}(3/5)${RCol}"
-if [ $(git ls-files --deleted | wc -l) -ne 0 ]; then git ls-files --deleted | sed -e 's/^/"/g' -e 's/$/"/g' | xargs git rm; fi;
 git commit -m "Auto-deploy - dist - 2018"
 
 
 echo -e "* Push : ${Gre}(4/5)${RCol}"
 # Pushing to master branch, which is sync-ed with www.bdx.io ... only if there are more than 10 files in current directory
-if [ $(ls -al | wc -l) -ge 10 ]; then git push origin preview; else echo "Avoiding any push since there is an empty dist/ dir"; fi;
+git push origin master
 cd ..
 
 # Clean generated folders
