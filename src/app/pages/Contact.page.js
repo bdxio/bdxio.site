@@ -43,23 +43,26 @@ class Contact extends Component {
                                         <div>
                                             <img src="img/svg/icon_speaker_contact.svg"/>
                                             <h5 className="contact-container-content-partner-title">Vous êtes <span
-                                                className="textGradient">speaker</span> ou vous cherchez à <span
-                                                className="textGradient">le devenir</span>, vous pouvez nous contacter
-                                                ici :</h5>
+                                                className="textGradient">speaker</span> ou vous cherchez à le devenir,
+                                                attendez <span className="textGradient">l'ouverture du CFP </span>
+                                                début juin <br/>
+                                                ou contacter nous ici :
+                                        </h5>
                                         </div>
                                         <span className="contact-container-content-speaker-adress align-middle">
                                          <i className="fa fa-arrow-right slideRight"></i>
                                         <a href="mailto:" target="_blank"
-                                           className="button small primary">contact@bdx.io</a>
+                                           className="button small primary">team@bdx.io</a>
                                     </span>
                                     </div>
 
                                     <div className="columns small-12 medium-12 large-3 contact-container-content-news">
                                         <div>
                                             <img src="img/svg/icon_about_contact.svg"/>
-                                            <h5 className="contact-container-content-news-title">Vous voulez connaître
-                                                la date exacte de <span className="textGradient">l'ouverture du
-                                                    CFP</span> vous avez le choix c'est ici :
+                                            <h5 className="contact-container-content-news-title">
+                                                Vous voulez tout savoir de
+                                                <span className="textGradient"> BDX I/O
+                                                    </span> vous avez le choix ici :
                                             </h5>
                                         </div>
                                         <div className="contact-container-content-news-adress align-middle">
@@ -96,8 +99,8 @@ class Contact extends Component {
                                         </div>
                                         <span className="contact-container-content-contact-adress align-middle">
                                          <i className="fa fa-arrow-right slideRight"></i>
-                                        <a href="mailto:" target="_blank"
-                                           className="button small primary">team@bdx.io</a>
+                                        <a href="#/team"
+                                           className="button small primary">Voir la team</a>
                                     </span>
                                     </div>
                                 </div>
