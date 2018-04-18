@@ -6,14 +6,14 @@
 
     img {
       position: relative;
-      float: left;
-      max-width: 17%;
-      left: -10%;
-      top: -20%;
+      position: relative;
+      float: right;
+      max-width: 14%;
+      right: -10%;
     }
 
     @include breakpoint(medium down) {
-     display: none;
+      display: none;
     }
   }
 
@@ -30,16 +30,12 @@
       display: flex;
       position: relative;
       justify-content: center;
-      min-height: rem-calc(412px);
+      min-height: rem-calc(350px);
       padding: 8px;
 
       img {
         width: rem-calc(90px);
         margin-bottom: rem-calc(24px);
-      }
-
-      h5 {
-        margin-bottom: rem-calc(80px);
       }
 
       .textGradient {
@@ -48,7 +44,11 @@
         -webkit-text-fill-color: transparent;
       }
 
-      &-partner, &-speaker, &-news {
+      &-partner, &-speaker, &-contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         &-adress {
           display: flex;
           cursor: pointer;
@@ -57,6 +57,43 @@
             font-weight: bold;
             margin-left: 30%;
             color: $primary;
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+
+      &-news {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient(to top, #cc0625, #fac319) 1 100%;
+        padding-left: rem-calc(30px);
+        border-left: transparent;
+
+        @include breakpoint(medium down) {
+          border: none;
+          margin: rem-calc(60px 0);
+        }
+
+        i {
+          padding-right: 20%;
+        }
+
+        &-adress {
+          display: block;
+          cursor: pointer;
+
+          a {
+            font-weight: bold;
+            margin-left: 8px;
+            color: $primary;
+            margin-bottom: 0 !important;
+          }
+
+          &-mail {
+            padding-top: rem-calc(8px);
           }
         }
       }
@@ -73,14 +110,10 @@
         }
       }
 
-      &-news {
-        padding-left: 30px;
-      }
-
-      i {
+      .slideRight {
         color: $primary;
         font-size: rem-calc(24px);
-        animation: slide-right 2s ease-in-out infinite;
+        animation: slide-right 1s ease-in-out infinite;
       }
     }
   }

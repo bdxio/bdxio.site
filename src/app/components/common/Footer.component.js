@@ -64,7 +64,7 @@ class Footer extends Component {
                         <input type="email"
                             placeholder={'Email'}
                             value={email}
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}/>
                         <button type={'button'}
                             className={'button small white'}
                             onClick={this.subscribe}>
