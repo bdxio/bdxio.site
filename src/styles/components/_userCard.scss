@@ -134,10 +134,8 @@
         cursor: pointer;
 
         &-bio {
-          max-height: 99px;
           overflow: hidden;
           padding: 0 8px;
-          overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
