@@ -30,7 +30,7 @@ const displayPage = (Page) => {
         }
 
         _onScroll() {
-            const isOnTop = window.scrollY < 100;
+            const isOnTop = window.scrollY < 50;
             if (isOnTop !== this.state.isOnTop) {
                 this.setState({ isOnTop })
             }
