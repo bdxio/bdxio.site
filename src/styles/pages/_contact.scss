@@ -6,7 +6,6 @@
 
     img {
       position: relative;
-      position: relative;
       float: right;
       max-width: 14%;
       right: -10%;
@@ -38,20 +37,25 @@
       padding: 8px;
 
       @include breakpoint(large) {
-
-      }
-
-      @include breakpoint(medium) {
         text-align: center;
       }
 
-      @include breakpoint(medium down) {
+      @include breakpoint(medium) {
         text-align: center;
         .separate-contact-item {
           border: none;
         }
       }
 
+      @include breakpoint(small down) {
+        text-align: center;
+        .separate-contact-item {
+          border: none;
+          //&-contact {
+          //  margin-top: 0px;
+          //}
+        }
+      }
 
       img {
         width: rem-calc(90px);
@@ -118,9 +122,8 @@
         //}
       //}
 
-      &-speaker {
-        padding-left: rem-calc(30px);
 
+      &-speaker {
         @include breakpoint(medium down) {
           border: none;
           margin: rem-calc(60px 0);

@@ -101,7 +101,7 @@ class Contact extends Component {
 
                                     <div
                                         className="columns small-12 medium-12 large-3
-                                        contact-container-content-contact separate-contact-item">
+                                        contact-container-content-contact separate-contact-item align-middle">
                                         <div>
                                             <img src="img/svg/icon_contact_contact.svg"/>
                                             <h5 className="contact-container-content-contact-title">Vous souhaitez
