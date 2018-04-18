@@ -49,11 +49,9 @@
 
       @include breakpoint(small down) {
         text-align: center;
+
         .separate-contact-item {
           border: none;
-          //&-contact {
-          //  margin-top: 0px;
-          //}
         }
       }
 
@@ -72,56 +70,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
-        //&-address {
-        //  display: flex;
-        //  cursor: pointer;
-        //
-        //  i {
-        //    padding-right: 10%;
-        //  }
-        //
-        //  a {
-        //    font-weight: bold;
-        //    color: $primary;
-        //    margin-bottom: 0 !important;
-        //  }
-        //}
       }
-
-      //&-news {
-      //  display: flex;
-      //  flex-direction: column;
-      //  justify-content: space-between;
-      //  padding-left: rem-calc(30px);
-      //  border-left: transparent;
-      //
-      //  @include breakpoint(medium down) {
-      //    border: none;
-      //    margin: rem-calc(60px 0);
-      //  }
-      //
-      //  i {
-      //    padding-right: 10%;
-      //  }
-
-        //&-address {
-        //  display: block;
-        //  cursor: pointer;
-        //
-        //  a {
-        //    font-weight: bold;
-        //    margin-left: 8px;
-        //    color: $primary;
-        //    margin-bottom: 0 !important;
-        //  }
-        //
-        //  &-mail {
-        //    padding-top: rem-calc(8px);
-        //  }
-        //}
-      //}
-
 
       &-speaker {
         @include breakpoint(medium down) {
