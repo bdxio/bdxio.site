@@ -59,7 +59,7 @@ class Footer extends Component {
         return (
             <div className="footer" style={style}>
                 <div className="footer-signIn">
-                    <div className="info">Vous souhaitez être tenu(e) informé(e) ?<br />Inscrivez-vous à la newsletter</div>
+                    <div className="info">Vous souhaitez être tenu informé ?<br />Inscrivez-vous à la newsletter</div>
                     <div className="email">
                         <input type="email"
                             placeholder={'Email'}
