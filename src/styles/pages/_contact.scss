@@ -15,7 +15,7 @@
       display: none;
     }
   }
-  
+
   .separate-contact-item {
     border-left: 3px solid;
     border-image: linear-gradient(to top, #cc0625, #fac319) 1 100%;
@@ -66,6 +66,12 @@
         -webkit-text-fill-color: transparent;
       }
 
+      .socialNetwork {
+        a {
+          margin: 0 4px 8px 4px;
+        }
+      }
+
       &-partner, &-speaker, &-contact, &-news {
         display: flex;
         flex-direction: column;
@@ -77,12 +83,6 @@
           border: none;
           margin: rem-calc(60px 0);
         }
-      }
-
-      .slideRight {
-        color: $primary;
-        font-size: rem-calc(24px);
-        animation: slide-right 1s ease-in-out infinite;
       }
     }
   }
