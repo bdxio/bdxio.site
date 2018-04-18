@@ -3,6 +3,7 @@
   z-index: 99999;
   padding: 0;
   width: 100%;
+  background: rgba(1,1,1,0.15);
 
   @include breakpoint(medium down) {
     top: 0;
