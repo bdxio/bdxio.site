@@ -178,32 +178,32 @@
     .conference-conferenceFlottantRight,
     .users-usersFlottant,
     .ticketingAccess-ticketingAccessFlottant {
-      display: none;
+      display: none !important;
     }
   }
 
   .home-header {
-    background-image: url($img-path + 'png/bdxio_header.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: rem-calc(60px);
-    position: relative;
-    height: 20rem;
+    background-image: url($img-path + 'png/bdxio_header.png') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    top: rem-calc(60px) !important;
+    position: relative !important;
+    height: 20rem !important;
   }
 
   .home-about {
-    margin-top: 20vh;
+    margin-top: 20vh !important;
   }
 
   .metricsBar,
   .someNews {
-    background-image: none;
+    background-image: none !important;
   }
 
   .conference-container,
   .location-site-place {
-    background: none;
-    background-color: $gradient;
+    background: none !important;
+    background-color: $gradient !important;
   }
 }

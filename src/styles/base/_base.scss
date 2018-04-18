@@ -75,19 +75,19 @@ section {
 
     .flottant-right,
     .flottant-left {
-        display: none;
+        display: none !important;
     }
 
     .users-container-content-item-text {
-        background-image: none;
+        background-image: none !important;
     }
 
     .textGradient {
-        background: none;
-        -webkit-text-fill-color: inherit;
+        background: none !important;
+        -webkit-text-fill-color: inherit !important;
     }
 
     footer {
-        background-image: none;
+        background-image: none !important;
     }
 }

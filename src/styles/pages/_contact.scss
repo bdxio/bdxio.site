@@ -93,7 +93,7 @@
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
 
   .contact-contactFlottant {
-    display: none;
+    display: none  !important;
   }
 }
 
