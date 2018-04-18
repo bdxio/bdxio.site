@@ -3,6 +3,9 @@
   position: absolute;
   left: calc(50% - 7rem);
   top: calc(50% - 4rem);
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    top:0;
+  }   
 
   .st0 {
     fill: #404041;
