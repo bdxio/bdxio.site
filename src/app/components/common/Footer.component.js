@@ -19,7 +19,8 @@ class Footer extends Component {
         this.setState({ email: e.target.value })
     }
 
-    subscribe() {
+    subscribe(e) {
+        e.preventDefault();
         const url = 'https://bdx.us10.list-manage.com/subscribe/post-json?u=3fdd02789fbab2f90b81652a3&id=760c78a462&EMAIL=' + this.state.email;
 
         jsonp(
@@ -43,7 +44,7 @@ class Footer extends Component {
                     this.setState({
                         email: '',
                         status: "success",
-                        message: data.msg
+                        message: "Merci pour votre inscription !"
                     });
                 }
                 //Clear message
@@ -54,23 +55,21 @@ class Footer extends Component {
     }
 
     render() {
-        const { style } = this.props;
         const { email, status, message } = this.state;
         return (
-            <div className="footer" style={style}>
+            <div className="footer">
                 <div className="footer-signIn">
                     <div className="info">Vous souhaitez être tenu informé ?<br />Inscrivez-vous à la newsletter</div>
-                    <div className="email">
+                    <form className="email" onSubmit={this.subscribe}>
                         <input type="email"
-                            placeholder={'Email'}
+                            placeholder='Email'
                             value={email}
                             onChange={this.handleChange}/>
-                        <button type={'button'}
-                            className={'button small white'}
-                            onClick={this.subscribe}>
+                        <button type='submit'
+                            className={'button small white'}>
                             S'inscrire
                         </button>
-                    </div>
+                    </form>
                 </div>
                 <div className={`subscription-message column ${(status ? 'show' : '')}`}>{message}</div>
                 <div className="columns footer-item">
@@ -91,7 +90,7 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-    style: PropTypes.object.isRequired,
+    
 };
 
 
