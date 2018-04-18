@@ -32,10 +32,11 @@ h4 {
 
     .flottant-left {
         width: 100%;
-        height: 250%;
+        height: 100%;
         overflow: hidden;
         position: absolute;
         z-index: -1;
+        margin-top: rem-calc(350px);
 
         @include breakpoint(medium down) {
             display: none;
