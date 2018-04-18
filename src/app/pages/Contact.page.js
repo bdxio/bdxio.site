@@ -42,7 +42,6 @@ class Contact extends Component {
                                                     className="textGradient">partenariats</span> c'est ici :</h5>
                                         </div>
                                         <span className="contact-container-content-partner-address align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
                                         <a href="mailto:" target="_blank"
                                            className="button small primary">partenariats@bdx.io</a>
                                     </span>
@@ -57,12 +56,11 @@ class Contact extends Component {
                                                 attendez <span className="textGradient">l'ouverture du CFP </span>
                                                 début juin <br/>
                                                 ou contacter nous ici :
-                                        </h5>
+                                            </h5>
                                         </div>
-                                        <span className="contact-container-content-speaker-address align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
-                                        <a href="mailto:" target="_blank"
-                                           className="button small primary">team@bdx.io</a>
+                                        <span className="contact-container-content-speaker-address align-middle arrowElement">
+                                            <a href="mailto:" target="_blank"
+                                                className="button small primary">team@bdx.io</a>
                                     </span>
                                     </div>
 
@@ -76,24 +74,26 @@ class Contact extends Component {
                                                     </span> vous avez le choix ici :
                                             </h5>
                                         </div>
-                                        <div className="contact-container-content-news-address align-middle">
-                                            <div>
-                                                <i className="fa fa-arrow-right slideRight"></i>
-                                                <a href="https://www.facebook.com/bdxio" target="_blank" className="button small primary">
+                                        <div className="contact-container-content-news-address arrowElement align-middle">
+                                            <div className="socialNetwork">
+                                                <a href="https://www.facebook.com/bdxio" target="_blank"
+                                                   className="button small primary">
                                                     <i className="fa fa-facebook-f"></i>
                                                 </a>
-                                                <a href="https://twitter.com/bdxio" target="_blank" className="button small primary">
+                                                <a href="https://twitter.com/bdxio" target="_blank"
+                                                   className="button small primary">
                                                     <i className="fa fa-twitter"></i>
                                                 </a>
-                                                <a href="https://www.linkedin.com/company/10651416/" target="_blank" className="button small primary">
+                                                <a href="https://www.linkedin.com/company/10651416/" target="_blank"
+                                                   className="button small primary">
                                                     <i className="fa fa-linkedin"></i>
                                                 </a>
                                             </div>
 
                                             <div className="contact-container-content-news-address-mail">
-                                                <span>
-                                                     <i className="fa fa-arrow-right slideRight"></i>
-                                                        <a className="button small primary"onClick={this.focusSubscription} >Inscription newletter</a>
+                                                <span className="arrowElement">
+                                                    <a className="button small primary"
+                                                       onClick={this.focusSubscription}>Inscription newletter</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -105,11 +105,11 @@ class Contact extends Component {
                                         <div>
                                             <img src="img/svg/icon_contact_contact.svg"/>
                                             <h5 className="contact-container-content-contact-title">Vous souhaitez
-                                                contacter un <span className="textGradient">membre de la team</span> en particulier
+                                                contacter un <span className="textGradient">membre de la team</span> en
+                                                particulier
                                                 c'est ici :</h5>
                                         </div>
-                                        <span className="contact-container-content-contact-address align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
+                                        <span className="contact-container-content-contact-address arrowElement align-middle">
                                         <a href="#/team"
                                            className="button small primary">Voir la team</a>
                                     </span>
