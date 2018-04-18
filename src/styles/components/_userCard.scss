@@ -130,7 +130,7 @@
         background-repeat: no-repeat;
         background-size: 380%;
         transition: flex 350ms;
-        min-height: 245px;
+        height: rem-calc(245px);
         cursor: pointer;
 
         &-bio {
