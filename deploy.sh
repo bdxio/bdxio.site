@@ -17,22 +17,14 @@ echo -e "${Yel}------------"
 echo -e " DEPLOYING"
 echo -e "------------ ${RCol}"
 
-
-if [ -z "$1" ]
-    then
-        echo -e "${Red}Usage ./deploy [env]${RCol}"
-        exit 0
-    else
-        [[ "$1" == "prod" ]] && ENV="master" || ENV="pre-prod"
-fi
-
+[[ "$1" == "prod" ]] && ENV="master" || ENV="pre-prod"
 
 echo -e "* Prepare : ${Gre}(1/5)${RCol}"
 # Build the content of the website into dist-build folder
 rm -rf dist
 
 # Cloning master branch (GH PAGES) into dist folder
-git clone -b master git@github.com:bdxio/bdxio.github.io.git dist/
+git clone -b $ENV git@github.com:bdxio/bdxio.github.io.git dist/
 cd dist
 ls | grep -v -E ".git" | xargs rm -rf
 
@@ -51,7 +43,7 @@ git commit -m "Auto-deploy - dist - 2018"
 
 echo -e "* Push to ${Yel}${ENV}${RCol}: ${Gre}(4/5)${RCol}"
 # Pushing to master branch, which is sync-ed with www.bdx.io ... only if there are more than 10 files in current directory
-git push origin master:$ENV
+git push origin $ENV
 cd ..
 
 # Clean generated folders
