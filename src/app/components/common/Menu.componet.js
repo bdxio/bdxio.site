@@ -14,11 +14,11 @@ class Menu extends Component {
         const { pathname, isOnTop } = this.props;
         const { menuOpened } = this.state;
         return (
-            <nav className={"row align-middle small-24 menu " + (!isOnTop ? 'scroll' : '')}>
+            <nav className={"row align-middle menu " + (!isOnTop ? 'scroll' : '')}>
                 <span className="columns menu-logo">
                     <Link to="/home"><img src="img/png/logo_white.png" /></Link>
                 </span>
-                <div className="main-menu">
+                <div className="row collapse main-menu">
                     <ul className="columns align-center main-menu-item">
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>

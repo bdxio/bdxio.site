@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import displayPage from './_PageContainer';
 import Header from '../components/common/Header.component';
 
@@ -10,7 +10,7 @@ class Faq extends Component {
     render() {
         return (
             <div>
-                <Header title="FAQ" />
+                <Header title="FAQ"/>
                 <div className="row">
 
                 </div>

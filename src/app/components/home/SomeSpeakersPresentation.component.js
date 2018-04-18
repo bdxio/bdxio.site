@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import UserCard from '../common/UserCard.component';
 
 const COUNT_DISPLAYED_SPEAKERS = 4;
@@ -15,7 +15,7 @@ class SomeSpeakersPresentation extends Component {
 
     componentWillMount() {
         const speakers = this.getRandomSpeakers(this.props.speakers);
-        this.setState({ speakers });
+        this.setState({speakers});
     }
 
     getRandomSpeaker(ref, speakers) {
@@ -38,35 +38,39 @@ class SomeSpeakersPresentation extends Component {
     }
 
     render() {
-        const { speakers } = this.state;
-        const { isPrevious, isMobile } = this.props;
+        const {speakers} = this.state;
+        const {isPrevious, isMobile} = this.props;
         return (
             <div className="row users text-center">
                 <div className="users-usersFlottant">
-                    <img src="img/svg/about_flottant.svg" />
+                    <img src="img/svg/about_flottant.svg"/>
                 </div>
-                <div className="column small-24">
+                <div className="column small-12">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6>Quelques profils <strong className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire pour vous mettre l'eau à la bouche.</h6>
+                    <h6>Quelques profils <strong
+                        className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire
+                        pour vous mettre l'eau à la bouche.</h6>
                 </div>
 
                 <div className="row align-center users-container">
                     <div className="column small-12 medium-8">
                         <div className="row align-center users-row-1 users-container-content">
-                            {speakers.slice(0, 2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} />)}
+                            {speakers.slice(0, 2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker}/>)}
                         </div>
                     </div>
 
 
                     <div className="column small-12 medium-8">
                         <div className="row align-center users-row-1 users-container-content">
-                            {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker} imageAtRight={!isMobile} />)}
+                            {speakers.slice(-2).map((speaker, i) => <UserCard key={`speaker_${i}`} user={speaker}
+                                                                              imageAtRight={!isMobile}/>)}
                         </div>
                     </div>
                 </div>
 
                 <div className="column align-center users-button">
-                    <Link className="columns shrink text-center button small secondary" to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
+                    <Link className="shrink text-center button small secondary"
+                          to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
                 </div>
             </div>
         );

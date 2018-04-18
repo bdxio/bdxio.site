@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Constants } from '../../constants';
+import React, {Component} from 'react';
+import {Constants} from '../../constants';
 
 class Quote extends Component {
     constructor(props) {

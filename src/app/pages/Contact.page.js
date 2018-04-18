@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import displayPage from './_PageContainer';
 import Header from '../components/common/Header.component';
 
-import { Actions as NavigateActions } from '../actions/navigate.actions';
+import {Actions as NavigateActions} from '../actions/navigate.actions';
 
 class Contact extends Component {
     constructor() {
@@ -18,7 +18,6 @@ class Contact extends Component {
 
     render() {
         return (
-
             <div className="contact">
                 <Header title="CONTACT"/>
                 <div className="row auto align-center contact-container">
@@ -58,9 +57,10 @@ class Contact extends Component {
                                                 ou contacter nous ici :
                                             </h5>
                                         </div>
-                                        <span className="contact-container-content-speaker-address align-middle arrowElement">
+                                        <span
+                                            className="contact-container-content-speaker-address align-middle arrowElement">
                                             <a href="mailto:" target="_blank"
-                                                className="button small primary">team@bdx.io</a>
+                                               className="button small primary">team@bdx.io</a>
                                     </span>
                                     </div>
 
@@ -74,7 +74,8 @@ class Contact extends Component {
                                                     </span> vous avez le choix ici :
                                             </h5>
                                         </div>
-                                        <div className="contact-container-content-news-address arrowElement align-middle">
+                                        <div
+                                            className="contact-container-content-news-address arrowElement align-middle">
                                             <div className="socialNetwork">
                                                 <a href="https://www.facebook.com/bdxio" target="_blank"
                                                    className="button small primary">
@@ -100,18 +101,18 @@ class Contact extends Component {
                                     </div>
 
                                     {/*<div*/}
-                                        {/*className="columns small-12 medium-12 large-3*/}
-                                        {/*contact-container-content-contact separate-contact-item align-middle">*/}
-                                        {/*<div>*/}
-                                            {/*<img src="img/svg/icon_contact_contact.svg"/>*/}
-                                            {/*<h5 className="contact-container-content-contact-title">Vous souhaitez*/}
-                                                {/*contacter un <span className="textGradient">membre de la team</span> en*/}
-                                                {/*particulier*/}
-                                                {/*c'est ici :</h5>*/}
-                                        {/*</div>*/}
-                                        {/*<span className="contact-container-content-contact-address arrowElement align-middle">*/}
-                                        {/*<a href="#/team"*/}
-                                           {/*className="button small primary">Voir la team</a>*/}
+                                    {/*className="columns small-12 medium-12 large-3*/}
+                                    {/*contact-container-content-contact separate-contact-item align-middle">*/}
+                                    {/*<div>*/}
+                                    {/*<img src="img/svg/icon_contact_contact.svg"/>*/}
+                                    {/*<h5 className="contact-container-content-contact-title">Vous souhaitez*/}
+                                    {/*contacter un <span className="textGradient">membre de la team</span> en*/}
+                                    {/*particulier*/}
+                                    {/*c'est ici :</h5>*/}
+                                    {/*</div>*/}
+                                    {/*<span className="contact-container-content-contact-address arrowElement align-middle">*/}
+                                    {/*<a href="#/team"*/}
+                                    {/*className="button small primary">Voir la team</a>*/}
                                     {/*</span>*/}
                                     {/*</div>*/}
                                 </div>

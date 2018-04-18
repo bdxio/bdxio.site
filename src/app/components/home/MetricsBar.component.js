@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class MetricsBar extends Component {
     constructor() {
@@ -8,7 +8,7 @@ class MetricsBar extends Component {
 
     render() {
         return (
-            <div className="row  align-middle metricsBar">
+            <div className="row align-middle metricsBar">
                 <div className="columns hide-for-small-only auto text-center metricsBar-picture">
                     {/* <Link to="/gallery"><i className="fa fa-2x fa-plus-circle"></i></Link> */}
                 </div>

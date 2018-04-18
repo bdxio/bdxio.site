@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from '../components/common/Header.component';
 import displayPage from './_PageContainer';
 
@@ -10,7 +10,7 @@ class Speakers extends Component {
     render() {
         return (
             <div>
-                <Header title="SPEAKERS" />
+                <Header title="SPEAKERS"/>
                 <div className="row">
                 </div>
             </div>

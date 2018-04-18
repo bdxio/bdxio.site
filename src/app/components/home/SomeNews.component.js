@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class SomeNews extends Component {
 
@@ -13,7 +13,7 @@ class SomeNews extends Component {
     }
 
     goToCarouselPage(index) {
-        this.setState({ index })
+        this.setState({index})
     }
 
     componentWillMount() {
@@ -23,7 +23,7 @@ class SomeNews extends Component {
     }
 
     render() {
-        const { news, index } = this.state
+        const {news, index} = this.state
         const newsDisplayed = news.slice(3 * index, 3 + 3 * index);
         const nbSelectors = Math.ceil(news.length / 3);
         return (
@@ -41,10 +41,11 @@ class SomeNews extends Component {
                                 <div key={`'news_'${i}`} className="columns small-10 large-3 someNews-content-item">
                                     <div className="news-container">
                                         <div className="img-container">
-                                            <img className="someNews-content-item-picture" src={n.Thumbnail} />
+                                            <img className="someNews-content-item-picture" src={n.Thumbnail}/>
                                         </div>
                                         <div className="someNews-content-item-title">{n.Titre}</div>
-                                        <div className="text-content someNews-content-item-news" dangerouslySetInnerHTML={{ __html: n.Contenu }}></div>
+                                        <div className="text-content someNews-content-item-news"
+                                             dangerouslySetInnerHTML={{__html: n.Contenu}}></div>
                                     </div>
                                     <div className="text-center someNews-content-item-button">
                                         <Link className="button tiny secondary" to={'/news'}>Lire l'article<i
@@ -60,11 +61,14 @@ class SomeNews extends Component {
 
                     <div className="row align-center someNews-navigate">
                         {nbSelectors > 1 &&
-                            [...Array(nbSelectors)].map((v, i) => {
-                                return (
-                                    <button className={(index === i ? 'selected' : '')} key={`'select_'${i}`} type="button" onClick={() => { this.goToCarouselPage(i) }}><i className="fa fa-circle"></i></button>
-                                );
-                            })}
+                        [...Array(nbSelectors)].map((v, i) => {
+                            return (
+                                <button className={(index === i ? 'selected' : '')} key={`'select_'${i}`} type="button"
+                                        onClick={() => {
+                                            this.goToCarouselPage(i)
+                                        }}><i className="fa fa-circle"></i></button>
+                            );
+                        })}
                     </div>
                 </div>
 
