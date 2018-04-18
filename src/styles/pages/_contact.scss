@@ -33,6 +33,22 @@
       min-height: rem-calc(350px);
       padding: 8px;
 
+
+      @include breakpoint(large) {
+        text-align: left;
+        @include flex-grid-column(4)
+      }
+
+      @include breakpoint(medium) {
+        text-align: center;
+      @include flex-grid-column(1)
+      }
+
+      @include breakpoint(small down) {
+        text-align: center;
+      @include flex-grid-column(1)
+      }
+
       img {
         width: rem-calc(90px);
         margin-bottom: rem-calc(24px);

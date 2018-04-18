@@ -21,8 +21,7 @@ class Contact extends Component {
                         <div className="row align-middle contact-container-block">
                             <div className="column">
                                 <div className="row contact-container-content">
-                                    <div
-                                        className="columns small-12 medium-12 large-3 text-left contact-container-content-partner">
+                                    <div className="contact-container-content-partner contact-item">
                                         <div>
                                             <img src="img/svg/icon_partner_contact.svg"/>
                                             <h5 className="contact-container-content-partner-title">Vous souhaitez nous
@@ -38,15 +37,13 @@ class Contact extends Component {
                                     </span>
                                     </div>
 
-                                    <div
-                                        className="columns small-12 medium-12 large-3 text-left contact-container-content-speaker">
+                                    <div className="contact-container-content-speaker  contact-item">
                                         <div>
                                             <img src="img/svg/icon_speaker_contact.svg"/>
                                             <h5 className="contact-container-content-partner-title">Vous êtes <span
                                                 className="textGradient">speaker</span> ou vous cherchez à le devenir,
                                                 attendez <span className="textGradient">l'ouverture du CFP </span>
-                                                début juin <br/>
-                                                ou contacter nous ici :
+                                                début juin ou contactez nous ici :
                                         </h5>
                                         </div>
                                         <span className="contact-container-content-speaker-adress align-middle">
@@ -56,7 +53,7 @@ class Contact extends Component {
                                     </span>
                                     </div>
 
-                                    <div className="columns small-12 medium-12 large-3 contact-container-content-news">
+                                    <div className="contact-container-content-news  contact-item">
                                         <div>
                                             <img src="img/svg/icon_about_contact.svg"/>
                                             <h5 className="contact-container-content-news-title">
@@ -89,12 +86,11 @@ class Contact extends Component {
                                     </div>
 
                                     <div
-                                        className="columns small-12 medium-12 large-3 text-left contact-container-content-contact">
+                                        className="contact-container-content-contact  contact-item">
                                         <div>
                                             <img src="img/svg/icon_contact_contact.svg"/>
                                             <h5 className="contact-container-content-contact-title">Vous souhaitez
-                                                contacter un <span
-                                                    className="textGradient">membre de la team</span> en particulier
+                                                contacter un <span className="textGradient">membre de la team</span> en particulier
                                                 c'est ici :</h5>
                                         </div>
                                         <span className="contact-container-content-contact-adress align-middle">

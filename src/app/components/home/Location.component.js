@@ -24,11 +24,11 @@ class Location extends Component {
                             <br />
                             <div>
                                 Pour nous rejoindre en transport en commun,<br />
-                                choisisser le Bus ou le Tram
+                                choisisser le Bus ou le Tram.
                             </div>
                             <br />
                             <div>
-                                Si vous venez en voiture, le parking de l'uiversité est ouvert et gratuit
+                                Si vous venez en voiture, le parking de l'uiversité est ouvert et gratuit.
                             </div>
                         </div>
 
