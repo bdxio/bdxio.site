@@ -69,7 +69,7 @@ class SomeNews extends Component {
                 </div>
 
                 <div className="columns shrink text-center">
-                    <Link className="button small white" to={"/news"}>Tous voir</Link>
+                    <Link className="button small white" to={"/news"}>TouT voir</Link>
                 </div>
             </div>
         );
