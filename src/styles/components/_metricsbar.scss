@@ -13,7 +13,7 @@
     min-height: calc(1024px - 756px);
     background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_img.jpg');
     background-size: cover;
-    cursor: pointer;
+    //cursor: pointer;
 
     a {
       position: absolute;
@@ -34,7 +34,7 @@
     min-height: calc(1024px - 756px);
     background: linear-gradient(rgba($primary, .65), rgba($primary, .75)), url($img-path + 'jpg/about_video.jpg');
     background-size: cover;
-    cursor: pointer;
+    //cursor: pointer;
 
     a {
       position: absolute;
