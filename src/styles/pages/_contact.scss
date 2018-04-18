@@ -53,9 +53,12 @@
           display: flex;
           cursor: pointer;
 
+          i {
+            padding-right: 10%;
+          }
+
           a {
             font-weight: bold;
-            margin-left: 30%;
             color: $primary;
             margin-bottom: 0 !important;
           }
@@ -78,7 +81,7 @@
         }
 
         i {
-          padding-right: 20%;
+          padding-right: 10%;
         }
 
         &-adress {
