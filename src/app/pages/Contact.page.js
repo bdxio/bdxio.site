@@ -1,20 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import displayPage from './_PageContainer';
 import Header from '../components/common/Header.component';
+
+import { Actions as NavigateActions } from '../actions/navigate.actions';
 
 class Contact extends Component {
     constructor() {
         super();
+
+        this.focusSubscription = this.focusSubscription.bind(this);
+    }
+
+    focusSubscription() {
+        this.props.dispatch(NavigateActions.focusSubscription());
+        setTimeout(() => this.props.dispatch(NavigateActions.focusSubscription()), 1000);
     }
 
     render() {
         return (
 
             <div className="contact">
-                <Header title="CONTACT"/>
+                <Header title="CONTACT" />
                 <div className="row auto align-center contact-container">
                     <div className="contact-contactFlottant">
-                        <img src="img/svg/theme2_flottant.svg"/>
+                        <img src="img/svg/theme2_flottant.svg" />
                     </div>
 
                     <div className="column small-12">
@@ -23,7 +32,7 @@ class Contact extends Component {
                                 <div className="row contact-container-content">
                                     <div className="contact-container-content-partner contact-item">
                                         <div>
-                                            <img src="img/svg/icon_partner_contact.svg"/>
+                                            <img src="img/svg/icon_partner_contact.svg" />
                                             <h5 className="contact-container-content-partner-title">Vous souhaitez nous
                                                 contacter pour devenir <span className="textGradient">sponsor</span> ou
                                                 vous
@@ -31,15 +40,15 @@ class Contact extends Component {
                                                     className="textGradient">partenariats</span> c'est ici :</h5>
                                         </div>
                                         <span className="contact-container-content-partner-adress align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
-                                        <a href="mailto:" target="_blank"
-                                           className="button small primary">partenariats@bdx.io</a>
-                                    </span>
+                                            <i className="fa fa-arrow-right slideRight"></i>
+                                            <a href="mailto:" target="_blank"
+                                                className="button small primary">partenariats@bdx.io</a>
+                                        </span>
                                     </div>
 
                                     <div className="contact-container-content-speaker  contact-item">
                                         <div>
-                                            <img src="img/svg/icon_speaker_contact.svg"/>
+                                            <img src="img/svg/icon_speaker_contact.svg" />
                                             <h5 className="contact-container-content-partner-title">Vous êtes <span
                                                 className="textGradient">speaker</span> ou vous cherchez à le devenir,
                                                 attendez <span className="textGradient">l'ouverture du CFP </span>
@@ -47,15 +56,15 @@ class Contact extends Component {
                                         </h5>
                                         </div>
                                         <span className="contact-container-content-speaker-adress align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
-                                        <a href="mailto:" target="_blank"
-                                           className="button small primary">team@bdx.io</a>
-                                    </span>
+                                            <i className="fa fa-arrow-right slideRight"></i>
+                                            <a href="mailto:" target="_blank"
+                                                className="button small primary">team@bdx.io</a>
+                                        </span>
                                     </div>
 
                                     <div className="contact-container-content-news  contact-item">
                                         <div>
-                                            <img src="img/svg/icon_about_contact.svg"/>
+                                            <img src="img/svg/icon_about_contact.svg" />
                                             <h5 className="contact-container-content-news-title">
                                                 Vous voulez tout savoir de
                                                 <span className="textGradient"> BDX I/O
@@ -78,8 +87,8 @@ class Contact extends Component {
 
                                             <div className="contact-container-content-news-adress-mail">
                                                 <span>
-                                                     <i className="fa fa-arrow-right slideRight"></i>
-                                                        <a className="button small primary">Inscription newletter</a>
+                                                    <i className="fa fa-arrow-right slideRight"></i>
+                                                    <a className="button small primary" onClick={this.focusSubscription}>Inscription newletter</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -88,16 +97,16 @@ class Contact extends Component {
                                     <div
                                         className="contact-container-content-contact  contact-item">
                                         <div>
-                                            <img src="img/svg/icon_contact_contact.svg"/>
+                                            <img src="img/svg/icon_contact_contact.svg" />
                                             <h5 className="contact-container-content-contact-title">Vous souhaitez
                                                 contacter un <span className="textGradient">membre de la team</span> en particulier
                                                 c'est ici :</h5>
                                         </div>
                                         <span className="contact-container-content-contact-adress align-middle">
-                                         <i className="fa fa-arrow-right slideRight"></i>
-                                        <a href="#/team"
-                                           className="button small primary">Voir la team</a>
-                                    </span>
+                                            <i className="fa fa-arrow-right slideRight"></i>
+                                            <a href="#/team"
+                                                className="button small primary">Voir la team</a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>

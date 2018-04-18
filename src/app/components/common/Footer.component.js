@@ -11,8 +11,15 @@ class Footer extends Component {
             status: null,
             message: ''
         };
+        this.emailInput = React.createRef();
         this.handleChange = this.handleChange.bind(this);
         this.subscribe = this.subscribe.bind(this);
+    }
+
+    componentWillReceiveProps(props) {
+        const { subscriptionHasFocused } = props;
+        if (subscriptionHasFocused) this.emailInput.current.focus();
+
     }
 
     handleChange(e) {
@@ -64,7 +71,8 @@ class Footer extends Component {
                         <input type="email"
                             placeholder='Email'
                             value={email}
-                            onChange={this.handleChange}/>
+                            ref={this.emailInput}
+                            onChange={this.handleChange} />
                         <button type='submit'
                             className={'button small white'}>
                             S'inscrire
@@ -90,7 +98,7 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-    
+    subscriptionHasFocused: PropTypes.bool.isRequired,
 };
 
 

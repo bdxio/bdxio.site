@@ -39,6 +39,7 @@ const displayPage = (Page) => {
         render() {
             const { isOnTop } = this.state;
             const { loaded, Sponsors } = this.props.gsheet;
+            const { subscriptionHasFocused } = this.props.navigate;
             const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
 
             if (loaded) {
@@ -46,13 +47,13 @@ const displayPage = (Page) => {
                     <div className="pageContainer">
                         <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
                         <Page {...this.props} />
-                        <Footer />
+                        <Footer subscriptionHasFocused={subscriptionHasFocused} />
                     </div>
                 );
             }
             else {
                 return (
-                   <Loader />
+                    <Loader />
                 );
             }
         }
@@ -60,11 +61,13 @@ const displayPage = (Page) => {
 
     DisplayPage.propTypes = {
         gsheet: PropTypes.object.isRequired,
+        navigate: PropTypes.object.isRequired,
     };
 
     const mapStateToProps = (state) => {
         return {
-            gsheet: state.gsheet
+            gsheet: state.gsheet,
+            navigate: state.navigate,
         };
     };
 
