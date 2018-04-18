@@ -1,0 +1,27 @@
+.home {
+  svg,
+  .homeBg,
+  .header-height,
+  .home-homeFlottant,
+  .home-about-aboutFlottant,
+  .conference-conferenceFlottantLeft,
+  .conference-conferenceFlottantRight,
+  .users-usersFlottant,
+  .ticketingAccess-ticketingAccessFlottant {
+    display: none !important;
+  }
+}
+
+.home-header {
+  background-image: url($img-path + 'png/bdxio_header.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: rem-calc(73px);
+  position: relative;
+  height: 20rem;
+}
+
+.home-about {
+  margin-top: 20vh;
+}
