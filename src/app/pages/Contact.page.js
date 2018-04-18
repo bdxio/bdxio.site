@@ -31,7 +31,7 @@ class Contact extends Component {
                             <div className="column">
                                 <div className="row contact-container-content">
 
-                                    <div className="columns small-12 medium-12 large-3
+                                    <div className="columns small-12 medium-12 large-4
                                     contact-container-content-partner">
                                         <div>
                                             <img src="img/svg/icon_partner_contact.svg"/>
@@ -47,7 +47,7 @@ class Contact extends Component {
                                     </span>
                                     </div>
 
-                                    <div className="columns small-12 medium-12 large-3
+                                    <div className="columns small-12 medium-12 large-4
                                     contact-container-content-speaker separate-contact-item">
                                         <div>
                                             <img src="img/svg/icon_speaker_contact.svg"/>
@@ -64,7 +64,7 @@ class Contact extends Component {
                                     </span>
                                     </div>
 
-                                    <div className="columns small-12 medium-12 large-3
+                                    <div className="columns small-12 medium-12 large-4
                                         contact-container-content-news separate-contact-item">
                                         <div>
                                             <img src="img/svg/icon_about_contact.svg"/>
@@ -99,21 +99,21 @@ class Contact extends Component {
                                         </div>
                                     </div>
 
-                                    <div
-                                        className="columns small-12 medium-12 large-3
-                                        contact-container-content-contact separate-contact-item align-middle">
-                                        <div>
-                                            <img src="img/svg/icon_contact_contact.svg"/>
-                                            <h5 className="contact-container-content-contact-title">Vous souhaitez
-                                                contacter un <span className="textGradient">membre de la team</span> en
-                                                particulier
-                                                c'est ici :</h5>
-                                        </div>
-                                        <span className="contact-container-content-contact-address arrowElement align-middle">
-                                        <a href="#/team"
-                                           className="button small primary">Voir la team</a>
-                                    </span>
-                                    </div>
+                                    {/*<div*/}
+                                        {/*className="columns small-12 medium-12 large-3*/}
+                                        {/*contact-container-content-contact separate-contact-item align-middle">*/}
+                                        {/*<div>*/}
+                                            {/*<img src="img/svg/icon_contact_contact.svg"/>*/}
+                                            {/*<h5 className="contact-container-content-contact-title">Vous souhaitez*/}
+                                                {/*contacter un <span className="textGradient">membre de la team</span> en*/}
+                                                {/*particulier*/}
+                                                {/*c'est ici :</h5>*/}
+                                        {/*</div>*/}
+                                        {/*<span className="contact-container-content-contact-address arrowElement align-middle">*/}
+                                        {/*<a href="#/team"*/}
+                                           {/*className="button small primary">Voir la team</a>*/}
+                                    {/*</span>*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                         </div>
