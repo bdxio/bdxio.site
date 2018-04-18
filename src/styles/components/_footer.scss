@@ -89,6 +89,8 @@
 
             a {
                 color: white;
+                font-size: rem-calc(20px);
+
                 &:hover{
                     color:$yellow;
                 }
