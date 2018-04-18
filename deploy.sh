@@ -17,6 +17,16 @@ echo -e "${Yel}------------"
 echo -e " DEPLOYING"
 echo -e "------------ ${RCol}"
 
+
+if [ -z "$1" ]
+    then
+        echo -e "${Red}Usage ./deploy [env]${RCol}"
+        exit 0
+    else
+        [[ "$1" == "prod" ]] && ENV="master" || ENV="pre-prod"
+fi
+
+
 echo -e "* Prepare : ${Gre}(1/5)${RCol}"
 # Build the content of the website into dist-build folder
 rm -rf dist
@@ -39,9 +49,9 @@ echo -e "* Commit : ${Gre}(3/5)${RCol}"
 git commit -m "Auto-deploy - dist - 2018"
 
 
-echo -e "* Push : ${Gre}(4/5)${RCol}"
+echo -e "* Push to ${Yel}${ENV}${RCol}: ${Gre}(4/5)${RCol}"
 # Pushing to master branch, which is sync-ed with www.bdx.io ... only if there are more than 10 files in current directory
-git push origin master
+git push origin master:$ENV
 cd ..
 
 # Clean generated folders
