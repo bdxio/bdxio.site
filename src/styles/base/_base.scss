@@ -20,6 +20,18 @@ body {
     }
 }
 
+#app {
+    display: block;
+    height: 100%;
+
+    .pageContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+}
+
 hr {
     border-bottom: 1px solid $grey-light;
     max-width: inherit;

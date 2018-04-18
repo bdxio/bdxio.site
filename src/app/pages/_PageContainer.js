@@ -43,7 +43,7 @@ const displayPage = (Page) => {
 
             if (loaded) {
                 return (
-                    <div>
+                    <div className="pageContainer">
                         <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
                         <Page {...this.props} />
                         <Footer style={{ marginTop: (IMPERIAL.length === 0 ? '0px' : '64px') }} />
