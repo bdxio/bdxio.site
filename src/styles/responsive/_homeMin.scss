@@ -26,4 +26,12 @@
   .home-about {
     margin-top: 20vh;
   }
+
+  .users-container-content-item-text {
+    padding: 0 8px;
+
+    &:after {
+      padding: 0 8px;
+    }
+  }
 }
