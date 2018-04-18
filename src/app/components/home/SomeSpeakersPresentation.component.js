@@ -47,7 +47,7 @@ class SomeSpeakersPresentation extends Component {
                 </div>
                 <div className="column small-24">
                     <h5 className="sectionTitle">Nos speakers</h5>
-                    <h6>Quelques profils <strong className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire pour vous mettre l'eau à la bouche</h6>
+                    <h6>Quelques profils <strong className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire pour vous mettre l'eau à la bouche.</h6>
                 </div>
 
                 <div className="row align-center users-container">

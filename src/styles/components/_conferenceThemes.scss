@@ -69,6 +69,10 @@
                     color: $white;
                     width: 50px;
                     margin-bottom: 4px;
+
+                    @include breakpoint(medium down) {
+                        width: 40px;
+                    }
                 }
         
                     h6 {

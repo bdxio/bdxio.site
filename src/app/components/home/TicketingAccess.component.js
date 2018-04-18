@@ -15,7 +15,7 @@ class TicketingAccess extends Component {
                 </div>
                 <div className="columns text-center">
                     <h5 className="sectionTitle">Achetez votre place</h5>
-                    <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition</h6>
+                    <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition.</h6>
                 </div>
 
                 <div className="row collapse align-center ticketingAccess-container">
