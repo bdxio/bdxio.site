@@ -81,6 +81,22 @@
       font-weight: bold;
     }
 
+    @include breakpoint(large) {
+      &-content {
+        margin: 40px 0 40px 0;
+        font-size: 19px !important;
+      }
+
+      &-button {
+        margin-top: 53px;
+        font-size: 1.1rem !important;
+      }
+
+      h1 {
+        font-size: 68px !important;
+      }
+    }
+
     @include breakpoint(medium down) {
       top: 73px;
       padding-top: 40px;
