@@ -98,7 +98,7 @@
                 }
             }
 
-            @include breakpoint(small down) {
+            @include breakpoint(medium down) {
                 min-height: rem-calc(250px);
                 &-content {
                     display: block;

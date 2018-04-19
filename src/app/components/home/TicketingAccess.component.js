@@ -15,12 +15,11 @@ class TicketingAccess extends Component {
                 </div>
                 <div className="columns small-12 text-center">
                     <h5 className="sectionTitle">Achetez votre place</h5>
-                    <h6 className="sectionSubtitle">Les prix restent inchangés pour cette édition.</h6>
+                    <h6 className="sectionSubtitle">Ouverture de la billeterie en Juin</h6>
                 </div>
 
                 <div className="row collapse align-center ticketingAccess-container">
-                    <div
-                        className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                    <div className={"column small-10 medium-3 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
                             <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">32,00 €</div>
@@ -48,8 +47,7 @@ class TicketingAccess extends Component {
                         </div>
                     </div>
 
-                    <div
-                        className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                    <div className={"column small-10 medium-3 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
                             <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
@@ -64,7 +62,7 @@ class TicketingAccess extends Component {
                         </div>
                         <div
                             className="row ticketingAccess-container-item-content">
-                            <div>Donner votre <span>avis</span> concernant les talks</div>
+                            <div>Donnez votre <span> avis</span> concernant les talks proposés au CFP</div>
                             <div>Invitation au <span>diner speaker</span> si vous votez au moins pour 80% des
                                 talks
                             </div>
@@ -82,8 +80,7 @@ class TicketingAccess extends Component {
                         </div>
                     </div>
 
-                    <div
-                        className={"column small-10 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
+                    <div className={"column small-10 medium-3 large-3 ticketingAccess-container-item " + (!registrationIsOpened ? 'disabled' : '')}>
                         <div className="row align-center ticketingAccess-container-item-infos">
                             <div className="columns small-12 ticketingAccess-container-item-infos-title">
                                 <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
