@@ -69,6 +69,13 @@ section {
 }
 
 
+.contentPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 // IE STYLE
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
