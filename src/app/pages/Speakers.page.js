@@ -13,6 +13,7 @@ class Speakers extends Component {
                 <Header title="SPEAKERS"/>
                 <div className="row">
                 </div>
+                {this.props.children}
             </div>
         );
     }

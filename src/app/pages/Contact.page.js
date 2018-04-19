@@ -117,6 +117,7 @@ class Contact extends Component {
                         </div>
                     </div>
                 </div>
+                {this.props.children}
             </div>
         );
     }

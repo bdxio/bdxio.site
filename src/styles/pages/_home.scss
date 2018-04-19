@@ -50,16 +50,9 @@
     &-content {
       background: $white;
       padding: 8px 16px;
-      margin: 24px 0;
       color: $red;
       font-size: 14px;
       font-weight: bold;
-      position: absolute;
-      z-index: 999;
-      @include breakpoint(large) {
-        top: 15%;
-      }  
-
 
       span {
         padding: 0 16px;
@@ -189,7 +182,7 @@
     background-size: cover !important;
     top: rem-calc(60px) !important;
     position: relative !important;
-    height: 20rem !important;
+    height: 25rem !important;
   }
 
   .home-about {
@@ -197,13 +190,18 @@
   }
 
   .metricsBar,
-  .someNews {
+  .someNews,
+  .footer {
     background-image: none !important;
   }
 
   .conference-container,
   .location-site-place {
-    background: none !important;
+    background: $gradient !important;
     background-color: $gradient !important;
+  }
+
+  .menu{
+    background: #2b2d43 !important;
   }
 }

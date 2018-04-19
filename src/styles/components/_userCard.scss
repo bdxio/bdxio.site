@@ -43,10 +43,6 @@
           .users-container-content-item-text {
             position: relative;
 
-            h6 {
-              margin-left: rem-calc(20px);
-            }
-
             &:after {
               position: absolute;
               font-family: 'FontAwesome';
@@ -54,6 +50,7 @@
               transition: flex 350ms;
               font-size: 18px;
               left: rem-calc(10px);
+              top:5px;
             }
           }
         }
@@ -115,7 +112,7 @@
           width: 100%;
           object-fit: cover;
           padding: 0;
-          background: $white-grey;
+          background: #2b2d43;
 
           img {
             height: 100%;
