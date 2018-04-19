@@ -34,7 +34,6 @@
     flex-direction: column;
     z-index: 999;
     top: rem-calc(100px);
-    //margin: rem-calc(24px 0);
     @include breakpoint(medium down) {
       top: 73px;
       padding-top: 40px;
@@ -46,7 +45,6 @@
     h1 {
       color: $white;
       font-weight: bold;
-      margin-bottom: rem-calc(30px);
     }
 
     &-content {
