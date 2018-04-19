@@ -37,7 +37,7 @@ class Home extends Component {
 
     _onResize() {
         const isTabletOrSmaller = window.innerWidth <= 767;
-        const isMobile = window.innerWidth <= 400;
+        const isMobile = window.innerWidth <= 450;
         if (isMobile !== this.state.isMobile) {
             this.setState({ isMobile })
         }
@@ -72,7 +72,7 @@ class Home extends Component {
                             </div>
                         </div>
 
-                        {isMobile ? <div className="replace-countdown-space">&nbsp</div> : <Countdown />}
+                        {isMobile ? <div className="replace-countdown-space"></div> : <Countdown />}
 
                         <div className="row">
                             <div className="columns auto text-center home-header-button">
