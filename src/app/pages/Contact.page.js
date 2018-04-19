@@ -39,7 +39,7 @@ class Contact extends Component {
                                                 className="textGradient">partenariats</span> c'est ici :</h5>
                                     </div>
                                     <span className="contact-container-content-partner-address align-middle">
-                                        <a href="mailto:" target="_blank"
+                                        <a href="mailto://partenariats@bdx.io" target="_blank"
                                            className="button small primary">partenariats@bdx.io</a>
                                     </span>
                                 </div>
@@ -57,7 +57,7 @@ class Contact extends Component {
                                     </div>
                                     <span
                                         className="contact-container-content-speaker-address align-middle arrowElement">
-                                            <a href="mailto:" target="_blank"
+                                            <a href="mailto://team@bdx.io" target="_blank"
                                                className="button small primary">team@bdx.io</a>
                                     </span>
                                 </div>
