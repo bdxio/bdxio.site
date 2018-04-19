@@ -1,6 +1,7 @@
 .homeBg {
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 .home {
@@ -13,7 +14,7 @@
     img {
       position: relative;
       float: right;
-      max-width: 26%;
+      max-width: 22%;
       right: -9%;
       top: 30%;
     }
@@ -98,15 +99,8 @@
 
     h5 {
       margin-top: 0;
-
-      @include breakpoint(medium) {
-        margin-top: 15vh;
-      }
-
-      @include breakpoint(small down) {
-        margin-top: 28vh;
-      }
     }
+
 
     img {
       display: block;
@@ -130,6 +124,11 @@
         top: -60%;
         z-index: 999;
       }
+    }
+
+    &-text {
+      z-index: 1000;
+      top: -10%;
     }
   }
 
