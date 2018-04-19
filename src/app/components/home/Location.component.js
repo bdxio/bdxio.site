@@ -9,11 +9,11 @@ class Location extends Component {
     render() {
         return (
             <section className="row location align-center location-infos">
-                <div className="columns small-12 large-3 location-infos-place">A 10 minutes de <br/>> Bordeaux</div>
-                <div className="columns small-12 large-3 location-infos-amphis">6 amphis en parallèle <br/>> 50
+                <div className="columns small-12 medium-4 large-3 location-infos-place">A 10 minutes de <br/>> Bordeaux</div>
+                <div className="columns small-12 medium-4 large-3 location-infos-amphis">6 amphis en parallèle <br/>> 50
                     conférences
                 </div>
-                <div className="columns small-12 large-3 location-infos-dev">15 communautés <br/>> 500 Développeur·se·s
+                <div className="columns small-12 medium-4 large-3 location-infos-dev">15 communautés <br/>> 500 Développeur·se·s
                 </div>
 
                 <div className="columns small-12 location-site">
