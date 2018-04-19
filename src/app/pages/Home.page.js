@@ -111,7 +111,7 @@ class Home extends Component {
                     <h5 className="sectionTitle align-center">À propos de Bdxio</h5>
                     <h6>
                         BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes. <br />
-                        Pour cette cinquième édition, nous recevrons encore 500 passioné·e·s pour une nouvelle journéede
+                        Pour cette cinquième édition, nous recevrons encore 500 passioné·e·s pour une nouvelle journée de
                         découverte dans la bonne
                         humeur !!!
                     </h6>
