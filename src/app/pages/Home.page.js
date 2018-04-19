@@ -21,6 +21,7 @@ class Home extends Component {
         super();
         this.state = {
             isMobile: false,
+            isTabletOrSmaller: false,
         };
         this._onResize = this._onResize.bind(this);
     }
@@ -35,14 +36,19 @@ class Home extends Component {
     }
 
     _onResize() {
-        const isMobile = window.innerWidth <= 768;
+        const isTabletOrSmaller = window.innerWidth <= 767;
+        const isMobile = window.innerWidth <= 400;
         if (isMobile !== this.state.isMobile) {
             this.setState({ isMobile })
+        }
+        if (isTabletOrSmaller !== this.state.isTabletOrSmaller) {
+            this.setState({ isTabletOrSmaller })
         }
     }
 
     render() {
         const { isMobile } = this.state;
+        const { isTabletOrSmaller } = this.state;
         const { News, Sponsors, Speakers, Speakers17, Config } = this.props.gsheet;
 
         const IMPERIAL = Sponsors.filter((s) => s['Actif'] === '1' && s['Type'].toUpperCase() === Constants.sponsors.types.IMPERIAL);
@@ -56,7 +62,7 @@ class Home extends Component {
 
                 <div className="row home-header">
                     <div className="columns auto">
-                        <h1 className="text-center">Bienvenue à BDX I/O 2018 !</h1>
+                        <h1 className="text-center">{isMobile ? 'Bienvenue à BDX I/O' : 'Bienvenue à BDX I/O 2018 !'}</h1>
                         <div className="row align-center">
                             <div className="columns shrink">
                                 <div className="home-header-content">
@@ -66,7 +72,7 @@ class Home extends Component {
                             </div>
                         </div>
 
-                        <Countdown />
+                        {isMobile ? <div className="replace-countdown-space">&nbsp</div> : <Countdown />}
 
                         <div className="row">
                             <div className="columns auto text-center home-header-button">
@@ -130,7 +136,7 @@ class Home extends Component {
                 <SomeSpeakersPresentation
                     speakers={(Speakers.length > 0 ? Speakers : Speakers17)}
                     isPrevious={(Speakers.length === 0)}
-                    isMobile={isMobile} />
+                    isMobile={isTabletOrSmaller} />
 
                 <SomeNews news={News} />
 
