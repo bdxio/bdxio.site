@@ -67,7 +67,7 @@ class Home extends Component {
                             <div className="columns shrink">
                                 <div className="home-header-content">
                                     <span><i className="fa fa-calendar"></i>9 novembre</span>
-                                    <span><i className="fa fa-map-marker"></i>EINSERB</span>
+                                    <span><i className="fa fa-map-marker"></i>ENSEIRB</span>
                                 </div>
                             </div>
                         </div>
