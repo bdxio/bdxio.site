@@ -58,16 +58,6 @@ section {
     margin-top: 2vh;
 }
 
-.fixContainer {
-    // height: calc(100vh - 334px);
-    display: block;
-
-    @include breakpoint(medium down) {
-        display: inherit;
-        height: inherit;
-    }
-}
-
 
 .contentPage {
     display: flex;
@@ -79,6 +69,14 @@ section {
 // IE STYLE
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    .contentPage {
+        display: inline-block;
+        height: 100%;
+
+        @include breakpoint (medium down) {
+            display: block;
+        }
+    }
 
     .flottant-right,
     .flottant-left {
