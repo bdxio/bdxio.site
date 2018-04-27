@@ -23,59 +23,59 @@ class ConferenceThemes extends Component {
                 </div>
 
                 <div className="row auto align-center">
-                    <div className="column small-8 conference-container">
+                    <div className="column small-12 medium-8 conference-container">
                         <div className="row conference-container-content">
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_design.svg"/></div>
                                 <h6>Design, UI & UX</h6>
-                                <div>CSS, Ergonomie & Design.
+                                <div className="text-themes">CSS, Ergonomie & Design.
                                     Experience utilisateur.
                                 </div>
                             </div>
 
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_back.svg"/></div>
                                 <h6>Backends, Cloud & BigData</h6>
-                                <div>Frameworks côté serveur.
+                                <div className="text-themes">Frameworks côté serveur.
                                     Cloud.
                                     Base de données NoSQL.
                                 </div>
                             </div>
 
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_front.svg"/></div>
                                 <h6>Frontend Web, Mobile et VideoGames</h6>
-                                <div>Frameworks côté client.
+                                <div className="text-themes">Frameworks côté client.
                                     Application web / mobiles (hybrides, natives) / progressives.
                                     Outillage pour les jeux vidéos.
                                 </div>
                             </div>
 
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_tooling.svg"/></div>
                                 <h6>Tooling</h6>
-                                <div>Outillage pour la productivité.
+                                <div className="text-themes">Outillage pour la productivité.
                                     Outillage pour le build.
                                     IDE.
                                 </div>
                             </div>
 
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_internet.svg"/></div>
                                 <h6>Internet des objets & marchés émergents</h6>
-                                <div>A la recherche des idées disruptives au service du monde de demain.</div>
+                                <div className="text-themes">A la recherche des idées disruptives au service du monde de demain.</div>
                             </div>
 
                             <div
-                                className="columns small-12 medium-4 text-center conference-container-content-item">
+                                className="columns small-6 medium-4 text-center conference-container-content-item">
                                 <div><img src="img/svg/icon_theme_dev.svg"/></div>
                                 <h6>Conception, Architecture & Pratiques de dev</h6>
-                                <div>Méthodologie comme SCRUM ou Kanban.
+                                <div className="text-themes">Méthodologie comme SCRUM ou Kanban.
                                     Principes d'architecture.
                                 </div>
                             </div>
