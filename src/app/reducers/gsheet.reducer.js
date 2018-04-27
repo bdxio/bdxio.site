@@ -8,6 +8,7 @@ const defaultState = {
     'Talk assets': [],
     'Speakers': [],
     'Speakers17': [],
+    'faq': [],
     loaded: false
 }
 
@@ -15,7 +16,7 @@ export const GSheetReducer = (state = defaultState, action) => {
     switch (action.type) {
         case Types.DATA_FETCH: {
             const { data } = action.payload;
-            const _state = Object.keys(data)
+            const values = Object.keys(data)
                 .map(k => {
                     return { [k]: data[k].elements }
                 }).reduce((acc, cur, i) => {
@@ -32,7 +33,8 @@ export const GSheetReducer = (state = defaultState, action) => {
                     return acc;
                 }, {});
             return {
-                ..._state,
+                ...state,
+                ...values,
                 loaded: true
             }
         }
