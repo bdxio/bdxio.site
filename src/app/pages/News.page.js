@@ -16,7 +16,7 @@ class News extends Component {
         return (
             <div class="contentPage">
                 <Header title="NEWS"/>
-                <div className="fixContainer">
+                <div>
                     {newsDisplayed.map((news, i) => {
                         return (
                             <div className="row newsContainer" key={`'news_${i}`}>
