@@ -26,7 +26,7 @@ module.exports = {
 
     devServer: {
         port: 3000,
-        host: '10.33.33.99',
+        host: '0.0.0.0',
         //Be possible go back pressing the "back" button at chrome
         historyApiFallback: true,
         //hotmodulereplacementeplugin
