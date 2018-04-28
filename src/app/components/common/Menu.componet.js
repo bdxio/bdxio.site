@@ -25,7 +25,7 @@ class Menu extends Component {
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} className="disabled" to='/speakers' onClick={e => e.preventDefault()} >Speakers</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/partnerships' ? 'selected' : '')} className="disabled" to="/partnerships" onClick={e => e.preventDefault()}>Sponsors</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} className="disabled" to='/faq' onClick={e => e.preventDefault()}>FAQ</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} to='/faq'>FAQ</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/contact' ? 'selected' : '')} to="/contact">Contact</Link></li>
                     </ul>
 
