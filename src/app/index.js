@@ -19,6 +19,8 @@ import Faq from './pages/Faq.page';
 import Contact from './pages/Contact.page';
 
 import { default as Speakers2017 } from './pages/2017/Speakers.page';
+import CGV from './pages/legal/CGV';
+import CodeConduite from './pages/legal/CodeConduite';
 
 const store = createStore(
     reducers,
@@ -35,11 +37,13 @@ ReactDOM.render(
                 <Route path="/home" component={Home} />
                 <Route path="/team" component={Team} />
                 <Route path="/news" component={News} />
-                <Route path="/2017/speakers" component={Speakers2017} />
                 {/* <Route path="/speakers" component={Speakers} /> */}
                 {/* <Route path="/partnerships" component={Partnerships} /> */}
                 <Route path="/faq" component={Faq} />
                 <Route path="/contact" component={Contact} />
+                <Route path="/2017/speakers" component={Speakers2017} />
+                <Route path="/legal/cgv" component={CGV} />
+                <Route path="/legal/code_de_conduite" component={CodeConduite} />
             </Switch>
         </Router>
     </Provider>,
