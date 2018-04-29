@@ -25,25 +25,36 @@ class Faq extends Component {
         return (
             <div>
                 <Header title="FAQ" />
-                <div className="row align-center">
+                <div className="row align-center faq-container">
+                    <div className="faq-container-right-flottant">
+                        <img src="img/svg/home_flottant.svg" />
+                    </div>
+
+                    <div className="faq-container-left-flottant">
+                        <img src="img/svg/price_flottant.svg" />
+                    </div>
+
                     <div className="column small-12 large-8">
                         <div className="row">
-                            <div className="columns small-12 large-2 hide-for-small-only">
-                                <ul>
+                            <div className="columns shrink hide-for-small-only">
+                                <ul className="faq-tag">
                                     {categories.map((category, i) => {
                                         return (
-                                            <li key={`category_${i}`}>{category}</li>
+                                            <li className="faq-tag-item text-justify" key={`category_${i}`}>{category}</li>
                                         )
                                     })}
                                 </ul>
                             </div>
+                        </div>
+
+                        <div className="row">
                             <div className="columns small-12 large-10">
-                                <ul>
+                                <ul className="faq-container">
                                     {FAQ.map((f, i) => {
                                         return (
-                                            <li key={`question_${i}`}>
-                                                <h4>{f.question}</h4>
-                                                <div dangerouslySetInnerHTML={{__html: f.response}}></div>
+                                            <li className="faq-content" key={`question_${i}`}>
+                                                <h5 className="faq-content-title">{f.question}</h5>
+                                                <div className="text-justify" dangerouslySetInnerHTML={{ __html: f.response }}></div>
                                             </li>
                                         )
                                     })}
