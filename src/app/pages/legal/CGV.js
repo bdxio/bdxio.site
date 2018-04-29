@@ -11,11 +11,19 @@ class CGV extends Component {
         return (
             <div>
                 <Header title="Conditions Générale de Vente" />
-                <div className="row align-center">
+                <div className="row align-center cgv-container">
+                    <div className= "cgv-container-left-flottant">
+                        <img src="img/svg/about_flottant.svg" />
+                    </div>
+
+                    <div className="cgv-container-right-flottant">
+                        <img src="img/svg/home_flottant.svg" />
+                    </div>
+
                     <div className="column small-12 large-8">
-                        <div>
-                            <h4>1. Objet et champs d’application des présentes Conditions Générales de Vente</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">1. Objet et champs d’application des présentes Conditions Générales de Vente</h5>
+                            <p className="text-justify">
                                 Les présentes conditions générales de vente sont applicables à toutes les conférences organisées
                                 par l’association Bordeaux Developper Expérience (dénommée BDX i/o).
                                 Tout achat de billet pour la conférence implique l’acceptation sans réserve par
@@ -27,26 +35,26 @@ class CGV extends Component {
                                 les modifications étant alors applicables uniquement aux commandes effectuées
                                 postérieurement à leur date de mise en œuvre. Les présentes Conditions Générales de
                                 Vente sont accessibles de façon permanente sur le site Internet : <a href="//bdx.io/#/legal/cvg">bdx.io/#/legal/cvg</a>
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>2. Absence de droit de rétractation</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">2. Absence de droit de rétractation</h5>
+                            <p className="text-justify">
                                 Conformément à l’article L 121-21-8 du Code de la Consommation, les billets de
                                 spectacles ne font pas l’objet d’un droit de rétractation.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>3. Disponibilité des places</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">3. Disponibilité des places</h5>
+                            <p className="text-justify">
                                 BDX I/O alloue un nombre de places.<br />
                                 L’achat s’effectue en temps réel. Ainsi, lors de l’achat des billets en ligne,
                                 vous êtes informé en temps réel de la disponibilité des billets.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>4. Prix</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">4. Prix</h5>
+                            <p className="text-justify">
                                 Le prix du billet est indiqué en euros toutes taxes comprises.<br />
                                 Selon le mode de paiement, des frais peuvent s’ajouter au prix du billet,
                                 lors de l’achat la mention de ces frais vous sera faite.<br />
@@ -67,11 +75,11 @@ class CGV extends Component {
                                 la forme et le support, attestant de l’obtention auprès du producteur, de l’organisateur
                                 ou du propriétaire des droits d’exploitation du droit d’assister à la manifestation ou
                                 au spectacle. »
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>5. Modalités de paiement et sécurité</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">5. Modalités de paiement et sécurité</h5>
+                            <p className="text-justify">
                                 Le paiement du billet se fait par paiement sécurisé par une procédure de cryptage des
                                 données en vue d’éviter l’interception de ces informations par un tiers, par carte de
                                 crédit via la plateforme de paiement en ligne sécurisé de Weezevent.<br />
@@ -82,19 +90,19 @@ class CGV extends Component {
                                 BDX I/O ne saurait être tenue responsable en cas d’usage frauduleux des moyens de paiement utilisés.
                                 Conformément à la réglementation en vigueur, les coordonnées bancaires du Client ne sont pas conservées par
                                 BDX I/O.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>6. Livraison</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">6. Livraison</h5>
+                            <p className="text-justify">
                                 Le Client reçoit un second mail contenant le billet à présenter à l’entrée de l’événement
                                 concerné pour l’échanger contre son pass d’entrée.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>7. Limites de responsabilité</h4>
-                            <h5>7.1. Modification ou annulation d’un événement et remboursement</h5>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">7. Limites de responsabilité</h5>
+                            <h6 className="cgv-content-subtitle">7.1. Modification ou annulation d’un événement et remboursement</h6>
+                            <p className="text-justify">
                                 En cas  de modification de l’heure et/ou de lieu (ex : inondation de la salle), vous serez
                                 informé par BDX i/o par l’envoi d’un e-mail à l’adresse que vous avez communiquée lors de votre achat.<br />
                                 Vous retrouverez également toutes les informations nécessaires concernant les modifications affectant l’événement sur le site internet www.bdx.io, notre page Facebook et notre twitter.<br />
@@ -103,18 +111,18 @@ class CGV extends Component {
                                 Le remboursement est effectué sur la base du prix du billet, et par virement bancaire sur le compte de la carte bancaire utilisée lors de votre paiement.<br />
                                 En dehors des conditions ci-après énoncées, aucune annulation de votre réservation ne peut être effectuée.<br />
                                 Le billet n’est pas remboursable y compris en cas de perte ou de vol. Le billet ne peut être ni repris ni échangé.
-                            </div>
-                            <h5>7.2 Données personnelles.</h5>
-                            <div>
+                            </p>
+                            <h6 className="cgv-content-subtitle">7.2 Données personnelles.</h6>
+                            <p className="text-justify">
                                 Le Client est informé, conformément à la loi du 6 janvier 1978 dite Loi Informatique et Libertés, que les
                                 données personnelles le concernant collectées à l’occasion de son achat, sont utilisées aux fins de gestion et
                                 de traitement de son achat.<br />
                                 Conformément aux dispositions de la loi du 6 janvier 1978, le Client dispose d’un droit d’accès, de
                                 rectification et, le cas échéant, de suppression des données le concernant. Ce droit peut être exercé
                                 auprès de BDX I/O, par mail.
-                            </div>
-                            <h5>7.3 Contraintes liées à Internet</h5>
-                            <div>
+                            </p>
+                            <h6 className="cgv-content-subtitle">7.3 Contraintes liées à Internet</h6>
+                            <p className="text-justify">
                                 Weezevent est soumis aux contraintes liées à Internet.<br />
                                 Vous déclarez avoir parfaitement connaissance des caractéristiques et limites du réseau Internet, par lequel BDX I/O
                             met à disposition le Site et l’espace « Weezevent ».<br />
@@ -126,26 +134,26 @@ class CGV extends Component {
                                 En conséquence, BDX i/o ne peut être responsable pour l’un quelconque des faits ou événements mentionnés ci-dessus.
                                 BDX I/O est dégagée de toute responsabilité en cas de force majeure, dont notamment le dysfonctionnement du réseau Internet,
                                 des lignes téléphoniques, du matériel de réception empêchant ou entravant l’utilisation du Site.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>8. Obligations du client</h4>
-                            <div>
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">8. Obligations du client</h5>
+                            <p className="text-justify">
                                 En procédant à l’achat sur Weezevent, vous vous engagez à respecter les dispositions des CGV applicables au moment de votre achat.<br />
                                 Vous êtes responsable de toutes les données que vous saisissez directement sur le Site.<br />
                                 Par l’achat de mon droit d’entrée à l’événement, j’accepte le code de conduite de BDX I/O a l’adresse
                                 suivante <a href="//bdx.io/legal/code_de_conduite">www.bdx.io/legal/code_de_conduite</a> ainsi que la diffusion de mon
                                 image à des fins de promotion en ligne (sur le site de l'événement www.bdx.io, ainsi que les profils de réseaux
                                 sociaux associés “Facebook, Twitter et Linkedin”) et sur tout support.
-                            </div>
+                            </p>
                         </div>
-                        <div>
-                            <h4>9. Droit applicable</h4>
-                            <div>
-                                Toutes les clauses figurant dans les présentes conditions générales de vente, ainsi que toutes les 
+                        <div className="cgv-content">
+                            <h5 className="cgv-content-title">9. Droit applicable</h5>
+                            <p className="text-justify">
+                                Toutes les clauses figurant dans les présentes conditions générales de vente, ainsi que toutes les
                                 opérations d’achat et de vente qui y sont visées, seront soumises au droit français.<br />
                                 En cas de litige, les tribunaux français sont seuls compétents.
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </div>
