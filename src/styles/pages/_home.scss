@@ -34,7 +34,7 @@
     position: absolute;
     flex-direction: column;
     z-index: 999;
-    top: rem-calc(100px);
+    top: rem-calc(64px);
 
     @include breakpoint(medium down) {
       top: 73px;
@@ -95,7 +95,7 @@
       }
 
       h1 {
-        font-size: 68px !important;
+        font-size: 50px !important;
       }
     }
 

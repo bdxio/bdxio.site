@@ -93,17 +93,17 @@ class Home extends Component {
 
                 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 12 50 28" xmlSpace="preserve">
+                    viewBox="0 12 50 30" xmlSpace="preserve">
                     <g>
                         <defs>
-                            <polygon id="SVGID_1_" points="0,11.7 0,24.8 25,36.3 50,24.8 50,11.7" />
+                            <polygon id="SVGID_1_" points="0,11.7 0,24.8 25,40.3 50,24.8 50,11.7" />
                         </defs>
                         <clipPath id="SVGID_2_">
                             <use xlinkHref="#SVGID_1_" />
                         </clipPath>
                         <g style={{ 'clipPath': 'url(#SVGID_2_)' }}>
 
-                            <image width="4500" height="2700" xlinkHref="img/png/bdxio_header.png"
+                            <image width="4500" height="3000" xlinkHref="img/png/bdxio_header.png"
                                 transform="matrix(1.256919e-02 0 0 1.256919e-02 -3.513 3.5492)">
                             </image>
                         </g>
