@@ -10,7 +10,7 @@ class Header extends Component {
         return (
             <div className="row pageHeader">
                 <div className="columns small-12 pageHeader-title">
-                    <h2 className="sectionTitle text-center">{this.props.title}</h2>
+                    <h3 className="sectionTitle text-center">{this.props.title}</h3>
                 </div>
             </div>
         )
