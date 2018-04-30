@@ -35,7 +35,7 @@ class Faq extends Component {
                     </div>
 
                     <div className="column small-12 large-8">
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="columns shrink hide-for-small-only">
                                 <ul className="faq-tag">
                                     {categories.map((category, i) => {
@@ -45,7 +45,7 @@ class Faq extends Component {
                                     })}
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="row">
                             <div className="columns small-12 large-10">
