@@ -10,7 +10,7 @@ class CGV extends Component {
     render() {
         return (
             <div>
-                <Header title="Conditions Générale de Vente" />
+                <Header title="Conditions Générales de Vente" />
                 <div className="row align-center cgv-container">
                     <div className= "cgv-container-left-flottant">
                         <img src="img/svg/about_flottant.svg" />
