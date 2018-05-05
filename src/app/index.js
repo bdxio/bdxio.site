@@ -17,6 +17,7 @@ import Speakers from './pages/Speakers.page';
 import Partnerships from './pages/Partnerships.page';
 import Faq from './pages/Faq.page';
 import Contact from './pages/Contact.page';
+import TicketSwitch from './pages/TicketSwitch.page.js';
 
 import { default as Speakers2017 } from './pages/2017/Speakers.page';
 import CGV from './pages/legal/CGV';
@@ -44,6 +45,7 @@ ReactDOM.render(
                 <Route path="/2017/speakers" component={Speakers2017} />
                 <Route path="/legal/cgv" component={CGV} />
                 <Route path="/legal/code_de_conduite" component={CodeConduite} />
+                <Route path="/tickets/switch" component={TicketSwitch} />
             </Switch>
         </Router>
     </Provider>,
