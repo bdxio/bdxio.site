@@ -22,10 +22,10 @@ class CGV extends Component {
 
                     <div className="column small-12 large-8">
                         <div className="cgv-content">
-                            <h5 className="cgv-content-title">1. Objet et champs d’application des présentes Conditions Générales de Vente</h5>
+                            <h5 className="cgv-content-title">1. Objet et champ d’application des présentes Conditions Générales de Vente</h5>
                             <p className="text-justify">
                                 Les présentes conditions générales de vente sont applicables à toutes les conférences organisées
-                                par l’association Bordeaux Developper Expérience (dénommée BDX i/o).
+                                par l’association Bordeaux Developper eXperience (dénommée BDX I/O).
                                 Tout achat de billet pour la conférence implique l’acceptation sans réserve par
                                 l’acheteur (dénommé Le Client) et son adhésion pleine et entière aux présentes
                                 Conditions Générales de Vente.
@@ -34,13 +34,13 @@ class CGV extends Component {
                                 Vente peuvent être modifiées à tout moment et sans préavis par notre association,
                                 les modifications étant alors applicables uniquement aux commandes effectuées
                                 postérieurement à leur date de mise en œuvre. Les présentes Conditions Générales de
-                                Vente sont accessibles de façon permanente sur le site Internet : <a href="//bdx.io/#/legal/cvg">bdx.io/#/legal/cvg</a>
+                                Vente sont accessibles de façon permanente sur le site Internet : <a href="//bdx.io/#/legal/cgv">bdx.io/#/legal/cgv</a>
                             </p>
                         </div>
                         <div className="cgv-content">
                             <h5 className="cgv-content-title">2. Absence de droit de rétractation</h5>
                             <p className="text-justify">
-                                Conformément à l’article L 121-21-8 du Code de la Consommation, les billets de
+                                Conformément à l’article L. 121-21-8 du Code de la Consommation, les billets de
                                 spectacles ne font pas l’objet d’un droit de rétractation.
                             </p>
                         </div>
@@ -64,7 +64,7 @@ class CGV extends Component {
                                 (Nom, Prénom, Email) dans le but de transférer la place.
                                 Rendez-vous sur le site <a href="//bdx.io">www.bdx.io</a> pour effectuer cette démarche.
                                 A cet égard, nous vous rappelons qu’en application des dispositions de l’article
-                                L.313-6-2 du Code pénal, « le fait de vendre, d’offrir à la vente ou d’exposer en
+                                L. 313-6-2 du Code pénal, « le fait de vendre, d’offrir à la vente ou d’exposer en
                                 vue de la vente ou de la cession ou de fournir les moyens en vue de la vente ou
                                 de la cession des titres d’accès à une manifestation sportive, culturelle ou
                                 commerciale ou à un spectacle vivant, de manière habituelle et sans l’autorisation du
@@ -80,7 +80,7 @@ class CGV extends Component {
                         <div className="cgv-content">
                             <h5 className="cgv-content-title">5. Modalités de paiement et sécurité</h5>
                             <p className="text-justify">
-                                Le paiement du billet se fait par paiement sécurisé par une procédure de cryptage des
+                                Le paiement du billet se fait par paiement sécurisé par une procédure de chiffrement des
                                 données en vue d’éviter l’interception de ces informations par un tiers, par carte de
                                 crédit via la plateforme de paiement en ligne sécurisé de Weezevent.<br />
                                 BDX I/O est client de Weezevent pour la vente des billets.<br />
@@ -95,8 +95,8 @@ class CGV extends Component {
                         <div className="cgv-content">
                             <h5 className="cgv-content-title">6. Livraison</h5>
                             <p className="text-justify">
-                                Le Client reçoit un second mail contenant le billet à présenter à l’entrée de l’événement
-                                concerné pour l’échanger contre son pass d’entrée.
+                                Le Client reçoit un second email contenant le billet à présenter à l’entrée de l’événement
+                                concerné pour l’échanger contre son badge d’entrée.
                             </p>
                         </div>
                         <div className="cgv-content">
@@ -104,9 +104,9 @@ class CGV extends Component {
                             <h6 className="cgv-content-subtitle">7.1. Modification ou annulation d’un événement et remboursement</h6>
                             <p className="text-justify">
                                 En cas  de modification de l’heure et/ou de lieu (ex : inondation de la salle), vous serez
-                                informé par BDX i/o par l’envoi d’un e-mail à l’adresse que vous avez communiquée lors de votre achat.<br />
-                                Vous retrouverez également toutes les informations nécessaires concernant les modifications affectant l’événement sur le site internet www.bdx.io, notre page Facebook et notre twitter.<br />
-                                En cas d’annulation ou de report de date, vous serez informé par BDX I/O par l’envoi d’un e-mail
+                                informé par BDX I/O par l’envoi d’un email à l’adresse que vous avez communiquée lors de votre achat.<br />
+                                Vous retrouverez également toutes les informations nécessaires concernant les modifications affectant l’événement sur le site internet www.bdx.io, notre page Facebook et notre compte Twitter.<br />
+                                En cas d’annulation ou de report de date, vous serez informé par BDX I/O par l’envoi d’un email
                                 à l’adresse que vous avez communiquée lors de votre achat et nous procéderons au remboursement.
                                 Le remboursement est effectué sur la base du prix du billet, et par virement bancaire sur le compte de la carte bancaire utilisée lors de votre paiement.<br />
                                 En dehors des conditions ci-après énoncées, aucune annulation de votre réservation ne peut être effectuée.<br />
@@ -119,7 +119,7 @@ class CGV extends Component {
                                 de traitement de son achat.<br />
                                 Conformément aux dispositions de la loi du 6 janvier 1978, le Client dispose d’un droit d’accès, de
                                 rectification et, le cas échéant, de suppression des données le concernant. Ce droit peut être exercé
-                                auprès de BDX I/O, par mail.
+                                auprès de BDX I/O, par email.
                             </p>
                             <h6 className="cgv-content-subtitle">7.3 Contraintes liées à Internet</h6>
                             <p className="text-justify">
@@ -131,7 +131,7 @@ class CGV extends Component {
                                 qui sont parfois saturés à certaines périodes de la journée ; les données circulant sur Internet ne sont pas
                                 protégées contre des détournements éventuels, et qu’elles peuvent faire l’objet d’une captation des informations
                             diffusées et qu’il est impossible de contrôler l’utilisation qui pourrait en être faite par des tiers sur Internet.<br />
-                                En conséquence, BDX i/o ne peut être responsable pour l’un quelconque des faits ou événements mentionnés ci-dessus.
+                                En conséquence, BDX I/O ne peut être responsable pour l’un quelconque des faits ou événements mentionnés ci-dessus.
                                 BDX I/O est dégagée de toute responsabilité en cas de force majeure, dont notamment le dysfonctionnement du réseau Internet,
                                 des lignes téléphoniques, du matériel de réception empêchant ou entravant l’utilisation du Site.
                             </p>
@@ -141,8 +141,8 @@ class CGV extends Component {
                             <p className="text-justify">
                                 En procédant à l’achat sur Weezevent, vous vous engagez à respecter les dispositions des CGV applicables au moment de votre achat.<br />
                                 Vous êtes responsable de toutes les données que vous saisissez directement sur le Site.<br />
-                                Par l’achat de mon droit d’entrée à l’événement, j’accepte le code de conduite de BDX I/O a l’adresse
-                                suivante <a href="//bdx.io/legal/code_de_conduite">www.bdx.io/legal/code_de_conduite</a> ainsi que la diffusion de mon
+                                Par l’achat de mon droit d’entrée à l’événement, j’accepte le code de conduite de BDX I/O disponible à l’adresse
+                                suivante <a href="//bdx.io/#/legal/code_de_conduite">www.bdx.io/#/legal/code_de_conduite</a> ainsi que la diffusion de mon
                                 image à des fins de promotion en ligne (sur le site de l'événement www.bdx.io, ainsi que les profils de réseaux
                                 sociaux associés “Facebook, Twitter et Linkedin”) et sur tout support.
                             </p>
