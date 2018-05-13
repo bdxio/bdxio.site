@@ -1,5 +1,19 @@
 #!/bin/bash
 
+#####################################################################
+#
+# This script is used to deploy the bdx.io website to GitHub Pages.
+# Basically it :
+#   - clones the bdxio.github.io repository in the dist folder
+#   - removes everything in the dist folder not related to git
+#   - build the website
+#   - commit everything generated in the dist folder
+#   - push the dist folder to the branch served by GitHub Pages
+#
+#####################################################################
+
+GH_PAGES_BRANCH="master"
+
 # Reset
 RCol='\033[0m'       # Text Reset
 
@@ -17,18 +31,15 @@ echo -e "${Yel}------------"
 echo -e " DEPLOYING"
 echo -e "------------ ${RCol}"
 
-[[ "$1" == "prod" ]] && ENV="master" || ENV="pre-prod"
-
 echo -e "* Prepare : ${Gre}(1/5)${RCol}"
-# Build the content of the website into dist-build folder
 rm -rf dist
-
-# Cloning master branch (GH PAGES) into dist folder
-git clone -b $ENV git@github.com:bdxio/bdxio.github.io.git dist/
+# Clone GH_PAGES branch into dist folder
+git clone -b ${GH_PAGES_BRANCH} git@github.com:bdxio/bdxio.github.io.git dist/
 cd dist
+# Remove all non git related files
 ls | grep -v -E ".git" | xargs rm -rf
-
 cd ..
+
 # Build app
 echo -e "* Build : ${Gre}(2/5)${RCol}"
 npm run build
@@ -40,15 +51,14 @@ git add .
 echo -e "* Commit : ${Gre}(3/5)${RCol}"
 git commit -m "Auto-deploy - dist - 2018"
 
-
 echo -e "* Push to ${Yel}${ENV}${RCol}: ${Gre}(4/5)${RCol}"
-# Pushing to master branch, which is sync-ed with www.bdx.io ... only if there are more than 10 files in current directory
-git push origin $ENV
+# Pushing to GH_PAGES branch, which serves BDX I/O
+git push origin ${GH_PAGES_BRANCH}
 cd ..
 
 # Clean generated folders
 echo -e "* Clean : ${Gre}(5/5)${RCol}"
-rm -rf dist
+#rm -rf dist
 
 echo
 echo '----------------------------------------------------------'
