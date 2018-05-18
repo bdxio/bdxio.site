@@ -103,7 +103,7 @@ class Home extends Component {
                         </clipPath>
                         <g style={{ 'clipPath': 'url(#SVGID_2_)' }}>
 
-                            <image width="4500" height="3000" xlinkHref="img/png/bdxio_header.png"
+                            <image width="4500" height="3500" xlinkHref="img/png/bdxio_header.png"
                                 transform="matrix(1.256919e-02 0 0 1.256919e-02 -3.513 3.5492)">
                             </image>
                         </g>
