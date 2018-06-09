@@ -104,6 +104,16 @@ class Home extends Component {
                       Devenir sponsors
                     </a>
                   )}
+                {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
+                  moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
+                    <a
+                      href="https://cfp.bdx.io"
+                      className="button medium white"
+                      target="_blank"
+                    >
+                      Devenir speaker·euse
+                    </a>
+                  )}
               </div>
             </div>
           </div>
@@ -187,7 +197,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  gsheet: PropTypes.object.isRequired,
+  gsheet: PropTypes.object.isRequired
 };
 
 export default displayPage(Home);

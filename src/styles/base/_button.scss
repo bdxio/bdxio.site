@@ -47,7 +47,8 @@
     &.white {
         background: transparent;
         border-color: $white !important;
-        color: $white !important; 
+        color: $white !important;
+        margin-right: 10px; 
         
         &:hover {
             background : $white !important;
