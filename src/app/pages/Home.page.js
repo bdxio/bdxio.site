@@ -17,6 +17,7 @@ import { Constants } from "../constants";
 class Home extends Component {
   constructor() {
     super();
+    moment.locale("fr");
     this.state = {
       isMobile: false,
       isTabletOrSmaller: false
@@ -114,6 +115,14 @@ class Home extends Component {
                       Devenir speaker·euse
                     </a>
                   )}
+              </div>
+            </div>
+            <div className="row cfp-date">
+              <div className="columns auto text-center">
+                {`CFP ouvert du 
+                ${moment(Config.cfpOpeningDate).format("LL")} 
+                au 
+                ${moment(Config.cfpClosingDate).format("LL")}`}
               </div>
             </div>
           </div>
