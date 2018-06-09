@@ -14,7 +14,7 @@ class News extends Component {
         const newsDisplayed = News.filter(n => n['Publiée'] == '1');
 
         return (
-            <div class="contentPage">
+            <div>
                 <Header title="NEWS"/>
                 <div className="fixContainer">
                     {newsDisplayed.map((news, i) => {
