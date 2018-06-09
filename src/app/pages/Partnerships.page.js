@@ -36,10 +36,19 @@ class Partnerships extends Component {
         <Header title="SPONSORS" />
         <div className="row align-center users-container">
           <div className="column small-12 text-center">
-            <span className="subtitle">
+            <p className="subtitle">
               Les sponsors qui nous soutiennent pour cette édition 2018, merci à
               eux !
-            </span>
+            </p>
+          </div>
+          <div className="column small-12 text-center">
+            <a
+              href="/static/plaquette.pdf"
+              target="_blank"
+              className="button small primary"
+            >
+              Devenir sponsors
+            </a>
           </div>
 
           <div className="column small-12 large-8">
