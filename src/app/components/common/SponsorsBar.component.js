@@ -16,44 +16,44 @@ class SponsorsBar extends Component {
         </div>
         <div className="row">
           <div className="columns auto text-center">
-            {partners
-              .filter((p, i) => i === 0)
-              .map((p, i) => (
+            {partners.filter((p, i) => i === 0).map((p, i) => (
+              <a href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
                   key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
                 />
-              ))}
+              </a>
+            ))}
           </div>
         </div>
         <div className="row">
           <div className="columns auto text-center">
-            {partners
-              .filter((p, i) => i > 0 && i <= 5)
-              .map((p, i) => (
+            {partners.filter((p, i) => i > 0 && i <= 5).map((p, i) => (
+              <a href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
                   key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
                 />
-              ))}
+              </a>
+            ))}
           </div>
         </div>
         <div className="row">
           <div className="columns auto text-center">
-            {partners
-              .filter((p, i) => i > 5)
-              .map((p, i) => (
+            {partners.filter((p, i) => i > 5).map((p, i) => (
+              <a href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
                   key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
                 />
-              ))}
+              </a>
+            ))}
           </div>
         </div>
         <img className="homeFlottant1" src="img/svg/footer_flottant.svg" />
