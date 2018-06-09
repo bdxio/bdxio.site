@@ -43,7 +43,7 @@ class Partnerships extends Component {
           </div>
 
           <div className="column small-12 large-8">
-            <h4>/ IMPERIAL</h4>
+            <h4>/ IMPÉRIAUX</h4>
             <div className="row">
               {IMPERIAL.filter((s, i) => i === 0).map((sponsor, i) => (
                 <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
