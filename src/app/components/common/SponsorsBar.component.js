@@ -17,9 +17,8 @@ class SponsorsBar extends Component {
         <div className="row">
           <div className="columns auto text-center">
             {partners.filter((p, i) => i === 0).map((p, i) => (
-              <a href={p["Site"]} title={p["Société"]} target="_blank">
+              <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
-                  key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
@@ -31,9 +30,8 @@ class SponsorsBar extends Component {
         <div className="row">
           <div className="columns auto text-center">
             {partners.filter((p, i) => i > 0 && i <= 5).map((p, i) => (
-              <a href={p["Site"]} title={p["Société"]} target="_blank">
+              <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
-                  key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
@@ -45,9 +43,8 @@ class SponsorsBar extends Component {
         <div className="row">
           <div className="columns auto text-center">
             {partners.filter((p, i) => i > 5).map((p, i) => (
-              <a href={p["Site"]} title={p["Société"]} target="_blank">
+              <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
-                  key={`sb_${i}`}
                   src={p["Logo url"]}
                   alt={p["Société"]}
                   width={p["Hauteur logo"] || 150}
