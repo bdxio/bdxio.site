@@ -56,13 +56,18 @@ class TicketingAccess extends Component {
             </div>
             <div className="row shrink align-center">
               {registrationIsOpened ? (
-                <a
+                <button
                   className="button small secondary"
-                  href="https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF"
-                  onclick="var w=window.open('https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF', 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'); w.focus(); return false;"
+                  onClick={() => {
+                    window.open(
+                      "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
+                      "Billetterie_weezevent",
+                      "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
+                    );
+                  }}
                 >
                   Acheter
-                </a>
+                </button>
               ) : (
                 <span className="button small secondary disabled">
                   Pas encore disponible
@@ -112,13 +117,18 @@ class TicketingAccess extends Component {
             </div>
             <div className="row shrink align-center">
               {registrationIsOpened ? (
-                <a
+                <button
                   className="button small secondary"
-                  href="https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF"
-                  onclick="var w=window.open('https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF', 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'); w.focus(); return false;"
+                  onClick={() => {
+                    window.open(
+                      "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
+                      "Billetterie_weezevent",
+                      "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
+                    );
+                  }}
                 >
                   Acheter
-                </a>
+                </button>
               ) : (
                 <span className="button small secondary disabled">
                   Pas encore disponible
@@ -161,13 +171,18 @@ class TicketingAccess extends Component {
             </div>
             <div className="row shrink ticketingAccess-container-item-content-button align-center">
               {registrationIsOpened ? (
-                <a
+                <button
                   className="button small secondary"
-                  href="https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF"
-                  onclick="var w=window.open('https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF', 'Billetterie_weezevent', 'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'); w.focus(); return false;"
+                  onClick={() => {
+                    window.open(
+                      "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
+                      "Billetterie_weezevent",
+                      "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
+                    );
+                  }}
                 >
                   Acheter
-                </a>
+                </button>
               ) : (
                 <span className="button small secondary disabled">
                   Pas encore disponible
