@@ -83,7 +83,7 @@ class Home extends Component {
 
             <div className="row">
               <div className="columns auto text-center home-header-button">
-                {/* {Config.registrationOpened === "opened" && (
+                {Config.registrationOpened === "opened" && (
                   <a
                     className="button medium white"
                     href="https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF"
@@ -91,7 +91,7 @@ class Home extends Component {
                   >
                     Achetez votre place
                   </a>
-                )} */}
+                )}
                 {moment().isSameOrAfter(
                   moment(Config.talksListPublishingDate)
                 ) && (
