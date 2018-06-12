@@ -86,18 +86,18 @@ class Home extends Component {
             <div className="row">
               <div className="columns auto text-center home-header-button">
                 {Config.registrationOpened === "opened" && (
-                <button
-                  className="button medium white"
-                  onClick={() => {
-                    window.open(
-                      "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
-                      "Billetterie_weezevent",
-                      "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
-                    );
-                  }}
-                >
-                  Achetez votre place
-                </button>
+                  <button
+                    className="button medium white"
+                    onClick={() => {
+                      window.open(
+                        "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
+                        "Billetterie_weezevent",
+                        "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
+                      );
+                    }}
+                  >
+                    Achetez votre place
+                  </button>
                 )}
                 {moment().isSameOrAfter(
                   moment(Config.talksListPublishingDate)
@@ -206,6 +206,8 @@ class Home extends Component {
 
         <TicketingAccess
           registrationIsOpened={Config.registrationOpened === "opened"}
+          earlyBirdSoldout={Config.earlyBird === "soldout"}
+          soldout={Config.registrationOpened === "soldout"}
         />
 
         <Location />

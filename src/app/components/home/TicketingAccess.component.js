@@ -7,7 +7,7 @@ class TicketingAccess extends Component {
   }
 
   render() {
-    const { registrationIsOpened } = this.props;
+    const { registrationIsOpened, earlyBirdSoldout, soldout } = this.props;
     return (
       <section className="row ticketingAccess">
         <div className="ticketingAccess-ticketingAccessFlottant">
@@ -26,7 +26,7 @@ class TicketingAccess extends Component {
           <div
             className={
               "column small-10 medium-3 large-3 ticketingAccess-container-item " +
-              (!registrationIsOpened ? "disabled" : "")
+              (!registrationIsOpened || earlyBirdSoldout ? "disabled" : "")
             }
           >
             <div className="row align-center ticketingAccess-container-item-infos">
@@ -55,7 +55,7 @@ class TicketingAccess extends Component {
               </div>
             </div>
             <div className="row shrink align-center">
-              {registrationIsOpened ? (
+              {registrationIsOpened && !earlyBirdSoldout ? (
                 <button
                   className="button small secondary"
                   onClick={() => {
@@ -70,7 +70,7 @@ class TicketingAccess extends Component {
                 </button>
               ) : (
                 <span className="button small secondary disabled">
-                  Pas encore disponible
+                  {earlyBirdSoldout ? "Épuisé" : "Pas encore disponible"}
                 </span>
               )}
             </div>
@@ -79,7 +79,7 @@ class TicketingAccess extends Component {
           <div
             className={
               "column small-10 medium-3 large-3 ticketingAccess-container-item " +
-              (!registrationIsOpened ? "disabled" : "")
+              (!registrationIsOpened || soldout ? "disabled" : "")
             }
           >
             <div className="row align-center ticketingAccess-container-item-infos">
@@ -116,7 +116,7 @@ class TicketingAccess extends Component {
               </div>
             </div>
             <div className="row shrink align-center">
-              {registrationIsOpened ? (
+              {registrationIsOpened || !soldout ? (
                 <button
                   className="button small secondary"
                   onClick={() => {
@@ -131,7 +131,7 @@ class TicketingAccess extends Component {
                 </button>
               ) : (
                 <span className="button small secondary disabled">
-                  Pas encore disponible
+                  {soldout ? "Épuisé" : "Pas encore disponible"}
                 </span>
               )}
             </div>
@@ -140,7 +140,7 @@ class TicketingAccess extends Component {
           <div
             className={
               "column small-10 medium-3 large-3 ticketingAccess-container-item " +
-              (!registrationIsOpened ? "disabled" : "")
+              (!registrationIsOpened || soldout ? "disabled" : "")
             }
           >
             <div className="row align-center ticketingAccess-container-item-infos">
@@ -170,7 +170,7 @@ class TicketingAccess extends Component {
               <div>Soutenez l'événement</div>
             </div>
             <div className="row shrink ticketingAccess-container-item-content-button align-center">
-              {registrationIsOpened ? (
+              {registrationIsOpened || !soldout ? (
                 <button
                   className="button small secondary"
                   onClick={() => {
@@ -185,7 +185,7 @@ class TicketingAccess extends Component {
                 </button>
               ) : (
                 <span className="button small secondary disabled">
-                  Pas encore disponible
+                  {soldout ? "Épuisé" : "Pas encore disponible"}
                 </span>
               )}
             </div>
@@ -197,7 +197,9 @@ class TicketingAccess extends Component {
 }
 
 TicketingAccess.propTypes = {
-  registrationIsOpened: PropTypes.bool.isRequired
+  registrationIsOpened: PropTypes.bool.isRequired,
+  earlyBirdSoldout: PropTypes.bool.isRequired,
+  soldout: PropTypes.bool.isRequired
 };
 
 export default TicketingAccess;
