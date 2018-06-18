@@ -207,6 +207,7 @@ class Home extends Component {
         <TicketingAccess
           registrationIsOpened={Config.registrationOpened === "opened"}
           earlyBirdSoldout={Config.earlyBird === "soldout"}
+          gtSoldout={Config.goldenTicket === "soldout"}
           soldout={Config.registrationOpened === "soldout"}
         />
 
