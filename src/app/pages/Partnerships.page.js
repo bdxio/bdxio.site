@@ -59,12 +59,12 @@ class Partnerships extends Component {
               ))}
             </div>
             <div className="row">
-              {IMPERIAL.filter((s, i) => i > 0 && i <= 5).map((sponsor, i) => (
+              {IMPERIAL.filter((s, i) => i > 0 && i < 5).map((sponsor, i) => (
                 <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
               ))}
             </div>
             <div className="row">
-              {IMPERIAL.filter((s, i) => i > 5).map((sponsor, i) => (
+              {IMPERIAL.filter((s, i) => i >= 5).map((sponsor, i) => (
                 <PartnerCard key={`sponsor_${i}`} partner={sponsor} />
               ))}
             </div>
