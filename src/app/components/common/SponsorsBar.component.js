@@ -29,7 +29,7 @@ class SponsorsBar extends Component {
         </div>
         <div className="row">
           <div className="columns auto text-center">
-            {partners.filter((p, i) => i > 0 && i <= 5).map((p, i) => (
+            {partners.filter((p, i) => i > 0 && i < 5).map((p, i) => (
               <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
                   src={p["Logo url"]}
@@ -42,7 +42,7 @@ class SponsorsBar extends Component {
         </div>
         <div className="row">
           <div className="columns auto text-center">
-            {partners.filter((p, i) => i > 5).map((p, i) => (
+            {partners.filter((p, i) => i >= 5).map((p, i) => (
               <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                 <img
                   src={p["Logo url"]}
