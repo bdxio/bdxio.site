@@ -1,0 +1,33 @@
+.ticket-switch__wrapper {
+  margin: 2rem 0 4rem 0;
+}
+.ticket-switch__title {
+  margin-top: 2rem;
+}
+.ticket-switch__label {
+  display: inline-block;
+  width: 100px;
+}
+.ticket-switch__field {
+  height: 2.4375rem;
+  width: 300px;
+  background: #0000;
+  border: 2px solid #2b2d43;
+  color: #2b2d43;
+  margin-top: 15px;
+  padding: 0.5rem;
+}
+.ticket-switch__button-wrapper {
+  text-align: right;
+  margin-top: 10px;
+}
+.ticket-switch__button {
+  height: 2.4375rem;
+  background: #0000;
+  border: 2px solid #2b2d43!important;
+  color: #2b2d43!important;
+  margin-top: 15px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
