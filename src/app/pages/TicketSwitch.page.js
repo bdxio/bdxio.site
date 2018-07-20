@@ -46,13 +46,15 @@ class TicketSwitch extends Component {
             Son numéro de commande est ${commandNumber}.
             Le destinataire est ${recipientFirstname} ${recipientLastname} (${recipientEmail})
         `;
-        alert(text);
 
         fetch("https://us-central1-bdx-io-ticket-exchange.cloudfunctions.net/createExchange", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             method: 'POST',
-            mode: 'cors',
-            cache: 'default',
-            body: {
+            mode: 'no-cors',
+            body: JSON.stringify({
                 holderFirstname,
                 holderLastanme,
                 holderEmail,
@@ -60,7 +62,7 @@ class TicketSwitch extends Component {
                 recipientFirstname,
                 recipientLastname,
                 recipientEmail
-            }
+            })
         });
         
     }
@@ -96,7 +98,7 @@ class TicketSwitch extends Component {
                             <input className="ticket-switch__field" value={holderEmail} onChange={this.handleChange('holderEmail')} />
                         </div>
                         <div>
-                            <label className="ticket-switch__label">Code barre</label>
+                            <label className="ticket-switch__label">Numéro de commande</label>
                             <input className="ticket-switch__field" value={commandNumber} onChange={this.handleChange('commandNumber')} />
                         </div>
                         <h4 className="ticket-switch__title">Destinataire</h4>
