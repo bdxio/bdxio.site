@@ -71,7 +71,8 @@ class Home extends Component {
                     <i className="fa fa-calendar" />9 novembre
                   </span>
                   <span>
-                    <i className="fa fa-map-marker" />ENSEIRB
+                    <i className="fa fa-map-marker" />
+                    ENSEIRB
                   </span>
                 </div>
               </div>
@@ -128,14 +129,17 @@ class Home extends Component {
                   )}
               </div>
             </div>
-            <div className="row cfp-date">
-              <div className="columns auto text-center">
-                {`CFP ouvert du 
+            {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
+              moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
+                <div className="row cfp-date">
+                  <div className="columns auto text-center">
+                    {`CFP ouvert du 
                 ${moment(Config.cfpOpeningDate).format("LL")} 
                 au 
                 ${moment(Config.cfpClosingDate).format("LL")}`}
-              </div>
-            </div>
+                  </div>
+                </div>
+              )}
           </div>
         </div>
 
