@@ -6,7 +6,6 @@ import Menu from "../components/common/Menu.componet";
 
 import { Constants } from "../constants";
 import { Actions as GSheetActions } from "../actions/gsheet.actions";
-import { Actions as CFPActions } from "../actions/cfp.actions";
 import Loader from "../components/common/Loader.component";
 import SponsorsBar from "../components/common/SponsorsBar.component";
 

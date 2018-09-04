@@ -14,6 +14,7 @@ import Home from './pages/Home.page';
 import Team from './pages/Team.page';
 import News from './pages/News.page';
 import Speakers from './pages/Speakers.page';
+import Talks from './pages/Talks.page';
 import Partnerships from './pages/Partnerships.page';
 import Faq from './pages/Faq.page';
 import Contact from './pages/Contact.page';
@@ -39,6 +40,7 @@ ReactDOM.render(
                 <Route path="/team" component={Team} />
                 <Route path="/news" component={News} />
                 <Route path="/speakers" component={Speakers} />
+                <Route path="/talks" component={Talks} />
                 <Route path="/partnerships" component={Partnerships} />
                 <Route path="/faq" component={Faq} />
                 <Route path="/contact" component={Contact} />

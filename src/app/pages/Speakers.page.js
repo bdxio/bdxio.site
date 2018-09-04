@@ -34,7 +34,7 @@ class Speakers extends Component {
         let line = 0;
         return (
             <div>
-                <Header title="SPEAKERS 2018" />
+                <Header title="CONFERENCIER·ÈRE·S 2018" />
                 <div className="row align-center users-container">
                 
                     <div className="flottant-right">

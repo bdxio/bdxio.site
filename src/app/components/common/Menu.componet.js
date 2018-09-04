@@ -21,9 +21,10 @@ class Menu extends Component {
                 <div className="row collapse main-menu">
                     <ul className="columns auto align-center main-menu-item">
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">L'équipe</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} className="disabled" to='/speakers' onClick={e => e.preventDefault()} >Speakers</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} to='/speakers' >Conférencier·ère·s</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/talks' ? 'selected' : '')} to='/talks' >Conférences</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/partnerships' ? 'selected' : '')} to="/partnerships">Sponsors</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} to='/faq'>FAQ</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/contact' ? 'selected' : '')} to="/contact">Contact</Link></li>
@@ -46,9 +47,10 @@ class Menu extends Component {
                 <div className={`menu-responsive ${(menuOpened ? 'active':'')}`}>
                     <ul>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/home' ? 'selected' : '')} to="/home">Accueil</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">La team</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/team' ? 'selected' : '')} to="/team">L'équipe</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/news' ? 'selected' : '')} to="/news">Actualités</Link></li>
-                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} className="disabled" to='/speakers' onClick={e => e.preventDefault()} >Speakers</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/speakers' ? 'selected' : '')} to='/speakers' >Conférencier·ère·s</Link></li>
+                        <li className="shrink menu-item-content"><Link className={(pathname === '/talks' ? 'selected' : '')} to='/talks' >Conférences</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/partnerships' ? 'selected' : '')} to="/partnerships">Sponsors</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/faq' ? 'selected' : '')} to='/faq'>FAQ</Link></li>
                         <li className="shrink menu-item-content"><Link className={(pathname === '/contact' ? 'selected' : '')} to="/contact">Contact</Link></li>

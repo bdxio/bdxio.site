@@ -23,6 +23,12 @@ class Team extends Component {
         document.removeEventListener('resize', this._onResize);
     }
 
+    componentDidUpdate() {
+        if (this.state.location) {
+          window.scrollTo(0, 0)
+        }
+      }
+
     _onResize() {
         const isMobile = window.innerWidth <= 768;
         if (isMobile !== this.state.isMobile) {
@@ -38,7 +44,7 @@ class Team extends Component {
         let line = 0;
         return (
             <div>
-                <Header title="LA TEAM" />
+                <Header title="L'ÉQUIPE" />
 
                 <div className="row align-center users-container">
                     <div className="flottant-right">
