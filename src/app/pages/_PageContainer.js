@@ -6,6 +6,7 @@ import Menu from "../components/common/Menu.componet";
 
 import { Constants } from "../constants";
 import { Actions as GSheetActions } from "../actions/gsheet.actions";
+import { Actions as CFPActions } from "../actions/cfp.actions";
 import Loader from "../components/common/Loader.component";
 import SponsorsBar from "../components/common/SponsorsBar.component";
 
@@ -66,12 +67,14 @@ const displayPage = Page => {
 
   DisplayPage.propTypes = {
     gsheet: PropTypes.object.isRequired,
+    cfp: PropTypes.object.isRequired,
     navigate: PropTypes.object.isRequired
   };
 
   const mapStateToProps = state => {
     return {
       gsheet: state.gsheet,
+      cfp: state.cfp,
       navigate: state.navigate
     };
   };
