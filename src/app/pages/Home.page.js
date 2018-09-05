@@ -127,6 +127,12 @@ class Home extends Component {
                       Devenir speaker·euse
                     </a>
                   )}
+
+                  <button className="button medium white" type="button" >
+                      <Link to="/tickets/switch">Transférer votre place</Link>
+                  </button>
+
+
               </div>
             </div>
             {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
