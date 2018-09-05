@@ -82,41 +82,45 @@ class TicketSwitch extends Component {
             <div>
                 <Header title="Echange de billets" />
 
-                <div className="row align-center">
-                    <div class="ticket-switch__wrapper">
-                        <h4 className="ticket-switch__title">Détenteur du billet</h4>
-                        <div>
-                            <label className="ticket-switch__label">Prénom</label>
-                            <input className="ticket-switch__field" value={holderFirstname} onChange={this.handleChange('holderFirstname')} />
+                <div className="row ticket-switch__container">
+                    <div class="column small-11 large-6 ticket-switch__wrapper">
+                        <h4 className="">Détenteur du billet</h4>
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Prénom</label>
+                            <input className="column auto ticket-switch__field required" value={holderFirstname} onChange={this.handleChange('holderFirstname')} />
                         </div>
-                        <div>
-                            <label className="ticket-switch__label">Nom</label>
-                            <input className="ticket-switch__field" value={holderLastanme} onChange={this.handleChange('holderLastanme')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Nom</label>
+                            <input className="column auto ticket-switch__field required" value={holderLastanme} onChange={this.handleChange('holderLastanme')} />
                         </div>
-                        <div>
-                            <label className="ticket-switch__label">Email</label>
-                            <input className="ticket-switch__field" value={holderEmail} onChange={this.handleChange('holderEmail')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Email</label>
+                            <input className="column auto ticket-switch__field required" value={holderEmail} onChange={this.handleChange('holderEmail')} />
                         </div>
-                        <div>
-                            <label className="ticket-switch__label">Numéro de commande</label>
-                            <input className="ticket-switch__field" value={commandNumber} onChange={this.handleChange('commandNumber')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Numéro de commande</label>
+                            <input className="column auto ticket-switch__field required" value={commandNumber} onChange={this.handleChange('commandNumber')} />
                         </div>
                         <h4 className="ticket-switch__title">Destinataire</h4>
-                        <div>
-                            <label className="ticket-switch__label">Prénom</label>
-                            <input className="ticket-switch__field" value={recipientFirstname} onChange={this.handleChange('recipientFirstname')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Prénom</label>
+                            <input className="column auto ticket-switch__field required" value={recipientFirstname} onChange={this.handleChange('recipientFirstname')} />
                         </div>
-                        <div>
-                            <label className="ticket-switch__label">Nom</label>
-                            <input className="ticket-switch__field" value={recipientLastname} onChange={this.handleChange('recipientLastname')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Nom</label>
+                            <input className="column auto ticket-switch__field required" value={recipientLastname} onChange={this.handleChange('recipientLastname')} />
                         </div>
-                        <div>
-                            <label className="ticket-switch__label">Email</label>
-                            <input className="ticket-switch__field" value={recipientEmail} onChange={this.handleChange('recipientEmail')} />
+                        <div className="row align-justify align-middle ticket-switch__spacer collapse">
+                            <label className="column small-4 ticket-switch__label">Email</label>
+                            <input className="column auto ticket-switch__field required" value={recipientEmail} onChange={this.handleChange('recipientEmail')} />
                         </div>
                         <div class="ticket-switch__button-wrapper">
-                            <button className="ticket-switch__button button" disabled={this.isDisabled()} onClick={this.submit}>Envoyer</button>
+                            <button className="ticket-switch__button button medium primary" disabled={this.isDisabled()} onClick={this.submit}>Envoyer</button>
                         </div>
+                    </div>
+
+                    <div className=" column small-6 ticket-switch__img">
+                        <img src="img/png/img_ticketsSwitch.png"/>
                     </div>
                 </div>
                 {this.props.children}

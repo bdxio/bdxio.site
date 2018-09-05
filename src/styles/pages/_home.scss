@@ -99,8 +99,6 @@
       }
     }
 
-
-
     @include breakpoint(medium down) {
       height: 450px;
       top: 67px;
@@ -120,8 +118,14 @@
         font-size: 38px !important;
       }
     }
+  }
 
-
+  .switch-tickets-button {
+    position: absolute;
+    right: -127px;
+    transform: rotate(-90deg);
+    letter-spacing: 2px;
+    top: 160px;
   }
 
   &-headerBackground {

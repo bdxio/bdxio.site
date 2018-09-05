@@ -53,7 +53,6 @@ class SponsorsBar extends Component {
             ))}
           </div>
         </div>
-        <img className="homeFlottant1" src="img/svg/footer_flottant.svg" />
       </section>
     );
   }

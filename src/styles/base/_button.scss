@@ -62,4 +62,20 @@
             }
         }
     }
+
+    &.ticket-switch {
+        background : $primary !important;
+        border-color : $primary !important;
+        a {
+            color: white !important;
+        }
+
+        &:hover {
+            background : white!important;
+            border-color : $primary !important;
+            a {
+                color: $primary !important;
+            }
+        }
+    }
 }
