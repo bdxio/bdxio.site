@@ -11,7 +11,7 @@ class News extends Component {
 
     render() {
         const {News} = this.props.gsheet;
-        const newsDisplayed = News.filter(n => n['Publiée'] == '1');
+        const newsDisplayed = News.sort((a, b) => +b['ID'] - +a['ID']).filter(n => n['Publiée'] == '1');
 
         return (
             <div>

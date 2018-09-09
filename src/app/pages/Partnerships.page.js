@@ -13,7 +13,9 @@ class Partnerships extends Component {
 
     render() {
         const {Sponsors} = this.props.gsheet;
-        const sponsorsEnabled = Sponsors.filter(s => s["Actif"] === "1");
+        const sponsorsEnabled = Sponsors
+        .sort((a, b) => +a['Ordre'] - +b['Ordre'])
+        .filter(s => s['Actif'] === '1');
 
         const IMPERIAL = Sponsors.filter(
             s =>
