@@ -112,7 +112,12 @@
           transition: flex 350ms;
           height: rem-calc(245px);
           cursor: pointer;
-          overflow-y: auto;
+
+          &-container {
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+          }
 
           .icon {
             width: 20px;
@@ -132,7 +137,7 @@
             overflow: hidden;
             padding: 0 8px;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             text-align: justify;
             text-align-last: center;

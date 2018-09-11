@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Header from "../components/common/Header.component";
 import displayPage from "./_PageContainer";
 import { Actions as CFPActions } from "../actions/cfp.actions";
@@ -116,13 +116,12 @@ class Talks extends Component {
                               />
                             </div>
 
-                            <div className="row auto talks-container-content-item-text text-center">
-                              <div className="columns">
-                                <div className="row">
-                                  <h5 className="columns text-center talks-container-content-item-text-title">
-                                    {talk.title}
-                                  </h5>
-                                </div>
+                                                    <div
+                                                        className="row auto talks-container-content-item-text text-center">
+                                                        <div className="columns talks-container-content-item-text-container">
+                                                            <div className="row">
+                                                                <h5 className="columns text-center talks-container-content-item-text-title">{talk.title}</h5>
+                                                            </div>
 
                                 <div className="row talks-container-content-item-talk-type align-center">
                                   <div className="columns text-center shrink talks-container-content-item-talk-type-tag shrink">
