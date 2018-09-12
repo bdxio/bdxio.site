@@ -4,12 +4,12 @@ import displayPage from "./_PageContainer";
 import { Actions as CFPActions } from "../actions/cfp.actions";
 
 const svgTracks = {
-  "Backends, Cloud & Big Data": "img/svg/icon_theme_back.svg",
-  "Design, UI & UX": "/img/svg/icon_theme_design.svg",
-  "Frontend Web, Mobile & Jeux vidéos": "/img/svg/icon_theme_front.svg",
-  Tooling: "/img/svg/icon_theme_tooling.svg",
-  "Internet des objets & marchés émergents": "/img/svg/icon_theme_internet.svg",
-  "Conception, Architecture & Pratiques de dev": "/img/svg/icon_theme_dev.svg"
+  "Backends, Cloud & Big Data": "img/png/icon_theme_back.png",
+  "Design, UI & UX": "/img/png/icon_theme_design.png",
+  "Frontend Web, Mobile & Jeux vidéos": "/img/png/icon_theme_front.png",
+  Tooling: "/img/png/icon_theme_tooling.png",
+  "Internet des objets & marchés émergents": "/img/png/icon_theme_internet.png",
+  "Conception, Architecture & Pratiques de dev": "/img/png/icon_theme_dev.png"
 };
 
 class Talks extends Component {

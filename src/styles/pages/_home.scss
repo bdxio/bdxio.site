@@ -126,6 +126,10 @@
     transform: rotate(-90deg);
     letter-spacing: 2px;
     top: 160px;
+
+    @media screen and(max-width: 1024px) {
+      top: 215px;
+    }
   }
 
   &-headerBackground {
