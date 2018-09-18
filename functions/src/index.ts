@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions';
 import { API_KEY } from './key';
-import SpreadsheetManager from './SpreadsheetManager';
-import FirestoreManager from './FirestoreManager';
+import SpreadsheetManager from './spreadsheetManager';
+import FirestoreManager from './firestoreManager';
 
 const CONFIG = {
   config: {
