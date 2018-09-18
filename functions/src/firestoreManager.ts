@@ -17,7 +17,7 @@ export default class FirestoreManager {
     admin.firestore().settings(settings);
   }
 
-  saveDate(data: Object): Promise<any> {
+  save(data: Object): Promise<any> {
     const promises = [];
     Object.keys(data).forEach(key => {
       const element = data[key];

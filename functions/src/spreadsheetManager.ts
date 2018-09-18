@@ -1,23 +1,11 @@
 import { google } from 'googleapis';
 const sheets = google.sheets('v4');
 
-class ConfigSheet {
-  published_data: string;
-}
-
-class ConfigSpreadsheetManager {
-  gSheets: ConfigSheet;
-  documentConf: string;
-  documentFAQ: string;
-}
-
 export default class SpreadsheetManager {
   private jwtClient: any;
-  private config: any;
 
-  constructor(apiKey: string, config: ConfigSpreadsheetManager) {
+  constructor(apiKey: string) {
     this.jwtClient = google.auth.fromAPIKey(apiKey);
-    this.config = config;
   }
 
   arrayKeyValueToObject(
@@ -36,14 +24,17 @@ export default class SpreadsheetManager {
     return res;
   }
 
-  spreadsheetToPOJO(spreadsheetArray: Object): Object {
+  spreadsheetToPOJO(
+    spreadsheetArray: Object,
+    keyValuePage: Array<string> = [],
+  ): Object {
     const values = Object.keys(spreadsheetArray)
       .map(page => {
         return { [page]: spreadsheetArray[page] };
       })
       .reduce((acc, cur, i) => {
         const key = Object.keys(cur)[0];
-        if (key === this.config.documentConf) {
+        if (keyValuePage.indexOf(key) > -1) {
           acc[key] = this.arrayKeyValueToObject(cur[key]);
         } else {
           acc[key] = cur[key];
@@ -53,14 +44,17 @@ export default class SpreadsheetManager {
     return values;
   }
 
-  spreadsheetTableTopToPOJO(spreadsheetArray: Object): Object {
+  spreadsheetTableTopToPOJO(
+    spreadsheetArray: Object,
+    keyValuePage: Array<string> = [],
+  ): Object {
     const values = Object.keys(spreadsheetArray)
       .map(page => {
         return { [page]: spreadsheetArray[page].elements };
       })
       .reduce((acc, cur, i) => {
         const key = Object.keys(cur)[0];
-        if (key === this.config.documentConf) {
+        if (keyValuePage.indexOf(key) > -1) {
           acc[key] = this.arrayKeyValueToObject(cur[key]);
         } else {
           acc[key] = cur[key];
@@ -70,15 +64,15 @@ export default class SpreadsheetManager {
     return values;
   }
 
-  getSheets(): Promise<Object> {
+  getSheets(spreadsheetId: string): Promise<Object> {
     const sheetsResult = {};
     const requestSheets = {
       auth: this.jwtClient,
-      spreadsheetId: this.config.gSheets.published_data,
+      spreadsheetId: spreadsheetId,
     };
     const promises = [];
 
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       sheets.spreadsheets.get(requestSheets, (err, response) => {
         if (err) {
           reject(err);
@@ -86,7 +80,7 @@ export default class SpreadsheetManager {
         }
         response.data.sheets.forEach(sheet => {
           promises.push(
-            this.getSheetValues(this.jwtClient, sheet).then(sheetValues => {
+            this.getSheetValues(sheet, spreadsheetId).then(sheetValues => {
               sheetsResult[sheet.properties.title] = sheetValues;
               return sheetValues;
             }),
@@ -104,15 +98,15 @@ export default class SpreadsheetManager {
     });
   }
 
-  getSheetValues(sheet): Promise<Array<any>> {
+  getSheetValues(sheet: any, spreadsheetId: string): Promise<Array<any>> {
     const title = sheet.properties.title;
     const sheetValues = [];
     const requestSheet = {
       auth: this.jwtClient,
-      spreadsheetId: this.config.gSheets.published_data,
+      spreadsheetId: spreadsheetId,
       range: title,
     };
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       sheets.spreadsheets.values.get(requestSheet, (err, response) => {
         if (err) {
           reject(err);
@@ -123,11 +117,13 @@ export default class SpreadsheetManager {
         response.data.values.forEach((row, indexRow) => {
           if (indexRow === 0) {
             labels = row;
+            labels.push('lineNumber');
           } else {
             sheetValues[indexRow - 1] = {};
             row.forEach((column, indexColumn) => {
               sheetValues[indexRow - 1][labels[indexColumn]] = column;
             });
+            sheetValues[indexRow - 1][labels[labels.length - 1]] = indexRow - 1;
           }
         });
         resolve(sheetValues);
