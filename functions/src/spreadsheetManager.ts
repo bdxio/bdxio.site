@@ -53,7 +53,7 @@ export default class SpreadsheetManager {
     return values;
   }
 
-  spreadsheetTableTopToPOJO(spreadsheetArray) {
+  spreadsheetTableTopToPOJO(spreadsheetArray: Object): Object {
     const values = Object.keys(spreadsheetArray)
       .map(page => {
         return { [page]: spreadsheetArray[page].elements };

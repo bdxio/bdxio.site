@@ -29,14 +29,13 @@ export const spreadsheetSyncByApi = functions.https.onRequest(
   (request, response) => {
     const spreadsheetManager = new SpreadsheetManager(API_KEY, CONFIG);
     const firestoreManager = new FirestoreManager(CONFIG);
-    
+
     spreadsheetManager
       .getSheets()
       .then(sheetsValues => {
-        const promises = [];
-        const res = spreadsheetManager.spreadsheetToPOJO(sheetsValues);
-        firestoreManager.saveDate(res, promises);
-        return Promise.all(promises);
+        return firestoreManager.saveDate(
+          spreadsheetManager.spreadsheetToPOJO(sheetsValues),
+        );
       })
       .then(() => {
         response.send('🚀 Website config is up to date ! 🎉');
@@ -47,39 +46,33 @@ export const spreadsheetSyncByApi = functions.https.onRequest(
   },
 );
 
-export const spreadsheetSyncByTabletop = functions.https.onRequest((request, response) => {
-  const promises = [];
-  const spreadsheetManager = new SpreadsheetManager(API_KEY, CONFIG);
-  const firestoreManager = new FirestoreManager(CONFIG);
+export const spreadsheetSyncByTabletop = functions.https.onRequest(
+  (request, response) => {
+    const spreadsheetManager = new SpreadsheetManager(API_KEY, CONFIG);
+    const firestoreManager = new FirestoreManager(CONFIG);
 
-  Tabletop.init({
-    key: CONFIG.gSheets.published_data,
-    callback: data => {
-      const res = spreadsheetManager.spreadsheetTableTopToPOJO(data);
-      firestoreManager.saveDate(res, promises);
-
-      Promise.all(promises)
-        .then(() => {
-          response.send('🚀 Website config is up to date ! 🎉');
-        })
-        .catch(error => {
-          response.send('😱 Something went wrong 👉' + error);
-        });
-    },
-  });
-});
-
+    Tabletop.init({
+      key: CONFIG.gSheets.published_data,
+      callback: data => {
+        firestoreManager
+          .saveDate(spreadsheetManager.spreadsheetTableTopToPOJO(data))
+          .then(() => {
+            response.send('🚀 Website config is up to date ! 🎉');
+          })
+          .catch(error => {
+            response.send('😱 Something went wrong 👉' + error);
+          });
+      },
+    });
+  },
+);
 
 export const saveData = functions.https.onRequest(async (request, response) => {
-  const data = request.body;
-  const promises = [];
   const spreadsheetManager = new SpreadsheetManager(API_KEY, CONFIG);
   const firestoreManager = new FirestoreManager(CONFIG);
 
-  const res = spreadsheetManager.spreadsheetToPOJO(data);
-  firestoreManager.saveDate(res, promises);
-
-  Promise.all(promises)
+  firestoreManager
+    .saveDate(spreadsheetManager.spreadsheetToPOJO(request.body))
     .then(() => {
       response.send('🚀 Website config is up to date ! 🎉');
     })

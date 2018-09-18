@@ -17,7 +17,8 @@ export default class FirestoreManager {
     admin.firestore().settings(settings);
   }
 
-  saveDate(data: Object, promises: Array<Promise<any>>): void {
+  saveDate(data: Object): Promise<any> {
+    const promises = [];
     Object.keys(data).forEach(key => {
       const element = data[key];
       if (this.config.ignore.indexOf(key) > -1) {
@@ -46,6 +47,7 @@ export default class FirestoreManager {
         );
       }
     });
+    return Promise.all(promises);
   }
 
   getID(object: Object, label: string): string {
