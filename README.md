@@ -29,3 +29,5 @@ Install firebase dependencies with `npm i`
 `npm start` serves the function emulator with the cli interface
 
 During developement use `npx tsc -w` to watch and compile Typescript
+
+Create `functions/src/key.ts` file with constant export of API_KEY to use google api.

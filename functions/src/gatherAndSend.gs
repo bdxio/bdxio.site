@@ -1,4 +1,4 @@
-function syncToFirebase () {
+function sendToFirebase () {
   var sheets = SpreadsheetApp.getActive().getSheets();
   var res = {};
   sheets.forEach(function(sheet) {
