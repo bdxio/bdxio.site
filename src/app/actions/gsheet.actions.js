@@ -40,8 +40,8 @@ db.enablePersistence().catch(function(err) {
 const FIREBASE = {
   year: '2018',
   collectionName: 'Array',
-  documentConf: 'Conf',
-  collections: ['Orgas', 'Speakers18', 'Speakers17', 'Sponsors', 'News'],
+  documentConf: 'Config',
+  collections: ['Orgas', 'Speakers', 'Speakers17', 'Sponsors', 'News'],
 };
 
 let dumbCache;
