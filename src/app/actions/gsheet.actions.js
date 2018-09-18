@@ -1,4 +1,3 @@
-require('script-loader!../../static/libs/tabletop.min.js');
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { Constants } from '../constants';
@@ -8,15 +7,7 @@ export const Types = {
 };
 
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyBaeo0bHhp71f4I5PlRnszmePDpZuHJqBo",
-  authDomain: "bdxio-website.firebaseapp.com",
-  databaseURL: "https://bdxio-website.firebaseio.com",
-  projectId: "bdxio-website",
-  storageBucket: "bdxio-website.appspot.com",
-  messagingSenderId: "360638530775"
-};
-firebase.initializeApp(config);
+firebase.initializeApp(Constants.firebaseConfig);
 
 var db = firebase.firestore();
 // Disable deprecated features
@@ -37,25 +28,19 @@ db.enablePersistence().catch(function(err) {
   }
 });
 
-const FIREBASE = {
-  year: '2018',
-  collectionName: 'Array',
-  documentConf: 'Config',
-  collections: ['Orgas', 'Speakers', 'Speakers17', 'Sponsors', 'News'],
-};
-
-let dumbCache;
+const dumbCache = [];
 
 export class Actions {
   static fetch(force = false) {
-    if (force || !dumbCache) {
+    if (force || !dumbCache['config']) {
       return dispatch => {
-        let res = {};
+        let payload = {};
         let promises = [];
-        FIREBASE.collections.forEach(collection => {
-          promises.push(db
-              .collection(FIREBASE.year)
-              .doc(FIREBASE.collectionName)
+        Constants.firebaseDataConfig.collections.forEach(collection => {
+          promises.push(
+            db
+              .collection(Constants.firebaseDataConfig.year)
+              .doc(Constants.firebaseDataConfig.collectionName)
               .collection(collection)
               .get()
               .then(querySnapshot => {
@@ -63,20 +48,22 @@ export class Actions {
                 querySnapshot.forEach(function(doc) {
                   docs.push(doc.data());
                 });
-                res[collection] = docs;
+                payload[collection] = docs;
               })
               .catch(function(error) {
                 console.error('Error getting document:', error);
                 return error;
-              }));
+              }),
+          );
         });
-        promises.push(db
-            .collection(FIREBASE.year)
-            .doc(FIREBASE.documentConf)
+        promises.push(
+          db
+            .collection(Constants.firebaseDataConfig.year)
+            .doc(Constants.firebaseDataConfig.documentConf)
             .get()
             .then(doc => {
               if (doc.exists) {
-                res[FIREBASE.documentConf] = doc.data();
+                payload[Constants.firebaseDataConfig.documentConf] = doc.data();
               } else {
                 throw 'No such document!';
               }
@@ -84,32 +71,49 @@ export class Actions {
             .catch(function(error) {
               console.error('Error getting document:', error);
               return error;
-            }));
+            }),
+        );
 
         Promise.all(promises).then(() => {
-          dumbCache = res;
-          return dispatch({ type: Types.DATA_FETCH, payload: res });
+          dumbCache['config'] = payload;
+          return dispatch({ type: Types.DATA_FETCH, payload });
         });
       };
     }
     return dispatch =>
       dispatch({
         type: Types.DATA_FETCH,
-        payload: dumbCache,
+        payload: dumbCache['config'],
       });
   }
 
-  static fetchFAQ() {
-    return dispatch => {
-      Tabletop.init({
-        key: Constants.gSheets.FAQ,
-        callback: data => {
-          return dispatch({
-            type: Types.DATA_FETCH,
-            payload: { data },
+  static fetchFAQ(force = false) {
+    if (force || !dumbCache['faq']) {
+      return dispatch => {
+        db.collection(Constants.firebaseDataConfig.year)
+          .doc(Constants.firebaseDataConfig.collectionName)
+          .collection(Constants.firebaseDataConfig.collectionFAQ)
+          .get()
+          .then(querySnapshot => {
+            const docs = [];
+            querySnapshot.forEach(function(doc) {
+              docs.push(doc.data());
+            });
+            const payload = {};
+            payload[Constants.firebaseDataConfig.collectionFAQ] = docs;
+            dumbCache['config'] = payload;
+            return dispatch({ type: Types.DATA_FETCH, payload });
+          })
+          .catch(function(error) {
+            console.error('Error getting document:', error);
+            return error;
           });
-        },
+      };
+    }
+    return dispatch =>
+      dispatch({
+        type: Types.DATA_FETCH,
+        payload: dumbCache['faq'],
       });
-    };
   }
 }

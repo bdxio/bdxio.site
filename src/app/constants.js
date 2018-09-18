@@ -1,9 +1,20 @@
 import Moment from "moment";
 
 export const Constants = {
-  gSheets: {
-    published_data: "1Xa5_JN0KSTvG2sxj57Zr5cWEaOppMIprytPCwrLeP5k",
-    FAQ: "1Emcr1SWknkzi2GHfB9ooVq95GDR_D5C9BApg6uhqcYs"
+  firebaseConfig: {
+    apiKey: 'AIzaSyBaeo0bHhp71f4I5PlRnszmePDpZuHJqBo',
+    authDomain: 'bdxio-website.firebaseapp.com',
+    databaseURL: 'https://bdxio-website.firebaseio.com',
+    projectId: 'bdxio-website',
+    storageBucket: 'bdxio-website.appspot.com',
+    messagingSenderId: '360638530775',
+  },
+  firebaseDataConfig: {
+    year: '2018',
+    collectionName: 'Array',
+    documentConf: 'Config',
+    collectionFAQ: 'FAQ',
+    collections: ['Orgas', 'Speakers', 'Speakers17', 'Sponsors', 'News'],
   },
   eventDate: Moment("09-11-2018", "DD-MM-YYYY"),
   quotes: [
