@@ -1,5 +1,4 @@
 import * as functions from 'firebase-functions';
-import * as Tabletop from 'tabletop';
 import { API_KEY } from './key';
 import SpreadsheetManager from './SpreadsheetManager';
 import FirestoreManager from './FirestoreManager';
@@ -77,47 +76,22 @@ export const spreadsheetConfigSyncByApi = functions.https.onRequest(
   },
 );
 
-export const spreadsheetConfigSyncByTabletop = functions.https.onRequest(
-  (request, response) => {
-    const spreadsheetManager = new SpreadsheetManager(API_KEY);
-    const firestoreManager = new FirestoreManager(CONFIG.config);
 
-    Tabletop.init({
-      key: CONFIG.config.spreadsheetId,
-      callback: data => {
-        firestoreManager
-          .save(
-            spreadsheetManager.spreadsheetTableTopToPOJO(
-              data,
-              CONFIG.config.keyValuePage,
-            ),
-          )
-          .then(() => {
-            response.send('🚀 Website config is up to date ! 🎉');
-          })
-          .catch(error => {
-            response.send('😱 Something went wrong 👉' + error);
-          });
-      },
-    });
-  },
-);
+// export const saveData = functions.https.onRequest(async (request, response) => {
+//   const spreadsheetManager = new SpreadsheetManager(API_KEY);
+//   const firestoreManager = new FirestoreManager(CONFIG.config);
 
-export const saveData = functions.https.onRequest(async (request, response) => {
-  const spreadsheetManager = new SpreadsheetManager(API_KEY);
-  const firestoreManager = new FirestoreManager(CONFIG.config);
-
-  firestoreManager
-    .save(
-      spreadsheetManager.spreadsheetToPOJO(
-        request.body,
-        CONFIG.config.keyValuePage,
-      ),
-    )
-    .then(() => {
-      response.send('🚀 Website config is up to date ! 🎉');
-    })
-    .catch(error => {
-      response.send('😱 Something went wrong 👉' + error);
-    });
-});
+//   firestoreManager
+//     .save(
+//       spreadsheetManager.spreadsheetToPOJO(
+//         request.body,
+//         CONFIG.config.keyValuePage,
+//       ),
+//     )
+//     .then(() => {
+//       response.send('🚀 Website config is up to date ! 🎉');
+//     })
+//     .catch(error => {
+//       response.send('😱 Something went wrong 👉' + error);
+//     });
+// });

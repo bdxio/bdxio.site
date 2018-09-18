@@ -44,26 +44,6 @@ export default class SpreadsheetManager {
     return values;
   }
 
-  spreadsheetTableTopToPOJO(
-    spreadsheetArray: Object,
-    keyValuePage: Array<string> = [],
-  ): Object {
-    const values = Object.keys(spreadsheetArray)
-      .map(page => {
-        return { [page]: spreadsheetArray[page].elements };
-      })
-      .reduce((acc, cur, i) => {
-        const key = Object.keys(cur)[0];
-        if (keyValuePage.indexOf(key) > -1) {
-          acc[key] = this.arrayKeyValueToObject(cur[key]);
-        } else {
-          acc[key] = cur[key];
-        }
-        return acc;
-      }, {});
-    return values;
-  }
-
   getSheets(spreadsheetId: string): Promise<Object> {
     const sheetsResult = {};
     const requestSheets = {
