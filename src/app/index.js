@@ -47,7 +47,7 @@ ReactDOM.render(
                 <Route path="/2017/speakers" component={Speakers2017} />
                 <Route path="/legal/cgv" component={CGV} />
                 <Route path="/legal/code_de_conduite" component={CodeConduite} />
-                <Route path="/tickets/switch" component={TicketSwitch} />
+                {/* <Route path="/tickets/switch" component={TicketSwitch} /> */}
             </Switch>
         </Router>
     </Provider>,

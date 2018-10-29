@@ -128,9 +128,9 @@ class Home extends Component {
                     </a>
                   )}
 
-                  <button className="button medium ticket-switch switch-tickets-button" type="button" >
+                  {/* <button className="button medium ticket-switch switch-tickets-button" type="button" >
                       <Link to="/tickets/switch">Transférer votre place</Link>
-                  </button>
+                  </button> */}
               </div>
             </div>
             {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
