@@ -133,7 +133,7 @@ class Talks extends Component {
                                   className="talks-container-content-item-text-summary text-center"
                                   style={{
                                     display: "-webkit-box",
-                                    "-webkit-line-clamp": 3,
+                                    "-webkit-line-clamp": "3",
                                     "-webkit-box-orient": "vertical"
                                   }}
                                 >
