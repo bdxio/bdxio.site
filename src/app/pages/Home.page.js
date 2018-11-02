@@ -103,9 +103,13 @@ class Home extends Component {
                 {moment().isSameOrAfter(
                   moment(Config.talksListPublishingDate)
                 ) && (
-                  <button className="button medium white" type="button">
+                  <a
+                    href="http://program.bdx.io"
+                    lassName="button medium white"
+                    target="_blank"
+                  >
                     Programme
-                  </button>
+                  </a>
                 )}
                 {Config.registrationOpened !== "opened" &&
                   moment().isBefore(moment(Config.talksListPublishingDate)) && (
@@ -128,7 +132,7 @@ class Home extends Component {
                     </a>
                   )}
 
-                  {/* <button className="button medium ticket-switch switch-tickets-button" type="button" >
+                {/* <button className="button medium ticket-switch switch-tickets-button" type="button" >
                       <Link to="/tickets/switch">Transférer votre place</Link>
                   </button> */}
               </div>
