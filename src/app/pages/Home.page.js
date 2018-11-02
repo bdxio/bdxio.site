@@ -105,7 +105,7 @@ class Home extends Component {
                 ) && (
                   <a
                     href="http://program.bdx.io"
-                    lassName="button medium white"
+                    className="button medium white"
                     target="_blank"
                   >
                     Programme
