@@ -131,10 +131,23 @@ class Home extends Component {
                       Devenir speaker·euse
                     </a>
                   )}
+                {/* {moment().isSameOrAfter(moment(Config.eventDate)) &&
+                  moment().isSameOrBefore(moment(Config.endOfLive)) && (
+                    <a
+                      href="https://cfp.bdx.io"
+                      className="button medium white"
+                      target="_blank"
+                    >
+                      Accéder aux directs
+                    </a>
+                  )} */}
 
-                {/* <button className="button medium ticket-switch switch-tickets-button" type="button" >
-                      <Link to="/tickets/switch">Transférer votre place</Link>
-                  </button> */}
+                {/* <button
+                  className="button medium ticket-switch switch-tickets-button"
+                  type="button"
+                >
+                  <Link to="/tickets/switch">Transférer votre place</Link>
+                </button> */}
               </div>
             </div>
             {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&

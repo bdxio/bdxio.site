@@ -5,7 +5,8 @@ export const Constants = {
     published_data: "1Xa5_JN0KSTvG2sxj57Zr5cWEaOppMIprytPCwrLeP5k",
     FAQ: "1Emcr1SWknkzi2GHfB9ooVq95GDR_D5C9BApg6uhqcYs"
   },
-  eventDate: Moment("09-11-2018", "DD-MM-YYYY"),
+  eventDate: Moment("09-11-2018T09:00:00", "DD-MM-YYYYTHH:mm:ss"),
+  endOfLive: Moment("09-11-2018T18:30:00", "DD-MM-YYYYTHH:mm:ss"),
   quotes: [
     {
       text:
