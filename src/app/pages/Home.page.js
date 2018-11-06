@@ -100,9 +100,7 @@ class Home extends Component {
                     Achetez votre place
                   </button>
                 )}
-                {moment().isSameOrAfter(
-                  moment(Config.talksListPublishingDate)
-                ) && (
+                {moment().isBefore(moment(Constants.eventDate)) && (
                   <a
                     href="http://program.bdx.io"
                     className="button medium white"
@@ -131,16 +129,6 @@ class Home extends Component {
                       Devenir speaker·euse
                     </a>
                   )}
-                {/* {moment().isSameOrAfter(moment(Config.eventDate)) &&
-                  moment().isSameOrBefore(moment(Config.endOfLive)) && (
-                    <a
-                      href="https://cfp.bdx.io"
-                      className="button medium white"
-                      target="_blank"
-                    >
-                      Accéder aux directs
-                    </a>
-                  )} */}
 
                 {/* <button
                   className="button medium ticket-switch switch-tickets-button"

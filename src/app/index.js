@@ -18,6 +18,7 @@ import Talks from './pages/Talks.page';
 import Partnerships from './pages/Partnerships.page';
 import Faq from './pages/Faq.page';
 import Contact from './pages/Contact.page';
+import Live from './pages/Live.page';
 import TicketSwitch from './pages/TicketSwitch.page.js';
 
 import { default as Speakers2017 } from './pages/2017/Speakers.page';
@@ -48,6 +49,7 @@ ReactDOM.render(
                 <Route path="/legal/cgv" component={CGV} />
                 <Route path="/legal/code_de_conduite" component={CodeConduite} />
                 {/* <Route path="/tickets/switch" component={TicketSwitch} /> */}
+                <Route path="/live" component={Live} />
             </Switch>
         </Router>
     </Provider>,

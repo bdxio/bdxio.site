@@ -1,0 +1,10 @@
+.live-container {
+  min-height: 100vh;
+  .video {
+    height: 315px;
+  }
+
+  &-content {
+    margin-top: 50px;
+  }
+}
