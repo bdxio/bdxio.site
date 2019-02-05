@@ -7,7 +7,7 @@ const defaultState = {
     'News': [],
     'Talk assets': [],
     'Speakers': [],
-    'Speakers17': [],
+    'Speakers18': [],
     'FAQ': [],
     loaded: false
 }

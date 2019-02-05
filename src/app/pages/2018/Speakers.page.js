@@ -30,11 +30,11 @@ class Speakers extends Component {
 
     render() {
         const { isMobile } = this.state;
-        const { Speakers17 } = this.props.gsheet;
+        const { Speakers18 } = this.props.gsheet;
         let line = 0;
         return (
             <div>
-                <Header title="SPEAKERS 2017" />
+                <Header title="SPEAKERS 2018" />
                 <div className="row align-center users-container">
                 
                     <div className="flottant-right">
@@ -43,7 +43,7 @@ class Speakers extends Component {
 
                     <div className="column small-12 large-8">
                         <div className="row users-container-content">
-                            {Speakers17.map((member, i) => {
+                            {Speakers18.map((member, i) => {
                                 if (!isMobile && i % 2 === 0) line++
                                 return <UserCard key={`member_${i}`} user={member} imageAtRight={(line % 2 === 0)} />
                             })}

@@ -21,7 +21,7 @@ import Contact from './pages/Contact.page';
 import Live from './pages/Live.page';
 import TicketSwitch from './pages/TicketSwitch.page.js';
 
-import { default as Speakers2017 } from './pages/2017/Speakers.page';
+import { default as Speakers2018 } from './pages/2018/Speakers.page';
 import CGV from './pages/legal/CGV';
 import CodeConduite from './pages/legal/CodeConduite';
 
@@ -40,16 +40,16 @@ ReactDOM.render(
                 <Route path="/home" component={Home} />
                 <Route path="/team" component={Team} />
                 <Route path="/news" component={News} />
-                <Route path="/speakers" component={Speakers} />
-                <Route path="/talks" component={Talks} />
+                {/* <Route path="/speakers" component={Speakers} /> */}
+                {/* <Route path="/talks" component={Talks} /> */}
                 <Route path="/partnerships" component={Partnerships} />
                 <Route path="/faq" component={Faq} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/2017/speakers" component={Speakers2017} />
+                <Route path="/2018/speakers" component={Speakers2018} />
                 <Route path="/legal/cgv" component={CGV} />
                 <Route path="/legal/code_de_conduite" component={CodeConduite} />
                 {/* <Route path="/tickets/switch" component={TicketSwitch} /> */}
-                <Route path="/live" component={Live} />
+                {/* <Route path="/live" component={Live} /> */}
             </Switch>
         </Router>
     </Provider>,

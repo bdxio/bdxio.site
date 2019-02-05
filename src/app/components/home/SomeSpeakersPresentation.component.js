@@ -48,7 +48,7 @@ class SomeSpeakersPresentation extends Component {
                 <div className="column small-12">
                     <h5 className="sectionTitle">Nos speakers</h5>
                     <h6>Quelques profils <strong
-                        className="red">{(isPrevious ? 'de l\'édition 2017' : '')} </strong> choisis de façon aléatoire
+                        className="red">{(isPrevious ? 'de l\'édition 2018' : '')} </strong> choisis de façon aléatoire
                         pour vous mettre l'eau à la bouche.</h6>
                 </div>
 
@@ -70,7 +70,7 @@ class SomeSpeakersPresentation extends Component {
 
                 <div className="align-center users-button">
                     <Link className="shrink text-center button small secondary"
-                          to={(isPrevious ? "/2017/speakers" : "/speakers")}>Les voir tous</Link>
+                          to={(isPrevious ? "/2018/speakers" : "/speakers")}>Les voir tous</Link>
                 </div>
             </div>
         );

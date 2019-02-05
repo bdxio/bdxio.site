@@ -50,7 +50,7 @@ class Home extends Component {
   render() {
     const { isMobile } = this.state;
     const { isTabletOrSmaller } = this.state;
-    const { News, Sponsors, Speakers, Speakers17, Config } = this.props.gsheet;
+    const { News, Sponsors, Speakers, Speakers18, Config } = this.props.gsheet;
 
     return (
       <div className="home">
@@ -62,17 +62,17 @@ class Home extends Component {
         <div className="row home-header">
           <div className="columns auto">
             <h1 className="text-center">
-              {isMobile ? "Bienvenue à BDX I/O" : "Bienvenue à BDX I/O 2018 !"}
+              {isMobile ? "BDX I/O 2019" : "BDX I/O 2019 !"}
             </h1>
             <div className="row align-center">
               <div className="columns shrink">
                 <div className="home-header-content">
                   <span>
-                    <i className="fa fa-calendar" />9 novembre
+                    <i className="fa fa-calendar" />15 novembre
                   </span>
                   <span>
                     <i className="fa fa-map-marker" />
-                    ENSEIRB
+                    Palais des congrès
                   </span>
                 </div>
               </div>
@@ -210,7 +210,7 @@ class Home extends Component {
         <Quote />
 
         <SomeSpeakersPresentation
-          speakers={Speakers.length > 0 ? Speakers : Speakers17}
+          speakers={Speakers.length > 0 ? Speakers : Speakers18}
           isPrevious={Speakers.length === 0}
           isMobile={isTabletOrSmaller}
         />
