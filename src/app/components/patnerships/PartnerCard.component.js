@@ -14,7 +14,7 @@ class PartnerCard extends Component {
     return (
       <div className="columns auto partner-card">
         <div className="text-center">
-          <a href={partner["Site"]} title={partner["Société"]}  target="_blank">
+          <a href={partner["Site"]} title={partner["Société"]} target="_blank">
             <img
               src={partner["Logo url"]}
               alt={partner["Société"]}

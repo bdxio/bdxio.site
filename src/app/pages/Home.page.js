@@ -61,14 +61,13 @@ class Home extends Component {
 
         <div className="row home-header">
           <div className="columns auto">
-            <h1 className="text-center">
-              {isMobile ? "BDX I/O 2019" : "BDX I/O 2019 !"}
-            </h1>
+            <h1 className="text-center">{isMobile ? "BDX I/O 2019" : "BDX I/O 2019 !"}</h1>
             <div className="row align-center">
               <div className="columns shrink">
                 <div className="home-header-content">
                   <span>
-                    <i className="fa fa-calendar" />15 novembre
+                    <i className="fa fa-calendar" />
+                    15 novembre
                   </span>
                   <span>
                     <i className="fa fa-map-marker" />
@@ -78,11 +77,7 @@ class Home extends Component {
               </div>
             </div>
 
-            {isMobile ? (
-              <div className="replace-countdown-space" />
-            ) : (
-              <Countdown />
-            )}
+            {isMobile ? <div className="replace-countdown-space" /> : <Countdown />}
 
             <div className="row">
               <div className="columns auto text-center home-header-button">
@@ -101,31 +96,19 @@ class Home extends Component {
                   </button>
                 )}
                 {moment().isBefore(moment(Constants.eventDate)) && (
-                  <a
-                    href="http://program.bdx.io"
-                    className="button medium white"
-                    target="_blank"
-                  >
+                  <a href="http://program.bdx.io" className="button medium white" target="_blank">
                     Programme
                   </a>
                 )}
                 {Config.registrationOpened !== "opened" &&
                   moment().isBefore(moment(Config.talksListPublishingDate)) && (
-                    <a
-                      href="/static/plaquette.pdf"
-                      className="button medium white"
-                      target="_blank"
-                    >
+                    <a href="/static/plaquette.pdf" className="button medium white" target="_blank">
                       Devenir sponsors
                     </a>
                   )}
                 {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
                   moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
-                    <a
-                      href="https://cfp.bdx.io"
-                      className="button medium white"
-                      target="_blank"
-                    >
+                    <a href="https://cfp.bdx.io" className="button medium white" target="_blank">
                       Devenir speaker·euse
                     </a>
                   )}
@@ -164,10 +147,7 @@ class Home extends Component {
         >
           <g>
             <defs>
-              <polygon
-                id="SVGID_1_"
-                points="0,11.7 0,24.8 25,40.3 50,24.8 50,11.7"
-              />
+              <polygon id="SVGID_1_" points="0,11.7 0,24.8 25,40.3 50,24.8 50,11.7" />
             </defs>
             <clipPath id="SVGID_2_">
               <use xlinkHref="#SVGID_1_" />
@@ -190,11 +170,10 @@ class Home extends Component {
           <div className="home-about-text">
             <h4 className="sectionTitle align-center">À propos de Bdxio</h4>
             <h6>
-              BDX I/O est une conférence sur le thème de la programmation et de
-              ses métiers annexes. <br />
-              Pour cette cinquième édition, nous recevrons encore 500
-              passioné·e·s pour une nouvelle journée de découverte dans la bonne
-              humeur !!!
+              BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes.{" "}
+              <br />
+              Pour cette cinquième édition, nous recevrons encore 500 passioné·e·s pour une nouvelle
+              journée de découverte dans la bonne humeur !!!
             </h6>
           </div>
         </section>

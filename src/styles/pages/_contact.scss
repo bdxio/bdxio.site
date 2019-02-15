@@ -72,7 +72,10 @@
         }
       }
 
-      &-partner, &-speaker, &-contact, &-news {
+      &-partner,
+      &-speaker,
+      &-contact,
+      &-news {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -91,10 +94,7 @@
 // IE STYLE
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-
   .contact-contactFlottant {
-    display: none  !important;
+    display: none !important;
   }
 }
-
-

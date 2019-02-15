@@ -24,9 +24,7 @@ class Countdown extends Component {
   }
 
   tick() {
-    const timeRemaining = Moment.duration(
-      Constants.eventDate.diff(Moment.now())
-    );
+    const timeRemaining = Moment.duration(Constants.eventDate.diff(Moment.now()));
     let ended = false;
     if (
       timeRemaining._data.years <= 0 &&

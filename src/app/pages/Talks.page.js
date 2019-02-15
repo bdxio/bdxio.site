@@ -183,14 +183,9 @@ class Talks extends Component {
                           </div>
                           <hr />
                           <div className="row">
-                            <div className="columns text-right">
-                              Conférencier·ère·s :
-                            </div>
+                            <div className="columns text-right">Conférencier·ère·s :</div>
                             {selectedTalk.speakers.map(speaker => (
-                              <div
-                                key={speaker.uuid}
-                                className="columns text-left"
-                              >
+                              <div key={speaker.uuid} className="columns text-left">
                                 {speaker.name}
                               </div>
                             ))}
@@ -199,10 +194,7 @@ class Talks extends Component {
                           <div className="row">
                             <div className="columns text-center">
                               <p className="track">
-                                <img
-                                  className="icon"
-                                  src={svgTracks[selectedTalk.track]}
-                                />
+                                <img className="icon" src={svgTracks[selectedTalk.track]} />
                                 {selectedTalk.track}
                               </p>
                             </div>

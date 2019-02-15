@@ -41,19 +41,16 @@ const displayPage = Page => {
       const { loaded, Sponsors } = this.props.gsheet;
       const { subscriptionHasFocused } = this.props.navigate;
       const IMPERIAL = Sponsors.filter(
-        s =>
-          s["Actif"] === "1" &&
-          s["Type"].toUpperCase() === Constants.sponsors.types.IMPERIAL
+        s => s["Actif"] === "1" && s["Type"].toUpperCase() === Constants.sponsors.types.IMPERIAL
       );
       if (loaded) {
         return (
           <div className="pageContainer">
             <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
             <Page {...this.props}>
-              {IMPERIAL.length > 0 &&
-                this.props.location.pathname != "/partnerships" && (
-                  <SponsorsBar partners={IMPERIAL} />
-                )}
+              {IMPERIAL.length > 0 && this.props.location.pathname != "/partnerships" && (
+                <SponsorsBar partners={IMPERIAL} />
+              )}
               <Footer subscriptionHasFocused={subscriptionHasFocused} />
             </Page>
           </div>

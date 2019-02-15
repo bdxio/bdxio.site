@@ -36,8 +36,7 @@ class Location extends Component {
               </div>
               <br />
               <div>
-                Si vous venez en voiture, le parking du Palais des congrès est ouvert
-                et gratuit.
+                Si vous venez en voiture, le parking du Palais des congrès est ouvert et gratuit.
               </div>
             </div>
 

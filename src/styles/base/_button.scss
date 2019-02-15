@@ -3,79 +3,79 @@
 // -----------------------------------------------------------------------------
 // -- General
 .button {
-    background: transparent !important;
-    border: 2px solid !important;
-    min-width: map-clac(56px) !important;
-    text-transform: uppercase !important;
-    font-weight: bold !important;
-    min-width: 12% !important;
+  background: transparent !important;
+  border: 2px solid !important;
+  min-width: map-clac(56px) !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  min-width: 12% !important;
 
-    &.primary {
-        border-color: $primary !important;
-        color: $primary !important; 
-        
-        &:hover {
-            background : $primary !important;
-            color: white !important;
-        }
+  &.primary {
+    border-color: $primary !important;
+    color: $primary !important;
 
-        &.disabled {
-            &:hover {
-                background: inherit !important;
-                color: $primary !important; 
-            }
-        }
+    &:hover {
+      background: $primary !important;
+      color: white !important;
     }
 
-    &.secondary {
-        background: transparent;
-        border-color: $red !important;
-        color: $red !important; 
-        
-        &:hover {
-            background : $red !important;
-            color: white !important;
-        }
-        &.disabled {
-            &:hover {
-                background: inherit !important;
-                color: $red !important; 
-            }
-        }
+    &.disabled {
+      &:hover {
+        background: inherit !important;
+        color: $primary !important;
+      }
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    border-color: $red !important;
+    color: $red !important;
+
+    &:hover {
+      background: $red !important;
+      color: white !important;
+    }
+    &.disabled {
+      &:hover {
+        background: inherit !important;
+        color: $red !important;
+      }
+    }
+  }
+
+  &.white {
+    background: transparent;
+    border-color: $white !important;
+    color: $white !important;
+    margin-right: 10px;
+
+    &:hover {
+      background: $white !important;
+      color: $primary !important;
     }
 
-    &.white {
-        background: transparent;
-        border-color: $white !important;
+    &.disabled {
+      &:hover {
+        background: inherit !important;
         color: $white !important;
-        margin-right: 10px; 
-        
-        &:hover {
-            background : $white !important;
-            color: $primary !important;
-        }
+      }
+    }
+  }
 
-        &.disabled {
-            &:hover {
-                background: inherit !important;
-                color: $white !important; 
-            }
-        }
+  &.ticket-switch {
+    background: $primary !important;
+    border-color: $primary !important;
+    a {
+      color: white !important;
     }
 
-    &.ticket-switch {
-        background : $primary !important;
-        border-color : $primary !important;
-        a {
-            color: white !important;
-        }
-
-        &:hover {
-            background : white!important;
-            border-color : $primary !important;
-            a {
-                color: $primary !important;
-            }
-        }
+    &:hover {
+      background: white !important;
+      border-color: $primary !important;
+      a {
+        color: $primary !important;
+      }
     }
+  }
 }

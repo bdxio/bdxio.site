@@ -1,7 +1,7 @@
 import { Types } from "../actions/cfp.actions";
 
 const defaultState = {
-  talks: [],
+  talks: []
 };
 
 export const CFPReducer = (state = defaultState, action) => {

@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class IframeContainer extends Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    render() {
-        return (
-            <iframe src={this.props.src} height={this.props.height} width={this.props.width}/>
-        );
-    }
+  render() {
+    return <iframe src={this.props.src} height={this.props.height} width={this.props.width} />;
+  }
 }
 
-export default IframeContainer
+export default IframeContainer;

@@ -39,18 +39,20 @@
         height: auto;
         background: $red;
 
-        &:hover, &:focus, &:active {
+        &:hover,
+        &:focus,
+        &:active {
           .users-container-content-item-text {
             position: relative;
 
             &:after {
               position: absolute;
-              font-family: 'FontAwesome';
-              content: '\f07e';
+              font-family: "FontAwesome";
+              content: "\f07e";
               transition: flex 350ms;
               font-size: 18px;
               left: rem-calc(10px);
-              top:5px;
+              top: 5px;
             }
           }
         }
@@ -127,7 +129,7 @@
           justify-content: space-between;
           padding: 8px 0;
           color: white;
-          background-image: url($img-path + 'svg/bdxio_pattern.svg');
+          background-image: url($img-path+"svg/bdxio_pattern.svg");
           background-repeat: no-repeat;
           background-size: 380%;
           transition: flex 350ms;
@@ -164,9 +166,11 @@
             visibility: hidden;
           }
 
-          &.users-container-content-item:hover, &:focus, &:active {
+          &.users-container-content-item:hover,
+          &:focus,
+          &:active {
             .users-container-content-item-text:after {
-              content: '\f066';
+              content: "\f066";
             }
           }
 
@@ -193,7 +197,6 @@
   &-button {
     margin-top: 16px;
   }
-
 }
 
 hr {
@@ -210,4 +213,3 @@ hr {
     display: none;
   }
 }
-  

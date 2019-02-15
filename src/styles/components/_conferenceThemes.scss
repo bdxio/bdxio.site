@@ -35,18 +35,19 @@
   }
 
   @include breakpoint(small down) {
-    &-conferenceFlottantRight, &-conferenceFlottantLeft {
+    &-conferenceFlottantRight,
+    &-conferenceFlottantLeft {
       display: none;
     }
   }
 
   &-themes {
-    display: block
+    display: block;
   }
 
   &-container {
     display: block;
-    background: url($img-path + 'svg/bdxio_pattern.svg') no-repeat, $gradient;
+    background: url($img-path+"svg/bdxio_pattern.svg") no-repeat, $gradient;
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 64px;

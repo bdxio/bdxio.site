@@ -7,12 +7,7 @@ class TicketingAccess extends Component {
   }
 
   render() {
-    const {
-      registrationIsOpened,
-      earlyBirdSoldout,
-      gtSoldout,
-      soldout
-    } = this.props;
+    const { registrationIsOpened, earlyBirdSoldout, gtSoldout, soldout } = this.props;
     return (
       <section className="row ticketingAccess">
         <div className="ticketingAccess-ticketingAccessFlottant">
@@ -21,9 +16,7 @@ class TicketingAccess extends Component {
         <div className="columns small-12 text-center">
           <h5 className="sectionTitle">Achetez votre place pour BDX I/O</h5>
           {!registrationIsOpened && (
-            <h6 className="sectionSubtitle">
-              Ouverture de la billeterie en Juin
-            </h6>
+            <h6 className="sectionSubtitle">Ouverture de la billeterie en Juin</h6>
           )}
         </div>
 
@@ -36,12 +29,8 @@ class TicketingAccess extends Component {
           >
             <div className="row align-center ticketingAccess-container-item-infos">
               <div className="columns small-12 ticketingAccess-container-item-infos-title">
-                <div className="ticketingAccess-container-item-infos-title-euros">
-                  32,00 €
-                </div>
-                <div className="ticketingAccess-container-item-infos-title-classe">
-                  Early Bird
-                </div>
+                <div className="ticketingAccess-container-item-infos-title-euros">32,00 €</div>
+                <div className="ticketingAccess-container-item-infos-title-classe">Early Bird</div>
               </div>
               <div className="columns small-12 ticketingAccess-container-item-infos-status">
                 Individuel
@@ -89,9 +78,7 @@ class TicketingAccess extends Component {
           >
             <div className="row align-center ticketingAccess-container-item-infos">
               <div className="columns small-12 ticketingAccess-container-item-infos-title">
-                <div className="ticketingAccess-container-item-infos-title-euros">
-                  64,00 €
-                </div>
+                <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
                 <div className="ticketingAccess-container-item-infos-title-classe">
                   Golden Ticket
                 </div>
@@ -102,12 +89,10 @@ class TicketingAccess extends Component {
             </div>
             <div className="row ticketingAccess-container-item-content">
               <div>
-                Donnez votre <span> avis</span> concernant les talks proposés au
-                CFP
+                Donnez votre <span> avis</span> concernant les talks proposés au CFP
               </div>
               <div>
-                Invitation au <span>diner speaker</span> si vous votez au moins
-                pour 80% des talks
+                Invitation au <span>diner speaker</span> si vous votez au moins pour 80% des talks
               </div>
               <div>
                 Accès a partir de 8H30 au <span>petit déjeuner</span>
@@ -150,12 +135,8 @@ class TicketingAccess extends Component {
           >
             <div className="row align-center ticketingAccess-container-item-infos">
               <div className="columns small-12 ticketingAccess-container-item-infos-title">
-                <div className="ticketingAccess-container-item-infos-title-euros">
-                  64,00 €
-                </div>
-                <div className="ticketingAccess-container-item-infos-title-classe">
-                  Classic
-                </div>
+                <div className="ticketingAccess-container-item-infos-title-euros">64,00 €</div>
+                <div className="ticketingAccess-container-item-infos-title-classe">Classic</div>
               </div>
               <div className="columns small-12 ticketingAccess-container-item-infos-status">
                 Individuel

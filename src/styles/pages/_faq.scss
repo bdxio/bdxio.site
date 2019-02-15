@@ -13,7 +13,7 @@
 }
 
 .faq-container {
-  min-height: 100Vh;
+  min-height: 100vh;
 
   &-right-flottant {
     width: 100%;
@@ -31,7 +31,7 @@
       top: 10%;
     }
 
-    @include breakpoint (medium down) {
+    @include breakpoint(medium down) {
       display: none;
     }
   }
@@ -52,7 +52,7 @@
       top: 85%;
     }
 
-    @include breakpoint (medium down) {
+    @include breakpoint(medium down) {
       display: none;
     }
   }
@@ -72,6 +72,4 @@
       font-weight: bold;
     }
   }
-
 }
-

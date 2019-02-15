@@ -5,7 +5,7 @@
 }
 
 .home {
- &-homeFlottant {
+  &-homeFlottant {
     width: 100%;
     height: 180%;
     overflow: hidden;
@@ -41,15 +41,14 @@
       padding-top: 40px;
       height: 400px;
       position: relative;
-    }    
+    }
 
     &-background {
       background: $primary;
-      background-image: url($img-path + 'svg/bdxio_pattern.svg');
+      background-image: url($img-path+"svg/bdxio_pattern.svg");
       background-repeat: no-repeat;
       background-size: cover;
     }
-
 
     &-content {
       background: $white;
@@ -78,12 +77,11 @@
 
     h1 {
       color: $white;
-      text-shadow: 1px 1px rgba(43, 46, 67, .5);
+      text-shadow: 1px 1px rgba(43, 46, 67, 0.5);
       font-weight: bold;
     }
 
     @include breakpoint(large) {
-
       &-content {
         margin: 40px 0 40px 0;
         font-size: 19px !important;
@@ -138,7 +136,7 @@
       z-index: -1;
       bottom: 340px;
       background: $primary;
-      background-image: url($img-path + 'svg/bdxio_pattern.svg');
+      background-image: url($img-path+"svg/bdxio_pattern.svg");
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -180,7 +178,8 @@
 
   &-team {
     min-height: calc(1024px - 756px);
-    background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)), url($img-path + 'jpg/bdxio_team.jpg');
+    background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)),
+      url($img-path+"jpg/bdxio_team.jpg");
     background-size: cover;
     background-position-y: 48%;
     margin-top: calc(80px + 16px);
@@ -206,13 +205,12 @@
     height: 40px;
   }
 
-  .cfp-date{
+  .cfp-date {
     color: $white;
     font-weight: bold;
     text-shadow: 1px 1px rgba(43, 46, 67, 0.5);
   }
 }
-
 
 // IE STYLE
 
@@ -232,7 +230,7 @@
   }
 
   .home-header {
-    background-image: url($img-path + 'png/bdxio_header.png') !important;
+    background-image: url($img-path+"png/bdxio_header.png") !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
@@ -257,7 +255,7 @@
     background-color: $gradient !important;
   }
 
-  .menu{
+  .menu {
     background: #2b2d43 !important;
   }
 }

@@ -2,97 +2,96 @@
 // This file contains all styles related to the BASE base.
 // -----------------------------------------------------------------------------
 html {
-    height: 100%;
-    text-rendering: optimizeLegibility;
+  height: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-    height: 100%;
-    //font-family: $montserrat-light;
-    color: $text-color !important;
-    background-color: white;
-    font-size: 13px;
-    overflow-x: hidden;
-    * {
-        outline: 0;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+  height: 100%;
+  //font-family: $montserrat-light;
+  color: $text-color !important;
+  background-color: white;
+  font-size: 13px;
+  overflow-x: hidden;
+  * {
+    outline: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 #app {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 
-    .pageContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-}
-
-hr {
-    border-bottom: 1px solid $grey-light;
-    max-width: inherit;
-}
-
-p {
-    line-height: 1.5;
-}
-
-[data-hidden="true"] {
-    display: none !important
-}
-
-hr {
-    margin: 4px 0;
-    border-bottom: 0;
-}
-
-.row {
-    max-width: none;
-}
-
-section {
-    margin-top: 2vh;
-}
-
-
-.contentPage {
+  .pageContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+  }
+}
+
+hr {
+  border-bottom: 1px solid $grey-light;
+  max-width: inherit;
+}
+
+p {
+  line-height: 1.5;
+}
+
+[data-hidden="true"] {
+  display: none !important;
+}
+
+hr {
+  margin: 4px 0;
+  border-bottom: 0;
+}
+
+.row {
+  max-width: none;
+}
+
+section {
+  margin-top: 2vh;
+}
+
+.contentPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 // IE STYLE
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    .contentPage {
-        display: inline-block;
-        height: 100%;
+  .contentPage {
+    display: inline-block;
+    height: 100%;
 
-        @include breakpoint (medium down) {
-            display: block;
-        }
+    @include breakpoint(medium down) {
+      display: block;
     }
+  }
 
-    .flottant-right,
-    .flottant-left {
-        display: none !important;
-    }
+  .flottant-right,
+  .flottant-left {
+    display: none !important;
+  }
 
-    .users-container-content-item-text {
-        background-image: none !important;
-    }
+  .users-container-content-item-text {
+    background-image: none !important;
+  }
 
-    .textGradient {
-        background: none !important;
-        -webkit-text-fill-color: inherit !important;
-    }
+  .textGradient {
+    background: none !important;
+    -webkit-text-fill-color: inherit !important;
+  }
 
-    footer {
-        background-image: none !important;
-    }
+  footer {
+    background-image: none !important;
+  }
 }

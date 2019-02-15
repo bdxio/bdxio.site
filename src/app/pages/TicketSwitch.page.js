@@ -47,26 +47,23 @@ class TicketSwitch extends Component {
             Le destinataire est ${recipientFirstname} ${recipientLastname} (${recipientEmail})
         `;
 
-    fetch(
-      "https://us-central1-bdx-io-ticket-exchange.cloudfunctions.net/createExchange",
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          holderFirstname,
-          holderLastanme,
-          holderEmail,
-          commandNumber,
-          recipientFirstname,
-          recipientLastname,
-          recipientEmail
-        })
-      }
-    )
+    fetch("https://us-central1-bdx-io-ticket-exchange.cloudfunctions.net/createExchange", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({
+        holderFirstname,
+        holderLastanme,
+        holderEmail,
+        commandNumber,
+        recipientFirstname,
+        recipientLastname,
+        recipientEmail
+      })
+    })
       .then(() => {
         Toastr.success("Votre demande à bien été prise en compte.");
         this.setState({
@@ -76,9 +73,7 @@ class TicketSwitch extends Component {
         });
       })
       .catch(() => {
-        Toastr.error(
-          "Une erreur est survenue, merci de bien vouloir réessayer."
-        );
+        Toastr.error("Une erreur est survenue, merci de bien vouloir réessayer.");
       });
   };
 
@@ -100,9 +95,7 @@ class TicketSwitch extends Component {
           <div className="column small-11 large-6 ticket-switch__wrapper">
             <h4 className="">Détenteur du billet</h4>
             <div className="row align-justify align-middle ticket-switch__spacer collapse">
-              <label className="column small-4 ticket-switch__label">
-                Prénom
-              </label>
+              <label className="column small-4 ticket-switch__label">Prénom</label>
               <input
                 className="column auto ticket-switch__field required"
                 value={holderFirstname}
@@ -118,9 +111,7 @@ class TicketSwitch extends Component {
               />
             </div>
             <div className="row align-justify align-middle ticket-switch__spacer collapse">
-              <label className="column small-4 ticket-switch__label">
-                Email
-              </label>
+              <label className="column small-4 ticket-switch__label">Email</label>
               <input
                 className="column auto ticket-switch__field required"
                 value={holderEmail}
@@ -129,9 +120,7 @@ class TicketSwitch extends Component {
               />
             </div>
             <div className="row align-justify align-middle ticket-switch__spacer collapse">
-              <label className="column small-4 ticket-switch__label">
-                Numéro de commande
-              </label>
+              <label className="column small-4 ticket-switch__label">Numéro de commande</label>
               <input
                 className="column auto ticket-switch__field required"
                 value={commandNumber}
@@ -140,9 +129,7 @@ class TicketSwitch extends Component {
             </div>
             <h4 className="ticket-switch__title">Destinataire</h4>
             <div className="row align-justify align-middle ticket-switch__spacer collapse">
-              <label className="column small-4 ticket-switch__label">
-                Prénom
-              </label>
+              <label className="column small-4 ticket-switch__label">Prénom</label>
               <input
                 className="column auto ticket-switch__field required"
                 value={recipientFirstname}
@@ -158,9 +145,7 @@ class TicketSwitch extends Component {
               />
             </div>
             <div className="row align-justify align-middle ticket-switch__spacer collapse">
-              <label className="column small-4 ticket-switch__label">
-                Email
-              </label>
+              <label className="column small-4 ticket-switch__label">Email</label>
               <input
                 className="column auto ticket-switch__field required"
                 value={recipientEmail}

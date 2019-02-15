@@ -1,25 +1,24 @@
-$text-color:                                      #525356 !default;
+$text-color: #525356 !default;
 
-$primary :                                        #2b2d42 !default;
-$gradient:                                linear-gradient(45deg, #cc0625 0%, #fac319 100%);
+$primary: #2b2d42 !default;
+$gradient: linear-gradient(45deg, #cc0625 0%, #fac319 100%);
 
-$red :                                            #cc0625 !default;
-$yellow :                                         #fac319 !default;
-$green :                                          #4dbb4d !default;
+$red: #cc0625 !default;
+$yellow: #fac319 !default;
+$green: #4dbb4d !default;
 
-$grey-line:                                       1px solid rgba(0, 0, 0, 0.1) !default;
-$grey-special:                                    #8193ab !default;
-$grey-white:                                      #f3f3f3 !default;
-$grey-very-light:                                 #d8e1f0 !default;
-$grey-light:                                      #cdcccc !default;
-$grey:                                            #939baa !default;
-$grey-dark:                                       #39414a !default;
-$white:                                           #FFFFFF !default;
-$white-grey:                                      #F4F7FC !default;
+$grey-line: 1px solid rgba(0, 0, 0, 0.1) !default;
+$grey-special: #8193ab !default;
+$grey-white: #f3f3f3 !default;
+$grey-very-light: #d8e1f0 !default;
+$grey-light: #cdcccc !default;
+$grey: #939baa !default;
+$grey-dark: #39414a !default;
+$white: #ffffff !default;
+$white-grey: #f4f7fc !default;
 
-$container-block:                                 #f8f5f4 !default;
-$separator-color:                                 $grey-white !default;
-
+$container-block: #f8f5f4 !default;
+$separator-color: $grey-white !default;
 
 //FONTS and PATHS
 // ===================================================================
@@ -27,34 +26,34 @@ $separator-color:                                 $grey-white !default;
 // ==== FONTS
 
 // ==== PATHS
-$img-path :                                     '/img/' !default;
-$font-path :                                    '/fonts/' !default;
-$fa-font-path:                                  '~font-awesome/fonts' !default;
+$img-path: "/img/" !default;
+$font-path: "/fonts/" !default;
+$fa-font-path: "~font-awesome/fonts" !default;
 
-$enable-flex:true;
+$enable-flex: true;
 
 #toast-container {
+  width: 100%;
+  max-width: inherit;
+  left: 0;
+  z-index: 1;
+  font-weight: bold;
+
+  .toast {
+    display: inline-block;
     width: 100%;
-    max-width: inherit;
-    left: 0;
-    z-index: 1;
-    font-weight: bold;
-    
-    .toast {
-      display: inline-block;
-      width: 100%;
-      border-radius: 0;
-      float: inherit;
-      text-align: center;  
-      opacity: 1;
-      position: fixed;
-      bottom: 0;
-      margin: 0;
-    }
-    .toast-success {
-        background-color: $yellow;
-    }
-    .toast-error {
-        background-color: $red;
-    }
+    border-radius: 0;
+    float: inherit;
+    text-align: center;
+    opacity: 1;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
   }
+  .toast-success {
+    background-color: $yellow;
+  }
+  .toast-error {
+    background-color: $red;
+  }
+}

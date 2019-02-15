@@ -1,53 +1,52 @@
 .partnership {
-    min-height: 280px;
+  min-height: 280px;
 }
 
 .partnership-spacer {
-    margin-top: rem-calc(32px) ;
+  margin-top: rem-calc(32px);
 }
 
 .partnership-wrapper {
-    width: 70%;
-    min-height: 100%;
-    border-bottom: rem-calc(2px) solid;
-    border-image: linear-gradient(to top, #cc0625, #fac319) 1 100%;
-    margin: rem-calc(32px 0);
+  width: 70%;
+  min-height: 100%;
+  border-bottom: rem-calc(2px) solid;
+  border-image: linear-gradient(to top, #cc0625, #fac319) 1 100%;
+  margin: rem-calc(32px 0);
 
-    h4 {
-        margin : rem-calc(24px 0 0 16px);
-        padding-bottom: rem-calc(8px);
-        position: relative;
+  h4 {
+    margin: rem-calc(24px 0 0 16px);
+    padding-bottom: rem-calc(8px);
+    position: relative;
 
-        &:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: -16px;
-
-        }
-
-        &:after {
-            height: 2px;
-            right: 0;
-            background-image: -webkit-gradient(linear, 0 0, 100% 0, from($red), to($yellow));
-            background-image: -webkit-linear-gradient(left, $red, $yellow);
-            background-image: -moz-linear-gradient(left, $red, $yellow);
-            background-image: -o-linear-gradient(left, $red, $yellow);
-        }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -16px;
     }
+
+    &:after {
+      height: 2px;
+      right: 0;
+      background-image: -webkit-gradient(linear, 0 0, 100% 0, from($red), to($yellow));
+      background-image: -webkit-linear-gradient(left, $red, $yellow);
+      background-image: -moz-linear-gradient(left, $red, $yellow);
+      background-image: -o-linear-gradient(left, $red, $yellow);
+    }
+  }
 }
 
 .partnership-logo {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-    width: 100%;
-    border-radius: rem-calc(0 0 16px 16px);
-    border: rem-calc(1px) solid #F4F7FC;
-    border-top: 0;
-    padding: rem-calc(16px);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: rem-calc(0 0 16px 16px);
+  border: rem-calc(1px) solid #f4f7fc;
+  border-top: 0;
+  padding: rem-calc(16px);
 }
 
 .partner-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

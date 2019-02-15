@@ -19,10 +19,10 @@ class UserCard extends Component {
         //     user["Twitter"]
         //   }/profile_image?size=original`;
         // } else {
-          user["Avatar url"] =
-            user["gender"] === "male"
-              ? "/img/svg/bdxio_male_speaker.svg"
-              : "/img/svg/bdxio_female_speaker.svg";
+        user["Avatar url"] =
+          user["gender"] === "male"
+            ? "/img/svg/bdxio_male_speaker.svg"
+            : "/img/svg/bdxio_female_speaker.svg";
         //}
       }
       this.setState({ user });
@@ -39,12 +39,7 @@ class UserCard extends Component {
   }
 
   hasSocialLink(user) {
-    return (
-      !!user["Twitter"] ||
-      !!user["Linkedin"] ||
-      !!user["Google+"] ||
-      !!user["Blog"]
-    );
+    return !!user["Twitter"] || !!user["Linkedin"] || !!user["Google+"] || !!user["Blog"];
   }
 
   render() {
@@ -66,21 +61,12 @@ class UserCard extends Component {
           <h6>
             {user["Prénom"]} {user["Nom"]}
           </h6>
-          <div className="users-container-content-item-text-bio text-center">
-            {user["Bio"]}
-          </div>
-          <div
-            className={`text-center ${
-              !this.hasSocialLink(user) ? "noLink" : ""
-            }`}
-          >
+          <div className="users-container-content-item-text-bio text-center">{user["Bio"]}</div>
+          <div className={`text-center ${!this.hasSocialLink(user) ? "noLink" : ""}`}>
             <hr />
             {user["Twitter"] && (
               <span>
-                <a
-                  href={`https://twitter.com/${user["Twitter"]}`}
-                  target="_blank"
-                >
+                <a href={`https://twitter.com/${user["Twitter"]}`} target="_blank">
                   <i className="users-container-content-item-text-socialNetwork fa fa-twitter" />
                 </a>
               </span>

@@ -24,8 +24,7 @@ export const Constants = {
       author: "Tim Berners-Lee"
     },
     {
-      text:
-        '"On the Web we all become small-town visitors lost in the big city."',
+      text: '"On the Web we all become small-town visitors lost in the big city."',
       author: "Alison Gopnik"
     },
     {
