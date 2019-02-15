@@ -49,7 +49,7 @@ class Speakers extends Component {
             </div>
           </div>
 
-          <div class="flottant-left">
+          <div className="flottant-left">
             <img src="img/svg/theme2_flottant.svg" />
           </div>
         </div>
