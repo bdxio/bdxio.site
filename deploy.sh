@@ -35,7 +35,7 @@ echo -e "* Prepare : ${Gre}(1/5)${RCol}"
 rm -rf dist
 # Clone GH_PAGES branch into dist folder
 git clone -b ${GH_PAGES_BRANCH} git@github.com:bdxio/bdxio.github.io.git dist/
-cd dist
+cd dist || exit 1
 # Remove all non git related files
 ls | grep -v -E ".git" | xargs rm -rf
 cd ..
