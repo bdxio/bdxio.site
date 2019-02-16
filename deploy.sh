@@ -34,8 +34,8 @@ echo -e "------------ ${RCol}"
 echo -e "* Prepare : ${Gre}(1/5)${RCol}"
 rm -rf dist
 # Clone GH_PAGES branch into dist folder
-git clone -b ${GH_PAGES_BRANCH} git@github.com:bdxio/bdxio.github.io.git dist/
-cd dist
+git clone git@github.com:bdxio/bdxio-2018.git dist/
+cd dist || exit 1
 # Remove all non git related files
 ls | grep -v -E ".git" | xargs rm -rf
 cd ..
@@ -62,5 +62,5 @@ echo -e "* Clean : ${Gre}(5/5)${RCol}"
 
 echo
 echo '----------------------------------------------------------'
-echo -e "Deployed to : ${Cya}https://bdx.io${RCol}"
+echo -e "Deployed to : ${Cya}https://2018.bdx.io${RCol}"
 echo '----------------------------------------------------------'
