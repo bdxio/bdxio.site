@@ -1,13 +1,12 @@
-import React, { Component } from "react";
 import { PropTypes } from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import Footer from "../components/common/Footer.component";
-import Menu from "../components/common/Menu.componet";
-
-import { Constants } from "../constants";
 import { Actions as GSheetActions } from "../actions/gsheet.actions";
+import Footer from "../components/common/Footer.component";
 import Loader from "../components/common/Loader.component";
+import Menu from "../components/common/Menu.component";
 import SponsorsBar from "../components/common/SponsorsBar.component";
+import { Constants } from "../constants";
 
 const displayPage = Page => {
   class DisplayPage extends Component {
