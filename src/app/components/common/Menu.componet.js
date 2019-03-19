@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Menu extends Component {
@@ -70,26 +70,31 @@ class Menu extends Component {
                 Contact
               </Link>
             </li>
+            <li className="shrink menu-item-content">
+              <a href="http://2018.bdx.io" target="_blank">
+                Édition 2018
+              </a>
+            </li>
           </ul>
 
           <ul className="columns shrink align-center main-menu-socialNetwork">
             <li>
-              <a href="https://twitter.com/bdxio">
+              <a href="https://twitter.com/bdxio" target="_blank">
                 <i className="fa fa-twitter" />
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com/bdxio">
+              <a href="https://www.facebook.com/bdxio" target="_blank">
                 <i className="fa fa-facebook-f" />
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/company/10651416/">
+              <a href="https://www.linkedin.com/company/10651416/" target="_blank">
                 <i className="fa fa-linkedin" />
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ">
+              <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ" target="_blank">
                 <i className="fa fa-youtube" />
               </a>
             </li>
@@ -154,6 +159,11 @@ class Menu extends Component {
               <Link className={pathname === "/contact" ? "selected" : ""} to="/contact">
                 Contact
               </Link>
+            </li>
+            <li className="shrink menu-item-content">
+              <a href="http://2018.bdx.io" target="_blank">
+                Édition 2018
+              </a>
             </li>
           </ul>
         </div>

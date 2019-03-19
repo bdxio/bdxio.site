@@ -1,10 +1,9 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import displayPage from "./_PageContainer";
+import React, { Component } from "react";
 import Header from "../components/common/Header.component";
 import PartnerCard from "../components/patnerships/PartnerCard.component";
-
 import { Constants } from "../constants";
+import displayPage from "./_PageContainer";
 
 class Partnerships extends Component {
   constructor() {
@@ -30,9 +29,7 @@ class Partnerships extends Component {
         <Header title="SPONSORS" />
         <div className="row align-center users-container">
           <div className="column small-12 text-center">
-            <p className="subtitle">
-              Les sponsors qui nous soutiennent pour cette édition 2018, merci à eux !
-            </p>
+            <p className="subtitle">Les sponsors qui nous ont soutenu pour l'édition 2018...</p>
           </div>
           <div className="column small-12 text-center">
             <a href="/static/plaquette.pdf" target="_blank" className="button small primary">
