@@ -1,29 +1,21 @@
-import "babel-polyfill";
+import "@babel/polyfill";
+import createHistory from "history/createHashHistory";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, Router, Switch, Redirect } from "react-router-dom";
-import createHistory from "history/createHashHistory";
-
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import { Redirect, Route, Router, Switch } from "react-router-dom";
+import { applyMiddleware, createStore } from "redux";
 import thunkMidleware from "redux-thunk";
-
-import reducers from "./reducers";
-
-import Home from "./pages/Home.page";
-import Team from "./pages/Team.page";
-import News from "./pages/News.page";
-import Speakers from "./pages/Speakers.page";
-import Talks from "./pages/Talks.page";
-import Partnerships from "./pages/Partnerships.page";
-import Faq from "./pages/Faq.page";
-import Contact from "./pages/Contact.page";
-import Live from "./pages/Live.page";
-import TicketSwitch from "./pages/TicketSwitch.page.js";
-
 import { default as Speakers2018 } from "./pages/2018/Speakers.page";
+import Contact from "./pages/Contact.page";
+import Faq from "./pages/Faq.page";
+import Home from "./pages/Home.page";
 import CGV from "./pages/legal/CGV";
 import CodeConduite from "./pages/legal/CodeConduite";
+import News from "./pages/News.page";
+import Partnerships from "./pages/Partnerships.page";
+import Team from "./pages/Team.page";
+import reducers from "./reducers";
 
 const store = createStore(
   reducers,
