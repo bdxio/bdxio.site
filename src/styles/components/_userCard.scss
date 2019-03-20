@@ -190,6 +190,19 @@
             transition: flex 350ms;
           }
         }
+
+        .hover-image {
+          display: none;
+        }
+
+        &:hover {
+          .hover-image {
+            display: inline-block;
+          }
+          .initial-image {
+            display: none;
+          }
+        }
       }
     }
   }

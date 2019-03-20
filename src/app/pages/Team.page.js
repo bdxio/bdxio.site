@@ -1,8 +1,8 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import displayPage from "./_PageContainer";
+import React, { Component } from "react";
 import Header from "../components/common/Header.component";
 import UserCard from "../components/common/UserCard.component";
+import displayPage from "./_PageContainer";
 
 class Team extends Component {
   constructor(props) {
@@ -38,8 +38,6 @@ class Team extends Component {
   render() {
     const { isMobile } = this.state;
     const { Orgas } = this.props.gsheet;
-    const office = Orgas.filter(o => o["Bur"] == "1");
-    const members = Orgas.filter(o => o["Bur"] != "1");
     let line = 0;
     return (
       <div>
@@ -52,17 +50,7 @@ class Team extends Component {
           <div className="column small-12 large-8">
             <h4>/ LE BUREAU</h4>
             <div className="row users-container-content">
-              {office.map((member, i) => {
-                if (!isMobile && i % 2 === 0) line++;
-                return <UserCard key={`member_${i}`} user={member} imageAtRight={line % 2 === 0} />;
-              })}
-            </div>
-          </div>
-
-          <div className="column small-12 large-8">
-            <h4 className="users-container-content-titleMember">/ LES MEMBRES</h4>
-            <div className="row users-container-content">
-              {members.map((member, i) => {
+              {Orgas.map((member, i) => {
                 if (!isMobile && i % 2 === 0) line++;
                 return <UserCard key={`member_${i}`} user={member} imageAtRight={line % 2 === 0} />;
               })}

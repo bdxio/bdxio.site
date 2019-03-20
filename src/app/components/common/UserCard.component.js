@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 class UserCard extends Component {
   constructor(props) {
@@ -54,7 +54,8 @@ class UserCard extends Component {
       >
         {!imageAtRight && (
           <div className="columns small-6 users-container-content-item-picture">
-            <img src={user["Avatar url"]} />
+            <img src={user["Avatar url"]} className="initial-image" />
+            <img src={user["Avatar url hover"]} className="hover-image" />
           </div>
         )}
         <div className="columns text-center auto users-container-content-item-text">
@@ -97,7 +98,8 @@ class UserCard extends Component {
         <span className="user-card-arrow" />
         {imageAtRight && (
           <div className="columns small-6 users-container-content-item-picture">
-            <img src={user["Avatar url"]} />
+            <img src={user["Avatar url"]} className="initial-image" />
+            <img src={user["Avatar url hover"]} className="hover-image" />
           </div>
         )}
       </div>
