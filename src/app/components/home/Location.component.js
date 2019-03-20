@@ -13,10 +13,10 @@ class Location extends Component {
           A 10 minutes de <br />> Bordeaux
         </div>
         <div className="columns small-12 medium-4 large-3 location-infos-amphis">
-          6 amphis en parallèle <br />> 50 conférences
+          5 amphis en parallèle <br />> 40 conférences
         </div>
         <div className="columns small-12 medium-4 large-3 location-infos-dev">
-          15 communautés <br />> 500 Développeur·se·s
+          15 communautés <br />> 900 Développeur·se·s
         </div>
 
         <div className="columns small-12 location-site">

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class MetricsBar extends Component {
   constructor() {
@@ -15,20 +14,16 @@ class MetricsBar extends Component {
         <div className="columns small-12 medium-7">
           <div className="row metricsBar-content align-center">
             <div className="metrics-item text-center">
-              <h3 className="metricsBar-content-number">46</h3>
+              <h3 className="metricsBar-content-number">40</h3>
               <div className="metricsBar-content-text">Talks</div>
             </div>
             <div className="metrics-item text-center separate-Element">
-              <h3 className="metricsBar-content-number">50</h3>
+              <h3 className="metricsBar-content-number">40</h3>
               <div className="metricsBar-content-text">Speakers</div>
             </div>
             <div className="metrics-item text-center separate-Element">
-              <h3 className="metricsBar-content-number">500</h3>
+              <h3 className="metricsBar-content-number">900</h3>
               <div className="metricsBar-content-text">Participants</div>
-            </div>
-            <div className="metrics-item text-center separate-Element">
-              <h3 className="metricsBar-content-number">1</h3>
-              <div className="metricsBar-content-text">Hackerspace</div>
             </div>
             <div className="metrics-item text-center separate-Element">
               <h3 className="metricsBar-content-number">3</h3>

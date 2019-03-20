@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import moment from "moment";
-import displayPage from "./_PageContainer";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import Countdown from "../components/Countdown.component";
-import MetricsBar from "../components/home/MetricsBar.component";
-import Link from "react-router-dom/es/Link";
 import ConferenceThemes from "../components/home/ConferenceThemes.component";
-import Quote from "../components/home/Quote.component";
-import SomeSpeakersPresentation from "../components/home/SomeSpeakersPresentation.component";
-import SomeNews from "../components/home/SomeNews.component";
-import TicketingAccess from "../components/home/TicketingAccess.component";
 import Location from "../components/home/Location.component";
-
+import MetricsBar from "../components/home/MetricsBar.component";
+import Quote from "../components/home/Quote.component";
+import SomeNews from "../components/home/SomeNews.component";
+import SomeSpeakersPresentation from "../components/home/SomeSpeakersPresentation.component";
+import TicketingAccess from "../components/home/TicketingAccess.component";
 import { Constants } from "../constants";
+import displayPage from "./_PageContainer";
 
 class Home extends Component {
   constructor() {
@@ -172,7 +170,7 @@ class Home extends Component {
             <h6>
               BDX I/O est une conférence sur le thème de la programmation et de ses métiers annexes.{" "}
               <br />
-              Pour cette cinquième édition, nous recevrons encore 500 passioné·e·s pour une nouvelle
+              Pour cette sixième édition, nous recevrons plus de 900 passioné·e·s pour une nouvelle
               journée de découverte dans la bonne humeur !!!
             </h6>
           </div>
