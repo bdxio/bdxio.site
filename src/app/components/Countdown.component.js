@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Moment from "moment";
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import { Constants } from "../constants";
 
 class Countdown extends Component {

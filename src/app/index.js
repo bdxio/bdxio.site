@@ -1,10 +1,10 @@
 import "@babel/polyfill";
-import createHistory from "history/createHashHistory";
+import {createHashHistory} from "history";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Redirect, Route, Router, Switch } from "react-router-dom";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 import thunkMidleware from "redux-thunk";
 import { default as Speakers2018 } from "./pages/2018/Speakers.page";
 import Contact from "./pages/Contact.page";
@@ -17,12 +17,13 @@ import Partnerships from "./pages/Partnerships.page";
 import Team from "./pages/Team.page";
 import reducers from "./reducers";
 
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunkMidleware)
-);
-const history = createHistory();
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+const enhancer = composeEnhancers(applyMiddleware(thunkMidleware));
+const store = createStore(reducers, enhancer);
+const history = createHashHistory();
 
 ReactDOM.render(
   <Provider store={store}>
