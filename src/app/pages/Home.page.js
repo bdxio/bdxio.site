@@ -101,7 +101,7 @@ class Home extends Component {
                 {Config.registrationOpened !== "opened" &&
                   moment().isBefore(moment(Config.talksListPublishingDate)) && (
                     <a href="/static/plaquette.pdf" className="button medium white" target="_blank">
-                      Devenir sponsors
+                      Devenir sponsor
                     </a>
                   )}
                 {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
