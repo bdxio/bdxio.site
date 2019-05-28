@@ -84,8 +84,8 @@ class Home extends Component {
                     className="button medium white"
                     onClick={() => {
                       window.open(
-                        "https://www.weezevent.com/widget_billeterie.php?id_evenement=343515&lg_billetterie=1&code=29341&width_auto=1&color_primary=00AEEF",
-                        "Billetterie_weezevent",
+                        "https://www.billetweb.fr/shop.php?event=bdx-i-o-2019",
+                        "Billetterie BDX I/O 2019",
                         "width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no"
                       );
                     }}
