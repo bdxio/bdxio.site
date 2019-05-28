@@ -93,11 +93,12 @@ class Home extends Component {
                     Achetez votre place
                   </button>
                 )}
-                {moment().isBefore(moment(Constants.eventDate)) && (
-                  <a href="http://program.bdx.io" className="button medium white" target="_blank">
-                    Programme
-                  </a>
-                )}
+                {moment().isBefore(moment(Constants.eventDate)) &&
+                  moment().isAfter(moment(Config.programPublishingDate)) && (
+                    <a href="http://program.bdx.io" className="button medium white" target="_blank">
+                      Programme
+                    </a>
+                  )}
                 {Config.registrationOpened !== "opened" &&
                   moment().isBefore(moment(Config.talksListPublishingDate)) && (
                     <a href="/static/plaquette.pdf" className="button medium white" target="_blank">
@@ -106,7 +107,11 @@ class Home extends Component {
                   )}
                 {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
                   moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
-                    <a href="https://cfp.bdx.io" className="button medium white" target="_blank">
+                    <a
+                      href="https://conference-hall.io/public/event/XGTzWawB3ZwLR7u462O8"
+                      className="button medium white"
+                      target="_blank"
+                    >
                       Devenir speaker·euse
                     </a>
                   )}
