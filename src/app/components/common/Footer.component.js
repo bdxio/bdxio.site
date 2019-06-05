@@ -122,11 +122,7 @@ class Footer extends Component {
         </div>
 
         <small className="footer-date">
-          ©2019 - BDX I/O (hébergé par{" "}
-          <a href="https://www.4sh.fr/" target="_blank">
-            4SH
-          </a>
-          )
+          ©2019 - BDX I/O
         </small>
       </div>
     );
