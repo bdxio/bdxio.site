@@ -3,7 +3,7 @@ import Moment from "moment";
 export const Constants = {
   gSheets: {
     published_data: "1oP2RTGNZWJtDTLYDSGhAIlAjRDSblb9-v7Yz40OymXU",
-    FAQ: "1Emcr1SWknkzi2GHfB9ooVq95GDR_D5C9BApg6uhqcYs"
+    FAQ: "1zrAgzdSM4XHutJJuHWaOKHNZOeO4L_mKcQ9HHnPyYak"
   },
   eventDate: Moment("15-11-2019T09:00:00", "DD-MM-YYYYTHH:mm:ss"),
   endOfLive: Moment("15-11-2019T18:30:00", "DD-MM-YYYYTHH:mm:ss"),
