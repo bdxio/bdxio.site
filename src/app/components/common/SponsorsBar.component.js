@@ -12,23 +12,12 @@ class SponsorsBar extends Component {
       <section className="row sponsorBar">
         <img className="homeFlottant" src="img/svg/sponsor_flottant.svg" />
         <div className="columns shrink text-center">
-          <h5 className="title">Nos sponsors Impériaux</h5>
+          <h5 className="title">Nos sponsors Balthazar</h5>
         </div>
         <div className="row">
           <div className="columns auto text-center">
             {partners
-              .filter((p, i) => i === 0)
-              .map((p, i) => (
-                <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
-                  <img src={p["Logo url"]} alt={p["Société"]} width={p["Hauteur logo"] || 150} />
-                </a>
-              ))}
-          </div>
-        </div>
-        <div className="row">
-          <div className="columns auto text-center">
-            {partners
-              .filter((p, i) => i > 0 && i < 5)
+              .filter((p, i) => i < 5)
               .map((p, i) => (
                 <a key={`sb_${i}`} href={p["Site"]} title={p["Société"]} target="_blank">
                   <img src={p["Logo url"]} alt={p["Société"]} width={p["Hauteur logo"] || 150} />

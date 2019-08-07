@@ -25,6 +25,11 @@ class UserCard extends Component {
             : "/img/svg/bdxio_female_speaker.svg";
         //}
       }
+
+      if (!user["Avatar url hover"]) {
+        user["Avatar url hover"] = user["Avatar url"]
+      }
+
       this.setState({ user });
     });
   }
@@ -49,7 +54,7 @@ class UserCard extends Component {
       <div
         className={`row collapse small-12 large-6 align-center users-container-content-item ${
           this.state.expanded ? "card-open" : ""
-        } ${imageAtRight ? "alternative" : ""}`}
+          } ${imageAtRight ? "alternative" : ""}`}
         onClick={() => this.setState({ expanded: !this.state.expanded })}
       >
         {!imageAtRight && (

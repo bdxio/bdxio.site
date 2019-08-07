@@ -61,7 +61,7 @@ class SomeSpeakersPresentation extends Component {
           <div className="column small-12 medium-8">
             <div className="row align-center users-row-1 users-container-content">
               {speakers.slice(0, 2).map((speaker, i) => (
-                <UserCard key={`speaker_${i}`} user={speaker} />
+                <UserCard key={`speaker_${i}`} user={speaker} noHover/>
               ))}
             </div>
           </div>
@@ -69,7 +69,7 @@ class SomeSpeakersPresentation extends Component {
           <div className="column small-12 medium-8">
             <div className="row align-center users-row-1 users-container-content">
               {speakers.slice(-2).map((speaker, i) => (
-                <UserCard key={`speaker_${i}`} user={speaker} imageAtRight={!isMobile} />
+                <UserCard key={`speaker_${i}`} user={speaker} imageAtRight={!isMobile} noHover />
               ))}
             </div>
           </div>

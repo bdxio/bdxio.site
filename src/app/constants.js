@@ -35,6 +35,7 @@ export const Constants = {
   ],
   sponsors: {
     types: {
+      BALTHAZAR: "BALTHAZAR",
       IMPERIAL: "IMPERIAL",
       MAGNUM: "MAGNUM",
       CHOPINE: "CHOPINE"
