@@ -14,7 +14,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "13:45",
         "duration": 15
     },
@@ -33,7 +33,7 @@ export default [
                 "address": "Nantes, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "12:15",
         "duration": 15
     },
@@ -52,7 +52,7 @@ export default [
                 "address": "Mérignac, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "11:15",
         "duration": 45
     },
@@ -71,7 +71,7 @@ export default [
                 "address": "Toulouse, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "13:15",
         "duration": 15
     },
@@ -96,7 +96,7 @@ export default [
                 "address": "Toulouse, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "11:15",
         "duration": 45
     },
@@ -115,7 +115,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "12:15",
         "duration": 15
     },
@@ -139,7 +139,7 @@ export default [
                 "address": null
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "15:15",
         "duration": 45
     },
@@ -158,7 +158,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "14:15",
         "duration": 45
     },
@@ -177,7 +177,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "12:15",
         "duration": 15
     },
@@ -196,7 +196,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "13:15",
         "duration": 15
     },
@@ -215,7 +215,7 @@ export default [
                 "address": "New York City, NY, USA"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "10:15",
         "duration": 45
     },
@@ -230,11 +230,11 @@ export default [
             {
                 "name": "Guillaume Laforge",
                 "company": "Google",
-                "photoURL": "https://pbs.twimg.com/profile_images/515401943384989697/ajOdQVI9_normal.jpeg",
+                "photoURL": "https://avatars.io/twitter/glaforge",
                 "address": "Paris, France"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "14:15",
         "duration": 45
     },
@@ -259,7 +259,7 @@ export default [
                 "address": null
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "14:15",
         "duration": 45
     },
@@ -278,7 +278,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "11:15",
         "duration": 45
     },
@@ -309,7 +309,7 @@ export default [
                 "address": null
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "15:15",
         "duration": 45
     },
@@ -328,7 +328,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "10:15",
         "duration": 45
     },
@@ -347,7 +347,7 @@ export default [
                 "address": "Nantes"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "13:15",
         "duration": 15
     },
@@ -371,7 +371,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "12:15",
         "duration": 15
     },
@@ -396,7 +396,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "15:15",
         "duration": 45
     },
@@ -415,7 +415,7 @@ export default [
                 "address": "Toulouse, France"
             }
         ],
-        "room": "workshop",
+        "room": "Salle de workshop",
         "startTime": "14:15",
         "duration": 105
     },
@@ -433,7 +433,7 @@ export default [
                 "address": "Toulouse, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "15:15",
         "duration": 45
     },
@@ -452,7 +452,7 @@ export default [
                 "address": "Nantes, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "13:45",
         "duration": 15
     },
@@ -471,7 +471,7 @@ export default [
                 "address": "Niort, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "14:15",
         "duration": 45
     },
@@ -490,7 +490,7 @@ export default [
                 "address": "Lille, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "16:30",
         "duration": 45
     },
@@ -503,13 +503,13 @@ export default [
         "category": "Découverte",
         "speakers": [
             {
-                "name": "υѕe caѕe drιven",
+                "name": "Thomas Pierrain",
                 "company": "42 skillz",
-                "photoURL": "https://pbs.twimg.com/profile_images/1033113264941662214/DWXcsTcH_normal.jpg",
+                "photoURL": "https://avatars.io/twitter/tpierrain",
                 "address": "Paris, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "16:30",
         "duration": 45
     },
@@ -534,7 +534,7 @@ export default [
                 "address": "Paris, France"
             }
         ],
-        "room": "amphi-b",
+        "room": "Amphi B",
         "startTime": "10:15",
         "duration": 45
     },
@@ -553,7 +553,7 @@ export default [
                 "address": "Valbonne, France"
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "13:45",
         "duration": 15
     },
@@ -572,7 +572,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "13:45",
         "duration": 15
     },
@@ -603,7 +603,7 @@ export default [
                 "address": "Nantes, France"
             }
         ],
-        "room": "workshop",
+        "room": "Salle de workshop",
         "startTime": "10:15",
         "duration": 105
     },
@@ -627,7 +627,7 @@ export default [
                 "address": null
             }
         ],
-        "room": "amphi-c",
+        "room": "Amphi C",
         "startTime": "16:30",
         "duration": 45
     },
@@ -646,7 +646,7 @@ export default [
                 "address": "Montpellier, France"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "11:15",
         "duration": 45
     },
@@ -665,7 +665,7 @@ export default [
                 "address": "Mérignac, France"
             }
         ],
-        "room": "commission",
+        "room": "Salle de commission",
         "startTime": "10:15",
         "duration": 45
     },
@@ -684,7 +684,7 @@ export default [
                 "address": "Bordeaux "
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "16:30",
         "duration": 45
     },
@@ -709,7 +709,7 @@ export default [
                 "address": "France"
             }
         ],
-        "room": "workshop",
+        "room": "Salle de workshop",
         "startTime": "12:15",
         "duration": 105
     },
@@ -728,7 +728,7 @@ export default [
                 "address": "Nantes, France"
             }
         ],
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "13:15",
         "duration": 15
     },
@@ -746,7 +746,7 @@ export default [
         "abstract": "?",
         "format": "keynote",
         "category": "",
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "09:00",
         "duration": 60
     },
@@ -827,7 +827,7 @@ export default [
         "abstract": "?",
         "format": "keynote",
         "category": "",
-        "room": "amphi-a",
+        "room": "Amphi A",
         "startTime": "17:30",
         "duration": 45
     },
