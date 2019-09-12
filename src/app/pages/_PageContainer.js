@@ -37,7 +37,7 @@ const displayPage = Page => {
 
     render() {
       const { isOnTop } = this.state;
-      const { loaded, Sponsors } = this.props.gsheet;
+      const { loaded, Sponsors, Config } = this.props.gsheet;
       const { subscriptionHasFocused } = this.props.navigate;
       const BALTHAZAR = Sponsors.filter(
         s => s["Actif"] === "1" && s["Type"].toUpperCase() === Constants.sponsors.types.BALTHAZAR
@@ -45,7 +45,7 @@ const displayPage = Page => {
       if (loaded) {
         return (
           <div className="pageContainer">
-            <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} />
+            <Menu pathname={this.props.location.pathname} isOnTop={isOnTop} programPublishingDate={Config.programPublishingDate} />
             <Page {...this.props}>
               {BALTHAZAR.length > 0 && this.props.location.pathname != "/partnerships" && (
                 <SponsorsBar partners={BALTHAZAR} />

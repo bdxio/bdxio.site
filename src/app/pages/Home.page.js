@@ -93,9 +93,8 @@ class Home extends Component {
                     Achetez votre place
                   </button>
                 )}
-                {moment().isBefore(moment(Constants.eventDate)) &&
-                  moment().isAfter(moment(Config.programPublishingDate)) && (
-                    <a href="http://program.bdx.io" className="button medium white" target="_blank">
+                {moment().isSameOrAfter(moment(Config.programPublishingDate)) && (
+                    <a href="/schedule" className="button medium white" target="_blank">
                       Programme
                     </a>
                   )}

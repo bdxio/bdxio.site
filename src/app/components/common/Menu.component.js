@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 class Menu extends Component {
   constructor() {
@@ -11,8 +12,9 @@ class Menu extends Component {
   }
 
   render() {
-    const { pathname, isOnTop } = this.props;
+    const { pathname, isOnTop, programPublishingDate } = this.props;
     const { menuOpened } = this.state;
+
     return (
       <nav className={"row align-middle menu " + (!isOnTop ? "scroll" : "")}>
         <span className="columns shrink menu-logo">
@@ -37,22 +39,26 @@ class Menu extends Component {
                 Actualités
               </Link>
             </li>
-            <li className="shrink menu-item-content disabled">
+            {/* <li className={`shrink menu-item-content ${moment().isBefore(moment(programPublishingDate)) && 'disabled'}`}>
               <Link
                 className={pathname === "/speakers" ? "selected" : ""}
                 to="/speakers"
-                onClick={e => e.preventDefault()}
+                onClick={e => {
+                  if (moment().isBefore(moment(programPublishingDate)) && 'disabled') e.preventDefault();
+                }}
               >
                 Conférencier·ère·s
               </Link>
-            </li>
-            <li className="shrink menu-item-content disabled">
+            </li> */}
+            <li className={`shrink menu-item-content ${moment().isBefore(moment(programPublishingDate)) && 'disabled'}`}>
               <Link
-                className={pathname === "/talks" ? "selected" : ""}
-                to="/talks"
-                onClick={e => e.preventDefault()}
+                className={pathname === "/schedule" ? "selected" : ""}
+                to="/schedule"
+                onClick={e => {
+                  if (moment().isBefore(moment(programPublishingDate)) && 'disabled') e.preventDefault();
+                }}
               >
-                Conférences
+                Programme
               </Link>
             </li>
             <li className="shrink menu-item-content">
@@ -127,22 +133,23 @@ class Menu extends Component {
                 Actualités
               </Link>
             </li>
-            <li className="shrink menu-item-content disabled">
+            {/* <li className="shrink menu-item-content">
               <Link
                 className={pathname === "/speakers" ? "selected" : ""}
                 to="/speakers"
-                onClick={e => e.preventDefault()}
               >
                 Conférencier·ère·s
               </Link>
-            </li>
-            <li className="shrink menu-item-content disabled">
+            </li> */}
+            <li className={`shrink menu-item-content ${moment().isBefore(moment(programPublishingDate)) && 'disabled'}`}>
               <Link
-                className={pathname === "/talks" ? "selected" : ""}
-                to="/talks"
-                onClick={e => e.preventDefault()}
+                className={pathname === "/schedule" ? "selected" : ""}
+                to="/schedule"
+                onClick={e => {
+                  if (moment().isBefore(moment(programPublishingDate)) && 'disabled') e.preventDefault();
+                }}
               >
-                Conférences
+                Programme
               </Link>
             </li>
             <li className="shrink menu-item-content">
@@ -176,7 +183,8 @@ class Menu extends Component {
 
 Menu.propTypes = {
   pathname: PropTypes.string.isRequired,
-  isOnTop: PropTypes.bool.isRequired
+  isOnTop: PropTypes.bool.isRequired,
+  programPublishingDate: PropTypes.string.isRequired
 };
 
 export default Menu;

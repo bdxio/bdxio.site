@@ -48,7 +48,7 @@ class Team extends Component {
             <img src="img/svg/about_flottant.svg" />
           </div>
           <div className="column small-12 large-8">
-            <h4>/ LE BUREAU</h4>
+            <h4>/ L'EQUIPE</h4>
             <div className="row users-container-content">
               {Orgas.map((member, i) => {
                 if (!isMobile && i % 2 === 0) line++;

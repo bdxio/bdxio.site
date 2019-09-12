@@ -15,6 +15,8 @@ import CodeConduite from "./pages/legal/CodeConduite";
 import News from "./pages/News.page";
 import Partnerships from "./pages/Partnerships.page";
 import Team from "./pages/Team.page";
+import Speakers from "./pages/Speakers.page";
+import Schedule from "./pages/Schedule.page";
 import reducers from "./reducers";
 
 const composeEnhancers =
@@ -34,7 +36,7 @@ ReactDOM.render(
         <Route path="/team" component={Team} />
         <Route path="/news" component={News} />
         {/* <Route path="/speakers" component={Speakers} /> */}
-        {/* <Route path="/talks" component={Talks} /> */}
+        <Route path="/schedule" component={Schedule} />
         <Route path="/partnerships" component={Partnerships} />
         <Route path="/faq" component={Faq} />
         <Route path="/contact" component={Contact} />
