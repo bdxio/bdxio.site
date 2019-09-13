@@ -13,18 +13,18 @@ class UserCard extends Component {
   componentDidMount() {
     const { user } = this.props;
     this.getImageSize(user["Avatar url"]).then(size => {
-      if (size.width < 150 || size.height < 150) {
-        // if (user["Twitter"]) {
-        //   user["Avatar url"] = `https://twitter.com/${
-        //     user["Twitter"]
-        //   }/profile_image?size=original`;
-        // } else {
-        user["Avatar url"] =
-          user["gender"] === "male"
-            ? "/img/svg/bdxio_male_speaker.svg"
-            : "/img/svg/bdxio_female_speaker.svg";
-        //}
-      }
+      // if (size.width < 150 || size.height < 150) {
+      //   // if (user["Twitter"]) {
+      //   //   user["Avatar url"] = `https://twitter.com/${
+      //   //     user["Twitter"]
+      //   //   }/profile_image?size=original`;
+      //   // } else {
+      //   user["Avatar url"] =
+      //     user["gender"] === "male"
+      //       ? "/img/svg/bdxio_male_speaker.svg"
+      //       : "/img/svg/bdxio_female_speaker.svg";
+      //   //}
+      // }
 
       if (!user["Avatar url hover"]) {
         user["Avatar url hover"] = user["Avatar url"]

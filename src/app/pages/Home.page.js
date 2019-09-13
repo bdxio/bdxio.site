@@ -12,6 +12,8 @@ import TicketingAccess from "../components/home/TicketingAccess.component";
 import { Constants } from "../constants";
 import displayPage from "./_PageContainer";
 
+import all_talks from '../../static/schedule.js'
+
 class Home extends Component {
   constructor() {
     super();
@@ -43,12 +45,21 @@ class Home extends Component {
     }
   }
 
-  opendWindow() {}
+  opendWindow() { }
 
   render() {
     const { isMobile } = this.state;
     const { isTabletOrSmaller } = this.state;
-    const { News, Sponsors, Speakers, Speakers18, Config } = this.props.gsheet;
+    const { News, Sponsors, Speakers18, Config } = this.props.gsheet;
+    let Speakers = Array.prototype.concat.apply([], all_talks.map(talk => talk.speakers)).filter(speaker => !!speaker);
+    Speakers = Speakers.filter((speaker, i) => Speakers.findIndex(s => s.name === speaker.name) === i)
+      .map(speaker => ({
+        "Avatar url": speaker.photoURL,
+        "Prénom": speaker.name.split(/\s/)[0],
+        "Nom": speaker.name.split(/\s/)[1],
+        "Bio": speaker.bio,
+        "gender": "male"
+      }));
 
     return (
       <div className="home">
@@ -94,10 +105,10 @@ class Home extends Component {
                   </button>
                 )}
                 {moment().isSameOrAfter(moment(Config.programPublishingDate)) && (
-                    <a href="/schedule" className="button medium white" target="_blank">
-                      Programme
+                  <a href="/schedule" className="button medium white" target="_blank">
+                    Programme
                     </a>
-                  )}
+                )}
                 {Config.registrationOpened !== "opened" &&
                   moment().isBefore(moment(Config.talksListPublishingDate)) && (
                     <a href="/static/plaquette.pdf" className="button medium white" target="_blank">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../components/common/Header.component";
 import displayPage from "./_PageContainer";
 import UserCard from "../components/common/UserCard.component";
+import all_talks from '../../static/schedule.js'
 
 class Speakers extends Component {
   constructor() {
@@ -30,7 +31,15 @@ class Speakers extends Component {
 
   render() {
     const { isMobile } = this.state;
-    const { Speakers } = this.props.gsheet;
+    let Speakers = Array.prototype.concat.apply([], all_talks.map(talk => talk.speakers)).filter(speaker => !!speaker);
+    Speakers = Speakers.filter((speaker, i) => Speakers.findIndex(s => s.name === speaker.name) === i)
+      .map(speaker => ({
+        "Avatar url": speaker.photoURL,
+        "Prénom": speaker.name.split(/\s/)[0],
+        "Nom": speaker.name.split(/\s/)[1],
+        "Bio": speaker.bio,
+        "gender": "male"
+      }));
     let line = 0;
     return (
       <div>
