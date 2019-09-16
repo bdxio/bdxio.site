@@ -46,7 +46,7 @@ class Schedule extends Component {
                                     {all_talks.filter(talk => talk.startTime === slot).sort(compareRoom).map((talk, j) =>
                                         <Session
                                             key={j}
-                                            style={{ gridArea: `${i + 1}/ ${j + 1} / ${talk.format === "Hands on lab" ? i + 3 : i + 1} / ${all_talks.filter(talk => talk.startTime === slot).length === 1 ? (talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}` }}
+                                            style={{ gridArea: `${i + 1}/ ${j + 1} / ${talk.format === "Hands on lab" ? i + (talk.startTime === '12:15'?5:4) : i + 1} / ${all_talks.filter(talk => talk.startTime === slot).length === 1 ? (talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}` }}
                                             talk={talk} />
                                     )
                                     }
