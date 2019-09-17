@@ -163,7 +163,7 @@ export default [
             {
                 "name": "Simon Bédard",
                 "company": "Dolby",
-                "photoURL": "https://media.licdn.com/dms/image/C4E03AQELR6mEZJEeLA/profile-displayphoto-shrink_200_200/0?e=1573689600&v=beta&t=lQY0EhUeZppeMno3k0PFVou-e0cERBwRlxnkcGeNYY0",
+                "photoURL": "https://drive.google.com/thumbnail?id=1FKryHhI0W3EwoJclTies4yUPv17NRkB1",
                 "bio": "Jeune Québécois à Bordeaux  depuis bientôt 5 ans, je suis ingénieur logiciel de métier et chargé de projet de formation.  Développant en java depuis le début de ma carrière, j'ai eu la chance de toucher  un peu a tout, en passant du client Web lourd sur Struts jusqu'aux micro service Rest , de la 2D avec LibGDX et la 3D avec JMonkey. \n\n ",
                 "address": "Bordeaux, France"
             }
@@ -310,21 +310,21 @@ export default [
             {
                 "name": "Vincent Huc",
                 "company": "Pôle emploi",
-                "photoURL": "https://media.licdn.com/dms/image/C4E03AQHVvR_sXSuqQw/profile-displayphoto-shrink_200_200/0?e=1573689600&v=beta&t=Yq2aYU_-9_maNH3Rr82tLFg1MDY2j0YgBBprB-Equ3Q",
+                "photoURL": "https://drive.google.com/thumbnail?id=139-2iJC4O3Es79Zef8lHzp38aKYCmY3G",
                 "bio": "Leader technique à la DSI de Pôle emploi, je travaille sur des projets visant à améliorer l'accompagnement des demandeurs d'emploi et le travail des conseillers. <br/>\nConvaincu que le développement ne s'arrête pas juste au code, j'ai participé à de nombreux chantiers autour du mouvement Devops : mise en place de pratiques et d'outils de tests automatisés, construction de chaînes d'intégration continue, fluidification des échanges et mutualisation des ressources avec les OPS...",
                 "address": "Aix-en-Provence, France"
             },
             {
                 "name": "Amandine Jaufeeraully",
-                "company": "Pole Emploi",
+                "company": "Pôle Emploi",
                 "photoURL": "https://lh5.googleusercontent.com/-YYYxVgPPc5g/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcB0m6kk6jvurhDY4BlOS1rKrGQHg/photo.jpg",
                 "bio": "Automaticienne de tests à la DSI de Pôle Emploi, j'accompagne les équipes dans la mise en place des tests automatisés avec pour objectif de couvrir tous les niveaux de tests.",
                 "address": "Aix-en-Provence, France"
             },
             {
                 "name": "Marie ISOARD",
-                "company": "POLE EMPLOI",
-                "photoURL": "https://media.licdn.com/dms/image/C4D03AQHAEw6uLFcvPg/profile-displayphoto-shrink_200_200/0?e=1574294400&v=beta&t=JhfDVeyyPtfsw-Rg-SIsG1cSo44z5GmPlDiUKrsDjJw",
+                "company": "Pôle Emploi",
+                "photoURL": "https://drive.google.com/thumbnail?id=1Ntxub3mhDNN6TZsaiqUn_Nqu_uDM8Vid",
                 "bio": "Automaticienne de tests à la DSI de Pole Emploi\nJ'accompagne des équipes Agile dans la mise en place de l'automatisation des tests.",
                 "address": null
             }
@@ -456,7 +456,7 @@ export default [
             {
                 "name": "Kevin Davin",
                 "company": "Stack Labs",
-                "photoURL": "   ",
+                "photoURL": "https://drive.google.com/thumbnail?id=1XqJwJ9Hompm8yDYhFsm8fyhCW6-OGU8g",
                 "bio": "Google Developer Expert on Google Cloud, I am above all passionate about tech, languages, infrastructure, and automation. \n\nJava, Kotlin, Javascript or TypeScript are my day-to-day languages. I deploy all of those on the Google Kubernetes Engine with the Continuous Integration of Gitlab 🚀. \n\nAddict of agility and devops, some of my work was to help teams to follow those philosophies. From the analysis of the code quality (with code-review or static analysis tool) to the setup of unit or end-to-end tests and ending by the continuous deployment of the application directly on the Google Cloud platform. \n\nMy mantra is to go to production as soon as possible! In my activity in Stack Labs and also in my personal time, I contribute on open source projects (Spring boot, Spring Security, Angular, Protractor, Jest schematics for Angular, NgxOpenlayers...). . \n\nI'm involved in the GDG Toulouse, on the organization part (for the video capture part) and to provide some talks too. Following that, I'm also into the DevFest Toulouse team since day 1. I'm mainly managing the website during the Devfest season. Thanks to that, I became the first external contributor to the GDG-X/hoverboard project. \n\nI'm currently CTO (and one of the founder) of Stack Labs, a company specialized in architecture and development of cloud solution. I supervise about twenty passionate and talented developers in their missions and during our internal events",
                 "address": "Toulouse, France"
             }
@@ -770,7 +770,7 @@ export default [
             {
                 "name": "Marie Viley",
                 "company": "Zenika",
-                "photoURL": "https://media.licdn.com/dms/image/C4D03AQEIJ4hhjueoJQ/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=1Y6rFa8t2cd6utRf7w0HgeHwYCSviSBAYmBdhO4Soy0",
+                "photoURL": "https://drive.google.com/thumbnail?id=1W7qBOS57hzk7h_7Bo0SIqnbx0nBp8aWm",
                 "bio": "Recruteuse chez Zenika, je me suis toujours intéressée à la communication non verbale et aux mécanismes d’influence et de prise de décision. \nCe qui me motive, c’est de comprendre au mieux les gens et de pouvoir échanger avec eux. \nFan des conférences TED et  [#TRU] (https://www.linkhumans.fr/tru/) je suis constamment en veille sur le recrutement, le RGPD et les nouveautés tech.\nJ’aime également le métal, la bière et Dikkenek ^^\n",
                 "address": "Nantes, France"
             }

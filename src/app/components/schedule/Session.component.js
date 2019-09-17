@@ -104,6 +104,7 @@ class Session extends Component {
                                 }
                                 <li>{talk.duration} min</li>
                                 <li>{talk.room}</li>
+                                <li>{talk.level}</li>
                             </ul>
                         </div>
                         <div className="popup-meta">
