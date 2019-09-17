@@ -105,7 +105,7 @@ class Home extends Component {
                   </button>
                 )}
                 {moment().isSameOrAfter(moment(Config.programPublishingDate)) && (
-                  <a href="/schedule" className="button medium white" target="_blank">
+                  <a href="/#/schedule" className="button medium white">
                     Programme
                     </a>
                 )}

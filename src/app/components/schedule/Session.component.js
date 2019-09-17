@@ -44,7 +44,7 @@ class Session extends Component {
         const { style, talk } = this.props
         return (
             <React.Fragment>
-                <div onClick={this.openModal} className={`${talk.format === "pause" && "break"} session`} style={style}>
+                <div onClick={this.openModal} className={`${talk.format} session`} style={style}>
                     <div className="session-header">
                         <div flex="">
                             <h3 className="session-title">{talk.title}</h3>
@@ -55,7 +55,8 @@ class Session extends Component {
                     {talk.format !== "pause" &&
                         <div className="session-content" flex="">
                             <div className="session-meta">
-                                <div>{talk.room}</div>
+                                <div className="room">{talk.room}</div>
+                                <div className="level">{talk.level}</div>
                             </div>
                         </div>
                     }

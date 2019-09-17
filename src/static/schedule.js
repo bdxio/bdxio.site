@@ -70,7 +70,7 @@ export default [
             {
                 "name": "Nicolas Decoster",
                 "company": "Magellium",
-                "photoURL": "https://pbs.twimg.com/profile_images/573162928913833986/mNWlOcuk_normal.png",
+                "photoURL": "https://2017.devfesttoulouse.fr/images/speakers/nicolas-decoster.jpg",
                 "bio": "Informaticien curieux depuis 35 ans, de métier depuis 20 ans (principalement dans le spatial). Non spécialiste touche à tout : du développement logiciel à l'étude scientifique, du développement d'algorithmes de traitement à la mise en œuvre de systèmes, de la programmation en C++ ou Python à l'utilisation des technos Web, de la petite appli en ligne de commande aux IHM ou aux systèmes distribués. Ingénieur chez Magellium et co-fondateur et animateur à la Compagnie du Code.",
                 "address": "Toulouse, France"
             }
@@ -117,7 +117,7 @@ export default [
             {
                 "name": "Julie guillerm",
                 "company": "Capgemini",
-                "photoURL": "https://lh5.googleusercontent.com/-AZCmJwbH86k/AAAAAAAAAAI/AAAAAAAAAEg/K83eBC-pZU4/photo.jpg",
+                "photoURL": " https://lh5.googleusercontent.com/-AZCmJwbH86k/AAAAAAAAAAI/AAAAAAAAAEg/K83eBC-pZU4/photo.jpg",
                 "bio": "",
                 "address": "Bordeaux, France"
             }
@@ -162,8 +162,8 @@ export default [
         "speakers": [
             {
                 "name": "Simon Bédard",
-                "company": "Invivoo",
-                "photoURL": "https://lh6.googleusercontent.com/-C80VUxYP5dk/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdRQiETGTd_WnOQdStNdORaMMRnEA/mo/photo.jpg",
+                "company": "Dolby",
+                "photoURL": "https://media.licdn.com/dms/image/C4E03AQELR6mEZJEeLA/profile-displayphoto-shrink_200_200/0?e=1573689600&v=beta&t=lQY0EhUeZppeMno3k0PFVou-e0cERBwRlxnkcGeNYY0",
                 "bio": "Jeune Québécois à Bordeaux  depuis bientôt 5 ans, je suis ingénieur logiciel de métier et chargé de projet de formation.  Développant en java depuis le début de ma carrière, j'ai eu la chance de toucher  un peu a tout, en passant du client Web lourd sur Struts jusqu'aux micro service Rest , de la 2D avec LibGDX et la 3D avec JMonkey. \n\n ",
                 "address": "Bordeaux, France"
             }
@@ -203,7 +203,7 @@ export default [
             {
                 "name": "Sebastien Moreno",
                 "company": "Ippon Technologies",
-                "photoURL": "https://lh5.googleusercontent.com/-UwUhBessot8/AAAAAAAAAAI/AAAAAAAAAAA/PZMdVx421Fw/photo.jpg",
+                "photoURL": "http://www.jamkey.fr/wp-content/uploads/2011/04/sebastien-moreno-320x320.jpg",
                 "bio": "Consultant DevOps passionné chez @ Ippon Technologies, mon expérience est composée de nombreuses missions de conseil en tant que Développeur Java, Architecte technique, expert DevOps. J'ai accompagné durant ces années mes clients pour les aider à définir et implémenter leur stratégies DevOps avec toujours l'idée de promouvoir une démarche Agile.",
                 "address": "Bordeaux, France"
             }
@@ -310,7 +310,7 @@ export default [
             {
                 "name": "Vincent Huc",
                 "company": "Pôle emploi",
-                "photoURL": "https://avatars1.githubusercontent.com/u/39058879?v=4",
+                "photoURL": "https://media.licdn.com/dms/image/C4E03AQHVvR_sXSuqQw/profile-displayphoto-shrink_200_200/0?e=1573689600&v=beta&t=Yq2aYU_-9_maNH3Rr82tLFg1MDY2j0YgBBprB-Equ3Q",
                 "bio": "Leader technique à la DSI de Pôle emploi, je travaille sur des projets visant à améliorer l'accompagnement des demandeurs d'emploi et le travail des conseillers. <br/>\nConvaincu que le développement ne s'arrête pas juste au code, j'ai participé à de nombreux chantiers autour du mouvement Devops : mise en place de pratiques et d'outils de tests automatisés, construction de chaînes d'intégration continue, fluidification des échanges et mutualisation des ressources avec les OPS...",
                 "address": "Aix-en-Provence, France"
             },
@@ -318,13 +318,13 @@ export default [
                 "name": "Amandine Jaufeeraully",
                 "company": "Pole Emploi",
                 "photoURL": "https://lh5.googleusercontent.com/-YYYxVgPPc5g/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcB0m6kk6jvurhDY4BlOS1rKrGQHg/photo.jpg",
-                "bio": "",
+                "bio": "Automaticienne de tests à la DSI de Pôle Emploi, j'accompagne les équipes dans la mise en place des tests automatisés avec pour objectif de couvrir tous les niveaux de tests.",
                 "address": "Aix-en-Provence, France"
             },
             {
                 "name": "Marie ISOARD",
                 "company": "POLE EMPLOI",
-                "photoURL": "https://lh3.googleusercontent.com/-Z8YBRmwkr7w/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfjUgfW0wIoGHe0TLVJ0a106KyzQw/mo/photo.jpg",
+                "photoURL": "https://media.licdn.com/dms/image/C4D03AQHAEw6uLFcvPg/profile-displayphoto-shrink_200_200/0?e=1574294400&v=beta&t=JhfDVeyyPtfsw-Rg-SIsG1cSo44z5GmPlDiUKrsDjJw",
                 "bio": "Automaticienne de tests à la DSI de Pole Emploi\nJ'accompagne des équipes Agile dans la mise en place de l'automatisation des tests.",
                 "address": null
             }
@@ -390,7 +390,7 @@ export default [
             {
                 "name": "Cyril Beslay",
                 "company": "ManoMano",
-                "photoURL": "https://lh6.googleusercontent.com/-WdK4kFHhn_s/AAAAAAAAAAI/AAAAAAAA0A0/4eC2J-eD-h0/photo.jpg",
+                "photoURL": "https://miro.medium.com/max/3150/1*VZNmebet_aHNtSbknBKSeA.jpeg",
                 "bio": "",
                 "address": "Bordeaux, France"
             }
@@ -410,7 +410,7 @@ export default [
             {
                 "name": "Kévin Barreau",
                 "company": "AT INTERNET",
-                "photoURL": "https://lh5.googleusercontent.com/-UqzOtVbN1ig/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3reV57i6lxIQZjCgYPjpAuwolyfFbQ/mo/photo.jpg",
+                "photoURL": "http://luminusdev.azurewebsites.net/toto.JPG",
                 "bio": "Ingénieur Data au sein de l'équipe Data Science à AT Internet. Après une formation en recherche opérationnelle, je travaille maintenant sur tous les aspects d'un produit : conception, modélisation, stockage et mise à disposition des données, interface. Et Scrum Master une partie du temps.",
                 "address": null
             },
@@ -456,7 +456,7 @@ export default [
             {
                 "name": "Kevin Davin",
                 "company": "Stack Labs",
-                "photoURL": "https://lh5.googleusercontent.com/-t2c2Q9TjKnA/AAAAAAAAAAI/AAAAAAAAFZU/G4vUXziejAw/photo.jpg",
+                "photoURL": "   ",
                 "bio": "Google Developer Expert on Google Cloud, I am above all passionate about tech, languages, infrastructure, and automation. \n\nJava, Kotlin, Javascript or TypeScript are my day-to-day languages. I deploy all of those on the Google Kubernetes Engine with the Continuous Integration of Gitlab 🚀. \n\nAddict of agility and devops, some of my work was to help teams to follow those philosophies. From the analysis of the code quality (with code-review or static analysis tool) to the setup of unit or end-to-end tests and ending by the continuous deployment of the application directly on the Google Cloud platform. \n\nMy mantra is to go to production as soon as possible! In my activity in Stack Labs and also in my personal time, I contribute on open source projects (Spring boot, Spring Security, Angular, Protractor, Jest schematics for Angular, NgxOpenlayers...). . \n\nI'm involved in the GDG Toulouse, on the organization part (for the video capture part) and to provide some talks too. Following that, I'm also into the DevFest Toulouse team since day 1. I'm mainly managing the website during the Devfest season. Thanks to that, I became the first external contributor to the GDG-X/hoverboard project. \n\nI'm currently CTO (and one of the founder) of Stack Labs, a company specialized in architecture and development of cloud solution. I supervise about twenty passionate and talented developers in their missions and during our internal events",
                 "address": "Toulouse, France"
             }
@@ -516,7 +516,7 @@ export default [
             {
                 "name": "Arthur Retrou",
                 "company": "Dernier Cri",
-                "photoURL": "https://lh4.googleusercontent.com/-2tmNDDHazV8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfvS1L8063oS5_YW68duQhAKYrqrg/mo/photo.jpg",
+                "photoURL": "https://i.ibb.co/tx7cmn3/62387336-10218823493562882-3704671101121462272-o.jpg",
                 "bio": "Je suis Lead UX Designer à Lille dans l'agence Dernier Cri. Je supporte l’empathie et l'exigence au service de parcours utilisateurs intelligents quel qu'en soit la cible et le support.",
                 "address": "Lille, France"
             }
@@ -536,7 +536,7 @@ export default [
             {
                 "name": "Thomas Pierrain",
                 "company": "42 skillz",
-                "photoURL": "https://avatars.io/twitter/tpierrain",
+                "photoURL": "https://static.ncrafts.io/speakers/ThomasPierrainNB2.jpg",
                 "bio": "Co-organisateur du meetup __*DDD FR*__   mais aussi du meetup __*BDD Paris*__.    Speaker international (mais avec un accent de ...).\n\nMalgré une certaine passion pour le développement logiciel (écoles XP & DDD) ainsi que pour le travail en équipe, Thomas ne désespère pas de trouver un autre moyen d’expression ou sa créativité sera -il l’espère- un peu plus reconnue.\n \nAprès s’être essayé en vain à la musique, au Tai-Chi-Chuan, à la cuisine, au poker-live et à la philosophie… Thomas le sait : un jour il sera astrophysicien ou même publicitaire (d’ailleurs il offrira -20% sur l’esprit de la forêt lors de son prochain talk).\n",
                 "address": "Paris, France"
             }
@@ -556,7 +556,7 @@ export default [
             {
                 "name": "Florent Berthelot",
                 "company": "Zenika",
-                "photoURL": "https://lh6.googleusercontent.com/-wapkHf3vclA/AAAAAAAAAAI/AAAAAAAAJ8g/V-e0upg_NcE/photo.jpg",
+                "photoURL": "https://pbs.twimg.com/profile_images/826194184428204033/RDkzV_7k_400x400.jpg",
                 "bio": "Membre de l'équipe AYA @ Zenika.\n\nJe suis passionné du Web et des technologies qui gravitent autour. J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG, les Frameworks JS (front & back) et la vanille.\n\nTransmettre ma passion pour l'artisanat web occupe une part importante de mon travail de développeur (meetups, formations, conférences, encadrement de stagiaires).\n\nVive le web, Vive le JS et Vive l'artisanat !\n",
                 "address": "Paris, France"
             },
@@ -583,7 +583,7 @@ export default [
             {
                 "name": "Michèle Legait",
                 "company": "PROS",
-                "photoURL": "https://lh5.googleusercontent.com/-ENAdp7qfF1g/AAAAAAAAAAI/AAAAAAAAAdk/dfHb9xQ3Caw/photo.jpg",
+                "photoURL": "https://pbs.twimg.com/profile_images/998304606160486400/rAB6aJxV_400x400.jpg",
                 "bio": "Développeuse depuis plus de 10 ans, je me passionne depuis le début pour le front-end et l'accessibilité. Je suis une aficionada de Javascript, React, CSS et WCAG.\nJ'ai aussi la chance de faire partie depuis 3 ans des organisateurs de la conférence Riviera DEV, qui se déroule chaque année à Sophia-Antipolis.",
                 "address": "Valbonne, France"
             }
@@ -602,8 +602,8 @@ export default [
         "speakers": [
             {
                 "name": "Ane Diaz De Tuesta",
-                "company": "Lectra",
-                "photoURL": "https://lh6.googleusercontent.com/-bpzQaYbiZ0o/AAAAAAAAAAI/AAAAAAAAJMo/ZSFCkCEqc_Q/photo.jpg",
+                "company": "Chandago®",
+                "photoURL": "https://drive.google.com/thumbnail?id=1TvfrN_syIsodIRsOSUb8aIQpzq-7H5j3",
                 "bio": "Je suis une personne sociable, dynamique et responsable. Je parle couramment l'anglais et le français, et mes langues maternelles sont le basque et l'espagnol.\n\n\nJ'aime bien apprendre des nouvelles choses, que ce soit des technologies, des méthodologies de travail, des nouvelles pratiques ...\nMon implication et ma participation aux conférences techniques le montrent, que ce soit en tant que participante ou oratrice. \nJe suis une passionnée de la Facilitation Graphique et du Sketchnoting, que j'essaie de mettre en place dans mon quotidien (dans le contexte professionnel et personnel). Je suis une vraie convaincue des bénéfices que ces techniques apportent.\n\n\nAprès 4 ans passés dans le SI en société de services (développement Web Java/JEE, Agile/Scrum, TDD), j’ai eu la chance d’intégrer Lectra en tant que développeur Web.\n\nRécemment, j'ai eu l'opportunité de changer de poste pour dévenir Component Owner (Garant des Composants Techniques Cloud).",
                 "address": "Bordeaux, France"
             }
@@ -663,7 +663,7 @@ export default [
             {
                 "name": "Julien Topçu",
                 "company": "Société Générale & OWASP fundation",
-                "photoURL": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+                "photoURL": "https://www.gravatar.com/avatar/610f3914d9b392b389657823719f09dd",
                 "bio": "Senior Lead Developer à la Société Générale, je suis un fervent défenseur du Software Craftsmanship.\n\nJ'évangélise activement autour de DDD/Hexagonal Architecture, l'XP et le Kanban #NoEstimates au sein de cours et de conférences ainsi qu'à travers d'articles de [blog](https://beyondxscratch.com/).\n\nMembre de la fondation OWASP, je m'efforce de transmettre à la communauté une philosophie DevSecOps que je pense être l'avenir du métier de développeur. J'ai participé à la mise en place de pipeline de Continuous Security à l'échelles d'entreprises.\n",
                 "address": null
             }
@@ -702,7 +702,7 @@ export default [
         "speakers": [
             {
                 "name": "Cyril Delmas",
-                "company": "Lectra",
+                "company": "Blue Valet",
                 "photoURL": "https://avatars0.githubusercontent.com/u/5180763?v=4",
                 "bio": "Développeur depuis une douzaine d'années, je m'intéresse à plein de choses, notamment : la programmation fonctionnelle, le cloud, et tout ce qui n'est pas frontend en fait (bon surtout le CSS)... J'aime partager mes expérimentations et découvertes, échanger autour d'une bière, ...",
                 "address": "Mérignac, France"
@@ -723,7 +723,7 @@ export default [
             {
                 "name": "Benoît Prioux",
                 "company": "Lectra",
-                "photoURL": "https://avatars1.githubusercontent.com/u/1451016?v=4",
+                "photoURL": "https://drive.google.com/thumbnail?id=0B8S4hxfH2oQTd0tfQ21nMGVCd1U",
                 "bio": "Je suis Technical Leader au centre R&D de Lectra, éditeur de logiciel dans le monde de la mode, à Bordeaux. \nJe suis un développeur Java depuis 2005, et en train de basculer petit à petit dans le monde Kotlin.\nImpliqué dans le projet open-source Asciidoctor, je suis aussi passionné par tout ce qui finit en DD : TDD, BDD, DDD, ...",
                 "address": "Bordeaux "
             }
@@ -770,7 +770,7 @@ export default [
             {
                 "name": "Marie Viley",
                 "company": "Zenika",
-                "photoURL": "https://lh6.googleusercontent.com/-LZHYx43aSFI/AAAAAAAAAAI/AAAAAAAACd4/xbCJI1QDS3w/photo.jpg",
+                "photoURL": "https://media.licdn.com/dms/image/C4D03AQEIJ4hhjueoJQ/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=1Y6rFa8t2cd6utRf7w0HgeHwYCSviSBAYmBdhO4Soy0",
                 "bio": "Recruteuse chez Zenika, je me suis toujours intéressée à la communication non verbale et aux mécanismes d’influence et de prise de décision. \nCe qui me motive, c’est de comprendre au mieux les gens et de pouvoir échanger avec eux. \nFan des conférences TED et  [#TRU] (https://www.linkhumans.fr/tru/) je suis constamment en veille sur le recrutement, le RGPD et les nouveautés tech.\nJ’aime également le métal, la bière et Dikkenek ^^\n",
                 "address": "Nantes, France"
             }
