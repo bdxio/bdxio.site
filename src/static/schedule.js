@@ -162,7 +162,7 @@ export default [
         "speakers": [
             {
                 "name": "Simon Bédard",
-                "company": "Dolby",
+                "company": "Invivoo",
                 "photoURL": "https://drive.google.com/thumbnail?id=1FKryHhI0W3EwoJclTies4yUPv17NRkB1",
                 "bio": "Jeune Québécois à Bordeaux  depuis bientôt 5 ans, je suis ingénieur logiciel de métier et chargé de projet de formation.  Développant en java depuis le début de ma carrière, j'ai eu la chance de toucher  un peu a tout, en passant du client Web lourd sur Struts jusqu'aux micro service Rest , de la 2D avec LibGDX et la 3D avec JMonkey. \n\n ",
                 "address": "Bordeaux, France"
