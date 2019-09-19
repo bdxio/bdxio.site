@@ -295,8 +295,8 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "Amphi B",
-        "startTime": "11:15",
+        "room": "Amphi C",
+        "startTime": "15:15",
         "duration": 45
     },
     {
@@ -461,8 +461,8 @@ export default [
                 "address": "Toulouse, France"
             }
         ],
-        "room": "Amphi C",
-        "startTime": "15:15",
+        "room": "Amphi B",
+        "startTime": "11:15",
         "duration": 45
     },
     {
