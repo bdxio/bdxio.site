@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Popup from "reactjs-popup";
+import showdown from "showdown";
 
 class Session extends Component {
     constructor(props) {
         super(props);
         this.state = { open: false };
+        this.converter = new showdown.Converter();
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
@@ -108,11 +110,11 @@ class Session extends Component {
                             </ul>
                         </div>
                         <div className="popup-meta">
-                            <div>{talk.abstract}</div>
+                            <div dangerouslySetInnerHTML={{ __html: this.converter.makeHtml(talk.abstract) }}></div>
                         </div>
                     </div>
                 </Popup>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
