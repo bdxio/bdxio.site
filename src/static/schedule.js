@@ -293,6 +293,13 @@ export default [
                 "photoURL": "https://avatars2.githubusercontent.com/u/2222707?v=4",
                 "bio": "",
                 "address": "Bordeaux, France"
+            },
+            {
+                "name":"VAZ	Mickael",
+                "company": "AT Internet",
+                "photoURL": "https://www.gravatar.com/avatar/6569e31a40246bbbb58765ce205f8e81",
+                "bio": "",
+                "address": "Bordeaux, France"
             }
         ],
         "room": "Amphi C",
@@ -374,9 +381,9 @@ export default [
         "duration": 15
     },
     {
-        "title": "Comment rater son projet DDD",
+        "title": "DDD en vrai, c'est pas magique",
         "level": "intermediate",
-        "abstract": "En 2016-2017, nous démarrons un grand projet de refonte de SI pour un grand compte dans le monde du Retail avec notamment un choix fort de conception : le DDD.\n\nPendant près de 3 ans nous suivons les choix de conception, d’architecture et d’organisation et nous essayons de nous approprier les concepts avec :\n* le fameux Blue Book d’Eric\n* le talk de Thomas PIERRAIN : BDX I/O 2017 - Du DDD dans mon Legacy\n* le talk de Benoît Prioux : BDX I/O 2017 - 10 conseils pour réussir ses premiers pas en DDD\nNous pensions être parés contre les dérives possibles d'une approche censée apporter de la simplicité et de la modularité. Et pourtant, nous n’avons pas réussi…\n\nAlors pourquoi mettre en place une approche DDD n'est pas si facile ? Qu’est-ce que nous avons raté ?\n\nNous essayerons de vous apporter :\n* notre retour d’expérience issu de ce projet\n* les erreurs que nous avons faites\n* les points clés qui nous semblent indispensable à mettre en oeuvre\n* et enfin nos conseils pour que vous puissiez faire mieux que nous.\n",
+        "abstract": "En 2016-2017, nous démarrons un grand projet de refonte de SI pour un grand compte dans le monde du Retail avec notamment un choix fort de conception : le DDD.\n\nPendant près de 3 ans nous suivons les choix de conception, d’architecture et d’organisation et nous essayons de nous approprier les concepts avec :\n* le fameux Blue Book d’Eric\n* le talk de Thomas PIERRAIN : BDX I/O 2017 - Du DDD dans mon Legacy\n* le talk de Benoît Prioux : BDX I/O 2017 - 10 conseils pour réussir ses premiers pas en DDD\n\nNous pensions être parés contre les dérives possibles d’une approche censée apporter de la simplicité et de la modularité. Et pourtant, la magie n’a pas opéré…\n\nAlors pourquoi mettre en place une approche DDD n'est pas si facile ? Qu’est-ce que nous avons appris ?\n\nNous essayerons de vous apporter :\n* notre retour d’expérience issu de ce projet\n* les erreurs que nous avons faites\n* les points clés qui nous semblent indispensable à mettre en oeuvre\n* et enfin nos conseils pour que vous puissiez faire mieux que nous.\n",
         "language": "Fr ",
         "format": "Quickie",
         "category": "Architecture & Securité",
@@ -657,7 +664,7 @@ export default [
                 "name": "Jordan Nourry",
                 "company": "La Combe du Lion Vert",
                 "photoURL": "https://lh3.googleusercontent.com/-1QM8Xd96QWI/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-jYAoPKbXBT8i9ntLzNqAiVSd7WFw/mo/photo.jpg",
-                "bio": "Développeur senior à La Combe du Lion Vert, j'accompagne la Banque de financement et d’investissement de la Société Générale dans la migration de leurs applications vers des micro-services.\n\nLors de cette migration l'utilisation de l'architecture hexagonale côté backend a été faite quand cela était nécessaire et justifié. J'intervient aussi sur plusieurs applications front en AngularJS, Angular ou React. \n\nDans l'ensemble que ça soit dans une stack front ou back je m'efforce de mettre mon focus sur la qualité et sur les tests.\n",
+                "bio": "Développeur senior chez Shodo, j'accompagne aujourd'hui Thalès Digital Factory dans la construction de leur plateforme Cloud permettant de déploiement des projets dans le monde entier de manière rapide, hautement securisé, scalable et résiliente.\n\nEn tant que craftsman, je redistribue depuis plusieurs années les connaissances acquises à travers mes expériences via des articles, BBLs, conférences et meetups.",
                 "address": "France"
             },
             {
