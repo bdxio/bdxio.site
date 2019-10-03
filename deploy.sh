@@ -40,6 +40,9 @@ cd dist || exit 1
 ls | grep -v -E ".git" | xargs rm -rf
 cd ..
 
+# Ensure packages are installed
+npm ci
+
 # Build app
 echo -e "* Build : ${Gre}(2/5)${RCol}"
 npm run build
