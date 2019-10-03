@@ -662,7 +662,7 @@ export default [
         "speakers": [
             {
                 "name": "Jordan Nourry",
-                "company": "La Combe du Lion Vert",
+                "company": "Shodo",
                 "photoURL": "https://lh3.googleusercontent.com/-1QM8Xd96QWI/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-jYAoPKbXBT8i9ntLzNqAiVSd7WFw/mo/photo.jpg",
                 "bio": "Développeur senior chez Shodo, j'accompagne aujourd'hui Thalès Digital Factory dans la construction de leur plateforme Cloud permettant de déploiement des projets dans le monde entier de manière rapide, hautement securisé, scalable et résiliente.\n\nEn tant que craftsman, je redistribue depuis plusieurs années les connaissances acquises à travers mes expériences via des articles, BBLs, conférences et meetups.",
                 "address": "France"
@@ -756,9 +756,9 @@ export default [
             },
             {
                 "name": "Jordan Nourry",
-                "company": "La Combe du Lion Vert",
+                "company": "Shodo",
                 "photoURL": "https://lh3.googleusercontent.com/-1QM8Xd96QWI/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-jYAoPKbXBT8i9ntLzNqAiVSd7WFw/mo/photo.jpg",
-                "bio": "Développeur senior à La Combe du Lion Vert, j'accompagne la Banque de financement et d’investissement de la Société Générale dans la migration de leurs applications vers des micro-services.\n\nLors de cette migration l'utilisation de l'architecture hexagonale côté backend a été faite quand cela était nécessaire et justifié. J'intervient aussi sur plusieurs applications front en AngularJS, Angular ou React. \n\nDans l'ensemble que ça soit dans une stack front ou back je m'efforce de mettre mon focus sur la qualité et sur les tests.\n",
+                "bio": "Développeur senior chez Shodo, j'accompagne aujourd'hui Thalès Digital Factory dans la construction de leur plateforme Cloud permettant de déploiement des projets dans le monde entier de manière rapide, hautement securisé, scalable et résiliente.\n\nEn tant que craftsman, je redistribue depuis plusieurs années les connaissances acquises à travers mes expériences via des articles, BBLs, conférences et meetups.\n",
                 "address": "France"
             }
         ],
