@@ -213,19 +213,19 @@ export default [
         "duration": 15
     },
     {
-        "title": "Using Kubeflow Pipelines for building machine learning pipelines",
-        "level": "intermediate",
-        "abstract": "Kubeflow is an open-source project dedicated to making deployments of machine learning workflows on Kubernetes simple, portable and scalable. This session will focus on Kubeflow Pipelines, a platform to enable end-to-end orchestration of ML pipelines as well as easy experimentation and re-use. You'll learn how to build and manage machine learning workloads that can scale.\n",
-        "language": "En",
+        "title": "Le logiciel libre a-t-il de beaux jours devant lui ?",
+        "level": "beginner",
+        "abstract": "* De barbus dans un garage jusqu’à l’ère du « tout sur Github », comment sommes-nous passés de « Linux est un cancer » à « Microsoft <3 Linux » ?\n* Aujourd’hui, peut-on encore maintenir du code individuellement sans « Mettre en danger des millions d’innocents » ?\n* Faire de l’open source fait-il de vous un ZADiste ?\n\n Tant de sujets d’actualité (et d’autres) qui seront traités avec un regard, bien entendu, totalement objectif et impartial (ou pas !).\n",
+        "language": "Fr",
         "format": null,
-        "category": "Cloud & DevOps",
+        "category": "Découverte",
         "speakers": [
             {
-                "name": "Yufeng G",
-                "company": "Google",
-                "photoURL": "https://lh4.googleusercontent.com/-EEMGFGkf1t8/AAAAAAAAAAI/AAAAAAAAoIk/bA90o7Upirg/photo.jpg",
-                "bio": "Yufeng is a Developer Advocate focusing on Cloud AI, where he is working to make machine learning more understandable and usable for all. He is the creator of the YouTube series AI Adventures, at yt.be/AIAdventures, exploring the art, science, and tools of machine learning.\nHe is enjoys hearing about new and interesting applications of machine learning, share your use case with him on Twitter @YufengG\n",
-                "address": "New York City, NY, USA"
+                "name": "Denis GERMAIN",
+                "company": "Lectra",
+                "photoURL": "https://lh4.googleusercontent.com/-8qTjc64vEG0/AAAAAAAAAAI/AAAAAAAASVc/cQjK_wiggIo/photo.jpg",
+                "bio": "Je suis ingénieur cloud chez Lectra où je conçois des plateformes pour une architecture microservice & containerisée.\n\nA côté de ça, je suis également rédacteur du site blog.zwindler.fr, où je parle d'administration Linux, de virtualisation, de supervision et l'automatisation. \n\nJe fais du Python et j'automatise tout ce que je trouve avec Ansible.",
+                "address": "Bordeaux, France"
             }
         ],
         "room": "Amphi A",
