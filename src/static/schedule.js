@@ -169,7 +169,7 @@ export default [
             }
         ],
         "room": "Salle de commission",
-        "startTime": "14:15",
+        "startTime": "16:30",
         "duration": 45
     },
     {
@@ -228,7 +228,7 @@ export default [
                 "address": "Bordeaux, France"
             }
         ],
-        "room": "Amphi A",
+        "room": "Amphi B",
         "startTime": "10:15",
         "duration": 45
     },
@@ -276,7 +276,7 @@ export default [
             }
         ],
         "room": "Amphi B",
-        "startTime": "14:15",
+        "startTime": "15:15",
         "duration": 45
     },
     {
@@ -430,7 +430,7 @@ export default [
             }
         ],
         "room": "Amphi B",
-        "startTime": "15:15",
+        "startTime": "16:30",
         "duration": 45
     },
     {
@@ -529,7 +529,7 @@ export default [
             }
         ],
         "room": "Salle de commission",
-        "startTime": "16:30",
+        "startTime": "14:15",
         "duration": 45
     },
     {
@@ -549,7 +549,7 @@ export default [
             }
         ],
         "room": "Amphi B",
-        "startTime": "16:30",
+        "startTime": "14:15",
         "duration": 45
     },
     {
@@ -575,7 +575,7 @@ export default [
                 "address": "Paris, France"
             }
         ],
-        "room": "Amphi B",
+        "room": "Amphi A",
         "startTime": "10:15",
         "duration": 45
     },
