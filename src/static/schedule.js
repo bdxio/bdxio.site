@@ -1,4 +1,5 @@
-export default [
+// export default
+module.exports = [
     {
         "title": "Git ou double ?",
         "level": "beginner",
@@ -295,7 +296,7 @@ export default [
                 "address": "Bordeaux, France"
             },
             {
-                "name":"VAZ	Mickael",
+                "name": "VAZ	Mickael",
                 "company": "AT Internet",
                 "photoURL": "https://www.gravatar.com/avatar/6569e31a40246bbbb58765ce205f8e81",
                 "bio": "",
@@ -562,14 +563,14 @@ export default [
         "speakers": [
             {
                 "name": "Florent Berthelot",
-                "company": "Zenika",
+                "company": "WeFacto",
                 "photoURL": "https://pbs.twimg.com/profile_images/826194184428204033/RDkzV_7k_400x400.jpg",
                 "bio": "Membre de l'équipe AYA @ Zenika.\n\nJe suis passionné du Web et des technologies qui gravitent autour. J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG, les Frameworks JS (front & back) et la vanille.\n\nTransmettre ma passion pour l'artisanat web occupe une part importante de mon travail de développeur (meetups, formations, conférences, encadrement de stagiaires).\n\nVive le web, Vive le JS et Vive l'artisanat !\n",
                 "address": "Paris, France"
             },
             {
                 "name": "Cecile freyd-foucault",
-                "company": "Predictice",
+                "company": "TalanLabs",
                 "photoURL": "https://lh5.googleusercontent.com/-UyalCSSFXaA/AAAAAAAAAAI/AAAAAAAAEWQ/9fl4_ICI0M8/photo.jpg",
                 "bio": "Tomber dans la soupe du design étant petite, je suis actuellement Product designer. Je parle avec autant de passion de typographie que de flow utilisateurs ! Issue du print et du branding, j’ai pris le choix de m’orienter vers le design d’interfaces à la fois en UI et en UX design. À cette occasion, j’ai découvert l’Atomic Design et ce que ce cadre peut apporter à une équipe et notamment dans un contexte Agile.",
                 "address": "Paris, France"
@@ -802,7 +803,14 @@ export default [
         "category": "",
         "room": "Amphi A",
         "startTime": "09:00",
-        "duration": 60
+        "duration": 60,
+        "speakers": [{
+            "name": "Estelle Landry",
+            "company": "Pix",
+            "photoURL": "https://estellelandrydotcom.files.wordpress.com/2019/07/portrait.png?w=2048",
+            "bio": "Passionée par mon métier de Product Owner, par l’UX (User eXpérience) et le GameStorming, j’aime participer à l’élaboration d’un produit en étant le lien entre les utilisateurs et les développeurs.\nSpeakeuse en conférence tech, membre des Duchess France et co-organisatrice de SunnyTech, je continue à me perfectionner et à discuter de nouvelles philosophies ou technologies de l’IT.",
+            "address": "Paris, France"
+        }]
     },
     {
         "title": "Pause",
