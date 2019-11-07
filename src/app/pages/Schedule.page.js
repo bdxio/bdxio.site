@@ -38,6 +38,17 @@ class Schedule extends Component {
                         <div className="grid">
 
                             {SLOTS.map((slot, i) => {
+                                console.log(all_talks.filter(talk => talk.startTime === slot)
+                                    .sort(compareRoom)
+                                    .sort((a, b) => {
+                                        if (a.format > b.format) {
+                                            return -1;
+                                        }
+                                        if (a.format < b.format) {
+                                            return 1;
+                                        }
+                                        return 0;
+                                    }))
                                 return <React.Fragment key={i}>
                                     <div className="start-time" style={{ gridArea: `${i + 1} / 1` }}>
                                         <span className="hours">{slot.split(':')[0]}</span>
@@ -46,7 +57,13 @@ class Schedule extends Component {
                                     {all_talks.filter(talk => talk.startTime === slot).sort(compareRoom).map((talk, j) =>
                                         <Session
                                             key={j}
-                                            style={{ gridArea: `${i + 1}/ ${j + 1} / ${talk.format === "Hands on lab" ? i + 3 : i + 1} / ${all_talks.filter(talk => talk.startTime === slot).length === 1 ? (talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}` }}
+                                            style={{
+                                                gridArea: `${i + 1}
+                                            / ${talk.startTime === '12:30' && talk.format === 'Hands on lab' ? 6 :
+                                                        talk.startTime === '12:30' && talk.format === 'pause' ? 1 : j + 1} 
+                                            / ${talk.format === "Hands on lab" ? i +  4 : i + 1} 
+                                            / ${all_talks.filter(talk => talk.startTime === slot).length <= 2 ? (talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}`
+                                            }}
                                             talk={talk} />
                                     )
                                     }
