@@ -764,7 +764,7 @@ module.exports = [
             }
         ],
         "room": "Salle de workshop",
-        "startTime": "12:15",
+        "startTime": "12:30",
         "duration": 105
     },
     {
