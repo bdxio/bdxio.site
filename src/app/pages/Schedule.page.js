@@ -7,7 +7,7 @@ import displayPage from "./_PageContainer";
 import all_talks from '../../static/schedule.js'
 
 
-const SLOTS = ["08:30", "09:00", "10:00", "10:15", "11:00", "11:15", "12:00", "12:15", "12:30", "13:15", "13:45", "14:00", "14:15", "15:00", "15:15", "16:00", "16:30", "17:15", "17:30", "18:30"]
+const SLOTS = ["08:30", "09:00", "10:00", "10:15", "11:00", "11:15", "12:00", "12:15", "12:30", "13:15", "13:30", "13:45", "14:00", "14:15", "15:00", "15:15", "16:00", "16:30", "17:15", "17:30", "18:30"]
 
 
 const compareRoom = (a, b) => {
@@ -61,8 +61,8 @@ class Schedule extends Component {
                                                 gridArea: `${i + 1}
                                             / ${talk.startTime === '12:30' && talk.format === 'Hands on lab' ? 6 :
                                                         talk.startTime === '12:30' && talk.format === 'pause' ? 1 : j + 1} 
-                                            / ${talk.format === "Hands on lab" ? i +  4 : i + 1} 
-                                            / ${all_talks.filter(talk => talk.startTime === slot).length <= 2 ? (talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}`
+                                            / ${talk.format === "Hands on lab" ? i + (talk.startTime === '12:30' ? 6 : 4) : i + 1} 
+                                            / ${all_talks.filter(talk => talk.startTime === slot).length <= 2 ? (talk.startTime === '14:00' || talk.startTime === '13:30' || talk.startTime === '12:30' || talk.startTime === '11:00' || talk.startTime === '15:00' ? 5 : 6) : j + 1}`
                                             }}
                                             talk={talk} />
                                     )
