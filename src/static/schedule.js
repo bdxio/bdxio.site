@@ -18,7 +18,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "13:45",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/0"
     },
     {
         "title": "Hasura : un back-end GraphQL en quelques minutes",
@@ -38,7 +39,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "12:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/1"
     },
     {
         "title": "Découvrir la neuroévolution en créant une  voiture autonome dans son navigateur",
@@ -58,7 +60,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "11:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/2"
     },
     {
         "title": "Machine learning avec des allumettes et des cotillons",
@@ -78,7 +81,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "13:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/3"
     },
     {
         "title": "Remake de jeux rétro avec Vue.js",
@@ -105,7 +109,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "11:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/4"
     },
     {
         "title": "Green IT is the new web",
@@ -125,7 +130,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "12:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/5"
     },
     {
         "title": "Kafka et KSQL pour aider à la détection d'intrusion",
@@ -151,7 +157,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "15:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/6"
     },
     {
         "title": "La GameJam : l’hackathon du jeux vidéo",
@@ -171,7 +178,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "16:30",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/7"
     },
     {
         "title": "Convaincre avec les techniques de la négociation raisonnée",
@@ -191,7 +199,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "12:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/8"
     },
     {
         "title": "Une fonction Quarkus déployée dans un Kubernetes K3S avec Fission en live-coding !",
@@ -211,7 +220,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "13:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/9"
     },
     {
         "title": "Le logiciel libre a-t-il de beaux jours devant lui ?",
@@ -231,7 +241,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "10:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/10"
     },
     {
         "title": "Implémenter un Webhook côté serveur, pas si simple !",
@@ -251,7 +262,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "14:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/11"
     },
     {
         "title": "Lazy Loading : Boostez vos applis Angular !",
@@ -278,7 +290,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "15:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/12"
     },
     {
         "title": "What I wish I knew about Kubernetes before going to Production",
@@ -305,7 +318,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "15:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/13"
     },
     {
         "title": "Et si votre survie dépendait de la qualité du code que vous produisez ?",
@@ -339,7 +353,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "15:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/14"
     },
     {
         "title": "Test d’architecture avec ArchUnit : Mise en œuvre pour le DDD",
@@ -359,7 +374,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "10:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/15"
     },
     {
         "title": "Le futur de la gestion des dépendances Node",
@@ -379,7 +395,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "13:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/16"
     },
     {
         "title": "DDD en vrai, c'est pas magique",
@@ -405,7 +422,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "12:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/17"
     },
     {
         "title": "Du POC à la Prod, un projet de data science mis à nu ! ",
@@ -432,7 +450,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "16:30",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/18"
     },
     {
         "title": "Découvrez Micronaut, le framework qui va faire du bien à la JVM !",
@@ -452,7 +471,8 @@ module.exports = [
         ],
         "room": "Salle de workshop",
         "startTime": "14:15",
-        "duration": 105
+        "duration": 105,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/19"
     },
     {
         "title": "Istio, le meilleur ami de votre cluster K8S ❤️",
@@ -471,7 +491,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "11:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/20"
     },
     {
         "title": "Comment j'ai fini par déployer à 2h du matin une application sur AWS pour piloter des voitures électriques avec un vélo d'appartement.",
@@ -491,7 +512,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "13:45",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/21"
     },
     {
         "title": "Burger Quiz de la securite du code",
@@ -511,7 +533,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "14:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/22"
     },
     {
         "title": "Notif qui saoule n'amasse pas foule ...",
@@ -531,7 +554,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "14:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/23"
     },
     {
         "title": "Equiper sa voie",
@@ -551,7 +575,8 @@ module.exports = [
         ],
         "room": "Amphi B",
         "startTime": "14:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/24"
     },
     {
         "title": "Designers, développeurs, créons la différence !",
@@ -578,7 +603,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "10:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/25"
     },
     {
         "title": "Il était une fois Storybook",
@@ -598,7 +624,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "13:45",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/26"
     },
     {
         "title": "Le job de mes rêves",
@@ -618,7 +645,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "13:45",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/27"
     },
     {
         "title": "Workshop - Kotlin Multiplatform : mutualiser du code sur iOS et Android",
@@ -652,7 +680,8 @@ module.exports = [
         ],
         "room": "Salle de workshop",
         "startTime": "10:15",
-        "duration": 105
+        "duration": 105,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/28"
     },
     {
         "title": "Architecture Hexagonale Level 2: Comment bien écrire ses tests.",
@@ -678,7 +707,8 @@ module.exports = [
         ],
         "room": "Amphi C",
         "startTime": "16:30",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/29"
     },
     {
         "title": "Des microservices aux migroservices",
@@ -698,7 +728,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "11:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/30"
     },
     {
         "title": "Introduction à la programmation par contraintes",
@@ -718,7 +749,8 @@ module.exports = [
         ],
         "room": "Salle de commission",
         "startTime": "10:15",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/31"
     },
     {
         "title": "Tester en Kotlin",
@@ -738,7 +770,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "16:30",
-        "duration": 45
+        "duration": 45,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/32"
     },
     {
         "title": "Cypress, l’outil qui va vous faire aimer les tests End-to-End ! ",
@@ -765,7 +798,8 @@ module.exports = [
         ],
         "room": "Salle de workshop",
         "startTime": "12:30",
-        "duration": 105
+        "duration": 105,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/33"
     },
     {
         "title": "3 techniques faciles de manipulation",
@@ -785,7 +819,8 @@ module.exports = [
         ],
         "room": "Amphi A",
         "startTime": "13:15",
-        "duration": 15
+        "duration": 15,
+        "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/34"
     },
     {
         "title": "Breakfast",
@@ -854,6 +889,15 @@ module.exports = [
         "format": "pause",
         "category": "",
         "room": "pluriel",
+        "startTime": "13:30",
+        "duration": 15
+    },
+    {
+        "title": "Pause",
+        "abstract": "",
+        "format": "pause",
+        "category": "",
+        "room": "pluriel",
         "startTime": "14:00",
         "duration": 15
     },
@@ -891,7 +935,21 @@ module.exports = [
         "category": "",
         "room": "Amphi A",
         "startTime": "17:30",
-        "duration": 45
+        "duration": 45,
+        "speakers": [{
+            "name": "Gille Mischler",
+            "company": "",
+            "photoURL": "https://docs.google.com/uc?id=1d5FDMzuUbgO1L8WcQSNs6Z7TBfjOiXyp",
+            "bio": "",
+            "address": "Paris, France"
+        },
+        {
+            "name": "Romain Sombret",
+            "company": "",
+            "photoURL": "https://docs.google.com/uc?id=1RmItUsNZzmp32ZbZdNEK3-jZNzIgV_os",
+            "bio": "",
+            "address": "Paris, France"
+        }]
     },
     {
         "title": "Apéro",

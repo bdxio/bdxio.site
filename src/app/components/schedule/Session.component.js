@@ -109,6 +109,9 @@ class Session extends Component {
                                 <li>{talk.level}</li>
                             </ul>
                         </div>
+                        {talk.feedbackURL &&
+                            <a href={talk.feedbackURL} target="_blank" className="button-float"><img src="/img/png/icon_feedback.png" /></a>
+                        }
                         <div className="popup-meta">
                             <div dangerouslySetInnerHTML={{ __html: this.converter.makeHtml(talk.abstract) }}></div>
                         </div>
