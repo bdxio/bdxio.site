@@ -516,19 +516,19 @@ module.exports = [
         "feedbackURL":"https://openfeedback.io/3BQH3sLpx0EfLHHC7Wng/2019-11-15/21"
     },
     {
-        "title": "Burger Quiz de la securite du code",
+        "title": "HIGHWAY TO ELM!",
         "level": "beginner",
-        "abstract": "Qui ne connaît pas le jeu BurgerQuiz présente par Alain Chabat et son équipe de joyeux compagnons.\n\nBase sur plusieurs centaines d’audit de code source sur divers langages ce talk propose de revisiter de manière humoristique les codes les plus loufoques, à risques, les erreurs, les bonnes pratiques rencontrées en securite.",
+        "abstract": "Entre les problèmes de null et d'undefined, les cas d'erreur non traités, les régressions dans les dépendances npm et les refactoring hasardeux, il est compliqué de livrer sereinement du JavaScript en production !\n\nC'est un mal nécessaire, puisqu'il s'agit du seul langage compatible avec tous les navigateurs, non ? Non !\n\nJe vous propose de découvrir une alternative, Elm, dont la première promesse est troublante mais limpide : plus d'erreurs au runtime !\n\nNous verrons comment ce langage spécialement pensé pour créer des applications web garantit des mises en production sereines, loin de tous ces soucis que posent les applications JavaScript.",
         "language": "Fr",
         "format": "Conférence",
-        "category": "Architecture & Securité",
+        "category": "Front-end",
         "speakers": [
             {
-                "name": "Sebastien Gioria",
-                "company": "AppSecFR",
-                "photoURL": "https://pbs.twimg.com/profile_images/640509235269378048/HWf2Dt4b_normal.jpg",
-                "bio": "Sébastien Gioria est Expert en Sécurité Applicative, Chapter Leader de l’OWASP pour la France (http://www.owasp.fr), membre du OWASP Global Education Committee et Expert Judiciaire. Il a une expérience de plus de 20 ans dans la sécurité des Systèmes d’Informations au sein de postes techniques ou à responsabilité dans des banques, assurances, telecoms.\n\nSébastien a présenté divers sujets dans des conférences en France ou à l’étranger.\n\nBlog: https://appsec.fr",
-                "address": "Niort, France"
+                "name": "Jordan Grenat",
+                "company": "Viseo",
+                "photoURL": "https://lh3.googleusercontent.com/-gm2VH9ACvBs/AAAAAAAAAAI/AAAAAAAAHUs/1ekXFpnAWUY/photo.jpg",
+                "bio": "Jordane est développeur chez Viseo et adore les découvertes et ce qui sort de l'ordinaire. Ce qui est souvent incompatible avec le pragmatisme technologique nécessaire sur les projets clients.\nIl assouvit alors sa passion à coup de projets perso jamais finis et en écumant les conférences en compagnie des autres développeurs férus de nouveautés. En vrac : Elm, F#, nouveau-framework-à-la-mode-JS, ...\nIl passe le reste de son temps libre à refuser les cookies sur les sites web qu'il consulte.",
+                "address": "Paris, France"
             }
         ],
         "room": "Amphi C",
