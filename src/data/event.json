@@ -1,0 +1,18 @@
+[
+  {
+    "general": {
+      "openingDate": "2020-10-30T09:00:00",
+      "closingDate": "2020-10-30T19:00:00"
+    },
+    "registration": {
+      "opened": false,
+      "normalSoldout": false,
+      "earlySoldout": false
+    },
+    "cfp": {
+      "openingDate": "2020-05-01",
+      "closingDate": "2020-06-30"
+    },
+    "programPublishingDate": ""
+  }
+]

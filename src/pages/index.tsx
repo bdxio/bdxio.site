@@ -1,10 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import '@styles/app.scss';
+
+import Moment from 'moment';
+
+import useEventInfo from '@hooks/useEventInfo';
+import useInterval from '@hooks/useInterval';
+
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 
+import '@styles/app.scss';
+
+const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
+  const [timeRemaining, setTimeRemaining] = useState();
+  const [ended, setEnded] = useState(false);
+
+  useInterval(() => {
+    const duration = Moment.duration(eventDate.diff(Moment.now()));
+    if (
+      duration.years() <= 0 &&
+      duration.months() <= 0 &&
+      duration.days() <= 0 &&
+      duration.hours() <= 0 &&
+      duration.minutes() <= 0 &&
+      duration.seconds() <= 0
+    ) {
+      setEnded(true);
+    }
+    setTimeRemaining(duration);
+  }, 1000);
+  return (
+    <div className="row">
+      {ended
+        ? Moment().isSame(eventDate) && (
+            <div className="columns auto text-center home-header-button">
+              <Link to="/live" className="button medium white">
+                <i className="fa fa-circle blink" />
+                &nbsp; Accéder aux directs
+              </Link>
+            </div>
+          )
+        : timeRemaining && (
+            <div className={'columns small-12 align-center countdown'}>
+              <div className="small-2 medium-2 text-center">
+                <h2 className="">{timeRemaining.months()}</h2>
+                <div className="">mois</div>
+              </div>
+
+              <div className="small-2 medium-2 text-center countdown-border">
+                <h2 className="">{timeRemaining.days()}</h2>
+                <div className="">jours</div>
+              </div>
+
+              <div className="small-2 medium-2 text-center">
+                <h2 className="">{timeRemaining.hours()}</h2>
+                <div className="">heures</div>
+              </div>
+
+              <div className="small-2 medium-2 text-center countdown-border">
+                <h2 className="">{timeRemaining.minutes()}</h2>
+                <div className="">minutes</div>
+              </div>
+
+              <div className="small-2 medium-2 text-center">
+                <h2 className="">{timeRemaining.seconds()}</h2>
+                <div className="">secondes</div>
+              </div>
+            </div>
+          )}
+    </div>
+  );
+};
+
 const IndexPage = () => {
+  const eventInfo = useEventInfo();
   return (
     <>
       <SEO title="Home" />
@@ -17,13 +86,13 @@ const IndexPage = () => {
 
           <div className="row home-header">
             <div className="columns auto">
-              <h1 className="text-center">BDX I/O 2019</h1>
+              <h1 className="text-center">BDX I/O 2020</h1>
               <div className="row align-center">
                 <div className="columns shrink">
                   <div className="home-header-content">
                     <span>
                       <i className="fa fa-calendar" />
-                      15 novembre
+                      31 octobre
                     </span>
                     <span>
                       <i className="fa fa-map-marker" />
@@ -33,34 +102,7 @@ const IndexPage = () => {
                 </div>
               </div>
 
-              <div className="row">
-                <div className={'columns small-12 align-center countdown'}>
-                  <div className="small-2 medium-2 text-center">
-                    <h2 className="">99</h2>
-                    <div className="">mois</div>
-                  </div>
-
-                  <div className="small-2 medium-2 text-center countdown-border">
-                    <h2 className="">99</h2>
-                    <div className="">jours</div>
-                  </div>
-
-                  <div className="small-2 medium-2 text-center">
-                    <h2 className="">99</h2>
-                    <div className="">heures</div>
-                  </div>
-
-                  <div className="small-2 medium-2 text-center countdown-border">
-                    <h2 className="">99</h2>
-                    <div className="">minutes</div>
-                  </div>
-
-                  <div className="small-2 medium-2 text-center">
-                    <h2 className="">99</h2>
-                    <div className="">secondes</div>
-                  </div>
-                </div>
-              </div>
+              <Countdown eventDate={Moment(eventInfo.general.openingDate)} />
               {/* {isMobile ? (
               <div className="replace-countdown-space" />
             ) : (
