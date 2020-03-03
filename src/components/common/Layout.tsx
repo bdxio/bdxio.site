@@ -1,12 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '@components/common/Navigation';
 import { Link } from 'gatsby';
+import jsonp from 'jsonp';
 
 interface PropsType {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: PropsType) => {
+  const [email, setEmail] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+
+  const handleChange = (e: React.ChangeEvent<any>) => {
+    setEmail(e.target.value);
+  };
+
+  const subscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const url =
+      'https://bdx.us10.list-manage.com/subscribe/post-json?u=3fdd02789fbab2f90b81652a3&id=760c78a462&EMAIL=' +
+      email;
+
+    jsonp(
+      url,
+      {
+        param: 'c'
+      },
+      (err: any, data: any) => {
+        if (err) {
+          setStatus('error');
+          setMessage(err);
+        } else if (data.result !== 'success') {
+          setStatus('error');
+          setMessage(data.msg);
+        } else {
+          setStatus('success');
+          setMessage('Merci pour votre inscription !');
+          setEmail('');
+        }
+        // Clear message
+        setTimeout(() => {
+          setStatus('');
+          setMessage('');
+        }, 5000);
+      }
+    );
+  };
+
   return (
     <>
       <Navigation pathname={''} isOnTop={true} programPublishingDate={''} />
@@ -17,20 +58,25 @@ const Layout = ({ children }: PropsType) => {
             Vous souhaitez être tenu informé ?<br />
             Inscrivez-vous à la newsletter
           </div>
-          <form className="email" >
+          <form className="email" onSubmit={subscribe}>
             <input
               type="email"
               placeholder="Email"
+              value={email}
+              onChange={handleChange}
             />
             <button type="submit" className={'button small white'}>
               S'inscrire
             </button>
           </form>
         </div>
+        <div className={`subscription-message column ${status ? 'show' : ''}`}>
+          {message}
+        </div>
         <div className="footer-item">
           <ul className="row">
             <li className="columns shrink">
-              <Link to="/home">Accueil</Link>
+              <Link to="/">Accueil</Link>
             </li>
             <li className="columns shrink">
               <Link to="/contact">Contact</Link>

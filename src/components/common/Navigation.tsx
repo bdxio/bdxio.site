@@ -22,14 +22,14 @@ const Navigation = ({
   return (
     <nav className={'row align-middle menu ' + (!isOnTop ? 'scroll' : '')}>
       <span className="columns shrink menu-logo">
-        <Link to="/home">
-          <img src="img/png/logo_white.png" />
+        <Link to="/">
+          <img src="/img/png/logo_white.png" />
         </Link>
       </span>
       <div className="row collapse main-menu">
         <ul className="columns auto align-center main-menu-item">
           <li className="shrink menu-item-content">
-            <Link className={pathname === '/home' ? 'selected' : ''} to="/home">
+            <Link className={pathname === '/' ? 'selected' : ''} to="/">
               Accueil
             </Link>
           </li>
@@ -101,11 +101,11 @@ const Navigation = ({
               Contact
             </Link>
           </li>
-          <li className="shrink menu-item-content">
-            <a href="http://2018.bdx.io" target="_blank">
-              Édition 2018
+          {/* <li className="shrink menu-item-content">
+            <a href="http://2019.bdxio.fr" target="_blank">
+              Édition 2019
             </a>
-          </li>
+          </li> */}
         </ul>
 
         <ul className="columns shrink align-center main-menu-socialNetwork">
