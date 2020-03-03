@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
 import Moment from 'moment';
+import 'moment/locale/fr';
+Moment.locale('fr');
 
 import useEventInfo from '@hooks/useEventInfo';
 import useInterval from '@hooks/useInterval';
@@ -74,6 +76,7 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
 
 const IndexPage = () => {
   const eventInfo = useEventInfo();
+  const eventDate = Moment(eventInfo.general.openingDate);
   return (
     <>
       <SEO title="Home" />
@@ -86,13 +89,13 @@ const IndexPage = () => {
 
           <div className="row home-header">
             <div className="columns auto">
-              <h1 className="text-center">BDX I/O 2020</h1>
+              <h1 className="text-center">BDX I/O {eventDate.year()}</h1>
               <div className="row align-center">
                 <div className="columns shrink">
                   <div className="home-header-content">
                     <span>
                       <i className="fa fa-calendar" />
-                      31 octobre
+                      {eventDate.date()} {eventDate.locale('fr').format('MMMM')}
                     </span>
                     <span>
                       <i className="fa fa-map-marker" />
@@ -102,7 +105,7 @@ const IndexPage = () => {
                 </div>
               </div>
 
-              <Countdown eventDate={Moment(eventInfo.general.openingDate)} />
+              <Countdown eventDate={eventDate} />
               {/* {isMobile ? (
               <div className="replace-countdown-space" />
             ) : (
