@@ -34,43 +34,45 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   }, 1000);
   return (
     <div className="row">
-      {ended
-        ? Moment().isSame(eventDate) && (
-            <div className="columns auto text-center home-header-button">
-              <Link to="/live" className="button medium white">
-                <i className="fa fa-circle blink" />
-                &nbsp; Accéder aux directs
-              </Link>
-            </div>
-          )
-        : timeRemaining && (
-            <div className={'columns small-12 align-center countdown'}>
-              <div className="small-2 medium-2 text-center">
-                <h2 className="">{timeRemaining.months()}</h2>
-                <div className="">mois</div>
-              </div>
+      {ended ? (
+        Moment().isSame(eventDate) && (
+          <div className="columns auto text-center home-header-button">
+            <Link to="/live" className="button medium white">
+              <i className="fa fa-circle blink" />
+              &nbsp; Accéder aux directs
+            </Link>
+          </div>
+        )
+      ) : timeRemaining ? (
+        <div className={'columns small-12 align-center countdown'}>
+          <div className="small-2 medium-2 text-center">
+            <h2 className="">{timeRemaining.months()}</h2>
+            <div className="">mois</div>
+          </div>
 
-              <div className="small-2 medium-2 text-center countdown-border">
-                <h2 className="">{timeRemaining.days()}</h2>
-                <div className="">jours</div>
-              </div>
+          <div className="small-2 medium-2 text-center countdown-border">
+            <h2 className="">{timeRemaining.days()}</h2>
+            <div className="">jours</div>
+          </div>
 
-              <div className="small-2 medium-2 text-center">
-                <h2 className="">{timeRemaining.hours()}</h2>
-                <div className="">heures</div>
-              </div>
+          <div className="small-2 medium-2 text-center">
+            <h2 className="">{timeRemaining.hours()}</h2>
+            <div className="">heures</div>
+          </div>
 
-              <div className="small-2 medium-2 text-center countdown-border">
-                <h2 className="">{timeRemaining.minutes()}</h2>
-                <div className="">minutes</div>
-              </div>
+          <div className="small-2 medium-2 text-center countdown-border">
+            <h2 className="">{timeRemaining.minutes()}</h2>
+            <div className="">minutes</div>
+          </div>
 
-              <div className="small-2 medium-2 text-center">
-                <h2 className="">{timeRemaining.seconds()}</h2>
-                <div className="">secondes</div>
-              </div>
-            </div>
-          )}
+          <div className="small-2 medium-2 text-center">
+            <h2 className="">{timeRemaining.seconds()}</h2>
+            <div className="">secondes</div>
+          </div>
+        </div>
+      ) : (
+        <div className="columns auto text-center loading">Loading...</div>
+      )}
     </div>
   );
 };
