@@ -6,7 +6,7 @@ import Layout from '@components/common/Layout';
 import { Member } from '@models/Member';
 import MemberElement from '../components/common/MemberElement';
 
-const TeamPage = () => {
+const TeamPage = ({ path }: { path: string }) => {
   let line = 0; // Private lines counter
   const detectMobile = useMobileDetect();
   const { allTeamJson } = useStaticQuery(
@@ -37,7 +37,7 @@ const TeamPage = () => {
   return (
     <>
       <SEO title="L'équipe" />
-      <Layout>
+      <Layout path={path}>
         <div className="partnership">
           <div className="row pageHeader">
             <div className="columns small-12 pageHeader-title">

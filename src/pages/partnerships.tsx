@@ -13,11 +13,11 @@ const PartnerElement = (partner: Partner) => (
   </div>
 );
 
-const PartnershipsPage = () => {
+const PartnershipsPage = ({ path }: { path: string }) => {
   return (
     <>
       <SEO title="Sponsors" />
-      <Layout>
+      <Layout path={path}>
         <div className="partnership">
           <div className="row pageHeader">
             <div className="columns small-12 pageHeader-title">

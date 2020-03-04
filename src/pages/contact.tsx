@@ -2,11 +2,11 @@ import React from 'react';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 
-const ContactPage = () => {
+const ContactPage = ({ path }: { path: string }) => {
   return (
     <>
       <SEO title="Home" />
-      <Layout>
+      <Layout path={path}>
         <div className="contact">
           <div className="row pageHeader">
             <div className="columns small-12 pageHeader-title">
