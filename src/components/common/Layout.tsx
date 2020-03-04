@@ -4,10 +4,11 @@ import { Link } from 'gatsby';
 import jsonp from 'jsonp';
 
 interface PropsType {
+  path: string;
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: PropsType) => {
+const Layout = ({ path, children }: PropsType) => {
   const [email, setEmail] = useState<string>('');
   const [status, setStatus] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -50,7 +51,7 @@ const Layout = ({ children }: PropsType) => {
 
   return (
     <>
-      <Navigation pathname={''} isOnTop={true} programPublishingDate={''} />
+      <Navigation path={path} />
       <div className="pageContainer">{children}</div>
       <div className="footer">
         <div className="footer-signIn">

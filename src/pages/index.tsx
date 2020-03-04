@@ -77,7 +77,7 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   );
 };
 
-const IndexPage = () => {
+const IndexPage = ({ path }: { path: string }) => {
   const eventInfo = useEventInfo();
   const eventDate = Moment(eventInfo.general.openingDate);
   const detectMobile = useMobileDetect();
@@ -85,7 +85,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <Layout>
+      <Layout path={path}>
         <div className="home">
           <div className="home-homeFlottant">
             <img className="homeFlottant" src="/img/svg/home_flottant.svg" />
@@ -465,7 +465,7 @@ const IndexPage = () => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    40,00 €
+                    - €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Early Bird
@@ -520,7 +520,7 @@ const IndexPage = () => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    80,00 €
+                    - €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Classic

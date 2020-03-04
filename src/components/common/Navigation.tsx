@@ -1,113 +1,88 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
+import useOnScroll from '@hooks/useOnScroll';
+import useEventInfo from '@hooks/useEventInfo';
 
 interface PropsType {
-  pathname: string;
-  isOnTop: boolean;
-  programPublishingDate: string;
+  path: string;
 }
 
-const Navigation = ({
-  pathname,
-  isOnTop,
-  programPublishingDate
-}: PropsType) => {
+const Menu = ({ path }: PropsType) => {
+  const eventInfo = useEventInfo();
+
+  return (
+    <ul className="columns auto align-center main-menu-item">
+      <li className="shrink menu-item-content">
+        <Link className={path === '/' ? 'selected' : ''} to="/">
+          Accueil
+        </Link>
+      </li>
+      <li className="shrink menu-item-content">
+        <Link className={path === '/team' ? 'selected' : ''} to="/team">
+          L'équipe
+        </Link>
+      </li>
+      <li className="shrink menu-item-content">
+        <Link className={path === '/news' ? 'selected' : ''} to="/news">
+          Actualités
+        </Link>
+      </li>
+      <li
+        className={`shrink menu-item-content ${moment().isBefore(
+          moment(eventInfo.programPublishingDate)
+        ) && 'disabled'}`}
+      >
+        <Link
+          className={path === '/schedule' ? 'selected' : ''}
+          to="/schedule"
+          onClick={(e: any) => {
+            if (moment().isBefore(moment(eventInfo.programPublishingDate)))
+              e.preventDefault();
+          }}
+        >
+          Programme
+        </Link>
+      </li>
+      <li className="shrink menu-item-content">
+        <Link
+          className={path === '/partnerships' ? 'selected' : ''}
+          to="/partnerships"
+        >
+          Sponsors
+        </Link>
+      </li>
+      <li className="shrink menu-item-content">
+        <Link className={path === '/faq' ? 'selected' : ''} to="/faq">
+          FAQ
+        </Link>
+      </li>
+      <li className="shrink menu-item-content">
+        <Link className={path === '/contact' ? 'selected' : ''} to="/contact">
+          Contact
+        </Link>
+      </li>
+    </ul>
+  );
+};
+
+const Navigation = ({ path }: PropsType) => {
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
+  const { isOnTop } = useOnScroll();
 
   const open = () => {
     setMenuOpened(!menuOpened);
   };
 
   return (
-    <nav className={'row align-middle menu ' + (!isOnTop ? 'scroll' : '')}>
+    <nav className={`row align-middle menu ${!isOnTop && 'scroll'}`}>
       <span className="columns shrink menu-logo">
         <Link to="/">
           <img src="/img/png/logo_white.png" />
         </Link>
       </span>
       <div className="row collapse main-menu">
-        <ul className="columns auto align-center main-menu-item">
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/' ? 'selected' : ''} to="/">
-              Accueil
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/team' ? 'selected' : ''} to="/team">
-              L'équipe
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/news' ? 'selected' : ''} to="/news">
-              Actualités
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <a href="">Conférencier·ère·s</a>
-          </li>
-          <li className="shrink menu-item-content">
-            <a href="">Programme</a>
-          </li>
-          {/* <li
-          className={`shrink menu-item-content ${moment().isBefore(moment(programPublishingDate)) && 'disabled'}`}>
-              <Link
-                className={pathname === "/speakers" ? "selected" : ""}
-                to="/speakers"
-                onClick={e => {
-                  if (moment().isBefore(moment(programPublishingDate)) && 'disabled') e.preventDefault();
-                }}
-              >
-                Conférencier·ère·s
-              </Link>
-            </li> */}
-          {/* <li
-            className={`shrink menu-item-content ${moment().isBefore(
-              moment(programPublishingDate)
-            ) && 'disabled'}`}
-          >
-            <Link
-              className={pathname === '/schedule' ? 'selected' : ''}
-              to="/schedule"
-              onClick={e => {
-                if (
-                  moment().isBefore(moment(programPublishingDate)) &&
-                  'disabled'
-                )
-                  e.preventDefault();
-              }}
-            >
-              Programme
-            </Link>
-          </li>*/}
-          <li className="shrink menu-item-content">
-            <Link
-              className={pathname === '/partnerships' ? 'selected' : ''}
-              to="/partnerships"
-            >
-              Sponsors
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/faq' ? 'selected' : ''} to="/faq">
-              FAQ
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link
-              className={pathname === '/contact' ? 'selected' : ''}
-              to="/contact"
-            >
-              Contact
-            </Link>
-          </li>
-          {/* <li className="shrink menu-item-content">
-            <a href="http://2019.bdxio.fr" target="_blank">
-              Édition 2019
-            </a>
-          </li> */}
-        </ul>
-
+        <Menu path={path} />
         <ul className="columns shrink align-center main-menu-socialNetwork">
           <li>
             <a href="https://twitter.com/bdxio" target="_blank">
@@ -148,76 +123,7 @@ const Navigation = ({
       </div>
 
       <div className={`menu-responsive ${menuOpened ? 'active' : ''}`}>
-        <ul>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/home' ? 'selected' : ''} to="/home">
-              Accueil
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/team' ? 'selected' : ''} to="/team">
-              L'équipe
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/news' ? 'selected' : ''} to="/news">
-              Actualités
-            </Link>
-          </li>
-          {/* <li className="shrink menu-item-content">
-              <Link
-                className={pathname === "/speakers" ? "selected" : ""}
-                to="/speakers"
-              >
-                Conférencier·ère·s
-              </Link>
-            </li> */}
-          {/* <li
-            className={`shrink menu-item-content ${moment().isBefore(
-              moment(programPublishingDate)
-            ) && 'disabled'}`}
-          >
-            <Link
-              className={pathname === '/schedule' ? 'selected' : ''}
-              to="/schedule"
-              onClick={e => {
-                if (
-                  moment().isBefore(moment(programPublishingDate)) &&
-                  'disabled'
-                )
-                  e.preventDefault();
-              }}
-            >
-              Programme
-            </Link>
-          </li> */}
-          <li className="shrink menu-item-content">
-            <Link
-              className={pathname === '/partnerships' ? 'selected' : ''}
-              to="/partnerships"
-            >
-              Sponsors
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link className={pathname === '/faq' ? 'selected' : ''} to="/faq">
-              FAQ
-            </Link>
-          </li>
-          <li className="shrink menu-item-content">
-            <Link
-              className={pathname === '/contact' ? 'selected' : ''}
-              to="/contact"
-            >
-              Contact
-            </Link>
-          </li>
-          {/* <li className="shrink menu-item-content">
-            <a href="http://2018.bdx.io" target="_blank">
-              Édition 2018
-            </a>
-          </li> */}
-        </ul>
+        <Menu path={path} />
       </div>
       {/* FIXME Add liveStream component*/}
       {/*<span className=" columns shrink text-center menu-liveStream">LiveStream component</span>*/}
