@@ -83,9 +83,9 @@ const IndexPage = () => {
       <Layout>
         <div className="home">
           <div className="home-homeFlottant">
-            <img className="homeFlottant" src="img/svg/home_flottant.svg" />
+            <img className="homeFlottant" src="/img/svg/home_flottant.svg" />
           </div>
-          <img className="homeBg" src="img/png/header_bg.png" />
+          <img className="homeBg" src="/img/png/header_bg.png" />
 
           <div className="row home-header">
             <div className="columns auto">
@@ -215,7 +215,7 @@ const IndexPage = () => {
               <image
                 width="4500"
                 height="3500"
-                xlinkHref="img/png/bdxio_header.png"
+                xlinkHref="/img/png/bdxio_header.png"
                 transform="matrix(1.256919e-02 0 0 1.256919e-02 -3.513 3.5492)"
               />
             </g>
@@ -224,7 +224,7 @@ const IndexPage = () => {
 
         <section className="row text-center home-about">
           <div className="home-about-aboutFlottant">
-            <img className="aboutFlottant" src="img/svg/about_flottant.svg" />
+            <img className="aboutFlottant" src="/img/svg/about_flottant.svg" />
           </div>
           <div className="home-about-text">
             <h4 className="sectionTitle align-center">À propos de Bdxio</h4>
@@ -271,10 +271,10 @@ const IndexPage = () => {
         {/* <ConferenceThemes /> */}
         <div className="row conference">
           <div className="conference-conferenceFlottantRight">
-            <img src="img/svg/theme1_flottant.svg" />
+            <img src="/img/svg/theme1_flottant.svg" />
           </div>
           <div className="conference-conferenceFlottantLeft">
-            <img src="img/svg/theme2_flottant.svg" />
+            <img src="/img/svg/theme2_flottant.svg" />
           </div>
           <div className="columns small-12 text-center conference-themes">
             <h5 className="sectionTitle">Les thèmes de la conférence</h5>
@@ -289,7 +289,7 @@ const IndexPage = () => {
               <div className="row conference-container-content">
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_design.svg" />
+                    <img src="/img/svg/icon_theme_design.svg" />
                   </div>
                   <h6>Design, UI & UX</h6>
                   <div className="text-themes">
@@ -299,7 +299,7 @@ const IndexPage = () => {
 
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_back.svg" />
+                    <img src="/img/svg/icon_theme_back.svg" />
                   </div>
                   <h6>Backends, Cloud & BigData</h6>
                   <div className="text-themes">
@@ -309,7 +309,7 @@ const IndexPage = () => {
 
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_front.svg" />
+                    <img src="/img/svg/icon_theme_front.svg" />
                   </div>
                   <h6>Frontend Web, Mobile et VideoGames</h6>
                   <div className="text-themes">
@@ -320,7 +320,7 @@ const IndexPage = () => {
 
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_tooling.svg" />
+                    <img src="/img/svg/icon_theme_tooling.svg" />
                   </div>
                   <h6>Tooling</h6>
                   <div className="text-themes">
@@ -331,7 +331,7 @@ const IndexPage = () => {
 
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_internet.svg" />
+                    <img src="/img/svg/icon_theme_internet.svg" />
                   </div>
                   <h6>Internet des objets & marchés émergents</h6>
                   <div className="text-themes">
@@ -342,7 +342,7 @@ const IndexPage = () => {
 
                 <div className="columns small-6 medium-4 text-center conference-container-content-item">
                   <div>
-                    <img src="img/svg/icon_theme_dev.svg" />
+                    <img src="/img/svg/icon_theme_dev.svg" />
                   </div>
                   <h6>Conception, Architecture & Pratiques de dev</h6>
                   <div className="text-themes">
@@ -439,7 +439,7 @@ const IndexPage = () => {
         /> */}
         <section className="row ticketingAccess">
           <div className="ticketingAccess-ticketingAccessFlottant">
-            <img src="img/svg/theme1_flottant.svg" />
+            <img src="/img/svg/theme1_flottant.svg" />
           </div>
           <div className="columns small-12 text-center">
             <h5 className="sectionTitle">Achetez votre place pour BDX I/O</h5>

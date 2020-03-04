@@ -1,0 +1,19 @@
+[
+  {
+    "firstname": "BENOÎT",
+    "lastname": "GIRAUDOU",
+    "onBoard": true,
+    "bio": "Développeur pragmatique et formateur chez Zenika Bordeaux. Curieux, il aime apprendre et approfondir différents sujets liés de près ou de loin à l'informatique afin de progresser et partager ses connaissances par le biais de formations et d'évènements.",
+    "company": "Zenika",
+    "avatar": {
+      "primary": "/img/team/benoit.jpg",
+      "hover": "/img/team/benoit_hover.jpg"
+    },
+    "contact": {
+      "email": "benoit@bdxio.fr",
+      "twitter": "",
+      "linkedin": "",
+      "website": ""
+    }
+  }
+]

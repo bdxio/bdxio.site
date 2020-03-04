@@ -16,7 +16,7 @@ const PartnerElement = (partner: Partner) => (
 const PartnershipsPage = () => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Sponsors" />
       <Layout>
         <div className="partnership">
           <div className="row pageHeader">
