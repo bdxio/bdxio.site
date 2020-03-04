@@ -1,6 +1,17 @@
 import React from 'react';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
+import { Partner, LevelPartnerEnum } from '@models/partner';
+
+const PartnerElement = (partner: Partner) => (
+  <div className="columns auto partner-card">
+    <div className="text-center">
+      <a href={partner.website} title={partner.name} target="_blank">
+        <img src={partner.logo} alt={partner.name} width={150} />
+      </a>
+    </div>
+  </div>
+);
 
 const PartnershipsPage = () => {
   return (
@@ -29,34 +40,17 @@ const PartnershipsPage = () => {
                 Devenir sponsors
               </a>
             </div>
-
-            <div className="column small-12 large-8 partnership-wrapper">
-              <h4>/ BALTHAZAR</h4>
-              <div className="partnership-logo">
-                <div className="row">{/* TODO */}</div>
+            {Object.entries(LevelPartnerEnum).map((entry: any) => (
+              <div
+                key={entry[0]}
+                className="column small-12 large-8 partnership-wrapper"
+              >
+                <h4>/ {entry[0]}</h4>
+                <div className="partnership-logo">
+                  <div className="row">{/* TODO PartnerElement */}</div>
+                </div>
               </div>
-            </div>
-
-            <div className="column small-12 large-8 partnership-wrapper">
-              <h4>/ IMPÉRIAUX</h4>
-              <div className="partnership-logo">
-                <div className="row">{/* TODO 5 by row */}</div>
-              </div>
-            </div>
-
-            <div className="column small-12 large-8 partnership-wrapper">
-              <h4>/ MAGNUM</h4>
-              <div className="partnership-logo">
-                <div className="row">{/* TODO */}</div>
-              </div>
-            </div>
-
-            <div className="column small-12 large-8 partnership-wrapper">
-              <h4>/ CHOPINE</h4>
-              <div className="partnership-logo">
-                <div className="row">{/* TODO */}</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </Layout>
