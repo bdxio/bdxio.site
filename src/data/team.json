@@ -2,18 +2,145 @@
   {
     "firstname": "BENOÎT",
     "lastname": "GIRAUDOU",
-    "onBoard": true,
     "bio": "Développeur pragmatique et formateur chez Zenika Bordeaux. Curieux, il aime apprendre et approfondir différents sujets liés de près ou de loin à l'informatique afin de progresser et partager ses connaissances par le biais de formations et d'évènements.",
     "company": "Zenika",
     "avatar": {
       "primary": "/img/team/benoit.jpg",
-      "hover": "/img/team/benoit_hover.jpg"
+      "hover": null
     },
     "contact": {
       "email": "benoit@bdxio.fr",
-      "twitter": "",
-      "linkedin": "",
-      "website": ""
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "firstname": "VIVIEN",
+    "lastname": "POIRIER",
+    "bio": "Développeur passionné et curieux, actuellement au sein de la start-up Skillogs",
+    "company": "",
+    "avatar": {
+      "primary": "/img/team/vivien.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "vivien@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "firstname": "JÉRÔME",
+    "lastname": "BÉHUET",
+    "bio": "Développeur autodidacte passionné par les nouvelles technologies, il aime partager sa passion et son métier. Curieux et toujours à l'écoute des changements qu'offre l'écosystème des technologies web.",
+    "company": "DEEXIT",
+    "avatar": {
+      "primary": "/img/team/jerome.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "jerome@bdxio.fr",
+      "twitter": "jbehuet",
+      "linkedin": "https://fr.linkedin.com/in/jbehuet",
+      "website": "https://jbehuet.fr"
+    }
+  },
+  {
+    "firstname": "MAGALI",
+    "lastname": "DAMOURETTE",
+    "bio": "UI/ UX et intégratrice chez 4SH, Magali est une étudiante en alternance passionnée par la création et le monde du web. Curieuse et toujours en quête de savoir elle est à l'écoute des autres et des nouvelles tendances.",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/magali.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "magali@bdxio.fr",
+      "twitter": null,
+      "linkedin": "https://www.linkedin.com/in/magali-damourette-25a455123",
+      "website": null
+    }
+  },
+  {
+    "firstname": "ARTHUR",
+    "lastname": "MAGNE",
+    "bio": "Développeur, directeur technique et co-fondateur de la start-up ProMyze spécialisée dans la qualité logicielle. Arthur est un défenseur des principes du clean code et recherche les moyents d'engager l'ensemble des équipes de développements dans cette démarche.",
+    "company": "ProMyze",
+    "avatar": {
+      "primary": "/img/team/arthur.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "arthur@bdxio.fr",
+      "twitter": null,
+      "linkedin": "https://www.linkedin.com/in/arthur-magne-2b81aa81/",
+      "website": null
+    }
+  },
+  {
+    "firstname": "NICOLAS",
+    "lastname": "ROULON",
+    "bio": "Développeur Back et Front-end chez 4SH. Attaché à défendre un code propre et à l’importance d’une bonne UX sur tous les sujets. Passionné par tout ce qui touche l’informatique, il aime approfondir et partager ses connaissances avec autrui.",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/nicolas.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "nicolas@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "firstname": "BRUNO",
+    "lastname": "SABOT",
+    "bio": "Développeur Front-end passionné, défenseur de l'importance de l'UX et de la performance, il s'intéresse de près à tous les sujets du web. Consultant et formateur chez Zenika Bordeaux, Bruno aime partager ses connaissances avec autrui.",
+    "company": "Zenika",
+    "avatar": {
+      "primary": "/img/team/bruno.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "bruno@bdxio.fr",
+      "twitter": "brunosabot",
+      "linkedin": "https://www.linkedin.com/in/brunosabot",
+      "website": null
+    }
+  },
+  {
+    "firstname": "FANNY",
+    "lastname": "BRIEC TOURNEUR",
+    "bio": "Responsable qualité chez 4SH, Fanny a débuté sa carrière en tant que développeuse. Curieuse, s'intéressant à des sujets divers, ayant des connaissances techniques et un souhait de fournir un logiciel de qualité, elle s'est orientée vers le test logiciel et la recette fonctionnelle.",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/fanny.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "fanny@bdxio.fr",
+      "twitter": null,
+      "linkedin": "https://www.linkedin.com/in/fanny-briec-654945105/",
+      "website": null
+    }
+  },
+  {
+    "firstname": "ALEXANDRE",
+    "lastname": "SUTRA",
+    "bio": "Startup Manager au sein de l'accélérateur Héméra, Alexandre est un passionné d'événementiel et de tech. Animateur de hackathon, il est un fervent défenseur du combo bière/pizza sur tous les meetups qu'il organise.",
+    "company": "Héméra",
+    "avatar": {
+      "primary": "/img/team/alexandre.jpg",
+      "hover": null
+    },
+    "contact": {
+      "email": "alexandre@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
     }
   }
 ]

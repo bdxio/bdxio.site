@@ -1,10 +1,14 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import useMobileDetect from 'use-mobile-detect-hook';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 import { Member } from '@models/Member';
+import MemberElement from '../components/common/MemberElement';
 
 const TeamPage = () => {
+  let line = 0; // Private lines counter
+  const detectMobile = useMobileDetect();
   const { allTeamJson } = useStaticQuery(
     graphql`
       query {
@@ -13,7 +17,6 @@ const TeamPage = () => {
             id
             firstname
             lastname
-            onBoard
             bio
             company
             avatar {
@@ -49,9 +52,16 @@ const TeamPage = () => {
             <div className="column small-12 large-8">
               <h4>/ L'EQUIPE</h4>
               <div className="row users-container-content">
-                {allTeamJson.nodes.map((member: Member) => (
-                  <p key={member.id}>{member.firstname}</p>
-                ))}
+                {allTeamJson.nodes.map((member: Member, i: number) => {
+                  if (!detectMobile.isMobile() && i % 2 === 0) line++;
+                  return (
+                    <MemberElement
+                      key={`member_${i}`}
+                      member={member}
+                      isAtRight={line % 2 === 0}
+                    />
+                  );
+                })}
               </div>
             </div>
             <div className="flottant-left">

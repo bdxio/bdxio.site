@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import useMobileDetect from 'use-mobile-detect-hook';
 
 import Moment from 'moment';
 import 'moment/locale/fr';
@@ -77,6 +78,8 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
 const IndexPage = () => {
   const eventInfo = useEventInfo();
   const eventDate = Moment(eventInfo.general.openingDate);
+  const detectMobile = useMobileDetect();
+
   return (
     <>
       <SEO title="Home" />
@@ -105,12 +108,11 @@ const IndexPage = () => {
                 </div>
               </div>
 
-              <Countdown eventDate={eventDate} />
-              {/* {isMobile ? (
-              <div className="replace-countdown-space" />
-            ) : (
-              <Countdown />
-            )} */}
+              {detectMobile.isMobile() ? (
+                <div className="replace-countdown-space" />
+              ) : (
+                <Countdown eventDate={eventDate} />
+              )}
 
               <div className="row">
                 <div className="columns auto text-center home-header-button">

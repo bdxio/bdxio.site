@@ -28,6 +28,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "typescript": "^3.5.3",
+    "use-mobile-detect-hook": "^1.0.3",
     "webpack": "^4.36.1"
   },
   "devDependencies": {

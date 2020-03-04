@@ -2,21 +2,21 @@ export interface Member {
   id: string;
   firstname: string;
   lastname: string;
-  onBoard: boolean;
   bio: string;
   company: string;
   avatar: Avatar;
   contact: Contact;
+  isSpeaker: boolean;
 }
 
 export interface Avatar {
   primary: string;
-  hover: string;
+  hover: string | null;
 }
 
 export interface Contact {
   email: string;
-  twitter: string;
-  linkedin: string;
-  website: string;
+  twitter: string | null;
+  linkedin: string | null;
+  website: string | null;
 }
