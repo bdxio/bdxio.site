@@ -125,72 +125,53 @@ const IndexPage = ({ path }: { path: string }) => {
                   >
                     Devenir sponsor
                   </a>
-                  <a
-                    href="https://conference-hall.io/public/event/XGTzWawB3ZwLR7u462O8"
-                    className="button medium white"
-                    target="_blank"
-                  >
-                    Devenir speaker·euse
-                  </a>
-                  {/* {Config.registrationOpened === 'opened' && (
-                  <button
-                    className="button medium white"
-                    onClick={() => {
-                      window.open(
-                        'https://www.billetweb.fr/shop.php?event=bdx-i-o-2019',
-                        'Billetterie BDX I/O 2019',
-                        'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
-                      );
-                    }}
-                  >
-                    Achetez votre place
-                  </button>
-                )} */}
-                  {/* {moment().isSameOrAfter(
-                  moment(Config.programPublishingDate)
-                ) && (
-                  <a href="/#/schedule" className="button medium white">
-                    Programme
-                  </a>
-                )} */}
-                  {/* {Config.registrationOpened !== 'opened' &&
-                  moment().isBefore(moment(Config.talksListPublishingDate)) && (
-                    <a
-                      href="/static/plaquette.pdf"
+                  {eventInfo.registration.opened && (
+                    <button
                       className="button medium white"
-                      target="_blank"
+                      onClick={() => {
+                        window.open(
+                          'https://www.billetweb.fr/shop.php?event=bdx-i-o-2019',
+                          'Billetterie BDX I/O 2019',
+                          'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
+                        );
+                      }}
                     >
-                      Devenir sponsor
-                    </a>
-                  )} */}
-                  {/* {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
-                  moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
-                    <a
-                      href="https://conference-hall.io/public/event/XGTzWawB3ZwLR7u462O8"
-                      className="button medium white"
-                      target="_blank"
-                    >
-                      Devenir speaker·euse
-                    </a>
-                  )} */}
+                      Achetez votre place
+                    </button>
+                  )}
+                  {Moment().isSameOrAfter(
+                    Moment(eventInfo.programPublishingDate)
+                  ) && (
+                    <Link to="/schedule" className="button medium white">
+                      Programme
+                    </Link>
+                  )}
 
-                  {/* <button
-                  className="button medium ticket-switch switch-tickets-button"
-                  type="button"
-                >
-                  <Link to="/tickets/switch">Transférer votre place</Link>
-                </button> */}
+                  {Moment().isSameOrAfter(Moment(eventInfo.cfp.openingDate)) &&
+                    Moment().isSameOrBefore(
+                      Moment(eventInfo.cfp.closingDate)
+                    ) && (
+                      <a
+                        href="https://conference-hall.io/public/event/XGTzWawB3ZwLR7u462O8"
+                        className="button medium white"
+                        target="_blank"
+                      >
+                        Devenir speaker·euse
+                      </a>
+                    )}
                 </div>
               </div>
-              {/* {moment().isSameOrAfter(moment(Config.cfpOpeningDate)) &&
-              moment().isSameOrBefore(moment(Config.cfpClosingDate)) && (
-                <div className="row cfp-date">
-                  <div className="columns auto text-center">
-                    {`CFP ouvert du ${moment(Config.cfpOpeningDate).format('LL')}
-                    au ${moment(Config.cfpClosingDate).format('LL')}`}
+              {Moment().isSameOrAfter(Moment(eventInfo.cfp.openingDate)) &&
+                Moment().isSameOrBefore(Moment(eventInfo.cfp.closingDate)) && (
+                  <div className="row cfp-date">
+                    <div className="columns auto text-center">
+                      {`CFP ouvert du ${Moment(
+                        eventInfo.cfp.openingDate
+                      ).format('LL')}
+                    au ${Moment(eventInfo.cfp.closingDate).format('LL')}`}
+                    </div>
                   </div>
-                </div>
-              )} */}
+                )}
             </div>
           </div>
         </div>
@@ -231,12 +212,12 @@ const IndexPage = ({ path }: { path: string }) => {
             <img className="aboutFlottant" src="/img/svg/about_flottant.svg" />
           </div>
           <div className="home-about-text">
-            <h4 className="sectionTitle align-center">À propos de Bdxio</h4>
+            <h4 className="sectionTitle align-center">Qu'est-ce que BDX I/O ?</h4>
             <h6>
-              BDX I/O est une conférence sur le thème de la programmation et de
+              BDX I/O est une conférence Bordelaise sur le thème de la programmation et de
               ses métiers annexes. <br />
-              Pour cette sixième édition, nous recevrons plus de 900
-              passioné·e·s pour une nouvelle journée de découverte dans la bonne
+              Lors de l'édition {eventDate.year() - 1}, nous avons reçu plus de
+              850 passioné·e·s lors d'une journée de découverte et de bonne
               humeur !!!
             </h6>
           </div>
@@ -256,7 +237,7 @@ const IndexPage = ({ path }: { path: string }) => {
                 <div className="metricsBar-content-text">Speakers</div>
               </div>
               <div className="metrics-item text-center separate-Element">
-                <h3 className="metricsBar-content-number">900</h3>
+                <h3 className="metricsBar-content-number">850</h3>
                 <div className="metricsBar-content-text">Participants</div>
               </div>
               <div className="metrics-item text-center separate-Element">
@@ -268,10 +249,6 @@ const IndexPage = ({ path }: { path: string }) => {
           <div className="columns hide-for-small-only auto text-center metricsBar-video" />
         </div>
 
-        {/*<div className="row align-center">*/}
-        {/*<Link className="columns shrink button small primary disabled" to="/gallery">Voir la galerie</Link>*/}
-        {/*</div>*/}
-
         {/* <ConferenceThemes /> */}
         <div className="row conference">
           <div className="conference-conferenceFlottantRight">
@@ -281,93 +258,40 @@ const IndexPage = ({ path }: { path: string }) => {
             <img src="/img/svg/theme2_flottant.svg" />
           </div>
           <div className="columns small-12 text-center conference-themes">
-            <h5 className="sectionTitle">Les thèmes de la conférence</h5>
+            <h5 className="sectionTitle">Les thèmes de la journée</h5>
             <h6>
-              Elles permettent de donner une coloration à la conférence.
-              L’édition 2018 sera articulée autours de 6 thématiques.
+              Les thèmes permettent de donner une coloration à la journée.
+              L'évènement sera articulé autours de 6 thématiques.
             </h6>
           </div>
 
           <div className="row auto align-center">
             <div className="column small-12 medium-8 conference-container">
               <div className="row conference-container-content">
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_design.svg" />
+                {eventInfo.themes.map((theme: any, i: number) => (
+                  <div
+                    key={`theme_${i}`}
+                    className="columns small-6 medium-4 text-center conference-container-content-item"
+                  >
+                    <div>
+                      <img src={theme.icon} />
+                    </div>
+                    <h6>{theme.title}</h6>
+                    <div className="text-themes">{theme.description}</div>
                   </div>
-                  <h6>Design, UI & UX</h6>
-                  <div className="text-themes">
-                    CSS, Ergonomie & Design. Experience utilisateur.
-                  </div>
-                </div>
-
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_back.svg" />
-                  </div>
-                  <h6>Backends, Cloud & BigData</h6>
-                  <div className="text-themes">
-                    Frameworks côté serveur. Cloud. Base de données NoSQL.
-                  </div>
-                </div>
-
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_front.svg" />
-                  </div>
-                  <h6>Frontend Web, Mobile et VideoGames</h6>
-                  <div className="text-themes">
-                    Frameworks côté client. Application web / mobiles (hybrides,
-                    natives) / progressives. Outillage pour les jeux vidéos.
-                  </div>
-                </div>
-
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_tooling.svg" />
-                  </div>
-                  <h6>Tooling</h6>
-                  <div className="text-themes">
-                    Outillage pour la productivité. Outillage pour le build.
-                    IDE.
-                  </div>
-                </div>
-
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_internet.svg" />
-                  </div>
-                  <h6>Internet des objets & marchés émergents</h6>
-                  <div className="text-themes">
-                    A la recherche des idées disruptives au service du monde de
-                    demain.
-                  </div>
-                </div>
-
-                <div className="columns small-6 medium-4 text-center conference-container-content-item">
-                  <div>
-                    <img src="/img/svg/icon_theme_dev.svg" />
-                  </div>
-                  <h6>Conception, Architecture & Pratiques de dev</h6>
-                  <div className="text-themes">
-                    Méthodologie comme SCRUM ou Kanban. Principes
-                    d'architecture.
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
+
         {/* <Quote /> */}
         <div className="row align-middle align-center home-team">
           <div className="home-team-content">
             <h5 className="text-center">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
-              fugiat aspernatur magni iste sed porro exercitationem, voluptates
-              ipsam amet ex quos praesentium totam ipsa! Mollitia, voluptate
-              ipsa. Cumque, similique distinctio?
+              De multiple conférences faites par des passionnés dans un écosystème passionnant !
             </h5>
-            <h6 className="text-center">Lorem</h6>
+            <h6 className="text-center">L'équipe</h6>
           </div>
         </div>
 
@@ -381,7 +305,6 @@ const IndexPage = ({ path }: { path: string }) => {
         <div className="row someNews">
           <div className="columns small-12 text-center">
             <h5 className="sectionTitleBg">Nos Actualités en bref</h5>
-            {/* <h6 className="sectionSubtitleBg">Que se passe-t-il à BDX I/O ?</h6> */}
           </div>
 
           <div className="align-center">

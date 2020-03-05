@@ -19,6 +19,11 @@ const useEventInfo = () => {
             normalSoldout
             opened
           }
+          themes {
+            title
+            icon
+            description
+          }
         }
       }
     `

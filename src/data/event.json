@@ -13,6 +13,38 @@
       "openingDate": "2020-05-01",
       "closingDate": "2020-06-30"
     },
-    "programPublishingDate": "2020-10-30"
+    "programPublishingDate": "2020-10-30",
+    "themes": [
+      {
+        "title": "Design, UI & UX",
+        "icon": "/img/svg/icon_theme_design.svg",
+        "description": "CSS, Ergonomie & Design. Experience utilisateur."
+      },
+      {
+        "title": "Backends, Cloud & BigData",
+        "icon": "/img/svg/icon_theme_back.svg",
+        "description": "Frameworks côté serveur. Cloud. Base de données NoSQL."
+      },
+      {
+        "title": "Frontend Web, Mobile et VideoGames",
+        "icon": "/img/svg/icon_theme_front.svg",
+        "description": "Frameworks côté client. Application web / mobiles (hybrides, natives) / progressives. Outillage pour les jeux vidéos."
+      },
+      {
+        "title": "Tooling",
+        "icon": "/img/svg/icon_theme_tooling.svg",
+        "description": "Outillage pour la productivité. Outillage pour le build. IDE."
+      },
+      {
+        "title": "Internet des objets & marchés émergents",
+        "icon": "/img/svg/icon_theme_internet.svg",
+        "description": "A la recherche des idées disruptives au service du monde de demain."
+      },
+      {
+        "title": "Conception, Architecture & Pratiques de dev",
+        "icon": "/img/svg/icon_theme_dev.svg",
+        "description": " Méthodologie comme SCRUM ou Kanban. Principes d'architecture."
+      }
+    ]
   }
 ]
