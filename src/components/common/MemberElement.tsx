@@ -3,16 +3,21 @@ import { Member } from '../../models/Member';
 
 interface PropsType {
   member: Member;
-  isAtRight: boolean;
+  isAtRight?: boolean;
   isSpeaker?: boolean;
 }
 
-const MemberElement = ({ member, isAtRight, isSpeaker = false }: PropsType) => {
+const MemberElement = ({
+  member,
+  isAtRight = false,
+  isSpeaker = false
+}: PropsType) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const hasSocialLink =
-    !!member.contact.linkedin ||
-    !!member.contact.twitter ||
-    !!member.contact.website;
+    !!member.contact &&
+    (!!member.contact.linkedin ||
+      !!member.contact.twitter ||
+      !!member.contact.website);
 
   const onClick = () => {
     if (isSpeaker) {
@@ -39,13 +44,13 @@ const MemberElement = ({ member, isAtRight, isSpeaker = false }: PropsType) => {
         </div>
       )}
       <div className="columns text-center auto users-container-content-item-text">
-        <h6>{`${member.firstname} ${member.lastname}`}</h6>
+        <h6>{member.displayName}</h6>
         <div className="users-container-content-item-text-bio text-center">
           {member.bio}
         </div>
         <div className={`text-center ${!hasSocialLink ? 'noLink' : ''}`}>
           <hr />
-          {member.contact.twitter && (
+          {member.contact && member.contact.twitter && (
             <span>
               <a
                 href={`https://twitter.com/${member.contact.twitter}`}
@@ -55,14 +60,14 @@ const MemberElement = ({ member, isAtRight, isSpeaker = false }: PropsType) => {
               </a>
             </span>
           )}
-          {member.contact.linkedin && (
+          {member.contact && member.contact.linkedin && (
             <span>
               <a href={member.contact.linkedin} target="_blank">
                 <i className="users-container-content-item-text-socialNetwork fa fa-linkedin" />
               </a>
             </span>
           )}
-          {member.contact.website && (
+          {member.contact && member.contact.website && (
             <span>
               <a href={member.contact.website} target="_blank">
                 <i className="users-container-content-item-text-socialNetwork fa fa-globe" />

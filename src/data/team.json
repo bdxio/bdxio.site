@@ -1,7 +1,6 @@
 [
   {
-    "firstname": "BENOÎT",
-    "lastname": "GIRAUDOU",
+    "displayName": "BENOÎT GIRAUDOU",
     "bio": "Développeur pragmatique et formateur chez Zenika Bordeaux. Curieux, il aime apprendre et approfondir différents sujets liés de près ou de loin à l'informatique afin de progresser et partager ses connaissances par le biais de formations et d'évènements.",
     "company": "Zenika",
     "avatar": {
@@ -16,8 +15,7 @@
     }
   },
   {
-    "firstname": "VIVIEN",
-    "lastname": "POIRIER",
+    "displayName": "VIVIEN POIRIER",
     "bio": "Développeur passionné et curieux, actuellement au sein de la start-up Skillogs",
     "company": "",
     "avatar": {
@@ -32,8 +30,7 @@
     }
   },
   {
-    "firstname": "JÉRÔME",
-    "lastname": "BÉHUET",
+    "displayName": "JÉRÔME BÉHUET",
     "bio": "Développeur autodidacte passionné par les nouvelles technologies, il aime partager sa passion et son métier. Curieux et toujours à l'écoute des changements qu'offre l'écosystème des technologies web.",
     "company": "DEEXIT",
     "avatar": {
@@ -48,8 +45,7 @@
     }
   },
   {
-    "firstname": "MAGALI",
-    "lastname": "DAMOURETTE",
+    "displayName": "MAGALI DAMOURETTE",
     "bio": "UI/ UX et intégratrice chez 4SH, Magali est une étudiante en alternance passionnée par la création et le monde du web. Curieuse et toujours en quête de savoir elle est à l'écoute des autres et des nouvelles tendances.",
     "company": "4SH",
     "avatar": {
@@ -64,8 +60,7 @@
     }
   },
   {
-    "firstname": "ARTHUR",
-    "lastname": "MAGNE",
+    "displayName": "ARTHUR MAGNE",
     "bio": "Développeur, directeur technique et co-fondateur de la start-up ProMyze spécialisée dans la qualité logicielle. Arthur est un défenseur des principes du clean code et recherche les moyents d'engager l'ensemble des équipes de développements dans cette démarche.",
     "company": "ProMyze",
     "avatar": {
@@ -80,8 +75,7 @@
     }
   },
   {
-    "firstname": "NICOLAS",
-    "lastname": "ROULON",
+    "displayName": "NICOLAS ROULON",
     "bio": "Développeur Back et Front-end chez 4SH. Attaché à défendre un code propre et à l’importance d’une bonne UX sur tous les sujets. Passionné par tout ce qui touche l’informatique, il aime approfondir et partager ses connaissances avec autrui.",
     "company": "4SH",
     "avatar": {
@@ -96,8 +90,7 @@
     }
   },
   {
-    "firstname": "BRUNO",
-    "lastname": "SABOT",
+    "displayName": "BRUNO SABOT",
     "bio": "Développeur Front-end passionné, défenseur de l'importance de l'UX et de la performance, il s'intéresse de près à tous les sujets du web. Consultant et formateur chez Zenika Bordeaux, Bruno aime partager ses connaissances avec autrui.",
     "company": "Zenika",
     "avatar": {
@@ -112,8 +105,7 @@
     }
   },
   {
-    "firstname": "FANNY",
-    "lastname": "BRIEC TOURNEUR",
+    "displayName": "FANNY BRIEC TOURNEUR",
     "bio": "Responsable qualité chez 4SH, Fanny a débuté sa carrière en tant que développeuse. Curieuse, s'intéressant à des sujets divers, ayant des connaissances techniques et un souhait de fournir un logiciel de qualité, elle s'est orientée vers le test logiciel et la recette fonctionnelle.",
     "company": "4SH",
     "avatar": {
@@ -128,8 +120,7 @@
     }
   },
   {
-    "firstname": "ALEXANDRE",
-    "lastname": "SUTRA",
+    "displayName": "ALEXANDRE SUTRA",
     "bio": "Startup Manager au sein de l'accélérateur Héméra, Alexandre est un passionné d'événementiel et de tech. Animateur de hackathon, il est un fervent défenseur du combo bière/pizza sur tous les meetups qu'il organise.",
     "company": "Héméra",
     "avatar": {

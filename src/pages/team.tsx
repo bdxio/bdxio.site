@@ -15,8 +15,7 @@ const TeamPage = ({ path }: { path: string }) => {
         allTeamJson {
           nodes {
             id
-            firstname
-            lastname
+            displayName
             bio
             company
             avatar {

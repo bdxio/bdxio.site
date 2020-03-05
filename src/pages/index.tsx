@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import useMobileDetect from 'use-mobile-detect-hook';
 
 import Moment from 'moment';
@@ -13,6 +13,7 @@ import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 
 import '@styles/app.scss';
+import MemberElement from '@components/common/MemberElement';
 
 const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   const [timeRemaining, setTimeRemaining] = useState();
@@ -76,6 +77,7 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
     </div>
   );
 };
+
 
 const IndexPage = ({ path }: { path: string }) => {
   const eventInfo = useEventInfo();
@@ -212,10 +214,12 @@ const IndexPage = ({ path }: { path: string }) => {
             <img className="aboutFlottant" src="/img/svg/about_flottant.svg" />
           </div>
           <div className="home-about-text">
-            <h4 className="sectionTitle align-center">Qu'est-ce que BDX I/O ?</h4>
+            <h4 className="sectionTitle align-center">
+              Qu'est-ce que BDX I/O ?
+            </h4>
             <h6>
-              BDX I/O est une conférence Bordelaise sur le thème de la programmation et de
-              ses métiers annexes. <br />
+              BDX I/O est une conférence Bordelaise sur le thème de la
+              programmation et de ses métiers annexes. <br />
               Lors de l'édition {eventDate.year() - 1}, nous avons reçu plus de
               850 passioné·e·s lors d'une journée de découverte et de bonne
               humeur !!!
@@ -289,17 +293,12 @@ const IndexPage = ({ path }: { path: string }) => {
         <div className="row align-middle align-center home-team">
           <div className="home-team-content">
             <h5 className="text-center">
-              De multiple conférences faites par des passionnés dans un écosystème passionnant !
+              De multiple conférences faites par des passionnés sur un
+              écosystème passionnant !
             </h5>
             <h6 className="text-center">L'équipe</h6>
           </div>
         </div>
-
-        {/* <SomeSpeakersPresentation
-          speakers={Speakers.length > 0 ? Speakers : Speakers18}
-          isPrevious={Speakers.length === 0}
-          isMobile={isTabletOrSmaller}
-        /> */}
 
         {/* <SomeNews news={News} /> */}
         <div className="row someNews">

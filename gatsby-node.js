@@ -1,4 +1,8 @@
-var path = require('path');
+const path = require('path');
+const fetch = require('node-fetch');
+const crypto = require('crypto');
+
+const CONFERENCE_HALL_API = 'https://conference-hall.io/api/v1/event/XGTzWawB3ZwLR7u462O8?key=b7d1e043-1324-4d4b-8218-515e4532a52f&state=confirmed'
 
 exports.onCreateWebpackConfig = function ({ actions }) {
     actions.setWebpackConfig({
@@ -11,4 +15,44 @@ exports.onCreateWebpackConfig = function ({ actions }) {
             }
         }
     })
+}
+
+exports.sourceNodes = async ({ actions }) => {
+    const { createNode } = actions
+    const { speakers } = await fetch(CONFERENCE_HALL_API).then(res => res.json())
+    // Process data into nodes.
+    speakers.map((speaker, i) => {
+        // Create your node object
+        const speakerNode = {
+            // Required fields
+            id: `${i}`,
+            parent: `__SOURCE__`,
+            internal: {
+                type: `Speaker`, // name of the graphQL query --> allSpeaker {}
+                // contentDigest will be added just after
+                // but it is required
+            },
+            children: [],
+            // Other fields that you want to query with graphQl
+            displayName: speaker.displayName,
+            bio: speaker.bio,
+            company: speaker.company,
+            avatar: {
+                primary: speaker.photoURL
+            }
+        }
+
+        // Get content digest of node. (Required field)
+        const contentDigest = crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(speakerNode))
+            .digest(`hex`);
+        // add it to speakerNode
+        speakerNode.internal.contentDigest = contentDigest;
+
+        // Create node with the gatsby createNode() API
+        createNode(speakerNode);
+    });
+    // We're done, return.
+    return
 }

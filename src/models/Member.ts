@@ -1,11 +1,10 @@
 export interface Member {
   id: string;
-  firstname: string;
-  lastname: string;
+  displayName: string;
   bio: string;
   company: string;
   avatar: Avatar;
-  contact: Contact;
+  contact: Contact | null;
   isSpeaker: boolean;
 }
 
