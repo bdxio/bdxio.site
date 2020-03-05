@@ -83,6 +83,9 @@ const Layout = ({ path, children }: PropsType) => {
               <Link to="/contact">Contact</Link>
             </li>
             <li className="columns shrink">
+              <Link to="/faq">FAQ</Link>
+            </li>
+            <li className="columns shrink">
               <Link to="/legal/cgv">CGV</Link>
             </li>
             <li className="columns shrink">
