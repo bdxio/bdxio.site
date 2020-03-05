@@ -19,46 +19,45 @@ const Menu = ({ path }: PropsType) => {
         </Link>
       </li>
       <li className="shrink menu-item-content">
-        <Link className={path === '/team' ? 'selected' : ''} to="/team">
+        <Link className={path === '/team/' ? 'selected' : ''} to="/team">
           L'équipe
         </Link>
       </li>
       <li className="shrink menu-item-content">
-        <Link className={path === '/news' ? 'selected' : ''} to="/news">
+        <Link className={path === '/news/' ? 'selected' : ''} to="/news">
           Actualités
         </Link>
       </li>
-      <li
-        className={`shrink menu-item-content ${moment().isBefore(
-          moment(eventInfo.programPublishingDate)
-        ) && 'disabled'}`}
-      >
-        <Link
-          className={path === '/schedule' ? 'selected' : ''}
-          to="/schedule"
-          onClick={(e: any) => {
-            if (moment().isBefore(moment(eventInfo.programPublishingDate)))
-              e.preventDefault();
-          }}
-        >
-          Programme
-        </Link>
-      </li>
+      {moment().isSameOrAfter(moment(eventInfo.programPublishingDate)) && (
+        <li className={`shrink menu-item-content`}>
+          <Link
+            className={path === '/speakers/' ? 'selected' : ''}
+            to="/speakers"
+          >
+            Conférencier·ière·s
+          </Link>
+        </li>
+      )}
+      {moment().isSameOrAfter(moment(eventInfo.programPublishingDate)) && (
+        <li className={`shrink menu-item-content`}>
+          <Link
+            className={path === '/schedule/' ? 'selected' : ''}
+            to="/schedule"
+          >
+            Programme
+          </Link>
+        </li>
+      )}
       <li className="shrink menu-item-content">
         <Link
-          className={path === '/partnerships' ? 'selected' : ''}
+          className={path === '/partnerships/' ? 'selected' : ''}
           to="/partnerships"
         >
           Sponsors
         </Link>
       </li>
       <li className="shrink menu-item-content">
-        <Link className={path === '/faq' ? 'selected' : ''} to="/faq">
-          FAQ
-        </Link>
-      </li>
-      <li className="shrink menu-item-content">
-        <Link className={path === '/contact' ? 'selected' : ''} to="/contact">
+        <Link className={path === '/contact/' ? 'selected' : ''} to="/contact">
           Contact
         </Link>
       </li>
