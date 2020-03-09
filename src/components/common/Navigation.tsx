@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
+import useMobileDetect from 'use-mobile-detect-hook';
 import useOnScroll from '@hooks/useOnScroll';
 import useEventInfo from '@hooks/useEventInfo';
 
@@ -10,9 +11,16 @@ interface PropsType {
 
 const Menu = ({ path }: PropsType) => {
   const eventInfo = useEventInfo();
+  const detectMobile = useMobileDetect();
 
   return (
-    <ul className="columns auto align-center main-menu-item">
+    <ul
+      className={
+        !detectMobile.isMobile()
+          ? 'columns auto align-center main-menu-item'
+          : ''
+      }
+    >
       <li className="shrink menu-item-content">
         <Link className={path === '/' ? 'selected' : ''} to="/">
           Accueil
@@ -24,7 +32,10 @@ const Menu = ({ path }: PropsType) => {
         </Link>
       </li>
       <li className="shrink menu-item-content">
-        <Link className={path === '/articles/' ? 'selected' : ''} to="/articles">
+        <Link
+          className={path === '/articles/' ? 'selected' : ''}
+          to="/articles"
+        >
           Actualités
         </Link>
       </li>
