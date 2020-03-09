@@ -78,7 +78,6 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   );
 };
 
-
 const IndexPage = ({ path }: { path: string }) => {
   const eventInfo = useEventInfo();
   const eventDate = Moment(eventInfo.general.openingDate);

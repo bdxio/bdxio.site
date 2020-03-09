@@ -82,12 +82,12 @@ const Layout = ({ path, children }: PropsType) => {
             <li className="columns shrink">
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="columns shrink">
+            {/* <li className="columns shrink">
               <Link to="/faq">FAQ</Link>
-            </li>
-            <li className="columns shrink">
+            </li> */}
+            {/* <li className="columns shrink">
               <Link to="/legal/cgv">CGV</Link>
-            </li>
+            </li> */}
             <li className="columns shrink">
               <Link to="/legal/code_de_conduite">Code de conduite</Link>
             </li>

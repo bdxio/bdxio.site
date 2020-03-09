@@ -3,7 +3,7 @@ module.exports = {
     title: `BDX I/O`,
     description: `Bordeaux Developer eXperience | event`,
     keywords: `developer,bordeaux,event`,
-    author: `@bdxio`,
+    author: `@bdxio`
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -16,6 +16,14 @@ module.exports = {
         name: `data`,
         path: `${__dirname}/src/data`
       }
-    }
-  ],
-}
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `articles`,
+        path: `${__dirname}/src/articles`
+      }
+    },
+    `gatsby-transformer-remark`
+  ]
+};
