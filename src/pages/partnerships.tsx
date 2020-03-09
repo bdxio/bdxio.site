@@ -28,7 +28,7 @@ const PartnershipsPage = ({ path }: { path: string }) => {
           <div className="row align-center users-container">
             <div className="column small-12 text-center">
               <p className="subtitle">
-                Les sponsors qui soutiennent l'édition 2020
+                Les sponsors qui soutiennent l'édition 2020 🧡
               </p>
             </div>
             <div className="column small-12 text-center">

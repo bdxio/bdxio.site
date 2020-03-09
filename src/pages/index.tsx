@@ -341,8 +341,7 @@ const IndexPage = ({ path }: { path: string }) => {
         <div className="row align-middle align-center home-team">
           <div className="home-team-content">
             <h5 className="text-center">
-              De multiple conférences faites par des passionnés sur un
-              écosystème passionnant !
+              BDX I/O, une journée de découverte et de partage pour des passionnés par des passionnés !
             </h5>
             <h6 className="text-center">L'équipe</h6>
           </div>
