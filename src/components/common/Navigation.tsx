@@ -24,7 +24,7 @@ const Menu = ({ path }: PropsType) => {
         </Link>
       </li>
       <li className="shrink menu-item-content">
-        <Link className={path === '/news/' ? 'selected' : ''} to="/news">
+        <Link className={path === '/articles/' ? 'selected' : ''} to="/articles">
           Actualités
         </Link>
       </li>

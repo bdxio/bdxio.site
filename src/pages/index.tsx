@@ -78,10 +78,59 @@ const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   );
 };
 
+const ArticleElement = ({ article }: { article: any }) => (
+  <div className="columns small-10 large-3 someNews-content-item">
+    <div className="news-container">
+      <div className="img-container">
+        <img
+          className="someNews-content-item-picture"
+          src={article.frontmatter.thumbnail}
+        />
+      </div>
+      <div className="someNews-content-item-title">
+        {article.frontmatter.title}
+      </div>
+      <div
+        className="text-content someNews-content-item-news"
+        dangerouslySetInnerHTML={{ __html: article.html }}
+      />
+    </div>
+    <div className="text-center someNews-content-item-button">
+      <Link className="button tiny secondary" to={article.frontmatter.path}>
+        Lire l'article
+        <i className="fas fa-angle-right" />
+      </Link>
+    </div>
+  </div>
+);
+
 const IndexPage = ({ path }: { path: string }) => {
   const eventInfo = useEventInfo();
   const eventDate = Moment(eventInfo.general.openingDate);
   const detectMobile = useMobileDetect();
+  const { allMarkdownRemark } = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          limit: 3
+        ) {
+          nodes {
+            id
+            frontmatter {
+              title
+              subtitle
+              thumbnail
+              date
+              creator
+              path
+            }
+            html
+          }
+        }
+      }
+    `
+  );
 
   return (
     <>
@@ -307,50 +356,30 @@ const IndexPage = ({ path }: { path: string }) => {
 
           <div className="align-center">
             <div className="row collapse align-center someNews-content">
-              <div className="columns small-10 large-3 someNews-content-item">
-                <div className="news-container">
-                  <div className="img-container">
-                    <img
-                      className="someNews-content-item-picture"
-                      src="https://docs.google.com/uc?id=1CyJ4OZsXo5vKNVCZus-1rtgCiWUgqbkj"
-                    />
-                  </div>
-                  <div className="someNews-content-item-title">
-                    Délibérations BDX I/O 101 : Comment ça fonctionne ?
-                  </div>
-                  <div className="text-content someNews-content-item-news">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolores rem officia tenetur optio, maxime error doloremque
-                    neque adipisci cum temporibus debitis dolorem consectetur
-                    fugit sunt reprehenderit, molestias ea ipsa delectus!
-                  </div>
-                </div>
-                <div className="text-center someNews-content-item-button">
-                  <Link className="button tiny secondary" to={'/news'}>
-                    Lire l'article
-                    <i className="fas fa-angle-right" />
-                  </Link>
-                </div>
-              </div>
+              {allMarkdownRemark.nodes.map((article: any) => (
+                <ArticleElement key={article.id} article={article} />
+              ))}
             </div>
 
             <div className="row align-center someNews-navigate">
-              {[...Array(3)].map((v, i) => {
-                return (
-                  <button
-                    className={1 === i ? 'selected' : ''}
-                    key={`'select_'${i}`}
-                    type="button"
-                  >
-                    <i className="fa fa-circle" />
-                  </button>
-                );
-              })}
+              {/* TODO: LIMIT TO 3 ARTICLES
+                {[...Array(3)].map((v, i) => {
+                  return (
+                    <button
+                      className={1 === i ? 'selected' : ''}
+                      key={`'select_'${i}`}
+                      type="button"
+                    >
+                      <i className="fa fa-circle" />
+                    </button>
+                  );
+                })}
+              */}
             </div>
           </div>
 
           <div className="columns shrink text-center">
-            <Link className="button small white" to={'/news'}>
+            <Link className="button small white" to={'/articles'}>
               Tout voir
             </Link>
           </div>
