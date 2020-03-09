@@ -15,6 +15,7 @@ const useEventInfo = () => {
           }
           programPublishingDate
           registration {
+            url
             earlySoldout
             normalSoldout
             opened

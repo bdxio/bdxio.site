@@ -180,7 +180,7 @@ const IndexPage = ({ path }: { path: string }) => {
                       className="button medium white"
                       onClick={() => {
                         window.open(
-                          'https://www.billetweb.fr/shop.php?event=bdx-i-o-2019',
+                          `${eventInfo.registration.url}`,
                           'Billetterie BDX I/O 2019',
                           'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
                         );
@@ -341,7 +341,8 @@ const IndexPage = ({ path }: { path: string }) => {
         <div className="row align-middle align-center home-team">
           <div className="home-team-content">
             <h5 className="text-center">
-              BDX I/O, une journée de découverte et de partage pour des passionnés par des passionnés !
+              BDX I/O, une journée de découverte et de partage pour des
+              passionnés par des passionnés !
             </h5>
             <h6 className="text-center">L'équipe</h6>
           </div>

@@ -1,14 +1,14 @@
-export interface Partner {
+export interface Sponsor {
   id: string;
-  level: LevelPartnerEnum;
+  level: LevelSponsorEnum;
   name: string;
   website: string;
   logo: string;
 }
 
-export enum LevelPartnerEnum {
+export enum LevelSponsorEnum {
   BALTHAZAR = 'BALTHAZAR',
-  IMPÉRIAUX = 'IMPÉRIAUX',
+  IMPERIAL = 'IMPÉRIAL',
   MAGNUM = 'MAGNUM',
   CHOPINE = 'CHOPINE'
 }

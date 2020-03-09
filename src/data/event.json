@@ -5,6 +5,7 @@
       "closingDate": "2020-10-30T19:00:00"
     },
     "registration": {
+      "url": "https://www.billetweb.fr/shop.php?event=bdx-i-o-2019",
       "opened": false,
       "normalSoldout": false,
       "earlySoldout": false

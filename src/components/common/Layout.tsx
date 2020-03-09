@@ -3,10 +3,40 @@ import Navigation from '@components/common/Navigation';
 import { Link } from 'gatsby';
 import jsonp from 'jsonp';
 
+import useSponsors from '@hooks/useSponsors';
+import { LevelSponsorEnum, Sponsor } from '@models/Sponsor';
+
 interface PropsType {
   path: string;
   children: React.ReactNode;
 }
+
+const SponsorFooter = () => {
+  const sponsors = useSponsors(LevelSponsorEnum.BALTHAZAR);
+  if (sponsors.length === 0) return null;
+  return (
+    <section className="row sponsorBar">
+      <img className="homeFlottant" src="/img/svg/sponsor_flottant.svg" />
+      <div className="columns shrink text-center">
+        <h5 className="title">Nos sponsors Balthazar</h5>
+      </div>
+      <div className="row">
+        <div className="columns auto text-center">
+          {sponsors.map((sponsor: Sponsor) => (
+            <a
+              key={sponsor.id}
+              href={sponsor.website}
+              title={sponsor.name}
+              target="_blank"
+            >
+              <img src={sponsor.logo} alt={sponsor.name} width={150} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Layout = ({ path, children }: PropsType) => {
   const [email, setEmail] = useState<string>('');
@@ -52,7 +82,10 @@ const Layout = ({ path, children }: PropsType) => {
   return (
     <>
       <Navigation path={path} />
-      <div className="pageContainer">{children}</div>
+      <div className="pageContainer">
+        {children}
+        <SponsorFooter />
+      </div>
       <div className="footer">
         <div className="footer-signIn">
           <div className="info">

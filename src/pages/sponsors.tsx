@@ -1,19 +1,22 @@
 import React from 'react';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
-import { Partner, LevelPartnerEnum } from '@models/partner';
+import useSponsors from '@hooks/useSponsors';
+import { Sponsor, LevelSponsorEnum } from '@models/Sponsor';
 
-const PartnerElement = (partner: Partner) => (
+const SponsorElement = (sponsor: Sponsor) => (
   <div className="columns auto partner-card">
     <div className="text-center">
-      <a href={partner.website} title={partner.name} target="_blank">
-        <img src={partner.logo} alt={partner.name} width={150} />
+      <a href={sponsor.website} title={sponsor.name} target="_blank">
+        <img src={sponsor.logo} alt={sponsor.name} width={150} />
       </a>
     </div>
   </div>
 );
 
-const PartnershipsPage = ({ path }: { path: string }) => {
+const SponsorsPage = ({ path }: { path: string }) => {
+  const allSponsors = useSponsors();
+
   return (
     <>
       <SEO title="Sponsors" />
@@ -40,21 +43,26 @@ const PartnershipsPage = ({ path }: { path: string }) => {
                 Devenir sponsors
               </a>
             </div>
-            {Object.entries(LevelPartnerEnum).map((entry: any) => (
-              <div
-                key={entry[0]}
-                className="column small-12 large-8 partnership-wrapper"
-              >
-                <h4>/ {entry[0]}</h4>
-                <div className="partnership-logo">
-                  <div className="row">{/* TODO PartnerElement */}</div>
+            {Object.entries(LevelSponsorEnum).map((entry: any) => {
+              const sponsors = allSponsors.filter(
+                (sponsor: Sponsor) => sponsor.level === entry[0]
+              );
+              return sponsors.length === 0 ? null : (
+                <div
+                  key={entry[0]}
+                  className="column small-12 large-8 partnership-wrapper"
+                >
+                  <h4>/ {entry[1]}</h4>
+                  <div className="partnership-logo">
+                    <div className="row">{/* TODO PartnerElement */}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </Layout>
     </>
   );
 };
-export default PartnershipsPage;
+export default SponsorsPage;
