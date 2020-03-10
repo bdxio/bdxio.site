@@ -202,7 +202,7 @@ const IndexPage = ({ path }: { path: string }) => {
                       Moment(eventInfo.cfp.closingDate)
                     ) && (
                       <a
-                        href="https://conference-hall.io/public/event/XGTzWawB3ZwLR7u462O8"
+                        href={eventInfo.cfp.url}
                         className="button medium white"
                         target="_blank"
                       >
