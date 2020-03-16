@@ -1,11 +1,11 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { Sponsor, LevelSponsorEnum } from '@models/Sponsor';
 
-const useSponsors = (level: LevelSponsorEnum) => {
+const useSponsors = (level?: LevelSponsorEnum) => {
   const { allSponsorsJson } = useStaticQuery(
     graphql`
       query {
-        allSponsorsJson {
+        allSponsorsJson(filter: { published: { eq: true } }) {
           nodes {
             id
             name

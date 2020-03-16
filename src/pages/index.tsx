@@ -16,7 +16,7 @@ import '@styles/app.scss';
 import MemberElement from '@components/common/MemberElement';
 
 const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
-  const [timeRemaining, setTimeRemaining] = useState();
+  const [timeRemaining, setTimeRemaining] = useState<Moment.Duration>();
   const [ended, setEnded] = useState(false);
 
   useInterval(() => {
@@ -181,7 +181,7 @@ const IndexPage = ({ path }: { path: string }) => {
                       onClick={() => {
                         window.open(
                           `${eventInfo.registration.url}`,
-                          'Billetterie BDX I/O 2019',
+                          `Billetterie BDX I/O ${eventDate.year()}`,
                           'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
                         );
                       }}
@@ -443,8 +443,8 @@ const IndexPage = ({ path }: { path: string }) => {
                     className="button small secondary"
                     onClick={() => {
                       window.open(
-                        'https://www.billetweb.fr/shop.php?event=bdx-i-o-2019',
-                        'Billetterie BDX I/O 2019',
+                        `${eventInfo.registration.url}`,
+                        `Billetterie BDX I/O ${eventDate.year()}`,
                         'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
                       );
                     }}
@@ -499,8 +499,8 @@ const IndexPage = ({ path }: { path: string }) => {
                     className="button small secondary"
                     onClick={() => {
                       window.open(
-                        'https://www.billetweb.fr/shop.php?event=bdx-i-o-2019',
-                        'Billetterie BDX I/O 2019',
+                        `${eventInfo.registration.url}`,
+                        `Billetterie BDX I/O ${eventDate.year()}`,
                         'width=650, height=600, top=100, left=100, toolbar=no, resizable=yes, scrollbars=yes, status=no'
                       );
                     }}

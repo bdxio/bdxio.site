@@ -4,7 +4,7 @@
     "module": "commonjs",
     "jsx": "react",
     "strict": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],

@@ -4,6 +4,7 @@ export interface Sponsor {
   name: string;
   website: string;
   logo: string;
+  published: boolean;
 }
 
 export enum LevelSponsorEnum {
