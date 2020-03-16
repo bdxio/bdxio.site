@@ -35,8 +35,8 @@ const CodeDeConduitePage = () => (
           <ul>
             <li className="code-conduite-content-mail">
               par email :{' '}
-              <a href="mailto://team@bdx.io" target="_blank">
-                team@bdx.io
+              <a href="mailto://team@bdxio.fr" target="_blank">
+                team@bdxio.fr
               </a>
             </li>
             <li className="code-conduite-content-twitter">
