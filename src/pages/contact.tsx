@@ -37,11 +37,11 @@ const ContactPage = ({ path }: { path: string }) => {
                     </div>
                     <span className="contact-container-content-partner-address align-middle">
                       <a
-                        href="mailto://partenariats@bdx.io"
+                        href="mailto://partenariats@bdxio.fr"
                         target="_blank"
                         className="button small primary"
                       >
-                        partenariats@bdx.io
+                        partenariats@bdxio.fr
                       </a>
                     </span>
                   </div>
@@ -64,11 +64,11 @@ const ContactPage = ({ path }: { path: string }) => {
                     </div>
                     <span className="contact-container-content-speaker-address align-middle arrowElement">
                       <a
-                        href="mailto://team@bdx.io"
+                        href="mailto://team@bdxio.fr"
                         target="_blank"
                         className="button small primary"
                       >
-                        team@bdx.io
+                        team@bdxio.fr
                       </a>
                     </span>
                   </div>
