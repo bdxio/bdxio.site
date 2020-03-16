@@ -2,7 +2,8 @@
   {
     "general": {
       "openingDate": "2020-10-30T09:00:00",
-      "closingDate": "2020-10-30T19:00:00"
+      "closingDate": "2020-10-30T19:00:00",
+      "plaquetteUrl": "mailto://partenariats@bdxio.fr"
     },
     "registration": {
       "url": "https://www.billetweb.fr/shop.php?event=bdx-i-o-2019",
@@ -11,7 +12,7 @@
       "earlySoldout": false
     },
     "cfp": {
-      "url":"https://conference-hall.io/public/event/vzxtIlMnQqmNF2aOECVv",
+      "url": "https://conference-hall.io/public/event/vzxtIlMnQqmNF2aOECVv",
       "openingDate": "2020-05-01",
       "closingDate": "2020-06-30"
     },

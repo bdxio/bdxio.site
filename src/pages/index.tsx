@@ -169,7 +169,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row">
                 <div className="columns auto text-center home-header-button">
                   <a
-                    href="/static/plaquette.pdf"
+                    href={eventInfo.general.plaquetteUrl}
                     className="button medium white"
                     target="_blank"
                   >

@@ -8,6 +8,7 @@ const useEventInfo = () => {
           general {
             closingDate
             openingDate
+            plaquetteUrl
           }
           cfp {
             closingDate
