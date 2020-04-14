@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 import useSponsors from '@hooks/useSponsors';
+import useEventInfo from '@hooks/useEventInfo';
 import { Sponsor, LevelSponsorEnum } from '@models/Sponsor';
 
 const SponsorElement = (sponsor: Sponsor) => (
@@ -16,6 +17,7 @@ const SponsorElement = (sponsor: Sponsor) => (
 
 const SponsorsPage = ({ path }: { path: string }) => {
   const allSponsors = useSponsors();
+  const eventInfo = useEventInfo();
 
   return (
     <>
@@ -36,7 +38,7 @@ const SponsorsPage = ({ path }: { path: string }) => {
             </div>
             <div className="column small-12 text-center">
               <a
-                href="/static/plaquette.pdf"
+                href={eventInfo.general.plaquetteUrl}
                 target="_blank"
                 className="button small primary"
               >
