@@ -1,70 +1,10 @@
 [
   {
-    "displayName": "BENOÎT GIRAUDOU",
-    "bio": "Développeur pragmatique et formateur chez Zenika Bordeaux. Curieux, il aime apprendre et approfondir différents sujets liés de près ou de loin à l'informatique afin de progresser et partager ses connaissances par le biais de formations et d'évènements.",
-    "company": "Zenika",
-    "avatar": {
-      "primary": "/img/team/benoit.jpg",
-      "hover": ""
-    },
-    "contact": {
-      "email": "benoit@bdxio.fr",
-      "twitter": null,
-      "linkedin": null,
-      "website": null
-    }
-  },
-  {
-    "displayName": "VIVIEN POIRIER",
-    "bio": "Développeur passionné et curieux, actuellement au sein de la start-up Skillogs",
-    "company": "",
-    "avatar": {
-      "primary": "/img/team/vivien.jpg",
-      "hover": null
-    },
-    "contact": {
-      "email": "vivien@bdxio.fr",
-      "twitter": null,
-      "linkedin": null,
-      "website": null
-    }
-  },
-  {
-    "displayName": "JÉRÔME BÉHUET",
-    "bio": "Développeur autodidacte passionné par les nouvelles technologies, il aime partager sa passion et son métier. Curieux et toujours à l'écoute des changements qu'offre l'écosystème des technologies web.",
-    "company": "DEEXIT",
-    "avatar": {
-      "primary": "/img/team/jerome.jpg",
-      "hover": null
-    },
-    "contact": {
-      "email": "jerome@bdxio.fr",
-      "twitter": "jbehuet",
-      "linkedin": "https://fr.linkedin.com/in/jbehuet",
-      "website": "https://jbehuet.fr"
-    }
-  },
-  {
-    "displayName": "MAGALI DAMOURETTE",
-    "bio": "UI/ UX et intégratrice chez 4SH, Magali est une étudiante en alternance passionnée par la création et le monde du web. Curieuse et toujours en quête de savoir elle est à l'écoute des autres et des nouvelles tendances.",
-    "company": "4SH",
-    "avatar": {
-      "primary": "/img/team/magali.jpg",
-      "hover": null
-    },
-    "contact": {
-      "email": "magali@bdxio.fr",
-      "twitter": null,
-      "linkedin": "https://www.linkedin.com/in/magali-damourette-25a455123",
-      "website": null
-    }
-  },
-  {
     "displayName": "ARTHUR MAGNE",
-    "bio": "Développeur, directeur technique et co-fondateur de la start-up ProMyze spécialisée dans la qualité logicielle. Arthur est un défenseur des principes du clean code et recherche les moyents d'engager l'ensemble des équipes de développements dans cette démarche.",
+    "bio": "CTO & co-fondateur",
     "company": "ProMyze",
     "avatar": {
-      "primary": "/img/team/arthur.jpg",
+      "primary": "/img/team/arthur.svg",
       "hover": null
     },
     "contact": {
@@ -75,15 +15,30 @@
     }
   },
   {
-    "displayName": "NICOLAS ROULON",
-    "bio": "Développeur Back et Front-end chez 4SH. Attaché à défendre un code propre et à l’importance d’une bonne UX sur tous les sujets. Passionné par tout ce qui touche l’informatique, il aime approfondir et partager ses connaissances avec autrui.",
-    "company": "4SH",
+    "displayName": "ALEXANDRE SUTRA",
+    "bio": "Startup & Event Manager",
+    "company": "Héméra",
     "avatar": {
-      "primary": "/img/team/nicolas.jpg",
+      "primary": "/img/team/alexandre.svg",
       "hover": null
     },
     "contact": {
-      "email": "nicolas@bdxio.fr",
+      "email": "alexandre@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "displayName": "BENOÎT GIRAUDOU",
+    "bio": "Développeur pragmatique",
+    "company": "Zenika",
+    "avatar": {
+      "primary": "/img/team/benoit.svg",
+      "hover": ""
+    },
+    "contact": {
+      "email": "benoit@bdxio.fr",
       "twitter": null,
       "linkedin": null,
       "website": null
@@ -91,10 +46,10 @@
   },
   {
     "displayName": "BRUNO SABOT",
-    "bio": "Développeur Front-end passionné, défenseur de l'importance de l'UX et de la performance, il s'intéresse de près à tous les sujets du web. Consultant et formateur chez Zenika Bordeaux, Bruno aime partager ses connaissances avec autrui.",
+    "bio": "Développeur Front-end,",
     "company": "Zenika",
     "avatar": {
-      "primary": "/img/team/bruno.jpg",
+      "primary": "/img/team/bruno.svg",
       "hover": null
     },
     "contact": {
@@ -105,11 +60,26 @@
     }
   },
   {
+    "displayName": "DAMIEN JORIS",
+    "bio": "Développeur",
+    "company": "ProMyze",
+    "avatar": {
+      "primary": "/img/team/damien.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "damien@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
     "displayName": "FANNY BRIEC TOURNEUR",
-    "bio": "Responsable qualité chez 4SH, Fanny a débuté sa carrière en tant que développeuse. Curieuse, s'intéressant à des sujets divers, ayant des connaissances techniques et un souhait de fournir un logiciel de qualité, elle s'est orientée vers le test logiciel et la recette fonctionnelle.",
+    "bio": "Consultante fonctionnelle et ingénieure qualité",
     "company": "4SH",
     "avatar": {
-      "primary": "/img/team/fanny.jpg",
+      "primary": "/img/team/fanny.svg",
       "hover": null
     },
     "contact": {
@@ -120,15 +90,120 @@
     }
   },
   {
-    "displayName": "ALEXANDRE SUTRA",
-    "bio": "Startup Manager au sein de l'accélérateur Héméra, Alexandre est un passionné d'événementiel et de tech. Animateur de hackathon, il est un fervent défenseur du combo bière/pizza sur tous les meetups qu'il organise.",
-    "company": "Héméra",
+    "displayName": "FLORIAN DUPLESSIS",
+    "bio": "Chez de projet",
+    "company": "Maincare Solutions",
     "avatar": {
-      "primary": "/img/team/alexandre.jpg",
+      "primary": "/img/team/florian.svg",
       "hover": null
     },
     "contact": {
-      "email": "alexandre@bdxio.fr",
+      "email": "florian@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "displayName": "JÉRÔME BÉHUET",
+    "bio": "Développeur autodidacte, freelance",
+    "company": "DEEXIT",
+    "avatar": {
+      "primary": "/img/team/jerome.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "jerome@bdxio.fr",
+      "twitter": "jbehuet",
+      "linkedin": "https://fr.linkedin.com/in/jbehuet",
+      "website": "https://jbehuet.fr"
+    }
+  },
+  {
+    "displayName": "JULIE GUILLERM",
+    "bio": "UX/UI Team Lead",
+    "company": "Ippon",
+    "avatar": {
+      "primary": "/img/team/julie.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "julie@bdxio.fr",
+      "twitter": "@JuGuillerm",
+      "linkedin": "https://www.linkedin.com/in/julie-guillerm",
+      "website": "http://julieguillerm.fr/"
+    }
+  },
+  {
+    "displayName": "MAGALI DAMOURETTE",
+    "bio": "Intégratrice, UI/UX",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/magali.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "magali@bdxio.fr",
+      "twitter": null,
+      "linkedin": "https://www.linkedin.com/in/magali-damourette-25a455123",
+      "website": null
+    }
+  },
+  {
+    "displayName": "NICOLAS ROULON",
+    "bio": "Développeur chez 4SH",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/nicolas.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "nicolas@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "displayName": "SAMUEL DESRÉ",
+    "bio": "Développeur freelance",
+    "company": "",
+    "avatar": {
+      "primary": "/img/team/samuel.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "samuel@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "displayName": "TIMOTHÉ ARROYO",
+    "bio": "Développeur",
+    "company": "4SH",
+    "avatar": {
+      "primary": "/img/team/timothe.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "timothe@bdxio.fr",
+      "twitter": null,
+      "linkedin": null,
+      "website": null
+    }
+  },
+  {
+    "displayName": "VIVIEN POIRIER",
+    "bio": "Développeur",
+    "company": "",
+    "avatar": {
+      "primary": "/img/team/vivien.svg",
+      "hover": null
+    },
+    "contact": {
+      "email": "vivien@bdxio.fr",
       "twitter": null,
       "linkedin": null,
       "website": null

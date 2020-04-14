@@ -37,7 +37,7 @@ const ContactPage = ({ path }: { path: string }) => {
                     </div>
                     <span className="contact-container-content-partner-address align-middle">
                       <a
-                        href="mailto://partenariats@bdxio.fr"
+                        href="mailto:partenariats@bdxio.fr"
                         target="_blank"
                         className="button small primary"
                       >
@@ -64,7 +64,7 @@ const ContactPage = ({ path }: { path: string }) => {
                     </div>
                     <span className="contact-container-content-speaker-address align-middle arrowElement">
                       <a
-                        href="mailto://team@bdxio.fr"
+                        href="mailto:team@bdxio.fr"
                         target="_blank"
                         className="button small primary"
                       >

@@ -3,7 +3,7 @@
     "general": {
       "openingDate": "2020-10-30T09:00:00",
       "closingDate": "2020-10-30T19:00:00",
-      "plaquetteUrl": "mailto://partenariats@bdxio.fr"
+      "plaquetteUrl": "/plaquette-2020.pdf"
     },
     "registration": {
       "url": "https://www.billetweb.fr/shop.php?event=bdx-i-o-2019",

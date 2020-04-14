@@ -12,7 +12,6 @@ const MemberElement = ({
   isAtRight = false,
   isSpeaker = false
 }: PropsType) => {
-  const [expanded, setExpanded] = useState<boolean>(false);
   const hasSocialLink =
     !!member.contact &&
     (!!member.contact.linkedin ||
@@ -22,16 +21,14 @@ const MemberElement = ({
   const onClick = () => {
     if (isSpeaker) {
       //TODO:
-    } else {
-      setExpanded(!expanded);
     }
   };
 
   return (
     <div
       className={`row collapse small-12 large-6 align-center users-container-content-item ${
-        expanded ? 'card-open' : ''
-      } ${isAtRight ? 'alternative' : ''}`}
+        isAtRight ? 'alternative' : ''
+      }`}
       onClick={onClick}
     >
       {!isAtRight && (
@@ -43,7 +40,7 @@ const MemberElement = ({
           />
         </div>
       )}
-      <div className="columns text-center auto users-container-content-item-text">
+      <div className={`columns text-center auto users-container-content-item-text${isSpeaker ? '-speaker' : ''}`}>
         <h6>{member.displayName}</h6>
         <div className="users-container-content-item-text-bio text-center">
           {member.bio}
