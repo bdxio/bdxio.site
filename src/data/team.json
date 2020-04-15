@@ -91,7 +91,7 @@
   },
   {
     "displayName": "FLORIAN DUPLESSIS",
-    "bio": "Chez de projet",
+    "bio": "Chef de projet",
     "company": "Maincare Solutions",
     "avatar": {
       "primary": "/img/team/florian.svg",
@@ -100,7 +100,7 @@
     "contact": {
       "email": "florian@bdxio.fr",
       "twitter": null,
-      "linkedin": null,
+      "linkedin": "https://www.linkedin.com/in/florian-duplessis-5a507197/",
       "website": null
     }
   },
