@@ -15,7 +15,7 @@ const ContactPage = ({ path }: { path: string }) => {
           </div>
           <div className="row auto align-center contact-container">
             <div className="contact-contactFlottant">
-              <img src="img/svg/theme2_flottant.svg" />
+              <img src="/img/svg/theme2_flottant.svg" />
             </div>
 
             <div className="column small-12">
@@ -26,7 +26,7 @@ const ContactPage = ({ path }: { path: string }) => {
                                     contact-container-content-partner"
                   >
                     <div>
-                      <img src="img/svg/icon_partner_contact.svg" />
+                      <img src="/img/svg/icon_partner_contact.svg" />
                       <h5 className="contact-container-content-partner-title">
                         Vous souhaitez nous contacter pour devenir{' '}
                         <span className="textGradient">sponsor</span> ou vous
@@ -51,7 +51,7 @@ const ContactPage = ({ path }: { path: string }) => {
                                     contact-container-content-speaker separate-contact-item"
                   >
                     <div>
-                      <img src="img/svg/icon_speaker_contact.svg" />
+                      <img src="/img/svg/icon_speaker_contact.svg" />
                       <h5 className="contact-container-content-partner-title">
                         Vous êtes <span className="textGradient">speaker</span>{' '}
                         ou vous cherchez à le devenir, attendez{' '}
@@ -78,7 +78,7 @@ const ContactPage = ({ path }: { path: string }) => {
                                         contact-container-content-news separate-contact-item"
                   >
                     <div>
-                      <img src="img/svg/icon_about_contact.svg" />
+                      <img src="/img/svg/icon_about_contact.svg" />
                       <h5 className="contact-container-content-news-title">
                         Vous voulez tout savoir de
                         <span className="textGradient"> BDX I/O</span> vous avez

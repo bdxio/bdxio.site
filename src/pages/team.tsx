@@ -46,7 +46,7 @@ const TeamPage = ({ path }: { path: string }) => {
 
           <div className="row align-center users-container">
             <div className="flottant-right">
-              <img src="img/svg/about_flottant.svg" />
+              <img src="/img/svg/about_flottant.svg" />
             </div>
             <div className="column small-12 large-8">
               <h4>/ L'EQUIPE</h4>

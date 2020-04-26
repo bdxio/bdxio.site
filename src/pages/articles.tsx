@@ -41,7 +41,7 @@ const NotFoundPage = ({ path }: { path: string }) => {
                   <div className="columns small-12 large-10 large-offset-1">
                     <section className="row align-middle">
                       <div className="newsContainer-newsFlottant small-12">
-                        <img src="img/svg/price_flottant.svg" />
+                        <img src="/img/svg/price_flottant.svg" />
                       </div>
                       <div className="columns newsContainer-img small-12 large-4">
                         <img src={article.frontmatter.thumbnail} />
