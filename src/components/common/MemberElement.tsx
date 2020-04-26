@@ -44,6 +44,8 @@ const MemberElement = ({
         <h6>{member.displayName}</h6>
         <div className="users-container-content-item-text-bio text-center">
           {member.bio}
+          <br />
+          {member.company}
         </div>
         <div className={`text-center ${!hasSocialLink ? 'noLink' : ''}`}>
           <hr />
