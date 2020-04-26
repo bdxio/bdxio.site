@@ -12,7 +12,6 @@ import useInterval from '@hooks/useInterval';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 
-import '@styles/app.scss';
 import MemberElement from '@components/common/MemberElement';
 
 const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
