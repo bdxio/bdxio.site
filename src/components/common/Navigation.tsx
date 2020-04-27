@@ -11,7 +11,6 @@ interface PropsType {
 
 const Menu = ({ path }: PropsType) => {
   const eventInfo = useEventInfo();
-console.log(isMobile)
   return (
     <ul
       className={
