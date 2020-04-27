@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import useMobileDetect from 'use-mobile-detect-hook';
+import { isMobile } from 'react-device-detect';
 import useOnScroll from '@hooks/useOnScroll';
 import useEventInfo from '@hooks/useEventInfo';
 
@@ -11,12 +11,11 @@ interface PropsType {
 
 const Menu = ({ path }: PropsType) => {
   const eventInfo = useEventInfo();
-  const detectMobile = useMobileDetect();
-
+console.log(isMobile)
   return (
     <ul
       className={
-        !detectMobile.isMobile()
+        !isMobile
           ? 'columns auto align-center main-menu-item'
           : ''
       }

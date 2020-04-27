@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import useMobileDetect from 'use-mobile-detect-hook';
+import { isMobile } from 'react-device-detect';
 
 import Moment from 'moment';
 import 'moment/locale/fr';
@@ -106,7 +106,6 @@ const ArticleElement = ({ article }: { article: any }) => (
 const IndexPage = ({ path }: { path: string }) => {
   const eventInfo = useEventInfo();
   const eventDate = Moment(eventInfo.general.openingDate);
-  const detectMobile = useMobileDetect();
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query {
@@ -159,7 +158,7 @@ const IndexPage = ({ path }: { path: string }) => {
                 </div>
               </div>
 
-              {detectMobile.isMobile() ? (
+              {isMobile ? (
                 <div className="replace-countdown-space" />
               ) : (
                 <Countdown eventDate={eventDate} />

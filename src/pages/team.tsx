@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import useMobileDetect from 'use-mobile-detect-hook';
+import { isMobile } from 'react-device-detect';
 import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 import { Member } from '@models/Member';
@@ -8,7 +8,6 @@ import MemberElement from '../components/common/MemberElement';
 
 const TeamPage = ({ path }: { path: string }) => {
   let line = 0; // Private lines counter
-  const detectMobile = useMobileDetect();
   const { allTeamJson } = useStaticQuery(
     graphql`
       query {
@@ -52,7 +51,7 @@ const TeamPage = ({ path }: { path: string }) => {
               <h4>/ L'EQUIPE</h4>
               <div className="row users-container-content">
                 {allTeamJson.nodes.map((member: Member, i: number) => {
-                  if (!detectMobile.isMobile() && i % 2 === 0) line++;
+                  if (!isMobile && i % 2 === 0) line++;
                   return (
                     <MemberElement
                       key={`member_${i}`}
