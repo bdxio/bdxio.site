@@ -383,31 +383,22 @@ const IndexPage = ({ path }: { path: string }) => {
           </div>
         </div>
 
-        {/* <TicketingAccess
-          registrationIsOpened={Config.registrationOpened === 'opened'}
-          earlyBirdSoldout={Config.earlyBird === 'soldout'}
-          gtSoldout={Config.goldenTicket === 'soldout'}
-          soldout={Config.registrationOpened === 'soldout'}
-        /> */}
         <section className="row ticketingAccess">
           <div className="ticketingAccess-ticketingAccessFlottant">
             <img src="/img/svg/theme1_flottant.svg" />
           </div>
           <div className="columns small-12 text-center">
             <h5 className="sectionTitle">Achetez votre place pour BDX I/O</h5>
-            {/* {!registrationIsOpened && (
-              <h6 className="sectionSubtitle">
-                Ouverture de la billeterie en Juin
-              </h6>
-            )} */}
           </div>
 
           <div className="row collapse align-center ticketingAccess-container">
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                'disabled'
-                // (!registrationIsOpened || earlyBirdSoldout ? 'disabled' : '')
+                (!eventInfo.registration.opened ||
+                eventInfo.registration.earlySoldout
+                  ? 'disabled'
+                  : '')
               }
             >
               <div className="row align-center ticketingAccess-container-item-infos">
@@ -436,7 +427,8 @@ const IndexPage = ({ path }: { path: string }) => {
                 </div>
               </div>
               <div className="row shrink align-center">
-                {/* {registrationIsOpened && !earlyBirdSoldout ? (
+                {eventInfo.registration.opened &&
+                !eventInfo.registration.earlySoldout ? (
                   <button
                     className="button small secondary"
                     onClick={() => {
@@ -449,20 +441,23 @@ const IndexPage = ({ path }: { path: string }) => {
                   >
                     Acheter
                   </button>
-                ) : ( */}
-                <span className="button small secondary disabled">
-                  Pas encore disponible
-                  {/* {earlyBirdSoldout ? 'Épuisé' : 'Pas encore disponible'} */}
-                </span>
-                {/* )} */}
+                ) : (
+                  <span className="button small secondary disabled">
+                    {eventInfo.registration.earlySoldout
+                      ? 'Épuisé'
+                      : 'Pas encore disponible'}
+                  </span>
+                )}
               </div>
             </div>
 
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                'disabled'
-                // (!registrationIsOpened || soldout ? 'disabled' : '')
+                (!eventInfo.registration.opened ||
+                eventInfo.registration.normalSoldout
+                  ? 'disabled'
+                  : '')
               }
             >
               <div className="row align-center ticketingAccess-container-item-infos">
@@ -492,7 +487,8 @@ const IndexPage = ({ path }: { path: string }) => {
                 <div>Soutenez l'événement</div>
               </div>
               <div className="row shrink ticketingAccess-container-item-content-button align-center">
-                {/* {registrationIsOpened && !soldout ? (
+                {eventInfo.registration.opened &&
+                !eventInfo.registration.normalSoldout ? (
                   <button
                     className="button small secondary"
                     onClick={() => {
@@ -505,12 +501,13 @@ const IndexPage = ({ path }: { path: string }) => {
                   >
                     Acheter
                   </button>
-                ) : ( */}
-                <span className="button small secondary disabled">
-                  Pas encore disponible
-                  {/* {soldout ? 'Épuisé' : 'Pas encore disponible'} */}
-                </span>
-                {/* )} */}
+                ) : (
+                  <span className="button small secondary disabled">
+                    {eventInfo.registration.normalSoldout
+                      ? 'Épuisé'
+                      : 'Pas encore disponible'}
+                  </span>
+                )}
               </div>
             </div>
           </div>
