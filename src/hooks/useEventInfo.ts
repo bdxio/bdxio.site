@@ -13,6 +13,7 @@ const useEventInfo = () => {
           cfp {
             closingDate
             openingDate
+            url
           }
           programPublishingDate
           registration {
