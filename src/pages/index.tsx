@@ -173,7 +173,9 @@ const IndexPage = ({ path }: { path: string }) => {
                   >
                     Devenir sponsor
                   </a>
-                  {eventInfo.registration.opened && (
+                  {Moment().isSameOrAfter(
+                    Moment(eventInfo.registration.opened)
+                  ) && (
                     <button
                       className="button medium white"
                       onClick={() => {
