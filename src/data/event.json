@@ -6,8 +6,8 @@
       "plaquetteUrl": "/plaquette-2020.pdf"
     },
     "registration": {
-      "url": "https://www.billetweb.fr/shop.php?event=bdx-i-o-2019",
-      "opened": false,
+      "url": "https://www.billetweb.fr/bdxio-2020",
+      "opened": "2020-05-04T12:00:00",
       "normalSoldout": false,
       "earlySoldout": false
     },
