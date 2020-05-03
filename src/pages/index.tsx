@@ -397,7 +397,9 @@ const IndexPage = ({ path }: { path: string }) => {
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                (!eventInfo.registration.opened ||
+                (Moment().isBefore(
+                  Moment(eventInfo.registration.opened)
+                )||
                 eventInfo.registration.earlySoldout
                   ? 'disabled'
                   : '')
@@ -429,7 +431,9 @@ const IndexPage = ({ path }: { path: string }) => {
                 </div>
               </div>
               <div className="row shrink align-center">
-                {eventInfo.registration.opened &&
+                {Moment().isSameOrAfter(
+                  Moment(eventInfo.registration.opened)
+                )&&
                 !eventInfo.registration.earlySoldout ? (
                   <button
                     className="button small secondary"
@@ -456,7 +460,9 @@ const IndexPage = ({ path }: { path: string }) => {
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                (!eventInfo.registration.opened ||
+                (Moment().isBefore(
+                  Moment(eventInfo.registration.opened)
+                ) ||
                 eventInfo.registration.normalSoldout
                   ? 'disabled'
                   : '')
@@ -489,7 +495,9 @@ const IndexPage = ({ path }: { path: string }) => {
                 <div>Soutenez l'événement</div>
               </div>
               <div className="row shrink ticketingAccess-container-item-content-button align-center">
-                {eventInfo.registration.opened &&
+                {Moment().isSameOrAfter(
+                  Moment(eventInfo.registration.opened)
+                )&&
                 !eventInfo.registration.normalSoldout ? (
                   <button
                     className="button small secondary"
