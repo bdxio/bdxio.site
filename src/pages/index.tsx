@@ -397,9 +397,9 @@ const IndexPage = ({ path }: { path: string }) => {
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                (Moment().isBefore(
+                (!Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
-                )||
+                ) ||
                 eventInfo.registration.earlySoldout
                   ? 'disabled'
                   : '')
@@ -460,7 +460,7 @@ const IndexPage = ({ path }: { path: string }) => {
             <div
               className={
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
-                (Moment().isBefore(
+                (!Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
                 ) ||
                 eventInfo.registration.normalSoldout
