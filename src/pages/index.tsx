@@ -408,7 +408,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    - €
+                    40 €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Early Bird
@@ -471,7 +471,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    - €
+                    80 €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Classic
