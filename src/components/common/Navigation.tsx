@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import { isMobile } from 'react-device-detect';
 import useOnScroll from '@hooks/useOnScroll';
 import useEventInfo from '@hooks/useEventInfo';
 
@@ -12,13 +11,7 @@ interface PropsType {
 const Menu = ({ path }: PropsType) => {
   const eventInfo = useEventInfo();
   return (
-    <ul
-      className={
-        !isMobile
-          ? 'columns auto align-center main-menu-item'
-          : ''
-      }
-    >
+    <ul className="columns auto align-center main-menu-item only-desktop">
       <li className="shrink menu-item-content">
         <Link className={path === '/' ? 'selected' : ''} to="/">
           Accueil
@@ -75,11 +68,11 @@ const Menu = ({ path }: PropsType) => {
 };
 
 const Navigation = ({ path }: PropsType) => {
-  const [menuOpened, setMenuOpened] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { isOnTop } = useOnScroll();
 
-  const open = () => {
-    setMenuOpened(!menuOpened);
+  const toggleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -122,15 +115,15 @@ const Navigation = ({ path }: PropsType) => {
       </div>
 
       <div
-        className={`menu-toggle ${menuOpened ? 'active' : ''}`}
-        onClick={open}
+        className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+        onClick={toggleMenuOpen}
       >
         <span />
         <span />
         <span />
       </div>
 
-      <div className={`menu-responsive ${menuOpened ? 'active' : ''}`}>
+      <div className={`menu-responsive ${isMenuOpen ? 'active' : ''}`}>
         <Menu path={path} />
       </div>
       {/* FIXME Add liveStream component*/}

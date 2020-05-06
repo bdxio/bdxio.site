@@ -4,10 +4,12 @@
   padding: 0;
   width: 100%;
   background: rgba(1, 1, 1, 0.15);
-
   @include breakpoint(medium down) {
     top: 0;
     background: #2b2d43;
+    .only-desktop {
+      display: none;
+    }
   }
 
   &.scroll {
@@ -91,7 +93,7 @@
 
 .pageHeader {
   // TODO added this BACKGROUND for NEWS page class on link, thank you for adding a link for this commande work //
-  background: url($img-path+"jpg/header_news.jpg");
+  background: url($img-path + "jpg/header_news.jpg");
 
   // TODO added this BACKGROUND for TEAM page class on link, thank you for adding a link for this commande work
   // background: url($img-path+ 'jpg/header_team.jpg');
