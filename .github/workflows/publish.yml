@@ -14,9 +14,3 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
-      - uses: rtCamp/action-slack-notify@v2.0.0
-        env:
-          SLACK_CHANNEL: comm-site-realtime
-          SLACK_ICON: https://github.com/github.png?size=48
-          SLACK_USERNAME: Github
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
