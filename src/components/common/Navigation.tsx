@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import { isMobile } from 'react-device-detect';
 import useOnScroll from '@hooks/useOnScroll';
 import useEventInfo from '@hooks/useEventInfo';
 
@@ -12,24 +11,28 @@ interface PropsType {
 const Menu = ({ path }: PropsType) => {
   const eventInfo = useEventInfo();
   return (
-    <ul
-      className={
-        !isMobile
-          ? 'columns auto align-center main-menu-item'
-          : ''
-      }
-    >
-      <li className="shrink menu-item-content">
+    <ul className="columns auto align-center main-menu-item">
+      <li
+        className={`shrink menu-item-content ${path === '/' ? 'selected' : ''}`}
+      >
         <Link className={path === '/' ? 'selected' : ''} to="/">
           Accueil
         </Link>
       </li>
-      <li className="shrink menu-item-content">
+      <li
+        className={`shrink menu-item-content ${
+          path === '/team/' ? 'selected' : ''
+        }`}
+      >
         <Link className={path === '/team/' ? 'selected' : ''} to="/team">
           L'équipe
         </Link>
       </li>
-      <li className="shrink menu-item-content">
+      <li
+        className={`shrink menu-item-content ${
+          path === '/articles/' ? 'selected' : ''
+        }`}
+      >
         <Link
           className={path === '/articles/' ? 'selected' : ''}
           to="/articles"
@@ -38,7 +41,11 @@ const Menu = ({ path }: PropsType) => {
         </Link>
       </li>
       {moment().isSameOrAfter(moment(eventInfo.programPublishingDate)) && (
-        <li className={`shrink menu-item-content`}>
+        <li
+          className={`shrink menu-item-content ${
+            path === '/speakers/' ? 'selected' : ''
+          }`}
+        >
           <Link
             className={path === '/speakers/' ? 'selected' : ''}
             to="/speakers"
@@ -48,7 +55,11 @@ const Menu = ({ path }: PropsType) => {
         </li>
       )}
       {moment().isSameOrAfter(moment(eventInfo.programPublishingDate)) && (
-        <li className={`shrink menu-item-content`}>
+        <li
+          className={`shrink menu-item-content ${
+            path === '/schedule/' ? 'selected' : ''
+          }`}
+        >
           <Link
             className={path === '/schedule/' ? 'selected' : ''}
             to="/schedule"
@@ -57,7 +68,11 @@ const Menu = ({ path }: PropsType) => {
           </Link>
         </li>
       )}
-      <li className="shrink menu-item-content">
+      <li
+        className={`shrink menu-item-content ${
+          path === '/sponsors/' ? 'selected' : ''
+        }`}
+      >
         <Link
           className={path === '/sponsors/' ? 'selected' : ''}
           to="/sponsors"
@@ -65,7 +80,11 @@ const Menu = ({ path }: PropsType) => {
           Sponsors
         </Link>
       </li>
-      <li className="shrink menu-item-content">
+      <li
+        className={`shrink menu-item-content ${
+          path === '/contact/' ? 'selected' : ''
+        }`}
+      >
         <Link className={path === '/contact/' ? 'selected' : ''} to="/contact">
           Contact
         </Link>
@@ -75,11 +94,11 @@ const Menu = ({ path }: PropsType) => {
 };
 
 const Navigation = ({ path }: PropsType) => {
-  const [menuOpened, setMenuOpened] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { isOnTop } = useOnScroll();
 
-  const open = () => {
-    setMenuOpened(!menuOpened);
+  const toggleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -122,15 +141,15 @@ const Navigation = ({ path }: PropsType) => {
       </div>
 
       <div
-        className={`menu-toggle ${menuOpened ? 'active' : ''}`}
-        onClick={open}
+        className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+        onClick={toggleMenuOpen}
       >
         <span />
         <span />
         <span />
       </div>
 
-      <div className={`menu-responsive ${menuOpened ? 'active' : ''}`}>
+      <div className={`menu-responsive ${isMenuOpen ? 'active' : ''}`}>
         <Menu path={path} />
       </div>
       {/* FIXME Add liveStream component*/}

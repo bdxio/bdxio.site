@@ -45,6 +45,7 @@
         left: 50% !important;
       }
     }
+
     &.active {
       span {
         background: $yellow;
@@ -66,6 +67,7 @@
       width: 100%;
 
       ul {
+        display: contents;
         margin: 0;
         list-style-type: none;
         text-transform: uppercase;
@@ -76,13 +78,26 @@
         li {
           width: 100%;
           background: $white;
-          border-bottom: $white-grey 1px solid;
+          box-shadow: inset 0px -1px 0px $white-grey;
+
+          height: 40px;
+          display: flex;
+
+          align-items: center;
+
+          &.selected {
+            color: $yellow;
+            border-left: 2px solid $yellow;
+          }
 
           a {
             color: $primary;
+            margin-left: 12px;
+            padding-bottom: 0;
+
             &.selected {
               color: $yellow;
-              border-left: 2px solid $yellow;
+
             }
 
             &.disabled {
