@@ -1,6 +1,7 @@
 article {
   display: grid;
   grid-template-columns: 1fr 740px 1fr;
+  min-height: 535px;
 }
 
 @media (max-width: 750px) {

@@ -146,33 +146,34 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row align-center">
                 <div className="columns shrink">
                   <div className="home-header-content">
-                    <span>
+                    ANNULÉ
+                    {/* <span>
                       <i className="fa fa-calendar" />
                       {eventDate.date()} {eventDate.locale('fr').format('MMMM')}
                     </span>
                     <span>
                       <i className="fa fa-map-marker" />
                       Palais des congrès
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>
 
-              {isMobile ? (
+              {/* {isMobile ? (
                 <div className="replace-countdown-space" />
               ) : (
                 <Countdown eventDate={eventDate} />
-              )}
+              )} */}
 
               <div className="row">
                 <div className="columns auto text-center home-header-button">
-                  <a
+                  {/* <a
                     href={eventInfo.general.plaquetteUrl}
                     className="button medium white"
                     target="_blank"
                   >
                     Devenir sponsor
-                  </a>
+                  </a> */}
                   {Moment().isSameOrAfter(
                     Moment(eventInfo.registration.opened)
                   ) && (
@@ -408,7 +409,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    40 €
+                    - €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Early Bird
@@ -471,7 +472,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row align-center ticketingAccess-container-item-infos">
                 <div className="columns small-12 ticketingAccess-container-item-infos-title">
                   <div className="ticketingAccess-container-item-infos-title-euros">
-                    80 €
+                    - €
                   </div>
                   <div className="ticketingAccess-container-item-infos-title-classe">
                     Classic
