@@ -1,22 +1,22 @@
 [
   {
     "general": {
-      "openingDate": "2020-10-30T09:00:00",
-      "closingDate": "2020-10-30T19:00:00",
-      "plaquetteUrl": "/plaquette-2020.pdf"
+      "openingDate": "2021-10-30T09:00:00",
+      "closingDate": "2021-10-30T19:00:00",
+      "plaquetteUrl": "/plaquette-2021.pdf"
     },
     "registration": {
-      "url": "https://www.billetweb.fr/bdxio-2020",
+      "url": "https://www.billetweb.fr/bdx-i-o-online-1-le-developpeur-vieillit-il-aussi-bien-que-le-vin",
       "opened": "2021-05-04T12:00:00",
       "normalSoldout": false,
       "earlySoldout": false
     },
     "cfp": {
       "url": "https://conference-hall.io/public/event/vzxtIlMnQqmNF2aOECVv",
-      "openingDate": "2020-05-01",
-      "closingDate": "2020-06-30"
+      "openingDate": "2021-05-01",
+      "closingDate": "2021-06-30"
     },
-    "programPublishingDate": "2020-10-30",
+    "programPublishingDate": "2021-09-14",
     "themes": [
       {
         "title": "Design, UI & UX",
