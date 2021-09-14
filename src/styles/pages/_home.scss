@@ -29,7 +29,7 @@
   .home-header {
     display: flex;
     width: 100%;
-    height: 600px;
+    height: 400px;
     align-content: center;
     position: absolute;
     flex-direction: column;
@@ -45,13 +45,18 @@
 
     &-background {
       background: $primary;
-      background-image: url($img-path+"svg/bdxio_pattern.svg");
+      background-image: url($img-path+'svg/bdxio_pattern.svg');
       background-repeat: no-repeat;
       background-size: cover;
     }
 
+    &-abstract {
+      color: white;
+      font-size: 16px;
+    }
+
     &-content {
-      background: $white;
+      background: none;
       padding: 8px 16px;
       color: $red;
       font-size: 14px;
@@ -68,7 +73,7 @@
     }
 
     &-button {
-      margin-top: 40px;
+      margin-top: 10px;
 
       button {
         margin: 0 8px 16px 8px;
@@ -88,7 +93,7 @@
       }
 
       &-button {
-        margin-top: 53px;
+        margin-top: 10px;
         font-size: 1.1rem !important;
       }
 
@@ -98,22 +103,26 @@
     }
 
     @include breakpoint(medium down) {
-      height: 450px;
+      height: 300px;
       top: 67px;
     }
 
     @include breakpoint(small down) {
       &-content {
-        margin: 40px 0 40px 0;
+        margin: 10px 0 10px 0;
         font-size: 14px !important;
       }
 
       &-button {
-        margin-top: 13px;
+        margin-top: 5px;
       }
 
       h1 {
-        font-size: 38px !important;
+        font-size: 30px !important;
+      }
+      &-abstract {
+        color: white;
+        font-size: 14px;
       }
     }
   }
@@ -136,7 +145,7 @@
       z-index: -1;
       bottom: 340px;
       background: $primary;
-      background-image: url($img-path+"svg/bdxio_pattern.svg");
+      background-image: url($img-path+'svg/bdxio_pattern.svg');
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -179,7 +188,7 @@
   &-team {
     min-height: calc(1024px - 756px);
     background: linear-gradient(45deg, rgba($red, 0.55), rgba($yellow, 0.65)),
-      url($img-path+"jpg/bdxio_team.jpg");
+      url($img-path+'jpg/bdxio_team.jpg');
     background-size: cover;
     background-position-y: 48%;
     margin-top: calc(80px + 16px);
@@ -214,7 +223,8 @@
 
 // IE STYLE
 
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
   .home {
     svg,
     .homeBg,
@@ -230,7 +240,7 @@
   }
 
   .home-header {
-    background-image: url($img-path+"png/bdxio_header.png") !important;
+    background-image: url($img-path+'png/bdxio_header.png') !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;

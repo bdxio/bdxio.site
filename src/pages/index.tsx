@@ -13,6 +13,7 @@ import SEO from '@components/common/SEO';
 import Layout from '@components/common/Layout';
 
 import MemberElement from '@components/common/MemberElement';
+import { Timeline } from 'react-twitter-widgets';
 
 const Countdown = ({ eventDate }: { eventDate: Moment.Moment }) => {
   const [timeRemaining, setTimeRemaining] = useState<Moment.Duration>();
@@ -143,27 +144,10 @@ const IndexPage = ({ path }: { path: string }) => {
           <div className="row home-header">
             <div className="columns auto">
               <h1 className="text-center">BDX I/O {eventDate.year()}</h1>
-              <div className="row align-center">
-                <div className="columns shrink">
-                  <div className="home-header-content">
-                    ANNULÉ
-                    {/* <span>
-                      <i className="fa fa-calendar" />
-                      {eventDate.date()} {eventDate.locale('fr').format('MMMM')}
-                    </span>
-                    <span>
-                      <i className="fa fa-map-marker" />
-                      Palais des congrès
-                    </span> */}
-                  </div>
-                </div>
-              </div>
-
-              {/* {isMobile ? (
-                <div className="replace-countdown-space" />
-              ) : (
-                <Countdown eventDate={eventDate} />
-              )} */}
+              <p className="home-header-abstract">
+                Nous sommes de retour !! 🎉 Retrouvez-nous en ligne tous les
+                deux mois à partir de septembre, pour une série de conférences.
+              </p>
 
               <div className="row">
                 <div className="columns auto text-center home-header-button">
@@ -187,16 +171,16 @@ const IndexPage = ({ path }: { path: string }) => {
                         );
                       }}
                     >
-                      Achetez votre place
+                      Réservez votre place
                     </button>
                   )}
-                  {Moment().isSameOrAfter(
+                  {/* {Moment().isSameOrAfter(
                     Moment(eventInfo.programPublishingDate)
                   ) && (
                     <Link to="/schedule" className="button medium white">
                       Programme
                     </Link>
-                  )}
+                  )} */}
 
                   {Moment().isSameOrAfter(Moment(eventInfo.cfp.openingDate)) &&
                     Moment().isSameOrBefore(
@@ -212,6 +196,39 @@ const IndexPage = ({ path }: { path: string }) => {
                     )}
                 </div>
               </div>
+              <div className="row align-center">
+                <div className="columns shrink">
+                  <div className="home-header-content">
+                    <Timeline
+                      dataSource={{
+                        url: 'https://twitter.com/bdxio?ref_src=twsrc%5Etfw'
+                      }}
+                      options={{
+                        height: '400',
+                        width: '500',
+                        theme: 'dark'
+                      }}
+                    />
+
+                    {/* ANNULÉ */}
+                    {/* <span>
+                      <i className="fa fa-calendar" />
+                      {eventDate.date()} {eventDate.locale('fr').format('MMMM')}
+                    </span>
+                    <span>
+                      <i className="fa fa-map-marker" />
+                      Palais des congrès
+                    </span> */}
+                  </div>
+                </div>
+              </div>
+
+              {/* {isMobile ? (
+                <div className="replace-countdown-space" />
+              ) : (
+                <Countdown eventDate={eventDate} />
+              )} */}
+
               {Moment().isSameOrAfter(Moment(eventInfo.cfp.openingDate)) &&
                 Moment().isSameOrBefore(Moment(eventInfo.cfp.closingDate)) && (
                   <div className="row cfp-date">
@@ -277,7 +294,7 @@ const IndexPage = ({ path }: { path: string }) => {
         </section>
 
         {/* <MetricsBar /> */}
-        <div className="row align-middle metricsBar">
+        {/* <div className="row align-middle metricsBar">
           <div className="columns hide-for-small-only auto text-center metricsBar-picture" />
           <div className="columns small-12 medium-7">
             <div className="row metricsBar-content align-center">
@@ -300,10 +317,10 @@ const IndexPage = ({ path }: { path: string }) => {
             </div>
           </div>
           <div className="columns hide-for-small-only auto text-center metricsBar-video" />
-        </div>
+        </div> */}
 
         {/* <ConferenceThemes /> */}
-        <div className="row conference">
+        {/* <div className="row conference">
           <div className="conference-conferenceFlottantRight">
             <img src="/img/svg/theme1_flottant.svg" />
           </div>
@@ -336,7 +353,7 @@ const IndexPage = ({ path }: { path: string }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* <Quote /> */}
         <div className="row align-middle align-center home-team">
@@ -400,8 +417,7 @@ const IndexPage = ({ path }: { path: string }) => {
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
                 (!Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
-                ) ||
-                eventInfo.registration.earlySoldout
+                ) || eventInfo.registration.earlySoldout
                   ? 'disabled'
                   : '')
               }
@@ -434,8 +450,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row shrink align-center">
                 {Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
-                )&&
-                !eventInfo.registration.earlySoldout ? (
+                ) && !eventInfo.registration.earlySoldout ? (
                   <button
                     className="button small secondary"
                     onClick={() => {
@@ -463,8 +478,7 @@ const IndexPage = ({ path }: { path: string }) => {
                 'column small-10 medium-3 large-3 ticketingAccess-container-item ' +
                 (!Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
-                ) ||
-                eventInfo.registration.normalSoldout
+                ) || eventInfo.registration.normalSoldout
                   ? 'disabled'
                   : '')
               }
@@ -498,8 +512,7 @@ const IndexPage = ({ path }: { path: string }) => {
               <div className="row shrink ticketingAccess-container-item-content-button align-center">
                 {Moment().isSameOrAfter(
                   Moment(eventInfo.registration.opened)
-                )&&
-                !eventInfo.registration.normalSoldout ? (
+                ) && !eventInfo.registration.normalSoldout ? (
                   <button
                     className="button small secondary"
                     onClick={() => {
