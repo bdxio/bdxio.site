@@ -1,20 +1,11 @@
 <template>
   <main>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p>
-    <nuxt-content :document="page" />
+    <h1>Hello BDX IO 2022 !</h1>
   </main>
 </template>
 
 <script>
 export default {
-  name: "IndexPage",
-  async asyncData({ $content }) {
-    const page = await $content("hello").fetch();
-
-    return {
-      page,
-    };
-  },
+  name: "Index",
 };
 </script>
