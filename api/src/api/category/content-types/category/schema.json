@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Categories",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "Architecture & Securité",
+        "Back-end",
+        "Big Data & IA",
+        "Front-end",
+        "Design & UX",
+        "Découverte",
+        "Cloud & DevOps"
+      ],
+      "required": true
+    },
+    "conferenceHallId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
