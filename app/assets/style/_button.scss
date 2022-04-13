@@ -1,0 +1,14 @@
+.v-button {
+  border: none;
+  background: linear-gradient(18deg, $red 20%, $yellow 80%);
+  background-size: 200%;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-position: right;
+  }
+}

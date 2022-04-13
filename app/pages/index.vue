@@ -1,12 +1,35 @@
 <template>
-  <main>
-    <h1>Hello BDX IO 2022 !</h1>
+  <main class="page-container">
+    <h1>BDX I/O 2023</h1>
+    <div>
+      <a
+        class="twitter-timeline"
+        data-lang="fr"
+        data-width="500"
+        data-height="400"
+        data-theme="dark"
+        href="https://twitter.com/bdxio?ref_src=twsrc%5Etfw"
+        >Tweets by bdxio</a
+      >
+    </div>
   </main>
 </template>
 
 <script>
 export default {
-  name: "Index-Page",
+  name: "HomePage",
+  head() {
+    return {
+      script: [
+        {
+          src: "https://platform.twitter.com/widgets.js",
+          type: "text/javascript",
+          charset: "utf-8",
+          async: true,
+        },
+      ],
+    };
+  },
 };
 </script>
 

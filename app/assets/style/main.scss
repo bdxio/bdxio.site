@@ -1,0 +1,56 @@
+@import "./button";
+
+* {
+  font-family: Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  min-height: calc(100vh - 18rem);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.underline-animated {
+  span {
+    position: relative;
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, #fff 50%, transparent 50%);
+      background-size: 300%;
+      background-position-x: right;
+      transition: 0.3s;
+    }
+  }
+
+  &:hover span::after, &.nuxt-link-exact-active span::after {
+    background-position-x: left;
+  }
+}
+
+.icon-scale-over {
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}
