@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/speakers": {
+    "/formats": {
       "get": {
         "responses": {
           "200": {
@@ -20,28 +20,13 @@
                           "attributes": {
                             "type": "object",
                             "properties": {
-                              "name": {
-                                "type": "string"
-                              },
-                              "bio": {
-                                "type": "string"
-                              },
-                              "address": {
-                                "type": "string"
-                              },
-                              "photoUrl": {
-                                "type": "string"
-                              },
                               "conferenceHallId": {
                                 "type": "string"
                               },
-                              "github": {
+                              "name": {
                                 "type": "string"
                               },
-                              "twitter": {
-                                "type": "string"
-                              },
-                              "company": {
+                              "description": {
                                 "type": "string"
                               },
                               "createdAt": {
@@ -521,7 +506,7 @@
           }
         },
         "tags": [
-          "Speaker"
+          "Format"
         ],
         "parameters": [
           {
@@ -605,7 +590,7 @@
             }
           }
         ],
-        "operationId": "get/speakers"
+        "operationId": "get/formats"
       },
       "post": {
         "responses": {
@@ -624,28 +609,13 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "name": {
-                              "type": "string"
-                            },
-                            "bio": {
-                              "type": "string"
-                            },
-                            "address": {
-                              "type": "string"
-                            },
-                            "photoUrl": {
-                              "type": "string"
-                            },
                             "conferenceHallId": {
                               "type": "string"
                             },
-                            "github": {
+                            "name": {
                               "type": "string"
                             },
-                            "twitter": {
-                              "type": "string"
-                            },
-                            "company": {
+                            "description": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1104,10 +1074,10 @@
           }
         },
         "tags": [
-          "Speaker"
+          "Format"
         ],
         "parameters": [],
-        "operationId": "post/speakers",
+        "operationId": "post/formats",
         "requestBody": {
           "required": true,
           "content": {
@@ -1117,8 +1087,48 @@
                   "data": {
                     "type": "object",
                     "properties": {
+                      "conferenceHallId": {
+                        "type": "string"
+                      },
                       "name": {
                         "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "publishedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "createdBy": {
+                        "oneOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "example": "string or id"
+                      },
+                      "updatedBy": {
+                        "oneOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "example": "string or id"
                       }
                     }
                   }
@@ -1129,7 +1139,7 @@
         }
       }
     },
-    "/speakers/{id}": {
+    "/formats/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -1147,28 +1157,13 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "name": {
-                              "type": "string"
-                            },
-                            "bio": {
-                              "type": "string"
-                            },
-                            "address": {
-                              "type": "string"
-                            },
-                            "photoUrl": {
-                              "type": "string"
-                            },
                             "conferenceHallId": {
                               "type": "string"
                             },
-                            "github": {
+                            "name": {
                               "type": "string"
                             },
-                            "twitter": {
-                              "type": "string"
-                            },
-                            "company": {
+                            "description": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1627,7 +1622,7 @@
           }
         },
         "tags": [
-          "Speaker"
+          "Format"
         ],
         "parameters": [
           {
@@ -1641,7 +1636,7 @@
             }
           }
         ],
-        "operationId": "get/speakers/{id}"
+        "operationId": "get/formats/{id}"
       },
       "put": {
         "responses": {
@@ -1660,28 +1655,13 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
-                            "name": {
-                              "type": "string"
-                            },
-                            "bio": {
-                              "type": "string"
-                            },
-                            "address": {
-                              "type": "string"
-                            },
-                            "photoUrl": {
-                              "type": "string"
-                            },
                             "conferenceHallId": {
                               "type": "string"
                             },
-                            "github": {
+                            "name": {
                               "type": "string"
                             },
-                            "twitter": {
-                              "type": "string"
-                            },
-                            "company": {
+                            "description": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -2140,7 +2120,7 @@
           }
         },
         "tags": [
-          "Speaker"
+          "Format"
         ],
         "parameters": [
           {
@@ -2154,7 +2134,7 @@
             }
           }
         ],
-        "operationId": "put/speakers/{id}",
+        "operationId": "put/formats/{id}",
         "requestBody": {
           "required": true,
           "content": {
@@ -2164,28 +2144,13 @@
                   "data": {
                     "type": "object",
                     "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "bio": {
-                        "type": "string"
-                      },
-                      "address": {
-                        "type": "string"
-                      },
-                      "photoUrl": {
-                        "type": "string"
-                      },
                       "conferenceHallId": {
                         "type": "string"
                       },
-                      "github": {
+                      "name": {
                         "type": "string"
                       },
-                      "twitter": {
-                        "type": "string"
-                      },
-                      "company": {
+                      "description": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -2390,7 +2355,7 @@
           }
         },
         "tags": [
-          "Speaker"
+          "Format"
         ],
         "parameters": [
           {
@@ -2404,7 +2369,7 @@
             }
           }
         ],
-        "operationId": "delete/speakers/{id}"
+        "operationId": "delete/formats/{id}"
       }
     }
   }

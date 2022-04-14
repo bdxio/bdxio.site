@@ -4,7 +4,8 @@
   "info": {
     "singularName": "speaker",
     "pluralName": "speakers",
-    "displayName": "speakers"
+    "displayName": "speakers",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,11 +25,17 @@
     "photoUrl": {
       "type": "string"
     },
-    "sessions": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::session.session",
-      "inversedBy": "speakers"
+    "conferenceHallId": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
     }
   }
 }

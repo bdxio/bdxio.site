@@ -1,41 +1,46 @@
 "use strict";
 
 const fs = require("fs");
-const path = require("path");
+const axios = require("axios");
+const eachSeries = require("async/eachSeries");
 
-const jsonFile = path.resolve(__dirname, "./test.json");
-
-/**
- * A set of functions called "actions" for `populate`
- */
-
-function populatePlaces(sessions) {
-  return new Promise((resolve, reject) => {
-    console.log(sessions);
-    if (!sessions || !sessions.length) {
-      return resolve();
-    }
-
-    console.log(sessions);
-  });
-}
+const {
+  populateSpeakers,
+  populateCategories,
+  populateFormats,
+  populateTalks,
+  populateCompanies,
+} = require("./helpers");
 
 module.exports = {
   async index(ctx, next) {
     try {
-      fs.access(jsonFile, fs.F_OK, (err) => {
-        if (err) {
-          console.error("We coudn't find the json file", err);
-          return;
-        }
+      const url =
+        "https://conference-hall.io/api/v1/event/XGTzWawB3ZwLR7u462O8?key=b7d1e043-1324-4d4b-8218-515e4532a52f&state=confirmed";
+      const response = await axios.get(url);
 
-        const json = fs.readFileSync(jsonFile, "utf-8");
-        const { sessions, speakers } = JSON.parse(json);
+      if (!response || !response.data) {
+        ctx.status = 204;
+        ctx.body = "No response from conference hall";
+        next();
+        return;
+      }
 
-        populatePlaces(sessions).then(() => {
-          ctx.body = "Hello World!";
-        });
-      });
+      const {
+        categories = [],
+        formats = [],
+        talks = [],
+        speakers = [],
+      } = response.data;
+
+      await populateSpeakers(speakers);
+      await populateCategories(categories);
+      await populateFormats(formats);
+      await populateTalks(talks);
+      await populateCompanies(speakers);
+
+      ctx.status = 200;
+      ctx.body = "I've migrate datas from conference hall to strapi database!";
     } catch (err) {
       console.error(err);
     }

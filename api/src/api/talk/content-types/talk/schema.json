@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "talks",
+  "info": {
+    "singularName": "talk",
+    "pluralName": "talks",
+    "displayName": "Talks",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "conferenceHallId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "language": {
+      "type": "string"
+    },
+    "creationDate": {
+      "type": "datetime"
+    },
+    "state": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string"
+    },
+    "abstract": {
+      "type": "richtext"
+    },
+    "speakers": {
+      "type": "json"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}

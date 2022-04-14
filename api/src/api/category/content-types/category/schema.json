@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Categories"
+    "displayName": "Categories",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,11 +25,11 @@
       ],
       "required": true
     },
-    "session": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::session.session",
-      "inversedBy": "categories"
+    "conferenceHallId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
