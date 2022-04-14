@@ -1,0 +1,28 @@
+@mixin grid-setup($nb-row, $nb-col) {
+  grid-template-rows: repeat($nb-row, 1fr);
+  grid-template-columns: repeat($nb-col, 1fr);
+}
+
+@for $i from 1 through 12 {
+  @for $j from 1 through 12 {
+    .bdx-grid-#{$i}-#{$j} {
+      @include grid-setup($i, $j);
+
+      &>.bdx-grid-el-#{$i}-#{$j} {
+        grid-row-start: #{$i};
+        grid-column-start: #{$j};
+      }
+
+      @for $x from $i through 12 {
+        @for $y from $j through 12 {
+          &>.bdx-grid-el-#{$i}-#{$j}-to-#{$x}-#{$y} {
+            grid-row-start: #{$i};
+            grid-row-end: #{$x};
+            grid-column-start: #{$j};
+            grid-column-end: #{$y};
+          }
+        }
+      }
+    }
+  }
+}

@@ -83,7 +83,7 @@ export default {
     height: 1rem;
     line-height: 1rem;
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     transition: 0.3s;
     transform-origin: left;
     color: $yellow;

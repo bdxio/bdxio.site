@@ -2,7 +2,7 @@
   <footer>
     <div class="footer-newsletter-form">
       <span>Vous souhaitez être tenu informé ?</span>
-      <form @submit.prevent>
+      <form @submit.prevent="registerNewsletter">
         <VInput v-model="mail" type="email" required>
           Inscrivez-vous à la newsletter
         </VInput>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import VInput from '~/components/VInput.vue';
 
 export default {
@@ -68,6 +69,14 @@ export default {
     return {
       mail: null,
     };
+  },
+  methods: {
+    ...mapActions('toast', [
+      'addToast',
+    ]),
+    registerNewsletter() {
+      this.addToast({ message: 'Inscription confirmée !', type: 'success' });
+    },
   },
 };
 </script>
