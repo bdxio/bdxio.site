@@ -1,26 +1,32 @@
 @mixin grid-setup($nb-row, $nb-col) {
-  grid-template-rows: repeat($nb-row, 1fr);
-  grid-template-columns: repeat($nb-col, 1fr);
+  grid-template-rows: repeat($nb-row, auto);
+  grid-template-columns: repeat($nb-col, auto);
 }
 
 @for $i from 1 through 12 {
   @for $j from 1 through 12 {
     .bdx-grid-#{$i}-#{$j} {
+      display: grid;
       @include grid-setup($i, $j);
 
-      &>.bdx-grid-el-#{$i}-#{$j} {
-        grid-row-start: #{$i};
-        grid-column-start: #{$j};
-      }
+    }
+  }
+}
 
-      @for $x from $i through 12 {
-        @for $y from $j through 12 {
-          &>.bdx-grid-el-#{$i}-#{$j}-to-#{$x}-#{$y} {
-            grid-row-start: #{$i};
-            grid-row-end: #{$x};
-            grid-column-start: #{$j};
-            grid-column-end: #{$y};
-          }
+@for $a from 1 through 12 {
+  @for $b from 1 through 12 {
+    .bdx-grid-el-#{$a}-#{$b} {
+      grid-row-start: #{$a};
+      grid-column-start: #{$b};
+    }
+
+    @for $c from $a through 12 {
+      @for $d from $b through 12 {
+        .bdx-grid-el-#{$a}-#{$b}-to-#{$c}-#{$d} {
+          grid-row-start: #{$a};
+          grid-row-end: #{$c};
+          grid-column-start: #{$b};
+          grid-column-end: #{$d};
         }
       }
     }

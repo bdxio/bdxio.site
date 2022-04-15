@@ -3,22 +3,7 @@
     <ul>
       <li>
         <NuxtLink to="/">
-          <img src="~/assets/img/logo_white.png" alt="Accueil">
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/team" class="underline-animated">
-          <span>L'équipe</span>
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/news" class="underline-animated">
-          <span>Actualités</span>
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/speakers" class="underline-animated">
-          <span>Conférencier·ière·s</span>
+          <img src="~/assets/img/bdxio_logo.png" alt="Accueil">
         </NuxtLink>
       </li>
       <li>
@@ -32,23 +17,12 @@
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/contact" class="underline-animated">
-          <span>Contact</span>
+        <NuxtLink to="/team" class="underline-animated">
+          <span>L'équipe</span>
         </NuxtLink>
       </li>
       <li>
-        <a href="https://twitter.com/bdxio" target="_blank" aria-label="Twitter BDX I/O" class="icon-scale-over">
-          <FontAwesomeIcon :icon="['fab', 'twitter']"/>
-        </a>
-        <a href="https://www.facebook.com/bdxio" target="_blank" class="icon-scale-over">
-          <FontAwesomeIcon :icon="['fab', 'facebook']"/>
-        </a>
-        <a href="https://www.linkedin.com/company/10651416/" target="_blank" class="icon-scale-over">
-          <FontAwesomeIcon :icon="['fab', 'linkedin']"/>
-        </a>
-        <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ" target="_blank" class="icon-scale-over">
-          <FontAwesomeIcon :icon="['fab', 'youtube']"/>
-        </a>
+        <button class="bdx-button">Billetterie</button>
       </li>
     </ul>
   </nav>
@@ -62,19 +36,23 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  background: $primary;
+  background: rgba($light, 0.7);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  top: 0;
 
   ul {
     display: flex;
     justify-content: space-around;
 
     li {
-      height: 4rem;
+      height: 3.5em;
       display: flex;
       align-items: center;
 
       a {
-        color: #fff;
+        color: #000;
         text-decoration: none;
       }
 
@@ -86,7 +64,7 @@ nav {
       }
 
       img {
-        height: 2.5rem;
+        height: 3em;
         transition: 0.3s;
 
         &:hover {

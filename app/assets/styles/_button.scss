@@ -1,14 +1,41 @@
-.v-button {
+.bdx-button {
   border: none;
-  background: linear-gradient(18deg, $red 20%, $yellow 80%);
+  background: $primary-light;
   background-size: 200%;
   color: #fff;
   padding: 0.5rem 1rem;
-  border-radius: 2px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 1em;
 
   &:hover {
     background-position: right;
+  }
+
+  &.outlined, &.outlined-light {
+    background: linear-gradient(to right, $dark-font 50%, transparent 50%);
+    background-size: 200%;
+    background-position: right;
+    border: 2px solid $dark-font;
+    color: $dark-font;
+    font-weight: bold;
+    mix-blend-mode: multiply;
+
+    &.outlined-light {
+      background-image: linear-gradient(to right, $light-font 50%, transparent 50%);
+      border-color: $light-font;
+      mix-blend-mode: lighten;
+      color: $light-font;
+    }
+
+    &:hover {
+      background-position: left;
+      color: $light-font;
+
+      &.outlined-light {
+        color: $dark-font;
+      }
+    }
   }
 }
