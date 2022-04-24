@@ -6,6 +6,13 @@
 
 <script>
 export default {
-  name: "Index",
+  name: "Index-Page",
 };
 </script>
+
+<style scoped>
+h1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+}
+</style>
