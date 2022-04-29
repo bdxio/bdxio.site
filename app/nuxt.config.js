@@ -53,6 +53,7 @@ export default {
   googleFonts: {
     families: {
       Lato: true,
+      Merriweather: true,
     },
     display: "swap",
   },
