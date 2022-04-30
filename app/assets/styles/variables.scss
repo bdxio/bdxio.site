@@ -1,7 +1,7 @@
-/////// COLORS ///////
-$primary: #0e0b99;
-$primary-light: #1b18b0;
-$secondary: #4652f8;
+$primary: #4652f8;
+$primary-light: #7d7df8;
+$primary-dark: #242457;
+$secondary: #fbdb33;
 $light: #f6f2e8;
 $light-font: #fff7ec;
 $dark-font: #373739;
@@ -28,3 +28,7 @@ $spc-large: 2.5rem; //40px
 $spc-x-large: 3rem; //48px
 $spc-xx-large: 3.5rem; //56px
 $spc-xxx-large: 4rem; //64px
+
+/////// FONTS ///////
+$font-body: Lato, Helvetica Neue, Helvetica, Roboto, sans-serif;
+$font-title: Merriweather, serif;
