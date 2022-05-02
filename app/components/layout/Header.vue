@@ -1,21 +1,21 @@
 <template>
-  <header class="header">
+  <header class="header" :class="propClasses">
     <NuxtLink class="logo" to="/">
       <img src="~/assets/img/bdxio_logo.png" alt="Logo de l'association BDXIO" />
     </NuxtLink>
-    <nav class="nav" :class="colorClasses">
+    <nav class="nav" :class="propClasses">
       <ul>
         <li>
-          <NuxtLink to="/"> Accueil </NuxtLink>
+          <NuxtLink to="/">Accueil</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/schedule"> Programme </NuxtLink>
+          <NuxtLink to="/schedule">Programme</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/sponsors"> Sponsors </NuxtLink>
+          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/team"> L'équipe </NuxtLink>
+          <NuxtLink to="/team">L'équipe</NuxtLink>
         </li>
         <li>
           <button class="bdx-button">Billetterie</button>
@@ -32,13 +32,13 @@ export default {
     color: {
       type: String,
       required: false,
-      default: "white",
-      validator: (value) => ["white", "black"].includes(value),
+      default: "light",
+      validator: (value) => ["light", "dark"].includes(value),
     },
   },
   computed: {
-    colorClasses() {
-      return this.color === "white" ? "dark" : "light";
+    propClasses() {
+      return this.color;
     },
   },
 };
@@ -50,6 +50,14 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1.875rem 3.125rem; //30px 50px
+
+  &.light {
+    background-color: $primary-dark;
+  }
+
+  &.dark {
+    background-color: $light-font;
+  }
 }
 
 .nav {
@@ -71,11 +79,14 @@ export default {
 
           &:after {
             content: "";
-            display: block;
             width: 90px;
             height: 30px;
+            display: block;
             position: absolute;
             bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: url("~/assets/img/underline_bleu.png") no-repeat center / cover;
           }
         }
       }
@@ -101,13 +112,12 @@ export default {
     }
   }
 
-  &.dark {
-    a {
-      color: $primary-dark;
-      &.nuxt-link-exact-active:after {
-        background-color: red;
-      }
-    }
+  &.dark a {
+    color: $primary-dark;
+  }
+
+  &.light a {
+    color: $light-font;
   }
 }
 </style>

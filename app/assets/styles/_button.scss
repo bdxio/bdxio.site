@@ -1,19 +1,19 @@
 .bdx-button {
   border: none;
   background: $primary-light;
-  background-size: 200%;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.9375rem 1.875rem; //15px 30px
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 1em;
+  font-size: 1.375rem; //22px
 
   &:hover {
     background-position: right;
   }
 
-  &.outlined, &.outlined-light {
+  &.outlined,
+  &.outlined-light {
     background: linear-gradient(to right, $dark-font 50%, transparent 50%);
     background-size: 200%;
     background-position: right;
