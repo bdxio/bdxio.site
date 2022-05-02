@@ -3,7 +3,7 @@
 @import "./grid";
 
 * {
-  font-family: Lato, Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
 }
 
 body {
@@ -13,7 +13,9 @@ body {
   padding-top: 3.5em;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: Merriweather, serif;
 }
 
@@ -34,7 +36,7 @@ ul {
 .text-light {
   color: $light-font;
 
-  &>* {
+  & > * {
     color: $light-font;
   }
 }
@@ -42,7 +44,7 @@ ul {
 .text-dark {
   color: $dark-font;
 
-  &>* {
+  & > * {
     color: $dark-font;
   }
 }
@@ -77,7 +79,8 @@ ul {
     }
   }
 
-  &:hover span::after, &.nuxt-link-exact-active span::after {
+  &:hover span::after,
+  &.nuxt-link-exact-active span::after {
     background-position-x: left;
   }
 }

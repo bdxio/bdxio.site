@@ -3,9 +3,7 @@
     <div class="footer-newsletter-form">
       <span>Vous souhaitez être tenu informé ?</span>
       <form @submit.prevent="registerNewsletter">
-        <VInput v-model="mail" type="email" required>
-          Inscrivez-vous à la newsletter
-        </VInput>
+        <VInput v-model="mail" type="email" required> Inscrivez-vous à la newsletter </VInput>
         <button class="v-button">S'inscrire</button>
       </form>
     </div>
@@ -30,38 +28,36 @@
       <ul>
         <li>
           <a href="https://twitter.com/bdxio" target="_blank" aria-label="Twitter BDX I/O" class="icon-scale-over">
-            <FontAwesomeIcon :icon="['fab', 'twitter']"/>
+            <FontAwesomeIcon :icon="['fab', 'twitter']" />
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/bdxio" target="_blank" class="icon-scale-over">
-            <FontAwesomeIcon :icon="['fab', 'facebook']"/>
+            <FontAwesomeIcon :icon="['fab', 'facebook']" />
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/company/10651416/" target="_blank" class="icon-scale-over">
-            <FontAwesomeIcon :icon="['fab', 'linkedin']"/>
+            <FontAwesomeIcon :icon="['fab', 'linkedin']" />
           </a>
         </li>
         <li>
           <a href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ" target="_blank" class="icon-scale-over">
-            <FontAwesomeIcon :icon="['fab', 'youtube']"/>
+            <FontAwesomeIcon :icon="['fab', 'youtube']" />
           </a>
         </li>
       </ul>
     </div>
-    <small>
-      ©2023 - BDX I/O
-    </small>
+    <small> ©2023 - BDX I/O </small>
   </footer>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import VInput from '~/components/VInput.vue';
+import { mapActions } from "vuex";
+import VInput from "~/components/VInput.vue";
 
 export default {
-  name: 'TheFooter',
+  name: "TheFooter",
   components: {
     VInput,
   },
@@ -71,11 +67,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions('toast', [
-      'addToast',
-    ]),
+    ...mapActions("toast", ["addToast"]),
     registerNewsletter() {
-      this.addToast({ message: 'Inscription confirmée !', type: 'success' });
+      this.addToast({ message: "Inscription confirmée !", type: "success" });
     },
   },
 };

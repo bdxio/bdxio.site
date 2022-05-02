@@ -1,12 +1,12 @@
 <template>
-  <main class="bdx-grid-6-2">
-    <header class="bdx-grid-el-1-1-to-2-3">
+  <main>
+    <header>
       <h1>En 2022,<br />Nous sommes de retour !</h1>
       <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
       <h1>02/12/2022</h1>
       <h2>Et on a hâte de vous y (re)voir !</h2>
     </header>
-    <section class="background-primary text-light bdx-grid-el-2-1-to-3-3">
+    <section class="background-primary text-light">
       <div class="numbers-title">
         <h2>Bordeaux Developers eXperience</h2>
         <p>en quelques chiffres</p>
@@ -34,39 +34,44 @@
         </div>
       </div>
     </section>
-    <section class="bdx-grid-el-3-1 flex-centered">
-      <img class="bourse-image" src="~/assets/img/place_de_la_bourse.png" alt="Illustration de la Place de la Bourse à Bordeaux" />
-    </section>
-    <section class="bdx-grid-el-3-2 about-us">
-      <h2 class="subsection-title">Qu'est-ce que BDX I/O ?</h2>
-      <p>
-        BDX I/O est un conférence bordelaise sur le thème de la programmation et de ses métiers annexes.
-        <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s lors d'une journée de découvertes et de bonne humeur !
-      </p>
-    </section>
-    <section class="bdx-grid-el-4-1 text-light subsection">
-      <h2 class="subsection-light-title">SPONSORS</h2>
-      <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
-      <p>
-        Vous souhaitez devenir sponsor de cette nouvelle édition ? <br />
-        En cliquant sur le bouton ci-dessous vous trouverez toutes les informations nécessaires.
-      </p>
-      <button class="bdx-button outlined-light">Devenir sponsor</button>
-    </section>
-    <section class="bdx-grid-el-4-2 subsection text-dark">
-      <h2 class="subsection-light-title">SPEAKERS</h2>
-      <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
-      <p>
-        Vous avez un talk à proposer ? Des idées à partager ?
-        <br />Rejoignez notre équipe de speakers pour cette édition 2022.
-      </p>
-      <button class="bdx-button outlined">Devenir speaker</button>
-    </section>
+    <flex-container tag="section" no-gutter>
+      <flex-item m4>
+        <img class="bourse-image" src="~/assets/img/place_de_la_bourse.png" alt="Illustration de la Place de la Bourse à Bordeaux" />
+      </flex-item>
+      <flex-item m8 class="about-us">
+        <h2 class="subsection-title">Qu'est-ce que BDX I/O ?</h2>
+        <p>
+          BDX I/O est un conférence bordelaise sur le thème de la programmation et de ses métiers annexes.
+          <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s lors d'une journée de découvertes et de bonne humeur !
+        </p>
+      </flex-item>
+    </flex-container>
+    <flex-container no-gutter>
+      <flex-item tag="section" class="text-light subsection" s6>
+        <h2 class="subsection-light-title">SPONSORS</h2>
+        <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
+        <p>
+          Vous souhaitez devenir sponsor de cette nouvelle édition ? <br />
+          En cliquant sur le bouton ci-dessous vous trouverez toutes les informations nécessaires.
+        </p>
+        <button class="bdx-button outlined-light">Devenir sponsor</button>
+      </flex-item>
+      <flex-item tag="section" class="subsection text-dark" s6>
+        <h2 class="subsection-light-title">SPEAKERS</h2>
+        <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
+        <p>
+          Vous avez un talk à proposer ? Des idées à partager ?
+          <br />Rejoignez notre équipe de speakers pour cette édition 2022.
+        </p>
+        <button class="bdx-button outlined">Devenir speaker</button>
+      </flex-item>
+    </flex-container>
   </main>
 </template>
 
 <script>
 import VCounter from "~/components/VCounter.vue";
+import { FlexContainer, FlexItem } from "~/components/layout/grid";
 
 export default {
   name: "HomePage",
@@ -84,6 +89,8 @@ export default {
   },
   components: {
     VCounter,
+    FlexContainer,
+    FlexItem,
   },
 };
 </script>
@@ -166,15 +173,10 @@ header {
   }
 }
 
-.bourse-image {
-  width: 40vw;
-  margin: 1em;
-}
-
 .subsection {
   padding: 4em;
   background: $secondary;
-
+  box-sizing: border-box;
   &:last-of-type {
     background: $grey;
   }

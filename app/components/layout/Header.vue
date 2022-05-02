@@ -3,7 +3,7 @@
     <ul>
       <li>
         <NuxtLink to="/">
-          <img src="~/assets/img/bdxio_logo.png" alt="Accueil">
+          <img src="~/assets/img/bdxio_logo.png" alt="Accueil" />
         </NuxtLink>
       </li>
       <li>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'TheHeader',
+  name: "Header",
 };
 </script>
 

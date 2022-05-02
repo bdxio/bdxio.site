@@ -5,27 +5,25 @@
         {{ toast.message }}
       </div>
     </TransitionGroup>
-    <TheHeader/>
-    <Nuxt/>
-    <TheFooter/>
+    <Header />
+    <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import TheHeader from '~/components/TheHeader.vue';
-import TheFooter from '~/components/TheFooter.vue';
+import { mapState } from "vuex";
+import Header from "~/components/layout/Header.vue";
+import Footer from "~/components/layout/Footer.vue";
 
 export default {
-  name: 'DefaultLayout',
+  name: "DefaultLayout",
   components: {
-    TheHeader,
-    TheFooter,
+    Header,
+    Footer,
   },
   computed: {
-    ...mapState('toast', [
-      'toasts',
-    ]),
+    ...mapState("toast", ["toasts"]),
   },
 };
 </script>
