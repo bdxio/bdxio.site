@@ -57,7 +57,7 @@ import { mapActions } from "vuex";
 import VInput from "~/components/VInput.vue";
 
 export default {
-  name: "TheFooter",
+  name: "Footer",
   components: {
     VInput,
   },

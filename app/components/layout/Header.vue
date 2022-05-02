@@ -1,66 +1,109 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <NuxtLink to="/">
-          <img src="~/assets/img/bdxio_logo.png" alt="Accueil" />
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/schedule" class="underline-animated">
-          <span>Programme</span>
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/sponsors" class="underline-animated">
-          <span>Sponsors</span>
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/team" class="underline-animated">
-          <span>L'équipe</span>
-        </NuxtLink>
-      </li>
-      <li>
-        <button class="bdx-button">Billetterie</button>
-      </li>
-    </ul>
-  </nav>
+  <header class="header" :class="propClasses">
+    <NuxtLink class="logo" to="/">
+      <img src="~/assets/img/bdxio_logo.png" alt="Logo de l'association BDXIO" />
+    </NuxtLink>
+    <nav class="nav" :class="propClasses">
+      <ul>
+        <li>
+          <NuxtLink to="/">Accueil</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/schedule">Programme</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/team">L'équipe</NuxtLink>
+        </li>
+        <li>
+          <button class="bdx-button">Billetterie</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <script>
 export default {
   name: "Header",
+  props: {
+    color: {
+      type: String,
+      required: false,
+      default: "light",
+      validator: (value) => ["light", "dark"].includes(value),
+    },
+  },
+  computed: {
+    propClasses() {
+      return this.color;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-nav {
-  background: rgba($light, 0.7);
-  backdrop-filter: blur(5px);
-  position: fixed;
-  width: 100%;
-  top: 0;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  @include mobileFirst(m) {
+    padding: 30px 50px; //30px 50px
+  }
+
+  &.light {
+    background-color: $primary-dark;
+  }
+
+  &.dark {
+    background-color: $light-font;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include mobileFirst(m) {
+    display: block;
+    width: 100%;
+  }
 
   ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
 
     li {
-      height: 3.5em;
-      display: flex;
-      align-items: center;
+      margin: 0 3.125rem; //50px;
 
       a {
-        color: #000;
         text-decoration: none;
+
+        &.nuxt-link-exact-active {
+          position: relative;
+
+          &:after {
+            content: "";
+            width: 90px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: url("~/assets/img/underline_bleu.png") no-repeat center / cover;
+          }
+        }
       }
 
       &:not(:first-of-type) a {
         display: flex;
         align-items: center;
         height: 100%;
-        padding: 0 1rem;
       }
 
       img {
@@ -71,7 +114,19 @@ nav {
           transform: scale(1.1);
         }
       }
+
+      &:last-of-type {
+        margin: 0 0 0 3.125rem; //50px
+      }
     }
+  }
+
+  &.dark a {
+    color: $primary-dark;
+  }
+
+  &.light a {
+    color: $light-font;
   }
 }
 </style>

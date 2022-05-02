@@ -1,0 +1,35 @@
+@mixin mobileFirst($size) {
+  @if $size == xxs {
+    @media (max-width: $screen-xxs) {
+      @content;
+    }
+  } @else if $size == xs {
+    @media (min-width: $screen-xs) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (min-width: $screen-sm) {
+      @content;
+    }
+  } @else if $size == m {
+    @media (min-width: $screen-m) {
+      @content;
+    }
+  } @else if $size == l {
+    @media (min-width: $screen-l) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: $screen-xl) {
+      @content;
+    }
+  } @else if $size == xxl {
+    @media (min-width: $screen-xxl) {
+      @content;
+    }
+  } @else if $size == xxxl {
+    @media (min-width: $screen-xxxl) {
+      @content;
+    }
+  }
+}
