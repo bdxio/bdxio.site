@@ -49,7 +49,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.875rem 3.125rem; //30px 50px
+  padding: 10px;
+
+  @include mobileFirst(m) {
+    padding: 30px 50px; //30px 50px
+  }
 
   &.light {
     background-color: $primary-dark;
@@ -61,7 +65,12 @@ export default {
 }
 
 .nav {
-  width: 100%;
+  display: none;
+
+  @include mobileFirst(m) {
+    display: block;
+    width: 100%;
+  }
 
   ul {
     display: flex;

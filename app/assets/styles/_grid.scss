@@ -38,8 +38,8 @@ $prefix: "fg__";
 }
 
 .container-fluid {
-  padding-right: $spc-x-small;
-  padding-left: $spc-x-small;
+  padding-right: $spc-xs;
+  padding-left: $spc-xs;
 }
 
 .row {
@@ -52,38 +52,38 @@ $prefix: "fg__";
 
 .gutter {
   &--xs {
-    margin-right: $spc-tiny * -1;
-    margin-left: $spc-tiny * -1;
+    margin-right: $spc-xxs * -1;
+    margin-left: $spc-xxs * -1;
     > .flex-item {
-      padding-right: $spc-tiny;
-      padding-left: $spc-tiny;
+      padding-right: $spc-xxs;
+      padding-left: $spc-xxs;
     }
   }
 
   &--s {
-    margin-right: $spc-x-small * -1;
-    margin-left: $spc-x-small * -1;
+    margin-right: $spc-xs * -1;
+    margin-left: $spc-xs * -1;
     > .flex-item {
-      padding-right: $spc-x-small;
-      padding-left: $spc-x-small;
+      padding-right: $spc-xs;
+      padding-left: $spc-xs;
     }
   }
 
   &--m {
-    margin-right: $spc-small * -1;
-    margin-left: $spc-small * -1;
+    margin-right: $spc-s * -1;
+    margin-left: $spc-s * -1;
     > .flex-item {
-      padding-right: $spc-small;
-      padding-left: $spc-small;
+      padding-right: $spc-s;
+      padding-left: $spc-s;
     }
   }
 
   &--l {
-    margin-right: $spc-medium * -1;
-    margin-left: $spc-medium * -1;
+    margin-right: $spc- * -1;
+    margin-left: $spc- * -1;
     > .flex-item {
-      padding-right: $spc-medium;
-      padding-left: $spc-medium;
+      padding-right: $spc-;
+      padding-left: $spc-;
     }
   }
 }

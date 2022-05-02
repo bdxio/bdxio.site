@@ -1,3 +1,4 @@
+/////// BREAKPOINTS ///////
 $primary: #4652f8;
 $primary-light: #7d7df8;
 $primary-dark: #242457;
@@ -17,17 +18,17 @@ $screen-m: 992px; // Medium Devices, Desktops
 $screen-l: 1200px; // Intermediate Devices
 $screen-xl: 1400px; // Small big
 $screen-xxl: 1600px; // Medium big
-$screen-lg: 1800px; // Large Big, Wide Screens
+$screen-xxxl: 1800px; // Large Big, Wide Screens
 
 /////// SPACING ///////
-$spc-tiny: 0.5rem; //8px
-$spc-x-small: 1rem; //16px
-$spc-small: 1.5rem; //24px
-$spc-medium: 2rem; //32px
-$spc-large: 2.5rem; //40px
-$spc-x-large: 3rem; //48px
-$spc-xx-large: 3.5rem; //56px
-$spc-xxx-large: 4rem; //64px
+$spc-xxs: 0.5rem; //8px
+$spc-xs: 1rem; //16px
+$spc-s: 1.5rem; //24px
+$spc-: 2rem; //32px
+$spc-l: 2.5rem; //40px
+$spc-xl: 3rem; //48px
+$spc-xxl: 3.5rem; //56px
+$spc-xxxl: 4rem; //64px
 
 /////// FONTS ///////
 $font-body: Lato, Helvetica Neue, Helvetica, Roboto, sans-serif;
