@@ -53,7 +53,9 @@ export default {
   }
 
   @include mobileFirst(l) {
-    .about-us {
+  background-size: 45%;
+   
+   .about-us {
       padding: 5em 5em 5em 0em;
     }
   }
