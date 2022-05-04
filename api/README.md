@@ -34,7 +34,7 @@ yarn build
 
 ## ⚙️ Deployment
 
-Strapi is currently deployed on GCP. The project is hosted under `bdxio` organization, project `bdxio-strapi`.
+Strapi is currently [deployed on GCP](https://bdxio-strapi.oa.r.appspot.com/). The project is hosted under `bdxio` organization, project `bdxio-strapi`.
 
 If you want to deploy again,
 
