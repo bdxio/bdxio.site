@@ -34,7 +34,21 @@ yarn build
 
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+Strapi is currently [deployed on GCP](https://bdxio-strapi.oa.r.appspot.com/). The project is hosted under `bdxio` organization, project `bdxio-strapi`.
+
+If you want to deploy again,
+
+- make sure [`gcloud` is installed](https://cloud.google.com/sdk/docs/install) and that you are logged in with your bdx.io account
+- provide the `app.yml` with the environment variables on GCP. ⚠️ Do not commit them ⚠️
+- launch the following command to deploy: `gcloud app deploy app.yml --project bdxio-strapi`
+
+If you need to check the logs on the server, you can watch them live with the command `gcloud app logs tail --project=bdxio-strapi -s default`.
+
+### Troubleshooting
+
+#### White page and console error after a fresh deploy
+
+Remove the `node_modules`, `package-lock.json`, `yarn.lock` if there is one. Re-install using `npm` and try to deploy again.
 
 ## 📚 Learn more
 
