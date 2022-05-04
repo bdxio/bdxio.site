@@ -8,6 +8,7 @@ export default {
     const classProps = filterClassProps(props);
 
     const tagProp = props.tag || "div";
+    
     return h(
       tagProp,
       {
