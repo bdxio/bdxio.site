@@ -23,6 +23,7 @@ export default {
   .about-us {
     padding: 2em;
     margin-left: 0;
+    background-color: $light;
   }
 
   .subsection-title {
@@ -37,11 +38,22 @@ export default {
 
  
     .about-us {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 2em 2em 2em 0;
-      margin-left: 55%
+      margin-left: 55%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        width: 50px;
+        height: 100%;
+        // rgb(246,242,232) = $light
+        background: linear-gradient(90deg, rgba(246,242,232,0) 0%, rgba(246,242,232,1) 85%);
+      }
     }
   }
 
