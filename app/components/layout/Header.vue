@@ -52,7 +52,7 @@ export default {
   padding: 10px;
 
   @include mobileFirst(m) {
-    padding: 30px 50px; //30px 50px
+    padding: 30px 50px; 
   }
 
   &.light {

@@ -8,13 +8,13 @@ export default {
     const classProps = filterClassProps(props);
 
     const tagProp = props.tag || "div";
+    const direction = props.direction === "column" ? "column" : "row";
 
-    console.log(tagProp);
     return h(
       tagProp,
       {
         attrs: {
-          class: `row gutter--xs ${mapPropsToClasses(classProps)} ${data.staticClass || ""}`,
+          class: `${direction} ${mapPropsToClasses(classProps)} ${data.staticClass || ""}`,
         },
         on: listeners,
       },

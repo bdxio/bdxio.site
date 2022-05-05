@@ -34,18 +34,7 @@
         </div>
       </div>
     </section>
-    <flex-container tag="section" no-gutter>
-      <flex-item m4>
-        <img class="bourse-image" src="~/assets/img/place_de_la_bourse.png" alt="Illustration de la Place de la Bourse à Bordeaux" />
-      </flex-item>
-      <flex-item m8 class="about-us">
-        <h2 class="subsection-title">Qu'est-ce que BDX I/O ?</h2>
-        <p>
-          BDX I/O est un conférence bordelaise sur le thème de la programmation et de ses métiers annexes.
-          <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s lors d'une journée de découvertes et de bonne humeur !
-        </p>
-      </flex-item>
-    </flex-container>
+    <section-about />
     <flex-container no-gutter>
       <flex-item tag="section" class="text-light subsection" s6>
         <h2 class="subsection-light-title">SPONSORS</h2>
@@ -71,6 +60,7 @@
 
 <script>
 import VCounter from "~/components/VCounter.vue";
+import SectionAbout from "~/components/homepage/SectionAbout";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 
 export default {
@@ -91,6 +81,7 @@ export default {
     VCounter,
     FlexContainer,
     FlexItem,
+    SectionAbout
   },
 };
 </script>
@@ -160,16 +151,6 @@ header {
       max-width: 8em;
       margin: 0 auto;
     }
-  }
-}
-
-.about-us {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  p {
-    max-width: 25em;
   }
 }
 
