@@ -7,7 +7,7 @@
 body {
   margin: 0;
   background: $light;
-  font-family: $font-body;
+  font-family: $font-family-body;
   font-size: $font-size-content;
   font-size: 22px;
   line-height: 34px;
@@ -21,7 +21,7 @@ h1 {
 h1,
 h2,
 h3 {
-  font-family: $font-title;
+  font-family: $font-family-title;
   font-size: $font-size-title;
   line-height: 50px;
 }

@@ -19,7 +19,7 @@
     background-position: right;
     border: 2px solid $dark-font;
     color: $dark-font;
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     mix-blend-mode: multiply;
 
     &.outlined-light {

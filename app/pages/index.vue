@@ -74,6 +74,7 @@ export default {
     };
   },
   components: {
+    VCounter,
     FlexContainer,
     FlexItem,
     SectionAbout,
@@ -139,7 +140,7 @@ h1 {
 }
 
 .subsection-light-title {
-  font-weight: 300;
+  font-weight: $font-weight-light;
   font-family: Lato;
   font-size: 1.4em;
 }

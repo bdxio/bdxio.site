@@ -50,9 +50,9 @@ export default {
 
   &__date {
     font-size: $font-size-title;
-    font-family: $font-title;
-    font-weight: 700;
-    font-style: italic;
+    font-family: $font-family-title;
+    font-weight: $font-weight-bold;
+    font-style: $font-style-italic;
     padding: 3.125rem; //50px
     background: url("~/assets/img/bdx_drawings/violet_circle.png") no-repeat center / contain;
   }
