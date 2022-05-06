@@ -1,11 +1,6 @@
 <template>
   <main>
-    <header>
-      <h1>En 2022,<br />Nous sommes de retour !</h1>
-      <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-      <h1>02/12/2022</h1>
-      <h2>Et on a hâte de vous y (re)voir !</h2>
-    </header>
+    <section-hero />
     <section class="background-primary text-light">
       <div class="numbers-title">
         <h2>Bordeaux Developers eXperience</h2>
@@ -60,8 +55,9 @@
 
 <script>
 import VCounter from "~/components/VCounter.vue";
-import SectionAbout from "~/components/homepage/SectionAbout";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
+import SectionHero from "~/components/homepage/SectionHero.vue";
+import SectionAbout from "~/components/homepage/SectionAbout";
 
 export default {
   name: "HomePage",
@@ -81,7 +77,8 @@ export default {
     VCounter,
     FlexContainer,
     FlexItem,
-    SectionAbout
+    SectionAbout,
+    SectionHero
   },
 };
 </script>
@@ -90,27 +87,6 @@ export default {
 h1 {
   text-align: center;
   font-size: 2em;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h1:last-of-type {
-    font-style: italic;
-  }
-
-  h2 {
-    text-align: center;
-    font-size: 1.5em;
-  }
-
-  p {
-    max-width: 15em;
-    font-size: 1.3em;
-    text-align: center;
-  }
 }
 
 .numbers-title {
@@ -164,7 +140,7 @@ header {
 }
 
 .subsection-light-title {
-  font-weight: 300;
+  font-weight: $font-weight-light;
   font-family: Lato;
   font-size: 1.4em;
 }
