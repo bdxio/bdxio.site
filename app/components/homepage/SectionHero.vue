@@ -40,7 +40,8 @@ export default {
       transform: translateX(-50%);
       width: 400px;
       height: 50px;
-      background: url("~/assets/img/bdx_drawings/yellow_line_1.png") no-repeat center / cover;
+      background: url("~/assets/img/bdx_drawings/yellow_line_1.png") no-repeat
+        center / cover;
     }
   }
 
@@ -54,7 +55,8 @@ export default {
     font-weight: $font-weight-bold;
     font-style: $font-style-italic;
     padding: 3.125rem; //50px
-    background: url("~/assets/img/bdx_drawings/violet_circle.png") no-repeat center / contain;
+    background: url("~/assets/img/bdx_drawings/purple_circle.png") no-repeat
+      center / contain;
   }
 
   &__invitation {

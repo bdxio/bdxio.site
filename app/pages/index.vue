@@ -1,6 +1,8 @@
 <template>
   <main>
     <section-hero />
+    <section-key-concepts />
+    
     <section class="background-primary text-light">
       <div class="numbers-title">
         <h2>Bordeaux Developers eXperience</h2>
@@ -58,6 +60,7 @@ import VCounter from "~/components/VCounter.vue";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
+import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 
 export default {
   name: "HomePage",
@@ -78,7 +81,8 @@ export default {
     FlexContainer,
     FlexItem,
     SectionAbout,
-    SectionHero
+    SectionHero,
+    SectionKeyConcepts
   },
 };
 </script>
@@ -135,7 +139,7 @@ h1 {
   background: $secondary;
   box-sizing: border-box;
   &:last-of-type {
-    background: $grey;
+    background: $grey-300;
   }
 }
 
