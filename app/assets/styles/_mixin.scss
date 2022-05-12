@@ -1,14 +1,14 @@
 @mixin mobileFirst($size) {
   @if $size == xxs {
-    @media (max-width: $screen-xxs) {
+    @media (min-width: $screen-xxs) {
       @content;
     }
   } @else if $size == xs {
     @media (min-width: $screen-xs) {
       @content;
     }
-  } @else if $size == sm {
-    @media (min-width: $screen-sm) {
+  } @else if $size == s {
+    @media (min-width: $screen-s) {
       @content;
     }
   } @else if $size == m {
