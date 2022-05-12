@@ -33,3 +33,17 @@
     }
   }
 }
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+@mixin positionAbsolute() {
+  position: absolute;
+  @include z-index(absolute)
+}
+
+@mixin positionRelative() {
+  position: relative;
+  @include z-index(relative)
+}

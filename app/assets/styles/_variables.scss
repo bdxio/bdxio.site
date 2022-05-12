@@ -6,9 +6,13 @@ $secondary: #fbdb33;
 $light: #f6f2e8;
 $light-font: #fff7ec;
 $dark-font: #373739;
-$grey: #e3e3e3;
+$grey-100: #F5F5F5;
+$grey-200: #e3e3e3;
+$grey-300: #F5F5F5;
+$green: #19D2B1;
 $red: #cc0625;
 $yellow: #fac319;
+$orange: #FF820F;
 
 /////// BREAKPOINTS ///////
 $screen-xxs: 320px; // Extra Extra Small Devices, Phones
@@ -24,7 +28,7 @@ $screen-xxxl: 1800px; // Large Big, Wide Screens
 $spc-xxs: 0.5rem; //8px
 $spc-xs: 1rem; //16px
 $spc-s: 1.5rem; //24px
-$spc-: 2rem; //32px
+$spc-m: 2rem; //32px
 $spc-l: 2.5rem; //40px
 $spc-xl: 3rem; //48px
 $spc-xxl: 3.5rem; //56px
@@ -39,3 +43,13 @@ $font-weight-light: 300;
 $font-weight-regular: 500;
 $font-weight-bold: 700;
 $font-style-italic: italic;
+
+/////// Z-INDEX ///////
+$z-index: (
+  upper: 9999,
+  modal: 5,
+  design: 4,
+  absolute: 3,
+  relative: 2,
+  default: 1
+);

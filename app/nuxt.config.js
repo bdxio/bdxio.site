@@ -2,6 +2,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
+  server: {
+    port: 3615,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "BDX I/O",
@@ -21,7 +25,11 @@ export default {
   css: ["~/assets/styles/main.scss"],
 
   styleResources: {
-    scss: ["~/assets/styles/_variables.scss", "~/assets/styles/_mixin.scss"],
+    scss: [
+      "~/assets/styles/_variables.scss",
+      "~/assets/styles/_functions.scss",
+      "~/assets/styles/_mixin.scss",
+    ],
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
