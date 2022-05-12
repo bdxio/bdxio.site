@@ -2,7 +2,7 @@
 
 $breakpoints: (
   "xs": $screen-xs,
-  "s": $screen-sm,
+  "s": $screen-s,
   "m": $screen-m,
   "l": $screen-l,
   "xl": $screen-xl,
@@ -231,41 +231,6 @@ $prefix: "fg__";
   }
 }
 
-.start-xs {
-  justify-content: flex-start;
-  text-align: start;
-}
-
-.center-xs {
-  justify-content: center;
-  text-align: center;
-}
-
-.end-xs {
-  justify-content: flex-end;
-  text-align: end;
-}
-
-.top-xs {
-  align-items: flex-start;
-}
-
-.middle-xs {
-  align-items: center;
-}
-
-.bottom-xs {
-  align-items: flex-end;
-}
-
-.around-xs {
-  justify-content: space-around;
-}
-
-.between-xs {
-  justify-content: space-between;
-}
-
 @each $breakpoint, $value in $breakpoints {
   @media only screen and (min-width: #{$value}) {
     .container {
@@ -413,43 +378,55 @@ $prefix: "fg__";
       }
     }
 
-    .start-#{$breakpoint} {
+    .flex-start-#{$breakpoint} {
       justify-content: flex-start;
       text-align: start;
     }
 
-    .center-#{$breakpoint} {
+    .flex-center-#{$breakpoint} {
       justify-content: center;
       text-align: center;
     }
 
-    .end-#{$breakpoint} {
+    .flex-end-#{$breakpoint} {
       justify-content: flex-end;
       text-align: end;
     }
 
-    .top-#{$breakpoint} {
+    .align-start-#{$breakpoint} {
       align-items: flex-start;
     }
 
-    .middle-#{$breakpoint} {
+    .align-center-#{$breakpoint} {
       align-items: center;
     }
 
-    .bottom-#{$breakpoint} {
+    .align-end-#{$breakpoint} {
       align-items: flex-end;
     }
 
-    .around-#{$breakpoint} {
+    .justify-center-#{$breakpoint} {
+      justify-content: center;
+    }
+
+    .justify-around-#{$breakpoint} {
       justify-content: space-around;
     }
 
-    .between-#{$breakpoint} {
+    .justify-between-#{$breakpoint} {
       justify-content: space-between;
     }
   }
 
-  .show-#{breakpoint} {
+  .hidden-#{$breakpoint} {
+    display:block;
+
+    @media screen and (min-width: #{$value}) {
+      display: none;
+    }
+  }
+
+  .show-#{$breakpoint} {
     display: none;
 
     @media screen and (min-width: #{$value}) {
