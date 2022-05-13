@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <main>
     <section-hero />
     <section-key-concepts />
@@ -35,6 +35,19 @@
       </div>
     </section>
     <section-about />
+
+    <flex-container no-gutter>
+      <flex-item
+        tag="section"
+        class="subsection"
+        s12
+      >
+        <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
+        <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
+        <button class="bdx-button outlined">Voir le programme</button>
+      </flex-item>
+    </flex-container>
+
     <flex-container no-gutter>
       <flex-item
         tag="section"
@@ -68,12 +81,12 @@
 </template>
 
 <script>
-import VCounter from "~/components/VCounter.vue";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
+import SectionSponsors from "~/components/homepage/SectionSponsors";
 
 export default {
   name: "HomePage",
@@ -90,12 +103,12 @@ export default {
     };
   },
   components: {
-    VCounter,
     FlexContainer,
     FlexItem,
     SectionAbout,
     SectionHero,
     SectionKeyConcepts,
+    SectionSponsors,
     SectionGuidage,
   },
 };

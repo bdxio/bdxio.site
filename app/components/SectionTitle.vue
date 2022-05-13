@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <h3 class="section-title">{{ title }}</h3>
 </template>
 
