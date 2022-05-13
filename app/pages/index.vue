@@ -54,6 +54,7 @@
         <h2 class="subsection-dark-title">Dernières actualités</h2>
       </flex-item>
     </flex-container>
+    <section-sponsors />
   </main>
 </template>
 
@@ -62,6 +63,7 @@ import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
+import SectionSponsors from "~/components/homepage/SectionSponsors";
 
 export default {
   name: "HomePage",
@@ -83,6 +85,7 @@ export default {
     SectionAbout,
     SectionHero,
     SectionKeyConcepts,
+    SectionSponsors,
   },
 };
 </script>
