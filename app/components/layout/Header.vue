@@ -1,25 +1,37 @@
 <template>
-  <header class="header" :class="propClasses">
-    <NuxtLink class="logo" to="/">
-      <img src="~/assets/img/bdxio_logo.png" alt="Logo de l'association BDXIO" />
+  <header
+    class="header"
+    :class="propClasses"
+  >
+    <NuxtLink
+      class="logo"
+      to="/"
+    >
+      <img
+        src="~/assets/img/bdxio_logo.png"
+        alt="Logo de l'association BDXIO"
+      />
     </NuxtLink>
-    <nav class="nav" :class="propClasses">
+    <nav
+      class="nav"
+      :class="propClasses"
+    >
       <ul>
         <li>
           <NuxtLink to="/">Accueil</NuxtLink>
         </li>
-        <li>
+        <!-- <li>
           <NuxtLink to="/schedule">Programme</NuxtLink>
-        </li>
+        </li> -->
         <li>
           <NuxtLink to="/sponsors">Sponsors</NuxtLink>
         </li>
         <li>
           <NuxtLink to="/team">L'équipe</NuxtLink>
         </li>
-        <li>
+        <!-- <li>
           <button class="bdx-button">Billetterie</button>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </header>
@@ -52,7 +64,7 @@ export default {
   padding: 10px;
 
   @include mobileFirst(m) {
-    padding: 30px 50px; 
+    padding: 30px 50px;
   }
 
   &.light {
@@ -95,7 +107,8 @@ export default {
             bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
-            background: url("~/assets/img/underline_bleu.png") no-repeat center / cover;
+            background: url("~/assets/img/underline_bleu.png") no-repeat center /
+              cover;
           }
         }
       }
