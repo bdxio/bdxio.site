@@ -35,6 +35,7 @@
       </div>
     </section>
     <section-about />
+    <section-sponsors />
 
     <flex-container no-gutter>
       <flex-item
@@ -87,6 +88,7 @@ import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
+import SectionSponsors from '../components/homepage/SectionSponsors.vue';
 
 export default {
   name: "HomePage",
@@ -109,7 +111,8 @@ export default {
     SectionHero,
     SectionKeyConcepts,
     SectionSponsors,
-    SectionGuidage,
+    SectionGuidage
+    SectionSponsors,
   },
 };
 </script>
