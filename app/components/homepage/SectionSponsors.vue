@@ -38,11 +38,25 @@ export default {
   background-color: $primary-dark;
   color: $light-font;
   text-align: center;
-  padding: 85px 0 135px;
-  gap: 90px;
+  padding: 55px 30px 80px;
+  gap: 20px;
+
+  @include mobileFirst(m) {
+    gap: 90px;
+    padding: 85px 50px 135px;
+  }
 
   .sponsors {
-    gap: 58px;
+    justify-content: center;
+    gap: 10px;
+
+    @include mobileFirst(s) {
+      gap: 30px;
+    }
+
+    @include mobileFirst(m) {
+      gap: 60px;
+    }
   }
 
   .title {
@@ -52,10 +66,14 @@ export default {
       content: "";
       width: 60px;
       height: 87px;
-      margin-left: 50px;
+      margin-left: 20px;
       margin-top: -30px;
       position: absolute;
       background: url("~/assets/img/bdx_drawings/purple_triangle.png") no-repeat;
+
+      @include mobileFirst(m) {
+        margin-left: 50px;
+      }
     }
   }
 
