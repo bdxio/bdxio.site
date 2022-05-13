@@ -1,6 +1,15 @@
 <template functional>
-  <flex-container tag="section" class="section-key-concepts" no-gutter>
-    <flex-item xs12 s6 xl4 class="section-key-concepts__img">
+  <flex-container
+    tag="section"
+    class="section-key-concepts"
+    no-gutter
+  >
+    <flex-item
+      xs12
+      s6
+      xl4
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -20,12 +29,25 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs12 s4 m3 l2 class="section-key-concepts__card card-1">
-      <p class="key"><VCounter :value="5" /></p>
+    <flex-item
+      xs12
+      s4
+      m3
+      l2
+      class="section-key-concepts__card card-1"
+    >
+      <p class="key">
+        <VCounter :value="5" />
+      </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
     </flex-item>
-    <flex-item xs12 m6 xl6 class="section-key-concepts__img">
+    <flex-item
+      xs12
+      m6
+      xl6
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -45,12 +67,24 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs12 m2 xl2 class="section-key-concepts__card card-2">
-      <p class="key"><VCounter :value="7" /></p>
+    <flex-item
+      xs12
+      m2
+      xl2
+      class="section-key-concepts__card card-2"
+    >
+      <p class="key">
+        <VCounter :value="7" />
+      </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
     </flex-item>
-    <flex-item xs12 m4 xl4 class="section-key-concepts__img">
+    <flex-item
+      xs12
+      m4
+      xl4
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -70,12 +104,24 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs12 m2 xl2 class="section-key-concepts__card card-3">
-      <p class="key"><VCounter :value="40" /></p>
+    <flex-item
+      xs12
+      m2
+      xl2
+      class="section-key-concepts__card card-3"
+    >
+      <p class="key">
+        <VCounter :value="40" />
+      </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais !</p>
     </flex-item>
-    <flex-item xs12 m4 xl4 class="section-key-concepts__img">
+    <flex-item
+      xs12
+      m4
+      xl4
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -95,7 +141,12 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs12 m2 xl2 class="section-key-concepts__img">
+    <flex-item
+      xs12
+      m2
+      xl2
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -115,12 +166,26 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs12 m2 class="section-key-concepts__card card-4">
-      <p class="key"><VCounter :value="900" :step="25"/></p>
+    <flex-item
+      xs12
+      m2
+      class="section-key-concepts__card card-4"
+    >
+      <p class="key">
+        <VCounter
+          :value="900"
+          :step="25"
+        />
+      </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
     </flex-item>
-    <flex-item xs12 m8 xl8 class="section-key-concepts__img">
+    <flex-item
+      xs12
+      m8
+      xl8
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           srcset="
@@ -145,11 +210,11 @@
 
 <script>
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
-import VCounter from "../VCounter.vue"
+import VCounter from "../VCounter.vue";
 
 export default {
   name: "SectionHero",
-  components: { FlexContainer, FlexItem, VCounter }
+  components: { FlexContainer, FlexItem, VCounter },
 };
 </script>
 
