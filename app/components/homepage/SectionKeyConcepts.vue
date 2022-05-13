@@ -21,7 +21,7 @@
       </picture>
     </flex-item>
     <flex-item xs12 s4 m3 l2 class="section-key-concepts__card card-1">
-      <p class="key">5</p>
+      <p class="key"><VCounter :value="5" /></p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
     </flex-item>
@@ -46,7 +46,7 @@
       </picture>
     </flex-item>
     <flex-item xs12 m2 xl2 class="section-key-concepts__card card-2">
-      <p class="key">7</p>
+      <p class="key"><VCounter :value="7" /></p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
     </flex-item>
@@ -71,7 +71,7 @@
       </picture>
     </flex-item>
     <flex-item xs12 m2 xl2 class="section-key-concepts__card card-3">
-      <p class="key">40</p>
+      <p class="key"><VCounter :value="40" /></p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais !</p>
     </flex-item>
@@ -116,7 +116,7 @@
       </picture>
     </flex-item>
     <flex-item xs12 m2 class="section-key-concepts__card card-4">
-      <p class="key">900</p>
+      <p class="key"><VCounter :value="900" :step="25"/></p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
     </flex-item>
@@ -145,10 +145,11 @@
 
 <script>
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
+import VCounter from "../VCounter.vue"
 
 export default {
-  components: { FlexContainer, FlexItem },
   name: "SectionHero",
+  components: { FlexContainer, FlexItem, VCounter }
 };
 </script>
 

@@ -4,35 +4,6 @@
     <section-key-concepts />
     <section-about />
     
-    <section class="background-primary text-light">
-      <div class="numbers-title">
-        <h2>Bordeaux Developers eXperience</h2>
-        <p>en quelques chiffres</p>
-      </div>
-      <div class="numbers-content bdx-grid-2-4">
-        <VCounter :value="5" />
-        <VCounter :value="40" />
-        <VCounter :value="15" />
-        <VCounter :value="900" :step="7" />
-        <div>
-          <h4>Amphis</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Conférences</h4>
-          <p>On se retrouve au palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Communautés</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Devs</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-      </div>
-    </section>
-    <section-about />
     <flex-container no-gutter>
       <flex-item tag="section" class="text-light subsection" s6>
         <h2 class="subsection-light-title">SPONSORS</h2>
@@ -57,7 +28,6 @@
 </template>
 
 <script>
-import VCounter from "~/components/VCounter.vue";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
@@ -78,7 +48,6 @@ export default {
     };
   },
   components: {
-    VCounter,
     FlexContainer,
     FlexItem,
     SectionAbout,
