@@ -1,7 +1,7 @@
 <template functional>
   <section class="bourse">
     <div class="about-us">
-      <h2 class="subsection-title">Qu'est-ce que BDX I/O ?</h2>
+      <h2 class="subsection-title">Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</h2>
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et de ses métiers annexes.
         <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s lors d'une journée de découvertes et de bonne humeur !
@@ -25,7 +25,7 @@ export default {
     background-color: $light;
   }
 
-  .subsection-title {
+  .nowrap {
     white-space: nowrap;
   }
 

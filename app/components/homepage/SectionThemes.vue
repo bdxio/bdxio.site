@@ -8,7 +8,7 @@
         m4
         class="text-container"
       >
-        <section-title :title="thématique" />
+        <section-title title="thématique" />
         <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
         <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
       </flex-item>
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import FlexContainer from "../layout/grid/Flex-container.vue";
-import FlexItem from "../layout/grid/Flex-item.vue";
-import SectionTitle from "../SectionTitle.vue";
+import FlexContainer from "../layout/grid/Flex-container";
+import FlexItem from "../layout/grid/Flex-item";
+import SectionTitle from "../SectionTitle";
 export default {
   components: { SectionTitle, FlexContainer, FlexItem },
   name: "SectionThemes",
