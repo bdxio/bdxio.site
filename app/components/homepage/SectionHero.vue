@@ -5,7 +5,10 @@
       On se retrouve au Palais des Congrès <br />
       de Bordeaux Lac
     </p>
-    <time class="section-hero__date" datetime="2022-12-02">02/12/2022</time>
+    <time
+      class="section-hero__date"
+      datetime="2022-12-02"
+    >02/12/2022</time>
     <h2 class="section-hero__invitation">Et on a hâte de vous y (re)voir !</h2>
   </header>
 </template>

@@ -29,7 +29,7 @@
 import SectionTitle from "../SectionTitle";
 
 export default {
-  name: "SectionAbout",
+  name: "SectionGuidage",
   components: {
     SectionTitle,
   },
@@ -83,9 +83,9 @@ export default {
 
   @include mobileFirst(s) {
     .text-container {
-      background: url("~/assets/img/place_de_la_bourse.png") no-repeat;
-      background-position-x: 100%;
-      background-position-y: 50%;
+      background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
+      background-position-x: right;
+      background-size: contain;
 
       .infos::after {
         content: "";
