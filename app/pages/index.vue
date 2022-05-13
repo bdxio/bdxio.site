@@ -2,38 +2,26 @@
   <main>
     <section-hero />
     <section-key-concepts />
-    
-    <section class="background-primary text-light">
-      <div class="numbers-title">
-        <h2>Bordeaux Developers eXperience</h2>
-        <p>en quelques chiffres</p>
-      </div>
-      <div class="numbers-content bdx-grid-2-4">
-        <VCounter :value="5" />
-        <VCounter :value="40" />
-        <VCounter :value="15" />
-        <VCounter :value="900" :step="7" />
-        <div>
-          <h4>Amphis</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Conférences</h4>
-          <p>On se retrouve au palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Communautés</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-        <div>
-          <h4>Devs</h4>
-          <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
-        </div>
-      </div>
-    </section>
     <section-about />
+
     <flex-container no-gutter>
-      <flex-item tag="section" class="text-light subsection" s6>
+      <flex-item
+        tag="section"
+        class="subsection"
+        s12
+      >
+        <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
+        <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
+        <button class="bdx-button outlined">Voir le programme</button>
+      </flex-item>
+    </flex-container>
+
+    <flex-container no-gutter>
+      <flex-item
+        tag="section"
+        class="text-light subsection"
+        s6
+      >
         <h2 class="subsection-light-title">SPONSORS</h2>
         <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
         <p>
@@ -42,7 +30,11 @@
         </p>
         <button class="bdx-button outlined-light">Devenir sponsor</button>
       </flex-item>
-      <flex-item tag="section" class="subsection text-dark" s6>
+      <flex-item
+        tag="section"
+        class="subsection text-dark"
+        s6
+      >
         <h2 class="subsection-light-title">SPEAKERS</h2>
         <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
         <p>
@@ -52,15 +44,26 @@
         <button class="bdx-button outlined">Devenir speaker</button>
       </flex-item>
     </flex-container>
+
+    <flex-container no-gutter>
+      <flex-item
+        tag="section"
+        class="subsection"
+        s12
+      >
+        <h2 class="subsection-dark-title">Dernières actualités</h2>
+      </flex-item>
+    </flex-container>
+    <section-sponsors />
   </main>
 </template>
 
 <script>
-import VCounter from "~/components/VCounter.vue";
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
+import SectionSponsors from "~/components/homepage/SectionSponsors";
 
 export default {
   name: "HomePage",
@@ -77,12 +80,12 @@ export default {
     };
   },
   components: {
-    VCounter,
     FlexContainer,
     FlexItem,
     SectionAbout,
     SectionHero,
-    SectionKeyConcepts
+    SectionKeyConcepts,
+    SectionSponsors,
   },
 };
 </script>
