@@ -2,7 +2,7 @@
   <main>
     <section-hero />
     <section-key-concepts />
-    
+
     <section class="background-primary text-light">
       <div class="numbers-title">
         <h2>Bordeaux Developers eXperience</h2>
@@ -12,7 +12,10 @@
         <VCounter :value="5" />
         <VCounter :value="40" />
         <VCounter :value="15" />
-        <VCounter :value="900" :step="7" />
+        <VCounter
+          :value="900"
+          :step="7"
+        />
         <div>
           <h4>Amphis</h4>
           <p>On se retrouve au Palais des congrès de Bordeaux Lac</p>
@@ -33,7 +36,11 @@
     </section>
     <section-about />
     <flex-container no-gutter>
-      <flex-item tag="section" class="text-light subsection" s6>
+      <flex-item
+        tag="section"
+        class="text-light subsection"
+        s6
+      >
         <h2 class="subsection-light-title">SPONSORS</h2>
         <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
         <p>
@@ -42,7 +49,11 @@
         </p>
         <button class="bdx-button outlined-light">Devenir sponsor</button>
       </flex-item>
-      <flex-item tag="section" class="subsection text-dark" s6>
+      <flex-item
+        tag="section"
+        class="subsection text-dark"
+        s6
+      >
         <h2 class="subsection-light-title">SPEAKERS</h2>
         <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
         <p>
@@ -52,6 +63,7 @@
         <button class="bdx-button outlined">Devenir speaker</button>
       </flex-item>
     </flex-container>
+    <section-guidage />
   </main>
 </template>
 
@@ -61,6 +73,7 @@ import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero.vue";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
+import SectionGuidage from "~/components/homepage/SectionGuidage";
 
 export default {
   name: "HomePage",
@@ -82,7 +95,8 @@ export default {
     FlexItem,
     SectionAbout,
     SectionHero,
-    SectionKeyConcepts
+    SectionKeyConcepts,
+    SectionGuidage,
   },
 };
 </script>
