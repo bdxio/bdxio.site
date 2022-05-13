@@ -29,7 +29,7 @@
 import SectionTitle from "../SectionTitle";
 
 export default {
-  name: "SectionAbout",
+  name: "SectionGuidage",
   components: {
     SectionTitle,
   },

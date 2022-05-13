@@ -286,6 +286,8 @@ export default {
     }
 
     &.card-1:after {
+      content: "";
+      position: absolute;
       width: 200px;
       height: 80px;
       top: 25%;
@@ -297,25 +299,37 @@ export default {
     }
 
     &.card-2:after {
-      width: 200px;
+      content: "";
+      position: absolute;
+      width: 150px;
       height: 100px;
       top: 25%;
-      right: 0;
+      right: 100px;
       transform: translateX(40%) translateY(-50%);
       background: url("~/assets/img/bdx_drawings/orange_highlight_2.png") center
         no-repeat;
       background-size: contain;
+
+      @include mobileFirst(m) {
+        right: 0;
+      }
     }
 
     &.card-4:after {
+      content: "";
+      position: absolute;
       width: 160px;
       height: 120px;
       top: 30%;
-      right: 0;
+      right: 100px;
       transform: translateX(30%) translateY(-50%);
       background: url("~/assets/img/bdx_drawings/blue_arrow_2.png") center
         no-repeat;
       background-size: contain;
+
+      @include mobileFirst(m) {
+        right: 0;
+      }
     }
   }
 }
