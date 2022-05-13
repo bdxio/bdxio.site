@@ -61,10 +61,6 @@ export default {
     overflow-x: scroll;
     gap: 35px;
     padding: 0 35px;
-
-    @include mobileFirst(m) {
-      gap: 80px;
-    }
   }
 
   .news-item {

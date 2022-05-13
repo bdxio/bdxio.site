@@ -66,10 +66,15 @@ export default {
       content: "";
       width: 60px;
       height: 87px;
-      margin-left: 20px;
-      margin-top: -30px;
+      margin-left: -30px;
+      margin-top: -20px;
       position: absolute;
+      z-index: -1;
       background: url("~/assets/img/bdx_drawings/purple_triangle.png") no-repeat;
+
+      @include mobileFirst(s) {
+        margin-left: 0px;
+      }
 
       @include mobileFirst(m) {
         margin-left: 50px;
