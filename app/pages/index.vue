@@ -2,6 +2,7 @@
   <main>
     <section-hero />
     <section-key-concepts />
+    <section-about />
     
     <section class="background-primary text-light">
       <div class="numbers-title">

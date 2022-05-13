@@ -1,5 +1,5 @@
 <template functional>
-      <section class="bourse">
+  <section class="bourse">
       <div class="about-us">
         <h2 class="subsection-title">Qu'est-ce que BDX I/O ?</h2>
         <p>
@@ -30,12 +30,11 @@ export default {
     white-space: nowrap;
   }
 
-  @include mobileFirst(sm) {
+  @include mobileFirst(s) {
     background: url("~/assets/img/place_de_la_bourse.png") no-repeat left;
     background-size: 50%;
     display: flex;
     justify-content: flex-end;
-
  
     .about-us {
       position: relative;
@@ -56,7 +55,6 @@ export default {
       }
     }
   }
-
 
   @include mobileFirst(m) {
     .about-us {
