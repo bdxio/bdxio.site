@@ -3,18 +3,7 @@
     <section-hero />
     <section-key-concepts />
     <section-about />
-
-    <flex-container no-gutter>
-      <flex-item
-        tag="section"
-        class="subsection"
-        s12
-      >
-        <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
-        <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
-        <button class="bdx-button outlined">Voir le programme</button>
-      </flex-item>
-    </flex-container>
+    <section-themes />
 
     <flex-container no-gutter>
       <flex-item
@@ -58,6 +47,7 @@ import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
 import SectionNews from "~/components/homepage/SectionNews";
+import SectionThemes from "~/components/homepage/SectionThemes";
 
 export default {
   name: "HomePage",
@@ -82,6 +72,7 @@ export default {
     SectionSponsors,
     SectionNews,
     SectionGuidage,
+    SectionThemes,
   },
 };
 </script>
