@@ -168,6 +168,25 @@ footer {
 
   .newsletter {
     grid-area: newsletter;
+    span {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: url("~/assets/img/bdx_drawings/purple_envelope.png");
+        width: 141px;
+        height: 68px;
+        top: 40px;
+        right: 0;
+
+        @include mobileFirst(s) {
+          top: -60px;
+          right: auto;
+          left: -80px;
+        }
+      }
+    }
   }
 
   .location {
