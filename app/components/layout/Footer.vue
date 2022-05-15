@@ -67,7 +67,20 @@
             to="/contact"
             class="underline-animated"
           >
-            <span>S'incrire à la newsletter</span>
+            <span v-on:click="mailVisible = true">S'incrire à la newsletter</span>
+            <form
+              @submit.prevent="registerNewsletter"
+              v-if="mailVisible"
+            >
+              <VInput
+                v-model="mail"
+                type="email"
+                required
+              >
+                email
+              </VInput>
+              <button class="v-button">S'inscrire</button>
+            </form>
           </NuxtLink>
         </li>
       </ul>
@@ -82,13 +95,15 @@
 
 <script>
 import { mapActions } from "vuex";
+import VInput from "~/components/VInput.vue";
 
 export default {
   name: "Footer",
-  components: {},
+  components: { VInput },
   data() {
     return {
       mail: null,
+      mailVisible: false,
     };
   },
   methods: {
