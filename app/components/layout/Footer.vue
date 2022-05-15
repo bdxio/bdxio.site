@@ -60,6 +60,8 @@
             <span>Accueil</span>
           </NuxtLink>
         </li>
+      </ul>
+      <ul class="newsletter">
         <li>
           <NuxtLink
             to="/contact"
@@ -107,37 +109,72 @@ footer {
   flex-direction: column;
   padding: 60px 35px;
 
+  a {
+    color: $black;
+  }
+
   .bdxio {
     display: flex;
     margin-bottom: 60px;
 
     img {
       height: 61px;
+      margin-right: 16px;
       margin-bottom: 25px;
+
+      @include mobileFirst(s) {
+        margin-bottom: 0;
+      }
     }
 
     span {
       display: block;
     }
+
     a {
-      color: $black;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       text-decoration: none;
       font-weight: $font-weight-bold;
       font-size: 35px;
       line-height: 42px;
+
+      @include mobileFirst(s) {
+        flex-direction: row;
+        align-items: center;
+      }
     }
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 60px;
+
+    grid-template-areas:
+      "location"
+      "contact"
+      "social"
+      "links"
+      "newsletter";
+
+    @include mobileFirst(s) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "location links contact"
+        "social links newsletter";
+    }
+  }
+
+  .newsletter {
+    grid-area: newsletter;
   }
 
   .location {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    grid-area: location;
 
     .location-name {
       font-weight: $font-weight-bold;
@@ -154,6 +191,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    grid-area: contact;
 
     .email {
       font-size: $font-size-content;
@@ -164,6 +202,7 @@ footer {
   .social {
     display: flex;
     gap: 20px;
+    grid-area: social;
 
     a {
       display: flex;
@@ -180,6 +219,7 @@ footer {
   .links {
     display: flex;
     justify-content: space-between;
+    grid-area: links;
 
     li {
       display: inline-block;
@@ -189,6 +229,12 @@ footer {
         color: $black;
       }
     }
+
+    @include mobileFirst(m) {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+    }
   }
 
   .legal {
@@ -197,6 +243,8 @@ footer {
     margin-top: 100px;
     display: flex;
     gap: 40px;
+    white-space: nowrap;
+    flex-wrap: wrap;
   }
 
   small {
