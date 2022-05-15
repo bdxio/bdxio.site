@@ -76,7 +76,7 @@ export default {
     .item-title {
       margin-bottom: 8px;
       font-style: normal;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       font-size: 30px;
       line-height: 38px;
     }
@@ -85,7 +85,7 @@ export default {
       font-family: "Lato";
       font-style: normal;
       font-weight: 400;
-      font-size: 22px;
+      font-size: $font-size-content;
       line-height: 32px;
     }
   }

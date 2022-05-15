@@ -9,7 +9,7 @@
     >
       <img
         src="~/assets/img/bdxio_logo.png"
-        alt="Logo de l'association BDXIO"
+        alt="Logo de l'association BDX.IO"
       />
     </NuxtLink>
     <nav
