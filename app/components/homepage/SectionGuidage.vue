@@ -60,7 +60,7 @@ export default {
 
   .title {
     line-height: 29px;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     font-size: 24px;
   }
 

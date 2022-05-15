@@ -1,6 +1,11 @@
 <template>
   <div class="v-input-container">
-    <label :for="`v-input-${_uid}`" :class="{ active: isFocused || fieldValue, focused: isFocused }"><slot/></label>
+    <label
+      :for="`v-input-${_uid}`"
+      :class="{ active: isFocused || fieldValue, focused: isFocused }"
+    >
+      <slot />
+    </label>
     <input
       v-model="fieldValue"
       :type="type"
@@ -20,14 +25,14 @@
 
 <script>
 export default {
-  name: 'VInput',
+  name: "VInput",
   props: {
     value: {
       required: true,
     },
     type: {
       type: String,
-      default: 'text',
+      default: "text",
     },
     pattern: String,
     required: Boolean,
@@ -35,21 +40,21 @@ export default {
     step: {
       type: Number,
       validator: () => {
-        return this.type === 'number';
+        return this.type === "number";
       },
     },
     min: {
       type: Number,
       validator: () => {
-        return this.type === 'number';
+        return this.type === "number";
       },
     },
     max: {
       type: Number,
       validator: () => {
-        return this.type === 'number';
+        return this.type === "number";
       },
-    }
+    },
   },
   data() {
     return {
@@ -62,7 +67,7 @@ export default {
         return this.value;
       },
       set(value) {
-        this.$emit('input', value);
+        this.$emit("input", value);
       },
     },
   },
@@ -86,7 +91,7 @@ export default {
     font-size: 0.7rem;
     transition: 0.3s;
     transform-origin: left;
-    color: $yellow;
+    color: $primary;
     pointer-events: none;
 
     &.active {
@@ -100,11 +105,11 @@ export default {
 
   input {
     border: none;
-    background: #0003;
+    background: $white;
     padding: 0.5rem;
     outline: none;
     transition: 0.3s ease-in;
-    color: #fff;
+    color: $dark-font;
     height: 1rem;
   }
 
@@ -116,23 +121,23 @@ export default {
     left: 0;
     height: 2px;
     width: 100%;
-    background: linear-gradient(to right, $red 50%, $yellow 50%);
+    background: linear-gradient(to right, $red 50%, $primary 50%);
     background-size: 250%;
     background-position: right;
-    transition: .3s cubic-bezier(.8, 0, .2, 1);
+    transition: 0.3s cubic-bezier(0.8, 0, 0.2, 1);
   }
 
   &:hover {
     input {
-      background: #0005;
+      background: $light;
       transition: 0.3s;
     }
   }
 
   &:focus-within {
     input {
-      background: #0004;
-      color: #fffc;
+      background: $light;
+      color: $dark-font;
       transition: 0.3s ease-in;
     }
     &::after {
