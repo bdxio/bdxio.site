@@ -40,9 +40,19 @@ export default {
 <style lang="scss" scoped>
 .guidage {
   .text-container {
+    background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
+    background-position-x: left;
+    background-position-y: bottom;
+    background-size: contain;
     position: relative;
     margin: 2em;
     background-color: $light;
+    padding-bottom: 300px;
+
+    @include mobileFirst(s) {
+      padding-bottom: 0;
+      background-position-x: right;
+    }
   }
 
   .subsection-title {
@@ -79,15 +89,9 @@ export default {
     position: relative;
     max-width: 50%;
     background-color: $light;
-  }
 
-  @include mobileFirst(s) {
-    .text-container {
-      background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
-      background-position-x: right;
-      background-size: contain;
-
-      .infos::after {
+    @include mobileFirst(s) {
+      &::after {
         content: "";
         position: absolute;
         right: -50px;

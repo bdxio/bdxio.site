@@ -19,23 +19,18 @@ export default {
 
 <style lang="scss" scoped>
 .bourse {
+  background: url("~/assets/img/place_de_la_bourse.png") no-repeat left bottom;
+  background-size: 100%;
+  padding-bottom: 300px;
+
   .about-us {
     padding: 2em;
     margin-left: 0;
     background-color: $light;
-  }
 
-  .nowrap {
-    white-space: nowrap;
-  }
-
-  @include mobileFirst(s) {
-    background: url("~/assets/img/place_de_la_bourse.png") no-repeat left;
-    background-size: 50%;
-    display: flex;
-    justify-content: flex-end;
-
-    .about-us {
+    @include mobileFirst(s) {
+      background-position-x: left;
+      background-position-y: center;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -57,20 +52,29 @@ export default {
         );
       }
     }
-  }
 
-  @include mobileFirst(m) {
-    .about-us {
+    @include mobileFirst(m) {
       padding: 4em 4em 4em 0em;
     }
+
+    @include mobileFirst(l) {
+      padding: 5em 5em 5em 0em;
+    }
+  }
+
+  @include mobileFirst(s) {
+    background-position: left center;
+    background-size: 50%;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: flex-end;
   }
 
   @include mobileFirst(l) {
     background-size: 45%;
-
-    .about-us {
-      padding: 5em 5em 5em 0em;
-    }
+  }
+  .nowrap {
+    white-space: nowrap;
   }
 }
 </style>

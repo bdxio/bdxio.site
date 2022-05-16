@@ -1,7 +1,10 @@
 
 <template functional>
   <section class="themes">
-    <flex-container no-gutter>
+    <flex-container
+      no-gutter
+      class="content"
+    >
       <flex-item
         row
         s12
@@ -12,10 +15,6 @@
         <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
         <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
       </flex-item>
-      <flex-item
-        s12
-        m2
-      />
       <flex-item
         s12
         m6
@@ -52,14 +51,18 @@ export default {
   padding: 80px 0;
 
   .text-container {
-    padding: 0 40px;
+    margin: 0 40px;
+  }
+
+  .content {
+    justify-content: space-between;
   }
 
   .theme {
     text-transform: uppercase;
     text-align: center;
     width: 150px;
-    padding: 0 30px;
+    margin: 0 30px;
   }
 
   .items {

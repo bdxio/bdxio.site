@@ -33,8 +33,8 @@
         <button class="bdx-button outlined">Devenir speaker</button>
       </flex-item>
     </flex-container>
-    <section-sponsors />
     <section-news />
+    <section-sponsors />
     <section-guidage />
   </main>
 </template>
