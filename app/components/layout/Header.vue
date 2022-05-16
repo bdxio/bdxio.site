@@ -1,45 +1,55 @@
 <template>
-  <header
-    class="header"
-    :class="propClasses"
-  >
-    <NuxtLink
-      class="logo"
-      to="/"
-    >
+  <header class="header" :class="color">
+    <NuxtLink class="logo" to="/">
       <img
         src="~/assets/img/bdxio_logo.png"
         alt="Logo de l'association BDX.IO"
+        class="display--block"
       />
     </NuxtLink>
-    <nav
-      class="nav"
-      :class="propClasses"
-    >
-      <ul>
-        <li>
-          <NuxtLink to="/">Accueil</NuxtLink>
-        </li>
-        <!-- <li>
+    <div v-if="showMenu">
+      <IconBurger
+        :open="mobileOpen"
+        class="header__burger hidden-m"
+        @click="mobileOpen = !mobileOpen"
+      />
+      <nav class="header__nav" :class="propClasses">
+        <ul>
+          <li>
+            <NuxtLink to="/">Accueil</NuxtLink>
+          </li>
+          <!-- <li>
           <NuxtLink to="/schedule">Programme</NuxtLink>
         </li> -->
-        <li>
-          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/team">L'équipe</NuxtLink>
-        </li>
-        <!-- <li>
+          <li>
+            <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/team">L'équipe</NuxtLink>
+          </li>
+          <!-- <li>
           <button class="bdx-button">Billetterie</button>
         </li> -->
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
 <script>
+import IconBurger from "~/components/layout/IconBurger.vue";
+
 export default {
   name: "Header",
+  components: {
+    IconBurger,
+  },
+  data() {
+    return {
+      mobileOpen: false,
+      showMenu: false,
+    };
+  },
   props: {
     color: {
       type: String,
@@ -50,7 +60,22 @@ export default {
   },
   computed: {
     propClasses() {
-      return this.color;
+      let classes = this.color;
+
+      if (this.mobileOpen) {
+        classes += " mobile-open";
+      }
+      return classes;
+    },
+  },
+  methods: {
+    toggleMenu() {
+      return (this.mobileOpen = !this.mobileOpen);
+    },
+  },
+  watch: {
+    "$route.path"() {
+      this.mobileOpen = false;
     },
   },
 };
@@ -59,13 +84,9 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px;
-
-  @include mobileFirst(m) {
-    padding: 30px 50px;
-  }
+  padding-top: $spc-m;
 
   &.light {
     background-color: $primary-dark;
@@ -74,72 +95,114 @@ export default {
   &.dark {
     background-color: $light-font;
   }
-}
-
-.nav {
-  display: none;
 
   @include mobileFirst(m) {
-    display: block;
-    width: 100%;
+    padding: 30px 50px;
+    justify-content: space-between;
   }
 
-  ul {
+  &__burger {
+    position: absolute;
+    @include z-index(upper);
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  &__nav {
+    position: absolute;
+    @include z-index(design);
+    width: 100%;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    background-color: $primary-dark;
+
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
-    li {
-      margin: 0 3.125rem; //50px;
+    &.mobile-open {
+      right: 0;
+    }
 
-      a {
-        text-decoration: none;
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-        &.nuxt-link-exact-active {
-          position: relative;
+      li {
+        margin: 0; //50px;
 
-          &:after {
-            content: "";
-            width: 90px;
-            height: 30px;
-            display: block;
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: url("~/assets/img/underline_bleu.png") no-repeat center /
-              cover;
+        a {
+          text-decoration: none;
+
+          &.nuxt-link-exact-active {
+            position: relative;
+
+            &:after {
+              content: "";
+              width: 90px;
+              height: 30px;
+              display: block;
+              position: absolute;
+              bottom: -30px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: url("~/assets/img/underline_bleu.png") no-repeat
+                center / cover;
+            }
+          }
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 100px;
+        }
+
+        &:not(:first-of-type) a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
+
+        img {
+          height: 3em;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.1);
           }
         }
       }
+    }
 
-      &:not(:first-of-type) a {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
+    &.dark a {
+      color: $primary-dark;
+    }
 
-      img {
-        height: 3em;
-        transition: 0.3s;
+    &.light a {
+      color: $light-font;
+    }
 
-        &:hover {
-          transform: scale(1.1);
+    @include mobileFirst(m) {
+      position: initial;
+      display: block;
+      width: 100%;
+
+      ul {
+        justify-content: flex-end;
+        flex-direction: row;
+
+        li {
+          margin-right: $spc-xl;
+
+          &:not(:last-of-type) {
+            margin-bottom: 0;
+          }
         }
       }
-
-      &:last-of-type {
-        margin: 0 0 0 3.125rem; //50px
-      }
     }
-  }
-
-  &.dark a {
-    color: $primary-dark;
-  }
-
-  &.light a {
-    color: $light-font;
   }
 }
 </style>
