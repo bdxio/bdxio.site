@@ -1,48 +1,41 @@
-
 <template functional>
   <section class="themes">
-    <flex-container
-      no-gutter
-      class="content"
-    >
-      <flex-item
-        row
-        s12
-        m4
-        class="text-container"
-      >
-        <section-title title="thématique" />
+    <flex-container no-gutter class="content">
+      <flex-item row s12 m4 class="text-container">
+        <section-title tag="h3">thématique</section-title>
         <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
-        <p>BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous les niveaux : Vous trouverez forcément votre bonheur !</p>
+        <p>
+          BDX I/O propose des conférences autour de 7 thématiques différentes,
+          avec des durées différentes et pour tous les niveaux : Vous trouverez
+          forcément votre bonheur !
+        </p>
       </flex-item>
-      <flex-item
-        s12
-        m6
-        class="items"
-      >
+      <flex-item s12 m6 class="items">
         <div class="theme-item"><span class="theme">Frontend</span></div>
         <div class="theme-item"><span class="theme">Backend</span></div>
         <div class="theme-item"><span class="theme">Big Data & IA</span></div>
         <div class="theme-item"><span class="theme">Design & UX</span></div>
-        <div class="theme-item"><span class="theme">Cloud & Dev.Sec.Ops</span></div>
-        <div class="theme-item"><span class="theme">Methodo & Architecture</span></div>
+        <div class="theme-item">
+          <span class="theme">Cloud & Dev.Sec.Ops</span>
+        </div>
+        <div class="theme-item">
+          <span class="theme">Methodo & Architecture</span>
+        </div>
         <div class="theme-item"><span class="theme">Hors piste</span></div>
       </flex-item>
     </flex-container>
-
   </section>
 </template>
 
 <script>
-import FlexContainer from "../layout/grid/Flex-container";
-import FlexItem from "../layout/grid/Flex-item";
-import SectionTitle from "../SectionTitle";
+import FlexContainer from "~/components/layout/grid/Flex-container";
+import FlexItem from "~/components/layout/grid/Flex-item";
+import SectionTitle from "~/components/SectionTitle";
 export default {
   components: { SectionTitle, FlexContainer, FlexItem },
   name: "SectionThemes",
 };
 </script>
-
 
 <style lang="scss" scoped>
 .themes {
