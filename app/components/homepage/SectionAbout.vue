@@ -1,10 +1,14 @@
 <template functional>
   <section class="bourse">
     <div class="about-us">
-      <h2 class="subsection-title">Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</h2>
+      <section-title tag="h2"
+        >Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title
+      >
       <p>
-        BDX I/O est un conférence bordelaise sur le thème de la programmation et de ses métiers annexes.
-        <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s lors d'une journée de découvertes et de bonne humeur !
+        BDX I/O est un conférence bordelaise sur le thème de la programmation et
+        de ses métiers annexes.
+        <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s
+        lors d'une journée de découvertes et de bonne humeur !
       </p>
     </div>
   </section>
@@ -15,7 +19,6 @@ export default {
   name: "SectionAbout",
 };
 </script>
-
 
 <style lang="scss" scoped>
 .bourse {
@@ -73,8 +76,13 @@ export default {
   @include mobileFirst(l) {
     background-size: 45%;
   }
-  .nowrap {
-    white-space: nowrap;
+
+  @include mobileFirst(xxl) {
+    padding: $spc-xxxl 0;
+  }
+
+  @include mobileFirst(xxxl) {
+    padding: 8rem 0;
   }
 }
 </style>

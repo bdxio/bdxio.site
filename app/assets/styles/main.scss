@@ -11,7 +11,7 @@ body {
   font-family: $font-family-body;
   font-size: $font-size-content;
   line-height: 34px;
-
+  color: $primary-dark;
 }
 
 h1 {
@@ -58,6 +58,11 @@ ul {
   & > * {
     color: $dark-font;
   }
+}
+
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .display {
