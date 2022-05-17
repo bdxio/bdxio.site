@@ -1,6 +1,6 @@
 <template functional>
   <section class="bourse">
-    <div class="about-us">
+    <div class="section about-us">
       <section-title tag="h2"
         >Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title
       >
@@ -27,7 +27,6 @@ export default {
   padding-bottom: 300px;
 
   .about-us {
-    padding: 2em;
     margin-left: 0;
     background-color: $light;
 
@@ -38,8 +37,8 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2em 2em 2em 0;
       margin-left: 55%;
+      padding-left: 0;
 
       &::before {
         content: "";
@@ -55,14 +54,6 @@ export default {
         );
       }
     }
-
-    @include mobileFirst(m) {
-      padding: 4em 4em 4em 0em;
-    }
-
-    @include mobileFirst(l) {
-      padding: 5em 5em 5em 0em;
-    }
   }
 
   @include mobileFirst(s) {
@@ -75,14 +66,6 @@ export default {
 
   @include mobileFirst(l) {
     background-size: 45%;
-  }
-
-  @include mobileFirst(xxl) {
-    padding: $spc-xxxl 0;
-  }
-
-  @include mobileFirst(xxxl) {
-    padding: 8rem 0;
   }
 }
 </style>

@@ -1,16 +1,18 @@
 <template functional>
-  <section class="themes">
+  <section class="section section-themes">
     <flex-container no-gutter class="content">
-      <flex-item row s12 m4 class="text-container">
+      <flex-item s12 m3 class="text-container">
         <section-title tag="h3">thématique</section-title>
-        <h2 class="subsection-dark-title">Quels seront les thèmes abordés ?</h2>
+        <section-title tag="h2"
+          >Quels seront les thèmes abordés ?</section-title
+        >
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
           forcément votre bonheur !
         </p>
       </flex-item>
-      <flex-item s12 m6 class="items">
+      <flex-item s12 m9 class="items">
         <div class="theme-item"><span class="theme">Frontend</span></div>
         <div class="theme-item"><span class="theme">Backend</span></div>
         <div class="theme-item"><span class="theme">Big Data & IA</span></div>
@@ -38,13 +40,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.themes {
+.section-themes {
   color: $primary-dark;
   background-color: $white;
-  padding: 80px 0;
+  // padding: 80px 0;
 
   .text-container {
-    margin: 0 40px;
+    // margin: 0 40px;
   }
 
   .content {

@@ -1,12 +1,12 @@
 <template>
   <main>
     <section-hero />
-    <section-key-concepts />
+    <!-- <section-key-concepts /> -->
     <section-about />
     <section-themes />
 
-    <flex-container no-gutter>
-      <flex-item tag="section" class="text-light subsection" s6>
+    <flex-container tag="section">
+      <flex-item class="text-light section subsection" s6>
         <section-title tag="h3" color="light">sponsors</section-title>
         <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
         <p>
@@ -16,7 +16,7 @@
         </p>
         <button class="bdx-button outlined-light">Devenir sponsor</button>
       </flex-item>
-      <flex-item tag="section" class="subsection text-dark" s6>
+      <flex-item class="section subsection text-dark" s6>
         <section-title tag="h3" color="dark">speakers</section-title>
         <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
         <p>
@@ -36,7 +36,7 @@
 import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero";
 import SectionAbout from "~/components/homepage/SectionAbout";
-import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
+// import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
 import SectionNews from "~/components/homepage/SectionNews";
@@ -61,7 +61,7 @@ export default {
     FlexItem,
     SectionAbout,
     SectionHero,
-    SectionKeyConcepts,
+    // SectionKeyConcepts,
     SectionSponsors,
     SectionNews,
     SectionGuidage,
@@ -118,7 +118,7 @@ h1 {
 }
 
 .subsection {
-  padding: 4em;
+  // padding: 4em;
   background: $secondary;
   box-sizing: border-box;
   &:last-of-type {

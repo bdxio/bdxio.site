@@ -1,6 +1,6 @@
 <template functional>
-  <section class="news">
-    <h2 class="subsection-title">Les dernières actualités</h2>
+  <section class="section news">
+    <section-title tag="h2">Les dernières actualités</section-title>
     <div class="news-container">
       <div class="news-item">
         <img
@@ -8,7 +8,10 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 1</span>
-        <span class="item-description">Exemple de description d’une actualité très intéressante qui est arrivée recemment</span>
+        <span class="item-description"
+          >Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span
+        >
       </div>
       <div class="news-item">
         <img
@@ -16,7 +19,10 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 2</span>
-        <span class="item-description">Exemple de description d’une actualité très intéressante qui est arrivée recemment</span>
+        <span class="item-description"
+          >Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span
+        >
       </div>
       <div class="news-item">
         <img
@@ -24,7 +30,10 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 3</span>
-        <span class="item-description">Exemple de description d’une actualité très intéressante qui est arrivée recemment</span>
+        <span class="item-description"
+          >Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span
+        >
       </div>
     </div>
   </section>
@@ -36,19 +45,19 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .news {
   display: flex;
   flex-direction: column;
   color: $primary-dark;
-  padding: 35px 0;
+  // padding: 35px 0;
 
   @include mobileFirst(m) {
     align-items: center;
   }
 
   .subsection-title {
+    margin-top: 0;
     margin-bottom: 40px;
     @include mobileFirst(l) {
       margin-bottom: 80px;
@@ -57,7 +66,7 @@ export default {
 
   .news-container {
     display: flex;
-    flex-wrap: nowrap;
+    // flex-wrap: nowrap;
     overflow-x: scroll;
     gap: 35px;
     padding: 0 35px;
@@ -91,7 +100,7 @@ export default {
   }
 
   .subsection-title {
-    white-space: nowrap;
+    // white-space: nowrap;
     text-align: center;
   }
 }

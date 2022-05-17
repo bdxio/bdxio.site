@@ -5,6 +5,10 @@
 @import "./grid";
 @import "./button";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: $light;
@@ -86,5 +90,29 @@ ul {
 
   &:hover {
     transform: scale(1.4);
+  }
+}
+
+.section {
+  padding: 4rem 2rem;
+
+  @include mobileFirst(m) {
+    padding: 4rem;
+  }
+
+  @include mobileFirst(l) {
+    padding: 5rem;
+  }
+
+  @include mobileFirst(xl) {
+    padding: 6rem;
+  }
+
+  @include mobileFirst(xxl) {
+    padding: 7rem;
+  }
+
+  @include mobileFirst(xxxl) {
+    padding: 8rem;
   }
 }
