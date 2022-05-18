@@ -6,11 +6,15 @@
     >
       <flex-item
         s12
-        m3
+        m4
+        l5
         class="text-container"
       >
-        <section-title tag="h3">thématique</section-title>
-        <section-title tag="h2">Quels seront les thèmes abordés ?</section-title>
+        <section-title
+          tag="h2"
+          section
+        >thématique</section-title>
+        <section-title tag="h3">Quels seront les thèmes abordés ?</section-title>
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
@@ -19,7 +23,8 @@
       </flex-item>
       <flex-item
         s12
-        m9
+        m8
+        l7
         class="items"
       >
         <div class="theme-item"><span class="theme">Frontend</span></div>
@@ -71,6 +76,7 @@ export default {
     padding: 40px 20px;
 
     @include mobileFirst(m) {
+      padding: 40px 20px 40px 80px;
       flex-wrap: wrap;
     }
   }

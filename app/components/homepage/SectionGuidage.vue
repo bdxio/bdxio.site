@@ -2,8 +2,8 @@
   <section class="section guidage">
     <div class="text-container">
       <div class="infos">
-        <section-title tag="h3">Guidage</section-title>
-        <section-title tag="h2">Comment rejoindre<br />l'évènement ?</section-title>
+        <section-title tag="h2">Guidage</section-title>
+        <section-title tag="h3">Comment rejoindre<br />l'évènement ?</section-title>
         <div class="address-container">
           <span class="title">Palais des congrès</span>
           <span class="description">Avenue Jean Gabriel Domergue <br />
