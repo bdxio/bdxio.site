@@ -91,24 +91,10 @@ export default {
   .infos {
     position: relative;
     background-color: $light;
+    box-shadow: 0px 0px 30px 20px #f6f2e8;
 
     @include mobileFirst(s) {
       max-width: 50%;
-
-      &::after {
-        content: "";
-        position: absolute;
-        right: -50px;
-        top: 0px;
-        width: 50px;
-        height: 100%;
-        // rgb(246,242,232) = $light
-        background: linear-gradient(
-          270deg,
-          rgba(246, 242, 232, 0) 0%,
-          rgba(246, 242, 232, 1) 85%
-        );
-      }
     }
   }
 }
