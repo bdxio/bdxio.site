@@ -4,19 +4,14 @@ function getTitleClasses(props) {
     return "";
   }
 
-  let classes = "";
+  const classes = [];
 
-  if (props.tag) {
-    if (props.tag === "h2") classes += `title--subsection`;
-    if (props.tag === "h3") classes += `title--section`;
-  }
+  classes.push(props.color || "dark");
+  classes.push(
+    props.section === undefined ? `title--subsection` : `title--section`
+  );
 
-  if (props.color) {
-    if (props.color === "dark") classes += ` dark`;
-    if (props.color === "light") classes += ` light`;
-  }
-
-  return classes;
+  return classes.join(" ");
 }
 
 export default {
@@ -58,7 +53,7 @@ export default {
   }
 
   &.dark {
-    color: $dark-font;
+    color: $primary-dark;
   }
 
   &.light {

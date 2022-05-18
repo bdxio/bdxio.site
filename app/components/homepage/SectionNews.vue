@@ -1,6 +1,9 @@
 <template functional>
   <section class="section news">
-    <section-title tag="h2">Les dernières actualités</section-title>
+    <section-title
+      tag="h2"
+      class="title"
+    >Les dernières actualités</section-title>
     <div class="news-container">
       <div class="news-item">
         <img
@@ -8,10 +11,8 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 1</span>
-        <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
-        >
+        <span class="item-description">Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span>
       </div>
       <div class="news-item">
         <img
@@ -19,10 +20,8 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 2</span>
-        <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
-        >
+        <span class="item-description">Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span>
       </div>
       <div class="news-item">
         <img
@@ -30,10 +29,8 @@
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 3</span>
-        <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
-        >
+        <span class="item-description">Exemple de description d’une actualité très intéressante qui est
+          arrivée recemment</span>
       </div>
     </div>
   </section>
@@ -49,8 +46,16 @@ export default {
 .news {
   display: flex;
   flex-direction: column;
+  gap: 50px;
   color: $primary-dark;
-  // padding: 35px 0;
+
+  @include mobileFirst(m) {
+    gap: 80px;
+  }
+
+  .title {
+    text-align: center;
+  }
 
   @include mobileFirst(m) {
     align-items: center;

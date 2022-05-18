@@ -1,18 +1,32 @@
 <template functional>
   <section class="section section-themes">
-    <flex-container no-gutter class="content">
-      <flex-item s12 m3 class="text-container">
-        <section-title tag="h3">thématique</section-title>
-        <section-title tag="h2"
-          >Quels seront les thèmes abordés ?</section-title
-        >
+    <flex-container
+      no-gutter
+      class="content"
+    >
+      <flex-item
+        s12
+        m4
+        l5
+        class="text-container"
+      >
+        <section-title
+          tag="h2"
+          section
+        >thématique</section-title>
+        <section-title tag="h3">Quels seront les thèmes abordés ?</section-title>
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
           forcément votre bonheur !
         </p>
       </flex-item>
-      <flex-item s12 m9 class="items">
+      <flex-item
+        s12
+        m8
+        l7
+        class="items"
+      >
         <div class="theme-item"><span class="theme">Frontend</span></div>
         <div class="theme-item"><span class="theme">Backend</span></div>
         <div class="theme-item"><span class="theme">Big Data & IA</span></div>
@@ -43,11 +57,6 @@ export default {
 .section-themes {
   color: $primary-dark;
   background-color: $white;
-  // padding: 80px 0;
-
-  .text-container {
-    // margin: 0 40px;
-  }
 
   .content {
     justify-content: space-between;
@@ -67,6 +76,7 @@ export default {
     padding: 40px 20px;
 
     @include mobileFirst(m) {
+      padding: 40px 20px 40px 80px;
       flex-wrap: wrap;
     }
   }

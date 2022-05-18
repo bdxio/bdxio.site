@@ -6,8 +6,14 @@
     <section-themes />
 
     <flex-container tag="section">
-      <flex-item class="text-light section subsection" s6>
-        <section-title tag="h3" color="light">sponsors</section-title>
+      <flex-item
+        class="text-light section subsection"
+        s6
+      >
+        <section-title
+          tag="h2"
+          color="light"
+        >sponsors</section-title>
         <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
         <p>
           Vous souhaitez devenir sponsor de cette nouvelle édition ? <br />
@@ -16,8 +22,14 @@
         </p>
         <button class="bdx-button outlined-light">Devenir sponsor</button>
       </flex-item>
-      <flex-item class="section subsection text-dark" s6>
-        <section-title tag="h3" color="dark">speakers</section-title>
+      <flex-item
+        class="section subsection text-dark"
+        s6
+      >
+        <section-title
+          tag="h2"
+          color="dark"
+        >speakers</section-title>
         <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
         <p>
           Vous avez un talk à proposer ? Des idées à partager ?

@@ -1,17 +1,13 @@
 <template functional>
-  <section class="guidage">
+  <section class="section guidage">
     <div class="text-container">
       <div class="infos">
-        <section-title tag="h3">Guidage</section-title>
-        <section-title tag="h2"
-          >Comment rejoindre<br />l'évènement ?</section-title
-        >
+        <section-title tag="h2">Guidage</section-title>
+        <section-title tag="h3">Comment rejoindre<br />l'évènement ?</section-title>
         <div class="address-container">
           <span class="title">Palais des congrès</span>
-          <span class="description"
-            >Avenue Jean Gabriel Domergue <br />
-            33300 BORDEAUX</span
-          >
+          <span class="description">Avenue Jean Gabriel Domergue <br />
+            33300 BORDEAUX</span>
         </div>
 
         <div>
@@ -42,18 +38,21 @@ export default {
 
 <style lang="scss" scoped>
 .guidage {
+  background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: contain;
+
+  @include mobileFirst(s) {
+    background-position-x: right;
+  }
+
   .text-container {
-    background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
-    background-position-x: left;
-    background-position-y: bottom;
-    background-size: contain;
     position: relative;
-    background-color: $light;
     padding-bottom: 300px;
 
     @include mobileFirst(s) {
       padding-bottom: 0;
-      background-position-x: right;
     }
   }
 
@@ -82,30 +81,20 @@ export default {
   .legend {
     font-style: italic;
     position: absolute;
-    top: 0;
     right: 0;
+
+    @include mobileFirst(s) {
+      top: 0;
+    }
   }
 
   .infos {
     position: relative;
-    max-width: 50%;
     background-color: $light;
+    box-shadow: 0px 0px 30px 20px #f6f2e8;
 
     @include mobileFirst(s) {
-      &::after {
-        content: "";
-        position: absolute;
-        right: -50px;
-        top: 0px;
-        width: 50px;
-        height: 100%;
-        // rgb(246,242,232) = $light
-        background: linear-gradient(
-          270deg,
-          rgba(246, 242, 232, 0) 0%,
-          rgba(246, 242, 232, 1) 85%
-        );
-      }
+      max-width: 50%;
     }
   }
 }
