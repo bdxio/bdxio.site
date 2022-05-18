@@ -150,8 +150,8 @@ export default {
               bottom: -30px;
               left: 50%;
               transform: translateX(-50%);
-              background: url("~/assets/img/underline_bleu.png") no-repeat
-                center / cover;
+              background: url("~/assets/img/drawings/blue_underline.png")
+                no-repeat center / cover;
             }
           }
         }

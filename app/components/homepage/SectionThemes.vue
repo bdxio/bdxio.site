@@ -1,43 +1,39 @@
 <template functional>
   <section class="section section-themes">
-    <flex-container
-      no-gutter
-      class="content"
-    >
-      <flex-item
-        s12
-        m4
-        l5
-        class="text-container"
-      >
-        <section-title
-          tag="h2"
-          section
-        >thématique</section-title>
-        <section-title tag="h3">Quels seront les thèmes abordés ?</section-title>
+    <flex-container no-gutter class="justify-between-xs align-center-m">
+      <flex-item s12 m4 l5 class="text-container">
+        <section-title section tag="h2">thématique</section-title>
+        <section-title tag="h3" class="title"
+          >Quels seront les thèmes abordés ?</section-title
+        >
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
           forcément votre bonheur !
         </p>
       </flex-item>
-      <flex-item
-        s12
-        m8
-        l7
-        class="items"
-      >
-        <div class="theme-item"><span class="theme">Frontend</span></div>
-        <div class="theme-item"><span class="theme">Backend</span></div>
-        <div class="theme-item"><span class="theme">Big Data & IA</span></div>
-        <div class="theme-item"><span class="theme">Design & UX</span></div>
+      <flex-item s12 m8 l7 class="items">
         <div class="theme-item">
-          <span class="theme">Cloud & Dev.Sec.Ops</span>
+          <span class="theme theme--1">Frontend</span>
         </div>
         <div class="theme-item">
-          <span class="theme">Methodo & Architecture</span>
+          <span class="theme theme--2">Backend</span>
         </div>
-        <div class="theme-item"><span class="theme">Hors piste</span></div>
+        <div class="theme-item">
+          <span class="theme theme--3">Big Data & IA</span>
+        </div>
+        <div class="theme-item">
+          <span class="theme theme--4">Design & UX</span>
+        </div>
+        <div class="theme-item">
+          <span class="theme theme--5">Cloud & Dev.Sec.Ops</span>
+        </div>
+        <div class="theme-item">
+          <span class="theme theme--6">Methodo & Architecture</span>
+        </div>
+        <div class="theme-item">
+          <span class="theme theme--7">Hors piste</span>
+        </div>
       </flex-item>
     </flex-container>
   </section>
@@ -58,8 +54,29 @@ export default {
   color: $primary-dark;
   background-color: $white;
 
-  .content {
-    justify-content: space-between;
+  .title {
+    @include positionRelative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      @include z-index(negative);
+      top: -37px;
+      left: -19px;
+      width: 110px;
+      height: 60px;
+
+      background: url("~/assets/img/drawings/cyan_scribble_2.png") center
+        no-repeat;
+      background-size: contain;
+
+      @include mobileFirst(m) {
+        top: -20px;
+        left: -50px;
+        width: 120px;
+        height: 70px;
+      }
+    }
   }
 
   .theme {
@@ -70,14 +87,37 @@ export default {
   }
 
   .items {
+    gap: $spc-m;
     display: flex;
-    gap: 20px;
     overflow: auto;
-    padding: 40px 20px;
+    align-items: center;
+    padding: $spc-xl $spc-l;
+
+    @include positionRelative;
 
     @include mobileFirst(m) {
-      padding: 40px 20px 40px 80px;
-      flex-wrap: wrap;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      padding: $spc-l $spc-s $spc-l $spc-xxl;
+      overflow: hidden;
+
+      &:after {
+        content: "";
+        @include z-index(negative);
+        width: 140px;
+        height: 140px;
+        position: absolute;
+        bottom: 114px;
+        right: -10px;
+        background: url("~/assets/img/drawings/yellow_citation.png") center
+          no-repeat;
+        background-size: contain;
+      }
+    }
+
+    @include mobileFirst(xxl) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -93,6 +133,26 @@ export default {
 
     @include mobileFirst(m) {
       height: 136px;
+    }
+
+    .theme {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: 30px 0;
+      line-height: 30px;
+      &--1 {
+        background-image: url("~/assets/img/drawings/themes/theme-1.png");
+      }
+      &--4 {
+        background-image: url("~/assets/img/drawings/themes/theme-4.png");
+      }
+      &--5 {
+        background-image: url("~/assets/img/drawings/themes/theme-5.png");
+      }
+      &--6 {
+        background-image: url("~/assets/img/drawings/themes/theme-6.png");
+      }
     }
   }
 

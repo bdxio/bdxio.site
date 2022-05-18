@@ -1,25 +1,19 @@
 <template>
   <div class="container">
-    <div
-      class="drawing-container"
-      v-for="drawing in drawings"
-      :key="drawing"
-    >
+    <div class="drawing-container" v-for="drawing in drawings" :key="drawing">
       <h4>
-        {{drawing}}
+        {{ drawing }}
       </h4>
-      <BdxDrawing
-        :img-name="drawing"
-      />
+      <BdxDrawing :img-name="drawing" />
     </div>
   </div>
 </template>
 
 <script>
-import BdxDrawing from '~/components/BdxDrawing.vue';
+import BdxDrawing from "~/components/BdxDrawing.vue";
 
 export default {
-  name: 'LibraryPage',
+  name: "LibraryPage",
   components: {
     BdxDrawing,
   },
@@ -31,14 +25,17 @@ export default {
   methods: {
     importAll(r) {
       let images = {};
-      r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+      r.keys().map((item) => {
+        images[item.replace("./", "")] = r(item);
+      });
       return Object.keys(images);
-    }
+    },
   },
   mounted() {
-    this.drawings = this.importAll(require.context('~/assets/img/bdx_drawings/', true, /\.png$/));
-    console.log(this.drawings);
-  }
+    this.drawings = this.importAll(
+      require.context("~/assets/img/drawings/", true, /\.png$/)
+    );
+  },
 };
 </script>
 

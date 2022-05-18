@@ -1,10 +1,7 @@
 <template>
   <footer>
     <div class="bdxio">
-      <NuxtLink
-        class="logo"
-        to="/"
-      >
+      <NuxtLink class="logo" to="/">
         <img
           src="~/assets/img/bdxio_logo.png"
           alt="Logo de l'association BDX.IO"
@@ -15,7 +12,9 @@
     <div class="content">
       <div class="location">
         <span class="location-name">Palais des congrès</span>
-        <span class="location-address">Avenue Jean Gabriel Domergue<br />33300 BORDEAUX</span>
+        <span class="location-address"
+          >Avenue Jean Gabriel Domergue<br />33300 BORDEAUX</span
+        >
       </div>
       <ul class="contact">
         <li class="email">team@bdxio.fr</li>
@@ -53,32 +52,19 @@
       </ul>
       <ul class="links">
         <li>
-          <NuxtLink
-            to="/"
-            class="underline-animated"
-          >
+          <NuxtLink to="/">
             <span>Accueil</span>
           </NuxtLink>
         </li>
       </ul>
       <ul class="newsletter">
         <li>
-          <NuxtLink
-            to="/contact"
-            class="underline-animated"
-          >
-            <span v-on:click="mailVisible = true">S'incrire à la newsletter</span>
-            <form
-              @submit.prevent="registerNewsletter"
-              v-if="mailVisible"
+          <NuxtLink to="/contact">
+            <span v-on:click="mailVisible = true"
+              >S'incrire à la newsletter</span
             >
-              <VInput
-                v-model="mail"
-                type="email"
-                required
-              >
-                email
-              </VInput>
+            <form @submit.prevent="registerNewsletter" v-if="mailVisible">
+              <VInput v-model="mail" type="email" required> email </VInput>
               <button class="v-button">S'inscrire</button>
             </form>
           </NuxtLink>
@@ -189,7 +175,7 @@ footer {
       &::before {
         content: "";
         position: absolute;
-        background: url("~/assets/img/bdx_drawings/purple_envelope.png");
+        background: url("~/assets/img/drawings/purple_envelope.png");
         width: 141px;
         height: 68px;
         top: 40px;

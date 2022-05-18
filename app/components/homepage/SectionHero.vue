@@ -41,7 +41,7 @@ export default {
       height: 30px;
       right: 20px;
       bottom: -20px;
-      background: url("~/assets/img/bdx_drawings/yellow_line_1.png") no-repeat
+      background: url("~/assets/img/drawings/yellow_line_1.png") no-repeat
         center / cover;
     }
   }
@@ -58,8 +58,8 @@ export default {
     font-weight: $font-weight-bold;
     font-style: $font-style-italic;
     padding: 50px; //50px
-    background: url("~/assets/img/bdx_drawings/purple_circle.png") no-repeat
-      center / contain;
+    background: url("~/assets/img/drawings/purple_circle.png") no-repeat center /
+      contain;
   }
 
   &__invitation {

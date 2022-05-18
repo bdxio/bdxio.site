@@ -76,7 +76,7 @@ export default {
       margin-top: -20px;
       position: absolute;
       z-index: -1;
-      background: url("~/assets/img/bdx_drawings/purple_triangle.png") no-repeat;
+      background: url("~/assets/img/drawings/purple_triangle.png") no-repeat;
 
       @include mobileFirst(s) {
         margin-left: 0px;
