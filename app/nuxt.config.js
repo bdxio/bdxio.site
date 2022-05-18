@@ -63,6 +63,6 @@ export default {
       Lato: true,
       Merriweather: true,
     },
-    display: "swap",
+    display: "auto",
   },
 };

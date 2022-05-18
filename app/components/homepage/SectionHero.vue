@@ -1,12 +1,14 @@
 <template functional>
-  <header class="section-hero">
+  <header class="section section-hero">
     <h1 class="section-hero__title">En 2022,<br />Nous sommes de retour !</h1>
     <div class="section-hero__place">
       On se retrouve au Palais des Congrès <br />
       de Bordeaux Lac
     </div>
     <time class="section-hero__date" datetime="2022-12-02">02/12/2022</time>
-    <h2 class="section-hero__invitation">Et on a hâte de vous y (re)voir !</h2>
+    <section-title tag="h2" class="section-hero__invitation"
+      >Et on a hâte de vous y (re)voir !</section-title
+    >
   </header>
 </template>
 
@@ -24,7 +26,7 @@ export default {
   background-color: $primary-dark;
   color: $light-font;
   text-align: center;
-  padding: $spc-l;
+  // padding: $spc-l;
 
   &__title {
     position: relative;
@@ -65,12 +67,12 @@ export default {
     margin-bottom: 0;
   }
 
-  @include mobileFirst(s) {
-    padding: $spc-l 80px;
-  }
+  // @include mobileFirst(s) {
+  //   padding: $spc-l 80px;
+  // }
 
   @include mobileFirst(m) {
-    padding: 100px 0;
+    // padding: 100px 0;
     &__title {
       font-size: 42px;
 

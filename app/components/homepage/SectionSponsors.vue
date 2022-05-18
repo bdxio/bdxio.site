@@ -1,23 +1,31 @@
 <template functional>
-  <div class="section-sponsors">
-    <h2 class="title">Ils nous soutiennent</h2>
+  <div class="section section-sponsors">
+    <section-title tag="h2">Ils nous soutiennent</section-title>
     <flex-container class="sponsors">
-      <div class="sponsor"><img
+      <div class="sponsor">
+        <img
           src="~/assets/img/sponsors/at-internet.png"
           alt="logo du sponsor AT Internet"
-        /></div>
-      <div class="sponsor"><img
+        />
+      </div>
+      <div class="sponsor">
+        <img
           src="~/assets/img/sponsors/apside.png"
           alt="logo du sponsor Apside"
-        /></div>
-      <div class="sponsor"><img
+        />
+      </div>
+      <div class="sponsor">
+        <img
           src="~/assets/img/sponsors/astek.webp"
           alt="logo du sponsor Astek"
-        /></div>
-      <div class="sponsor"><img
+        />
+      </div>
+      <div class="sponsor">
+        <img
           src="~/assets/img/sponsors/groupe-creative.png"
           alt="logo du sponsor Groupe Creative"
-        /></div>
+        />
+      </div>
     </flex-container>
   </div>
 </template>
@@ -38,12 +46,10 @@ export default {
   background-color: $primary-dark;
   color: $light-font;
   text-align: center;
-  padding: 55px 30px 80px;
   gap: 20px;
 
   @include mobileFirst(m) {
     gap: 90px;
-    padding: 85px 50px 135px;
   }
 
   .sponsors {

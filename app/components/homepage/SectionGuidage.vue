@@ -2,12 +2,16 @@
   <section class="guidage">
     <div class="text-container">
       <div class="infos">
-        <SectionTitle title="Guidage" />
-        <h2 class="subsection-title">Comment rejoindre<br />l'évènement ?</h2>
-
+        <section-title tag="h3">Guidage</section-title>
+        <section-title tag="h2"
+          >Comment rejoindre<br />l'évènement ?</section-title
+        >
         <div class="address-container">
           <span class="title">Palais des congrès</span>
-          <span class="description">Avenue Jean Gabriel Domergue <br /> 33300 BORDEAUX</span>
+          <span class="description"
+            >Avenue Jean Gabriel Domergue <br />
+            33300 BORDEAUX</span
+          >
         </div>
 
         <div>
@@ -36,7 +40,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .guidage {
   .text-container {
@@ -45,7 +48,6 @@ export default {
     background-position-y: bottom;
     background-size: contain;
     position: relative;
-    margin: 2em;
     background-color: $light;
     padding-bottom: 300px;
 
@@ -56,7 +58,6 @@ export default {
   }
 
   .subsection-title {
-    white-space: nowrap;
     margin: 30px 0;
     padding: 0;
   }
