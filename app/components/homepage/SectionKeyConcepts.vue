@@ -212,7 +212,7 @@ export default {
 
     &.card-3 {
       .key {
-        background: url("~/assets/img/bdx_drawings/yellow_circle_2.png") center
+        background: url("~/assets/img/drawings/yellow_circle_2.png") center
           no-repeat;
         background-size: contain;
       }
@@ -232,7 +232,7 @@ export default {
       top: 25%;
       left: 0;
       transform: translateX(-40%) translateY(-30%);
-      background: url("~/assets/img/bdx_drawings/cyan_scribble_4.png") center
+      background: url("~/assets/img/drawings/cyan_scribble_4.png") center
         no-repeat;
       background-size: contain;
     }
@@ -245,7 +245,7 @@ export default {
       top: 25%;
       right: 100px;
       transform: translateX(40%) translateY(-50%);
-      background: url("~/assets/img/bdx_drawings/orange_highlight_2.png") center
+      background: url("~/assets/img/drawings/orange_highlight_2.png") center
         no-repeat;
       background-size: contain;
 
@@ -262,8 +262,7 @@ export default {
       top: 30%;
       right: 100px;
       transform: translateX(30%) translateY(-50%);
-      background: url("~/assets/img/bdx_drawings/blue_arrow_2.png") center
-        no-repeat;
+      background: url("~/assets/img/drawings/blue_arrow_2.png") center no-repeat;
       background-size: contain;
 
       @include mobileFirst(m) {

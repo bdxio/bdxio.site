@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <img
-      :src="require(`~/assets/img/bdx_drawings/${imgName}`)"
+      :src="require(`~/assets/img/drawings/${imgName}`)"
       :alt="imgAlt"
       aria-hidden="true"
       :style="{
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'BdxDrawing',
+  name: "BdxDrawing",
   props: {
     imgName: {
       type: String,
@@ -22,7 +22,7 @@ export default {
     },
     imgAlt: {
       type: String,
-      default: 'Pictogramme dessiné BDX I/O',
+      default: "Pictogramme dessiné BDX I/O",
     },
     scale: {
       type: Number,
@@ -40,6 +40,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
