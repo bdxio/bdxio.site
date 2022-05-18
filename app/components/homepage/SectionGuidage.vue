@@ -81,16 +81,20 @@ export default {
   .legend {
     font-style: italic;
     position: absolute;
-    top: 0;
     right: 0;
+
+    @include mobileFirst(s) {
+      top: 0;
+    }
   }
 
   .infos {
     position: relative;
-    max-width: 50%;
     background-color: $light;
 
     @include mobileFirst(s) {
+      max-width: 50%;
+
       &::after {
         content: "";
         position: absolute;
