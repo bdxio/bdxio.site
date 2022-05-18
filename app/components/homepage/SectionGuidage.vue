@@ -1,17 +1,13 @@
 <template functional>
-  <section class="guidage">
+  <section class="section guidage">
     <div class="text-container">
       <div class="infos">
         <section-title tag="h3">Guidage</section-title>
-        <section-title tag="h2"
-          >Comment rejoindre<br />l'évènement ?</section-title
-        >
+        <section-title tag="h2">Comment rejoindre<br />l'évènement ?</section-title>
         <div class="address-container">
           <span class="title">Palais des congrès</span>
-          <span class="description"
-            >Avenue Jean Gabriel Domergue <br />
-            33300 BORDEAUX</span
-          >
+          <span class="description">Avenue Jean Gabriel Domergue <br />
+            33300 BORDEAUX</span>
         </div>
 
         <div>
@@ -42,18 +38,21 @@ export default {
 
 <style lang="scss" scoped>
 .guidage {
+  background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: contain;
+
+  @include mobileFirst(s) {
+    background-position-x: right;
+  }
+
   .text-container {
-    background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
-    background-position-x: left;
-    background-position-y: bottom;
-    background-size: contain;
     position: relative;
-    background-color: $light;
     padding-bottom: 300px;
 
     @include mobileFirst(s) {
       padding-bottom: 0;
-      background-position-x: right;
     }
   }
 
