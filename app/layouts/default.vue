@@ -1,10 +1,6 @@
 <template>
   <div>
-    <TransitionGroup
-      name="v-toast-anim"
-      tag="div"
-      class="v-toasts-container"
-    >
+    <TransitionGroup name="v-toast-anim" tag="div" class="v-toasts-container">
       <div
         class="v-toast"
         :class="`v-toast-${toast.type}`"
@@ -14,9 +10,9 @@
         {{ toast.message }}
       </div>
     </TransitionGroup>
-    <Header />
+    <Header :show-navigation="showNavigation" />
     <Nuxt />
-    <Footer />
+    <Footer :show-navigation="showNavigation" />
   </div>
 </template>
 
@@ -33,6 +29,9 @@ export default {
   },
   computed: {
     ...mapState("toast", ["toasts"]),
+    showNavigation() {
+      return this.$showNavigation ?? false;
+    },
   },
 };
 </script>

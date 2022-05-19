@@ -1,12 +1,12 @@
 <template>
-  <footer>
+  <footer class="section">
     <div class="bdxio">
       <NuxtLink class="logo" to="/">
         <img
           src="~/assets/img/bdxio_logo.png"
           alt="Logo de l'association BDX.IO"
         />
-        <span>Bordeaux Developer eXperience</span>
+        <span>Bordeaux Developers eXperience</span>
       </NuxtLink>
     </div>
     <div class="content">
@@ -23,21 +23,21 @@
       <ul class="social">
         <li>
           <a
+            href="https://www.linkedin.com/company/10651416/"
+            target="_blank"
+            class="icon-scale-over"
+          >
+            <FontAwesomeIcon :icon="['fab', 'linkedin']" />
+          </a>
+        </li>
+        <li>
+          <a
             href="https://twitter.com/bdxio"
             target="_blank"
             aria-label="Twitter BDX I/O"
             class="icon-scale-over"
           >
             <FontAwesomeIcon :icon="['fab', 'twitter']" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/10651416/"
-            target="_blank"
-            class="icon-scale-over"
-          >
-            <FontAwesomeIcon :icon="['fab', 'linkedin']" />
           </a>
         </li>
         <li>
@@ -83,6 +83,12 @@ import Navigation from "~/components/layout/Navigation.vue";
 export default {
   name: "Footer",
   components: { VInput, Navigation },
+  props: {
+    showNavigation: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       mail: null,

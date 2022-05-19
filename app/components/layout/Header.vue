@@ -7,27 +7,7 @@
         class="display--block"
       />
     </NuxtLink>
-    <nav class="header__nav desktop">
-      <ul>
-        <li>
-          <NuxtLink to="/">Accueil</NuxtLink>
-        </li>
-        <!-- <li>
-          <NuxtLink to="/schedule">Programme</NuxtLink>
-        </li> -->
-        <li>
-          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
-        </li>
-        <!-- <li>
-          <NuxtLink to="/team">L'équipe</NuxtLink>
-        </li> -->
-        <!-- <li>
-          <button class="bdx-button">Billetterie</button>
-        </li> -->
-      </ul>
-    </nav>
-
-    <div class="hidden-m" v-if="showMenu">
+    <div v-if="showMenu">
       <IconBurger
         :open="mobileOpen"
         class="header__burger"
@@ -62,6 +42,10 @@ export default {
       required: false,
       default: "light",
       validator: (value) => ["light", "dark"].includes(value),
+    },
+    showNavigation: {
+      type: Boolean,
+      required: true,
     },
   },
   computed: {
