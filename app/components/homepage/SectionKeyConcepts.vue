@@ -1,6 +1,10 @@
 <template functional>
-  <flex-container tag="section" class="section-key-concepts" no-gutter>
-    <flex-item xs4 class="section-key-concepts__img">
+  <div
+    tag="section"
+    class="section-key-concepts"
+    no-gutter
+  >
+    <div class="picture picture-amphi">
       <picture>
         <source
           media="(min-width: 768px)"
@@ -23,15 +27,15 @@
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-1">
+    </div>
+    <div class="info info-amphis">
       <p class="key">
         <VCounter :value="5" />
       </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
-    </flex-item>
-    <flex-item xs6 class="section-key-concepts__img">
+    </div>
+    <div class="picture picture-conversation">
       <picture>
         <source
           media="(min-width: 768px)"
@@ -54,15 +58,15 @@
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-2">
+    </div>
+    <div class="info info-themes">
       <p class="key">
         <VCounter :value="7" />
       </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
-    </flex-item>
-    <flex-item xs4 class="section-key-concepts__img">
+    </div>
+    <div class="picture picture-mascotte">
       <picture>
         <source
           media="(min-width: 768px)"
@@ -85,25 +89,26 @@
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-3">
+    </div>
+    <div class="info info-conferences">
       <p class="key">
         <VCounter :value="40" />
       </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais !</p>
-    </flex-item>
-    <flex-item xs4 class="section-key-concepts__img show-m">
+    </div>
+    <div class="picture picture-speaker">
       <picture>
-        <source srcset="/concepts/4/concept-img-4.webp" type="image/webp" />
+        <source
+          srcset="/concepts/4/concept-img-4.webp"
+          type="image/webp"
+        />
         <img
           src="/concepts/4/concept-img-4.jpg"
           alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-    <flex-item xs2 class="section-key-concepts__img">
       <picture>
         <source
           media="(min-width: 768px)"
@@ -126,58 +131,66 @@
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-4">
+    </div>
+    <div class="info info-attendees">
       <p class="key">
-        <VCounter :value="900" :step="25" />
+        <VCounter
+          :value="900"
+          :step="25"
+        />
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
-    </flex-item>
-    <flex-item xs8 class="section-key-concepts__img show-m">
+    </div>
+    <div class="picture picture-big-amphi">
       <picture>
-        <source srcset="/concepts/6/concept-img-6.webp" type="image/webp" />
+        <source
+          srcset="/concepts/6/concept-img-6.webp"
+          type="image/webp"
+        />
         <img
           src="/concepts/6/concept-img-6.jpg"
           alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
           type="image/jpeg"
         />
       </picture>
-    </flex-item>
-  </flex-container>
+    </div>
+  </div>
 </template>
 
 <script>
-import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import VCounter from "../VCounter.vue";
 
 export default {
   name: "SectionHero",
-  components: { FlexContainer, FlexItem, VCounter },
+  components: { VCounter },
 };
 </script>
 
 <style lang="scss" scoped>
 .section-key-concepts {
-  &__img {
-    picture {
-      max-height: 290px;
-      height: 100%;
-      display: block;
-      overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    "pic-amphi data-amphi"
+    "data-themes pic-conversation"
+    "pic-mascotte data-conferences"
+    "data-attendees pic-speaker";
 
-      img {
-        width: 100%;
-        height: auto;
-        @include positionRelative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: grayscale(1);
-      }
+  picture {
+    max-height: 290px;
+    display: block;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      @include positionRelative;
+      filter: grayscale(1);
     }
   }
 
-  &__card {
+  .info {
     // max-height: 290px;
     background-color: $grey-300;
     box-sizing: border-box;
@@ -269,6 +282,38 @@ export default {
         right: 0;
       }
     }
+  }
+
+  .info-attendees {
+    grid-area: data-attendees;
+  }
+
+  .info-amphis {
+    grid-area: data-amphis;
+  }
+
+  .info-themes {
+    grid-area: data-themes;
+  }
+
+  .info-conferences {
+    grid-area: data-conferences;
+  }
+
+  .picture-amphi {
+    grid-area: pic-amphi;
+  }
+  .picture-conversation {
+    grid-area: pic-conversation;
+  }
+  .picture-mascotte {
+    grid-area: pic-mascotte;
+  }
+  .picture-speaker {
+    grid-area: pic-speaker;
+  }
+  .picture-big-amphi {
+    grid-area: pic-big-amphi;
   }
 }
 </style>
