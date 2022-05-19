@@ -71,10 +71,8 @@ export default {
 
   .news-container {
     display: flex;
-    // flex-wrap: nowrap;
     overflow-x: scroll;
     gap: 35px;
-    padding: 0 35px;
   }
 
   .news-item {
