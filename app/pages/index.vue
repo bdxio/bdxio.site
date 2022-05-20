@@ -1,7 +1,7 @@
 <template>
   <main>
     <section-hero />
-    <!-- <section-key-concepts /> -->
+    <section-key-concepts />
     <section-about />
     <section-themes />
     <flex-container no-gutter>
@@ -29,7 +29,7 @@
 <script>
 import SectionHero from "~/components/homepage/SectionHero";
 import SectionAbout from "~/components/homepage/SectionAbout";
-// import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
+import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
 import SectionNews from "~/components/homepage/SectionNews";
@@ -56,7 +56,7 @@ export default {
   components: {
     SectionAbout,
     SectionHero,
-    // SectionKeyConcepts,
+    SectionKeyConcepts,
     SectionSponsors,
     SectionNews,
     SectionGuidage,

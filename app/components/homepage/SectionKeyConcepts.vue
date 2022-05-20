@@ -1,167 +1,36 @@
-<template >
-  <flex-container
+<template>
+  <div
     tag="section"
     class="section-key-concepts"
     no-gutter
   >
-    <flex-item
-      xs4
-      class="section-key-concepts__img"
-    >
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/1/concept-img-1.webp"
-          type="image/webp"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/1/concept-img-1.jpg"
-          type="image/jpeg"
-        />
-
-        <source
-          srcset="/concepts/1/concept-img-1-mobile.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/1/concept-img-1-mobile.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-    <flex-item
-      xs2
-      class="section-key-concepts__card card-1"
-    >
+    <div class="picture picture-amphi" />
+    <div class="info info-amphis card-1">
       <p class="key">
         <VCounter :value="5" />
       </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
-    </flex-item>
-    <flex-item
-      xs6
-      class="section-key-concepts__img"
-    >
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/2/concept-img-2.webp"
-          type="image/webp"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/2/concept-img-2.jpg"
-          type="image/jpeg"
-        />
-
-        <source
-          srcset="/concepts/2/concept-img-2-mobile.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/2/concept-img-2-mobile.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-    <flex-item
-      xs2
-      class="section-key-concepts__card card-2"
-    >
+    </div>
+    <div class="picture picture-conversation" />
+    <div class="info info-themes card-2">
       <p class="key">
         <VCounter :value="7" />
       </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
-    </flex-item>
-    <flex-item
-      xs4
-      class="section-key-concepts__img"
-    >
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/3/concept-img-3.webp"
-          type="image/webp"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/3/concept-img-3.jpg"
-          type="image/jpeg"
-        />
-
-        <source
-          srcset="/concepts/3/concept-img-3-mobile.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/3/concept-img-3-mobile.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-    <flex-item
-      xs2
-      class="section-key-concepts__card card-3"
-    >
+    </div>
+    <div class="picture picture-mascotte" />
+    <div class="info info-conferences card-3">
       <p class="key">
         <VCounter :value="40" />
       </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais !</p>
-    </flex-item>
-    <flex-item
-      xs4
-      class="section-key-concepts__img show-m"
-    >
-      <picture>
-        <source
-          srcset="/concepts/4/concept-img-4.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/4/concept-img-4.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-    <flex-item
-      xs2
-      class="section-key-concepts__img"
-    >
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/5/concept-img-5.webp"
-          type="image/webp"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcset="/concepts/5/concept-img-5.jpg"
-          type="image/jpeg"
-        />
-
-        <source
-          srcset="/concepts/5/concept-img-5-mobile.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/5/concept-img-5-mobile.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-    <flex-item
-      xs2
-      class="section-key-concepts__card card-4"
-    >
+    </div>
+    <div class="picture picture-mascotte2" />
+    <div class="picture picture-speaker" />
+    <div class="info info-attendees card-4">
       <p class="key">
         <VCounter
           :value="900"
@@ -170,58 +39,52 @@
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
-    </flex-item>
-    <flex-item
-      xs8
-      class="section-key-concepts__img show-m"
-    >
-      <picture>
-        <source
-          srcset="/concepts/6/concept-img-6.webp"
-          type="image/webp"
-        />
-        <img
-          src="/concepts/6/concept-img-6.jpg"
-          alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
-          type="image/jpeg"
-        />
-      </picture>
-    </flex-item>
-  </flex-container>
+    </div>
+    <div class="picture picture-big-amphi" />
+  </div>
 </template>
 
 <script>
-import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import VCounter from "../VCounter.vue";
 
 export default {
   name: "SectionHero",
-  components: { FlexContainer, FlexItem, VCounter },
+  components: { VCounter },
 };
 </script>
 
 <style lang="scss" scoped>
 .section-key-concepts {
-  &__img {
-    picture {
-      max-height: 290px;
-      height: 100%;
-      display: block;
-      overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "pic-amphi data-amphis"
+    "data-themes pic-conversation"
+    "pic-mascotte data-conferences"
+    "data-attendees pic-speaker";
 
-      img {
-        width: 100%;
-        height: auto;
-        @include positionRelative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: grayscale(1);
-      }
+  @include mobileFirst(m) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "pic-amphi pic-amphi data-amphis pic-conversation pic-conversation pic-conversation"
+      "data-themes pic-mascotte pic-mascotte data-conferences pic-mascotte2 pic-mascotte2"
+      "pic-speaker data-attendees pic-big-amphi pic-big-amphi pic-big-amphi pic-big-amphi";
+  }
+
+  picture {
+    display: block;
+    overflow: hidden;
+    img {
+      @include positionRelative;
+      filter: grayscale(1);
     }
   }
 
-  &__card {
-    // max-height: 290px;
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: $grey-300;
     box-sizing: border-box;
     text-align: center;
@@ -258,6 +121,8 @@ export default {
         background: url("~/assets/img/drawings/yellow_circle_2.png") center
           no-repeat;
         background-size: contain;
+        width: 200px;
+        height: 80px;
       }
     }
 
@@ -311,6 +176,68 @@ export default {
       @include mobileFirst(m) {
         right: 0;
       }
+    }
+  }
+
+  .info-attendees {
+    grid-area: data-attendees;
+  }
+
+  .info-amphis {
+    grid-area: data-amphis;
+  }
+
+  .info-themes {
+    grid-area: data-themes;
+  }
+
+  .info-conferences {
+    grid-area: data-conferences;
+  }
+
+  .picture {
+    filter: sepia(100%) hue-rotate(198deg) saturate(190%);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .picture-amphi {
+    background-image: url("/concepts/1/concept-img-1-mobile.jpg");
+    grid-area: pic-amphi;
+  }
+
+  .picture-conversation {
+    background-image: url("/concepts/2/concept-img-2.webp");
+    grid-area: pic-conversation;
+  }
+  .picture-mascotte {
+    background-image: url("/concepts/3/concept-img-3.webp");
+    grid-area: pic-mascotte;
+  }
+  .picture-speaker {
+    background-position-y: 20%;
+    background-image: url("/concepts/5/concept-img-5.webp");
+    grid-area: pic-speaker;
+  }
+
+  .picture-mascotte2 {
+    background-image: url("/concepts/4/concept-img-4.webp");
+    grid-area: pic-mascotte2;
+    display: none;
+
+    @include mobileFirst(m) {
+      display: block;
+      background-position-y: 0;
+    }
+  }
+
+  .picture-big-amphi {
+    background-image: url("/concepts/6/concept-img-6.webp");
+    grid-area: pic-big-amphi;
+    display: none;
+
+    @include mobileFirst(m) {
+      display: block;
     }
   }
 }

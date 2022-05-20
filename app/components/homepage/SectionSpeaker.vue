@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <section class="section section-speaker">
     <div>
       <section-title

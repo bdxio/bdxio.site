@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <section class="section section-sponsor">
     <div>
       <section-title
