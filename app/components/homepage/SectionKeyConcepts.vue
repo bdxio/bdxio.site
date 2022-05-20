@@ -5,7 +5,7 @@
     no-gutter
   >
     <div class="picture picture-amphi" />
-    <div class="info info-amphis">
+    <div class="info info-amphis card-1">
       <p class="key">
         <VCounter :value="5" />
       </p>
@@ -13,7 +13,7 @@
       <p class="content">Toujours une conf à votre goût !</p>
     </div>
     <div class="picture picture-conversation" />
-    <div class="info info-themes">
+    <div class="info info-themes card-2">
       <p class="key">
         <VCounter :value="7" />
       </p>
@@ -21,7 +21,7 @@
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
     </div>
     <div class="picture picture-mascotte" />
-    <div class="info info-conferences">
+    <div class="info info-conferences card-3">
       <p class="key">
         <VCounter :value="40" />
       </p>
@@ -30,7 +30,7 @@
     </div>
     <div class="picture picture-mascotte2" />
     <div class="picture picture-speaker" />
-    <div class="info info-attendees">
+    <div class="info info-attendees card-4">
       <p class="key">
         <VCounter
           :value="900"
@@ -56,12 +56,20 @@ export default {
 <style lang="scss" scoped>
 .section-key-concepts {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     "pic-amphi data-amphis"
     "data-themes pic-conversation"
     "pic-mascotte data-conferences"
     "data-attendees pic-speaker";
+
+  @include mobileFirst(m) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "pic-amphi pic-amphi data-amphis pic-conversation pic-conversation pic-conversation"
+      "data-themes pic-mascotte pic-mascotte data-conferences pic-mascotte2 pic-mascotte2"
+      "pic-speaker data-attendees pic-big-amphi pic-big-amphi pic-big-amphi pic-big-amphi";
+  }
 
   picture {
     display: block;
@@ -73,7 +81,6 @@ export default {
   }
 
   .info {
-    // max-height: 290px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,6 +121,8 @@ export default {
         background: url("~/assets/img/drawings/yellow_circle_2.png") center
           no-repeat;
         background-size: contain;
+        width: 200px;
+        height: 80px;
       }
     }
 
@@ -209,15 +218,26 @@ export default {
     background-image: url("/concepts/5/concept-img-5.webp");
     grid-area: pic-speaker;
   }
+
   .picture-mascotte2 {
     background-image: url("/concepts/4/concept-img-4.webp");
     grid-area: pic-mascotte2;
     display: none;
+
+    @include mobileFirst(m) {
+      display: block;
+      background-position-y: 0;
+    }
   }
+
   .picture-big-amphi {
-    background-image: url("/concepts/6/concept-img-6.webpg");
+    background-image: url("/concepts/6/concept-img-6.webp");
     grid-area: pic-big-amphi;
     display: none;
+
+    @include mobileFirst(m) {
+      display: block;
+    }
   }
 }
 </style>
