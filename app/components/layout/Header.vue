@@ -1,19 +1,49 @@
 <template>
-  <header class="header" :class="color">
-    <NuxtLink class="logo" to="/">
+  <header
+    class="header"
+    :class="color"
+  >
+    <NuxtLink
+      class="logo"
+      to="/"
+    >
       <img
         src="~/assets/img/bdxio_logo.png"
         alt="Logo de l'association BDX.IO"
         class="display--block"
       />
     </NuxtLink>
-    <div v-if="showMenu">
+    <nav class="header__nav desktop">
+      <ul>
+        <li>
+          <NuxtLink to="/">Accueil</NuxtLink>
+        </li>
+        <!-- <li>
+          <NuxtLink to="/schedule">Programme</NuxtLink>
+        </li> -->
+        <li>
+          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+        </li>
+        <!-- <li>
+          <NuxtLink to="/team">L'équipe</NuxtLink>
+        </li> -->
+        <!-- <li>
+          <button class="bdx-button">Billetterie</button>
+        </li> -->
+      </ul>
+    </nav>
+
+    <div class="hidden-m">
       <IconBurger
         :open="mobileOpen"
-        class="header__burger hidden-m"
+        class="header__burger"
         @click="mobileOpen = !mobileOpen"
       />
-      <nav class="header__nav" :class="propClasses">
+      <nav
+        v-if="showMenu"
+        class="header__nav"
+        :class="propClasses"
+      >
         <ul>
           <li>
             <NuxtLink to="/">Accueil</NuxtLink>
@@ -24,9 +54,9 @@
           <li>
             <NuxtLink to="/sponsors">Sponsors</NuxtLink>
           </li>
-          <li>
+          <!-- <li>
             <NuxtLink to="/team">L'équipe</NuxtLink>
-          </li>
+          </li> -->
           <!-- <li>
           <button class="bdx-button">Billetterie</button>
         </li> -->
@@ -86,7 +116,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: $spc-m;
+  padding: $spc-m 0px;
 
   &.light {
     background-color: $primary-dark;
@@ -104,8 +134,8 @@ export default {
   &__burger {
     position: absolute;
     @include z-index(upper);
-    right: 20px;
-    top: 20px;
+    right: $spc-m;
+    top: $spc-m;
     cursor: pointer;
   }
 
@@ -163,7 +193,10 @@ export default {
         &:not(:first-of-type) a {
           display: flex;
           align-items: center;
-          height: 100%;
+        }
+
+        a {
+          color: $light-font;
         }
 
         img {
@@ -202,6 +235,19 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .mobile {
+    display: block;
+    @include mobileFirst(m) {
+      display: none;
+    }
+  }
+  .desktop {
+    display: none;
+    @include mobileFirst(m) {
+      display: block;
     }
   }
 }
