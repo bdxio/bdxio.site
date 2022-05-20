@@ -1,9 +1,7 @@
-<template functional>
+<template >
   <section class="bourse">
     <div class="section about-us">
-      <section-title tag="h2"
-        >Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title
-      >
+      <section-title tag="h2">Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title>
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.
@@ -24,11 +22,20 @@ export default {
 .bourse {
   background: url("~/assets/img/place_de_la_bourse.png") no-repeat left bottom;
   background-size: 100%;
-  padding-bottom: 300px;
+  padding-bottom: 200px;
+  overflow: hidden;
+
+  @include mobileFirst(xs) {
+    padding-bottom: 250px;
+  }
+  @include mobileFirst(s) {
+    padding-bottom: 300px;
+  }
 
   .about-us {
     margin-left: 0;
     background-color: $light;
+    box-shadow: 0px 0px 30px 20px #f6f2e8;
 
     @include mobileFirst(s) {
       background-position-x: left;
@@ -39,20 +46,6 @@ export default {
       justify-content: center;
       margin-left: 55%;
       padding-left: 0;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: -50px;
-        width: 50px;
-        height: 100%;
-        // rgb(246,242,232) = $light
-        background: linear-gradient(
-          90deg,
-          rgba(246, 242, 232, 0) 0%,
-          rgba(246, 242, 232, 1) 85%
-        );
-      }
     }
   }
 

@@ -1,4 +1,4 @@
-<template functional>
+<template >
   <div class="section section-sponsors">
     <section-title tag="h2">Ils nous soutiennent</section-title>
     <flex-container class="sponsors">
@@ -53,6 +53,8 @@ export default {
   }
 
   .sponsors {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 

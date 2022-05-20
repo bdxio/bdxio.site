@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div
     tag="section"
     class="section-key-concepts"

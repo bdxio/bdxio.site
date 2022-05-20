@@ -1,4 +1,4 @@
-<template functional>
+<template >
   <section class="section news">
     <section-title
       tag="h2"
@@ -71,10 +71,8 @@ export default {
 
   .news-container {
     display: flex;
-    // flex-wrap: nowrap;
     overflow-x: scroll;
     gap: 35px;
-    padding: 0 35px;
   }
 
   .news-item {

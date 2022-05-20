@@ -4,38 +4,20 @@
     <section-key-concepts />
     <section-about />
     <section-themes />
-
-    <flex-container tag="section">
+    <flex-container no-gutter>
       <flex-item
-        class="text-light section subsection"
-        s6
+        s12
+        m6
+        class="sponsor-container"
       >
-        <section-title
-          tag="h2"
-          color="light"
-        >sponsors</section-title>
-        <h3 class="subsection-title">Embarquez avec nous dans l'aventure !</h3>
-        <p>
-          Vous souhaitez devenir sponsor de cette nouvelle édition ? <br />
-          En cliquant sur le bouton ci-dessous vous trouverez toutes les
-          informations nécessaires.
-        </p>
-        <button class="bdx-button outlined-light">Devenir sponsor</button>
+        <section-sponsor />
       </flex-item>
       <flex-item
-        class="section subsection text-dark"
-        s6
+        s12
+        m6
+        class="speaker-container"
       >
-        <section-title
-          tag="h2"
-          color="dark"
-        >speakers</section-title>
-        <h3 class="subsection-title">Vous aussi, rejoignez le navire !</h3>
-        <p>
-          Vous avez un talk à proposer ? Des idées à partager ?
-          <br />Rejoignez notre équipe de speakers pour cette édition 2022.
-        </p>
-        <button class="bdx-button outlined">Devenir speaker</button>
+        <section-speaker />
       </flex-item>
     </flex-container>
     <section-news />
@@ -45,7 +27,6 @@
 </template>
 
 <script>
-import { FlexContainer, FlexItem } from "~/components/layout/grid";
 import SectionHero from "~/components/homepage/SectionHero";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
@@ -53,6 +34,10 @@ import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
 import SectionNews from "~/components/homepage/SectionNews";
 import SectionThemes from "~/components/homepage/SectionThemes";
+import SectionSponsor from "../components/homepage/SectionSponsor";
+import SectionSpeaker from "../components/homepage/SectionSpeaker";
+import FlexContainer from "../components/layout/grid/Flex-container.vue";
+import FlexItem from "../components/layout/grid/Flex-item.vue";
 
 export default {
   name: "HomePage",
@@ -69,8 +54,6 @@ export default {
     };
   },
   components: {
-    FlexContainer,
-    FlexItem,
     SectionAbout,
     SectionHero,
     SectionKeyConcepts,
@@ -78,6 +61,10 @@ export default {
     SectionNews,
     SectionGuidage,
     SectionThemes,
+    SectionSpeaker,
+    SectionSponsor,
+    FlexContainer,
+    FlexItem,
   },
 };
 </script>
@@ -136,6 +123,12 @@ h1 {
   &:last-of-type {
     background: $grey-300;
   }
+}
+
+.speaker-container,
+.sponsor-container {
+  display: flex;
+  flex: 1;
 }
 
 .subsection-light-title {

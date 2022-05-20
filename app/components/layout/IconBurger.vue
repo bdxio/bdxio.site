@@ -1,4 +1,4 @@
-<template functional>
+<template >
   <svg
     width="27"
     height="18"
@@ -16,7 +16,13 @@
       fill="white"
       :opacity="props.open ? '0' : '1'"
     />
-    <rect y="8" width="27" height="2" rx="1" fill="white" />
+    <rect
+      y="8"
+      width="27"
+      height="2"
+      rx="1"
+      fill="white"
+    />
     <rect
       y="16"
       width="27"

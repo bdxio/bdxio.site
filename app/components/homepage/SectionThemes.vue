@@ -1,18 +1,35 @@
-<template functional>
+<template >
   <section class="section section-themes">
-    <flex-container no-gutter class="justify-between-xs align-center-m">
-      <flex-item s12 m4 l5 class="text-container">
-        <section-title section tag="h2">thématique</section-title>
-        <section-title tag="h3" class="title"
-          >Quels seront les thèmes abordés ?</section-title
-        >
+    <flex-container
+      no-gutter
+      class="justify-between-xs align-center-m"
+    >
+      <flex-item
+        s12
+        m4
+        l5
+        class="text-container"
+      >
+        <section-title
+          section
+          tag="h2"
+        >thématique</section-title>
+        <section-title
+          tag="h3"
+          class="title"
+        >Quels seront les thèmes abordés ?</section-title>
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
           forcément votre bonheur !
         </p>
       </flex-item>
-      <flex-item s12 m8 l7 class="items">
+      <flex-item
+        s12
+        m8
+        l7
+        class="items"
+      >
         <div class="theme-item">
           <span class="theme theme--1">Frontend</span>
         </div>
@@ -56,6 +73,7 @@ export default {
 
   .title {
     @include positionRelative;
+    margin-right: 20px;
 
     &:before {
       content: "";
