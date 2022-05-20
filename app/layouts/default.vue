@@ -1,15 +1,15 @@
 <template>
   <div>
-    <TransitionGroup name="v-toast-anim" tag="div" class="v-toasts-container">
-      <div
-        class="v-toast"
-        :class="`v-toast-${toast.type}`"
-        v-for="toast in toasts"
-        :key="toast.timestamp"
-      >
-        {{ toast.message }}
-      </div>
-    </TransitionGroup>
+    <!-- <Transition
+      name="v-toast-anim"
+      tag="div"
+      class="v-toasts-container"
+      v-if="toast"
+    > -->
+    <div class="toast" :class="`toast--${toast.type}`">
+      {{ toast.message || "toooooooast" }}
+    </div>
+    <!-- </Transition> -->
     <Header :show-navigation="showNavigation" />
     <Nuxt />
     <Footer :show-navigation="showNavigation" />
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import Header from "~/components/layout/Header.vue";
 import Footer from "~/components/layout/Footer.vue";
 
@@ -28,7 +28,9 @@ export default {
     Footer,
   },
   computed: {
-    ...mapState("toast", ["toasts"]),
+    ...mapGetters({
+      toast: "toast/toast",
+    }),
     showNavigation() {
       return this.$showNavigation ?? false;
     },
@@ -37,6 +39,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/toast";
-@import "~/assets/styles/vue_transitions";
+.toast {
+}
 </style>
