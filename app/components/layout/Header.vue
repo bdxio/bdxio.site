@@ -24,25 +24,23 @@
         <li>
           <NuxtLink to="/sponsors">Sponsors</NuxtLink>
         </li>
-        <li>
+        <!-- <li>
           <NuxtLink to="/team">L'équipe</NuxtLink>
-        </li>
+        </li> -->
         <!-- <li>
           <button class="bdx-button">Billetterie</button>
         </li> -->
       </ul>
     </nav>
 
-    <div
-      class="mobile"
-      v-if="showMenu"
-    >
+    <div class="hidden-m">
       <IconBurger
         :open="mobileOpen"
-        class="header__burger hidden-m"
+        class="header__burger"
         @click="mobileOpen = !mobileOpen"
       />
       <nav
+        v-if="showMenu"
         class="header__nav"
         :class="propClasses"
       >
@@ -56,9 +54,9 @@
           <li>
             <NuxtLink to="/sponsors">Sponsors</NuxtLink>
           </li>
-          <li>
+          <!-- <li>
             <NuxtLink to="/team">L'équipe</NuxtLink>
-          </li>
+          </li> -->
           <!-- <li>
           <button class="bdx-button">Billetterie</button>
         </li> -->
@@ -118,7 +116,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: $spc-m;
+  padding: $spc-m 0px;
 
   &.light {
     background-color: $primary-dark;
@@ -136,8 +134,8 @@ export default {
   &__burger {
     position: absolute;
     @include z-index(upper);
-    right: 20px;
-    top: 20px;
+    right: $spc-m;
+    top: $spc-m;
     cursor: pointer;
   }
 
