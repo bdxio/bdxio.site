@@ -1,19 +1,51 @@
 <template>
-  <header class="header" :class="color">
-    <NuxtLink class="logo" to="/">
+  <header
+    class="header"
+    :class="color"
+  >
+    <NuxtLink
+      class="logo"
+      to="/"
+    >
       <img
         src="~/assets/img/bdxio_logo.png"
         alt="Logo de l'association BDX.IO"
         class="display--block"
       />
     </NuxtLink>
-    <div v-if="showMenu">
+    <nav class="header__nav desktop">
+      <ul>
+        <li>
+          <NuxtLink to="/">Accueil</NuxtLink>
+        </li>
+        <!-- <li>
+          <NuxtLink to="/schedule">Programme</NuxtLink>
+        </li> -->
+        <li>
+          <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/team">L'équipe</NuxtLink>
+        </li>
+        <!-- <li>
+          <button class="bdx-button">Billetterie</button>
+        </li> -->
+      </ul>
+    </nav>
+
+    <div
+      class="mobile"
+      v-if="showMenu"
+    >
       <IconBurger
         :open="mobileOpen"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
-      <nav class="header__nav" :class="propClasses">
+      <nav
+        class="header__nav"
+        :class="propClasses"
+      >
         <ul>
           <li>
             <NuxtLink to="/">Accueil</NuxtLink>
@@ -163,7 +195,10 @@ export default {
         &:not(:first-of-type) a {
           display: flex;
           align-items: center;
-          height: 100%;
+        }
+
+        a {
+          color: $light-font;
         }
 
         img {
@@ -202,6 +237,19 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .mobile {
+    display: block;
+    @include mobileFirst(m) {
+      display: none;
+    }
+  }
+  .desktop {
+    display: none;
+    @include mobileFirst(m) {
+      display: block;
     }
   }
 }
