@@ -1,9 +1,5 @@
 <template>
-  <div
-    tag="section"
-    class="section-key-concepts"
-    no-gutter
-  >
+  <div tag="section" class="section-key-concepts" no-gutter>
     <div class="picture picture-amphi" />
     <div class="info info-amphis card-1">
       <p class="key">
@@ -32,10 +28,7 @@
     <div class="picture picture-speaker" />
     <div class="info info-attendees card-4">
       <p class="key">
-        <VCounter
-          :value="900"
-          :step="25"
-        />
+        <VCounter :value="900" :step="25" />
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
@@ -45,7 +38,7 @@
 </template>
 
 <script>
-import VCounter from "../VCounter.vue";
+import VCounter from "~/components/VCounter.vue";
 
 export default {
   name: "SectionHero",

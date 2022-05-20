@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="section section-sponsors">
     <section-title tag="h2">Ils nous soutiennent</section-title>
     <flex-container class="sponsors">
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import FlexContainer from "../layout/grid/Flex-container.vue";
+import FlexContainer from "~/components/layout/grid/Flex-container.vue";
 export default {
   components: { FlexContainer },
   name: "SectionSponsors",
