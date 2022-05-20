@@ -73,6 +73,7 @@ export default {
 
   .title {
     @include positionRelative;
+    margin-right: 20px;
 
     &:before {
       content: "";

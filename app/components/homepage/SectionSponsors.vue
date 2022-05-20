@@ -53,6 +53,8 @@ export default {
   }
 
   .sponsors {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 
