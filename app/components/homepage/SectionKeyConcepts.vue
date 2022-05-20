@@ -196,6 +196,7 @@ export default {
   }
 
   .picture {
+    filter: sepia(100%) hue-rotate(198deg) saturate(190%);
     background-position: center;
     background-size: cover;
   }
