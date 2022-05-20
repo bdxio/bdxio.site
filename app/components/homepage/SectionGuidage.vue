@@ -1,4 +1,4 @@
-<template functional>
+<template >
   <section class="section guidage">
     <div class="text-container">
       <div class="infos">

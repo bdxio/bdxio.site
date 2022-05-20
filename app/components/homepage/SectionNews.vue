@@ -1,4 +1,4 @@
-<template functional>
+<template >
   <section class="section news">
     <section-title
       tag="h2"

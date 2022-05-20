@@ -1,9 +1,7 @@
-<template functional>
+<template >
   <section class="bourse">
     <div class="section about-us">
-      <section-title tag="h2"
-        >Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title
-      >
+      <section-title tag="h2">Qu'est-ce que <span class="nowrap">BDX I/O</span> ?</section-title>
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.

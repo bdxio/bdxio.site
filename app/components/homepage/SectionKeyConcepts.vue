@@ -1,6 +1,13 @@
-<template functional>
-  <flex-container tag="section" class="section-key-concepts" no-gutter>
-    <flex-item xs4 class="section-key-concepts__img">
+<template >
+  <flex-container
+    tag="section"
+    class="section-key-concepts"
+    no-gutter
+  >
+    <flex-item
+      xs4
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           media="(min-width: 768px)"
@@ -24,14 +31,20 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-1">
+    <flex-item
+      xs2
+      class="section-key-concepts__card card-1"
+    >
       <p class="key">
         <VCounter :value="5" />
       </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
     </flex-item>
-    <flex-item xs6 class="section-key-concepts__img">
+    <flex-item
+      xs6
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           media="(min-width: 768px)"
@@ -55,14 +68,20 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-2">
+    <flex-item
+      xs2
+      class="section-key-concepts__card card-2"
+    >
       <p class="key">
         <VCounter :value="7" />
       </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
     </flex-item>
-    <flex-item xs4 class="section-key-concepts__img">
+    <flex-item
+      xs4
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           media="(min-width: 768px)"
@@ -86,16 +105,25 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-3">
+    <flex-item
+      xs2
+      class="section-key-concepts__card card-3"
+    >
       <p class="key">
         <VCounter :value="40" />
       </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais !</p>
     </flex-item>
-    <flex-item xs4 class="section-key-concepts__img show-m">
+    <flex-item
+      xs4
+      class="section-key-concepts__img show-m"
+    >
       <picture>
-        <source srcset="/concepts/4/concept-img-4.webp" type="image/webp" />
+        <source
+          srcset="/concepts/4/concept-img-4.webp"
+          type="image/webp"
+        />
         <img
           src="/concepts/4/concept-img-4.jpg"
           alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
@@ -103,7 +131,10 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs2 class="section-key-concepts__img">
+    <flex-item
+      xs2
+      class="section-key-concepts__img"
+    >
       <picture>
         <source
           media="(min-width: 768px)"
@@ -127,16 +158,28 @@
         />
       </picture>
     </flex-item>
-    <flex-item xs2 class="section-key-concepts__card card-4">
+    <flex-item
+      xs2
+      class="section-key-concepts__card card-4"
+    >
       <p class="key">
-        <VCounter :value="900" :step="25" />
+        <VCounter
+          :value="900"
+          :step="25"
+        />
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
     </flex-item>
-    <flex-item xs8 class="section-key-concepts__img show-m">
+    <flex-item
+      xs8
+      class="section-key-concepts__img show-m"
+    >
       <picture>
-        <source srcset="/concepts/6/concept-img-6.webp" type="image/webp" />
+        <source
+          srcset="/concepts/6/concept-img-6.webp"
+          type="image/webp"
+        />
         <img
           src="/concepts/6/concept-img-6.jpg"
           alt="Photographie d'un amphitéâtre avec du public pendant une conférence bdx.io"
