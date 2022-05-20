@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <section class="section section-become-sponsor">
     <section-title tag="h2">Pourquoi devenir <span class="sponsor">Sponsor</span> ?</section-title>
     <ul class="reasons">
