@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   background: $light;
@@ -57,6 +61,12 @@ ul {
   }
 }
 
+.cursor {
+  &--pointer {
+    cursor: pointer;
+  }
+}
+
 
 .nowrap {
   white-space: nowrap;
@@ -76,14 +86,6 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.icon-scale-over {
-  transition: 0.3s;
-
-  &:hover {
-    transform: scale(1.4);
-  }
 }
 
 .section {

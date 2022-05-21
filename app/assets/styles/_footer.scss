@@ -34,12 +34,16 @@ footer {
       align-items: flex-start;
       text-decoration: none;
       font-weight: $font-weight-bold;
-      font-size: 35px;
+      font-size: 23px;
       line-height: 42px;
 
       @include mobileFirst(s) {
         flex-direction: row;
         align-items: center;
+      }
+
+      @include mobileFirst(m) {
+        font-size: 35px;
       }
     }
   }
@@ -82,6 +86,66 @@ footer {
           right: auto;
           left: -80px;
         }
+      }
+    }
+
+    &__form {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      @include z-index(upper);
+  
+      &:before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #242457;
+        opacity: 0.95;
+        @include z-index(negative);
+      }
+  
+      .label {
+        color: $light;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .input {
+        background: none;
+        outline: 0;
+        border: 0;
+        padding-bottom: 5px;
+        font-size: 24px;
+        color: $primary-light;
+        border-bottom: 1px solid $primary-light;
+        text-align: center;
+        margin: $spc-xxs 0 $spc-m 0;
+        @include transition();
+  
+        &.filled {
+          color: $yellow;
+          border-bottom: 1px solid $yellow;
+        }
+  
+        &::placeholder {
+          padding-bottom: 5px;
+          color: $primary-light;
+          border-bottom: 1px solid $primary-light;
+        }
+
+        @include mobileFirst(m) {
+          font-size: 30px;
+        }
+      }
+  
+      .button {
       }
     }
   }
@@ -137,19 +201,30 @@ footer {
     justify-content: space-between;
     grid-area: links;
 
-    li {
-      &:not(:last-of-type) {
-        margin-bottom: $spc-m;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include mobileFirst(s) {
+        display: initial;
       }
 
-      a {
-        color: $primary-dark;
-        text-decoration: none;
-
-        &.nuxt-link-exact-active {
-          color: $primary-light;
+      li {
+        &:not(:last-of-type) {
+          margin-bottom: $spc-m;
         }
-      }
+  
+        a {
+          color: $primary-dark;
+          text-decoration: none;
+  
+          &.nuxt-link-exact-active {
+            color: $primary-light;
+          }
+        }
+    }
+
+
     }
 
     @include mobileFirst(m) {
@@ -172,4 +247,6 @@ footer {
   small {
     font-size: 18px;
   }
+
+  
 }
