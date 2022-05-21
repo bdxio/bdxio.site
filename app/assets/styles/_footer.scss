@@ -147,6 +147,14 @@ footer {
   
       .button {
       }
+
+      &__close {
+        position: absolute;
+        @include z-index(upper);
+        right: $spc-m;
+        top: $spc-m;
+        cursor: pointer;
+      }
     }
   }
 

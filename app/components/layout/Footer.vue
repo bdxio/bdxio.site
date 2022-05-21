@@ -67,6 +67,12 @@
             autocomplete="off"
             @submit.prevent="registerNewsletter"
           >
+            <img
+              src="~/assets/img/icons/close.svg"
+              alt="icone pour fermer le formulaire d'ajout d'email à la newsletter"
+              class="newsletter__form__close"
+              @click="showEmailForm = false"
+            />
             <label for="email" class="label">Mon email :</label>
             <input
               v-model="mail"
@@ -143,11 +149,6 @@ export default {
         return;
       }
 
-      console.log(
-        "HEY THIS MAIL IS OK, I WILL NEED TO SEND IT TO STRAPI, WHICH WILL VALIDATE AND SEND IT TO MAILCHIMP :) "
-      );
-
-      console.log("IM CALLING2");
       this.addToast({
         message: "Votre email a bien été enregistré dans la newsletter",
         type: "success",
