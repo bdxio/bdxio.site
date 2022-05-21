@@ -1,8 +1,8 @@
-.bdx-button {
+.button {
   border: none;
   background: $primary-light;
   color: #fff;
-  padding: 0.9375rem 1.875rem; //15px 30px
+  padding: 12px 25px; //1
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
@@ -27,6 +27,10 @@
       border-color: $light-font;
       mix-blend-mode: lighten;
       color: $light-font;
+
+      a {
+        color: $light-font
+      }
     }
 
     &:hover {
@@ -35,7 +39,16 @@
 
       &.outlined-light {
         color: $dark-font;
+
+        a {
+          color: $dark-font;
+        }
       }
     }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.3;
   }
 }

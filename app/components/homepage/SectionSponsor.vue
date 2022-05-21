@@ -11,7 +11,10 @@
         informations nécessaires.
       </p>
     </div>
-    <button class="bdx-button outlined-light">Devenir sponsor</button>
+
+    <button class="button outlined-light">
+      <NuxtLink to="/sponsors">Devenir sponsor</NuxtLink>
+    </button>
   </section>
 </template>
 

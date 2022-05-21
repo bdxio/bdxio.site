@@ -33,7 +33,6 @@
     right: 100%;
     bottom: 0;
     background-color: $primary-dark;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +40,8 @@
     &.mobile-open {
       right: 0;
     }
+
+
 
     ul {
       display: flex;
@@ -95,6 +96,8 @@
         }
       }
     }
+
+
 
     &.dark a {
       color: $primary-dark;

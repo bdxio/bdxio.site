@@ -10,7 +10,7 @@
     <div v-if="showMenu">
       <IconBurger
         :open="mobileOpen"
-        class="header__burger"
+        class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">

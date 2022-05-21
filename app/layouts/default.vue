@@ -1,15 +1,8 @@
 <template>
   <div>
-    <!-- <Transition
-      name="v-toast-anim"
-      tag="div"
-      class="v-toasts-container"
-      v-if="toast"
-    > -->
-    <div class="toast" :class="`toast--${toast.type}`">
+    <div v-if="toast" class="toast" :class="`toast--${toast.type}`">
       {{ toast.message || "toooooooast" }}
     </div>
-    <!-- </Transition> -->
     <Header :show-navigation="showNavigation" />
     <Nuxt />
     <Footer :show-navigation="showNavigation" />

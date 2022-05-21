@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'VCounter',
+  name: "Counter",
   props: {
     value: {
       type: Number,
@@ -19,7 +19,7 @@ export default {
     step: {
       type: Number,
       default: 1,
-    }
+    },
   },
   data() {
     return {
@@ -28,10 +28,12 @@ export default {
     };
   },
   mounted() {
-    const interval = this.step * this.duration / this.value;
+    const interval = (this.step * this.duration) / this.value;
 
     if (interval < 4) {
-      console.warn(`The interval needed to render ${this.value} in ${this.duration}ms with a step of ${this.step} is lower than 4. You should consider increasing duration or step.`);
+      console.warn(
+        `The interval needed to render ${this.value} in ${this.duration}ms with a step of ${this.step} is lower than 4. You should consider increasing duration or step.`
+      );
     }
 
     this.animationInterval = setInterval(() => {
@@ -47,6 +49,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

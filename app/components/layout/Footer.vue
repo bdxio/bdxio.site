@@ -22,11 +22,7 @@
       </ul>
       <ul class="social">
         <li>
-          <a
-            href="https://www.linkedin.com/company/10651416/"
-            target="_blank"
-            class="icon-scale-over"
-          >
+          <a href="https://www.linkedin.com/company/10651416/" target="_blank">
             <img
               src="~/assets/img/socials/linkedin.svg"
               alt="Icône LinkedIn BDX IO"
@@ -38,7 +34,6 @@
             href="https://twitter.com/bdxio"
             target="_blank"
             aria-label="Twitter BDX I/O"
-            class="icon-scale-over"
           >
             <img
               src="~/assets/img/socials/twitter.svg"
@@ -50,7 +45,6 @@
           <a
             href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"
             target="_blank"
-            class="icon-scale-over"
           >
             <img
               src="~/assets/img/socials/youtube.svg"
@@ -73,7 +67,7 @@
             autocomplete="off"
             @submit.prevent="registerNewsletter"
           >
-            <label for="email" class="label">Enter your email:</label>
+            <label for="email" class="label">Mon email :</label>
             <input
               v-model="mail"
               class="input"
@@ -84,7 +78,12 @@
               size="30"
               required
             />
-            <button class="v-button button" type="submit" :disabled="!mail">
+            <button
+              class="button"
+              :class="buttonNewsletterClass"
+              type="submit"
+              :disabled="!mail"
+            >
               S'inscrire
             </button>
           </form>
@@ -121,6 +120,9 @@ export default {
   computed: {
     inputClass() {
       return this.mail ? "filled" : "";
+    },
+    buttonNewsletterClass() {
+      return !this.mail ? "disabled" : "";
     },
   },
   methods: {
