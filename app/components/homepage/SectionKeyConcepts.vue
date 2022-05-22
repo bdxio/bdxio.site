@@ -7,7 +7,7 @@
     <div class="picture picture-amphi" />
     <div class="info info-amphis card-1">
       <p class="key">
-        <VCounter :value="5" />
+        <Counter :value="5" />
       </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
@@ -15,7 +15,7 @@
     <div class="picture picture-conversation" />
     <div class="info info-themes card-2">
       <p class="key">
-        <VCounter :value="7" />
+        <Counter :value="7" />
       </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
@@ -23,16 +23,16 @@
     <div class="picture picture-mascotte" />
     <div class="info info-conferences card-3">
       <p class="key">
-        <VCounter :value="40" />
+        <Counter :value="40" />
       </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais&nbsp;!</p>
     </div>
     <div class="picture picture-mascotte2" />
-    <div class="picture picture-speaker" />
+    <div class="picture picture-speaker show-s" />
     <div class="info info-attendees card-4">
       <p class="key">
-        <VCounter
+        <Counter
           :value="900"
           :step="25"
         />
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-import VCounter from "../VCounter.vue";
+import Counter from "~/components/Counter.vue";
 
 export default {
   name: "SectionHero",
-  components: { VCounter },
+  components: { Counter },
 };
 </script>
 
@@ -199,6 +199,15 @@ export default {
     filter: sepia(100%) hue-rotate(198deg) saturate(190%);
     background-position: center;
     background-size: cover;
+
+    width: 100%;
+    min-height: 300px;
+    display: block;
+
+    @include mobileFirst(s) {
+      min-height: auto;
+      display: initial;
+    }
   }
 
   .picture-amphi {

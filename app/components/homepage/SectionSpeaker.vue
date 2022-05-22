@@ -14,7 +14,7 @@
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
       </p>
     </div>
-    <button class="bdx-button outlined">Devenir speaker</button>
+    <!-- <button class="bdx-button outlined" disabled>Devenir speaker</button> -->
   </section>
 </template>
 
@@ -31,5 +31,6 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   background-color: $secondary;
+  width: 100%;
 }
 </style>

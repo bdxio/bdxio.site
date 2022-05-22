@@ -12,9 +12,9 @@ module.exports = {
   plugins: ["vue"],
   rules: {
     "vue/multi-word-component-names": [
-      "error",
+      "off",
       {
-        ignores: ["Header", "Footer"],
+        ignores: ["Navigation", "Header", "Footer"],
       },
     ],
   },

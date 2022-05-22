@@ -1,4 +1,4 @@
-<template >
+<template>
   <header class="section section-hero">
     <h1 class="section-hero__title">En 2022,<br />Nous sommes de <span class="underlined">retour&nbsp;!</span></h1>
     <div class="section-hero__place">
@@ -12,7 +12,7 @@
     <section-title
       tag="h2"
       class="section-hero__invitation"
-    >Et on a hâte de vous y (re)voir !</section-title>
+    >Et on a hâte de vous y (re)voir&nbsp;!</section-title>
   </header>
 </template>
 

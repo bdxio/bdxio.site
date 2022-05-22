@@ -47,3 +47,7 @@
   position: relative;
   @include z-index(relative)
 }
+
+@mixin transition() {
+  transition: all 0.5s ease-in;
+}

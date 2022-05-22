@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background: $light;
+  font-family: $font-family-body;
+  font-size: $font-size-content;
+  line-height: 34px;
+  color: $primary-dark;
+}
+
+h1 {
+  line-height: 1.3;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-family-title;
+  font-size: $font-size-title;
+  line-height: 40px;
+
+  @include mobileFirst(m) {
+    line-height: 50px;
+  }
+}
+
+main {
+  min-height: calc(100vh - 18rem);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.background-primary {
+  background: $primary;
+}
+
+.text-light {
+  color: $light-font;
+
+  & > * {
+    color: $light-font;
+  }
+}
+
+.text-dark {
+  color: $dark-font;
+
+  & > * {
+    color: $dark-font;
+  }
+}
+
+.cursor {
+  &--pointer {
+    cursor: pointer;
+  }
+}
+
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.display {
+  &--block { display: block; }
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  padding: 4rem 2rem;
+
+  @include mobileFirst(m) {
+    padding: 4rem;
+  }
+
+  @include mobileFirst(l) {
+    padding: 5rem;
+  }
+
+  @include mobileFirst(xl) {
+    padding: 6rem;
+  }
+
+  @include mobileFirst(xxl) {
+    padding: 7rem;
+  }
+
+  @include mobileFirst(xxxl) {
+    padding: 8rem;
+  }
+}

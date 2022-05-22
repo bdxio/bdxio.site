@@ -1,37 +1,41 @@
-import { generateSetters } from '~/utils/storeUtils';
-
 export const state = () => ({
-  toasts: [],
+  toast: null,
 });
 
+export const getters = {
+  toast: (state) => state.toast,
+};
+
 export const mutations = {
-  ...generateSetters(state()),
+  SET_TOAST: (state, toast) => {
+    state.toast = toast;
+
+    console.log(state);
+    return;
+  },
+  RESET_TOAST: (state) => (state.toast = null),
 };
 
 export const actions = {
   addToast({ state, commit }, payload) {
-    const message = payload.message || payload;
-    let type = payload.type || 'default';
-    const duration = payload.duration || 3000;
-    const currentStamp = Date.now();
+    console.log(state);
+    if (state.toast) {
+      commit("RESET_TOAST");
+    }
 
-    commit('setToasts', [
-        ...state.toasts,
-        {
-            timestamp: currentStamp,
-            message,
-            type,
-        }
-    ]);
+    const { message = null, type = "default", duration = 3000 } = payload;
+
+    if (!message) {
+      return;
+    }
+
+    commit("SET_TOAST", {
+      message,
+      type,
+    });
+
     setTimeout(() => {
-        const toasts = [...state.toasts];
-        const indexToDelete = toasts.findIndex(({timestamp}) => timestamp === currentStamp);
-        if (indexToDelete > -1) {
-            toasts.splice(indexToDelete, 1);
-            commit('setToasts', toasts);
-        } else {
-            console.error(`The toast with the message "${message}" could not be found and has not been deleted.`);
-        }
+      commit("RESET_TOAST");
     }, duration);
   },
-}
+};
