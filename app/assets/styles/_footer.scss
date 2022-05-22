@@ -99,7 +99,7 @@ footer {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      @include z-index(upper);
+      @include z-index(modal);
   
       &:before {
         content: "";

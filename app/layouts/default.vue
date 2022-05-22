@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div v-if="toast" class="toast" :class="`toast--${toast.type}`">
-      {{ toast.message || "toooooooast" }}
+    <div class="toast" :class="{ active: toast }">
+      <div
+        v-if="toast"
+        class="toast__item"
+        :class="`toast__item--${toast.type}`"
+      >
+        {{ toast.message }}
+      </div>
     </div>
     <Header :show-navigation="showNavigation" />
     <Nuxt />
@@ -10,7 +16,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import Header from "~/components/layout/Header.vue";
 import Footer from "~/components/layout/Footer.vue";
 
@@ -21,17 +26,12 @@ export default {
     Footer,
   },
   computed: {
-    ...mapGetters({
-      toast: "toast/toast",
-    }),
     showNavigation() {
       return this.$showNavigation ?? false;
+    },
+    toast() {
+      return this.$store.state.toast.toast;
     },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.toast {
-}
-</style>

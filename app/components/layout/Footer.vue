@@ -133,18 +133,18 @@ export default {
   },
   methods: {
     ...mapActions({
-      addToast: "toast/addToast",
+      addToast: "toast/add",
+      resetToast: "toast/reset",
     }),
-    registerNewsletter() {
+    async registerNewsletter() {
       if (!this.mail) {
         return;
       }
 
       if (!this.validateEmail(this.mail)) {
-        console.log("IM CALLING 1");
         this.addToast({
           message: "Merci d'utiliser un format d'adrese email valide !",
-          type: "success",
+          type: "error",
         });
         return;
       }

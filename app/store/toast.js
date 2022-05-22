@@ -1,41 +1,34 @@
 export const state = () => ({
   toast: null,
+  duration: 6000,
 });
 
-export const getters = {
-  toast: (state) => state.toast,
-};
-
 export const mutations = {
-  SET_TOAST: (state, toast) => {
-    state.toast = toast;
-
-    console.log(state);
-    return;
+  ADD: (state, payload) => {
+    state.toast = payload;
   },
-  RESET_TOAST: (state) => (state.toast = null),
+  RESET: (state) => (state.toast = null),
 };
 
 export const actions = {
-  addToast({ state, commit }, payload) {
-    console.log(state);
+  add({ commit, dispatch, state }, payload) {
     if (state.toast) {
-      commit("RESET_TOAST");
+      dispatch("reset");
     }
 
-    const { message = null, type = "default", duration = 3000 } = payload;
+    const { message = null, type = "default" } = payload;
 
     if (!message) {
       return;
     }
 
-    commit("SET_TOAST", {
-      message,
-      type,
-    });
+    commit("ADD", { type, message });
 
     setTimeout(() => {
-      commit("RESET_TOAST");
-    }, duration);
+      dispatch("reset");
+    }, state.duration);
+  },
+  reset({ commit }) {
+    commit("RESET");
   },
 };
