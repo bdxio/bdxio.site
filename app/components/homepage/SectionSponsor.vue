@@ -12,7 +12,7 @@
         color="light"
       >Embarquez avec nous dans l'aventure !</section-title>
       <p>
-        Vous souhaitez devenir sponsor de cette nouvelle édition ? <br />
+        Vous souhaitez devenir sponsor de cette nouvelle édition&nbsp;? <br />
         En cliquant sur le bouton ci-dessous vous trouverez toutes les
         informations nécessaires.
       </p>

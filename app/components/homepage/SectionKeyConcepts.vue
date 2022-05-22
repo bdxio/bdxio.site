@@ -26,7 +26,7 @@
         <VCounter :value="40" />
       </p>
       <p class="concept">conférences</p>
-      <p class="content">Une répartition à 50% de bordelais !</p>
+      <p class="content">Une répartition à 50% de bordelais&nbsp;!</p>
     </div>
     <div class="picture picture-mascotte2" />
     <div class="picture picture-speaker" />
@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .section-key-concepts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 50%);
   grid-template-areas:
     "pic-amphi data-amphis"
     "data-themes pic-conversation"

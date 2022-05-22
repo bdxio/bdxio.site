@@ -1,6 +1,6 @@
 <template>
   <section class="section section-become-sponsor">
-    <section-title tag="h2">Pourquoi devenir <span class="sponsor">Sponsor</span> ?</section-title>
+    <section-title tag="h2">Pourquoi devenir <span class="sponsor">Sponsor</span>&nbsp;?</section-title>
     <ul class="reasons">
       <li class="reason one">
         <p class="number">1</p>
