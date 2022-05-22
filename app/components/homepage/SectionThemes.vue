@@ -166,7 +166,21 @@ export default {
         background-image: url("~/assets/img/drawings/themes/theme-4.png");
       }
       &--5 {
-        background-image: url("~/assets/img/drawings/themes/theme-5.png");
+        position: relative;
+        z-index: 1;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.4;
+          z-index: -1;
+          background-image: url("~/assets/img/drawings/themes/theme-5.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
       }
       &--6 {
         background-image: url("~/assets/img/drawings/themes/theme-6.png");

@@ -8,7 +8,7 @@
       <section-title
         tag="h3"
         class="title"
-      >Vous aussi, rejoignez le navire !</section-title>
+      >Vous aussi, rejoignez le navire&nbsp;!</section-title>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
