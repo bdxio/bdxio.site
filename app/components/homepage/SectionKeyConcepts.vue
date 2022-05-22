@@ -1,5 +1,9 @@
 <template>
-  <div tag="section" class="section-key-concepts" no-gutter>
+  <div
+    tag="section"
+    class="section-key-concepts"
+    no-gutter
+  >
     <div class="picture picture-amphi" />
     <div class="info info-amphis card-1">
       <p class="key">
@@ -22,13 +26,16 @@
         <Counter :value="40" />
       </p>
       <p class="concept">conférences</p>
-      <p class="content">Une répartition à 50% de bordelais !</p>
+      <p class="content">Une répartition à 50% de bordelais&nbsp;!</p>
     </div>
     <div class="picture picture-mascotte2" />
     <div class="picture picture-speaker show-s" />
     <div class="info info-attendees card-4">
       <p class="key">
-        <Counter :value="900" :step="25" />
+        <Counter
+          :value="900"
+          :step="25"
+        />
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>
@@ -48,16 +55,13 @@ export default {
 
 <style lang="scss" scoped>
 .section-key-concepts {
-  @include mobileFirst(xs) {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "pic-amphi data-amphis"
-      "data-themes pic-conversation"
-      "pic-mascotte data-conferences"
-      "data-attendees pic-speaker";
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    "pic-amphi data-amphis"
+    "data-themes pic-conversation"
+    "pic-mascotte data-conferences"
+    "data-attendees pic-speaker";
 
   @include mobileFirst(m) {
     grid-template-columns: repeat(6, 1fr);

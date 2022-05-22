@@ -1,16 +1,18 @@
 <template>
   <header class="section section-hero">
-    <h1 class="section-hero__title">
-      En 2022,<br />Nous sommes de retour&nbsp;!
-    </h1>
+    <h1 class="section-hero__title">En 2022,<br />Nous sommes de <span class="underlined">retour&nbsp;!</span></h1>
     <div class="section-hero__place">
       On se retrouve au Palais des Congrès <br />
       de Bordeaux Lac
     </div>
-    <time class="section-hero__date" datetime="2022-12-02">02/12/2022</time>
-    <section-title tag="h2" class="section-hero__invitation"
-      >Et on a hâte de vous y (re)voir&nbsp;!</section-title
-    >
+    <time
+      class="section-hero__date"
+      datetime="2022-12-02"
+    >02/12/2022</time>
+    <section-title
+      tag="h2"
+      class="section-hero__invitation"
+    >Et on a hâte de vous y (re)voir&nbsp;!</section-title>
   </header>
 </template>
 
@@ -30,22 +32,28 @@ export default {
   text-align: center;
   // padding: $spc-l;
 
-  &__title {
+  .underlined {
     position: relative;
-    font-size: 35px;
-    margin-top: 0;
-
     &:after {
       content: "";
       display: block;
       position: absolute;
       width: 150px;
       height: 30px;
-      right: 20px;
+      right: 0;
+      left: 0;
       bottom: -20px;
+      // right: 20px;
+      // bottom: -20px;
       background: url("~/assets/img/drawings/yellow_line_1.png") no-repeat
         center / cover;
     }
+  }
+
+  &__title {
+    position: relative;
+    font-size: 35px;
+    margin-top: 0;
   }
 
   &__place {
