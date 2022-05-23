@@ -106,13 +106,11 @@ footer {
         position: fixed;
         width: 100%;
         height: 100%;
-        background: #242457;
-        opacity: 0.95;
+        background: $grey-300;
         @include z-index(negative);
       }
   
       .label {
-        color: $light;
         font-size: 14px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -123,37 +121,44 @@ footer {
         border: 0;
         padding-bottom: 5px;
         font-size: 24px;
-        color: $primary-light;
-        border-bottom: 1px solid $primary-light;
+        color: $dark-font;
+        border-bottom: 1px solid $dark-font;
         text-align: center;
         margin: $spc-xxs 0 $spc-m 0;
         @include transition();
-  
-        &.filled {
-          color: $yellow;
-          border-bottom: 1px solid $yellow;
-        }
-  
+
         &::placeholder {
           padding-bottom: 5px;
+          color: $dark-font;
+          border-bottom: 1px solid $dark-font;
+          opacity: 0.5;
+        }
+
+        &.valid {
           color: $primary-light;
           border-bottom: 1px solid $primary-light;
         }
-
+  
         @include mobileFirst(m) {
           font-size: 30px;
         }
       }
   
-      .button {
-      }
-
       &__close {
         position: absolute;
         @include z-index(upper);
         right: $spc-m;
         top: $spc-m;
         cursor: pointer;
+      }
+
+
+      .feedback {
+        font-size: 16px;
+
+        &--error {
+          color: $orange;
+        }
       }
     }
   }

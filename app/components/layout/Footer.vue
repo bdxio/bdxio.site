@@ -68,7 +68,7 @@
             @submit.prevent="registerNewsletter"
           >
             <img
-              src="~/assets/img/icons/close.svg"
+              src="~/assets/img/icons/close-blue.svg"
               alt="icone pour fermer le formulaire d'ajout d'email à la newsletter"
               class="newsletter__form__close"
               @click="showEmailForm = false"
@@ -77,8 +77,7 @@
             <input
               v-model="mail"
               class="input"
-              :class="inputClass"
-              type="email"
+              :class="{ valid: validateEmail(mail) }"
               name="email"
               placeholder="hello@email.com"
               size="30"
@@ -86,7 +85,7 @@
             />
             <button
               class="button"
-              :class="buttonNewsletterClass"
+              :class="{ disabled: !disabledButton }"
               type="submit"
               :disabled="!mail"
             >
@@ -106,6 +105,8 @@
 
 <script>
 import { mapActions } from "vuex";
+import jsonp from "jsonp";
+
 import Navigation from "~/components/layout/Navigation.vue";
 
 export default {
@@ -124,35 +125,55 @@ export default {
     };
   },
   computed: {
-    inputClass() {
-      return this.mail ? "filled" : "";
-    },
-    buttonNewsletterClass() {
-      return !this.mail ? "disabled" : "";
+    disabledButton() {
+      if (!this.mail) {
+        return false;
+      }
+
+      return this.validateEmail(this.mail);
     },
   },
   methods: {
     ...mapActions({
-      addToast: "toast/add",
-      resetToast: "toast/reset",
+      addToast: "toaster/add",
+      resetToast: "toaster/reset",
     }),
-    async registerNewsletter() {
-      if (!this.mail) {
+    registerNewsletter() {
+      if (!this.mail || !this.validateEmail(this.mail)) {
         return;
       }
 
-      if (!this.validateEmail(this.mail)) {
-        this.addToast({
-          message: "Merci d'utiliser un format d'adrese email valide !",
-          type: "error",
-        });
-        return;
-      }
+      const url = `https://bdx.us10.list-manage.com/subscribe/post-json?u=3fdd02789fbab2f90b81652a3&id=760c78a462&EMAIL=${this.mail}`;
 
-      this.addToast({
-        message: "Votre email a bien été enregistré dans la newsletter",
-        type: "success",
-      });
+      jsonp(
+        url,
+        {
+          param: "c",
+        },
+        (error, data) => {
+          if (error) {
+            this.addToast({
+              type: error.result,
+              message:
+                error.msg ||
+                "Une erreur est survenue lors de l'inscription de votre email à la newsletter. Merci de réessayer ultérieurement",
+            });
+            return;
+          }
+
+          if (data && data.result !== "success") {
+            console.log("RESPONSE", data);
+            return;
+          }
+
+          this.addToast = {
+            type: "success",
+            message: "Votre email a bien été enregistré dans la newsletter",
+          };
+          this.mail = null;
+          this.showEmailForm = false;
+        }
+      );
     },
     validateEmail(email) {
       if (!email) {
