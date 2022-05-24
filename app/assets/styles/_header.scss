@@ -4,13 +4,6 @@
   align-items: center;
   padding: $spc-m 0px;
 
-  &.light {
-    background-color: $primary-dark;
-  }
-
-  &.dark {
-    background-color: $light-font;
-  }
 
   @include mobileFirst(m) {
     padding: 30px 50px;
@@ -32,7 +25,6 @@
     top: 0;
     right: 100%;
     bottom: 0;
-    background-color: $primary-dark;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,8 +32,6 @@
     &.mobile-open {
       right: 0;
     }
-
-
 
     ul {
       display: flex;
@@ -82,10 +72,6 @@
           align-items: center;
         }
 
-        a {
-          color: $light-font;
-        }
-
         img {
           height: 3em;
           transition: 0.3s;
@@ -98,14 +84,6 @@
     }
 
 
-
-    &.dark a {
-      color: $primary-dark;
-    }
-
-    &.light a {
-      color: $light-font;
-    }
 
     @include mobileFirst(m) {
       position: initial;
@@ -137,6 +115,38 @@
     display: none;
     @include mobileFirst(m) {
       display: block;
+    }
+  }
+}
+
+.header.light {
+  background-color: $white;
+    
+  .header__nav {
+    background-color: $white;
+
+    @include mobileFirst(m) {
+      background: none;
+    }
+
+    a {
+      color: $primary-dark;
+    }
+  }
+}
+
+.header.dark {
+  background-color: $primary-dark;
+
+  .header__nav {
+    background-color: $primary-dark;
+
+    @include mobileFirst(m) {
+      background: none;
+    }
+
+    a {
+      color: $light;
     }
   }
 }

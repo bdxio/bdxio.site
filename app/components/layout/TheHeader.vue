@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="color">
+  <header class="header" :class="background">
     <NuxtLink class="logo" to="/">
       <img
         src="~/assets/img/bdxio_logo.png"
@@ -10,14 +10,22 @@
     <div v-if="showNavigation">
       <img
         v-if="mobileOpen"
-        src="~/assets/img/icons/close.svg"
+        :src="
+          background === 'light'
+            ? require('~/assets/img/icons/close_blue.svg')
+            : require('~/assets/img/icons/close.svg')
+        "
         alt="icone pour ouvrir le menu sur mobile"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
       <img
         v-else
-        src="~/assets/img/icons/burger.svg"
+        :src="
+          background === 'light'
+            ? require('~/assets/img/icons/burger_blue.svg')
+            : require('~/assets/img/icons/burger.svg')
+        "
         alt="icone pour fermer le menu sur mobile"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
@@ -43,7 +51,7 @@ export default {
     };
   },
   props: {
-    color: {
+    background: {
       type: String,
       required: false,
       default: "light",
@@ -52,7 +60,7 @@ export default {
   },
   computed: {
     propClasses() {
-      let classes = this.color;
+      let classes = this.background;
 
       if (this.mobileOpen) {
         classes += " mobile-open";
@@ -60,6 +68,7 @@ export default {
       return classes;
     },
     showNavigation() {
+      console.log(this.$showNavigation);
       return this.$showNavigation ?? false;
     },
   },

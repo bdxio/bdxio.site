@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheToaster />
-    <TheHeader />
+    <TheHeader :background="headerBackgroundColor" />
     <Nuxt />
     <TheFooter />
   </div>
@@ -18,6 +18,11 @@ export default {
     TheToaster,
     TheHeader,
     TheFooter,
+  },
+  computed: {
+    headerBackgroundColor() {
+      return this.$route.name === "index" ? "dark" : "light";
+    },
   },
 };
 </script>
