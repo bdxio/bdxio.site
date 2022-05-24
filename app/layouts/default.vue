@@ -1,8 +1,13 @@
 <template>
   <div>
-    <div v-if="toast" class="toast" :class="`toast--${toast.type}`">
-      {{ toast.message || "toooooooast" }}
+    <div
+      class="cursor--pointer toaster"
+      :class="toastClass"
+      @click="resetToast"
+    >
+      <div v-if="toast" class="toaster__toast">{{ toast.message }}</div>
     </div>
+
     <Header :show-navigation="showNavigation" />
     <Nuxt />
     <Footer :show-navigation="showNavigation" />
@@ -10,7 +15,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState, mapActions } from "vuex";
+
 import Header from "~/components/layout/Header.vue";
 import Footer from "~/components/layout/Footer.vue";
 
@@ -21,17 +27,24 @@ export default {
     Footer,
   },
   computed: {
-    ...mapGetters({
-      toast: "toast/toast",
+    ...mapState({
+      toast: (state) => state.toaster.toast,
     }),
     showNavigation() {
       return this.$showNavigation ?? false;
     },
+    toastClass() {
+      if (!this.toast) {
+        return;
+      }
+
+      return `active toaster--${this.toast.type}`;
+    },
+  },
+  methods: {
+    ...mapActions({
+      resetToast: "toaster/resetToast",
+    }),
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.toast {
-}
-</style>

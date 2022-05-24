@@ -1,0 +1,42 @@
+@keyframes toastAnimation {
+  from { top: -200px; }
+  25% { top: 50px; }
+  75% { top: 50px; }
+  to { top: -200px }
+}
+
+.toaster {
+  width: 100%;
+  max-width: 400px;
+  position: fixed;
+  color: $light-font;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  @include z-index(upper);
+  @include transition;  
+
+  &--error { 
+    background-color: $orange;
+  }
+
+  &--success {
+    background-color: $green;
+  }
+
+  &__toast {
+    padding: 15px 30px;
+    margin: 0;
+    font-size: 16px;
+    line-height: initial;
+
+    @include mobileFirst(m) {
+      font-size: 18px;
+    }
+  }
+
+  &.active {
+    animation: toastAnimation 3s ease-in;
+  }
+}

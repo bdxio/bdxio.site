@@ -8,8 +8,17 @@
       />
     </NuxtLink>
     <div v-if="showMenu">
-      <IconBurger
-        :open="mobileOpen"
+      <img
+        v-if="mobileOpen"
+        src="~/assets/img/icons/close.svg"
+        alt="icone pour ouvrir le menu sur mobile"
+        class="header__burger hidden-m"
+        @click="mobileOpen = !mobileOpen"
+      />
+      <img
+        v-else
+        src="~/assets/img/icons/burger.svg"
+        alt="icone pour fermer le menu sur mobile"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
@@ -21,13 +30,13 @@
 </template>
 
 <script>
-import IconBurger from "~/components/layout/IconBurger.vue";
+// import IconBurger from "~/components/layout/IconBurger.vue";
 import Navigation from "./Navigation.vue";
 
 export default {
   name: "Header",
   components: {
-    IconBurger,
+    // IconBurger,
     Navigation,
   },
   data() {

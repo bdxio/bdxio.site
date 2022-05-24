@@ -19,7 +19,7 @@
 
   &__burger {
     position: absolute;
-    @include z-index(upper);
+    @include z-index(  modal);
     right: $spc-m;
     top: $spc-m;
     cursor: pointer;
