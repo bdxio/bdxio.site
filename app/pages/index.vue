@@ -5,22 +5,14 @@
     <section-about />
     <section-themes />
     <flex-container no-gutter>
-      <flex-item
-        s12
-        m6
-        class="sponsor-container"
-      >
+      <flex-item s12 m6 class="sponsor-container">
         <section-sponsor />
       </flex-item>
-      <flex-item
-        s12
-        m6
-        class="speaker-container"
-      >
+      <flex-item s12 m6 class="speaker-container">
         <section-speaker />
       </flex-item>
     </flex-container>
-    <section-news />
+    <!-- <section-news /> -->
     <section-sponsors />
     <section-guidage />
   </main>
@@ -32,7 +24,7 @@ import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
 import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
-import SectionNews from "~/components/homepage/SectionNews";
+// import SectionNews from "~/components/homepage/SectionNews";
 import SectionThemes from "~/components/homepage/SectionThemes";
 import SectionSponsor from "../components/homepage/SectionSponsor";
 import SectionSpeaker from "../components/homepage/SectionSpeaker";
@@ -58,7 +50,7 @@ export default {
     SectionHero,
     SectionKeyConcepts,
     SectionSponsors,
-    SectionNews,
+    // SectionNews,
     SectionGuidage,
     SectionThemes,
     SectionSpeaker,
