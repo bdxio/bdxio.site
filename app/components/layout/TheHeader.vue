@@ -7,7 +7,7 @@
         class="display--block"
       />
     </NuxtLink>
-    <div v-if="showMenu">
+    <div v-if="showNavigation">
       <img
         v-if="mobileOpen"
         src="~/assets/img/icons/close.svg"
@@ -23,26 +23,23 @@
         @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">
-        <Navigation />
+        <TheNavigation />
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-// import IconBurger from "~/components/layout/IconBurger.vue";
-import Navigation from "./Navigation.vue";
+import TheNavigation from "./TheNavigation.vue";
 
 export default {
-  name: "Header",
+  name: "TheHeader",
   components: {
-    // IconBurger,
-    Navigation,
+    TheNavigation,
   },
   data() {
     return {
       mobileOpen: false,
-      showMenu: true,
     };
   },
   props: {
@@ -51,10 +48,6 @@ export default {
       required: false,
       default: "light",
       validator: (value) => ["light", "dark"].includes(value),
-    },
-    showNavigation: {
-      type: Boolean,
-      required: true,
     },
   },
   computed: {
@@ -65,6 +58,9 @@ export default {
         classes += " mobile-open";
       }
       return classes;
+    },
+    showNavigation() {
+      return this.$showNavigation ?? false;
     },
   },
   methods: {
