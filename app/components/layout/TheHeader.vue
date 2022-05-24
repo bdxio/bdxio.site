@@ -68,7 +68,6 @@ export default {
       return classes;
     },
     showNavigation() {
-      console.log(this.$showNavigation);
       return this.$showNavigation ?? false;
     },
   },

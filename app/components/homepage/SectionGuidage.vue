@@ -1,13 +1,17 @@
-<template >
+<template>
   <section class="section guidage">
     <div class="text-container">
       <div class="infos">
         <section-title tag="h2">Guidage</section-title>
-        <section-title tag="h3">Comment rejoindre<br />l'évènement ?</section-title>
+        <section-title tag="h3"
+          >Comment rejoindre<br />l'évènement ?</section-title
+        >
         <div class="address-container">
           <span class="title">Palais des congrès</span>
-          <span class="description">Avenue Jean Gabriel Domergue <br />
-            33300 BORDEAUX</span>
+          <span class="description"
+            >Avenue Jean Gabriel Domergue <br />
+            33300 BORDEAUX</span
+          >
         </div>
 
         <div>
@@ -20,13 +24,13 @@
           <span class="description">Parking gratuit sur place</span>
         </div>
       </div>
-      <span class="legend">À seulement 10 min de Bordeaux !</span>
+      <span class="show-m legend">À seulement 10 min de Bordeaux !</span>
     </div>
   </section>
 </template>
 
 <script>
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "~/components/SectionTitle.vue";
 
 export default {
   name: "SectionGuidage",
