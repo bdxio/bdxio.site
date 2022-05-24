@@ -20,6 +20,6 @@
 
 <script>
 export default {
-  name: "Navigation",
+  name: "TheNavigation",
 };
 </script>

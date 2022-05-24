@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="color">
+  <header class="header" :class="background">
     <NuxtLink class="logo" to="/">
       <img
         src="~/assets/img/bdxio_logo.png"
@@ -7,64 +7,69 @@
         class="display--block"
       />
     </NuxtLink>
-    <div v-if="showMenu">
+    <div v-if="showNavigation">
       <img
         v-if="mobileOpen"
-        src="~/assets/img/icons/close.svg"
+        :src="
+          background === 'light'
+            ? require('~/assets/img/icons/close_blue.svg')
+            : require('~/assets/img/icons/close.svg')
+        "
         alt="icone pour ouvrir le menu sur mobile"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
       <img
         v-else
-        src="~/assets/img/icons/burger.svg"
+        :src="
+          background === 'light'
+            ? require('~/assets/img/icons/burger_blue.svg')
+            : require('~/assets/img/icons/burger.svg')
+        "
         alt="icone pour fermer le menu sur mobile"
         class="header__burger hidden-m"
         @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">
-        <Navigation />
+        <TheNavigation />
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-// import IconBurger from "~/components/layout/IconBurger.vue";
-import Navigation from "./Navigation.vue";
+import TheNavigation from "./TheNavigation.vue";
 
 export default {
-  name: "Header",
+  name: "TheHeader",
   components: {
-    // IconBurger,
-    Navigation,
+    TheNavigation,
   },
   data() {
     return {
       mobileOpen: false,
-      showMenu: true,
     };
   },
   props: {
-    color: {
+    background: {
       type: String,
       required: false,
       default: "light",
       validator: (value) => ["light", "dark"].includes(value),
     },
-    showNavigation: {
-      type: Boolean,
-      required: true,
-    },
   },
   computed: {
     propClasses() {
-      let classes = this.color;
+      let classes = this.background;
 
       if (this.mobileOpen) {
         classes += " mobile-open";
       }
       return classes;
+    },
+    showNavigation() {
+      console.log(this.$showNavigation);
+      return this.$showNavigation ?? false;
     },
   },
   methods: {

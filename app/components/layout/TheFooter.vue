@@ -53,8 +53,8 @@
           </a>
         </li>
       </ul>
-      <div class="links">
-        <Navigation />
+      <div class="links" v-if="showNavigation">
+        <TheNavigation />
       </div>
       <ul class="newsletter">
         <li>
@@ -68,7 +68,7 @@
             @submit.prevent="registerNewsletter"
           >
             <img
-              src="~/assets/img/icons/close-blue.svg"
+              src="~/assets/img/icons/close_blue.svg"
               alt="icone pour fermer le formulaire d'ajout d'email à la newsletter"
               class="newsletter__form__close"
               @click="showEmailForm = false"
@@ -107,17 +107,11 @@
 import { mapActions } from "vuex";
 import jsonp from "jsonp";
 
-import Navigation from "~/components/layout/Navigation.vue";
+import TheNavigation from "~/components/layout/TheNavigation.vue";
 
 export default {
-  name: "Footer",
-  components: { Navigation },
-  props: {
-    showNavigation: {
-      type: Boolean,
-      required: true,
-    },
-  },
+  name: "TheFooter",
+  components: { TheNavigation },
   data() {
     return {
       mail: null,
@@ -131,6 +125,9 @@ export default {
       }
 
       return this.validateEmail(this.mail);
+    },
+    showNavigation() {
+      return this.$showNavigation ?? false;
     },
   },
   methods: {

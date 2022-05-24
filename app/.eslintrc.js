@@ -10,13 +10,6 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["vue"],
-  rules: {
-    "vue/multi-word-component-names": [
-      "off",
-      {
-        ignores: ["Navigation", "Header", "Footer"],
-      },
-    ],
-  },
+  rules: {},
   root: true,
 };
