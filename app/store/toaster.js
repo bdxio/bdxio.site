@@ -1,12 +1,6 @@
-const duration = 3000;
-
 export const state = () => ({
   toast: null,
 });
-
-export const getters = {
-  toast: (state) => state.toast,
-};
 
 export const mutations = {
   ADD_TOAST: (state, payload) => (state.toast = payload),
@@ -14,13 +8,14 @@ export const mutations = {
 };
 
 export const actions = {
-  addToast({ commit }, payload) {
-    console.log("NEW TOAST", payload);
-
+  addToast({ commit, dispatch }, payload) {
     commit("ADD_TOAST", payload);
 
     setTimeout(() => {
-      commit("RESET_TOAST");
-    }, duration);
+      dispatch("resetToast");
+    }, 4000);
+  },
+  resetToast({ commit }) {
+    commit("RESET_TOAST");
   },
 };

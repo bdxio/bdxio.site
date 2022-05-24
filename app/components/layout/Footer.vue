@@ -135,8 +135,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      addToast: "toaster/add",
-      resetToast: "toaster/reset",
+      addToast: "toaster/addToast",
     }),
     registerNewsletter() {
       if (!this.mail || !this.validateEmail(this.mail)) {
@@ -158,20 +157,23 @@ export default {
                 error.msg ||
                 "Une erreur est survenue lors de l'inscription de votre email à la newsletter. Merci de réessayer ultérieurement",
             });
+
             return;
           }
 
-          if (data && data.result !== "success") {
-            console.log("RESPONSE", data);
-            return;
-          }
+          this.addToast({
+            type: data.result,
+            message:
+              data.msg ||
+              "Une erreur est survenue lors de l'inscription de votre email à la newsletter. Merci de réessayer ultérieurement",
+          });
 
-          this.addToast = {
-            type: "success",
-            message: "Votre email a bien été enregistré dans la newsletter",
-          };
-          this.mail = null;
-          this.showEmailForm = false;
+          if (data.result !== "error") {
+            setTimeout(() => {
+              this.mail = null;
+              this.showEmailForm = false;
+            }, 1000);
+          }
         }
       );
     },
