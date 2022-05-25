@@ -64,4 +64,7 @@ export default {
     },
     display: "auto",
   },
+  publicRuntimeConfig: {
+    newsletterUrl: process.env.NEWSLETTER_URL ?? null,
+  },
 };

@@ -61,7 +61,7 @@
         <div class="links" v-if="showNavigation">
           <TheNavigation />
         </div>
-        <ul class="newsletter">
+        <ul class="newsletter" v-if="$config.newsletterUrl">
           <li>
             <span @click="showEmailForm = true" class="cursor--pointer"
               >S'incrire à la newsletter</span
@@ -146,7 +146,7 @@ export default {
         return;
       }
 
-      const url = `https://bdx.us10.list-manage.com/subscribe/post-json?u=3fdd02789fbab2f90b81652a3&id=760c78a462&EMAIL=${this.mail}`;
+      const url = `${this.$config.newsletterUrl}&EMAIL=${this.mail}`;
 
       jsonp(
         url,
