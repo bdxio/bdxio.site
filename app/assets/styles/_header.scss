@@ -10,6 +10,12 @@
     justify-content: space-between;
   }
 
+  .logo img {
+    width: 100%;
+    height: auto;
+    max-width: 160px;
+  }
+
   &__burger {
     position: absolute;
     @include z-index(  modal);
