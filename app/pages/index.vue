@@ -12,9 +12,7 @@
         <section-speaker />
       </flex-item>
     </flex-container>
-    <!-- <section-news /> -->
     <section-sponsors />
-    <section-guidage />
   </main>
 </template>
 
@@ -22,9 +20,7 @@
 import SectionHero from "~/components/homepage/SectionHero";
 import SectionAbout from "~/components/homepage/SectionAbout";
 import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
-import SectionGuidage from "~/components/homepage/SectionGuidage";
 import SectionSponsors from "~/components/homepage/SectionSponsors";
-// import SectionNews from "~/components/homepage/SectionNews";
 import SectionThemes from "~/components/homepage/SectionThemes";
 import SectionSponsor from "../components/homepage/SectionSponsor";
 import SectionSpeaker from "../components/homepage/SectionSpeaker";
@@ -33,6 +29,7 @@ import FlexItem from "../components/layout/grid/Flex-item.vue";
 
 export default {
   name: "HomePage",
+  layout: "homepage",
   head() {
     return {
       script: [
@@ -50,8 +47,6 @@ export default {
     SectionHero,
     SectionKeyConcepts,
     SectionSponsors,
-    // SectionNews,
-    SectionGuidage,
     SectionThemes,
     SectionSpeaker,
     SectionSponsor,
