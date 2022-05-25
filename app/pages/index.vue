@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import SectionHero from "~/components/homepage/SectionHero";
-import SectionAbout from "~/components/homepage/SectionAbout";
-import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts";
-import SectionSponsors from "~/components/homepage/SectionSponsors";
-import SectionThemes from "~/components/homepage/SectionThemes";
-import SectionSponsor from "../components/homepage/SectionSponsor";
-import SectionSpeaker from "../components/homepage/SectionSpeaker";
+import SectionHero from "~/components/homepage/SectionHero.vue";
+import SectionAbout from "~/components/homepage/SectionAbout.vue";
+import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts.vue";
+import SectionSponsors from "~/components/homepage/SectionSponsors.vue";
+import SectionThemes from "~/components/homepage/SectionThemes.vue";
+import SectionSponsor from "../components/homepage/SectionSponsor.vue";
+import SectionSpeaker from "../components/homepage/SectionSpeaker.vue";
 import FlexContainer from "../components/layout/grid/Flex-container.vue";
 import FlexItem from "../components/layout/grid/Flex-item.vue";
 
