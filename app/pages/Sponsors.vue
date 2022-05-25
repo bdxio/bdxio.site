@@ -11,6 +11,7 @@ import SectionGuidage from "~/components/homepage/SectionGuidage";
 
 export default {
   name: "SponsorsPage",
+  layout: "page",
   head() {
     return {
       title: "Sponsors | BDX I/O",
