@@ -48,7 +48,7 @@ export default {
 
   .text-container {
     position: relative;
-    padding-bottom: 300px;
+    padding-bottom: 450px;
 
     @include mobileFirst(s) {
       padding-bottom: 0;
@@ -78,7 +78,7 @@ export default {
   }
 
   .legend {
-    font-style: italic;
+    font-style: $font-style-italic;
     position: absolute;
     right: 0;
 

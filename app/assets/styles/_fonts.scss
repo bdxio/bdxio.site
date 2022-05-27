@@ -1,0 +1,69 @@
+/*
+* LATO
+*/ 
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~/assets/fonts/Lato-BoldItalic.ttf') format('truetype');
+}
+
+/*
+* MERRIWEATHER
+*/
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~/assets/fonts/Merriweather-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~/assets/fonts/Merriweather-BoldItalic.ttf') format('truetype');
+}

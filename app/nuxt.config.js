@@ -86,18 +86,11 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/style-resources"],
+  modules: ["@nuxtjs/style-resources"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  googleFonts: {
-    families: {
-      Lato: true,
-      Merriweather: true,
-    },
-    display: "auto",
-  },
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
   },
