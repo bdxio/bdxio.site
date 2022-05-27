@@ -3,24 +3,30 @@
     <section-guidage />
     <footer class="section">
       <div class="bdxio">
-        <NuxtLink class="logo" to="/">
+        <nuxt-link class="logo" to="/">
           <img
             src="~/assets/img/bdxio_logo.png"
             alt="Logo de l'association BDX.IO"
           />
           <span>Bordeaux Developers eXperience</span>
-        </NuxtLink>
+        </nuxt-link>
       </div>
       <div class="content">
         <div class="location">
-          <span class="location-name">Palais des congrès</span>
-          <span class="location-address"
-            >Avenue Jean Gabriel Domergue<br />33300 BORDEAUX</span
-          >
+          <a href="https://goo.gl/maps/aScUymM4T4DqeBvz8" target="_blank">
+            <span class="location-name">Palais des congrès</span><br />
+            <span class="location-address"
+              >Avenue Jean Gabriel Domergue<br />33300 BORDEAUX</span
+            >
+          </a>
         </div>
         <ul class="contact">
-          <li class="email">team@bdxio.fr</li>
-          <li class="email">partenariats@bdxio.fr</li>
+          <li class="email">
+            <a href="mailto:team@bdxio.fr">team@bdxio.fr</a>
+          </li>
+          <li class="email">
+            <a href="mailto:partenariats@bdxio.fr">partenariats@bdxio.fr</a>
+          </li>
         </ul>
         <ul class="social">
           <li>
@@ -59,7 +65,7 @@
           </li>
         </ul>
         <div class="links" v-if="showNavigation">
-          <TheNavigation />
+          <the-navigation />
         </div>
         <ul class="newsletter" v-if="$config.newsletterUrl">
           <li>
@@ -101,8 +107,8 @@
         </ul>
       </div>
       <div class="legal">
-        <small>Code de conduite</small>
-        <small>Kit communication</small>
+        <nuxt-link to="/conduct"><small>Code de conduite</small></nuxt-link>
+        <!-- <small>Kit communication</small> -->
         <small>©2022 - BDX I/O</small>
       </div>
     </footer>
@@ -113,12 +119,8 @@
 import { mapActions } from "vuex";
 import jsonp from "jsonp";
 
-import SectionGuidage from "~/components/homepage/SectionGuidage";
-import TheNavigation from "~/components/layout/TheNavigation.vue";
-
 export default {
   name: "TheFooter",
-  components: { TheNavigation, SectionGuidage },
   data() {
     return {
       mail: null,

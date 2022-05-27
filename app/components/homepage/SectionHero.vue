@@ -1,18 +1,16 @@
 <template>
   <header class="section section-hero">
-    <h1 class="section-hero__title">En 2022,<br />Nous sommes de <span class="underlined">retour&nbsp;!</span></h1>
+    <h1 class="section-hero__title">
+      En 2022,<br />Nous sommes de <span class="underlined">retour&nbsp;!</span>
+    </h1>
     <div class="section-hero__place">
       On se retrouve au Palais des Congrès <br />
       de Bordeaux Lac
     </div>
-    <time
-      class="section-hero__date"
-      datetime="2022-12-02"
-    >02/12/2022</time>
-    <section-title
-      tag="h2"
-      class="section-hero__invitation"
-    >Et on a hâte de vous y (re)voir&nbsp;!</section-title>
+    <time class="section-hero__date" datetime="2022-12-02">02/12/2022</time>
+    <section-title tag="h2" class="section-hero__invitation"
+      >Et on a hâte de vous y (re)voir&nbsp;!</section-title
+    >
   </header>
 </template>
 
@@ -43,8 +41,6 @@ export default {
       right: 0;
       left: 0;
       bottom: -20px;
-      // right: 20px;
-      // bottom: -20px;
       background: url("~/assets/img/drawings/yellow_line_1.png") no-repeat
         center / cover;
     }
@@ -77,12 +73,7 @@ export default {
     margin-bottom: 0;
   }
 
-  // @include mobileFirst(s) {
-  //   padding: $spc-l 80px;
-  // }
-
   @include mobileFirst(m) {
-    // padding: 100px 0;
     &__title {
       font-size: 42px;
 

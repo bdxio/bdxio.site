@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Counter",
+  name: "TheCounter",
   props: {
     value: {
       type: Number,
@@ -48,5 +48,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

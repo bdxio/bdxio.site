@@ -1,12 +1,12 @@
 <template>
   <header class="header" :class="background">
-    <NuxtLink class="logo" to="/">
+    <nuxt-link class="logo" to="/">
       <img
         src="~/assets/img/bdxio_logo.png"
         alt="Logo de l'association BDX.IO"
         class="display--block"
       />
-    </NuxtLink>
+    </nuxt-link>
     <div v-if="showNavigation">
       <img
         v-if="mobileOpen"
@@ -31,20 +31,15 @@
         @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">
-        <TheNavigation />
+        <the-navigation />
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-import TheNavigation from "./TheNavigation.vue";
-
 export default {
   name: "TheHeader",
-  components: {
-    TheNavigation,
-  },
   data() {
     return {
       mobileOpen: false,

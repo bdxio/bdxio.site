@@ -41,9 +41,7 @@
 </template>
 
 <script>
-import FlexContainer from "~/components/layout/grid/Flex-container.vue";
 export default {
-  components: { FlexContainer },
   name: "SectionSponsors",
 };
 </script>

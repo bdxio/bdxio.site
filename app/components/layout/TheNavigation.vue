@@ -1,13 +1,13 @@
 <template>
   <ul>
     <li>
-      <NuxtLink to="/">Accueil</NuxtLink>
+      <nuxt-link to="/">Accueil</nuxt-link>
     </li>
     <!-- <li>
           <NuxtLink to="/schedule">Programme</NuxtLink>
         </li> -->
     <li>
-      <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+      <nuxt-link to="/sponsors">Sponsors</nuxt-link>
     </li>
     <!-- <li>
             <NuxtLink to="/team">L'équipe</NuxtLink>

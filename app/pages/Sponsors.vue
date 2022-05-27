@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SectionBecomeSponsor from "~/components/sponsors/SectionBecomeSponsor";
+import SectionBecomeSponsor from "~/components/sponsors/SectionBecomeSponsor.vue";
 
 export default {
   name: "SponsorsPage",
