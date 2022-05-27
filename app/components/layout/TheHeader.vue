@@ -2,7 +2,7 @@
   <header class="header" :class="background">
     <nuxt-link class="logo" to="/">
       <img
-        src="~/assets/img/bdxio_logo.png"
+        src="~/assets/img/bdxio_logo_blue.png"
         alt="Logo de l'association BDX.IO"
         class="display--block"
       />

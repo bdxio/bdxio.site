@@ -5,7 +5,7 @@
       <div class="bdxio">
         <nuxt-link class="logo" to="/">
           <img
-            src="~/assets/img/bdxio_logo.png"
+            src="~/assets/img/bdxio_logo_blue.png"
             alt="Logo de l'association BDX.IO"
           />
           <span>Bordeaux Developers eXperience</span>
