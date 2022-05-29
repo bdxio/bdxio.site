@@ -1,16 +1,16 @@
-# name: Publish
+name: Publish
 
-# on:
-#   push:
-#     branches:
-#       - 2022
+on:
+  push:
+    branches:
+      - 2022
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: enriikke/gatsby-gh-pages-action@v2
-#         with:
-#           access-token: ${{ secrets.ACCESS_TOKEN }}
-#           deploy-branch: master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: master
