@@ -113,7 +113,9 @@ a {
   text-decoration: none;
 
   &:hover, &:focus, &.nuxt-link-exact-active {
-    color: $primary-light;
+    &:not(.button) {
+      color: $primary-light;
+    }
   }
 
 }
