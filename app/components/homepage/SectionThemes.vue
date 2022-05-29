@@ -40,11 +40,7 @@
 </template>
 
 <script>
-import FlexContainer from "~/components/layout/grid/Flex-container";
-import FlexItem from "~/components/layout/grid/Flex-item";
-import SectionTitle from "~/components/SectionTitle";
 export default {
-  components: { SectionTitle, FlexContainer, FlexItem },
   name: "SectionThemes",
 };
 </script>

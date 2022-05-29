@@ -17,8 +17,37 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
+      { name: "msapplication-TileColor", content: "#da532c" },
+      { name: "theme-color", content: "#ffffff" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/favicons/apple-touch-icon.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicons/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/favicons/favicon-16x16.png",
+      },
+      {
+        rel: "manifest",
+        href: "/favicons/site.webmanifest",
+      },
+      {
+        rel: "mask-icon",
+        href: "/favicons/safari-pinned-tab.svg",
+        color: "#5bbad5",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -36,7 +65,12 @@ export default {
   plugins: ["~/plugins/featureFlag.client.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    {
+      path: "~/components", // will get any components nested in let's say /components/test too
+      pathPrefix: false,
+    },
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -52,16 +86,12 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/style-resources"],
+  modules: ["@nuxtjs/style-resources"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  googleFonts: {
-    families: {
-      Lato: true,
-      Merriweather: true,
-    },
-    display: "auto",
+  publicRuntimeConfig: {
+    newsletterUrl: process.env.NEWSLETTER_URL ?? null,
   },
 };

@@ -1,14 +1,9 @@
 footer {
   font-family: "Lato";
   background: $white;
-  color: $black;
   display: flex;
   flex-direction: column;
   padding: 60px 35px;
-
-  a {
-    color: $black;
-  }
 
   .bdxio {
     display: flex;
@@ -32,10 +27,10 @@ footer {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      text-decoration: none;
       font-weight: $font-weight-bold;
       font-size: 23px;
       line-height: 42px;
+      color: $primary-dark;
 
       @include mobileFirst(s) {
         flex-direction: row;
@@ -225,15 +220,6 @@ footer {
       li {
         &:not(:last-of-type) {
           margin-bottom: $spc-m;
-        }
-  
-        a {
-          color: $primary-dark;
-          text-decoration: none;
-  
-          &.nuxt-link-exact-active {
-            color: $primary-light;
-          }
         }
     }
 

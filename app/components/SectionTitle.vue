@@ -39,17 +39,12 @@ export default {
   &--section {
     font-family: $font-family-body;
     font-size: 20px;
-    font-weight: $font-weight-thin;
+    font-weight: $font-weight-light;
     line-height: 24px;
     text-transform: uppercase;
     padding: 0;
     margin: 0;
     letter-spacing: 2px;
-  }
-
-  &--subsection {
-    font-family: $font-family-title;
-    font-size: $font-size-title;
   }
 
   &.dark {

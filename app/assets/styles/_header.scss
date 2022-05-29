@@ -10,6 +10,12 @@
     justify-content: space-between;
   }
 
+  .logo img {
+    width: 100%;
+    height: auto;
+    max-width: 160px;
+  }
+
   &__burger {
     position: absolute;
     @include z-index(  modal);
@@ -40,10 +46,15 @@
       align-items: center;
 
       li {
-        margin: 0; //50px;
+        margin: 0; 
 
         a {
           text-decoration: none;
+          font-size:  25px;
+
+          @include mobileFirst(m) {
+            font-size: $font-size-content;
+          }
 
           &.nuxt-link-exact-active {
             position: relative;

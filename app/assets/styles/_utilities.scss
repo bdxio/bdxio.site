@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 body {
   margin: 0;
   background: $light;
@@ -110,4 +106,16 @@ ul {
   @include mobileFirst(xxxl) {
     padding: 8rem;
   }
+}
+
+a {
+  color: $primary-dark;
+  text-decoration: none;
+
+  &:hover, &:focus, &.nuxt-link-exact-active {
+    &:not(.button) {
+      color: $primary-light;
+    }
+  }
+
 }

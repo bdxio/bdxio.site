@@ -42,14 +42,15 @@
         </p>
       </li>
     </ul>
-    <button class="button">Télecharger la plaquette</button>
+    <a href="/bdxio-2022-sponsors.pdf" class="button" download
+      >Télecharger la plaquette</a
+    >
   </section>
 </template>
 
 <script>
 export default {
   name: "SectionBecoreSponsor",
-  components: {},
 };
 </script>
 

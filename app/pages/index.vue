@@ -12,47 +12,13 @@
         <section-speaker />
       </flex-item>
     </flex-container>
-    <section-sponsors />
   </main>
 </template>
 
 <script>
-import SectionHero from "~/components/homepage/SectionHero.vue";
-import SectionAbout from "~/components/homepage/SectionAbout.vue";
-import SectionKeyConcepts from "~/components/homepage/SectionKeyConcepts.vue";
-import SectionSponsors from "~/components/homepage/SectionSponsors.vue";
-import SectionThemes from "~/components/homepage/SectionThemes.vue";
-import SectionSponsor from "../components/homepage/SectionSponsor.vue";
-import SectionSpeaker from "../components/homepage/SectionSpeaker.vue";
-import FlexContainer from "../components/layout/grid/Flex-container.vue";
-import FlexItem from "../components/layout/grid/Flex-item.vue";
-
 export default {
   name: "HomePage",
   layout: "homepage",
-  head() {
-    return {
-      script: [
-        {
-          src: "https://platform.twitter.com/widgets.js",
-          type: "text/javascript",
-          charset: "utf-8",
-          async: true,
-        },
-      ],
-    };
-  },
-  components: {
-    SectionAbout,
-    SectionHero,
-    SectionKeyConcepts,
-    SectionSponsors,
-    SectionThemes,
-    SectionSpeaker,
-    SectionSponsor,
-    FlexContainer,
-    FlexItem,
-  },
 };
 </script>
 
@@ -104,7 +70,6 @@ h1 {
 }
 
 .subsection {
-  // padding: 4em;
   background: $secondary;
   box-sizing: border-box;
   &:last-of-type {
