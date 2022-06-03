@@ -41,6 +41,7 @@ export default {
   background-position-x: left;
   background-position-y: bottom;
   background-size: contain;
+  background-color: $grey-100;
 
   @include mobileFirst(s) {
     background-position-x: right;
@@ -89,8 +90,8 @@ export default {
 
   .infos {
     position: relative;
-    background-color: $light;
-    box-shadow: 0px 0px 30px 20px #f6f2e8;
+    background-color: $grey-100;
+    box-shadow: 0px 0px 30px 20px $grey-100;
 
     @include mobileFirst(s) {
       max-width: 50%;

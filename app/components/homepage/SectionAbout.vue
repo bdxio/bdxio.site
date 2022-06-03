@@ -1,7 +1,9 @@
 <template>
   <section class="section bourse">
     <div class="section about-us">
-      <section-title tag="h2">Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?</section-title>
+      <section-title tag="h2"
+        >Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?</section-title
+      >
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.
@@ -34,8 +36,8 @@ export default {
 
   .about-us {
     margin-left: 0;
-    background-color: $light;
-    box-shadow: 0px 0px 30px 20px #f6f2e8;
+    background-color: $grey-100;
+    box-shadow: 0px 0px 30px 20px $grey-100;
 
     @include mobileFirst(s) {
       background-position-x: left;
