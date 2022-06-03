@@ -75,7 +75,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: $grey-300;
+    background-color: $white;
     box-sizing: border-box;
     text-align: center;
     color: $primary-dark;
