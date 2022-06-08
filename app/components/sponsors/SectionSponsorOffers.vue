@@ -4,35 +4,35 @@
       >Les offres</section-title
     >
     <flex-container gutter-m class="offers">
-      <flex-item xs12 s6 l3 class="soldout"
-        ><span class="offers__name purple">Balthazar</span
-        ><span class="offers__price">5 000 €</span>
-        <p class="offers__description">
+      <flex-item xs12 s6 l3 class="offer soldout"
+        ><span class="offer__name purple">Balthazar</span
+        ><span class="offer__price">5 000 €</span>
+        <p class="offer__description">
           Le pack complet du partenariat pour offrir de la visibilité à votre
           entreprise avant l’événement et avoir une expérience unique le jour J.
         </p>
       </flex-item>
-      <flex-item xs12 s6 l3
-        ><span class="offers__name green">Impériale</span
-        ><span class="offers__price">2 500 €</span>
-        <p class="offers__description">
+      <flex-item xs12 s6 l3 class="offer"
+        ><span class="offer__name green">Impériale</span
+        ><span class="offer__price">2 500 €</span>
+        <p class="offer__description">
           Le partenariat qui nous séduit tous ! Valorisez votre marque le jour
           de l’événement et permettez au plus grand nombre de venir échanger
           avec vous.
         </p>
       </flex-item>
-      <flex-item xs12 s6 l3
-        ><span class="offers__name yellow">Magnum</span
-        ><span class="offers__price">1 000 €</span>
-        <p class="offers__description">
+      <flex-item xs12 s6 l3 class="offer"
+        ><span class="offer__name yellow">Magnum</span
+        ><span class="offer__price">1 000 €</span>
+        <p class="offer__description">
           Apportez votre soutien à BDX I/O avec cette offre et faite retentir
           votre nom auprès de la communauté bordelaise.
         </p>
       </flex-item>
-      <flex-item xs12 s6 l3
-        ><span class="offers__name orange">Startup</span
-        ><span class="offers__price">500 €</span>
-        <p class="offers__description">
+      <flex-item xs12 s6 l3 class="offer"
+        ><span class="offer__name orange">Startup</span
+        ><span class="offer__price">500 €</span>
+        <p class="offer__description">
           Pour que chacun puisse nous soutenir à petit prix. Les startups
           accèdent au village startup qui comprend un mange debout dans l’espace
           pluriel le jour J.
@@ -66,54 +66,62 @@
   .offers {
     margin-top: 75px;
 
-    &__name {
-      display: block;
-      font-weight: $font-weight-bold;
-      margin-bottom: $spc-xs;
-      text-transform: uppercase;
-      font-size: 20px;
-      font-size: 20px;
-      letter-spacing: 3px;
+    .offer {
+      margin-bottom: $spc-xxl;
 
-      &.purple {
-        color: $purple;
-      }
-      &.green {
-        color: $green;
-      }
-      &.yellow {
-        color: $yellow;
-      }
-      &.orange {
-        color: $orange;
-      }
-    }
-
-    &__price {
-      font-size: 30px;
-      font-weight: $font-weight-bold;
-      font-family: $font-family-title;
-    }
-
-    .soldout {
-      cursor: not-allowed;
-      @include positionRelative;
-
-      .offers__name,
-      .offers__price,
-      .offers__description {
-        opacity: 0.3;
+      @include mobileFirst(xl) {
+        margin-bottom: 0;
       }
 
-      &:after {
-        content: "complet";
-        text-transform: uppercase;
-        width: 100px;
-        height: 50px;
-        background: $purple;
-        font-size: 15px;
-        padding: 5px 10px;
+      &__name {
+        display: block;
         font-weight: $font-weight-bold;
+        margin-bottom: $spc-xs;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-size: 20px;
+        letter-spacing: 3px;
+
+        &.purple {
+          color: $purple;
+        }
+        &.green {
+          color: $green;
+        }
+        &.yellow {
+          color: $yellow;
+        }
+        &.orange {
+          color: $orange;
+        }
+      }
+
+      &__price {
+        font-size: 30px;
+        font-weight: $font-weight-bold;
+        font-family: $font-family-title;
+      }
+
+      &.soldout {
+        cursor: not-allowed;
+        @include positionRelative;
+
+        .offers__name,
+        .offers__price,
+        .offers__description {
+          opacity: 0.3;
+        }
+
+        &:after {
+          content: "complet";
+          text-transform: uppercase;
+          width: 100px;
+          height: 50px;
+          background: $purple;
+          font-size: 15px;
+          padding: 5px 10px;
+          font-weight: $font-weight-bold;
+        }
       }
     }
   }

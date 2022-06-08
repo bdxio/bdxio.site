@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd app && yarn install --frozen-lockfile && yarn generate
-      - run: echo "generating CNAME file ✌️" && echo "www.bdxio.fr" >> ./app/dist/CNAME
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
