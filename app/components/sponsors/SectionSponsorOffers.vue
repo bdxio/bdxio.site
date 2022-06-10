@@ -106,9 +106,9 @@
         cursor: not-allowed;
         @include positionRelative;
 
-        .offers__name,
-        .offers__price,
-        .offers__description {
+        .offer__name,
+        .offer__price,
+        .offer__description {
           opacity: 0.3;
         }
 
