@@ -15,9 +15,7 @@ const {
 module.exports = {
   async index(ctx, next) {
     try {
-      console.log(process.env);
-
-      const url = `https://conference-hall.io/api/v1/event/${process.env.CONFERENCE_HALL_EVENT_ID}?key=${process.env.CONFERENCE_HALL_API_KEY}&state=confirmed`;
+      const url = `https://conference-hall.io/api/v1/event/${process.env.CONFERENCE_HALL_EVENT_ID}?key=${process.env.CONFERENCE_HALL_API_KEY}`;
       const response = await axios.get(url);
 
       if (!response || !response.data) {
@@ -43,7 +41,8 @@ module.exports = {
       ctx.status = 200;
       ctx.body = "I've migrate datas from conference hall to strapi database!";
     } catch (err) {
-      console.error(err);
+      ctx.status = 500;
+      ctx.body = err;
     }
   },
 };
