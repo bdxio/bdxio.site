@@ -15,7 +15,7 @@ const {
 module.exports = {
   async index(ctx, next) {
     try {
-      const url = `https://conference-hall.io/api/v1/event/${process.env.CONFERENCE_HALL_EVENT_ID}?key=${process.env.CONFERENCE_HALL_API_KEY}`;
+      const url = `https://conference-hall.io/api/v1/event/${process.env.CONFERENCE_HALL_EVENT_ID}?key=${process.env.CONFERENCE_HALL_API_KEY}&state=confirmed`;
       const response = await axios.get(url);
 
       if (!response || !response.data) {
