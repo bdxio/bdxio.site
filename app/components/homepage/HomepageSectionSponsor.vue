@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "SectionSponsor",
+  name: "HomepageSectionSponsor",
 };
 </script>
 
