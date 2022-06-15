@@ -65,6 +65,15 @@ $prefix: "fg__";
       padding-left: $spc-m;
     }
   }
+
+  &--xl {
+    margin-right: $spc-l * -1;
+    margin-left: $spc-l * -1;
+    > .flex-item {
+      padding-right: $spc-l;
+      padding-left: $spc-l;
+    }
+  }
 }
 
 .row.reverse {

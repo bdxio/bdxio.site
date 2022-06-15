@@ -126,5 +126,10 @@ a {
       color: $primary-light;
     }
   }
+}
 
+.margin {
+  &--null{
+    margin : 0;
+  }
 }
