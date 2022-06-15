@@ -6,46 +6,101 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 22px;
 
-  &:hover {
-    background-position: right;
-  }
+  // button button-primary button-primary--light button-primary--light  button-primary--dark 
+  &-primary {
+    border: none;
 
-  &.outlined,
-  &.outlined-light {
-    background: linear-gradient(to right, $dark-font 50%, transparent 50%);
-    background-size: 200%;
-    background-position: right;
-    border: 2px solid $dark-font;
-    color: $dark-font;
-    font-weight: $font-weight-bold;
-    mix-blend-mode: multiply;
-
-    &.outlined-light {
-      background-image: linear-gradient(to right, $light-font 50%, transparent 50%);
-      border-color: $light-font;
-      mix-blend-mode: lighten;
-      color: $light-font;
-
-      a {
-        color: $light-font
-      }
+    &--white {
+      background-color: $light;
+      color: $primary-dark;
     }
 
-    &:hover {
-      background-position: left;
-      color: $light-font;
+    &--light {
+      background-color: $primary-light;
+      color: $light;
+    }
 
-      &.outlined-light {
-        color: $dark-font;
+    &--grey {
+      background-color: $dark-font;
+      color: $light;
+    }
 
-        a {
-          color: $dark-font;
-        }
-      }
+    &--dark {
+      background-color: $primary-dark;
+      color: $light;
     }
   }
+
+  &-secondary {
+    background: none;
+    border-style: solid;
+    border-width: 2px;
+
+    &--white {
+      border-color: $light;
+      color: $light;
+    }
+
+    &--light {
+      border-color: $primary-light;
+      color: $primary-light;
+    }
+
+    &--grey {
+      border-color: $dark-font;
+      color: $dark-font;
+    }
+
+    &--dark {
+      border-color: $primary-dark;
+      color: $primary-dark;
+    }
+  }
+
+  // &:hover {
+
+  // }
+
+
+  // &:hover {
+  //   background-position: right;
+  // }
+
+  // &.outlined {
+  //   // background: linear-gradient(to right, $dark-font 50%, transparent 50%);
+  //   background-size: 200%;
+  //   background-position: right;
+  //   border: 2px solid $dark-font;
+  //   color: $dark-font;
+  //   font-weight: $font-weight-bold;
+  //   mix-blend-mode: multiply;
+
+  //   &--light {
+  //     // background-image: linear-gradient(to right, $light-font 50%, transparent 50%);
+  //     border-color: $light-font;
+  //     mix-blend-mode: lighten;
+  //     color: $light-font;
+
+  //     a {
+  //       color: $light-font
+  //     }
+  //   }
+
+
+  //   &:hover {
+  //     background-position: left;
+  //     color: $light-font;
+
+  //     &--light {
+  //       color: $dark-font;
+
+  //       a {
+  //         color: $dark-font;
+  //       }
+  //     }
+  //   }
+  // }
 
   &.disabled {
     pointer-events: none;

@@ -10,7 +10,12 @@
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
       </p>
     </div>
-    <button class="button outlined disabled" disabled>Coming soon</button>
+    <button
+      class="button button-secondary button-secondary--grey disabled"
+      disabled
+    >
+      Coming soon
+    </button>
   </section>
 </template>
 

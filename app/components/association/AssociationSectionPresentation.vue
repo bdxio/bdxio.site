@@ -36,7 +36,7 @@
         <nuxt-link
           v-if="showProgramme"
           to="/programme"
-          class="button outlined-dark"
+          class="button button-secondary button-secondary--grey"
           >Découvrir le programme 2022</nuxt-link
         >
       </flex-item>
