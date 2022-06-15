@@ -6,8 +6,9 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  width: fit-content;
+  display: block;
 
-  // button button-primary button-primary--light button-primary--light  button-primary--dark 
   &-primary {
     border: none;
 
@@ -57,50 +58,6 @@
       color: $primary-dark;
     }
   }
-
-  // &:hover {
-
-  // }
-
-
-  // &:hover {
-  //   background-position: right;
-  // }
-
-  // &.outlined {
-  //   // background: linear-gradient(to right, $dark-font 50%, transparent 50%);
-  //   background-size: 200%;
-  //   background-position: right;
-  //   border: 2px solid $dark-font;
-  //   color: $dark-font;
-  //   font-weight: $font-weight-bold;
-  //   mix-blend-mode: multiply;
-
-  //   &--light {
-  //     // background-image: linear-gradient(to right, $light-font 50%, transparent 50%);
-  //     border-color: $light-font;
-  //     mix-blend-mode: lighten;
-  //     color: $light-font;
-
-  //     a {
-  //       color: $light-font
-  //     }
-  //   }
-
-
-  //   &:hover {
-  //     background-position: left;
-  //     color: $light-font;
-
-  //     &--light {
-  //       color: $dark-font;
-
-  //       a {
-  //         color: $dark-font;
-  //       }
-  //     }
-  //   }
-  // }
 
   &.disabled {
     pointer-events: none;
