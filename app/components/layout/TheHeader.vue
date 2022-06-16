@@ -31,7 +31,7 @@
         @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">
-        <the-navigation />
+        <the-navigation display-cfp />
       </nav>
     </div>
   </header>

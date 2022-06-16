@@ -18,6 +18,14 @@ $purple : #DABFEF;
 $white: #fff;
 $black: #000;
 
+:export {
+  primary: $primary;
+  primaryLight: $primary-light;
+  primaryDark: $primary-dark;
+  light: $light;
+  lightFont: $light-font;
+  darkFont: $dark-font;
+}
 
 
 /////// BREAKPOINTS ///////
