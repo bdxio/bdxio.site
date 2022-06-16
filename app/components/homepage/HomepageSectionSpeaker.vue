@@ -10,12 +10,14 @@
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
       </p>
     </div>
-    <button
-      class="button button-secondary button-secondary--grey disabled"
-      disabled
+    <a
+      class="button button-icon button-secondary button-secondary--grey"
+      href="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+      target="_blank"
     >
-      Coming soon
-    </button>
+      Devenir speaker
+      <open-new-window color="#373739" borderColor="#373739" />
+    </a>
   </section>
 </template>
 
