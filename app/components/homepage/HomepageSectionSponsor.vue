@@ -12,15 +12,17 @@
       </p>
     </div>
 
-    <button class="button outlined-light">
-      <NuxtLink to="/sponsors">Devenir sponsor</NuxtLink>
-    </button>
+    <nuxt-link
+      to="/sponsors"
+      class="button button-secondary button-secondary--white"
+      >Devenir sponsor</nuxt-link
+    >
   </section>
 </template>
 
 <script>
 export default {
-  name: "SectionSponsor",
+  name: "HomepageSectionSponsor",
 };
 </script>
 

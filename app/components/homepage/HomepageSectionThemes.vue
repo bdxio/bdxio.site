@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: "SectionThemes",
+  name: "HomepageSectionThemes",
 };
 </script>
 

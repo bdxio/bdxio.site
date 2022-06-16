@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "SectionHero",
+  name: "HomepageSectionHero",
 };
 </script>
 

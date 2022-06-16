@@ -9,9 +9,9 @@
     <li>
       <nuxt-link to="/sponsors">Sponsors</nuxt-link>
     </li>
-    <!-- <li>
-            <NuxtLink to="/team">L'équipe</NuxtLink>
-          </li> -->
+    <li>
+      <NuxtLink to="/asso">L'asso</NuxtLink>
+    </li>
     <!-- <li>
           <button class="bdx-button">Billetterie</button>
         </li> -->

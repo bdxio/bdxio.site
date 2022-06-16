@@ -1,15 +1,15 @@
 <template>
   <main>
-    <section-hero />
-    <section-key-concepts />
-    <section-about />
-    <section-themes />
+    <homepage-section-hero />
+    <homepage-section-key-concepts />
+    <homepage-section-about />
+    <homepage-section-themes />
     <flex-container no-gutter>
       <flex-item s12 m6 class="sponsor-container">
-        <section-sponsor />
+        <homepage-section-sponsor />
       </flex-item>
       <flex-item s12 m6 class="speaker-container">
-        <section-speaker />
+        <homepage-section-speaker />
       </flex-item>
     </flex-container>
   </main>

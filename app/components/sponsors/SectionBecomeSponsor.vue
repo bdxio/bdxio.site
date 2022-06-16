@@ -42,7 +42,10 @@
         </p>
       </li>
     </ul>
-    <a href="/bdxio-2022-sponsors.pdf" class="button" download
+    <a
+      href="/bdxio-2022-sponsors.pdf"
+      class="button button-primary button-primary--light"
+      download
       >Télecharger la plaquette</a
     >
   </section>
@@ -82,7 +85,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     gap: 60px;
+
+    @include mobileFirst(m) {
+      justify-content: flex-start;
+    }
   }
 
   .reason {

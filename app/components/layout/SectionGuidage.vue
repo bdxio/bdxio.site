@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "SectionGuidage",
+  name: "HomepageSectionGuidage",
 };
 </script>
 
