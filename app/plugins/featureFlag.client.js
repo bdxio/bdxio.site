@@ -1,6 +1,7 @@
 const featuresFlag = {
   NAVIGATION: true,
-  PROGRAMME: true,
+  PROGRAMME: false,
+  CFP: true,
 };
 
 export default function (context, inject) {

@@ -59,8 +59,17 @@
     }
   }
 
+  &-icon {
+    display:flex;
+    align-items: center;
+
+    svg {
+      margin-left: $spc-xxs;
+    }
+  }
   &.disabled {
     pointer-events: none;
     opacity: 0.3;
   }
+  
 }
