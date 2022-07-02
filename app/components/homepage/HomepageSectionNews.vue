@@ -1,40 +1,26 @@
 <template>
   <section class="section news">
-    <section-title tag="h2" class="title"
-      >Les dernières actualités</section-title
-    >
+    <section-title tag="h2" class="title">Les dernières actualités</section-title>
     <div class="news-container">
       <div class="news-item">
-        <img
-          src="~/assets/img/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
-        />
+        <img src="~/assets/img/team.png" alt="photographie de l'équipe d'organisation de bdx.io" />
         <span class="item-title">Title 1</span>
         <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
+          >Exemple de description d’une actualité très intéressante qui est arrivée recemment</span
         >
       </div>
       <div class="news-item">
-        <img
-          src="~/assets/img/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
-        />
+        <img src="~/assets/img/team.png" alt="photographie de l'équipe d'organisation de bdx.io" />
         <span class="item-title">Title 2</span>
         <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
+          >Exemple de description d’une actualité très intéressante qui est arrivée recemment</span
         >
       </div>
       <div class="news-item">
-        <img
-          src="~/assets/img/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
-        />
+        <img src="~/assets/img/team.png" alt="photographie de l'équipe d'organisation de bdx.io" />
         <span class="item-title">Title 3</span>
         <span class="item-description"
-          >Exemple de description d’une actualité très intéressante qui est
-          arrivée recemment</span
+          >Exemple de description d’une actualité très intéressante qui est arrivée recemment</span
         >
       </div>
     </div>
@@ -43,7 +29,7 @@
 
 <script>
 export default {
-  name: "HomepageSectionNews",
+  name: "HomepageSectionNews"
 };
 </script>
 

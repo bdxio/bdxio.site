@@ -3,6 +3,7 @@
     <homepage-section-hero />
     <homepage-section-key-concepts />
     <homepage-section-about />
+    <homepage-section-annual-theme />
     <homepage-section-themes />
     <flex-container no-gutter>
       <flex-item s12 m6 class="sponsor-container">
@@ -18,7 +19,7 @@
 <script>
 export default {
   name: "HomePage",
-  layout: "homepage",
+  layout: "homepage"
 };
 </script>
 
