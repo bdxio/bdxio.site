@@ -1,5 +1,5 @@
 <template>
-  <section class="section bourse">
+  <section class="section bourse" id="about">
     <div class="section about-us">
       <section-title tag="h2"
         >Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?</section-title

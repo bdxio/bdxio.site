@@ -14,7 +14,7 @@
     </li>
     <li>
       <a
-        class="button button-secondary--light"
+        class="button button-primary--light"
         href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
         target="_blank"
       >

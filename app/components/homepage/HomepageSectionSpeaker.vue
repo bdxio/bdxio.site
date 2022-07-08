@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-speaker">
+  <section class="section section-speaker" id="become-speaker">
     <div>
       <section-title section tag="h2">speakers</section-title>
       <section-title tag="h3" class="title"

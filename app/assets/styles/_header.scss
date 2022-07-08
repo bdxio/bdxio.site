@@ -142,6 +142,10 @@
 
     a {
       color: $primary-dark;
+
+      &.button-primary--light {
+        color: $white;
+      }
     }
   }
 }

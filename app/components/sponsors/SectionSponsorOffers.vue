@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-sponsor-offers">
+  <section class="section section-sponsor-offers" id="offers">
     <section-title tag="h3" class="text-align--center title"
       >Les offres</section-title
     >

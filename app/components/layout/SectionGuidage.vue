@@ -1,5 +1,5 @@
 <template>
-  <section class="section guidage">
+  <section class="section guidage" id="join-us">
     <div class="text-container">
       <div class="infos">
         <section-title section tag="h2">Guidage</section-title>
