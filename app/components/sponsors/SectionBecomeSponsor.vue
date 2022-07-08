@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-become-sponsor">
+  <section class="section section-become-sponsor" id="why-become-sponsor">
     <section-title tag="h2"
       >Pourquoi devenir
       <span class="sponsor">Sponsor</span>&nbsp;?</section-title
@@ -85,8 +85,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    gap: 60px;
+    gap: 40px;
 
     @include mobileFirst(m) {
       justify-content: flex-start;

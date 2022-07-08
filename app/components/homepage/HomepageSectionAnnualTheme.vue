@@ -1,5 +1,5 @@
 <template>
-  <div class="section section-annual-theme">
+  <div class="section section-annual-theme" id="annual-theme">
     <flex-item s12 m4 l5 class="text-container">
       <section-title section tag="h2">Thème 2022</section-title>
       <section-title tag="h3" color="light">Cette année les femmes sont à l'honneur&nbsp;!</section-title>
