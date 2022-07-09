@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsor_categories",
+  "info": {
+    "singularName": "sponsor-category",
+    "pluralName": "sponsor-categories",
+    "displayName": "Sponsor Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
