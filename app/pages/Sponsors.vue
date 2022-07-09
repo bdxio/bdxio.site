@@ -21,5 +21,9 @@ export default {
     SectionBecomeSponsor,
     SectionSponsorOffers,
   },
+  async asyncData({ $axios }) {
+    const sponsors = await $axios("/api/sponsors");
+    return { sponsors };
+  }
 };
 </script>

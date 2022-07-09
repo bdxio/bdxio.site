@@ -86,12 +86,23 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/style-resources"],
+  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  axios: {
+    proxy: true,
+    headers: {
+      Authorization: `Bearer ${process.env.API_TOKEN}`,
+    }
+  },
+
+  proxy: {
+    "/api/": { target: process.env.API_URL, pathRewrite: { "^/api/": "" } },
+  },
+
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
   },
-};
+}
