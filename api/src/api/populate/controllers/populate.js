@@ -5,12 +5,15 @@ const axios = require("axios");
 const eachSeries = require("async/eachSeries");
 
 const {
-  populateSpeakers,
-  populateCategories,
-  populateFormats,
-  populateTalks,
-  populateCompanies,
-} = require("./helpers");
+  populateSpeakerTable,
+  populateCategoryTable,
+  populateFormatTable,
+  populateTalkTable,
+  populateCompanyTable,
+  populateVolunteerTable,
+} = require("../../../helpers");
+
+const volunteerSeeds = require("../../volunteer/seeds");
 
 module.exports = {
   async index(ctx, next) {
@@ -32,15 +35,17 @@ module.exports = {
         speakers = [],
       } = response.data;
 
-      await populateSpeakers(speakers);
-      await populateCategories(categories);
-      await populateFormats(formats);
-      await populateTalks(talks);
-      await populateCompanies(speakers);
+      await populateSpeakerTable(speakers);
+      await populateCategoryTable(categories);
+      await populateFormatTable(formats);
+      await populateTalkTable(talks);
+      await populateCompanyTable(speakers);
+      await populateVolunteerTable(volunteerSeeds);
 
       ctx.status = 200;
       ctx.body = "I've migrate datas from conference hall to strapi database!";
     } catch (err) {
+      console.log("HEY", err);
       ctx.status = 500;
       ctx.body = err;
     }

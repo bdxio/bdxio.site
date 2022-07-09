@@ -4,7 +4,8 @@
   "info": {
     "singularName": "volunteer",
     "pluralName": "volunteers",
-    "displayName": "Volunteer"
+    "displayName": "Volunteer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,7 +24,7 @@
     "active": {
       "type": "boolean"
     },
-    "companyName": {
+    "jobCompanyName": {
       "type": "string"
     },
     "socialLinkedin": {
@@ -35,16 +36,16 @@
     "socialGithub": {
       "type": "string"
     },
-    "companyUrl": {
+    "jobCompanyUrl": {
       "type": "string"
     },
     "profilePicture": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
