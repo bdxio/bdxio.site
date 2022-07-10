@@ -92,15 +92,14 @@ export default {
   build: {},
 
   axios: {
-    proxy: true,
+    proxy: false,
     headers: {
       Authorization: `Bearer ${process.env.API_TOKEN}`,
+      proxy: false,
+      prefix: process.env.API_URL
     }
   },
 
-  proxy: {
-    "/api/": { target: process.env.API_URL, pathRewrite: { "^/api/": "" } },
-  },
 
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
