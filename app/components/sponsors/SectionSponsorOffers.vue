@@ -1,46 +1,54 @@
 <template>
   <section class="section section-sponsor-offers" id="offers">
-    <section-title tag="h3" class="text-align--center title"
-      >Les offres</section-title
-    >
+    <section-title tag="h3" class="text-align--center title">Les offres</section-title>
     <flex-container gutter-m class="offers">
-      <flex-item xs12 s6 l3 class="offer soldout"
-        ><span class="offer__name purple">Balthazar</span
-        ><span class="offer__price">5 000 €</span>
+      <flex-item
+        v-for="(offer, index) in offers"
+        :key="`${offer.label}-${offer.id}`"
+        xs12
+        s6
+        l3
+        class="offer"
+        :class="getOfferClasses(offer.full, index.toString())"
+      >
+        <span class="offer__name">{{ offer.label }}</span>
+        <span class="offer__price">{{ offer.price }} €</span>
         <p class="offer__description">
-          Le pack complet du partenariat pour offrir de la visibilité à votre
-          entreprise avant l’événement et avoir une expérience unique le jour J.
-        </p>
-      </flex-item>
-      <flex-item xs12 s6 l3 class="offer"
-        ><span class="offer__name green">Impériale</span
-        ><span class="offer__price">2 500 €</span>
-        <p class="offer__description">
-          Le partenariat qui nous séduit tous ! Valorisez votre marque le jour
-          de l’événement et permettez au plus grand nombre de venir échanger
-          avec vous.
-        </p>
-      </flex-item>
-      <flex-item xs12 s6 l3 class="offer"
-        ><span class="offer__name yellow">Magnum</span
-        ><span class="offer__price">1 000 €</span>
-        <p class="offer__description">
-          Apportez votre soutien à BDX I/O avec cette offre et faite retentir
-          votre nom auprès de la communauté bordelaise.
-        </p>
-      </flex-item>
-      <flex-item xs12 s6 l3 class="offer"
-        ><span class="offer__name orange">Startup</span
-        ><span class="offer__price">500 €</span>
-        <p class="offer__description">
-          Pour que chacun puisse nous soutenir à petit prix. Les startups
-          accèdent au village startup qui comprend un mange debout dans l’espace
-          pluriel le jour J.
+          {{ offer.description }}
         </p>
       </flex-item>
     </flex-container>
   </section>
 </template>
+
+<script>
+export default {
+  name: "SectionSponorOffers",
+  props: {
+    offers: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    getOfferClasses(full, id) {
+      let classes = full ? "soldout" : "";
+
+      if (id === "0") {
+        classes += " purple";
+      } else if (id === "1") {
+        classes += " green";
+      } else if (id === "2") {
+        classes += " yellow";
+      } else if (id === "3") {
+        classes += " orange";
+      }
+
+      return classes;
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 .section-sponsor-offers {
@@ -81,19 +89,6 @@
         font-size: 20px;
         font-size: 20px;
         letter-spacing: 3px;
-
-        &.purple {
-          color: $purple;
-        }
-        &.green {
-          color: $green;
-        }
-        &.yellow {
-          color: $yellow;
-        }
-        &.orange {
-          color: $orange;
-        }
       }
 
       &__price {
@@ -121,6 +116,43 @@
           font-size: 15px;
           padding: 5px 10px;
           font-weight: $font-weight-bold;
+        }
+      }
+
+      &.purple {
+        .offer__name {
+          color: $purple;
+        }
+        &.soldout:after {
+          background: $purple;
+        }
+      }
+
+      &.green {
+        .offer__name {
+          color: $green;
+        }
+
+        &.soldout:after {
+          background: $green;
+        }
+      }
+
+      &.yellow {
+        .offer__name {
+          color: $yellow;
+        }
+        &.soldout:after {
+          background: $yellow;
+        }
+      }
+
+      &.orange {
+        .offer__name {
+          color: $orange;
+        }
+        &.soldout:after {
+          background: $orange;
         }
       }
     }

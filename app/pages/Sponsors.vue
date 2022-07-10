@@ -1,7 +1,7 @@
 <template>
   <main>
     <section-become-sponsor />
-    <section-sponsor-offers />
+    <section-sponsor-offers v-if="offers" :offers="offers" />
     section
   </main>
 </template>
@@ -24,8 +24,12 @@ export default {
     SectionSponsorOffers,
   },
   async asyncData({ $axios }) {
+    const offers = await $axios.$get("offers");
     const sponsors = await $axios.$get("sponsors");
-    return { sponsors: formatStrapiData(sponsors.data) };
+    return {
+      offers: formatStrapiData(offers.data),
+      sponsors: formatStrapiData(sponsors.data)
+    };
   }
 };
 </script>

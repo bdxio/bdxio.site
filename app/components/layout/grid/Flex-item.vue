@@ -8,17 +8,16 @@ export default {
     const classProps = filterClassProps(props);
 
     const tagProp = props.tag || "div";
-    
     return h(
       tagProp,
       {
         attrs: {
-          class: `${mapPropsToClasses(classProps)} flex-item ${data.staticClass || ""}`,
+          class: `${mapPropsToClasses(classProps)} flex-item ${data.staticClass || ""} ${data.class || ""}`
         },
-        on: listeners,
+        on: listeners
       },
       children
     );
-  },
+  }
 };
 </script>

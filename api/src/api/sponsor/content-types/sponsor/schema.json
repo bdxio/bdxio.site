@@ -19,16 +19,6 @@
     "url": {
       "type": "string"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Balthazar",
-        "Impériale",
-        "Magnum",
-        "Startup"
-      ],
-      "required": true
-    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -36,6 +26,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "offer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offer.offer"
     }
   }
 }
