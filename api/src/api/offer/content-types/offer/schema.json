@@ -33,6 +33,12 @@
     "full": {
       "type": "boolean",
       "default": false
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sponsor.sponsor",
+      "mappedBy": "offer"
     }
   }
 }

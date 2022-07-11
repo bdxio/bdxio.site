@@ -22,15 +22,16 @@
     "logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
     },
     "offer": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::offer.offer"
+      "relation": "manyToOne",
+      "target": "api::offer.offer",
+      "inversedBy": "sponsors"
     }
   }
 }
