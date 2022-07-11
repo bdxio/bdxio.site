@@ -62,8 +62,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/featureFlag.client.js"],
-
+  plugins: ["~/plugins/featureFlag.client.js", '~/plugins/axios.js'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
@@ -92,16 +91,24 @@ export default {
   build: {},
 
   axios: {
-    proxy: false,
+    proxy: true,
+    credentials: 'same-origin',
+    withCredentials: true,
     headers: {
       Authorization: `Bearer ${process.env.API_TOKEN}`,
-      proxy: false,
-      prefix: process.env.API_URL
     }
   },
 
+  proxy: {
+    "/api/": {
+      target: process.env.API_URL,
+      pathRewrite: { "^/api/": "" },
+      changeOrigin: true
+    }
+  },
 
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
+    cmsBaseUrl: process.env.CMS_BASE_URL ?? null,
   },
 }

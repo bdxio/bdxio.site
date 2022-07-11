@@ -12,7 +12,7 @@
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
     </li>
-    <li>
+    <li v-if="showBilleterie">
       <a
         class="button button-primary--light"
         href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
@@ -48,6 +48,9 @@ export default {
   computed: {
     showCfp() {
       return this.displayCfp && this.$showCfp;
+    },
+    showBilleterie() {
+      return this.$showBilleterie;
     },
     iconBorderColor() {
       return css?.primaryLight ?? "#ffffff";

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "Offers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "enumeration",
+      "enum": [
+        "Balthazar",
+        "Impériale",
+        "Magnum",
+        "Startup"
+      ],
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "full": {
+      "type": "boolean",
+      "default": false
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sponsor.sponsor",
+      "mappedBy": "offer"
+    }
+  }
+}
