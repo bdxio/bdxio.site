@@ -3,7 +3,7 @@
     <h3 class="title">Les <span class="before">offres</span> et <span class="after">sponsors 2022</span></h3>
     <div class="offers">
       <flex-container gutter-m v-for="(offer, index) in offers" :key="`${offer.label}-${offer.id}`" class="offer">
-        <flex-item xs12 s4 class="offer__infos" :class="getOfferClasses(offer.full, index.toString())">
+        <flex-item xs12 s4 class="offer__infos" :class="getOfferClasses(offer.full, index)">
           <h4 class="offer__name">{{ offer.label }}</h4>
           <span class="offer__price">{{ offer.price }} €</span>
           <p class="offer__description">
@@ -34,7 +34,7 @@
 import { formatStrapiData } from "~/helpers";
 
 export default {
-  name: "SectionSponorOffers",
+  name: "SectionSponsorOffersAndSponsors",
   props: {
     offers: {
       type: Array,
@@ -43,19 +43,10 @@ export default {
   },
   methods: {
     getOfferClasses(full, id) {
+      const colors = ["purple", "green", "yellow", "orange"];
       let classes = full ? "soldout" : "";
 
-      if (id === "0") {
-        classes += " purple";
-      } else if (id === "1") {
-        classes += " green";
-      } else if (id === "2") {
-        classes += " yellow";
-      } else if (id === "3") {
-        classes += " orange";
-      }
-
-      return classes;
+      return (classes += ` ${colors[id]}`);
     },
     makeSponsorImageUrl({ large = null, medium = null }) {
       if (!medium || !large) {
@@ -64,7 +55,6 @@ export default {
       }
 
       if (medium && medium.url) {
-        console.log(`${this.$config.cmsBaseUrl}${medium.url}`)
         return `${this.$config.cmsBaseUrl}${medium.url}`;
       }
 
