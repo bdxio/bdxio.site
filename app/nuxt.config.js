@@ -6,15 +6,16 @@ export default {
     port: 3615
   },
 
+  env: {
+    API_KEY: process.env.API_KEY,
+    VUE_APP_API_KEY: process.env.VUE_APP_API_KEY
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "BDX I/O",
     htmlAttrs: {
       lang: "fr"
-    },
-    env: {
-      API_KEY: process.env.API_KEY,
-      VUE_APP_API_KEY: process.env.VUE_APP_API_KEY
     },
     meta: [
       { charset: "utf-8" },
