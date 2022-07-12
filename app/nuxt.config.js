@@ -1,4 +1,3 @@
-// process.env.API_URL
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -12,6 +11,10 @@ export default {
     title: "BDX I/O",
     htmlAttrs: {
       lang: "fr"
+    },
+    env: {
+      API_KEY: process.env.API_KEY,
+      VUE_APP_API_KEY: process.env.VUE_APP_API_KEY
     },
     meta: [
       { charset: "utf-8" },
