@@ -8,7 +8,8 @@ export default {
 
   env: {
     API_KEY: process.env.API_KEY,
-    VUE_APP_API_KEY: process.env.VUE_APP_API_KEY
+    VUE_APP_API_KEY: process.env.VUE_APP_API_KEY,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
