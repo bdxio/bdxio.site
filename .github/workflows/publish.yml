@@ -9,8 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: cd app && yarn install --frozen-lockfile && yarn generate
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: cd app && yarn install --frozen-lockfile && yarn generate
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
