@@ -97,13 +97,13 @@ export default {
     credentials: "same-origin",
     withCredentials: true,
     headers: {
-      Authorization: `Bearer ${process.env.API_TOKEN}`
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
     }
   },
 
   proxy: {
     "/api/": {
-      target: process.env.API_URL,
+      target: process.env.NEXT_PUBLIC_API_URL,
       pathRewrite: { "^/api/": "" },
       changeOrigin: true
     }
