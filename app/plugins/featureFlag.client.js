@@ -3,7 +3,7 @@ const featuresFlag = {
   PROGRAMME: false,
   CFP: true,
   BILLETERIE: true,
-  SPONSORS2022: false
+  SPONSORS2022: true
 };
 
 export default function (context, inject) {

@@ -3,35 +3,32 @@
     <flex-container no-gutter class="justify-between-xs align-center-m">
       <flex-item s12 m4 l5 class="text-container">
         <section-title section tag="h2">thématique</section-title>
-        <section-title tag="h3" class="title"
-          >Quels seront les thèmes abordés&nbsp;?</section-title
-        >
+        <section-title tag="h3" class="title">Quels seront les thèmes abordés&nbsp;?</section-title>
         <p>
-          BDX I/O propose des conférences autour de 7 thématiques différentes,
-          avec des durées différentes et pour tous les niveaux : Vous trouverez
-          forcément votre bonheur&nbsp;!
+          BDX I/O propose des conférences autour de 7 thématiques différentes, avec des durées différentes et pour tous
+          les niveaux : Vous trouverez forcément votre bonheur&nbsp;!
         </p>
       </flex-item>
       <flex-item s12 m8 l7 class="items">
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--1">Frontend</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--2">Backend</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--3">Big Data & IA</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--4">Design & UX</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--5">Cloud & Dev.Sec.Ops</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--6">Methodo & Architecture</span>
         </div>
-        <div class="theme-item">
+        <div class="theme-item card">
           <span class="theme theme--7">Hors piste</span>
         </div>
       </flex-item>
@@ -41,7 +38,7 @@
 
 <script>
 export default {
-  name: "HomepageSectionThemes",
+  name: "HomepageSectionThemes"
 };
 </script>
 
@@ -63,8 +60,7 @@ export default {
       width: 110px;
       height: 60px;
 
-      background: url("~/assets/img/drawings/cyan_scribble_2.png") center
-        no-repeat;
+      background: url("~/assets/img/drawings/cyan_scribble_2.png") center no-repeat;
       background-size: contain;
 
       @include mobileFirst(m) {
@@ -107,8 +103,7 @@ export default {
         position: absolute;
         bottom: 114px;
         right: -10px;
-        background: url("~/assets/img/drawings/yellow_citation.png") center
-          no-repeat;
+        background: url("~/assets/img/drawings/yellow_citation.png") center no-repeat;
         background-size: contain;
       }
     }
@@ -123,8 +118,6 @@ export default {
     align-items: center;
     justify-content: center;
     height: 200px;
-    box-shadow: 0px 7px 29px rgba(36, 36, 87, 0.1);
-    border-radius: 8px;
     font-weight: 700;
     background-color: $white;
 
