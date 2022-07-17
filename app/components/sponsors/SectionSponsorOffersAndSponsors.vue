@@ -14,7 +14,7 @@
           <div
             v-for="({ attributes }, index) in offer.sponsors.data"
             :key="`sponsor-${index}`"
-            class="offer__sponsors__sponsor"
+            class="offer__sponsors__sponsor card"
           >
             <a :href="attributes.url" target="_blank" class="offer__sponsors__sponsor__link">
               <img
@@ -194,11 +194,10 @@ export default {
         grid-template-columns: repeat(4, 210px);
         grid-template-rows: repeat(1, 210px);
         grid-gap: 30px;
-        padding-top: 40px;
         overflow-x: auto;
         overflow-y: hidden;
         align-self: center;
-        padding-top: 0;
+        padding: $spc-m;
 
         &__sponsor {
           &__link {
@@ -210,11 +209,11 @@ export default {
           }
 
           &__image {
-            width: 100%;
-            object-fit: cover;
+            width: 50%;
             @include positionAbsolute;
             top: 50%;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
           }
         }
       }

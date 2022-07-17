@@ -1,7 +1,7 @@
 <template>
   <main>
     <section-become-sponsor />
-    <section-sponsor-offers-and-sponsors v-if="showSponsors" :offers="offers" />
+    <section-sponsor-offers-and-sponsors v-if="showSponsors && offers" :offers="offers" />
     <section-sponsor-offers v-else />
   </main>
 </template>
@@ -16,6 +16,11 @@ import { formatStrapiData } from "~/helpers";
 export default {
   name: "SponsorsPage",
   layout: "page",
+  data() {
+    return {
+      offers: []
+    };
+  },
   head() {
     return {
       title: "Sponsors | BDX I/O"
@@ -28,18 +33,19 @@ export default {
   },
   computed: {
     showSponsors() {
-      return this.$showSponsors2022;
+      return this.$showSponsors2022 && this.offers.length;
     }
   },
-  async asyncData({ $axios, $showSponsors2022 }) {
-    if ($showSponsors2022) {
-      const offers = await $axios.$get("/api/offers", {
-        params: { sort: "id:asc", "populate[sponsors][populate]": "*" }
-      });
-      return {
-        offers: formatStrapiData(offers.data)
-      };
+  async created() {
+    if (!this.$showSponsors2022) {
+      return;
     }
+
+    const offers = await this.$axios.$get("/api/offers", {
+      params: { sort: "id:asc", "populate[sponsors][populate]": "*" }
+    });
+
+    this.offers = formatStrapiData(offers.data);
   }
 };
 </script>
