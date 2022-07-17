@@ -11,10 +11,10 @@
     "gcp-build": "strapi build"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.1.7",
-    "@strapi/plugin-users-permissions": "4.1.7",
-    "@strapi/strapi": "4.1.9",
-    "axios": "^0.26.1",
+    "@strapi/plugin-i18n": "4.2.3",
+    "@strapi/plugin-users-permissions": "4.2.3",
+    "@strapi/strapi": "4.2.3",
+    "axios": "^0.27.2",
     "better-sqlite3": "^7.4.6",
     "moment": "^2.29.2",
     "pg": "^8.7.3",
