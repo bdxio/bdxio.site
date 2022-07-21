@@ -10,7 +10,12 @@
             {{ offer.description }}
           </p>
         </flex-item>
-        <flex-item s8 class="offer__sponsors" v-if="offer.sponsors.data.length">
+        <flex-item
+          s8
+          class="offer__sponsors"
+          v-if="offer.sponsors.data.length"
+          :style="{ 'grid-template-columns': `repeat(${columns}, 210px)` }"
+        >
           <div
             v-for="({ attributes }, index) in offer.sponsors.data"
             :key="`sponsor-${index}`"
@@ -48,17 +53,15 @@ export default {
 
       return (classes += ` ${colors[id]}`);
     },
-    makeSponsorImageUrl({ large = null, medium = null }) {
-      if (!medium || !large) {
-        console.error("No image found, need at least large (1000px) or medium (750px) image width");
-        return;
+    makeSponsorImageUrl({ thumbnail: { url } }) {
+      console.log(url);
+      if (!url) {
+        return "";
       }
 
-      if (medium && medium.url) {
-        return `${this.$config.cmsBaseUrl}${medium.url}`;
+      if (url.startsWith("/")) {
+        return `${this.$config.cmsBaseUrl}${url.slice(1)}`;
       }
-
-      return `${this.$config.cmsBaseUrl}${large.url}`;
     }
   },
   formatData(data) {
@@ -191,7 +194,7 @@ export default {
 
       &__sponsors {
         display: grid;
-        grid-template-columns: repeat(4, 210px);
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
         grid-template-rows: repeat(1, 210px);
         grid-gap: 30px;
         overflow-x: auto;
