@@ -9,7 +9,7 @@
           expérience unique le jour J.
         </p>
       </flex-item>
-      <flex-item xs12 s6 l3 class="offer"
+      <flex-item xs12 s6 l3 class="offer soldout"
         ><span class="offer__name green">Impériale</span><span class="offer__price">2 500 €</span>
         <p class="offer__description">
           Le partenariat qui nous séduit tous ! Valorisez votre marque le jour de l’événement et permettez au plus grand
@@ -65,6 +65,28 @@
         margin-bottom: 0;
       }
 
+      &.soldout {
+        cursor: not-allowed;
+        @include positionRelative;
+
+        .offer__name,
+        .offer__price,
+        .offer__description {
+          opacity: 0.3;
+        }
+
+        &:after {
+          content: "complet";
+          text-transform: uppercase;
+          width: 100px;
+          height: 50px;
+
+          font-size: 15px;
+          padding: 5px 10px;
+          font-weight: $font-weight-bold;
+        }
+      }
+
       &__name {
         display: block;
         font-weight: $font-weight-bold;
@@ -94,25 +116,14 @@
         font-family: $font-family-title;
       }
 
-      &.soldout {
-        cursor: not-allowed;
-        @include positionRelative;
-
-        .offer__name,
-        .offer__price,
-        .offer__description {
-          opacity: 0.3;
-        }
-
-        &:after {
-          content: "complet";
-          text-transform: uppercase;
-          width: 100px;
-          height: 50px;
+      &:nth-of-type(1) {
+        &.soldout:after {
           background: $purple;
-          font-size: 15px;
-          padding: 5px 10px;
-          font-weight: $font-weight-bold;
+        }
+      }
+      &:nth-of-type(2) {
+        &.soldout:after {
+          background: $green;
         }
       }
     }
