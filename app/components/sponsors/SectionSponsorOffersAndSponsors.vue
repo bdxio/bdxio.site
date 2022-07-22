@@ -120,7 +120,7 @@ export default {
       }
 
       &__infos {
-        .soldout {
+        &.soldout {
           cursor: not-allowed;
           @include positionRelative;
 
