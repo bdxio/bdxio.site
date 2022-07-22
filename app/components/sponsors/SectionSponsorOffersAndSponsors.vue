@@ -10,7 +10,12 @@
             {{ offer.description }}
           </p>
         </flex-item>
-        <flex-item s8 class="offer__sponsors" v-if="offer.sponsors.data.length">
+        <flex-item
+          s8
+          class="offer__sponsors"
+          v-if="offer.sponsors.data.length"
+          :style="{ gridTemplateColumns: `repeat(${offer.sponsors.data.length}, 210px)` }"
+        >
           <div
             v-for="({ attributes }, index) in offer.sponsors.data"
             :key="`sponsor-${index}`"
@@ -19,7 +24,10 @@
             <a :href="attributes.url" target="_blank" class="offer__sponsors__sponsor__link">
               <img
                 class="offer__sponsors__sponsor__image"
-                :src="makeSponsorImageUrl(attributes.logo.data.attributes.formats)"
+                :src="
+                  attributes.logo.data.attributes.formats.thumbnail.url ||
+                  'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
+                "
                 :alt="`Logo de ${attributes.name}`"
               />
             </a>
@@ -31,8 +39,6 @@
 </template>
 
 <script>
-import { formatStrapiData } from "~/helpers";
-
 export default {
   name: "SectionSponsorOffersAndSponsors",
   props: {
@@ -47,22 +53,7 @@ export default {
       let classes = full ? "soldout" : "";
 
       return (classes += ` ${colors[id]}`);
-    },
-    makeSponsorImageUrl({ large = null, medium = null }) {
-      if (!medium || !large) {
-        console.error("No image found, need at least large (1000px) or medium (750px) image width");
-        return;
-      }
-
-      if (medium && medium.url) {
-        return `${this.$config.cmsBaseUrl}${medium.url}`;
-      }
-
-      return `${this.$config.cmsBaseUrl}${large.url}`;
     }
-  },
-  formatData(data) {
-    return formatStrapiData(data);
   }
 };
 </script>
@@ -190,9 +181,7 @@ export default {
       }
 
       &__sponsors {
-        display: grid;
-        grid-template-columns: repeat(4, 210px);
-        grid-template-rows: repeat(1, 210px);
+        display: flex;
         grid-gap: 30px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -200,6 +189,9 @@ export default {
         padding: $spc-m;
 
         &__sponsor {
+          min-width: 210px;
+          min-height: 210px;
+
           &__link {
             display: block;
             width: 100%;
