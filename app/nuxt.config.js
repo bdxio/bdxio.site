@@ -93,7 +93,6 @@ export default {
   build: {},
 
   axios: {
-    proxy: true,
     credentials: "same-origin",
     withCredentials: true,
     headers: {
@@ -101,16 +100,9 @@ export default {
     }
   },
 
-  proxy: {
-    "/api/": {
-      target: process.env.NEXT_PUBLIC_API_URL,
-      pathRewrite: { "^/api/": "" },
-      changeOrigin: true
-    }
-  },
-
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
-    cmsBaseUrl: process.env.CMS_BASE_URL ?? null
+    cmsBaseUrl: process.env.CMS_BASE_URL ?? null,
+    cmsApiUrl: process.env.NEXT_PUBLIC_API_URL ?? null
   }
 };
