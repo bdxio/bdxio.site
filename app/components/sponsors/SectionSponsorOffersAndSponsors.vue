@@ -14,7 +14,7 @@
           s8
           class="offer__sponsors"
           v-if="offer.sponsors.data.length"
-          :style="{ 'grid-template-columns': `repeat(${columns}, 210px)` }"
+          :style="{ gridTemplateColumns: `repeat(${offer.sponsors.data.length}, 210px)` }"
         >
           <div
             v-for="({ attributes }, index) in offer.sponsors.data"
@@ -24,7 +24,10 @@
             <a :href="attributes.url" target="_blank" class="offer__sponsors__sponsor__link">
               <img
                 class="offer__sponsors__sponsor__image"
-                :src="makeSponsorImageUrl(attributes.logo.data.attributes.formats)"
+                :src="
+                  attributes.logo.data.attributes.formats.thumbnail.url ||
+                  'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
+                "
                 :alt="`Logo de ${attributes.name}`"
               />
             </a>
@@ -36,8 +39,6 @@
 </template>
 
 <script>
-import { formatStrapiData } from "~/helpers";
-
 export default {
   name: "SectionSponsorOffersAndSponsors",
   props: {
@@ -52,20 +53,7 @@ export default {
       let classes = full ? "soldout" : "";
 
       return (classes += ` ${colors[id]}`);
-    },
-    makeSponsorImageUrl({ thumbnail: { url } }) {
-      console.log(url);
-      if (!url) {
-        return "";
-      }
-
-      if (url.startsWith("/")) {
-        return `${this.$config.cmsBaseUrl}${url.slice(1)}`;
-      }
     }
-  },
-  formatData(data) {
-    return formatStrapiData(data);
   }
 };
 </script>
@@ -193,9 +181,7 @@ export default {
       }
 
       &__sponsors {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        grid-template-rows: repeat(1, 210px);
+        display: flex;
         grid-gap: 30px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -203,6 +189,9 @@ export default {
         padding: $spc-m;
 
         &__sponsor {
+          min-width: 210px;
+          min-height: 210px;
+
           &__link {
             display: block;
             width: 100%;
