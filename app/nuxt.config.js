@@ -1,9 +1,12 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   target: "static",
-
+  ssr: false,
   server: {
     port: 3615
+  },
+  generate: {
+    fallback: true,
+    subFolders: false
   },
 
   env: {
@@ -64,7 +67,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js"],
+  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js", '~/plugins/preview.client.js'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
@@ -93,7 +96,6 @@ export default {
   build: {},
 
   axios: {
-    proxy: true,
     credentials: "same-origin",
     withCredentials: true,
     headers: {
@@ -101,16 +103,9 @@ export default {
     }
   },
 
-  proxy: {
-    "/api/": {
-      target: process.env.NEXT_PUBLIC_API_URL,
-      pathRewrite: { "^/api/": "" },
-      changeOrigin: true
-    }
-  },
-
   publicRuntimeConfig: {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
-    cmsBaseUrl: process.env.CMS_BASE_URL ?? null
+    cmsBaseUrl: process.env.CMS_BASE_URL ?? null,
+    cmsApiUrl: process.env.NEXT_PUBLIC_API_URL ?? null
   }
 };

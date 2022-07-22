@@ -36,14 +36,16 @@ export default {
       return this.$showSponsors2022 && this.offers.length;
     }
   },
-  async created() {
+  async fetch() {
     if (!this.$showSponsors2022) {
       return;
     }
 
-    const offers = await this.$axios.$get("/api/offers", {
+    const offers = await this.$axios.$get(`${this.$config.cmsApiUrl}/offers`, {
       params: { sort: "id:asc", "populate[sponsors][populate]": "*" }
     });
+
+    if (!offers) return;
 
     this.offers = formatStrapiData(offers.data);
   }

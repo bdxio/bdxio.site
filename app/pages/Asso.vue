@@ -7,6 +7,6 @@
 <script>
 export default {
   name: "AssociationPage",
-  layout: "page",
+  layout: "page"
 };
 </script>
