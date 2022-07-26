@@ -1,0 +1,100 @@
+<template>
+  <section class="section section-association-volunteers">
+    <section-title tag="h3" class="text-align--center title"
+      >Découvrez les membres <br />
+      de notre <span class="after">équipe</span></section-title
+    >
+
+    <flex-container tag="ul">
+      <flex-item
+        tag="li"
+        v-for="{
+          id,
+          active,
+          firstname,
+          lastname,
+          jobLabel = null,
+          jobCompanyName = null,
+          jobCompanyUrl = null
+        } in volunteers"
+        :key="`volunteer-${id}`"
+        xs6
+        s4
+        l3
+      >
+        <div v-if="active" class="volunteer card">
+          <div class="volunteer__name">{{ firstname || "" }} {{ lastname || "" }}</div>
+          <div class="volunteer__job" v-html="getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl)" />
+        </div>
+      </flex-item>
+    </flex-container>
+  </section>
+</template>
+
+
+<script>
+export default {
+  name: "AssociationSectionVolunteers",
+  props: {
+    volunteers: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl) {
+      if (!jobCompanyName) {
+        return jobLabel;
+      }
+
+      if (jobCompanyUrl && jobCompanyName) {
+        return `${jobLabel} chez <a class="volunteer__job__link" href="${jobCompanyUrl}" target="_blank">${jobCompanyName}</a>`;
+      }
+
+      return `${jobLabel} chez ${jobCompanyName}`;
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.section-association-volunteers {
+  background: $white;
+  .title {
+    .after {
+      @include positionRelative;
+      &::after {
+        content: "";
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        z-index: -1;
+        background: url("~/assets/img/drawings/yellow_heart.png") no-repeat center;
+        background-size: contain;
+        right: -60px;
+      }
+    }
+  }
+}
+
+.volunteer {
+  &__name {
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spc-xxs;
+  }
+  &__job {
+    color: $green;
+    margin-bottom: $spc-m;
+
+    a {
+      color: red;
+    }
+
+    &__link {
+      color: $green !important;
+      text-decoration: underline;
+    }
+  }
+}
+</style>

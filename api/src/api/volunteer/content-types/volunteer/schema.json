@@ -13,16 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "firstname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "lastname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "jobLabel": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "jobCompanyName": {
       "type": "string"
