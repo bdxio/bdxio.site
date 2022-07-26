@@ -5,13 +5,29 @@
       de notre <span class="after">équipe</span></section-title
     >
 
-    <ul>
-      <li v-for="{ id, active, firstname, lastname } in volunteers" :key="`volunteer-${id}`">
-        <div v-if="active" class="volunteer">
-          <div class="volunteer__name">{{ firstname }} {{ lastname }}</div>
+    <flex-container tag="ul">
+      <flex-item
+        tag="li"
+        v-for="{
+          id,
+          active,
+          firstname,
+          lastname,
+          jobLabel = null,
+          jobCompanyName = null,
+          jobCompanyUrl = null
+        } in volunteers"
+        :key="`volunteer-${id}`"
+        xs6
+        s4
+        l3
+      >
+        <div v-if="active" class="volunteer card">
+          <div class="volunteer__name">{{ firstname || "" }} {{ lastname || "" }}</div>
+          <div class="volunteer__job" v-html="getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl)" />
         </div>
-      </li>
-    </ul>
+      </flex-item>
+    </flex-container>
   </section>
 </template>
 
@@ -25,8 +41,18 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log(this.volunteers);
+  methods: {
+    getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl) {
+      if (!jobCompanyName) {
+        return jobLabel;
+      }
+
+      if (jobCompanyUrl && jobCompanyName) {
+        return `${jobLabel} chez <a class="volunteer__job__link" href="${jobCompanyUrl}" target="_blank">${jobCompanyName}</a>`;
+      }
+
+      return `${jobLabel} chez ${jobCompanyName}`;
+    }
   }
 };
 </script>
@@ -47,6 +73,27 @@ export default {
         background-size: contain;
         right: -60px;
       }
+    }
+  }
+}
+
+.volunteer {
+  &__name {
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spc-xxs;
+  }
+  &__job {
+    color: $green;
+    margin-bottom: $spc-m;
+
+    a {
+      color: red;
+    }
+
+    &__link {
+      color: $green !important;
+      text-decoration: underline;
     }
   }
 }

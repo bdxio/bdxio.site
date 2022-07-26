@@ -21,12 +21,13 @@
             :key="`sponsor-${index}`"
             class="offer__sponsors__sponsor card"
           >
-            <a :href="attributes.url" target="_blank" class="offer__sponsors__sponsor__link">
+            <a :href="attributes.url || '#'" target="_blank" class="offer__sponsors__sponsor__link">
               <img
                 class="offer__sponsors__sponsor__image"
                 :src="
-                  attributes.logo.data.attributes.formats.thumbnail.url ||
-                  'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
+                  attributes.logo && attributes.logo.data
+                    ? attributes.logo.data.attributes.formats.thumbnail.url
+                    : 'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
                 "
                 :alt="`Logo de ${attributes.name}`"
               />

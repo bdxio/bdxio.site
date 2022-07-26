@@ -22,7 +22,6 @@ export default {
     }
     console.log(`${this.$config.cmsApiUrl}/volunteers`);
     const volunteers = await this.$axios.$get(`${this.$config.cmsApiUrl}/volunteers`, {});
-
     if (!volunteers) return;
 
     this.volunteers = formatStrapiData(volunteers.data);

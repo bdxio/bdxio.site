@@ -118,6 +118,16 @@ a {
       color: $primary-light;
     }
   }
+
+  &.volunteer__job__link {
+    color: $green;
+
+    &:hover, &:focus, &.nuxt-link-exact-active { 
+      text-decoration: underline;
+      color: $green;
+    }
+
+  }
 }
 
 .margin {
