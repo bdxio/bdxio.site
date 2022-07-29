@@ -20,10 +20,15 @@ export default {
     if (!this.$showVolunteers2022) {
       return;
     }
-    console.log(`${this.$config.cmsApiUrl}/volunteers`);
-    const volunteers = await this.$axios.$get(`${this.$config.cmsApiUrl}/volunteers`, {});
+
+    const volunteers = await this.$axios.$get(`${this.$config.cmsApiUrl}/volunteers`, {
+      params: {
+        populate: "*"
+      }
+    });
     if (!volunteers) return;
 
+    console.log(formatStrapiData(volunteers.data));
     this.volunteers = formatStrapiData(volunteers.data);
   }
 };

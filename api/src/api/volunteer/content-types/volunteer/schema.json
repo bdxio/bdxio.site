@@ -31,13 +31,13 @@
     "jobCompanyName": {
       "type": "string"
     },
-    "socialLinkedin": {
+    "linkedin": {
       "type": "string"
     },
-    "socialTwitter": {
+    "twitter": {
       "type": "string"
     },
-    "socialGithub": {
+    "github": {
       "type": "string"
     },
     "jobCompanyUrl": {
@@ -50,6 +50,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "website": {
+      "type": "string"
     }
   }
 }
