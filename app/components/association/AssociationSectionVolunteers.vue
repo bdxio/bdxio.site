@@ -15,7 +15,10 @@
           lastname,
           jobLabel = null,
           jobCompanyName = null,
-          jobCompanyUrl = null
+          jobCompanyUrl = null,
+          socialLinkedin = null,
+          socialTwitter = null,
+          socialGithub = null
         } in volunteers"
         :key="`volunteer-${id}`"
         xs6
@@ -23,8 +26,44 @@
         l3
       >
         <div v-if="active" class="volunteer card">
-          <div class="volunteer__name">{{ firstname || "" }} {{ lastname || "" }}</div>
-          <div class="volunteer__job" v-html="getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl)" />
+          <!-- <div class="volunteer__image"> -->
+          <img class="volunteer__image" />
+          <!-- </div> -->
+          <div class="volunteer__infos">
+            <div class="volunteer__infos__name" v-if="getVolunteerName(firstname, lastname)">
+              {{ getVolunteerName(firstname, lastname) }}
+            </div>
+            <div class="volunteer__infos__job" v-html="getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl)" />
+            <div class="volunteer__infos__socials">
+              <a
+                v-if="socialLinkedin"
+                :href="socialLinkedin"
+                target="_blank"
+                :aria-label="`Lien du profil linkedin de ${getVolunteerName(firstname, lastname)}`"
+                class="volunteer__infos__socials__link"
+              >
+                <img src="~/assets/img/socials/linkedin.svg" alt="Icône LinkedIn" />
+              </a>
+              <a
+                v-if="socialTwitter"
+                :href="socialTwitter"
+                target="_blank"
+                :aria-label="`Lien du profil twitter de ${getVolunteerName(firstname, lastname)}`"
+                class="volunteer__infos__socials__link"
+              >
+                <img src="~/assets/img/socials/twitter.svg" alt="Icône LinkedIn" />
+              </a>
+              <a
+                v-if="socialGithub"
+                :href="socialGithub"
+                target="_blank"
+                :aria-label="`Lien du profil github de ${getVolunteerName(firstname, lastname)}`"
+                class="volunteer__infos__socials__link"
+              >
+                <img src="~/assets/img/socials/github.svg" alt="Icône LinkedIn" />
+              </a>
+            </div>
+          </div>
         </div>
       </flex-item>
     </flex-container>
@@ -52,6 +91,21 @@ export default {
       }
 
       return `${jobLabel} chez ${jobCompanyName}`;
+    },
+    getVolunteerName(firstname = null, lastname = null) {
+      if (!firstname && !lastname) {
+        return null;
+      }
+
+      if (!firstname) {
+        return lastname;
+      }
+
+      if (!lastname) {
+        return firstname;
+      }
+
+      return `${firstname} ${lastname}`;
     }
   }
 };
@@ -78,22 +132,28 @@ export default {
 }
 
 .volunteer {
-  &__name {
-    font-size: 24px;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spc-xxs;
-  }
-  &__job {
-    color: $green;
-    margin-bottom: $spc-m;
+  &__infos {
+    padding: $spc-xs;
 
-    a {
-      color: red;
+    &__name {
+      font-size: 24px;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spc-xxs;
+    }
+    &__job {
+      color: $green;
+      margin-bottom: $spc-m;
     }
 
-    &__link {
-      color: $green !important;
-      text-decoration: underline;
+    &__socials {
+      display: flex;
+      justify-content: center;
+
+      &__link {
+        &:not(:last-of-type) {
+          margin-right: $spc-s;
+        }
+      }
     }
   }
 }
