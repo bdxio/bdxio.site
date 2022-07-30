@@ -28,8 +28,10 @@ export default {
     });
     if (!volunteers) return;
 
-    console.log(formatStrapiData(volunteers.data));
-    this.volunteers = formatStrapiData(volunteers.data);
+    this.volunteers = formatStrapiData(volunteers.data)
+      .map((a) => ({ sort: Math.random(), value: a }))
+      .sort((a, b) => a.sort - b.sort)
+      .map((a) => a.value);
   }
 };
 </script>
