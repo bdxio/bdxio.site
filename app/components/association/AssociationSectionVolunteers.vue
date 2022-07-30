@@ -132,7 +132,9 @@ export default {
 <style lang="scss" scoped>
 .section-association-volunteers {
   background: $white;
+  padding-top: 0;
   .title {
+    margin-top: 0;
     .after {
       @include positionRelative;
       &::after {
@@ -157,6 +159,7 @@ export default {
   border-radius: 8px;
   overflow: hidden;
   max-width: 265px;
+  height: 430px;
   margin-bottom: $spc-xl;
   display: block;
   margin: 0 auto $spc-xl auto;
