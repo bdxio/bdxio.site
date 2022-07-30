@@ -4,7 +4,7 @@ const featuresFlag = {
   CFP: true,
   BILLETERIE: true,
   SPONSORS2022: true,
-  VOLUNTEERS2022: false
+  VOLUNTEERS2022: true
 };
 
 export default function (context, inject) {

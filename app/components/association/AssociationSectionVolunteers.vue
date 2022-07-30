@@ -5,7 +5,7 @@
       de notre <span class="after">équipe</span></section-title
     >
 
-    <flex-container tag="ul">
+    <flex-container tag="ul" gutter-s class="volunteers">
       <flex-item
         tag="li"
         v-for="{
@@ -16,19 +16,20 @@
           jobLabel = null,
           jobCompanyName = null,
           jobCompanyUrl = null,
-          socialLinkedin = null,
-          socialTwitter = null,
-          socialGithub = null
+          linkedin = null,
+          twitter = null,
+          github = null,
+          website = null,
+          profilePicture = null
         } in volunteers"
         :key="`volunteer-${id}`"
-        xs6
-        s4
-        l3
+        xs12
+        s6
+        m4
+        xl3
       >
         <div v-if="active" class="volunteer card">
-          <!-- <div class="volunteer__image"> -->
-          <img class="volunteer__image" />
-          <!-- </div> -->
+          <img class="volunteer__image" v-if="profilePicture" :src="getVolunteerImage(profilePicture)" />
           <div class="volunteer__infos">
             <div class="volunteer__infos__name" v-if="getVolunteerName(firstname, lastname)">
               {{ getVolunteerName(firstname, lastname) }}
@@ -36,8 +37,8 @@
             <div class="volunteer__infos__job" v-html="getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl)" />
             <div class="volunteer__infos__socials">
               <a
-                v-if="socialLinkedin"
-                :href="socialLinkedin"
+                v-if="linkedin"
+                :href="linkedin"
                 target="_blank"
                 :aria-label="`Lien du profil linkedin de ${getVolunteerName(firstname, lastname)}`"
                 class="volunteer__infos__socials__link"
@@ -45,22 +46,31 @@
                 <img src="~/assets/img/socials/linkedin.svg" alt="Icône LinkedIn" />
               </a>
               <a
-                v-if="socialTwitter"
-                :href="socialTwitter"
+                v-if="twitter"
+                :href="twitter"
                 target="_blank"
                 :aria-label="`Lien du profil twitter de ${getVolunteerName(firstname, lastname)}`"
                 class="volunteer__infos__socials__link"
               >
-                <img src="~/assets/img/socials/twitter.svg" alt="Icône LinkedIn" />
+                <img src="~/assets/img/socials/twitter.svg" alt="Icône Twitter" />
               </a>
               <a
-                v-if="socialGithub"
-                :href="socialGithub"
+                v-if="github"
+                :href="github"
                 target="_blank"
                 :aria-label="`Lien du profil github de ${getVolunteerName(firstname, lastname)}`"
                 class="volunteer__infos__socials__link"
               >
-                <img src="~/assets/img/socials/github.svg" alt="Icône LinkedIn" />
+                <img src="~/assets/img/socials/github.svg" alt="Icône Github" />
+              </a>
+              <a
+                v-if="website"
+                :href="website"
+                target="_blank"
+                :aria-label="`Lien personnalisé de de ${getVolunteerName(firstname, lastname)}`"
+                class="volunteer__infos__socials__link"
+              >
+                <img src="~/assets/img/socials/website.svg" alt="Icône lien" />
               </a>
             </div>
           </div>
@@ -81,6 +91,14 @@ export default {
     }
   },
   methods: {
+    getVolunteerImage(profilePicture) {
+      const {
+        data: {
+          attributes: { url = null }
+        }
+      } = profilePicture;
+      return url;
+    },
     getVolunteerJobLabel(jobLabel, jobCompanyName, jobCompanyUrl) {
       if (!jobCompanyName) {
         return jobLabel;
@@ -131,7 +149,23 @@ export default {
   }
 }
 
+.volunteers {
+  margin-top: 100px;
+}
+
 .volunteer {
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 265px;
+  margin-bottom: $spc-xl;
+  display: block;
+  margin: 0 auto $spc-xl auto;
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
   &__infos {
     padding: $spc-xs;
 
@@ -148,12 +182,7 @@ export default {
     &__socials {
       display: flex;
       justify-content: center;
-
-      &__link {
-        &:not(:last-of-type) {
-          margin-right: $spc-s;
-        }
-      }
+      gap: 16px;
     }
   }
 }
