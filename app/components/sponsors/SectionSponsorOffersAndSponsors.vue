@@ -17,19 +17,19 @@
           :style="{ gridTemplateColumns: `repeat(${offer.sponsors.data.length}, 210px)` }"
         >
           <div
-            v-for="({ attributes }, index) in offer.sponsors.data"
+            v-for="(sponsor, index) in offer.sponsors.data"
             :key="`sponsor-${index}`"
             class="offer__sponsors__sponsor card"
           >
-            <a :href="attributes.url || '#'" target="_blank" class="offer__sponsors__sponsor__link">
+            <a :href="sponsor.url || '#'" target="_blank" class="offer__sponsors__sponsor__link">
               <img
                 class="offer__sponsors__sponsor__image"
                 :src="
-                  attributes.logo && attributes.logo.data
-                    ? attributes.logo.data.attributes.formats.thumbnail.url
+                  sponsor.logo && sponsor.logo.data
+                    ? sponsor.logo.data.attributes.formats.thumbnail.url
                     : 'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
                 "
-                :alt="`Logo de ${attributes.name}`"
+                :alt="`Logo de ${sponsor.name}`"
               />
             </a>
           </div>
