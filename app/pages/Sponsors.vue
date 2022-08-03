@@ -12,7 +12,7 @@ import SectionSponsorOffersAndSponsors from "~/components/sponsors/SectionSponso
 
 import SectionSponsorOffers from "~/components/sponsors/SectionSponsorOffers.vue";
 
-import { formatStrapiData } from "~/helpers";
+import { formatStrapiData, shuffleArray } from "~/helpers";
 export default {
   name: "SponsorsPage",
   layout: "page",
@@ -47,7 +47,16 @@ export default {
 
     if (!offers) return;
 
-    this.offers = formatStrapiData(offers.data);
+    const offersWithshuffledSponsors = formatStrapiData(offers.data).map((offer) => {
+      if (!offer.sponsors.data.length) {
+        return offer;
+      }
+
+      offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
+      return offer;
+    });
+
+    this.offers = offersWithshuffledSponsors;
   }
 };
 </script>

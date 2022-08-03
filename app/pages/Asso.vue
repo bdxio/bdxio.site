@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { formatStrapiData } from "~/helpers";
+import { formatStrapiData, shuffleArray } from "~/helpers";
 
 export default {
   name: "AssociationPage",
@@ -28,10 +28,7 @@ export default {
     });
     if (!volunteers) return;
 
-    this.volunteers = formatStrapiData(volunteers.data)
-      .map((a) => ({ sort: Math.random(), value: a }))
-      .sort((a, b) => a.sort - b.sort)
-      .map((a) => a.value);
+    this.volunteers = shuffleArray(formatStrapiData(volunteers.data));
   }
 };
 </script>
