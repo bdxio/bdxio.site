@@ -1,4 +1,3 @@
-const eachSeries = require("async/eachSeries");
 const {
   deleteTable,
   populateItemInTable,
@@ -15,30 +14,18 @@ async function populateCategoryTable(categories) {
   await deleteTable(resource);
   console.log("table categories has been deleted");
 
-  eachSeries(
-    categories,
-    async (category) => {
-      const c = await populateItemInTable(resource, {
-        conferenceHallId: category.id,
-        name: category.name || "",
-        description: category.description || "",
-        published_at: new Date(),
-      });
+  for (const category of categories) {
+    const { id } = await populateItemInTable(resource, {
+      conferenceHallId: category.id,
+      name: category.name || "",
+      description: category.description || "",
+      published_at: new Date(),
+    });
+    await publishItemInTable(resource, id)
+  }
 
-      if (c && c.id) {
-        await publishItemInTable(resource, c.id);
-      }
-    },
-    (errLoop) => {
-      if (errLoop) {
-        console.error("Error while looping through categories", errLoop);
-        return;
-      }
-
-      console.log("categories have been added into database");
-      return;
-    }
-  );
+  console.log("categories have been added into database");
+  return;
 }
 
 module.exports = populateCategoryTable;

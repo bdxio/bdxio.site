@@ -36,6 +36,12 @@
     },
     "company": {
       "type": "string"
+    },
+    "talk": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::talk.talk",
+      "inversedBy": "speakers"
     }
   }
 }

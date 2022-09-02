@@ -33,19 +33,24 @@
     "state": {
       "type": "string"
     },
-    "format": {
-      "type": "string"
-    },
     "abstract": {
       "type": "richtext"
-    },
-    "speakers": {
-      "type": "json"
     },
     "category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "speakers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::speaker.speaker",
+      "mappedBy": "talk"
+    },
+    "format": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::format.format"
     }
   }
 }

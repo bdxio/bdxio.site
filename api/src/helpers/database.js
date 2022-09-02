@@ -28,7 +28,7 @@ async function publishItemInTable(collection, id) {
     });
   } catch (error) {
     console.error(
-      `Error while updating ${collection} with id ${ressource.id} : ${error}`
+      `Error while updating ${collection} with id ${id} : ${error}`
     );
   }
 }

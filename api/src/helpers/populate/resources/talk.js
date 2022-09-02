@@ -4,6 +4,7 @@ const {
   deleteTable,
   populateItemInTable,
   publishItemInTable,
+  findItemInTable,
 } = require("../../database");
 
 async function populateTalkTable(talks) {
@@ -15,38 +16,40 @@ async function populateTalkTable(talks) {
 
   await deleteTable(resource);
   console.log("table talks has been deleted");
-  eachSeries(
-    talks,
-    async (talk) => {
-      const t = await populateItemInTable(resource, {
+
+  const categories = await strapi.db.query("api::category.category").findMany();
+  const formats = await strapi.db.query("api::format.format").findMany();
+  const strapiSpeakers = await strapi.db.query("api::speaker.speaker").findMany();
+  
+  for (const talk of talks) {
+    try {
+      const category = categories.filter(c => c.conferenceHallId === talk.categories)[0].id;
+      const format = formats.filter(f => f.conferenceHallId === talk.formats)[0].id;
+      const speakers = strapiSpeakers.filter(s => talk.speakers.includes(s.conferenceHallId)).map(s => s.id)
+
+      const { id } = await populateItemInTable(resource, {
         conferenceHallId: talk.id,
         title: talk.title,
         state: talk.state,
         level: talk.level,
         abstract: talk.abstract,
-        categor: talk.categories,
-        format: talk.formats,
-        speakers: JSON.stringify(talk.speakers),
+        category,
+        format,
+        speakers,
         comments: talk.comments,
         language: talk.language,
         creationDate: moment.unix(talk.createTimestamp._seconds).toDate(),
         published_at: new Date(),
-      });
-
-      if (t && t.id) {
-        await publishItemInTable(resource, t.id);
+      })
+      try {
+        await publishItemInTable(resource, id);
+      } catch (e) {
+        console.error("error while publishing talk", e)
       }
-    },
-    (errLoop) => {
-      if (errLoop) {
-        console.error("Error while looping through talks", errLoop);
-        return;
-      }
-
-      console.log("talks have been added into database");
-      return;
+    } catch (e) {
+      console.log("error while populating talk", e)
     }
-  );
+  }
 }
 
 module.exports = populateTalkTable;

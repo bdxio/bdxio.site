@@ -12,24 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "enumeration",
-      "enum": [
-        "Architecture & Securité",
-        "Back-end",
-        "Big Data & IA",
-        "Front-end",
-        "Design & UX",
-        "Découverte",
-        "Cloud & DevOps"
-      ],
-      "required": true
-    },
     "conferenceHallId": {
       "type": "string"
     },
     "description": {
       "type": "text"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }

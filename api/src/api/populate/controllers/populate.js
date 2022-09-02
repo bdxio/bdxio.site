@@ -1,22 +1,21 @@
 "use strict";
 
-const fs = require("fs");
 const axios = require("axios");
-const eachSeries = require("async/eachSeries");
-
 const {
   populateSpeakerTable,
   populateCategoryTable,
   populateFormatTable,
   populateTalkTable,
-  populateCompanyTable,
-  populateVolunteerTable,
 } = require("../../../helpers");
 
-const volunteerSeeds = require("../../volunteer/seeds");
-
 module.exports = {
-  async index(ctx, next) {
+  async getTalksFromConferenceHall(ctx, next) {
+    const { CONFERENCE_HALL_EVENT_ID, CONFERENCE_HALL_API_KEY  } = process.env;
+    if (!CONFERENCE_HALL_EVENT_ID || !CONFERENCE_HALL_API_KEY) {
+      ctx.status = 500;
+      ctx.body = "Missing essentials environment variables for connection w/ ConferenceHall";
+      return next();
+    }
     try {
       const url = `https://conference-hall.io/api/v1/event/${process.env.CONFERENCE_HALL_EVENT_ID}?key=${process.env.CONFERENCE_HALL_API_KEY}&state=confirmed`;
       const response = await axios.get(url);
@@ -24,30 +23,30 @@ module.exports = {
       if (!response || !response.data) {
         ctx.status = 204;
         ctx.body = "No response from conference hall";
-        next();
-        return;
+        return next();
       }
 
       const {
         categories = [],
         formats = [],
-        talks = [],
         speakers = [],
+        talks = [],
+
       } = response.data;
 
-      await populateSpeakerTable(speakers);
       await populateCategoryTable(categories);
-      await populateFormatTable(formats);
+      await populateFormatTable(formats)
+      await populateSpeakerTable(speakers);
       await populateTalkTable(talks);
-      await populateCompanyTable(speakers);
-      await populateVolunteerTable(volunteerSeeds);
 
       ctx.status = 200;
       ctx.body = "I've migrate datas from conference hall to strapi database!";
     } catch (err) {
-      console.log("HEY", err);
       ctx.status = 500;
       ctx.body = err;
+    }
+    finally {
+      next()
     }
   },
 };
