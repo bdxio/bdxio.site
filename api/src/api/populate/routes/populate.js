@@ -3,7 +3,10 @@ module.exports = {
     {
       method: "GET",
       path: "/populate",
-      handler: "populate.index",
+      handler: "populate.getTalksFromConferenceHall",
+      config: {
+        auth: { scope: ['find'] }
+      }
     },
   ],
 };

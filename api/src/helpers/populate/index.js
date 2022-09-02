@@ -3,7 +3,6 @@ const populateCategoryTable = require("./resources/category");
 const populateFormatTable = require("./resources/format");
 const populateSpeakerTable = require("./resources/speaker");
 const populateTalkTable = require("./resources/talk");
-const populateVolunteerTable = require("./resources/volunteer");
 
 module.exports = {
   populateCategoryTable,
@@ -11,5 +10,4 @@ module.exports = {
   populateFormatTable,
   populateSpeakerTable,
   populateTalkTable,
-  populateVolunteerTable,
 };
