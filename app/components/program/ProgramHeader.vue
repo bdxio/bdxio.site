@@ -34,32 +34,27 @@ export default {
       @include positionRelative;
       margin-bottom: $spc-m;
 
-      &:before {
-        content: "";
-        display: block;
-        width: 92px;
-        height: 63px;
-        position: absolute;
-        z-index: -1;
-        left: -92px;
-        top: -40px;
-        transform: rotate(-90deg);
-        background: url("~/assets/img/drawings/purple_highlight.png") center no-repeat;
-        // background-size: cover;
-      }
-
+      &:before,
       &:after {
         content: "";
         display: block;
+        position: absolute;
         width: 92px;
         height: 63px;
-        position: absolute;
         z-index: -1;
+        background: url("~/assets/img/drawings/purple_highlight.png") center no-repeat;
+      }
+
+      &:before {
+        left: -92px;
+        top: -40px;
+        transform: rotate(-90deg);
+      }
+
+      &:after {
         right: -92px;
         top: -30px;
         transform: rotate(60deg);
-        background: url("~/assets/img/drawings/purple_highlight.png") center no-repeat;
-        background-size: cover;
       }
     }
   }
