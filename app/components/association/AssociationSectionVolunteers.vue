@@ -92,6 +92,8 @@ export default {
   },
   methods: {
     getVolunteerImage(profilePicture) {
+      if (!profilePicture.data) return null;
+
       const {
         data: {
           attributes: { url = null }

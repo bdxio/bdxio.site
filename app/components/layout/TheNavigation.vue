@@ -12,6 +12,9 @@
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
     </li>
+    <li v-if="showTalks">
+      <nuxt-link to="/talks">Talks</nuxt-link>
+    </li>
     <li v-if="showBilleterie">
       <a
         class="button button-primary--light"
@@ -51,6 +54,9 @@ export default {
     },
     showBilleterie() {
       return this.$showBilleterie;
+    },
+    showTalks() {
+      return this.$showTalks;
     },
     iconBorderColor() {
       return css?.primaryLight ?? "#ffffff";
