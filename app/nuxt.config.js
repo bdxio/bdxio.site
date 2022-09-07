@@ -96,7 +96,7 @@ export default {
   build: {},
 
   axios: {
-    credentials: "same-origin",
+    credentials: false,
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
