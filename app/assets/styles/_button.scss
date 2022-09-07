@@ -9,6 +9,10 @@
   width: fit-content;
   display: block;
 
+  &-sm {
+    padding: 5px 18px; 
+  }
+
   &-primary {
     border: none;
 

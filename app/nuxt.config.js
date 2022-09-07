@@ -67,7 +67,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js", '~/plugins/preview.client.js'],
+  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js", "~/plugins/preview.client.js"],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
@@ -96,7 +96,7 @@ export default {
   build: {},
 
   axios: {
-    credentials: "same-origin",
+    credentials: false,
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`

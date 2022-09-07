@@ -3,9 +3,9 @@
     <li>
       <nuxt-link to="/">Accueil</nuxt-link>
     </li>
-    <!-- <li>
-          <NuxtLink to="/schedule">Programme</NuxtLink>
-        </li> -->
+    <li v-if="showProgram">
+      <nuxt-link to="/program">Programme</nuxt-link>
+    </li>
     <li>
       <nuxt-link to="/sponsors">Sponsors</nuxt-link>
     </li>
@@ -48,6 +48,9 @@ export default {
   computed: {
     showCfp() {
       return this.displayCfp && this.$showCfp;
+    },
+    showProgram() {
+      return this.$showProgram;
     },
     showBilleterie() {
       return this.$showBilleterie;

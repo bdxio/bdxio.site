@@ -1,5 +1,5 @@
 <template>
-  <main><program-header /></main>
+  <main><program /></main>
 </template>
 
 <script>
