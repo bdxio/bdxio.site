@@ -33,9 +33,10 @@
               :class="{ margin: index > 0 }"
               :title="name"
             >
-              <img v-if="photoUrl" :src="photoUrl" />
+              <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__image" />
               <span
                 v-else
+                class="speakers__speaker__initials"
                 :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
                 >{{ getSpeakerInitials(name) }}</span
               >
@@ -152,15 +153,23 @@ export default {
             margin-left: 0.625rem;
           }
 
-          span {
+          &__image,
+          &__initials {
             display: table-cell;
             vertical-align: middle;
-            text-align: center;
-            text-decoration: none;
+            border-radius: 50%;
+            font-size: 15px;
             height: 40px;
             width: 40px;
-            font-size: 15px;
-            border-radius: 50%;
+          }
+
+          &__image {
+            filter: grayscale(1);
+          }
+
+          &__initials {
+            text-align: center;
+            text-decoration: none;
           }
         }
       }
