@@ -1,4 +1,4 @@
-const https = require('https');
+const axios = require('axios').default;
 
 const {
   deleteTable,
@@ -6,11 +6,12 @@ const {
   publishItemInTable,
 } = require("../../database");
 
-function isValidSpeakerPicture(speakerUrl) {
+async function isValidSpeakerPicture(speakerUrl) {
   if (!speakerUrl) {
     return false;
   }
-  return https.get(speakerUrl, response => response.statusCode === 200).on("error", () => false);
+
+  return await axios.get(speakerUrl).then(response => response.status === 200).catch(() => false)
 }
 
 async function populateSpeakerTable(speakers) {
@@ -29,7 +30,7 @@ async function populateSpeakerTable(speakers) {
       name: speaker.displayName || "",
       bio: speaker.bio && speaker.bio.length ? speaker.bio.trim() : "",
       address: speaker.address || "",
-      photoUrl: isValidSpeakerPicture(speaker.photoURL) ? speaker.photoURL : "",
+      photoUrl: await isValidSpeakerPicture(speaker.photoURL) ? speaker.photoURL : "",
       twitter: speaker.twitter || "",
       github: speaker.github || "",
       company: speaker.company || "",
