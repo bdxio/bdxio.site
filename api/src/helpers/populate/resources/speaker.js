@@ -1,8 +1,17 @@
+const https = require('https');
+
 const {
   deleteTable,
   populateItemInTable,
   publishItemInTable,
 } = require("../../database");
+
+function isValidSpeakerPicture(speakerUrl) {
+  if (!speakerUrl) {
+    return false;
+  }
+  return https.get(speakerUrl, response => response.statusCode === 200).on("error", () => false);
+}
 
 async function populateSpeakerTable(speakers) {
   if (!speakers || !speakers.length) {
@@ -20,11 +29,12 @@ async function populateSpeakerTable(speakers) {
       name: speaker.displayName || "",
       bio: speaker.bio && speaker.bio.length ? speaker.bio.trim() : "",
       address: speaker.address || "",
-      photoUrl: speaker.photoUrl || "",
+      photoUrl: isValidSpeakerPicture(speaker.photoURL) ? speaker.photoURL : "",
       twitter: speaker.twitter || "",
       github: speaker.github || "",
       company: speaker.company || "",
     });
+    
     await publishItemInTable(resource, id);
   }
   console.log("speakers have been added into database");

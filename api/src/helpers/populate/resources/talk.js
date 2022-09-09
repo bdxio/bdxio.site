@@ -1,11 +1,25 @@
 const moment = require("moment");
-const eachSeries = require("async/eachSeries");
 const {
   deleteTable,
   populateItemInTable,
   publishItemInTable,
-  findItemInTable,
 } = require("../../database");
+
+function translateTalkLevel(level) {
+  if (!level) {
+    return "Tous niveaux"
+  }
+  switch (level) {
+    case "intermediate":
+      return "Intermédiaire"
+    case "advanced":
+      return "Avancé"
+    case "beginner":
+    default:
+      return "Débutant"
+  }
+}
+
 
 async function populateTalkTable(talks) {
   if (!talks || !talks.length) {
@@ -31,7 +45,7 @@ async function populateTalkTable(talks) {
         conferenceHallId: talk.id,
         title: talk.title,
         state: talk.state,
-        level: talk.level,
+        level: translateTalkLevel(talk.level),
         abstract: talk.abstract,
         category,
         format,

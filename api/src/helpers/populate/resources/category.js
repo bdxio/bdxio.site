@@ -4,6 +4,30 @@ const {
   publishItemInTable,
 } = require("../../database");
 
+function getCategoryColor(category) {
+  if (!category) {
+    return null;
+  }
+
+  switch (category) {
+    case "Design & UX":
+      return "#FF820F";
+    case "Cloud & DevSecOps":
+      return "#DABFEF";
+    case "Backend":
+      return "#9792F2"; //tmp
+    case "Frontend":
+      return "#FF820F";
+    case "Big Data & I.A.":
+      return "#F75EB3"; //tmp
+    case "Méthodo & Architecture":
+      return "#19D2B1";
+    case "Hors-piste":
+      return "#E0A960"; //tmp
+    default:
+      return null;
+  }
+}
 async function populateCategoryTable(categories) {
   if (!categories || !categories.length) {
     return;
@@ -20,6 +44,7 @@ async function populateCategoryTable(categories) {
       name: category.name || "",
       description: category.description || "",
       published_at: new Date(),
+      color: getCategoryColor(category.name)
     });
     await publishItemInTable(resource, id)
   }
