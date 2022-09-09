@@ -21,6 +21,10 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "color": {
+      "type": "string",
+      "required": true
     }
   }
 }
