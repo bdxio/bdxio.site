@@ -1,7 +1,9 @@
 <template>
   <main>
     <div class="section section-talks">
-      <h1>Les talks</h1>
+      <header class="section-talks__header">
+        <section-title tag="h1" class="section-talks__header__title">Les talks</section-title>
+      </header>
       <ul class="section-talks__filters" v-if="filters.length">
         <li @click="filterTalks()">Tous</li>
         <li v-for="filter in filters" :key="`filter-${filter.id}`" @click="filterTalks(filter.id)">
@@ -30,16 +32,19 @@
               v-for="({ attributes: { photoUrl, name }, id }, index) in speakers.data"
               :key="`speaker-${id}`"
               class="speakers__speaker"
-              :class="{ margin: index > 0 }"
+              :class="{ marginTop: index > 0 }"
               :title="name"
             >
-              <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__image" />
-              <span
-                v-else
-                class="speakers__speaker__initials"
-                :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
-                >{{ getSpeakerInitials(name) }}</span
-              >
+              <div class="speakers__speaker__infos">
+                <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__infos__image" />
+                <span
+                  v-else
+                  class="speakers__speaker__infos__initials"
+                  :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
+                  >{{ getSpeakerInitials(name) }}</span
+                >
+                <span class="speakers__speaker__infos__name">{{ name }}</span>
+              </div>
             </div>
           </div>
         </li>
@@ -103,6 +108,7 @@ export default {
     });
 
     if (talks.data.data.length) {
+      console.log(talks.data.data.length);
       this.talks = talks.data.data;
     }
   }
@@ -111,10 +117,49 @@ export default {
 
 <style lang="scss" scoped>
 .section-talks {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+      @include positionRelative;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        z-index: -1;
+        left: -110px;
+        bottom: -20px;
+        background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
+        background-size: cover;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        z-index: -1;
+        right: -110px;
+        bottom: -20px;
+        background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
+        background-size: cover;
+      }
+    }
+  }
   &__talks {
     display: flex;
+    justify-content: center;
     grid-gap: 30px;
     flex-wrap: wrap;
+    margin-top: 100px;
 
     &__card {
       display: flex;
@@ -123,7 +168,7 @@ export default {
       padding: 1rem;
       border: 2px solid black;
       border-radius: 8px;
-      max-width: 17.1875rem; //275px
+      max-width: 280px; //275px
 
       .title {
         font-family: $font-family-body;
@@ -143,33 +188,38 @@ export default {
       }
 
       .speakers {
-        margin-top: 40px;
-        display: flex;
-
+        margin-top: 20px;
         &__speaker {
-          display: inline-block;
+          &__infos {
+            display: flex;
+            align-items: center;
 
-          &.margin {
-            margin-left: 0.625rem;
+            &__image,
+            &__initials {
+              display: table-cell;
+              vertical-align: middle;
+              border-radius: 50%;
+              font-size: 15px;
+              height: 40px;
+              width: 40px;
+            }
+
+            &__image {
+              filter: grayscale(1);
+            }
+
+            &__initials {
+              text-align: center;
+              text-decoration: none;
+            }
+
+            &__name {
+              font-size: 16px;
+              margin-left: 10px;
+            }
           }
-
-          &__image,
-          &__initials {
-            display: table-cell;
-            vertical-align: middle;
-            border-radius: 50%;
-            font-size: 15px;
-            height: 40px;
-            width: 40px;
-          }
-
-          &__image {
-            filter: grayscale(1);
-          }
-
-          &__initials {
-            text-align: center;
-            text-decoration: none;
+          &.marginTop {
+            margin-top: 10px;
           }
         }
       }
