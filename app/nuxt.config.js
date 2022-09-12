@@ -107,5 +107,10 @@ export default {
     newsletterUrl: process.env.NEWSLETTER_URL ?? null,
     cmsBaseUrl: process.env.CMS_BASE_URL ?? null,
     cmsApiUrl: process.env.NEXT_PUBLIC_API_URL ?? null
+  },
+  router: {
+    extendRoutes(routes) {
+      return routes.filter(r => !["talks-id"].includes(r.name))
+    }
   }
 };

@@ -15,15 +15,15 @@ function getCategoryColor(category) {
     case "Cloud & DevSecOps":
       return "#DABFEF";
     case "Backend":
-      return "#9792F2"; //tmp
+      return "#f25572";
     case "Frontend":
       return "#FF820F";
     case "Big Data & I.A.":
-      return "#F75EB3"; //tmp
+      return "#65c4cd";
     case "Méthodo & Architecture":
       return "#19D2B1";
     case "Hors-piste":
-      return "#E0A960"; //tmp
+      return "#4452ff";
     default:
       return null;
   }
