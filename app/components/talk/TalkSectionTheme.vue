@@ -17,9 +17,12 @@ export default {
   },
   computed: {
     themeClass() {
+      console.log(this.category);
       switch (this.category) {
         case "Frontend":
           return " theme--1";
+        case "Backend":
+          return " theme--2";
         case "Big Data & I.A.":
           return " theme--3";
         case "Design & UX":
