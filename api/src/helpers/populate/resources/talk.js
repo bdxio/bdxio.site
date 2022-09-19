@@ -20,6 +20,29 @@ function translateTalkLevel(level) {
   }
 }
 
+function translateTalkLanguage(language) {
+  if (!language) {
+    return "N/A"
+  }
+
+  switch (language) {
+    case "French":
+    case "french":
+    case "Francais":
+    case "Français":
+    case "français":
+    case "francais":
+      return "Français"
+    case "English":
+    case "english":
+    case "Anglais":
+    case "anglais":
+      return "Anglais"
+    default:
+      return "N/A"
+  }
+}
+
 
 async function populateTalkTable(talks) {
   if (!talks || !talks.length) {
@@ -51,7 +74,7 @@ async function populateTalkTable(talks) {
         format,
         speakers,
         comments: talk.comments,
-        language: talk.language,
+        language: translateTalkLanguage(talk.language),
         creationDate: moment.unix(talk.createTimestamp._seconds).toDate(),
         published_at: new Date(),
       })

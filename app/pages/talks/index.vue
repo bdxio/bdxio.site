@@ -1,22 +1,58 @@
 <template>
   <main>
     <div class="section section-talks">
-      <h1>Les talks</h1>
-      <ul class="section-talks__filters" v-if="filters.length">
-        <li @click="filterTalks()">Tous</li>
-        <li v-for="filter in filters" :key="`filter-${filter.id}`" @click="filterTalks(filter.id)">
-          {{ filter.attributes.name }}
-        </li>
-      </ul>
+      <header class="section-talks__header">
+        <section-title tag="h1" class="section-talks__header__title">Les talks</section-title>
+
+        <ul class="section-talks__header__filters" v-if="filters.length">
+          <li class="section-talks__header__filters__filter" click="setFilter">
+            <input
+              type="radio"
+              id="all"
+              value="all"
+              v-model="currentFilter"
+              class="display--none"
+              :class="{ active: currentFilter === 'all' }"
+            />
+            <label for="all" class="cursor--pointer">Tous</label>
+          </li>
+          <li
+            class="section-talks__header__filters__filter"
+            v-for="filter in filters"
+            :key="`filter-${filter.id}`"
+            @click="setFilter(filter.id)"
+          >
+            <input
+              type="radio"
+              :id="filter.attributes.name"
+              :value="filter.id"
+              v-model="currentFilter"
+              class="display--none"
+              :class="{ active: currentFilter === filter.id }"
+            />
+            <label
+              :for="filter.attributes.name"
+              class="cursor--pointer"
+              :style="
+                currentFilter === filter.id
+                  ? `border-color: ${filter.attributes.color}; color: ${filter.attributes.color}`
+                  : ''
+              "
+              >{{ filter.attributes.name }}</label
+            >
+          </li>
+        </ul>
+      </header>
 
       <ul class="section-talks__talks">
         <li
-          v-for="{ attributes: { title, level, speakers, category }, id } in talks"
+          v-for="{ attributes: { title, level, speakers, category }, id } in filteredTalks"
           :key="`talk-${id}`"
-          class="section-talks__talks__card"
+          class="section-talks__talks__card cursor--pointer"
           :style="{
             'border-color': category.data.attributes.color || 'black'
           }"
+          @click.prevent="$router.push(`/talks/${id}`)"
         >
           <div>
             <h2 class="title">{{ title }}</h2>
@@ -30,16 +66,19 @@
               v-for="({ attributes: { photoUrl, name }, id }, index) in speakers.data"
               :key="`speaker-${id}`"
               class="speakers__speaker"
-              :class="{ margin: index > 0 }"
+              :class="{ marginTop: index > 0 }"
               :title="name"
             >
-              <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__image" />
-              <span
-                v-else
-                class="speakers__speaker__initials"
-                :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
-                >{{ getSpeakerInitials(name) }}</span
-              >
+              <div class="speakers__speaker__infos">
+                <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__infos__image" />
+                <span
+                  v-else
+                  class="speakers__speaker__infos__initials"
+                  :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
+                  >{{ getSpeakerInitials(name) }}</span
+                >
+                <span class="speakers__speaker__infos__name">{{ name }}</span>
+              </div>
             </div>
           </div>
         </li>
@@ -61,15 +100,24 @@ export default {
       currentFilter: "all"
     };
   },
+  computed: {
+    filteredTalks() {
+      if (!this.talks || !this.talks.length) return [];
+
+      if (this.currentFilter === "all") {
+        return this.talks;
+      }
+
+      return this.talks.filter((t) => t.attributes.category.data.id === this.currentFilter);
+    }
+  },
   head() {
     return {
       title: "Talks | BDX I/O"
     };
   },
   methods: {
-    filterTalks(id = "all") {
-      console.log(this.talks, id);
-    },
+    setFilter() {},
     getRandomBackgroundColor() {
       return shuffleArray(["#9ADCFF", "#FFF89A", "#FFB2A6", "#FF8AAE", "#FFF9CA", "#FFDEB4", "#FFB4B4", "#B2A4FF"])[0];
     },
@@ -83,18 +131,16 @@ export default {
       return `${parts[0].charAt(0).toUpperCase()}${parts[1].charAt(0).toUpperCase()}`;
     }
   },
-  async fetch() {
-    // const filters = await this.$axios.get(`${this.$config.cmsApiUrl}/categories`, {
-    //   params: {
-    //     fields: ["id", "name"]
-    //   }
-    // });
+  async asyncData(context) {
+    const { $axios, $config } = context;
 
-    // if (filters.data.data.length) {
-    //   this.filters = filters.data.data;
-    // }
+    const filters = await $axios.get(`${$config.cmsApiUrl}/categories`, {
+      params: {
+        fields: ["id", "name", "color"]
+      }
+    });
 
-    const talks = await this.$axios.get(`${this.$config.cmsApiUrl}/talks`, {
+    const talks = await $axios.get(`${$config.cmsApiUrl}/talks`, {
       params: {
         fields: ["id", "title", "level"],
         "populate[category]": "*",
@@ -102,19 +148,85 @@ export default {
       }
     });
 
-    if (talks.data.data.length) {
-      this.talks = talks.data.data;
-    }
+    return {
+      talks: talks.data.data.length ? talks.data.data : [],
+      filters: filters.data.data.length ? filters.data.data : []
+    };
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .section-talks {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+      @include positionRelative;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        z-index: -1;
+        left: -110px;
+        bottom: -20px;
+        background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
+        background-size: cover;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        z-index: -1;
+        right: -110px;
+        bottom: -20px;
+        background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &__filters {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      margin: 40px 40px 0 40px;
+
+      &__filter {
+        cursor: pointer;
+        margin-bottom: 50px;
+
+        .active {
+          & + label {
+            padding-bottom: 5px;
+            border-bottom: 3px solid black;
+          }
+        }
+      }
+
+      @include mobileFirst(s) {
+        grid-template-columns: repeat(3, 1fr);
+
+        &__filter {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
   &__talks {
     display: flex;
+    justify-content: center;
     grid-gap: 30px;
     flex-wrap: wrap;
+    margin-top: 100px;
 
     &__card {
       display: flex;
@@ -123,7 +235,7 @@ export default {
       padding: 1rem;
       border: 2px solid black;
       border-radius: 8px;
-      max-width: 17.1875rem; //275px
+      max-width: 280px; //275px
 
       .title {
         font-family: $font-family-body;
@@ -143,33 +255,38 @@ export default {
       }
 
       .speakers {
-        margin-top: 40px;
-        display: flex;
-
+        margin-top: 20px;
         &__speaker {
-          display: inline-block;
+          &__infos {
+            display: flex;
+            align-items: center;
 
-          &.margin {
-            margin-left: 0.625rem;
+            &__image,
+            &__initials {
+              display: table-cell;
+              vertical-align: middle;
+              border-radius: 50%;
+              font-size: 15px;
+              height: 40px;
+              width: 40px;
+            }
+
+            &__image {
+              filter: grayscale(1);
+            }
+
+            &__initials {
+              text-align: center;
+              text-decoration: none;
+            }
+
+            &__name {
+              font-size: 16px;
+              margin-left: 10px;
+            }
           }
-
-          &__image,
-          &__initials {
-            display: table-cell;
-            vertical-align: middle;
-            border-radius: 50%;
-            font-size: 15px;
-            height: 40px;
-            width: 40px;
-          }
-
-          &__image {
-            filter: grayscale(1);
-          }
-
-          &__initials {
-            text-align: center;
-            text-decoration: none;
+          &.marginTop {
+            margin-top: 10px;
           }
         }
       }
