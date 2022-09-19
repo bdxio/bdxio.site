@@ -3,17 +3,31 @@
     <div class="section section-talks">
       <header class="section-talks__header">
         <section-title tag="h1" class="section-talks__header__title">Les talks</section-title>
+
+        <ul class="section-talks__header__filters" v-if="filters.length">
+          <li
+            class="section-talks__header__filters__filter"
+            :class="{ active: currentFilter === 'all' }"
+            click="setFilter()"
+          >
+            <input type="radio" id="all" value="all" v-model="currentFilter" />
+            <label for="all">Tous</label>
+          </li>
+          <li
+            class="section-talks__header__filters__filter"
+            v-for="filter in filters"
+            :key="`filter-${filter.id}`"
+            @click="setFilter(filter.id)"
+          >
+            <input type="radio" :id="filter.attributes.name" :value="filter.id" v-model="currentFilter" />
+            <label :for="filter.attributes.name">{{ filter.attributes.name }}</label>
+          </li>
+        </ul>
       </header>
-      <ul class="section-talks__filters" v-if="filters.length">
-        <li @click="filterTalks()">Tous</li>
-        <li v-for="filter in filters" :key="`filter-${filter.id}`" @click="filterTalks(filter.id)">
-          {{ filter.attributes.name }}
-        </li>
-      </ul>
 
       <ul class="section-talks__talks">
         <li
-          v-for="{ attributes: { title, level, speakers, category }, id } in talks"
+          v-for="{ attributes: { title, level, speakers, category }, id } in filteredTalks"
           :key="`talk-${id}`"
           class="section-talks__talks__card"
           :style="{
@@ -66,15 +80,24 @@ export default {
       currentFilter: "all"
     };
   },
+  computed: {
+    filteredTalks() {
+      if (!this.talks || !this.talks.length) return [];
+
+      if (this.currentFilter === "all") {
+        return this.talks;
+      }
+
+      return this.talks.filter((t) => t.attributes.category.data.id === this.currentFilter);
+    }
+  },
   head() {
     return {
       title: "Talks | BDX I/O"
     };
   },
   methods: {
-    filterTalks(id = "all") {
-      console.log(this.talks, id);
-    },
+    setFilter() {},
     getRandomBackgroundColor() {
       return shuffleArray(["#9ADCFF", "#FFF89A", "#FFB2A6", "#FF8AAE", "#FFF9CA", "#FFDEB4", "#FFB4B4", "#B2A4FF"])[0];
     },
@@ -88,18 +111,16 @@ export default {
       return `${parts[0].charAt(0).toUpperCase()}${parts[1].charAt(0).toUpperCase()}`;
     }
   },
-  async fetch() {
-    // const filters = await this.$axios.get(`${this.$config.cmsApiUrl}/categories`, {
-    //   params: {
-    //     fields: ["id", "name"]
-    //   }
-    // });
+  async asyncData(context) {
+    const { $axios, $config } = context;
 
-    // if (filters.data.data.length) {
-    //   this.filters = filters.data.data;
-    // }
+    const filters = await $axios.get(`${$config.cmsApiUrl}/categories`, {
+      params: {
+        fields: ["id", "name"]
+      }
+    });
 
-    const talks = await this.$axios.get(`${this.$config.cmsApiUrl}/talks`, {
+    const talks = await $axios.get(`${$config.cmsApiUrl}/talks`, {
       params: {
         fields: ["id", "title", "level"],
         "populate[category]": "*",
@@ -107,10 +128,10 @@ export default {
       }
     });
 
-    if (talks.data.data.length) {
-      console.log(talks.data.data.length);
-      this.talks = talks.data.data;
-    }
+    return {
+      talks: talks.data.data.length ? talks.data.data : [],
+      filters: filters.data.data.length ? filters.data.data : []
+    };
   }
 };
 </script>
@@ -151,6 +172,17 @@ export default {
         bottom: -20px;
         background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
         background-size: cover;
+      }
+    }
+
+    &__filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 40px 40px 0 40px;
+
+      &__filter {
+        cursor: pointer;
+        margin-bottom: 30px;
       }
     }
   }
