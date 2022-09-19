@@ -11,7 +11,7 @@ function getCategoryColor(category) {
 
   switch (category) {
     case "Design & UX":
-      return "#FF820F";
+      return "#FBDB33";
     case "Cloud & DevSecOps":
       return "#DABFEF";
     case "Backend":
