@@ -1,7 +1,7 @@
 <template>
   <section class="section-themes">
     <div class="theme-item">
-      <span class="theme" :class="`theme--${themeIndex}`">{{ themes[themeIndex - 1] }}</span>
+      <span class="theme" :class="`theme--${categoryId}`">{{ themes[categoryId - 1] }}</span>
     </div>
   </section>
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: "TalkSectionTheme",
   props: {
-    themeIndex: {
+    categoryId: {
       type: Number,
       required: true,
       validator: (value) => value > 0 && value <= 7,

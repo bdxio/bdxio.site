@@ -1,52 +1,31 @@
 <template>
   <section class="talk-section-speaker">
-    <section-title tag="h3"
-      >{{ speaker.name }}</section-title
-    >
+    <section-title tag="h3">
+      <img
+        class="speaker-picture"
+        :src="speaker.photoUrl"
+        :alt="`Photo de ${speaker.name}`"
+      />
+      <span>{{ speaker.name }}</span>
+    </section-title>
     <flex-container tag="ul" class="speaker-infos">
-      <flex-item tag="li">
+      <flex-item
+        v-for="(speakerItem, index) in speakerInfos"
+        :key="index"
+        tag="li"
+      >
         <img
-          src="~/assets/img/socials/twitter.svg"
-          alt="Icône Twitter BDX IO"
+          :src="require(`~/assets/img/${speakerItem.imgPath}`)"
+          :alt="speakerItem.alt"
           class="info-logo"
         />
         <span>
-          @twitter
-        </span>
-      </flex-item>
-      <flex-item tag="li">
-        <img
-          src="~/assets/img/icons/company.svg"
-          alt="Icône Twitter BDX IO"
-          class="info-logo"
-        />
-        <span>
-          Company
-        </span>
-      </flex-item>
-      <flex-item tag="li">
-        <img
-          src="~/assets/img/socials/github.svg"
-          alt="Icône Twitter BDX IO"
-          class="info-logo"
-        />
-        <span>
-          github
-        </span>
-      </flex-item>
-      <flex-item tag="li">
-        <img
-          src="~/assets/img/icons/location.svg"
-          alt="Icône Twitter BDX IO"
-          class="info-logo"
-        />
-        <span>
-          Location, Country
+          {{ speakerItem.value }}
         </span>
       </flex-item>
     </flex-container>
     <p>
-      {{ speaker.presentation }}
+      {{ speaker.bio }}
     </p>
   </section>
 </template>
@@ -60,7 +39,7 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ['name', 'presentation'].forEach(key => {
+        ['name', 'bio'].forEach(key => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
@@ -68,6 +47,40 @@ export default {
         return result;
       },
     },
+  },
+  computed: {
+    speakerInfos() {
+      const result = [];
+      if (this.speaker.twitter) {
+        result.push({
+          imgPath: 'socials/twitter.svg',
+          alt: 'Icône Twitter BDX I/O',
+          value: this.speaker.twitter,
+        });
+      }
+      if (this.speaker.company) {
+        result.push({
+          imgPath: 'icons/company.svg',
+          alt: 'Icône entreprise BDX I/O',
+          value: this.speaker.company,
+        });
+      }
+      if (this.speaker.github) {
+        result.push({
+          imgPath: 'socials/github.svg',
+          alt: 'Icône Github BDX I/O',
+          value: this.speaker.github,
+        });
+      }
+      if (this.speaker.address) {
+        result.push({
+          imgPath: 'icons/location.svg',
+          alt: 'Icône adresse BDX I/O',
+          value: this.speaker.address,
+        });
+      }
+      return result;
+    }
   },
 };
 </script>
@@ -82,6 +95,16 @@ export default {
     font-family: 'Lato';
     color: #000;
     font-size: 22px;
+    display: flex;
+    align-items: center;
+
+    .speaker-picture {
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      margin-right: 23px;
+      object-fit: cover;
+    }
   }
 
   .speaker-infos {

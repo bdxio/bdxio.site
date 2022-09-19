@@ -1,16 +1,20 @@
 <template>
-  <section class="talk-section-presentation">
+  <section class="section talk-section-presentation">
     <section-title tag="h2">
-      Talk n°{{ presentation.id }} title
-    </section-title
-    >
+      {{ presentation.title }}
+    </section-title>
+    <img
+      src="~/assets/img/drawings/cyan_scribble_3.png"
+      alt="Gribouillages BDXI/O"
+      aria-hidden="true"
+      class="underline-scribble"
+    />
     <flex-container class="tag-container">
-      <flex-item class="tag">{{ presentation.type }} - {{ presentation.duration }}min</flex-item>
+      <flex-item class="tag">{{ presentation.format }} - {{ duration }}min</flex-item>
       <flex-item class="tag">{{ presentation.level }}</flex-item>
+      <flex-item class="tag" v-if="presentation.language">{{ presentation.language }}</flex-item>
     </flex-container>
-    <p>
-      {{ presentation.abstract }}
-    </p>
+    <p v-html="presentation.abstract"></p>
   </section>
 </template>
 
@@ -23,7 +27,7 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ['id', 'type', 'duration', 'level', 'abstract'].forEach(key => {
+        ['title', 'format', 'level', 'abstract'].forEach(key => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
@@ -32,12 +36,33 @@ export default {
       },
     },
   },
+  computed: {
+    duration() {
+      switch(this.presentation.format) {
+        case 'Quickie':
+          return 15;
+        case 'Hands on lab':
+          return 100;
+        default:
+          return 45;
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .talk-section-presentation {
-  margin-bottom: 90px;
+  padding-top: 0;
+  padding-bottom: 5rem;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+.underline-scribble {
+  margin: 10px 0 33px -69px;
 }
 
 .tag-container {

@@ -16,27 +16,28 @@ export default {
   layout: "page",
   async asyncData(context) {
     const {
-      params: { id },
+      params: { talkId },
       $axios,
       $config
     } = context;
 
     let presentation, categoryId, speakers;
     await $axios
-      .get(`${$config.cmsApiUrl}/talks/${id}`, {
+      .get(`${$config.cmsApiUrl}/talks/${talkId}`, {
         params: {
           populate: "*"
         }
       })
-      .then(({ data }) => {
+      .then(({ data: { data: { attributes } } }) => {
         presentation = {
-          title: data.title,
-          level: data.level,
-          language: data.language,
-          abstract: data.abstract,
+          title: attributes.title,
+          level: attributes.level,
+          language: attributes.language,
+          abstract: attributes.abstract,
+          format: attributes.format.data.attributes.name,
         };
-        categoryId = data.category.data.id;
-        speakers = [...data.speakers.data];
+        categoryId = attributes.category.data.id;
+        speakers = [...attributes.speakers.data.map(({ attributes }) => attributes)];
       });
     return {
       presentation,
