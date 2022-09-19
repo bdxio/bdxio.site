@@ -5,13 +5,16 @@
         <section-title tag="h1" class="section-talks__header__title">Les talks</section-title>
 
         <ul class="section-talks__header__filters" v-if="filters.length">
-          <li
-            class="section-talks__header__filters__filter"
-            :class="{ active: currentFilter === 'all' }"
-            click="setFilter()"
-          >
-            <input type="radio" id="all" value="all" v-model="currentFilter" />
-            <label for="all">Tous</label>
+          <li class="section-talks__header__filters__filter" click="setFilter">
+            <input
+              type="radio"
+              id="all"
+              value="all"
+              v-model="currentFilter"
+              class="display--none"
+              :class="{ active: currentFilter === 'all' }"
+            />
+            <label for="all" class="cursor--pointer">Tous</label>
           </li>
           <li
             class="section-talks__header__filters__filter"
@@ -19,8 +22,24 @@
             :key="`filter-${filter.id}`"
             @click="setFilter(filter.id)"
           >
-            <input type="radio" :id="filter.attributes.name" :value="filter.id" v-model="currentFilter" />
-            <label :for="filter.attributes.name">{{ filter.attributes.name }}</label>
+            <input
+              type="radio"
+              :id="filter.attributes.name"
+              :value="filter.id"
+              v-model="currentFilter"
+              class="display--none"
+              :class="{ active: currentFilter === filter.id }"
+            />
+            <label
+              :for="filter.attributes.name"
+              class="cursor--pointer"
+              :style="
+                currentFilter === filter.id
+                  ? `border-color: ${filter.attributes.color}; color: ${filter.attributes.color}`
+                  : ''
+              "
+              >{{ filter.attributes.name }}</label
+            >
           </li>
         </ul>
       </header>
@@ -29,7 +48,7 @@
         <li
           v-for="{ attributes: { title, level, speakers, category }, id } in filteredTalks"
           :key="`talk-${id}`"
-          class="section-talks__talks__card"
+          class="section-talks__talks__card cursor--pointer"
           :style="{
             'border-color': category.data.attributes.color || 'black'
           }"
@@ -117,7 +136,7 @@ export default {
 
     const filters = await $axios.get(`${$config.cmsApiUrl}/categories`, {
       params: {
-        fields: ["id", "name"]
+        fields: ["id", "name", "color"]
       }
     });
 
@@ -178,12 +197,27 @@ export default {
 
     &__filters {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       margin: 40px 40px 0 40px;
 
       &__filter {
         cursor: pointer;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+
+        .active {
+          & + label {
+            padding-bottom: 5px;
+            border-bottom: 3px solid black;
+          }
+        }
+      }
+
+      @include mobileFirst(s) {
+        grid-template-columns: repeat(3, 1fr);
+
+        &__filter {
+          margin-bottom: 30px;
+        }
       }
     }
   }
