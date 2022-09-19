@@ -3,6 +3,7 @@
     <talk-section-theme :category="category" />
     <talk-section-presentation :presentation="presentation" />
     <talk-section-speaker v-for="(speaker, index) in speakers" :key="index" :speaker="speaker" />
+    <nuxt-link to="/talks" class="button button-primary button-primary--light backto">Liste des talks</nuxt-link>
   </main>
 </template>
 
@@ -47,5 +48,10 @@ export default {
 <style lang="scss" scoped>
 .section-talk {
   background: #fff;
+}
+
+.backto {
+  margin: $spc-l auto 0 auto;
+  display: block;
 }
 </style>

@@ -91,7 +91,7 @@ export default {
         return link;
       }
 
-      return `https://${social}/${link.replace("@", "")}`;
+      return `https://${social}.com/${link.replace("@", "")}`;
     }
   }
 };
