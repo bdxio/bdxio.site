@@ -1,12 +1,8 @@
 <template>
   <main class="section section-talk">
-    <talk-section-theme :categoryId="categoryId"/>
-    <talk-section-presentation :presentation="presentation"/>
-    <talk-section-speaker
-      v-for="(speaker, index) in speakers"
-      :key="index"
-      :speaker="speaker"
-    />
+    <talk-section-theme :category="category" />
+    <talk-section-presentation :presentation="presentation" />
+    <talk-section-speaker v-for="(speaker, index) in speakers" :key="index" :speaker="speaker" />
   </main>
 </template>
 
@@ -21,30 +17,30 @@ export default {
       $config
     } = context;
 
-    let presentation, categoryId, speakers;
-    await $axios
-      .get(`${$config.cmsApiUrl}/talks/${talkId}`, {
-        params: {
-          populate: "*"
-        }
-      })
-      .then(({ data: { data: { attributes } } }) => {
-        presentation = {
-          title: attributes.title,
-          level: attributes.level,
-          language: attributes.language,
-          abstract: attributes.abstract,
-          format: attributes.format.data.attributes.name,
-        };
-        categoryId = attributes.category.data.id;
-        speakers = [...attributes.speakers.data.map(({ attributes }) => attributes)];
-      });
+    const response = await $axios.get(`${$config.cmsApiUrl}/talks/${talkId}`, {
+      params: {
+        populate: "*"
+      }
+    });
+
+    const {
+      data: {
+        data: { attributes }
+      }
+    } = response;
+
     return {
-      presentation,
-      categoryId,
-      speakers,
+      presentation: {
+        title: attributes.title || null,
+        level: attributes.level || null,
+        language: attributes.language || null,
+        abstract: attributes.abstract || null,
+        format: attributes.format.data.attributes.name || null
+      },
+      category: attributes.category.data.attributes.name || null,
+      speakers: [...attributes.speakers.data.map(({ attributes }) => attributes)]
     };
-  },
+  }
 };
 </script>
 

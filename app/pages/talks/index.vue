@@ -33,6 +33,7 @@
           :style="{
             'border-color': category.data.attributes.color || 'black'
           }"
+          @click.prevent="$router.push(`/talks/${id}`)"
         >
           <div>
             <h2 class="title">{{ title }}</h2>
