@@ -207,7 +207,7 @@ export default {
         .active {
           & + label {
             padding-bottom: 5px;
-            border-bottom: 3px solid black;
+            border-bottom: 3px solid $primary-dark;
           }
         }
       }
