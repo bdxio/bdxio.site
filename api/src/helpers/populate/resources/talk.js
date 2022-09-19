@@ -41,10 +41,6 @@ function translateTalkLanguage(language) {
     default:
       return "N/A"
   }
-
-  console.log(language)
-  return language
-
 }
 
 

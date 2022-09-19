@@ -20,12 +20,16 @@ export default {
       switch (this.category) {
         case "Frontend":
           return " theme--1";
+        case "Big Data & I.A.":
+          return " theme--3";
         case "Design & UX":
           return " theme--4";
         case "Cloud & DevSecOps":
           return " theme--5";
         case "Méthodo & Architecture":
           return " theme--6";
+        case "Hors-piste":
+          return " theme--7";
         default:
           return "";
       }
