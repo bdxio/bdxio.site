@@ -67,7 +67,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js", '~/plugins/preview.client.js'],
+  plugins: ["~/plugins/featureFlag.client.js", "~/plugins/axios.js", "~/plugins/preview.client.js"],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
@@ -90,7 +90,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],
+  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/markdownit"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
@@ -110,7 +110,7 @@ export default {
   },
   router: {
     extendRoutes(routes) {
-      return routes.filter(r => !["talks-id"].includes(r.name))
+      return routes.filter((r) => !["talks-id"].includes(r.name));
     }
   }
 };

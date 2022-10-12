@@ -13,9 +13,7 @@
         <span v-else> {{ link.value }}</span>
       </flex-item>
     </flex-container>
-    <p>
-      {{ speaker.bio }}
-    </p>
+    <p v-html="$md.render(speaker.bio)" />
   </section>
 </template>
 
