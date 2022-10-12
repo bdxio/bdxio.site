@@ -134,19 +134,20 @@ export default {
   async asyncData(context) {
     const { $axios, $config } = context;
 
-    const filters = await $axios.get(`${$config.cmsApiUrl}/categories`, {
-      params: {
-        fields: ["id", "name", "color"]
-      }
-    });
-
-    const talks = await $axios.get(`${$config.cmsApiUrl}/talks`, {
-      params: {
-        fields: ["id", "title", "level"],
-        "populate[category]": "*",
-        "populate[speakers]": "*"
-      }
-    });
+    const [filters, talks] = await Promise.all([
+      $axios.get(`${$config.cmsApiUrl}/categories`, {
+        params: {
+          fields: ["id", "name", "color"]
+        }
+      }),
+      $axios.get(`${$config.cmsApiUrl}/talks`, {
+        params: {
+          fields: ["id", "title", "level"],
+          "populate[category]": "*",
+          "populate[speakers]": "*"
+        }
+      })
+    ]);
 
     return {
       talks: talks.data.data.length ? talks.data.data : [],

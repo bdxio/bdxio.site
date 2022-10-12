@@ -14,7 +14,7 @@
       <flex-item class="tag">{{ presentation.level }}</flex-item>
       <flex-item class="tag" v-if="presentation.language">{{ presentation.language }}</flex-item>
     </flex-container>
-    <p v-html="presentation.abstract"></p>
+    <p v-html="$md.render(presentation.abstract)" />
   </section>
 </template>
 
@@ -27,27 +27,27 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ['title', 'format', 'level', 'abstract'].forEach(key => {
+        ["title", "format", "level", "abstract"].forEach((key) => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
         });
         return result;
-      },
-    },
+      }
+    }
   },
   computed: {
     duration() {
-      switch(this.presentation.format) {
-        case 'Quickie':
+      switch (this.presentation.format) {
+        case "Quickie":
           return 15;
-        case 'Hands on lab':
+        case "Hands on lab":
           return 100;
         default:
           return 45;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
