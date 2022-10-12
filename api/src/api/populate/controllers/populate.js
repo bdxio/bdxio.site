@@ -3,9 +3,9 @@
 const axios = require("axios");
 const {
   populateSpeakerTable,
-  populateCategoryTable,
-  populateFormatTable,
-  populateTalkTable,
+  // populateCategoryTable,
+  // populateFormatTable,
+  // populateTalkTable,
 } = require("../../../helpers");
 
 module.exports = {
@@ -34,10 +34,10 @@ module.exports = {
 
       } = response.data;
 
-      await populateCategoryTable(categories);
-      await populateFormatTable(formats)
+      // await populateCategoryTable(categories);
+      // await populateFormatTable(formats)
       await populateSpeakerTable(speakers);
-      await populateTalkTable(talks);
+      // await populateTalkTable(talks);
 
       ctx.status = 200;
       ctx.body = "I've migrate datas from conference hall to strapi database!";
