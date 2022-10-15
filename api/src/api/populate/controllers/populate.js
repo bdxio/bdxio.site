@@ -3,6 +3,7 @@
 const axios = require("axios");
 const {
   populateSpeakerTable,
+  populateRoomTable
   // populateCategoryTable,
   // populateFormatTable,
   // populateTalkTable,
@@ -27,16 +28,17 @@ module.exports = {
       }
 
       const {
-        categories = [],
-        formats = [],
+        // categories = [],
+        // formats = [],
         speakers = [],
-        talks = [],
+        // talks = [],
 
       } = response.data;
 
       // await populateCategoryTable(categories);
       // await populateFormatTable(formats)
       await populateSpeakerTable(speakers);
+      await populateRoomTable()
       // await populateTalkTable(talks);
 
       ctx.status = 200;
