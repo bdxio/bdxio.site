@@ -52,35 +52,40 @@
           :style="{
             'border-color': category.data.attributes.color || 'black'
           }"
-          @click.prevent="$router.push(`/talks/${id}`)"
         >
-          <div>
-            <h2 class="title">{{ title }}</h2>
-            <span class="level">{{ level }}</span>
-            <p v-if="category.data.attributes.name" class="category" :style="{ color: category.data.attributes.color }">
-              {{ category.data.attributes.name }}
-            </p>
-          </div>
-          <div v-if="speakers.data.length" class="speakers">
-            <div
-              v-for="({ attributes: { photoUrl, name }, id }, index) in speakers.data"
-              :key="`speaker-${id}`"
-              class="speakers__speaker"
-              :class="{ marginTop: index > 0 }"
-              :title="name"
-            >
-              <div class="speakers__speaker__infos">
-                <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__infos__image" />
-                <span
-                  v-else
-                  class="speakers__speaker__infos__initials"
-                  :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
-                  >{{ getSpeakerInitials(name) }}</span
-                >
-                <span class="speakers__speaker__infos__name">{{ name }}</span>
+          <nuxt-link :to="`/talks/${id}`">
+            <div>
+              <h2 class="title">{{ title }}</h2>
+              <span class="level">{{ level }}</span>
+              <p
+                v-if="category.data.attributes.name"
+                class="category"
+                :style="{ color: category.data.attributes.color }"
+              >
+                {{ category.data.attributes.name }}
+              </p>
+            </div>
+            <div v-if="speakers.data.length" class="speakers">
+              <div
+                v-for="({ attributes: { photoUrl, name }, id }, index) in speakers.data"
+                :key="`speaker-${id}`"
+                class="speakers__speaker"
+                :class="{ marginTop: index > 0 }"
+                :title="name"
+              >
+                <div class="speakers__speaker__infos">
+                  <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__infos__image" />
+                  <span
+                    v-else
+                    class="speakers__speaker__infos__initials"
+                    :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
+                    >{{ getSpeakerInitials(name) }}</span
+                  >
+                  <span class="speakers__speaker__infos__name">{{ name }}</span>
+                </div>
               </div>
             </div>
-          </div>
+          </nuxt-link>
         </li>
       </ul>
     </div>
