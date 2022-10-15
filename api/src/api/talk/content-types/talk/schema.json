@@ -54,9 +54,15 @@
     },
     "slot": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::slot.slot",
-      "mappedBy": "talk"
+      "inversedBy": "talks"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "talks"
     }
   }
 }

@@ -19,6 +19,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "slots": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::slot.slot",
+      "mappedBy": "format"
     }
   }
 }

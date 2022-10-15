@@ -21,19 +21,28 @@
       "type": "time",
       "required": true
     },
-    "talk": {
+    "talks": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::talk.talk",
-      "inversedBy": "slot"
+      "mappedBy": "slot"
     },
-    "room": {
+    "rooms": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::room.room",
       "inversedBy": "slots"
     },
     "name": {
+      "type": "string"
+    },
+    "format": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::format.format",
+      "inversedBy": "slots"
+    },
+    "naturalId": {
       "type": "string"
     }
   }

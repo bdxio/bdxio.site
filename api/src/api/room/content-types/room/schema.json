@@ -12,16 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "slots": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::slot.slot",
-      "mappedBy": "room"
-    },
     "name": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "slots": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::slot.slot",
+      "mappedBy": "rooms"
+    },
+    "talks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::talk.talk",
+      "mappedBy": "room"
     }
   }
 }
