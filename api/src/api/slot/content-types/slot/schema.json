@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slots",
+  "info": {
+    "singularName": "slot",
+    "pluralName": "slots",
+    "displayName": "Slots",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "startDate": {
+      "type": "time",
+      "required": true,
+      "unique": false
+    },
+    "endDate": {
+      "type": "time",
+      "required": true
+    },
+    "talk": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::talk.talk",
+      "inversedBy": "slot"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "slots"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

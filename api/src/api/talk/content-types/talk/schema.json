@@ -51,6 +51,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::format.format"
+    },
+    "slot": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::slot.slot",
+      "mappedBy": "talk"
     }
   }
 }
