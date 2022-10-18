@@ -1,9 +1,5 @@
 const eachSeries = require("async/eachSeries");
-const {
-  deleteTable,
-  populateItemInTable,
-  publishItemInTable,
-} = require("../../database");
+const { deleteTable, populateItemInTable } = require("../../database");
 
 const slots = [
   {

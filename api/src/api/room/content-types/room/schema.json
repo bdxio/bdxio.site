@@ -28,6 +28,10 @@
       "relation": "oneToMany",
       "target": "api::talk.talk",
       "mappedBy": "room"
+    },
+    "naturalId": {
+      "type": "string",
+      "private": true
     }
   }
 }

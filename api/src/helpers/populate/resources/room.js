@@ -17,8 +17,9 @@ async function populateRoomTable() {
     async (room) => {
       const r = await populateItemInTable(resource, {
         name: room,
+        naturalId: room.replace(" ", ""),
         published_at: new Date(),
-        slots: []
+        slots: [],
       });
 
       if (r && r.id) {
