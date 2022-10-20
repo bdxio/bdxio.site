@@ -44,6 +44,9 @@
     },
     "naturalId": {
       "type": "string"
+    },
+    "space": {
+      "type": "string"
     }
   }
 }

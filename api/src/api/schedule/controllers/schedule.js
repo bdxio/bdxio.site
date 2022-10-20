@@ -10,7 +10,6 @@ module.exports = {
         });
 
       const slots = await strapi.db.query("api::slot.slot").findMany({
-        select: ["startSlot", "name"],
         orderBy: { startSlot: "asc" },
       });
 
@@ -37,11 +36,14 @@ module.exports = {
           (t) => t.slot.startSlot === slot.startSlot
         );
 
+        const splittedSlot = slot.startSlot.split(":");
+        const formattedSlot = `${splittedSlot[0]}h${splittedSlot[1]}`;
         acc.push({
-          [slot.startSlot]: {
-            name: slot.name,
-            talks: slotTalks,
-          },
+          slot: slot.startSlot,
+          formattedSlot,
+          name: slot.name,
+          talks: slotTalks,
+          ...(slot.space && { space: slot.space }),
         });
 
         return acc;

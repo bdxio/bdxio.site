@@ -7,18 +7,21 @@ const slots = [
     name: "Petit-déjeuner",
     startSlot: "08:30:00",
     endSlot: "09:00:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Keynote d'ouverture",
     name: "Keynote d'ouverture",
     startSlot: "09:00:00",
     endSlot: "10:00:00",
+    space: "Amphi A",
   },
   {
     naturalId: "Pause - début 10h00",
     name: "Pause",
     startSlot: "10:00:00",
     endSlot: "10:10:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Conférence - début 10h10",
@@ -37,6 +40,7 @@ const slots = [
     name: "Pause",
     startSlot: "10:55:00",
     endSlot: "11:05:00",
+    space: "Espace pluriel",
   },
 
   {
@@ -50,6 +54,7 @@ const slots = [
     name: "Pause",
     startSlot: "11:50:00",
     endSlot: "12:00:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Quickie - début 12h00",
@@ -80,6 +85,7 @@ const slots = [
     name: "Pause",
     startSlot: "13:55:00",
     endSlot: "14:15:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Conférence - début 14h15",
@@ -92,6 +98,7 @@ const slots = [
     name: "Pause",
     startSlot: "15:00:00",
     endSlot: "15:10:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Conférence - début 15h10",
@@ -122,6 +129,7 @@ const slots = [
     name: "Pause",
     startSlot: "17:10:00",
     endSlot: "17:20:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Keynote de fermeture",
@@ -137,7 +145,7 @@ const slots = [
   },
 ];
 
-async function populateRoomTable() {
+async function populatespaceTable() {
   const resource = "api::slot.slot";
   await deleteTable(resource);
   console.log("table slots has been deleted");
@@ -151,6 +159,7 @@ async function populateRoomTable() {
         startSlot: slot.startSlot,
         endSlot: slot.endSlot,
         published_at: new Date(),
+        ...(slot.space && { space: slot.space }),
       });
     },
     (errLoop) => {
@@ -165,4 +174,4 @@ async function populateRoomTable() {
   );
 }
 
-module.exports = populateRoomTable;
+module.exports = populatespaceTable;
