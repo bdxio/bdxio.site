@@ -63,6 +63,10 @@
       "relation": "manyToOne",
       "target": "api::room.room",
       "inversedBy": "talks"
+    },
+    "backup": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

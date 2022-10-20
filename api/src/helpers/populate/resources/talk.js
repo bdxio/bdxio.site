@@ -94,6 +94,7 @@ async function populateTalkTable(talks) {
         slot: strapiSlots.find((s) => s.naturalId === bind.slot)?.id,
         creationDate: moment.unix(talk.createTimestamp._seconds).toDate(),
         published_at: new Date(),
+        backup: bind.backup,
       });
       try {
         if (!bind.backup) {
