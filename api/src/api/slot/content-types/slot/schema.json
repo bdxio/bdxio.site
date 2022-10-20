@@ -12,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "startDate": {
+    "startSlot": {
       "type": "time",
       "required": true,
       "unique": false
     },
-    "endDate": {
+    "endSlot": {
       "type": "time",
       "required": true
     },

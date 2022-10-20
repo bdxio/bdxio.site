@@ -3,6 +3,17 @@
 module.exports = {
   async getSchedule(ctx, next) {
     try {
+      const categories = await strapi.db
+        .query("api::category.category")
+        .findMany({
+          select: ["id", "name"],
+        });
+
+      const slots = await strapi.db.query("api::slot.slot").findMany({
+        select: ["startSlot", "name"],
+        orderBy: { startSlot: "asc" },
+      });
+
       const talks = await strapi.db.query("api::talk.talk").findMany({
         where: {
           backup: false,
@@ -10,7 +21,7 @@ module.exports = {
         select: ["id", "title", "level"],
         populate: {
           category: { select: ["id", "name"] },
-          slot: { select: ["startDate"] },
+          slot: { select: ["startSlot"] },
           room: { select: ["name"] },
           format: {
             select: ["name"],
@@ -21,38 +32,26 @@ module.exports = {
         },
       });
 
-      const schedule = talks.reduce(
-        (acc, talk) => {
-          const existingCategory = acc.categories.find(
-            (c) => c.id === talk.category.id
-          );
-          const existingSlotIndex = acc.schedule.findIndex(
-            (s) => s.slot === talk.slot.startDate
-          );
+      const schedule = slots.reduce((acc, slot) => {
+        const slotTalks = talks.filter(
+          (t) => t.slot.startSlot === slot.startSlot
+        );
 
-          if (!existingCategory) {
-            acc.categories.push(talk.category);
-          }
+        acc.push({
+          [slot.startSlot]: {
+            name: slot.name,
+            talks: slotTalks,
+          },
+        });
 
-          if (existingSlotIndex === -1) {
-            acc.schedule.push({
-              slot: talk.slot.startDate,
-              talks: [talk],
-            });
-          } else {
-            acc.schedule[existingSlotIndex].talks.push(talk);
-          }
-
-          return acc;
-        },
-        {
-          categories: [],
-          schedule: [],
-        }
-      );
+        return acc;
+      }, []);
 
       ctx.status = 200;
-      ctx.body = schedule;
+      ctx.body = {
+        categories,
+        schedule,
+      };
     } catch (e) {
       console.error(`Error while getting talks`, e);
     } finally {
