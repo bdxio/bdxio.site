@@ -1,6 +1,6 @@
 const featuresFlag = {
   NAVIGATION: true,
-  PROGRAMME: false,
+  PROGRAMME: true,
   CFP: false,
   BILLETERIE: true,
   SPONSORS2022: true,
