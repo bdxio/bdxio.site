@@ -4,7 +4,8 @@
   "info": {
     "singularName": "format",
     "pluralName": "formats",
-    "displayName": "Formats"
+    "displayName": "Formats",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +26,10 @@
       "relation": "oneToMany",
       "target": "api::slot.slot",
       "mappedBy": "format"
+    },
+    "duration": {
+      "type": "string",
+      "required": true
     }
   }
 }

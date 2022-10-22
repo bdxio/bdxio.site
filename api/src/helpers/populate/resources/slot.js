@@ -24,16 +24,10 @@ const slots = [
     space: "Espace pluriel",
   },
   {
-    naturalId: "Conférence - début 10h10",
-    name: "Conférence",
+    naturalId: "Conférence et atelier - début 10h10",
+    name: "Conférence et atelier",
     startSlot: "10:10:00",
     endSlot: "10:55:00",
-  },
-  {
-    naturalId: "Atelier - début 10h10",
-    name: "Atelier",
-    startSlot: "10:10:00",
-    endSlot: "11:50:00",
   },
   {
     naturalId: "Pause - début 10h55",
@@ -63,16 +57,10 @@ const slots = [
     endSlot: "12:15:00",
   },
   {
-    naturalId: "Quickie - début 13h15",
-    name: "Quickie",
+    naturalId: "Quickie et atelier - début 13h15",
+    name: "Quickie et atelier",
     startSlot: "13:15:00",
     endSlot: "13:30:00",
-  },
-  {
-    naturalId: "Atelier - début 13h15",
-    name: "Atelier",
-    startSlot: "13:15:00",
-    endSlot: "15:00:00",
   },
   {
     naturalId: "Quickie - début 13h40",
@@ -101,22 +89,17 @@ const slots = [
     space: "Espace pluriel",
   },
   {
-    naturalId: "Conférence - début 15h10",
-    name: "Conférence",
+    naturalId: "Conférence et atelier - début 15h10",
+    name: "Conférence et atelier",
     startSlot: "15:10:00",
     endSlot: "15:55:00",
-  },
-  {
-    naturalId: "Atelier - début 15h10",
-    name: "Atelier",
-    startSlot: "15:10:00",
-    endSlot: "17:00:00",
   },
   {
     naturalId: "Pause - début 15h55",
     name: "Pause",
     startSlot: "15:55:00",
     endSlot: "16:25:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Conférence - début 16h25",
@@ -136,12 +119,14 @@ const slots = [
     name: "Keynote de fermeture",
     startSlot: "17:20:00",
     endSlot: "18:05:00",
+    space: "Amphi A",
   },
   {
     naturalId: "Apéro",
     name: "Apéro",
     startSlot: "18:05:00",
     endSlot: "15:10:00",
+    space: "Lieu à définir",
   },
 ];
 

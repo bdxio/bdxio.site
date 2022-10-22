@@ -4,6 +4,19 @@ const {
   publishItemInTable,
 } = require("../../database");
 
+const getDuration = (name) => {
+  switch (name) {
+    case "Quickie":
+      return "15min";
+    case "Conférence":
+      return "45min";
+    case "Hands on lab":
+      return "100min";
+    default:
+      return "N/A";
+  }
+};
+
 async function populateFormatTable(formats) {
   if (!formats || !formats.length) {
     return;
@@ -20,7 +33,8 @@ async function populateFormatTable(formats) {
       name: format.name || "",
       description: format.description || "",
       published_at: new Date(),
-    })
+      duration: getDuration(format.name),
+    });
     await publishItemInTable(resource, id);
   }
 

@@ -8,8 +8,13 @@
         <div class="categories">
           <span class="categories__title">Filtrer par thème</span>
           <ul class="categories__list">
-            <li @click="setFilter('tous')">Tous</li>
-            <li v-for="category in categories" :key="category.name" @click="setFilter(category.name)">
+            <li @click="setFilter('tous')" :style="!filters.length && { color: 'red' }">Tous</li>
+            <li
+              v-for="category in categories"
+              :key="category.name"
+              @click="setFilter(category.name)"
+              :style="filters.includes(category.name) && { color: 'red' }"
+            >
               {{ category.name }}
             </li>
           </ul>
@@ -46,8 +51,8 @@
                   <span>{{ format.name }}</span> -->
                 </li>
               </ul>
-              <div v-else class="slots__slot__infos__interlude">
-                <span v-if="space" class="room">{{ space }}</span>
+              <div v-else-if="space" class="slots__slot__infos__interlude">
+                <span class="room">{{ space }}</span>
                 <span class="slots__slot__infos__interlude__name">{{ name }}</span>
               </div>
             </div>
@@ -65,6 +70,7 @@ export default {
   data() {
     return {
       categories: [],
+      defaultSchedule: [],
       schedule: [],
       filters: []
     };
@@ -79,60 +85,59 @@ export default {
       return this.$showProgramme;
     },
     filteredSchedule() {
-      if (!this.filters.length || this.filters.includes("tous")) {
+      if (!this.filters.length) {
         return this.schedule;
       }
 
-      return [...this.schedule].map((slot) => {
-        if (slot.talks.length) {
-          const filteredTalks = slot.talks.filter((t) => this.filters.includes(t.category.name));
-          slot.talks = filteredTalks;
-        }
+      return this.schedule
+        .map((slot) => {
+          if (slot.space) {
+            return;
+          }
 
-        return slot;
-
-        // const filtered
-
-        // console.log(slot);
-        // return slot.talks.filter((talk) => this.filters.includes(talk.category.name));
-
-        // return slot.talks.every((talk) => {
-        //   console.log(this.filters, talk.category.name, this.filters.includes(talk.category.name));
-        //   return this.filters.includes(talk.category.name);
-        // });
-      });
+          return {
+            ...slot,
+            talks: slot.talks.filter((t) => this.filters.includes(t.category.name))
+          };
+        })
+        .filter((s) => s);
     }
   },
   methods: {
-    displayTalkSubInfos({ speakers, format, level }) {
+    displayTalkSubInfos({ speakers, format, level, category }) {
       const formattedSpeakers = speakers
         .map((s) => s.name)
         .toString()
         .replace(",", " / ");
 
-      return `${formattedSpeakers} - ${format.name} - Niveau ${level}`;
+      return `${formattedSpeakers} - ${format.name} (${format.duration}) - Niveau ${level} - ${category.name}`;
     },
     setFilter(filter) {
-      if (filter === "tous" || !this.filters.includes(filter)) {
-        this.filters.push(filter);
+      if (filter === "tous") {
+        this.filters = [];
         return;
       }
 
-      const filteredFilters = this.filters.filter((f) => f !== filter);
+      if (!this.filters.includes(filter)) {
+        this.filters = [...this.filters, filter];
+        return;
+      }
 
-      console.log(filteredFilters);
-      this.filters = filteredFilters;
+      this.filters = this.filters.filter((f) => f !== filter);
     }
   },
-  async fetch() {
-    if (!this.showProgramme) {
+  async asyncData(context) {
+    const { $axios, $config, $showProgramme } = context;
+    if (!$showProgramme) {
       return;
     }
 
-    const { categories, schedule } = await this.$axios.$get(`${this.$config.cmsApiUrl}/schedule`);
+    const { categories, schedule } = await $axios.$get(`${$config.cmsApiUrl}/schedule`);
 
-    this.categories = categories;
-    this.schedule = schedule;
+    return {
+      categories,
+      schedule
+    };
   }
 };
 </script>

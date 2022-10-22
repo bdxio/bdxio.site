@@ -23,7 +23,7 @@ module.exports = {
           slot: { select: ["startSlot"] },
           room: { select: ["name"] },
           format: {
-            select: ["name"],
+            select: ["name", "duration"],
           },
           speakers: {
             select: ["name"],

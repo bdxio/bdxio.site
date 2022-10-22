@@ -3,14 +3,14 @@ const extraData = [
     conferenceHallId: "07HCiIEFp8sOiuAwhrrO",
     title: "Introduction aux Design Tokens",
     room: "Salle2",
-    slot: "Quickie - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
   {
     conferenceHallId: "1T84P5Bn4B7rEy8gGWT3",
     title:
       "Cryptanalyse de la machine Enigma : entre espionnage et mathématiques",
     room: "Salle2",
-    slot: "Conférence - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "2r5YrFDbjwokeA27e43O",
@@ -22,7 +22,7 @@ const extraData = [
     conferenceHallId: "3VtJMCT7CMG3bOSbQgup",
     title: "Comment j'ai aidé ma fille à lire avec le machine learning",
     room: "AmphiB",
-    slot: "Conférence - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "3YOEr3e2pu9hVkFthEEi",
@@ -47,13 +47,13 @@ const extraData = [
     conferenceHallId: "9oBxryAWpLc57MeT0uap",
     title: "Still not into State Machines in 2023?!",
     room: "Salle2",
-    slot: "Conférence - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "9wFNALfdvhK6kHa6Ww5d",
     title: " Le réseau de neurones qui écrivait des romans",
     room: "Lab",
-    slot: "Atelier - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "BIJWr2GohtEHciNmLBN4",
@@ -65,7 +65,7 @@ const extraData = [
     conferenceHallId: "CMsrtEoVDDJ1iOowyyC6",
     title: "Syndrome de l'Imposteur, l'arbre qui cache la forêt",
     room: "Salle1",
-    slot: "Conférence - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "CXUyeEWX2yI3UZWFITf9",
@@ -85,31 +85,31 @@ const extraData = [
     title:
       "Drogué à l'hexagone,  Node JS ne m'a pas  vraiment aidé à rester clean ... Mais NestJS pourrait-il me sauver ?",
     room: "Salle1",
-    slot: "Conférence - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "KH8n6TljHr22qxvzw2Hv",
     title: "A la découverte d'Accelerate",
     room: "Lab",
-    slot: "Atelier - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
   {
     conferenceHallId: "KtB6g5xaz5TNNL62Nzxy",
     title: "Pour réussir, elles aussi sont sorties de leur zone de confort",
     room: "AmphiA",
-    slot: "Quickie - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
   {
     conferenceHallId: "LIr5Oyea4w0HJ35OI9qo",
     title: "Introduction au DevSecOps",
     room: "AmphiB",
-    slot: "Quickie - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
   {
     conferenceHallId: "LMrlDuY9I392AWErEVU8",
     title: "Et s'il suffisait de documenter pour tester ?",
     room: "AmphiA",
-    slot: "Conférence - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "LeoHHE5PlMU0DbDG8CAH",
@@ -135,7 +135,7 @@ const extraData = [
     conferenceHallId: "VpXZL5wztOlz9mJqdVgo",
     title: "Test me up, before you Go-Go",
     room: "Salle1",
-    slot: "Quickie - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
   {
     conferenceHallId: "WlqKdJgNPfJ8SU994bjW",
@@ -173,7 +173,7 @@ const extraData = [
     conferenceHallId: "gFCTTZXzkqW6pPwrLbW3",
     title: "Deep Learning en Python : comment choisir un framework ?",
     room: "AmphiA",
-    slot: "Conférence - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "jUq29Vho3wmnSVf32bEM",
@@ -199,7 +199,7 @@ const extraData = [
     conferenceHallId: "lvbN1eLhvWezVSmIZzUZ",
     title: "Sustainable by design",
     room: "AmphiC",
-    slot: "Conférence - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "mnNeefOAmqyKHdfbZSQW",
@@ -234,7 +234,7 @@ const extraData = [
     conferenceHallId: "uWemzuRGdgKRucycJQH5",
     title: "Svelte, ou pourquoi je ne veux plus faire de React",
     room: "AmphiC",
-    slot: "Conférence - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "w96GMrchHy0os6sN5LRD",
@@ -252,19 +252,19 @@ const extraData = [
     conferenceHallId: "wuCf6JUCrZlHfjHZdKbQ",
     title: "Codez votre première IA de jeu vidéo !",
     room: "Lab",
-    slot: "Atelier - début 15h10",
+    slot: "Conférence et atelier - début 15h10",
   },
   {
     conferenceHallId: "xn3qqza23MlFWfQGGDd1",
     title: "Quelle est la place des introvertis dans une équipe agile ?",
     room: "AmphiB",
-    slot: "Conférence - début 10h10",
+    slot: "Conférence et atelier - début 10h10",
   },
   {
     conferenceHallId: "ybMWdBADMFtjCD04HaUx",
     title: "Indépendant ou Inde-dépendant",
     room: "AmphiC",
-    slot: "Quickie - début 13h15",
+    slot: "Quickie et atelier - début 13h15",
   },
 ];
 
