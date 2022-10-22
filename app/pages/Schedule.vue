@@ -91,16 +91,12 @@ export default {
 
       return this.schedule
         .map((slot) => {
-          if (slot.space) {
-            return;
-          }
-
           return {
             ...slot,
             talks: slot.talks.filter((t) => this.filters.includes(t.category.name))
           };
         })
-        .filter((s) => s);
+        .filter((s) => s.talks.length > 0);
     }
   },
   methods: {
