@@ -8,36 +8,63 @@
         <div class="categories">
           <span class="categories__title">Filtrer par thème</span>
           <ul class="categories__list">
-            <li @click="setFilter('tous')" :style="!filters.length && { color: 'red' }">Tous</li>
+            <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
+              Tous
+            </li>
             <li
               v-for="category in categories"
               :key="category.name"
               @click="setFilter(category.name)"
-              :style="filters.includes(category.name) && { color: 'red' }"
+              class="categories__category"
+              :class="{ active: filters.includes(category.name) }"
             >
-              {{ category.name }}
+              <img
+                class="categories__category__image"
+                :src="
+                  getCategoryImg(category.name)
+                    ? require(`~/assets/img/drawings/categories/${getCategoryImg(category.name)}`)
+                    : ''
+                "
+                :href="`image abstraite représentant la catégorie ${category.name}`"
+              />
+              <span>{{ category.name }}</span>
             </li>
           </ul>
         </div>
       </flex-item>
       <flex-item v-if="schedule.length" class="slots" m8>
-        <div class="pre-schedule">
-          <span class="pre-schedule__circle" />
-          <span class="pre-schedule__line" />
-        </div>
-        <ul>
-          <li
-            v-for="({ formattedSlot, name, talks, space = false }, indexSlot) in filteredSchedule"
-            :key="`slot-${indexSlot}`"
-          >
-            <h4 class="slots__slot__hour">{{ formattedSlot }}</h4>
-            <div class="slots__slot__infos">
-              <ul v-if="talks.length" class="slots__slot__infos__talks">
-                <li v-for="(talk, indexTalk) in talks" :key="`slot-${indexSlot}-talk-${indexTalk}`" class="talk">
-                  <span class="room">{{ talk.room.name }}</span>
-                  <span class="talk__title">{{ talk.title }}</span>
-                  <span class="talk__subinfos">{{ displayTalkSubInfos(talk) }}</span>
-                  <!-- <ul v-if="speakers.length" class="slots__slot__infos__talks__speakers">
+        <div class="schedule">
+          <div class="pre-schedule">
+            <span class="pre-schedule__circle" />
+            <span class="pre-schedule__line" />
+          </div>
+          <ul>
+            <li
+              v-for="({ formattedSlot, name, talks, space = false }, indexSlot) in filteredSchedule"
+              :key="`slot-${indexSlot}`"
+            >
+              <h4 class="slots__slot__hour">{{ formattedSlot }}</h4>
+              <div class="slots__slot__infos">
+                <ul v-if="talks.length" class="slots__slot__infos__talks">
+                  <li v-for="(talk, indexTalk) in talks" :key="`slot-${indexSlot}-talk-${indexTalk}`" class="talk">
+                    <div class="room">{{ talk.room.name }}</div>
+                    <div class="talk__infos">
+                      <img
+                        class="talk__infos__image"
+                        :src="
+                          getCategoryImg(talk.category.name)
+                            ? require(`~/assets/img/drawings/categories/${getCategoryImg(talk.category.name)}`)
+                            : ''
+                        "
+                        :href="`image abstraite représentant la catégorie ${talk.category.name}`"
+                      />
+                      <div class="talk__infos__content">
+                        <span class="talk__infos__content__title">{{ talk.title }}</span>
+                        <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
+                      </div>
+                    </div>
+
+                    <!-- <ul v-if="speakers.length" class="slots__slot__infos__talks__speakers">
                     <li
                       v-for="(speaker, index) in talk.speakers"
                       :key="speaker.name"
@@ -49,15 +76,16 @@
                     </li>
                   </ul>
                   <span>{{ format.name }}</span> -->
-                </li>
-              </ul>
-              <div v-else-if="space" class="slots__slot__infos__interlude">
-                <span class="room">{{ space }}</span>
-                <span class="slots__slot__infos__interlude__name">{{ name }}</span>
+                  </li>
+                </ul>
+                <div v-else-if="space" class="slots__slot__infos__interlude">
+                  <span class="room">{{ space }}</span>
+                  <span class="slots__slot__infos__interlude__name">{{ name }}</span>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </flex-item>
     </flex-container>
   </main>
@@ -70,7 +98,6 @@ export default {
   data() {
     return {
       categories: [],
-      defaultSchedule: [],
       schedule: [],
       filters: []
     };
@@ -100,13 +127,13 @@ export default {
     }
   },
   methods: {
-    displayTalkSubInfos({ speakers, format, level, category }) {
+    displayTalkSubInfos({ speakers, format, level }) {
       const formattedSpeakers = speakers
         .map((s) => s.name)
         .toString()
         .replace(",", " / ");
 
-      return `${formattedSpeakers} - ${format.name} (${format.duration}) - Niveau ${level} - ${category.name}`;
+      return `${formattedSpeakers} - ${format.name} (${format.duration}) - Niveau ${level}`;
     },
     setFilter(filter) {
       if (filter === "tous") {
@@ -120,6 +147,23 @@ export default {
       }
 
       this.filters = this.filters.filter((f) => f !== filter);
+    },
+    getCategoryImg(category) {
+      switch (category) {
+        case "Frontend":
+          return "frontend.png";
+        case "Design & UX":
+          return "designux.png";
+        case "Méthodo & Architecture":
+          return "methodoarchitecture.png";
+        case "Cloud & DevSecOps":
+          return "cloudetdevsecops.png";
+        case "Backend":
+        case "Big Data & I.A.":
+        case "Hors-piste":
+        default:
+          return null;
+      }
     }
   },
   async asyncData(context) {
@@ -196,9 +240,46 @@ ul {
       &__title {
         text-align: center;
         font-size: 18px;
-        font-weight: $font-weight-bold;
         display: block;
         color: $grey-400;
+      }
+
+      &__category {
+        opacity: 0.3;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &.all {
+          margin-left: 80px;
+        }
+
+        &__image {
+          width: 30px;
+          height: 30px;
+          margin-left: 30px;
+          margin-right: 20px;
+        }
+
+        &.active {
+          opacity: 1;
+
+          // &:not(.all) {
+          //   @include positionRelative;
+          //   &:before {
+          //     content: "";
+          //     display: inline-block;
+          //     width: 30px;
+          //     height: 30px;
+          //     // backougrd
+          //     background: red;
+          //     position: absolute;
+          //     left: -50px;
+          //     top: 50%;
+          //     transform: translateY(-50%);
+          //   }
+          // }
+        }
       }
 
       // @include mobileFirst(m) {
@@ -228,10 +309,11 @@ ul {
       }
     }
 
+    .schedule {
+      margin-left: 100px;
+    }
+
     .slots {
-      &:before {
-        content: "";
-      }
       &__slot {
         &__hour {
           font-size: $font-size-content;
@@ -254,12 +336,23 @@ ul {
           &__talks {
             .talk {
               margin-bottom: 30px;
-              &__title {
-                font-weight: $font-weight-bold;
-                display: block;
-              }
-              &__subinfos {
-                font-weight: 200;
+
+              &__infos {
+                display: flex;
+                &__image {
+                  width: 40px;
+                  height: 40px;
+                  margin-right: 10px;
+                }
+                &__content {
+                  &__title {
+                    font-weight: $font-weight-bold;
+                    display: block;
+                  }
+                  &__subinfos {
+                    font-weight: 200;
+                  }
+                }
               }
             }
           }

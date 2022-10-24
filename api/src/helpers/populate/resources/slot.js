@@ -123,7 +123,7 @@ const slots = [
   },
   {
     naturalId: "Apéro",
-    name: "Apéro",
+    name: "Apéro 🍻",
     startSlot: "18:05:00",
     endSlot: "15:10:00",
     space: "Lieu à définir",
