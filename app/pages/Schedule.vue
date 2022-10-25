@@ -3,10 +3,12 @@
     <header class="section-schedule__header">
       <section-title tag="h1" class="section-schedule__header__title"> Le programme de la journée </section-title>
     </header>
-    <flex-container tag="section" class="section-schedule__body" no-gutter>
-      <flex-item v-if="categories.length" m4>
-        <div class="categories">
-          <span class="categories__title">Filtrer par thème</span>
+    <section class="section-schedule__body">
+      <div v-if="categories.length">
+        <div class="categories" :class="{ open: openPanel }">
+          <span class="categories__title" @click.prevent="openMobilePanel" v-click-outside="closeMobilePanel"
+            >Filtrer par thème</span
+          >
           <ul class="categories__list">
             <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
               Tous
@@ -31,8 +33,8 @@
             </li>
           </ul>
         </div>
-      </flex-item>
-      <flex-item v-if="schedule.length" class="slots" m8>
+      </div>
+      <div v-if="schedule.length" class="slots">
         <div class="schedule">
           <div class="pre-schedule">
             <span class="pre-schedule__circle" />
@@ -63,19 +65,6 @@
                         <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
                       </div>
                     </div>
-
-                    <!-- <ul v-if="speakers.length" class="slots__slot__infos__talks__speakers">
-                    <li
-                      v-for="(speaker, index) in talk.speakers"
-                      :key="speaker.name"
-                      class="slots__slot__infos__talks__speakers__speaker"
-                    >
-                      {{ speaker.name }}
-                      <span v-if="index !== speakers.length - 1">/</span>
-                      <span v-else> - </span>
-                    </li>
-                  </ul>
-                  <span>{{ format.name }}</span> -->
                   </li>
                 </ul>
                 <div v-else-if="space" class="slots__slot__infos__interlude">
@@ -86,8 +75,8 @@
             </li>
           </ul>
         </div>
-      </flex-item>
-    </flex-container>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -99,7 +88,8 @@ export default {
     return {
       categories: [],
       schedule: [],
-      filters: []
+      filters: [],
+      openPanel: false
     };
   },
   head() {
@@ -124,6 +114,9 @@ export default {
           };
         })
         .filter((s) => s.talks.length > 0);
+    },
+    isMobileContext() {
+      return window.innerWidth <= 992;
     }
   },
   methods: {
@@ -164,6 +157,16 @@ export default {
         default:
           return null;
       }
+    },
+    openMobilePanel() {
+      if (!this.isMobileContext) {
+        return;
+      }
+
+      return (this.openPanel = !this.openPanel);
+    },
+    closeMobilePanel() {
+      return (this.openPanel = false);
     }
   },
   async asyncData(context) {
@@ -228,20 +231,32 @@ ul {
   }
 
   &__body {
-    margin-top: 100px;
+    margin-top: 60px;
+
+    @include mobileFirst(m) {
+      display: flex;
+      margin-top: 100px;
+    }
 
     .categories {
-      padding: 30px;
-      line-height: 60px;
-      position: initial;
-      width: 345px;
+      width: 100%;
       background-color: $grey-100;
+      line-height: 60px;
+      margin-bottom: 100px;
+      height: 60px;
+      overflow: hidden;
+
+      &.open {
+        height: 100%;
+      }
 
       &__title {
         text-align: center;
         font-size: 18px;
         display: block;
         color: $grey-400;
+        font-weight: $font-weight-bold;
+        cursor: pointer;
       }
 
       &__category {
@@ -263,30 +278,28 @@ ul {
 
         &.active {
           opacity: 1;
-
-          // &:not(.all) {
-          //   @include positionRelative;
-          //   &:before {
-          //     content: "";
-          //     display: inline-block;
-          //     width: 30px;
-          //     height: 30px;
-          //     // backougrd
-          //     background: red;
-          //     position: absolute;
-          //     left: -50px;
-          //     top: 50%;
-          //     transform: translateY(-50%);
-          //   }
-          // }
         }
       }
 
-      // @include mobileFirst(m) {
-      //   position: fixed;
-      //   @include z-index(default);
-      //   overflow-y: scroll;
-      // }
+      @include mobileFirst(m) {
+        width: 345px;
+        height: auto;
+        overflow: auto;
+        padding: 30px;
+
+        position: initial;
+        width: 100%;
+        margin-bottom: 0;
+
+        &__title {
+          text-align: center;
+          font-size: 18px;
+          display: block;
+          color: $grey-400;
+          font-weight: $font-weight-regular;
+          cursor: initial;
+        }
+      }
     }
 
     .pre-schedule {
@@ -310,7 +323,9 @@ ul {
     }
 
     .schedule {
-      margin-left: 100px;
+      @include mobileFirst(m) {
+        margin-left: 100px;
+      }
     }
 
     .slots {
@@ -322,9 +337,13 @@ ul {
         }
         &__infos {
           font-size: 1.125rem; //18px
-          padding: 50px;
           border-left: 2px solid $primary;
           margin-left: 30px;
+          padding: 25px 0 25px 25px;
+
+          @include mobileFirst(m) {
+            padding: 50px;
+          }
 
           &__interlude {
             &__name {
