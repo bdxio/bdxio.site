@@ -83,14 +83,21 @@ export default {
 
       &::after {
         content: "";
-        width: 100px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
         position: absolute;
         z-index: -1;
         background: url("~/assets/img/drawings/yellow_heart.png") no-repeat;
         background-size: contain;
-        bottom: -40px;
-        right: -70px;
+        bottom: -20px;
+        right: -50px;
+
+        @include mobileFirst(m) {
+          width: 100px;
+          height: 110px;
+          bottom: -10px;
+          right: -50px;
+        }
       }
     }
   }

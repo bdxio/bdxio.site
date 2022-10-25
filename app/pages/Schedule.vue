@@ -4,12 +4,12 @@
       <section-title tag="h1" class="section-schedule__header__title"> Le programme de la journée </section-title>
     </header>
     <section class="section-schedule__body">
-      <div v-if="categories.length">
+      <div v-if="categories.length" class="categories-container">
         <div class="categories" :class="{ open: openPanel }" v-click-outside="closeMobilePanel">
           <span class="categories__title" @click.prevent="openMobilePanel">Filtrer par thème</span>
           <ul class="categories__list">
             <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
-              Tous
+              <span>Tous</span>
             </li>
             <li
               v-for="category in categories"
@@ -27,7 +27,7 @@
                 "
                 :href="`image abstraite représentant la catégorie ${category.name}`"
               />
-              <span>{{ category.name }}</span>
+              <span class="categories__category__label">{{ category.name }}</span>
             </li>
           </ul>
         </div>
@@ -213,27 +213,39 @@ ul {
       &:before {
         content: "";
         display: block;
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         position: absolute;
         z-index: -1;
-        left: -110px;
-        bottom: -20px;
+        left: -30px;
+        bottom: -10px;
         background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
         background-size: cover;
+
+        @include mobileFirst(m) {
+          width: 120px;
+          height: 120px;
+          left: -110px;
+        }
       }
 
       &:after {
         content: "";
         display: block;
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         position: absolute;
         z-index: -1;
-        right: -110px;
-        bottom: -20px;
+        right: -30px;
+        bottom: -10px;
         background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
         background-size: cover;
+
+        @include mobileFirst(m) {
+          width: 120px;
+          height: 120px;
+          right: -110px;
+        }
       }
     }
   }
@@ -245,22 +257,34 @@ ul {
       display: flex;
       margin-top: 100px;
     }
-
-    .categories {
+    .categories-container {
       width: 100%;
+
+      @include mobileFirst(s) {
+        max-width: 345px;
+      }
+    }
+    .categories {
       background-color: $grey-100;
-      line-height: 60px;
       margin-bottom: 100px;
+      padding-bottom: 30px;
       height: 60px;
       overflow: hidden;
 
       &.open {
-        height: 100%;
+        height: auto;
+      }
+
+      &__list {
+        // line-height: 60px;
+        margin-top: 20px;
       }
 
       &__title {
         text-align: center;
         font-size: 18px;
+        height: 30px;
+        margin-top: 15px;
         display: block;
         color: $grey-400;
         font-weight: $font-weight-bold;
@@ -272,7 +296,8 @@ ul {
         cursor: pointer;
         display: flex;
         align-items: center;
-
+        line-height: auto;
+        height: 60px;
         &.all {
           margin-left: 80px;
         }
@@ -284,29 +309,37 @@ ul {
           margin-right: 20px;
         }
 
+        &__label {
+          line-height: auto;
+        }
+
         &.active {
           opacity: 1;
         }
       }
 
       @include mobileFirst(m) {
-        width: 345px;
+        position: sticky;
+        top: 0;
+        width: inherit;
         height: auto;
-        overflow: auto;
         padding: 30px;
-
-        position: initial;
-        width: 100%;
         margin-bottom: 0;
+        height: auto;
 
         &__title {
           text-align: center;
           font-size: 18px;
+          margin-top: 0;
           display: block;
           color: $grey-400;
           font-weight: $font-weight-regular;
           cursor: initial;
         }
+
+        // &__category {
+        //   height: auto;
+        // }
       }
     }
 

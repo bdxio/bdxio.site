@@ -126,7 +126,7 @@ const slots = [
     name: "Apéro 🍻",
     startSlot: "18:05:00",
     endSlot: "15:10:00",
-    space: "Lieu à définir",
+    space: "Communiqué le jour J",
   },
 ];
 
