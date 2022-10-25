@@ -1,46 +1,28 @@
 <template>
   <div class="section section-presentation">
     <header class="section-presentation__header">
-      <section-title tag="h1" class="section-presentation__header__title">
-        L'asso BDX I/O
-      </section-title>
+      <section-title tag="h1" class="section-presentation__header__title"> L'asso BDX I/O </section-title>
       <p class="margin--null">
         Tout connaître sur nous, l’asso n’aura plus aucun <br />
         secret pour vous !
       </p>
     </header>
-    <flex-container
-      tag="section"
-      class="section-presentation__body"
-      gutter-l
-      align-center-xs
-    >
+    <flex-container tag="section" class="section-presentation__body" gutter-l align-center-xs>
       <flex-item xs12 m6 class="section-presentation__body__content">
-        <section-title
-          section
-          tag="h2"
-          class="section-presentation__body__content__pre-title"
+        <section-title section tag="h2" class="section-presentation__body__content__pre-title"
           >Qui sommes nous ?</section-title
         >
-        <section-title
-          tag="h2"
-          class="section-presentation__body__content__title"
-        >
+        <section-title tag="h2" class="section-presentation__body__content__title">
           Un petit groupe de bénévoles <span class="boxed">bordelais</span> !
         </section-title>
 
         <p class="section-presentation__body__content__description">
-          Nous avons à cœur de vous proposer un événement fédérateur, convivial
-          et de grande ampleur. Notre objectif est de permettre à l’ensemble des
-          membres de la communauté IT de se rassembler au sein d’une journée de
-          conférences dédiées à l’ensemble des métiers du web, et ce depuis 2014
-          !
+          Nous avons à cœur de vous proposer un événement fédérateur, convivial et de grande ampleur. Notre objectif est
+          de permettre à l’ensemble des membres de la communauté IT de se rassembler au sein d’une journée de
+          conférences dédiées à l’ensemble des métiers du web, et ce depuis 2014 !
         </p>
 
-        <nuxt-link
-          v-if="showProgramme"
-          to="/programme"
-          class="button button-secondary button-secondary--dark"
+        <nuxt-link v-if="showProgramme" to="/programme" class="button button-secondary button-secondary--dark"
           >Découvrir le programme 2022</nuxt-link
         >
       </flex-item>
@@ -96,8 +78,8 @@ export default {
   computed: {
     showProgramme() {
       return this.$showProgramme ?? false;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -118,16 +100,22 @@ export default {
       &:after {
         content: "";
         display: block;
-        width: 180px;
-        height: 100px;
+        width: 150px;
+        height: 70px;
         position: absolute;
         z-index: -1;
-        right: -60px;
-        bottom: -55px;
+        right: -30px;
+        bottom: -15px;
         transform: rotate(-20deg);
-        background: url("~/assets/img/drawings/yellow_scribbles.png") center
-          no-repeat;
+        background: url("~/assets/img/drawings/yellow_scribbles.png") center no-repeat;
         background-size: cover;
+
+        @include mobileFirst(m) {
+          width: 180px;
+          height: 100px;
+          right: -60px;
+          bottom: -55px;
+        }
       }
     }
   }
@@ -165,8 +153,7 @@ export default {
             height: 100px;
             position: absolute;
             z-index: 0;
-            background: url("~/assets/img/drawings/green_box.png") center
-              no-repeat;
+            background: url("~/assets/img/drawings/green_box.png") center no-repeat;
             background-size: cover;
             top: -10px;
             left: -20px;

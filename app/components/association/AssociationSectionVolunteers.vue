@@ -141,13 +141,14 @@ export default {
       @include positionRelative;
       &::after {
         content: "";
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
         position: absolute;
         z-index: -1;
         background: url("~/assets/img/drawings/yellow_heart.png") no-repeat center;
         background-size: contain;
-        right: -60px;
+        right: -30px;
+        bottom: -20px;
       }
     }
   }
