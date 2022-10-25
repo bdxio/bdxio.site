@@ -2,18 +2,21 @@
 
 const axios = require("axios");
 const {
+  populateRoomTable,
+  populateSlotTable,
+  populateCategoryTable,
+  populateFormatTable,
   populateSpeakerTable,
-  // populateCategoryTable,
-  // populateFormatTable,
-  // populateTalkTable,
+  populateTalkTable,
 } = require("../../../helpers");
 
 module.exports = {
   async getTalksFromConferenceHall(ctx, next) {
-    const { CONFERENCE_HALL_EVENT_ID, CONFERENCE_HALL_API_KEY  } = process.env;
+    const { CONFERENCE_HALL_EVENT_ID, CONFERENCE_HALL_API_KEY } = process.env;
     if (!CONFERENCE_HALL_EVENT_ID || !CONFERENCE_HALL_API_KEY) {
       ctx.status = 500;
-      ctx.body = "Missing essentials environment variables for connection w/ ConferenceHall";
+      ctx.body =
+        "Missing essentials environment variables for connection w/ ConferenceHall";
       return next();
     }
     try {
@@ -27,26 +30,27 @@ module.exports = {
       }
 
       const {
-        categories = [],
-        formats = [],
         speakers = [],
         talks = [],
-
+        categories = [],
+        formats = [],
       } = response.data;
 
-      // await populateCategoryTable(categories);
-      // await populateFormatTable(formats)
+      await populateRoomTable();
+      await populateSlotTable();
+      await populateCategoryTable(categories);
+      await populateFormatTable(formats);
       await populateSpeakerTable(speakers);
-      // await populateTalkTable(talks);
+      await populateTalkTable(talks);
 
       ctx.status = 200;
       ctx.body = "I've migrate datas from conference hall to strapi database!";
-    } catch (err) {
+    } catch (e) {
       ctx.status = 500;
-      ctx.body = err;
-    }
-    finally {
-      next()
+      console.error(e);
+      ctx.body = e;
+    } finally {
+      next();
     }
   },
 };

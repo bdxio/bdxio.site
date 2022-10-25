@@ -51,6 +51,22 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::format.format"
+    },
+    "slot": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slot.slot",
+      "inversedBy": "talks"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "talks"
+    },
+    "backup": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

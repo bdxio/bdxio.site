@@ -3,9 +3,9 @@
     <li>
       <nuxt-link to="/">Accueil</nuxt-link>
     </li>
-    <!-- <li>
-          <NuxtLink to="/schedule">Programme</NuxtLink>
-        </li> -->
+    <!-- <li v-if="showProgramme">
+      <NuxtLink to="/schedule">Programme</NuxtLink>
+    </li> -->
     <li>
       <nuxt-link to="/sponsors">Sponsors</nuxt-link>
     </li>
@@ -57,6 +57,9 @@ export default {
     },
     showTalks() {
       return this.$showTalks;
+    },
+    showProgramme() {
+      return this.$showProgramme;
     },
     iconBorderColor() {
       return css?.primaryLight ?? "#ffffff";

@@ -17,7 +17,6 @@ export default {
   },
   computed: {
     themeClass() {
-      console.log(this.category);
       switch (this.category) {
         case "Frontend":
           return " theme--1";

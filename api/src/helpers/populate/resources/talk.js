@@ -5,24 +5,28 @@ const {
   publishItemInTable,
 } = require("../../database");
 
+const {
+  bindRoomAndSlotAndDraftWithTalk,
+} = require("../bindRoomAndSlotAndDraftWithTalk");
+
 function translateTalkLevel(level) {
   if (!level) {
-    return "Tous niveaux"
+    return "Tous niveaux";
   }
   switch (level) {
     case "intermediate":
-      return "Intermédiaire"
+      return "Intermédiaire";
     case "advanced":
-      return "Avancé"
+      return "Avancé";
     case "beginner":
     default:
-      return "Débutant"
+      return "Débutant";
   }
 }
 
 function translateTalkLanguage(language) {
   if (!language) {
-    return "N/A"
+    return "N/A";
   }
 
   switch (language) {
@@ -32,17 +36,16 @@ function translateTalkLanguage(language) {
     case "Français":
     case "français":
     case "francais":
-      return "Français"
+      return "Français";
     case "English":
     case "english":
     case "Anglais":
     case "anglais":
-      return "Anglais"
+      return "Anglais";
     default:
-      return "N/A"
+      return "N/A";
   }
 }
-
 
 async function populateTalkTable(talks) {
   if (!talks || !talks.length) {
@@ -56,13 +59,25 @@ async function populateTalkTable(talks) {
 
   const categories = await strapi.db.query("api::category.category").findMany();
   const formats = await strapi.db.query("api::format.format").findMany();
-  const strapiSpeakers = await strapi.db.query("api::speaker.speaker").findMany();
-  
+  const strapiSpeakers = await strapi.db
+    .query("api::speaker.speaker")
+    .findMany();
+  const strapiRooms = await strapi.db.query("api::room.room").findMany();
+  const strapiSlots = await strapi.db.query("api::slot.slot").findMany();
+
   for (const talk of talks) {
     try {
-      const category = categories.filter(c => c.conferenceHallId === talk.categories)[0].id;
-      const format = formats.filter(f => f.conferenceHallId === talk.formats)[0].id;
-      const speakers = strapiSpeakers.filter(s => talk.speakers.includes(s.conferenceHallId)).map(s => s.id)
+      const category = categories.filter(
+        (c) => c.conferenceHallId === talk.categories
+      )[0].id;
+      const format = formats.filter(
+        (f) => f.conferenceHallId === talk.formats
+      )[0].id;
+      const speakers = strapiSpeakers
+        .filter((s) => talk.speakers.includes(s.conferenceHallId))
+        .map((s) => s.id);
+
+      const bind = bindRoomAndSlotAndDraftWithTalk(talk.id);
 
       const { id } = await populateItemInTable(resource, {
         conferenceHallId: talk.id,
@@ -75,16 +90,21 @@ async function populateTalkTable(talks) {
         speakers,
         comments: talk.comments,
         language: translateTalkLanguage(talk.language),
+        room: strapiRooms.find((r) => r.naturalId === bind.room)?.id,
+        slot: strapiSlots.find((s) => s.naturalId === bind.slot)?.id,
         creationDate: moment.unix(talk.createTimestamp._seconds).toDate(),
         published_at: new Date(),
-      })
+        backup: bind.backup,
+      });
       try {
-        await publishItemInTable(resource, id);
+        if (!bind.backup) {
+          await publishItemInTable(resource, id);
+        }
       } catch (e) {
-        console.error("error while publishing talk", e)
+        console.error("error while publishing talk", e);
       }
     } catch (e) {
-      console.log("error while populating talk", e)
+      console.log("error while populating talk", e);
     }
   }
 }
