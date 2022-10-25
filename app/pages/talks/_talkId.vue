@@ -3,7 +3,7 @@
     <talk-section-theme :category="category" />
     <talk-section-presentation :presentation="presentation" />
     <talk-section-speaker v-for="(speaker, index) in speakers" :key="index" :speaker="speaker" />
-    <nuxt-link to="/talks" class="button button-primary button-primary--light backto">Liste des talks</nuxt-link>
+    <nuxt-link to="/schedule" class="button button-primary button-primary--light backto">Voir le programme</nuxt-link>
   </main>
 </template>
 
