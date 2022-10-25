@@ -155,8 +155,11 @@ export default {
         case "Cloud & DevSecOps":
           return "cloudetdevsecops.png";
         case "Backend":
+          return "backend.png";
         case "Big Data & I.A.":
+          return "bigdataia.png";
         case "Hors-piste":
+          return "horspiste.png";
         default:
           return null;
       }
