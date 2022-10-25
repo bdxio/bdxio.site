@@ -258,7 +258,11 @@ ul {
       margin-top: 100px;
     }
     .categories-container {
-      min-width: 345px;
+      width: 100%;
+
+      @include mobileFirst(s) {
+        max-width: 345px;
+      }
     }
     .categories {
       background-color: $grey-100;
