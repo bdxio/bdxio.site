@@ -48,21 +48,23 @@
                 <ul v-if="talks.length" class="slots__slot__infos__talks">
                   <li v-for="(talk, indexTalk) in talks" :key="`slot-${indexSlot}-talk-${indexTalk}`" class="talk">
                     <div class="room">{{ talk.room.name }}</div>
-                    <div class="talk__infos">
-                      <img
-                        class="talk__infos__image"
-                        :src="
-                          getCategoryImg(talk.category.name)
-                            ? require(`~/assets/img/drawings/categories/${getCategoryImg(talk.category.name)}`)
-                            : ''
-                        "
-                        :href="`image abstraite représentant la catégorie ${talk.category.name}`"
-                      />
-                      <div class="talk__infos__content">
-                        <span class="talk__infos__content__title">{{ talk.title }}</span>
-                        <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
+                    <nuxt-link :to="`/talks/${talk.id}`">
+                      <div class="talk__infos">
+                        <img
+                          class="talk__infos__image"
+                          :src="
+                            getCategoryImg(talk.category.name)
+                              ? require(`~/assets/img/drawings/categories/${getCategoryImg(talk.category.name)}`)
+                              : ''
+                          "
+                          :href="`image abstraite représentant la catégorie ${talk.category.name}`"
+                        />
+                        <div class="talk__infos__content">
+                          <span class="talk__infos__content__title">{{ talk.title }}</span>
+                          <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
+                        </div>
                       </div>
-                    </div>
+                    </nuxt-link>
                   </li>
                 </ul>
                 <div v-else-if="space" class="slots__slot__infos__interlude">
