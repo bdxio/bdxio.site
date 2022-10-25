@@ -71,7 +71,7 @@ export default {
     "~/plugins/featureFlag.client.js",
     "~/plugins/axios.js",
     "~/plugins/preview.client.js",
-    "~/plugins/directives.js"
+    { src: "~/plugins/vClickOutside", ssr: false }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [

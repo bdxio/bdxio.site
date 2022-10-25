@@ -5,10 +5,8 @@
     </header>
     <section class="section-schedule__body">
       <div v-if="categories.length">
-        <div class="categories" :class="{ open: openPanel }">
-          <span class="categories__title" @click.prevent="openMobilePanel" v-click-outside="closeMobilePanel"
-            >Filtrer par thème</span
-          >
+        <div class="categories" :class="{ open: openPanel }" v-click-outside="closeMobilePanel">
+          <span class="categories__title" @click.prevent="openMobilePanel">Filtrer par thème</span>
           <ul class="categories__list">
             <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
               Tous
@@ -81,6 +79,8 @@
 </template>
 
 <script>
+import vClickOutside from "v-click-outside";
+
 export default {
   name: "ProgrammePage",
   layout: "page",
@@ -96,6 +96,9 @@ export default {
     return {
       title: "Programme | BDX I/O"
     };
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   },
   computed: {
     showProgramme() {
