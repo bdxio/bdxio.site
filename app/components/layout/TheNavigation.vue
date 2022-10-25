@@ -3,9 +3,9 @@
     <li>
       <nuxt-link to="/">Accueil</nuxt-link>
     </li>
-    <li v-if="showProgramme">
+    <!-- <li v-if="showProgramme">
       <NuxtLink to="/schedule">Programme</NuxtLink>
-    </li>
+    </li> -->
     <li>
       <nuxt-link to="/sponsors">Sponsors</nuxt-link>
     </li>
