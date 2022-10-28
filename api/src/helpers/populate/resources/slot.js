@@ -36,7 +36,6 @@ const slots = [
     endSlot: "11:05:00",
     space: "Espace pluriel",
   },
-
   {
     naturalId: "Conférence - début 11h05",
     name: "Conférence",
@@ -55,6 +54,13 @@ const slots = [
     name: "Quickie",
     startSlot: "12:00:00",
     endSlot: "12:15:00",
+  },
+  {
+    naturalId: "Déjeuner - début 12h15",
+    name: "Déjeuner",
+    startSlot: "12:15:00",
+    endSlot: "13:15:00",
+    space: "Espace pluriel",
   },
   {
     naturalId: "Quickie et atelier - début 13h15",
