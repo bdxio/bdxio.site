@@ -13,5 +13,5 @@ module.exports = {
   populateSpeakerTable,
   populateTalkTable,
   populateRoomTable,
-  populateSlotTable
+  populateSlotTable,
 };

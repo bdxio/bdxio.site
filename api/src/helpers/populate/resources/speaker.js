@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+const axios = require("axios").default;
 
 const {
   deleteTable,
@@ -11,7 +11,10 @@ async function isValidSpeakerPicture(speakerUrl) {
     return false;
   }
 
-  return await axios.get(speakerUrl).then(response => response.status === 200).catch(() => false)
+  return await axios
+    .get(speakerUrl)
+    .then((response) => response.status === 200)
+    .catch(() => false);
 }
 
 async function populateSpeakerTable(speakers) {
@@ -30,12 +33,14 @@ async function populateSpeakerTable(speakers) {
       name: speaker.displayName || "",
       bio: speaker.bio && speaker.bio.length ? speaker.bio.trim() : "",
       address: speaker.address || "",
-      photoUrl: await isValidSpeakerPicture(speaker.photoURL) ? speaker.photoURL : "",
+      photoUrl: (await isValidSpeakerPicture(speaker.photoURL))
+        ? speaker.photoURL
+        : "",
       twitter: speaker.twitter || "",
       github: speaker.github || "",
       company: speaker.company || "",
     });
-    
+
     await publishItemInTable(resource, id);
   }
   console.log("speakers have been added into database");
