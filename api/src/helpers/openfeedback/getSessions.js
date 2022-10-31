@@ -5,13 +5,13 @@ async function getSessions() {
   const resource = "api::slot.slot";
   return findAll(resource, {
     rooms: true,
-    talks: { populate: { category: true, speakers: true } },
+    talks: { populate: { category: true, speakers: true, room: true } },
   });
 }
 
 function formatSession(talk, session) {
-  const { startSlot, endSlot, rooms } = session;
-  const { title, id, category, speakers } = talk;
+  const { startSlot, endSlot } = session;
+  const { title, id, category, speakers, room } = talk;
 
   return {
     speakers: speakers.map((s) => s.conferenceHallId),
@@ -20,7 +20,7 @@ function formatSession(talk, session) {
     id: id,
     startTime: `2022-12-02T${startSlot}`,
     endTime: `2022-12-02T${endSlot}`,
-    trackTitle: rooms.length ? rooms[0].name : undefined,
+    trackTitle: room ? room.name : "",
   };
 }
 
