@@ -14,7 +14,7 @@ function formatSession(talk, session) {
   const { title, id, category, speakers } = talk;
 
   return {
-    speakers: speakers.map(formatSpeakerData),
+    speakers: speakers.map((s) => s.conferenceHallId),
     tags: [category.name],
     title: title,
     id: id,
@@ -32,13 +32,20 @@ async function getSessionsAndSpeakers() {
     (sessions) => sessions.talks && sessions.talks.length > 0
   );
 
-  return allTalksSessions.reduce((formattedSessions, session) => {
-    session.talks.forEach((talk) => {
-      formattedSessions[talk.id] = formatSession(talk, session);
-    });
+  return allTalksSessions.reduce(
+    (formattedSessions, session) => {
+      session.talks.forEach((talk) => {
+        formattedSessions.sessions[talk.id] = formatSession(talk, session);
+        talk.speakers.forEach((speaker) => {
+          formattedSessions.speakers[speaker.conferenceHallId] =
+            formatSpeakerData(speaker);
+        });
+      });
 
-    return formattedSessions;
-  }, {});
+      return formattedSessions;
+    },
+    { sessions: {}, speakers: {} }
+  );
 }
 
 module.exports = getSessionsAndSpeakers;
