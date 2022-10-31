@@ -6,7 +6,7 @@ module.exports = {
     try {
       const sessionsAndSpeakers = await getSessionsAndSpeakers();
       ctx.status = 200;
-      ctx.body = { sessions: sessionsAndSpeakers };
+      ctx.body = sessionsAndSpeakers;
     } catch (e) {
       ctx.status = 500;
       console.error(e);
