@@ -18,8 +18,8 @@ function formatSession(talk, session) {
     tags: [category.name],
     title: title,
     id: id,
-    startTime: startSlot,
-    endTime: endSlot,
+    startTime: `2022-12-02T${startSlot}`,
+    endTime: `2022-12-02T${endSlot}`,
     trackTitle: rooms.length ? rooms[0].name : undefined,
   };
 }
