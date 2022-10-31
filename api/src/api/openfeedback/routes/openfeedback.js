@@ -5,7 +5,7 @@ module.exports = {
       path: "/openfeedback",
       handler: "openfeedback.getOpenfeedbackFormattedData",
       config: {
-        auth: { scope: ["find"] },
+        auth: false,
       },
     },
   ],
