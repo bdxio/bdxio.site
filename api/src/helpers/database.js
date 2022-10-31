@@ -1,3 +1,16 @@
+async function findAll(collection, populate) {
+  try {
+    const result = await strapi.db
+      .query(collection)
+      .findMany(populate ? { populate } : { populate: true });
+
+    return result;
+  } catch (error) {
+    console.error(`Error while finding ${collection}: ${error}`);
+    return;
+  }
+}
+
 async function findItemInTable(collection, query) {
   try {
     const result = await strapi.db.query(collection).findOne(query);
@@ -45,6 +58,7 @@ async function populateItemInTable(collection, data) {
 
 module.exports = {
   findItemInTable,
+  findAll,
   populateItemInTable,
   publishItemInTable,
   deleteTable,
