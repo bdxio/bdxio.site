@@ -1,7 +1,3 @@
-const getSpeakers = require("./getSpeakers");
-const getSessions = require("./getSessions");
+const getSessionsAndSpeakers = require("./getSessions");
 
-module.exports = {
-  getSpeakers,
-  getSessions,
-};
+module.exports = { getSessionsAndSpeakers };

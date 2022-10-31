@@ -1,32 +1,44 @@
 const { findAll } = require("../../helpers/database");
+const { formatSpeakerData } = require("./getSpeakers");
 
 async function getSessions() {
   const resource = "api::slot.slot";
-  const allSessions = await findAll(resource);
+  return findAll(resource, {
+    rooms: true,
+    talks: { populate: { category: true, speakers: true } },
+  });
+}
 
+function formatSession(talk, session) {
+  const { startSlot, endSlot, rooms } = session;
+  const { title, id, category, speakers } = talk;
+
+  return {
+    speakers: speakers.map(formatSpeakerData),
+    tags: [category.name],
+    title: title,
+    id: id,
+    startTime: startSlot,
+    endTime: endSlot,
+    trackTitle: rooms.length ? rooms[0].name : undefined,
+  };
+}
+
+async function getSessionsAndSpeakers() {
+  const allSessions = await getSessions();
+
+  // Couldn't find a way to filter in a where clause instead of filtering afterwards
   const allTalksSessions = allSessions.filter(
-    (sessions) => sessions.talks.length > 0
+    (sessions) => sessions.talks && sessions.talks.length > 0
   );
-  console.log("All sessions: ", allSessions);
 
   return allTalksSessions.reduce((formattedSessions, session) => {
-    const { startSlot, endSlot, talks, rooms } = session;
-    console.log("talks", talks);
-
-    talks.forEach((talk) => {
-      formattedSessions[talk.id] = {
-        speakers: "test",
-        tags: [],
-        title: talk.title,
-        id: talk.id,
-        startTime: startSlot,
-        endTime: endSlot,
-        trackTitle: rooms.length ? rooms[0].name : undefined,
-      };
+    session.talks.forEach((talk) => {
+      formattedSessions[talk.id] = formatSession(talk, session);
     });
 
     return formattedSessions;
   }, {});
 }
 
-module.exports = getSessions;
+module.exports = getSessionsAndSpeakers;

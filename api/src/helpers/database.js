@@ -1,8 +1,8 @@
-async function findAll(collection) {
+async function findAll(collection, populate) {
   try {
     const result = await strapi.db
       .query(collection)
-      .findMany({ populate: true });
+      .findMany(populate ? { populate } : { populate: true });
 
     return result;
   } catch (error) {

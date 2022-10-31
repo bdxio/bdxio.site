@@ -1,15 +1,12 @@
 "use strict";
-const { getSessions, getSpeakers } = require("../../../helpers");
+const { getSessionsAndSpeakers } = require("../../../helpers");
 
 module.exports = {
   async getOpenfeedbackFormattedData(ctx, next) {
     try {
-      const [sessions, speakers] = await Promise.all([
-        getSessions(),
-        getSpeakers(),
-      ]);
+      const sessionsAndSpeakers = await getSessionsAndSpeakers();
       ctx.status = 200;
-      ctx.body = { sessions, speakers };
+      ctx.body = sessionsAndSpeakers;
     } catch (e) {
       ctx.status = 500;
       console.error(e);

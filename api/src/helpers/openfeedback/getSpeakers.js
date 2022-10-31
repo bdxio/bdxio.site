@@ -1,35 +1,28 @@
-const { findAll } = require("../../helpers/database");
+function formatSpeakerData(speaker) {
+  const { conferenceHallId: id, name, photoUrl, twitter, github } = speaker;
 
-async function getSpeakers() {
-  const resource = "api::speaker.speaker";
-  const speakers = await findAll(resource);
+  const formattedSpeaker = {
+    name,
+    id,
+    photoUrl,
+    socials: [],
+  };
 
-  return speakers.reduce((formattedSpeakers, speaker) => {
-    const { conferenceHallId: id, name, photoUrl, twitter, github } = speaker;
-
-    formattedSpeakers[id] = {
-      name,
-      id,
-      photoUrl,
-      socials: [],
+  if (twitter) {
+    formattedSpeaker.socials["twitter"] = {
+      name: "twitter",
+      link: `https://twitter.com/${twitter}`,
     };
+  }
 
-    if (twitter) {
-      formattedSpeakers[id].socials["twitter"] = {
-        name: "twitter",
-        link: `https://twitter.com/${twitter}`,
-      };
-    }
+  if (github) {
+    formattedSpeaker.socials["github"] = {
+      name: "github",
+      link: `https://github.com/${github}`,
+    };
+  }
 
-    if (github) {
-      formattedSpeakers[id].socials["github"] = {
-        name: "github",
-        link: `https://github.com/${github}`,
-      };
-    }
-
-    return formattedSpeakers;
-  }, {});
+  return formattedSpeaker;
 }
 
-module.exports = getSpeakers;
+module.exports = { formatSpeakerData };
