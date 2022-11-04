@@ -16,7 +16,10 @@
           <span class="title">Transport en commun :</span>
           <span class="description">Bus 15 ou Tram C</span>
         </div>
-
+        <div>
+          <span class="title">Vélo :</span>
+          <span class="description">Parking vélo disponible et station VCub à proximité</span>
+        </div>
         <div>
           <span class="title">Voiture :</span>
           <span class="description">Parking gratuit sur place</span>
