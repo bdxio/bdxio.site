@@ -29,6 +29,10 @@ module.exports = {
         return next();
       }
 
+      ctx.status = 400;
+      ctx.body = "La route a été désactivée";
+      return next();
+
       const {
         speakers = [],
         talks = [],
