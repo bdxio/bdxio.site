@@ -178,9 +178,9 @@ export default {
     }
   },
   async asyncData(context) {
-    const { $axios, $config, $showProgramme } = context;
+    const { $axios, $config, $showProgramme, error } = context;
     if (!$showProgramme) {
-      return;
+      return error({ statusCode: 404 });
     }
 
     const { categories, schedule } = await $axios.$get(`${$config.cmsApiUrl}/schedule`);
@@ -276,7 +276,6 @@ ul {
       }
 
       &__list {
-        // line-height: 60px;
         margin-top: 20px;
       }
 
@@ -336,10 +335,6 @@ ul {
           font-weight: $font-weight-regular;
           cursor: initial;
         }
-
-        // &__category {
-        //   height: auto;
-        // }
       }
     }
 

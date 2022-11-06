@@ -24,6 +24,12 @@
         Billetterie
       </a>
     </li>
+    <li v-if="showLive">
+      <nuxt-link to="/live" class="button button-icon button-secondary button-secondary--light"
+        >Live
+        <div class="live"
+      /></nuxt-link>
+    </li>
     <li v-if="showCfp">
       <a
         class="button button-icon button-secondary button-secondary--light"
@@ -61,6 +67,9 @@ export default {
     showProgramme() {
       return this.$showProgramme;
     },
+    showLive() {
+      return this.$showLive;
+    },
     iconBorderColor() {
       return css?.primaryLight ?? "#ffffff";
     },
@@ -70,3 +79,29 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.live {
+  margin-left: 15px;
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 5px 0px rgba(173, 0, 0, 0.3);
+  }
+  65% {
+    box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0.3);
+  }
+  90% {
+    box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
+  }
+}
+</style>

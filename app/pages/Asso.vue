@@ -16,19 +16,21 @@ export default {
       volunteers: []
     };
   },
-  async fetch() {
-    if (!this.$showVolunteers2022) {
-      return;
+  async asyncData({ $showVolunteers2022, error, $axios, $config }) {
+    if (!$showVolunteers2022) {
+      return error({ statusCode: 404 });
     }
 
-    const volunteers = await this.$axios.$get(`${this.$config.cmsApiUrl}/volunteers`, {
+    const volunteers = await $axios.$get(`${$config.cmsApiUrl}/volunteers`, {
       params: {
         populate: "*"
       }
     });
     if (!volunteers) return;
 
-    this.volunteers = shuffleArray(formatStrapiData(volunteers.data));
+    return {
+      volunteers: shuffleArray(formatStrapiData(volunteers.data))
+    };
   }
 };
 </script>

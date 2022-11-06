@@ -32,6 +32,9 @@
     "naturalId": {
       "type": "string",
       "private": true
+    },
+    "iframeId": {
+      "type": "string"
     }
   }
 }
