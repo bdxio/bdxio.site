@@ -136,9 +136,7 @@ export default {
       return `${parts[0].charAt(0).toUpperCase()}${parts[1].charAt(0).toUpperCase()}`;
     }
   },
-  async asyncData(context) {
-    const { $axios, $config } = context;
-
+  async asyncData({ $axios, $config }) {
     const [filters, talks] = await Promise.all([
       $axios.get(`${$config.cmsApiUrl}/categories`, {
         params: {

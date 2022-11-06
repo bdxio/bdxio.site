@@ -36,12 +36,12 @@ export default {
       return this.$showSponsors2022 && this.offers.length;
     }
   },
-  async fetch() {
-    if (!this.$showSponsors2022) {
-      return;
+  async asyncData({ $axios, $config, error, $showSponsors2022 }) {
+    if (!$showSponsors2022) {
+      return error({ statusCode: 404 });
     }
 
-    const offers = await this.$axios.$get(`${this.$config.cmsApiUrl}/offers`, {
+    const offers = await $axios.$get(`${$config.cmsApiUrl}/offers`, {
       params: { sort: "id:asc", "populate[sponsors][populate]": "*" }
     });
 
@@ -56,7 +56,9 @@ export default {
       return offer;
     });
 
-    this.offers = offersWithshuffledSponsors;
+    return {
+      offers: offersWithshuffledSponsors
+    };
   }
 };
 </script>

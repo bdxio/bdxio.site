@@ -1,16 +1,24 @@
 <template>
-  <section class="section section-error">
-    <div class="message">
-      <code class="error">{{ error }}</code>
-      <nuxt-link to="/" class="button">Retour à l'acceuil</nuxt-link>
-    </div>
-  </section>
+  <div>
+    <the-header background="light" />
+    <section class="section section-error">
+      <div class="message">
+        <img src="~/assets/img/404-img.png" alt="Une illlustration représentant un ordinateur retro" />
+        <p>
+          Oups ! Il semblerait qu'une erreur soit survenue. N'hésitez pas à utiliser la navigation pour retourner sur le
+          site
+        </p>
+      </div>
+    </section>
+    <the-footer />
+    <go-to-top />
+  </div>
 </template>
 
 <script>
 export default {
   name: "ErrorLayout",
-  props: ["error"],
+  props: ["error"]
 };
 </script>
 
@@ -20,12 +28,16 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
 
   .message {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 500px;
+    }
 
     .error {
       padding: 30px;
