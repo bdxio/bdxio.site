@@ -12,6 +12,9 @@
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
     </li>
+    <li>
+      <NuxtLink to="/jobs">Jobs</NuxtLink>
+    </li>
     <li v-if="showTalks">
       <nuxt-link to="/talks">Talks</nuxt-link>
     </li>
