@@ -2,7 +2,7 @@
   <section class="section guidage" id="join-us">
     <div class="text-container">
       <div class="infos">
-        <section-title section tag="h2">Guidage</section-title>
+        <section-title section tag="h2">Transports</section-title>
         <section-title tag="h3">Comment rejoindre<br />l'évènement ?</section-title>
         <div class="address-container">
           <span class="title">Palais des congrès</span>

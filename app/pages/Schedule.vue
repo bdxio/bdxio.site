@@ -3,77 +3,85 @@
     <header class="section-schedule__header">
       <section-title tag="h1" class="section-schedule__header__title"> Le programme de la journée </section-title>
     </header>
+
     <section class="section-schedule__body">
-      <div v-if="categories.length" class="categories-container">
-        <div class="categories" :class="{ open: openPanel }" v-click-outside="closeMobilePanel">
-          <span class="categories__title" @click.prevent="openMobilePanel">Filtrer par thème</span>
-          <ul class="categories__list">
-            <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
-              <span>Tous</span>
-            </li>
-            <li
-              v-for="category in categories"
-              :key="category.name"
-              @click="setFilter(category.name)"
-              class="categories__category"
-              :class="{ active: filters.includes(category.name) }"
-            >
-              <img
-                class="categories__category__image"
-                :src="
-                  getCategoryImg(category.name)
-                    ? require(`~/assets/img/drawings/categories/${getCategoryImg(category.name)}`)
-                    : ''
-                "
-                :href="`image abstraite représentant la catégorie ${category.name}`"
-              />
-              <span class="categories__category__label">{{ category.name }}</span>
-            </li>
-          </ul>
-        </div>
+      <div class="schedule-download">
+        <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
+          >Télecharger le programme</a
+        >
       </div>
-      <div v-if="schedule.length" class="slots">
-        <div class="schedule">
-          <div class="pre-schedule">
-            <span class="pre-schedule__circle" />
-            <span class="pre-schedule__line" />
+      <div class="schedule-container">
+        <div v-if="categories.length" class="categories-container">
+          <div class="categories" :class="{ open: openPanel }" v-click-outside="closeMobilePanel">
+            <span class="categories__title" @click.prevent="openMobilePanel">Filtrer par thème</span>
+            <ul class="categories__list">
+              <li @click="setFilter('tous')" class="categories__category all" :class="{ active: !filters.length }">
+                <span>Tous</span>
+              </li>
+              <li
+                v-for="category in categories"
+                :key="category.name"
+                @click="setFilter(category.name)"
+                class="categories__category"
+                :class="{ active: filters.includes(category.name) }"
+              >
+                <img
+                  class="categories__category__image"
+                  :src="
+                    getCategoryImg(category.name)
+                      ? require(`~/assets/img/drawings/categories/${getCategoryImg(category.name)}`)
+                      : ''
+                  "
+                  :href="`image abstraite représentant la catégorie ${category.name}`"
+                />
+                <span class="categories__category__label">{{ category.name }}</span>
+              </li>
+            </ul>
           </div>
-          <ul>
-            <li
-              v-for="({ formattedSlot, name, talks, space = false }, indexSlot) in filteredSchedule"
-              :key="`slot-${indexSlot}`"
-            >
-              <h4 class="slots__slot__hour">{{ formattedSlot }}</h4>
-              <div class="slots__slot__infos">
-                <ul v-if="talks.length" class="slots__slot__infos__talks">
-                  <li v-for="(talk, indexTalk) in talks" :key="`slot-${indexSlot}-talk-${indexTalk}`" class="talk">
-                    <div class="room">{{ talk.room.name }}</div>
-                    <nuxt-link :to="`/talks/${talk.id}`">
-                      <div class="talk__infos">
-                        <img
-                          class="talk__infos__image"
-                          :src="
-                            getCategoryImg(talk.category.name)
-                              ? require(`~/assets/img/drawings/categories/${getCategoryImg(talk.category.name)}`)
-                              : ''
-                          "
-                          :href="`image abstraite représentant la catégorie ${talk.category.name}`"
-                        />
-                        <div class="talk__infos__content">
-                          <span class="talk__infos__content__title">{{ talk.title }}</span>
-                          <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
+        </div>
+        <div v-if="schedule.length" class="slots">
+          <div class="schedule">
+            <div class="pre-schedule">
+              <span class="pre-schedule__circle" />
+              <span class="pre-schedule__line" />
+            </div>
+            <ul>
+              <li
+                v-for="({ formattedSlot, name, talks, space = false }, indexSlot) in filteredSchedule"
+                :key="`slot-${indexSlot}`"
+              >
+                <h4 class="slots__slot__hour">{{ formattedSlot }}</h4>
+                <div class="slots__slot__infos">
+                  <ul v-if="talks.length" class="slots__slot__infos__talks">
+                    <li v-for="(talk, indexTalk) in talks" :key="`slot-${indexSlot}-talk-${indexTalk}`" class="talk">
+                      <div class="room">{{ talk.room.name }}</div>
+                      <nuxt-link :to="`/talks/${talk.id}`">
+                        <div class="talk__infos">
+                          <img
+                            class="talk__infos__image"
+                            :src="
+                              getCategoryImg(talk.category.name)
+                                ? require(`~/assets/img/drawings/categories/${getCategoryImg(talk.category.name)}`)
+                                : ''
+                            "
+                            :href="`image abstraite représentant la catégorie ${talk.category.name}`"
+                          />
+                          <div class="talk__infos__content">
+                            <span class="talk__infos__content__title">{{ talk.title }}</span>
+                            <span class="talk__infos__content__subinfos">{{ displayTalkSubInfos(talk) }}</span>
+                          </div>
                         </div>
-                      </div>
-                    </nuxt-link>
-                  </li>
-                </ul>
-                <div v-else-if="space" class="slots__slot__infos__interlude">
-                  <span class="room">{{ space }}</span>
-                  <span class="slots__slot__infos__interlude__name">{{ name }}</span>
+                      </nuxt-link>
+                    </li>
+                  </ul>
+                  <div v-else-if="space" class="slots__slot__infos__interlude">
+                    <span class="room">{{ space }}</span>
+                    <span class="slots__slot__infos__interlude__name">{{ name }}</span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -254,9 +262,21 @@ ul {
     margin-top: 60px;
 
     @include mobileFirst(m) {
-      display: flex;
-      margin-top: 100px;
+      margin-top: 50px;
     }
+
+    .schedule-download {
+      margin-bottom: 100px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .schedule-container {
+      @include mobileFirst(m) {
+        display: flex;
+      }
+    }
+
     .categories-container {
       width: 100%;
 
