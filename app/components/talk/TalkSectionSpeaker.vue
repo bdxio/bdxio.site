@@ -1,18 +1,18 @@
 <template>
   <section class="talk-section-speaker">
-    <section-title tag="h3">
-      <img class="speaker-picture" :src="speaker.photoUrl" :alt="`Photo de ${speaker.name}`" />
-      <span>{{ speaker.name }}</span>
-    </section-title>
-    <flex-container tag="ul" class="speaker-infos" v-if="speakerLinks.length">
-      <flex-item v-for="(link, index) in speakerLinks" :key="index" tag="li">
-        <img :src="require(`~/assets/img/${link.imgPath}`)" :alt="link.alt" class="info-logo" />
-        <a :href="link.url" target="_blank" v-if="link.url">
-          {{ link.value }}
-        </a>
-        <span v-else> {{ link.value }}</span>
-      </flex-item>
-    </flex-container>
+    <div class="talk-section-speaker__header">
+      <section-title tag="h3">
+        <img class="speaker-picture" :src="speaker.photoUrl" :alt="`Photo de ${speaker.name}`" />
+        <span>{{ speaker.name }}</span>
+      </section-title>
+      <flex-container tag="ul" class="speaker-socials" v-if="speakerSocialLinks.length">
+        <flex-item v-for="(link, index) in speakerSocialLinks" :key="index" tag="li" class="speaker-infos__details">
+          <a :href="link.url" target="_blank" v-if="link.url">
+            <img :src="require(`~/assets/img/${link.imgPath}`)" :alt="link.alt" class="info-logo" />
+          </a>
+        </flex-item>
+      </flex-container>
+    </div>
     <p v-html="$md.render(speaker.bio)" />
   </section>
 </template>
@@ -36,59 +36,45 @@ export default {
     }
   },
   computed: {
-    speakerLinks() {
+    speakerSocialLinks() {
       const result = [];
       if (this.speaker.twitter) {
         result.push({
           imgPath: "socials/twitter.svg",
-          alt: "Icône Twitter BDX I/O",
-          value: this.getSocialPseudo(this.speaker.twitter),
+          alt: "Icône Twitter",
           url: this.getSocialUrl(this.speaker.twitter, "twitter")
-        });
-      }
-      if (this.speaker.company) {
-        result.push({
-          imgPath: "icons/company.svg",
-          alt: "Icône entreprise BDX I/O",
-          value: this.speaker.company
         });
       }
       if (this.speaker.github) {
         result.push({
           imgPath: "socials/github.svg",
-          alt: "Icône Github BDX I/O",
-          value: this.getSocialPseudo(this.speaker.github),
+          alt: "Icône Github",
           url: this.getSocialUrl(this.speaker.github, "github")
         });
       }
-      if (this.speaker.address) {
+      if (this.speaker.linkedin) {
         result.push({
-          imgPath: "icons/location.svg",
-          alt: "Icône adresse BDX I/O",
-          value: this.speaker.address
+          imgPath: "socials/linkedin.svg",
+          alt: "Icône Linkedin",
+          url: this.getSocialUrl(this.speaker.linkedin, "linkedin")
         });
       }
+      if (this.speaker.website) {
+        result.push({
+          imgPath: "socials/website.svg",
+          alt: "Icône site personnel",
+          url: this.speaker.website
+        });
+      }
+
       return result;
     }
   },
   methods: {
-    getSocialPseudo(link) {
-      if (link.startsWith("http")) {
-        const pseudo = link.split("/")[link.split("/").length - 1];
-        return `@${pseudo}`;
-      }
-
-      if (!link.startsWith("@")) {
-        return `@${link}`;
-      }
-
-      return link;
-    },
     getSocialUrl(link, social) {
       if (link.startsWith("http")) {
         return link;
       }
-
       return `https://${social}.com/${link.replace("@", "")}`;
     }
   }
@@ -99,6 +85,14 @@ export default {
 .talk-section-speaker {
   background: #f5f5f5;
   padding: 50px;
+
+  @include mobileFirst(m) {
+    &__header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
 
   &:not(:last-of-type) {
     margin-bottom: 80px;
@@ -121,6 +115,19 @@ export default {
     }
   }
 
+  .speaker-socials {
+    margin-top: $spc-l;
+    gap: 20px;
+
+    @include mobileFirst(m) {
+      margin-top: 0;
+      margin-left: 30px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
   .speaker-infos {
     gap: 80px;
     margin: 60px 0;
@@ -130,6 +137,11 @@ export default {
       justify-content: center;
       align-items: center;
 
+      & > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .info-logo {
         width: 40px;
         height: 40px;
