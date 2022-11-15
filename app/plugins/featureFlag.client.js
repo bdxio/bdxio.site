@@ -6,7 +6,8 @@ const featuresFlag = {
   SPONSORS2022: true,
   VOLUNTEERS2022: true,
   TALKS: false,
-  LIVE: false
+  LIVE: false,
+  OPENFEEDBACK: true
 };
 
 export default function (context, inject) {
