@@ -9,15 +9,7 @@
         <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
           >Télecharger le programme</a
         >
-        <a
-          href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
-          target="_blank"
-          class="openfeedback"
-          v-if="showOpenfeedback"
-        >
-          donner votre avis sur<br />
-          <img src="~/assets/img/logo-openfeedback.png" alt="Logo openfeedback" />
-        </a>
+        <open-feedback v-if="showOpenfeedback" href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02" />
       </div>
       <div class="schedule-container">
         <div v-if="categories.length" class="categories-container">
@@ -461,27 +453,5 @@ ul {
   letter-spacing: 2px;
   font-weight: 200;
   font-size: 14px;
-}
-
-.openfeedback {
-  font-size: 18px;
-  text-align: center;
-  line-height: 1;
-  margin-top: $spc-m;
-
-  &:hover,
-  &:active,
-  &:visited {
-    color: $primary-dark;
-  }
-
-  img {
-    height: 30px;
-  }
-
-  @include mobileFirst(s) {
-    margin-left: $spc-l;
-    margin-top: 0;
-  }
 }
 </style>

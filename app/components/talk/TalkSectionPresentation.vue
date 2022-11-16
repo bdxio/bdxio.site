@@ -13,6 +13,9 @@
       <flex-item class="tag">{{ presentation.format }} - {{ duration }}min</flex-item>
       <flex-item class="tag">{{ presentation.level }}</flex-item>
       <flex-item class="tag" v-if="presentation.language">{{ presentation.language }}</flex-item>
+      <flex-item>
+        <open-feedback v-if="$showOpenfeedback && presentation.openfeedbackUrl" :href="presentation.openfeedbackUrl" />
+      </flex-item>
     </flex-container>
     <p v-html="$md.render(presentation.abstract)" />
   </section>
@@ -27,7 +30,7 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ["title", "format", "level", "abstract"].forEach((key) => {
+        ["title", "format", "level", "abstract", "openfeedbackUrl"].forEach((key) => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
@@ -75,5 +78,11 @@ h2 {
   font-size: 18px;
   padding: 12px 20px;
   line-height: 18px;
+  height: 46px;
+}
+
+.openfeedback {
+  display: block;
+  margin-left: 0;
 }
 </style>

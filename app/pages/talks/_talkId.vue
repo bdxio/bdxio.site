@@ -36,7 +36,8 @@ export default {
         level: attributes.level || null,
         language: attributes.language || null,
         abstract: attributes.abstract || null,
-        format: attributes.format.data.attributes.name || null
+        format: attributes.format.data.attributes.name || null,
+        openfeedbackUrl: attributes.openfeedbackUrl || null
       },
       category: attributes.category.data.attributes.name || null,
       speakers: [...attributes.speakers.data.map(({ attributes }) => attributes)]
