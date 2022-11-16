@@ -67,6 +67,9 @@
     "backup": {
       "type": "boolean",
       "required": true
+    },
+    "openfeedbackUrl": {
+      "type": "string"
     }
   }
 }

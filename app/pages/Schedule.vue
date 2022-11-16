@@ -9,6 +9,7 @@
         <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
           >Télecharger le programme</a
         >
+        <open-feedback v-if="showOpenfeedback" href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02" />
       </div>
       <div class="schedule-container">
         <div v-if="categories.length" class="categories-container">
@@ -113,6 +114,9 @@ export default {
   computed: {
     showProgramme() {
       return this.$showProgramme;
+    },
+    showOpenfeedback() {
+      return this.$showOpenfeedback;
     },
     filteredSchedule() {
       if (!this.filters.length) {
@@ -269,6 +273,12 @@ ul {
       margin-bottom: 100px;
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      @include mobileFirst(s) {
+        flex-direction: row;
+      }
     }
 
     .schedule-container {
