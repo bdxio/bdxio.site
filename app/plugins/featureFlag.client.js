@@ -7,7 +7,7 @@ const featuresFlag = {
   VOLUNTEERS2022: true,
   TALKS: false,
   LIVE: false,
-  OPENFEEDBACK: true
+  OPENFEEDBACK: false
 };
 
 export default function (context, inject) {
