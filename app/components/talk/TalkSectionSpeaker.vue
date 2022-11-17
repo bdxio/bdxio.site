@@ -2,7 +2,7 @@
   <section class="talk-section-speaker">
     <div class="talk-section-speaker__header">
       <section-title tag="h3">
-        <img class="speaker-picture" :src="speaker.photoUrl" :alt="`Photo de ${speaker.name}`" />
+        <speaker-profile :speaker="speaker" />
         <span>{{ speaker.name }}</span>
       </section-title>
       <flex-container tag="ul" class="speaker-socials" v-if="speakerSocialLinks.length">
@@ -13,12 +13,14 @@
         </flex-item>
       </flex-container>
     </div>
-    <p v-html="$md.render(speaker.bio)" />
+    <p v-if="speaker.bio" v-html="$md.render(speaker.bio)" />
   </section>
 </template>
 
 <script>
+import SpeakerProfile from "./SpeakerProfile.vue";
 export default {
+  components: { SpeakerProfile },
   name: "TalkSectionSpeaker",
   props: {
     speaker: {
@@ -26,7 +28,7 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ["name", "bio"].forEach((key) => {
+        ["name"].forEach((key) => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
@@ -105,14 +107,6 @@ export default {
     font-size: 22px;
     display: flex;
     align-items: center;
-
-    .speaker-picture {
-      height: 64px;
-      width: 64px;
-      border-radius: 50%;
-      margin-right: 23px;
-      object-fit: cover;
-    }
   }
 
   .speaker-socials {
