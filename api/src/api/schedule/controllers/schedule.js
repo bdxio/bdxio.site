@@ -32,9 +32,17 @@ module.exports = {
       });
 
       const schedule = slots.reduce((acc, slot) => {
-        const slotTalks = talks.filter(
-          (t) => t.slot.startSlot === slot.startSlot
-        );
+        const slotTalks = talks
+          .filter((t) => t.slot.startSlot === slot.startSlot)
+          .sort((a, b) => {
+            if (a.room.name < b.room.name) {
+              return -1;
+            }
+            if (a.room.name > b.room.name) {
+              return 1;
+            }
+            return 0;
+          });
 
         const splittedSlot = slot.startSlot.split(":");
         const formattedSlot = `${splittedSlot[0]}h${splittedSlot[1]}`;
