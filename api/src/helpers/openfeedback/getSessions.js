@@ -36,8 +36,9 @@ async function getSessionsAndSpeakers() {
     (formattedSessions, session) => {
       session.talks.forEach((talk) => {
         formattedSessions.sessions[talk.id] = formatSession(talk, session);
+
         talk.speakers
-          .filter((s) => s.conferenceHallId)
+          .filter((s) => s.conferenceHallId !== null)
           .forEach((speaker) => {
             formattedSessions.speakers[speaker.conferenceHallId] =
               formatSpeakerData(speaker);
