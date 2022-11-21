@@ -13,8 +13,9 @@ function formatSession(talk, session) {
   const { startSlot, endSlot } = session;
   const { title, id, category, speakers, room } = talk;
 
+  const filteredSpeakers = speakers.filter((s) => s.conferenceHallId !== null);
   return {
-    speakers: speakers.map((s) => s.conferenceHallId !== null),
+    speakers: filteredSpeakers.map((s) => s.conferenceHallId),
     tags: [category.name],
     title: title,
     id: id,
@@ -23,7 +24,6 @@ function formatSession(talk, session) {
     trackTitle: room ? room.name : "",
   };
 }
-
 async function getSessionsAndSpeakers() {
   const allSessions = await getSessions();
 
