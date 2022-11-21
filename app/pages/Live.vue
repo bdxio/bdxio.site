@@ -4,7 +4,7 @@
       <section-title tag="h1" class="section-live__header__title">Le live</section-title>
     </header>
     <section class="section-live__body">
-      <flex-container tag="ul" class="rooms" gutter-s>
+      <flex-container tag="ul" class="rooms" gutter-s v-if="rooms.length">
         <flex-item tag="li" v-for="room in rooms" :key="room.name" class="room" m6>
           <div class="room__name">{{ room.name }}</div>
           <div class="room__video">
@@ -20,6 +20,7 @@
           </div>
         </flex-item>
       </flex-container>
+      <p v-else class="noLive">Aucun live actuellement, merci de réessayer pendant l'évènement</p>
     </section>
   </main>
 </template>
@@ -46,25 +47,21 @@ export default {
       rooms: null
     };
   },
-  async asyncData({ $axios, $config, $showLive, error }) {
-    if (!$showLive) {
-      return error({ statusCode: 404 });
-    }
-
-    const { data } = await $axios.get(`${$config.cmsApiUrl}/rooms`, {
+  async asyncData({ $axios, $config }) {
+    const {
+      data: { data }
+    } = await $axios.get(`${$config.cmsApiUrl}/rooms`, {
       params: {
-        sort: "name",
-        "filters[iframeId][$notNull]": true
+        sort: "name"
       }
     });
-
-    const formattedRooms = data.data.map(({ attributes: { name, iframeId } }) => ({
-      name,
-      iframeId
-    }));
-
     return {
-      rooms: formattedRooms
+      rooms: data
+        .filter((r) => r.attributes.iframeId)
+        .map(({ attributes: { name, iframeId } }) => ({
+          name,
+          iframeId
+        }))
     };
   }
 };
@@ -154,6 +151,10 @@ export default {
         }
       }
     }
+  }
+
+  .noLive {
+    text-align: center;
   }
 }
 </style>
