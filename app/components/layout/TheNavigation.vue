@@ -27,12 +27,12 @@
         Billetterie
       </a>
     </li>
-    <li v-if="showLive">
+    <!-- <li>
       <nuxt-link to="/live" class="button button-icon button-secondary button-secondary--light"
         >Live
         <div class="live"
       /></nuxt-link>
-    </li>
+    </li> -->
     <li v-if="showCfp">
       <a
         class="button button-icon button-secondary button-secondary--light"
