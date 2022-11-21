@@ -46,7 +46,42 @@ async function getSessionsAndSpeakers() {
 
       return formattedSessions;
     },
-    { sessions: {}, speakers: {} }
+    {
+      sessions: {
+        keynoteOuverture: {
+          speakers: ["keynoteOuvertureS1"],
+          title: "Keynote d'ouverture",
+          id: 1,
+          startTime: "2022-12-02T09:00:00",
+          endTime: "2022-12-02T10:00:00",
+          trackTitle: "Amphi principal",
+        },
+        keynoteFermeture: {
+          speakers: ["keynoteFermetureS1"],
+          title: "Keynote de fermetture",
+          id: 2,
+          startTime: "2022-12-02T17:20:00",
+          endTime: "2022-12-02T18:05:00",
+          trackTitle: "Amphi principal",
+        },
+      },
+      speakers: {
+        keynoteOuvertureS1: {
+          name: "Speaker ouverture 1",
+          id: "keynoteOuvertureS1",
+          photoUrl:
+            "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
+          socials: [],
+        },
+        keynoteFermetureS1: {
+          name: "Speaker fermeture 1",
+          id: "keynoteFermetureS1",
+          photoUrl:
+            "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
+          socials: [],
+        },
+      },
+    }
   );
 }
 
