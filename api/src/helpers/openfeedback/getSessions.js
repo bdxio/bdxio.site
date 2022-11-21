@@ -14,7 +14,7 @@ function formatSession(talk, session) {
   const { title, id, category, speakers, room } = talk;
 
   return {
-    speakers: speakers.map((s) => s.conferenceHallId),
+    speakers: speakers.map((s) => s.conferenceHallId !== null),
     tags: [category.name],
     title: title,
     id: id,
@@ -37,7 +37,7 @@ async function getSessionsAndSpeakers() {
       session.talks.forEach((talk) => {
         formattedSessions.sessions[talk.id] = formatSession(talk, session);
         talk.speakers
-          .filter((s) => s.conferenceHallId)
+          .filter((s) => s.conferenceHallId !== null)
           .forEach((speaker) => {
             formattedSessions.speakers[speaker.conferenceHallId] =
               formatSpeakerData(speaker);
