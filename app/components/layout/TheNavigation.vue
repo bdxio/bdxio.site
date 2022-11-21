@@ -7,7 +7,7 @@
       <NuxtLink to="/schedule">Programme</NuxtLink>
     </li>
     <li>
-      <nuxt-link to="/sponsors">Sponsors</nuxt-link>
+      <nuxt-link to="/sponsors2022">Sponsors</nuxt-link>
     </li>
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
