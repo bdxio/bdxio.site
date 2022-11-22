@@ -19,11 +19,26 @@ const manualSessionsAndSpeakers = {
       endTime: "2022-12-02T10:00:00",
       trackTitle: "",
     },
+    2: {
+      speakers: ["KFS1"],
+      title: "Keynote de fermeture",
+      id: 2,
+      startTime: "2022-12-02T17:20:00",
+      endTime: "2022-12-02T18:05:00",
+      trackTitle: "",
+    },
   },
   speakers: {
     KOS1: {
       name: "Speaker ouverture 1",
       id: "KOS1",
+      photoUrl:
+        "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
+      socials: [],
+    },
+    KFS1: {
+      name: "Speaker fermeture 1",
+      id: "KFS1",
       photoUrl:
         "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
       socials: [],
