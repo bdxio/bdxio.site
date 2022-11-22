@@ -78,6 +78,16 @@
                   <div v-else-if="space" class="slots__slot__infos__interlude">
                     <span class="room">{{ space }}</span>
                     <span class="slots__slot__infos__interlude__name">{{ name }}</span>
+                    <div v-if="$showProgramme" class="openfeedback-keynote">
+                      <open-feedback
+                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
+                        v-if="name === `Keynote d'ouverture`"
+                      />
+                      <open-feedback
+                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
+                        v-if="name === `Keynote de fermeture`"
+                      />
+                    </div>
                   </div>
                 </div>
               </li>
@@ -91,8 +101,10 @@
 
 <script>
 import vClickOutside from "v-click-outside";
+import OpenFeedback from "../components/association/OpenFeedback.vue";
 
 export default {
+  components: { OpenFeedback },
   name: "ProgrammePage",
   layout: "page",
   data() {
@@ -453,5 +465,20 @@ ul {
   letter-spacing: 2px;
   font-weight: 200;
   font-size: 14px;
+}
+
+.openfeedback-keynote {
+  margin-left: 30px;
+  margin-top: 15px;
+
+  a {
+    margin: 0;
+    display: inline-block;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }
 </style>
