@@ -11,7 +11,7 @@ async function getSessions() {
 
 const manualSessionsAndSpeakers = {
   sessions: {
-    keynoteOuverture: {
+    1: {
       speakers: ["KOS1"],
       title: "Keynote d'ouverture",
       id: 1,
@@ -52,62 +52,6 @@ async function getSessionsAndSpeakers() {
   // Couldn't find a way to filter in a where clause instead of filtering afterwards
   const allTalksSessions = allSessions.filter(
     (sessions) => sessions.talks && sessions.talks.length > 0
-  );
-
-  console.log(
-    "HERE",
-    allTalksSessions.reduce(
-      (formattedSessions, session) => {
-        session.talks.forEach((talk) => {
-          formattedSessions.sessions[talk.id] = formatSession(talk, session);
-
-          talk.speakers
-            .filter((s) => s.conferenceHallId !== null)
-            .forEach((speaker) => {
-              formattedSessions.speakers[speaker.conferenceHallId] =
-                formatSpeakerData(speaker);
-            });
-        });
-
-        return formattedSessions;
-      },
-      {
-        sessions: {
-          keynoteOuverture: {
-            speakers: ["KOS1"],
-            title: "Keynote d'ouverture",
-            id: 1,
-            startTime: "2022-12-02T09:00:00",
-            endTime: "2022-12-02T10:00:00",
-            trackTitle: "Amphi principal",
-          },
-          keynoteFermeture: {
-            speakers: ["KFS1"],
-            title: "Keynote de fermeture",
-            id: 2,
-            startTime: "2022-12-02T17:20:00",
-            endTime: "2022-12-02T18:05:00",
-            trackTitle: "Amphi principal",
-          },
-        },
-        speakers: {
-          KOS1: {
-            name: "Speaker ouverture 1",
-            id: "KOS1",
-            photoUrl:
-              "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
-            socials: [],
-          },
-          KFS1: {
-            name: "Speaker fermeture 1",
-            id: "KFS1",
-            photoUrl:
-              "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
-            socials: [],
-          },
-        },
-      }
-    )
   );
 
   return allTalksSessions.reduce((formattedSessions, session) => {
