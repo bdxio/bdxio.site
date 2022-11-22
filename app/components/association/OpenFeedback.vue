@@ -1,6 +1,6 @@
 <template>
   <a :href="href" target="_blank" class="openfeedback">
-    donner votre avis sur<br />
+    donnez votre avis sur<br />
     <img src="~/assets/img/logo-openfeedback.png" alt="Logo openfeedback" />
   </a>
 </template>
