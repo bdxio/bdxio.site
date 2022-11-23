@@ -20,7 +20,7 @@ const manualSessionsAndSpeakers = {
       trackTitle: "",
     },
     2: {
-      speakers: ["KFS1"],
+      speakers: ["KFS1", "KFS2", "KFS3", "KFS4"],
       title: "Keynote de fermeture",
       id: 2,
       startTime: "2022-12-02T17:20:00",
@@ -30,18 +30,37 @@ const manualSessionsAndSpeakers = {
   },
   speakers: {
     KOS1: {
-      name: "Speaker ouverture 1",
       id: "KOS1",
+      name: "Marcy Ericka Charollois",
       photoUrl:
-        "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
-      socials: [],
+        "https://res.cloudinary.com/dceghfifv/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669225424/Marcy.jpg",
+      socials: [{ name: "twitter", link: "https://twitter.com/MarcyChama" }],
     },
     KFS1: {
-      name: "Speaker fermeture 1",
       id: "KFS1",
-      photoUrl:
-        "https://lh6.googleusercontent.com/-JdoQfcK99ok/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmUl0IhChct1-6jPBMUKaW7ko0Gfw/photo.jpg",
-      socials: [],
+      name: "Ane Diaz de Tuesta",
+      photoUrl: "",
+      socials: [{ name: "twitter", link: "https://twitter.com/ane_naiz" }],
+    },
+    KFS2: {
+      id: "KFS2",
+      name: "Aurélie Vache",
+      photoUrl: "",
+      socials: [{ name: "twitter", link: "https://twitter.com/aurelievache" }],
+    },
+    KFS3: {
+      id: "KFS3",
+      name: "Horacio Gonzalez",
+      photoUrl: "",
+      socials: [
+        { name: "twitter", link: "https://twitter.com/LostInBrittany" },
+      ],
+    },
+    KFS4: {
+      id: "KFS4",
+      name: "Pierre Tibulle Gonzalez",
+      photoUrl: "",
+      socials: [{ name: "twitter", link: "https://twitter.com/ptibulle" }],
     },
   },
 };
