@@ -7,7 +7,7 @@
     <section class="section-schedule__body">
       <div class="schedule-download">
         <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
-          >Télecharger le programme</a
+          >Télécharger le programme</a
         >
         <open-feedback v-if="showOpenfeedback" href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02" />
       </div>

@@ -58,7 +58,7 @@ const manualSessionsAndSpeakers = {
     },
     KFS4: {
       id: "KFS4",
-      name: "Pierre Tibulle Gonzalez",
+      name: "Pierre Tibulle",
       photoUrl: "",
       socials: [{ name: "twitter", link: "https://twitter.com/ptibulle" }],
     },
