@@ -19,7 +19,7 @@ export default {
   computed: {
     speakerInitials() {
       const splittedSpeakerName = this.speaker.name.split(" ");
-      return `${splittedSpeakerName[0][0].toUpperCase()}${splittedSpeakerName[1][0].toUpperCase()}`;
+      return `${splittedSpeakerName[0][0].toUpperCase()}`;
     }
   }
 };
