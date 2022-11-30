@@ -1,10 +1,10 @@
 function formatSpeakerData(speaker) {
-  const { conferenceHallId: id, name, photoUrl, twitter, github } = speaker;
+  const { id, name, photoUrl, twitter, github } = speaker;
 
   const formattedSpeaker = {
-    name,
     id,
-    photoUrl,
+    name,
+    photoUrl: photoUrl || "",
     socials: [],
   };
 
