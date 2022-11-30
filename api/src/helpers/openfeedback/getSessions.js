@@ -69,9 +69,8 @@ function formatSession(talk, session) {
   const { startSlot, endSlot } = session;
   const { title, id, category, speakers, room } = talk;
 
-  const filteredSpeakers = speakers.filter((s) => s.conferenceHallId !== null);
   return {
-    speakers: filteredSpeakers.map((s) => s.conferenceHallId),
+    speakers: speaker.map((s) => s.id),
     tags: [category.name],
     title: title,
     id: id,
