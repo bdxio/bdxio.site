@@ -150,12 +150,21 @@ export default {
   },
   methods: {
     displayTalkSubInfos({ speakers, format, level }) {
-      const formattedSpeakers = speakers
-        .map((s) => s.name)
-        .toString()
-        .replace(",", " / ");
+      const formattedSpeakers = speakers.length
+        ? speakers
+            .map((s) => s.name)
+            .toString()
+            .replace(",", " / ")
+        : "";
 
-      return `${formattedSpeakers} - ${format.name} (${format.duration}) - Niveau ${level}`;
+      let text = "";
+
+      if (formattedSpeakers) text += `${formattedSpeakers} -`;
+      if (format.name) text += ` ${format.name}`;
+      if (format.duration) text += ` (${format.duration})`;
+      if (level) text += ` - Niveau ${level}`;
+
+      return text;
     },
     setFilter(filter) {
       if (filter === "tous") {
