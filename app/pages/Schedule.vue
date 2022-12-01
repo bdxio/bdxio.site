@@ -78,7 +78,7 @@
                   <div v-else-if="space" class="slots__slot__infos__interlude">
                     <span class="room">{{ space }}</span>
                     <span class="slots__slot__infos__interlude__name">{{ name }}</span>
-                    <div v-if="$showProgramme" class="openfeedback-keynote">
+                    <div v-if="showOpenfeedback" class="openfeedback-keynote">
                       <open-feedback
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                         v-if="name === `Keynote d'ouverture`"
