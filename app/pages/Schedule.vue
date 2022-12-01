@@ -78,7 +78,7 @@
                   <div v-else-if="space" class="slots__slot__infos__interlude">
                     <span class="room">{{ space }}</span>
                     <span class="slots__slot__infos__interlude__name">{{ name }}</span>
-                    <div v-if="$showProgramme" class="openfeedback-keynote">
+                    <div v-if="showOpenfeedback" class="openfeedback-keynote">
                       <open-feedback
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                         v-if="name === `Keynote d'ouverture`"
@@ -150,12 +150,21 @@ export default {
   },
   methods: {
     displayTalkSubInfos({ speakers, format, level }) {
-      const formattedSpeakers = speakers
-        .map((s) => s.name)
-        .toString()
-        .replace(",", " / ");
+      const formattedSpeakers = speakers.length
+        ? speakers
+            .map((s) => s.name)
+            .toString()
+            .replace(",", " / ")
+        : "";
 
-      return `${formattedSpeakers} - ${format.name} (${format.duration}) - Niveau ${level}`;
+      let text = "";
+
+      if (formattedSpeakers) text += `${formattedSpeakers} -`;
+      if (format.name) text += ` ${format.name}`;
+      if (format.duration) text += ` (${format.duration})`;
+      if (level) text += ` - Niveau ${level}`;
+
+      return text;
     },
     setFilter(filter) {
       if (filter === "tous") {
