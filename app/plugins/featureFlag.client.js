@@ -2,11 +2,11 @@ const featuresFlag = {
   NAVIGATION: true,
   PROGRAMME: true,
   CFP: false,
-  BILLETERIE: true,
+  BILLETERIE: false,
   SPONSORS2022: true,
   VOLUNTEERS2022: true,
   TALKS: false,
-  OPENFEEDBACK: false
+  OPENFEEDBACK: true
 };
 
 export default function (context, inject) {
