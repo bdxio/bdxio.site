@@ -8,10 +8,7 @@
         En cliquant sur le bouton ci-dessous vous trouverez toutes les informations nécessaires.
       </p>
     </div>
-
-    <nuxt-link to="/sponsors" class="button button-secondary button-secondary--white" disabled="true"
-      >Devenir sponsor</nuxt-link
-    >
+    <button disabled="disabled" class="button button-secondary button-secondary--grey disabled">Non disponible</button>
   </section>
 </template>
 
