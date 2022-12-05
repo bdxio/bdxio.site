@@ -70,6 +70,9 @@
     },
     "openfeedbackUrl": {
       "type": "string"
+    },
+    "youtubeUrl": {
+      "type": "string"
     }
   }
 }

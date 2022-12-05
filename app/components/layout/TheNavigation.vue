@@ -27,11 +27,20 @@
         Billetterie
       </a>
     </li>
-    <li>
+    <li v-if="showLive">
       <nuxt-link to="/live" class="button button-icon button-secondary button-secondary--light"
         >Live
         <div class="live"
       /></nuxt-link>
+    </li>
+    <li v-if="showYoutube">
+      <a
+        class="button button-primary--light"
+        href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
+        target="_blank"
+      >
+        Revoir les talks
+      </a>
     </li>
     <li v-if="showCfp">
       <a
@@ -72,6 +81,9 @@ export default {
     },
     showLive() {
       return this.$showLive;
+    },
+    showYoutube() {
+      return this.$showYoutube;
     },
     iconBorderColor() {
       return css?.primaryLight ?? "#ffffff";
