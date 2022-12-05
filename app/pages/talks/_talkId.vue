@@ -37,7 +37,8 @@ export default {
         language: attributes.language || null,
         abstract: attributes.abstract || null,
         format: attributes.format.data.attributes.name || null,
-        openfeedbackUrl: attributes.openfeedbackUrl || null
+        openfeedbackUrl: attributes.openfeedbackUrl || null,
+        youtubeUrl: attributes.youtubeUrl || null
       },
       category: attributes.category.data.attributes.name || null,
       speakers: [...attributes.speakers.data.map(({ attributes }) => attributes)]

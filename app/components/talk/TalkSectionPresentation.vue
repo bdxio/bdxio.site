@@ -13,8 +13,11 @@
       <flex-item class="tag">{{ presentation.format }} - {{ duration }}min</flex-item>
       <flex-item class="tag">{{ presentation.level }}</flex-item>
       <flex-item class="tag" v-if="presentation.language">{{ presentation.language }}</flex-item>
-      <flex-item>
-        <open-feedback v-if="$showOpenfeedback && presentation.openfeedbackUrl" :href="presentation.openfeedbackUrl" />
+      <flex-item v-if="showOpenfeedback && presentation.openfeedbackUrl">
+        <open-feedback :href="presentation.openfeedbackUrl" />
+      </flex-item>
+      <flex-item v-if="showYoutube && presentation.youtubeUrl">
+        <show-on-youtube :href="presentation.youtubeUrl" />
       </flex-item>
     </flex-container>
     <p v-html="$md.render(presentation.abstract)" />
@@ -22,7 +25,9 @@
 </template>
 
 <script>
+import ShowOnYoutube from "../ShowOnYoutube.vue";
 export default {
+  components: { ShowOnYoutube },
   name: "TalkSectionPresentation",
   props: {
     presentation: {
@@ -30,7 +35,7 @@ export default {
       required: true,
       validator: (value) => {
         let result = true;
-        ["title", "format", "level", "abstract", "openfeedbackUrl"].forEach((key) => {
+        ["title", "format", "level", "abstract", "openfeedbackUrl", "youtubeUrl"].forEach((key) => {
           if (!Object.prototype.hasOwnProperty.call(value, key)) {
             result = false;
           }
@@ -49,6 +54,12 @@ export default {
         default:
           return 45;
       }
+    },
+    showOpenfeedback() {
+      return this.$showOpenfeedback;
+    },
+    showYoutube() {
+      return this.$showYoutube;
     }
   }
 };

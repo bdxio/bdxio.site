@@ -6,9 +6,9 @@
 
     <section class="section-schedule__body">
       <div class="schedule-download">
-        <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
+        <!-- <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
           >Télécharger le programme</a
-        >
+        > -->
         <open-feedback v-if="showOpenfeedback" href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02" />
       </div>
       <div class="schedule-container">
@@ -88,6 +88,16 @@
                         v-if="name === `Keynote de fermeture`"
                       />
                     </div>
+                    <div v-if="showYoutube" class="youtube-keynote">
+                      <show-on-youtube
+                        href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
+                        v-if="name === `Keynote d'ouverture`"
+                      />
+                      <show-on-youtube
+                        href="https://www.youtube.com/watch?v=ifXy9jRLWl8&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=40&ab_channel=bdxio"
+                        v-if="name === `Keynote de fermeture`"
+                      />
+                    </div>
                   </div>
                 </div>
               </li>
@@ -129,6 +139,9 @@ export default {
     },
     showOpenfeedback() {
       return this.$showOpenfeedback;
+    },
+    showYoutube() {
+      return this.$showYoutube;
     },
     filteredSchedule() {
       if (!this.filters.length) {
@@ -476,7 +489,8 @@ ul {
   font-size: 14px;
 }
 
-.openfeedback-keynote {
+.openfeedback-keynote,
+.youtube-keynote {
   margin-left: 30px;
   margin-top: 15px;
 
