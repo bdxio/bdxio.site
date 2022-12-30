@@ -60,7 +60,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/assets/styles/main.scss"],
+  css: ["~/assets/styles/main.scss", "@/assets/styles/main.css"],
 
   styleResources: {
     scss: ["~/assets/styles/_variables.scss", "~/assets/styles/_functions.scss", "~/assets/styles/_mixin.scss"]
@@ -84,7 +84,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    "@nuxtjs/eslint-module"
+    "@nuxtjs/eslint-module",
+    "@nuxt/postcss8"
   ],
 
   fontawesome: {
@@ -98,7 +99,14 @@ export default {
   modules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxtjs/markdownit"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {}
+      }
+    }
+  },
 
   axios: {
     credentials: "same-origin",
