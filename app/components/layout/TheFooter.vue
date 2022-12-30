@@ -74,6 +74,9 @@
         <nuxt-link to="/conduct"><small>Code de conduite</small></nuxt-link>
         <!-- <small>Kit communication</small> -->
         <small>©2022 - BDX I/O</small>
+        <div>
+          <small>Événement soutenu par Bordeaux Métropole</small>
+        </div>
       </div>
     </footer>
   </div>
