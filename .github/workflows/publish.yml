@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-      - 2022
+      - 2023-tmp
 
 jobs:
   build:
@@ -12,15 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Build
-        run: cd app && yarn install --frozen-lockfile && yarn generate
-        env:
-          NEXT_PUBLIC_API_TOKEN: ${{ secrets.NEXT_PUBLIC_API_TOKEN }}
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          NEWSLETTER_URL: ${{ secrets.NEWSLETTER_URL }}
-
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./app/dist
+          publish_dir: .
           publish_branch: master
