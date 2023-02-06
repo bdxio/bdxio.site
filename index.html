@@ -11,8 +11,12 @@
 
 <body>
   <main>
-    <img src="./bdxio-2023-loading.png"
-      alt="Image représentant une barre de chargement. Cette image est légendée par une phrase qui annonce que l'association BDXIO revient en 2023 et que le site est en prépapration" />
+    <div>
+      <img src="./bdxio_logo_blue.png" alt="Logo de l'association BDXIO" class="logo" />
+      <img src="./bdxio-2023-loading.png"
+        alt="Image représentant une barre de chargement. Cette image est légendée par une phrase qui annonce que l'association BDXIO revient en 2023 et que le site est en prépapration"
+        class="loading" />
+    </div>
   </main>
 </body>
 
@@ -32,7 +36,13 @@
     margin: 0;
   }
 
-  img {
+  .logo {
+    max-width: 150px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .loading {
     width: 100%;
     max-width: 650px;
   }
