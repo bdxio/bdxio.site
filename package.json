@@ -1,0 +1,19 @@
+{
+  "name": "bdxio.site",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.2",
+    "nuxt": "^3.2.2",
+    "sass": "^1.58.3"
+  },
+  "dependencies": {
+    "@vueuse/nuxt": "^9.13.0"
+  }
+}
