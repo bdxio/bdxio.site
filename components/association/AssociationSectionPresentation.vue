@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const showProgramme = computed(() => inject("showProgramme") ?? false);
+</script>
+
 <template>
   <div class="section section-presentation">
     <header class="section-presentation__header">
@@ -89,17 +93,6 @@
     </flex-container>
   </div>
 </template>
-
-<script>
-export default {
-  name: "associationSectionPresentation",
-  computed: {
-    showProgramme() {
-      return this.$showProgramme ?? false;
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .section-presentation {
