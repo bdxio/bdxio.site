@@ -37,12 +37,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HomepageSectionHero"
-};
-</script>
-
 <style lang="scss" scoped>
 .section-key-concepts {
   display: grid;
@@ -114,7 +108,8 @@ export default {
           @include positionAbsolute;
           content: "";
           display: block;
-          background: url("~/assets/img/drawings/yellow_circle_2.png") center no-repeat;
+          background: url("~/assets/img/drawings/yellow_circle_2.png") center
+            no-repeat;
           background-size: contain;
           width: 170px;
           height: 100px;
@@ -139,7 +134,8 @@ export default {
       top: 25%;
       left: 0;
       transform: translateX(-40%) translateY(-30%);
-      background: url("~/assets/img/drawings/cyan_scribble_4.png") center no-repeat;
+      background: url("~/assets/img/drawings/cyan_scribble_4.png") center
+        no-repeat;
       background-size: contain;
     }
 
@@ -151,7 +147,8 @@ export default {
       top: 25%;
       right: 100px;
       transform: translateX(40%) translateY(-50%);
-      background: url("~/assets/img/drawings/orange_highlight_2.png") center no-repeat;
+      background: url("~/assets/img/drawings/orange_highlight_2.png") center
+        no-repeat;
       background-size: contain;
 
       @include mobileFirst(m) {

@@ -40,12 +40,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HomepageSectionSponsors",
-};
-</script>
-
 <style lang="scss" scoped>
 .section-sponsors {
   display: flex;

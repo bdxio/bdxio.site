@@ -1,10 +1,14 @@
+<script setup lang="ts">
+const showCfp = computed(() => inject("showCfp") ?? false);
+</script>
+
 <template>
   <section class="section section-speaker" id="become-speaker">
     <div>
       <section-title section tag="h2">speakers</section-title>
-      <section-title tag="h3" class="title"
-        >Vous aussi, rejoignez le navire&nbsp;!</section-title
-      >
+      <section-title tag="h3" class="title">
+        Vous aussi, rejoignez le navire&nbsp;!
+      </section-title>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
@@ -28,25 +32,6 @@
     </button>
   </section>
 </template>
-
-<script>
-import css from "~/assets/styles/main.scss?inline";
-
-export default {
-  name: "HomepageSectionSpeaker",
-  computed: {
-    showCfp() {
-      return this.$showCfp ?? false;
-    },
-    iconColor() {
-      return css.darkFont ?? "#000000";
-    },
-    iconBorderColor() {
-      return css.darkFont ?? "#000000";
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .section-speaker {
