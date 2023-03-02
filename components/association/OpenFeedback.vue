@@ -1,21 +1,18 @@
+<script setup lang="ts">
+defineProps({
+  href: {
+    type: String,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <a :href="href" target="_blank" class="openfeedback">
     donnez votre avis sur<br />
     <img src="~/assets/img/logo-openfeedback.png" alt="Logo openfeedback" />
   </a>
 </template>
-
-<script>
-export default {
-  name: "OpenFeedbackComponent",
-  props: {
-    href: {
-      type: String,
-      required: true
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .openfeedback {
