@@ -1,9 +1,51 @@
+<script setup lang="ts">
+type Offer = {
+  id: number;
+  label: string;
+  description: string;
+  price: string;
+  full?: true;
+  sponsors: Array<{
+    name: string;
+    url?: string;
+    logo?: {
+      url: string;
+    };
+  }>;
+};
+
+defineProps<{
+  offers: Offer[];
+}>();
+
+const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
+  const colors = ["purple", "green", "yellow", "orange"];
+  let classes = full ? "soldout" : "";
+
+  return (classes += ` ${colors[id]}`);
+};
+</script>
+
+
 <template>
   <section class="section section-sponsor-offers" id="offers">
-    <h3 class="title">Les <span class="before">offres</span> et <span class="after">sponsors 2022</span></h3>
+    <h3 class="title">
+      Les <span class="before">offres</span> et
+      <span class="after">sponsors 2022</span>
+    </h3>
     <div class="offers">
-      <flex-container gutter-m v-for="(offer, index) in offers" :key="`${offer.label}-${offer.id}`" class="offer">
-        <flex-item xs12 s4 class="offer__infos" :class="getOfferClasses(offer.full, index)">
+      <flex-container
+        gutter-m
+        v-for="(offer, index) in offers"
+        :key="`${offer.label}-${offer.id}`"
+        class="offer"
+      >
+        <flex-item
+          xs12
+          s4
+          class="offer__infos"
+          :class="getOfferClasses(offer.full, index)"
+        >
           <h4 class="offer__name">{{ offer.label }}</h4>
           <span class="offer__price">{{ offer.price }} €</span>
           <p class="offer__description">
@@ -13,21 +55,26 @@
         <flex-item
           s8
           class="offer__sponsors"
-          v-if="offer.sponsors.data.length"
-          :style="{ gridTemplateColumns: `repeat(${offer.sponsors.data.length}, 210px)` }"
+          v-if="offer.sponsors.length"
+          :style="{
+            gridTemplateColumns: `repeat(${offer.sponsors.length}, 210px)`,
+          }"
         >
           <div
-            v-for="(sponsor, index) in offer.sponsors.data"
+            v-for="(sponsor, index) in offer.sponsors"
             :key="`sponsor-${index}`"
             class="offer__sponsors__sponsor card"
           >
-            <a :href="sponsor.url || '#'" target="_blank" class="offer__sponsors__sponsor__link">
+            <a
+              :href="sponsor.url || '#'"
+              target="_blank"
+              class="offer__sponsors__sponsor__link"
+            >
               <img
                 class="offer__sponsors__sponsor__image"
                 :src="
-                  sponsor.logo && sponsor.logo.data
-                    ? sponsor.logo.data.attributes.formats.thumbnail.url
-                    : 'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
+                  sponsor.logo?.url ||
+                  'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
                 "
                 :alt="`Logo de ${sponsor.name}`"
               />
@@ -38,26 +85,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: "SectionSponsorOffersAndSponsors",
-  props: {
-    offers: {
-      type: Array,
-      required: true
-    }
-  },
-  methods: {
-    getOfferClasses(full, id) {
-      const colors = ["purple", "green", "yellow", "orange"];
-      let classes = full ? "soldout" : "";
-
-      return (classes += ` ${colors[id]}`);
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .section-sponsor-offers {
