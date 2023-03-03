@@ -1,6 +1,5 @@
 <template>
   <div>
-    <the-toaster />
     <the-header background="light" />
     <nuxt />
     <the-footer />
