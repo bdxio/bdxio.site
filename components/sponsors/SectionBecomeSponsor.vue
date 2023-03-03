@@ -8,42 +8,48 @@
       <li class="reason one">
         <p class="number">1</p>
         <p class="description">
-          Une visibilité sur le plus grand événement bordelais fédérant l’ensemble de la communauté digitale et IT
-          bordelaise
+          Une visibilité sur le plus grand événement bordelais fédérant
+          l’ensemble de la communauté digitale et IT bordelaise
         </p>
       </li>
 
       <li class="reason two">
         <p class="number">2</p>
-        <p class="description">Être un acteur majeur en contribuant au développement de cet écosystème local</p>
+        <p class="description">
+          Être un acteur majeur en contribuant au développement de cet
+          écosystème local
+        </p>
       </li>
 
       <li class="reason three">
         <p class="number">3</p>
-        <p class="description">Affirmer le dynamisme de votre structure et stimuler vos équipes</p>
+        <p class="description">
+          Affirmer le dynamisme de votre structure et stimuler vos équipes
+        </p>
       </li>
 
       <li class="reason four">
         <p class="number">4</p>
-        <p class="description">Une mise en avant de vos services, produits et compétences</p>
+        <p class="description">
+          Une mise en avant de vos services, produits et compétences
+        </p>
       </li>
 
       <li class="reason five">
         <p class="number">5</p>
-        <p class="description">Rencontrer vos futurs collaborateurs, partenaires ou fournisseurs</p>
+        <p class="description">
+          Rencontrer vos futurs collaborateurs, partenaires ou fournisseurs
+        </p>
       </li>
     </ul>
-    <a href="/bdxio-2022-sponsors.pdf" class="button button-primary button-primary--light" download
+    <a
+      href="/bdxio-2022-sponsors.pdf"
+      class="button button-primary button-primary--light"
+      download
       >Télecharger la plaquette</a
     >
   </section>
 </template>
-
-<script>
-export default {
-  name: "SectionBecoreSponsor"
-};
-</script>
 
 <style lang="scss" scoped>
 .section-become-sponsor {
