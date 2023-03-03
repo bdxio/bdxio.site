@@ -1,29 +1,32 @@
+<script setup lang="ts">
+import { computed } from "~/.nuxt/imports";
+
+const props = defineProps<{
+  speaker: {
+    name: string;
+    photoUrl?: string;
+  };
+}>();
+
+const initials = computed(() => {
+  const splittedSpeakerName = props.speaker.name.split(" ");
+  return `${splittedSpeakerName[0][0].toUpperCase()}`;
+});
+</script>
+
 <template>
   <div>
-    <img v-if="speaker.photoUrl" class="speaker-picture" :src="speaker.photoUrl" :alt="`Photo de ${speaker.name}`" />
+    <img
+      v-if="speaker.photoUrl"
+      class="speaker-picture"
+      :src="speaker.photoUrl"
+      :alt="`Photo de ${speaker.name}`"
+    />
     <div v-else class="custom-profil">
-      <span>{{ speakerInitials }}</span>
+      <span>{{ initials }}</span>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "SpeakerProfilComponent",
-  props: {
-    speaker: {
-      type: Object,
-      validator: (s) => s.name
-    }
-  },
-  computed: {
-    speakerInitials() {
-      const splittedSpeakerName = this.speaker.name.split(" ");
-      return `${splittedSpeakerName[0][0].toUpperCase()}`;
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .speaker-picture {
