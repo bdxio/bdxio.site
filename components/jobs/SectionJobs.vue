@@ -1,6 +1,8 @@
 <template>
   <section class="section section-jobs">
-    <section-title tag="h2">Les jobs de <span class="sponsor">nos partenaires</span></section-title>
+    <section-title tag="h2"
+      >Les jobs de <span class="sponsor">nos partenaires</span></section-title
+    >
     <jobs-widget
       color="#7D7DF2"
       locale="fr"
@@ -13,12 +15,6 @@
     />
   </section>
 </template>
-
-<script>
-export default {
-  name: "SectionBecoreSponsor"
-};
-</script>
 
 <style lang="scss" scoped>
 .section-jobs {
