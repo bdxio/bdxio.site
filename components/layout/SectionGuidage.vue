@@ -3,7 +3,9 @@
     <div class="text-container">
       <div class="infos">
         <section-title section tag="h2">Transports</section-title>
-        <section-title tag="h3">Comment rejoindre<br />l'évènement ?</section-title>
+        <section-title tag="h3"
+          >Comment rejoindre<br />l'évènement ?</section-title
+        >
         <div class="address-container">
           <span class="title">Palais des congrès</span>
           <span class="description"
@@ -18,7 +20,9 @@
         </div>
         <div>
           <span class="title">Vélo :</span>
-          <span class="description">Parking vélo disponible et station VCub à proximité</span>
+          <span class="description"
+            >Parking vélo disponible et station VCub à proximité</span
+          >
         </div>
         <div>
           <span class="title">Voiture :</span>
@@ -29,12 +33,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: "HomepageSectionGuidage"
-};
-</script>
 
 <style lang="scss" scoped>
 .guidage {

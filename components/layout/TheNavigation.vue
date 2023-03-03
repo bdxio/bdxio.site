@@ -1,10 +1,28 @@
+
+<script setup lang="ts">
+import { computed, inject } from "~/.nuxt/imports";
+
+const props = defineProps<{
+  displayCfp: boolean;
+}>();
+
+const showCfp = computed(
+  () => (props.displayCfp && inject("showCfp")) ?? false
+);
+const showBilleterie = computed(() => inject("showBilleterie"));
+const showTalks = computed(() => inject("showTalks"));
+const showProgramme = computed(() => inject("showProgramme"));
+const showLive = computed(() => inject("showLive"));
+const showYoutube = computed(() => inject("showYoutube"));
+</script>
+
 <template>
   <ul>
     <li>
       <nuxt-link to="/">Accueil</nuxt-link>
     </li>
     <li v-if="showProgramme">
-      <NuxtLink to="/schedule">Programme</NuxtLink>
+      <nuxt-link to="/schedule">Programme</nuxt-link>
     </li>
     <li>
       <nuxt-link to="/sponsors2022">Sponsors</nuxt-link>
@@ -28,7 +46,9 @@
       </a>
     </li>
     <li v-if="showLive">
-      <nuxt-link to="/live" class="button button-icon button-secondary button-secondary--light"
+      <nuxt-link
+        to="/live"
+        class="button button-icon button-secondary button-secondary--light"
         >Live
         <div class="live"
       /></nuxt-link>
@@ -49,51 +69,11 @@
         target="_blank"
       >
         CFP
-        <open-new-window :color="iconColor" :borderColor="iconBorderColor" />
+        <!-- <open-new-window :color="iconColor" :borderColor="iconBorderColor" /> -->
       </a>
     </li>
   </ul>
 </template>
-
-<script>
-import css from "~/assets/styles/main.scss?inline";
-
-export default {
-  name: "TheNavigation",
-  props: {
-    displayCfp: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    showCfp() {
-      return this.displayCfp && this.$showCfp;
-    },
-    showBilleterie() {
-      return this.$showBilleterie;
-    },
-    showTalks() {
-      return this.$showTalks;
-    },
-    showProgramme() {
-      return this.$showProgramme;
-    },
-    showLive() {
-      return this.$showLive;
-    },
-    showYoutube() {
-      return this.$showYoutube;
-    },
-    iconBorderColor() {
-      return css?.primaryLight ?? "#ffffff";
-    },
-    iconColor() {
-      return css?.light ?? "#ffffff";
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .live {
