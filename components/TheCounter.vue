@@ -1,50 +1,38 @@
+<script setup lang="ts">
+import { ref, onMounted } from "#imports";
+
+const props = defineProps<{
+  value: number;
+  duration?: number;
+  step?: number;
+}>();
+
+let animatedValue = ref(0);
+const animatedInterval = ref();
+
+onMounted(() => {
+  const interval = ((props.step || 1) * (props.duration || 1000)) / props.value;
+
+  if (interval < 4) {
+    console.warn(
+      `The interval needed to render ${props.value} in ${props.duration}ms with a step of ${props.step} is lower than 4. You should consider increasing duration or step.`
+    );
+  }
+
+  animatedInterval.value = setInterval(() => {
+    const result = animatedValue.value + (props.step || 1);
+    if (result >= props.value) {
+      animatedValue.value = props.value;
+      clearInterval(animatedInterval.value);
+    } else {
+      animatedValue.value = result;
+    }
+  }, interval);
+});
+</script>
+
 <template>
   <span>
     {{ animatedValue }}
   </span>
 </template>
-
-<script>
-export default {
-  name: "TheCounter",
-  props: {
-    value: {
-      type: Number,
-      required: true,
-    },
-    duration: {
-      type: Number,
-      default: 1000,
-    },
-    step: {
-      type: Number,
-      default: 1,
-    },
-  },
-  data() {
-    return {
-      animatedValue: 0,
-      animationInterval: null,
-    };
-  },
-  mounted() {
-    const interval = (this.step * this.duration) / this.value;
-
-    if (interval < 4) {
-      console.warn(
-        `The interval needed to render ${this.value} in ${this.duration}ms with a step of ${this.step} is lower than 4. You should consider increasing duration or step.`
-      );
-    }
-
-    this.animationInterval = setInterval(() => {
-      const result = this.animatedValue + this.step;
-      if (result >= this.value) {
-        this.animatedValue = this.value;
-        clearInterval(this.animationInterval);
-      } else {
-        this.animatedValue = result;
-      }
-    }, interval);
-  },
-};
-</script>
