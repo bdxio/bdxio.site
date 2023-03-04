@@ -1,5 +1,21 @@
-<script>
-function getTitleClasses(props) {
+<script setup lang="ts">
+import { h, Component, useAttrs, useSlots } from "vue";
+
+type SectionTitle = {
+  tag: "h1" | "h2" | "h3" | "h4";
+  color: "light" | "dark";
+  section?: true;
+};
+
+const props = withDefaults(defineProps<SectionTitle>(), {
+  tag: "h2",
+  color: "dark",
+  section: undefined,
+});
+const children = useSlots();
+const attrs = useAttrs();
+
+const getTitleClasses = (props: SectionTitle) => {
   if (!props) {
     return "";
   }
@@ -12,26 +28,17 @@ function getTitleClasses(props) {
   );
 
   return classes.join(" ");
-}
-
-export default {
-  name: "SectionTitle",
-  functional: true,
-  render(h, { props, listeners, children, data }) {
-    const tagProp = props.tag || "h2";
-
-    return h(
-      tagProp,
-      {
-        attrs: {
-          class: `${getTitleClasses(props)} ${data.staticClass || ""}`,
-        },
-        on: listeners,
-      },
-      children
-    );
-  },
 };
+
+return () =>
+  h(
+    props.tag,
+    {
+      class: `${getTitleClasses(props)} ${attrs.staticClass || ""}`,
+      on: attrs.listeners,
+    },
+    children
+  );
 </script>
 
 <style lang="scss">
