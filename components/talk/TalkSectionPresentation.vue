@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { computed, inject } from "#imports";
+
+const props = defineProps<{
+  presentation: {
+    title: string;
+    format: string;
+    level: string;
+    abstract: string;
+    openfeedbackUrl: string;
+    youtubeUrl: string;
+  };
+}>();
+
+const duration = computed(() => {
+  switch (props.presentation.format) {
+    case "Quickie":
+      return 15;
+    case "Hands on lab":
+      return 100;
+    default:
+      return 45;
+  }
+});
+const showOpenfeedback = computed(() => inject("showOpenfeedback") ?? false);
+const showYoutube = computed(() => inject("showYoutube") ?? false);
+</script>
+
 <template>
   <section class="section talk-section-presentation">
     <section-title tag="h2">
@@ -10,9 +38,13 @@
       class="underline-scribble"
     />
     <flex-container class="tag-container">
-      <flex-item class="tag">{{ presentation.format }} - {{ duration }}min</flex-item>
+      <flex-item class="tag"
+        >{{ presentation.format }} - {{ duration }}min</flex-item
+      >
       <flex-item class="tag">{{ presentation.level }}</flex-item>
-      <flex-item class="tag" v-if="presentation.language">{{ presentation.language }}</flex-item>
+      <flex-item class="tag" v-if="presentation.language">{{
+        presentation.language
+      }}</flex-item>
       <flex-item v-if="showOpenfeedback && presentation.openfeedbackUrl">
         <open-feedback :href="presentation.openfeedbackUrl" />
       </flex-item>
@@ -24,46 +56,6 @@
   </section>
 </template>
 
-<script>
-import ShowOnYoutube from "../ShowOnYoutube.vue";
-export default {
-  components: { ShowOnYoutube },
-  name: "TalkSectionPresentation",
-  props: {
-    presentation: {
-      type: Object,
-      required: true,
-      validator: (value) => {
-        let result = true;
-        ["title", "format", "level", "abstract", "openfeedbackUrl", "youtubeUrl"].forEach((key) => {
-          if (!Object.prototype.hasOwnProperty.call(value, key)) {
-            result = false;
-          }
-        });
-        return result;
-      }
-    }
-  },
-  computed: {
-    duration() {
-      switch (this.presentation.format) {
-        case "Quickie":
-          return 15;
-        case "Hands on lab":
-          return 100;
-        default:
-          return 45;
-      }
-    },
-    showOpenfeedback() {
-      return this.$showOpenfeedback;
-    },
-    showYoutube() {
-      return this.$showYoutube;
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .talk-section-presentation {
