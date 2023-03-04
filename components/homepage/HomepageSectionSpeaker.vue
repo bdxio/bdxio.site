@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, inject } from "#imports";
+
 const showCfp = computed(() => inject("showCfp") ?? false);
 </script>
 

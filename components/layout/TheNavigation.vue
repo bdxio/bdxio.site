@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { computed, inject } from "~/.nuxt/imports";
+import { computed, inject } from "#imports";
 
 const props = defineProps<{
   displayCfp: boolean;

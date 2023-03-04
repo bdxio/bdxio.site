@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, inject } from "#imports";
+
 const showProgramme = computed(() => inject("showProgramme") ?? false);
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "~/.nuxt/imports";
+import { computed } from "#imports";
 
 const props = defineProps<{
   speaker: {
