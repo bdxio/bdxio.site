@@ -16,13 +16,6 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: "HomePage",
-  layout: "homepage"
-};
-</script>
-
 <style lang="scss" scoped>
 h1 {
   text-align: center;
