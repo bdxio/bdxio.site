@@ -1,3 +1,33 @@
+<script setup lang="ts">
+import { computed, inject, ref, watch, useRoute } from "#imports";
+
+const mobileOpen = ref(false);
+const route = useRoute();
+
+const props = defineProps<{
+  background: "light" | "dark";
+}>();
+
+const showNavigation = computed(() => inject("showNavigation") ?? false);
+const propClasses = computed(() => {
+  let classes = props.background.toString();
+
+  if (mobileOpen.value) {
+    classes += " mobile-open";
+  }
+  return classes;
+});
+
+const toggleMenu = () => (mobileOpen.value = !mobileOpen.value);
+
+watch(
+  () => route.path,
+  () => {
+    mobileOpen.value = false;
+  }
+);
+</script>
+
 <template>
   <header class="header" :class="background">
     <nuxt-link class="logo" to="/">
@@ -7,7 +37,7 @@
         class="display--block"
       />
     </nuxt-link>
-    <div v-if="showNavigation">
+    <div v-if="showNavigation" @click.prevent="toggleMenu">
       <img
         v-if="mobileOpen"
         :src="
@@ -17,7 +47,6 @@
         "
         alt="icone pour ouvrir le menu sur mobile"
         class="header__burger hidden-m"
-        @click="mobileOpen = !mobileOpen"
       />
       <img
         v-else
@@ -28,7 +57,6 @@
         "
         alt="icone pour fermer le menu sur mobile"
         class="header__burger hidden-m"
-        @click="mobileOpen = !mobileOpen"
       />
       <nav class="header__nav" :class="propClasses">
         <the-navigation display-cfp />
@@ -36,45 +64,3 @@
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  name: "TheHeader",
-  data() {
-    return {
-      mobileOpen: false,
-    };
-  },
-  props: {
-    background: {
-      type: String,
-      required: false,
-      default: "light",
-      validator: (value) => ["light", "dark"].includes(value),
-    },
-  },
-  computed: {
-    propClasses() {
-      let classes = this.background;
-
-      if (this.mobileOpen) {
-        classes += " mobile-open";
-      }
-      return classes;
-    },
-    showNavigation() {
-      return this.$showNavigation ?? false;
-    },
-  },
-  methods: {
-    toggleMenu() {
-      return (this.mobileOpen = !this.mobileOpen);
-    },
-  },
-  watch: {
-    "$route.path"() {
-      this.mobileOpen = false;
-    },
-  },
-};
-</script>

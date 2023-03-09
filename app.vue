@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-// @ts-ignore
+import { ref, useHead } from "#imports";
+
 const title = ref("BDX I/O");
 const description = ref(/* @TODO : fill it */ "");
 
