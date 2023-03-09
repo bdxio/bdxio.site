@@ -17,13 +17,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ErrorLayout",
-  props: ["error"],
-};
-</script>
-
 <style lang="scss" scoped>
 .section-error {
   display: flex;
