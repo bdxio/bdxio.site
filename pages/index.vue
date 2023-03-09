@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import { definePageMeta, useHead } from "#imports";
+
+definePageMeta({
+  layout: "homepage",
+});
+
+useHead({
+  title: "BDX I/O | Welcome",
+});
+</script>
+
 <template>
   <main>
     <homepage-section-hero />
