@@ -6,7 +6,7 @@ definePageMeta({
 });
 
 useHead({
-  title: "Code de conduite | BDX I/O",
+  title: "BDX I/O | Code de conduite",
 });
 </script>
 
