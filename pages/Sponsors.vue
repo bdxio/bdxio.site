@@ -2,14 +2,12 @@
 import { definePageMeta, useHead, useFetch, computed, inject } from "#imports";
 import { formatStrapiData, shuffleArray } from "~/utils";
 import { useConfig } from "~/composables";
+import SectionBecomeSponsor from "~/components/sponsors/SectionBecomeSponsor.vue";
+import SectionSponsorOffersAndSponsors from "~/components/sponsors/SectionSponsorOffersAndSponsors.vue";
+import SectionSponsorOffers from "~/components/sponsors/SectionSponsorOffers.vue";
 
 definePageMeta({ layout: "page" });
-
-useHead({
-  title: "Sponsors | BDX I/O",
-});
-
-const { API_URL } = useConfig();
+useHead({ title: "Sponsors | BDX I/O" });
 
 const showSponsors2022 = inject("showSponsors2022");
 
@@ -17,7 +15,8 @@ if (!showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-const { data } = await useFetch(`${API_URL}/api/item`, {
+const { API_URL } = useConfig();
+const { data } = await useFetch(`${API_URL}/offers`, {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 

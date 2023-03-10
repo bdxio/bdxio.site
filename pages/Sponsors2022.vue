@@ -4,22 +4,14 @@ import { formatStrapiData, shuffleArray } from "~/utils";
 import { useConfig } from "~/composables";
 
 definePageMeta({ layout: "page" });
-
-useHead({
-  title: "Sponsors 2022 | BDX I/O",
-});
-
-const { API_URL } = useConfig();
+useHead({ title: "Sponsors 2022 | BDX I/O" });
 
 if (!inject("showSponsors2022")) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-function getOfferClass(index) {
-  return ["purple", "green", "yellow", "orange"][index];
-}
-
-const { data } = await useFetch(`${API_URL}/api/item`, {
+const { API_URL } = useConfig();
+const { data } = await useFetch(`${API_URL}/offers`, {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
@@ -29,6 +21,10 @@ const offers = formatStrapiData(data.value.data).map((offer) => {
   }
   return offer;
 });
+
+function getOfferClass(index) {
+  return ["purple", "green", "yellow", "orange"][index];
+}
 </script>
 
 <template>
