@@ -1,20 +1,71 @@
+<script setup lang="ts">
+import { definePageMeta, useHead, useFetch, computed, inject } from "#imports";
+import { formatStrapiData, shuffleArray } from "~/utils";
+import { useConfig } from "~/composables";
+
+definePageMeta({ layout: "page" });
+
+useHead({
+  title: "Sponsors 2022 | BDX I/O",
+});
+
+const { API_URL } = useConfig();
+
+if (!inject("showSponsors2022")) {
+  throw createError({ statusCode: 404, statusMessage: "Page not found" });
+}
+
+function getOfferClass(index) {
+  return ["purple", "green", "yellow", "orange"][index];
+}
+
+const { data } = await useFetch(`${API_URL}/api/item`, {
+  params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
+});
+
+const offers = formatStrapiData(data.value.data).map((offer) => {
+  if (offer.sponsors?.data?.length) {
+    offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
+  }
+  return offer;
+});
+</script>
+
 <template>
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
-      <section-title tag="h1" class="section-sponsors-2022__header__title">Nos sponsors 2022</section-title>
+      <section-title tag="h1" class="section-sponsors-2022__header__title"
+        >Nos sponsors 2022</section-title
+      >
       <p>
-        L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors pour nous permettre de vous proposer
-        cette édition 2022.
+        L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors
+        pour nous permettre de vous proposer cette édition 2022.
       </p>
     </header>
 
     <section class="section-sponsors-2022__body">
       <ul v-if="offers.length">
-        <li v-for="(offer, index) in offers" :key="`offer-${offer.id}`" class="offer" :class="getOfferClass(index)">
-          <section-title tag="h2" class="offer__name">{{ offer.label }}</section-title>
+        <li
+          v-for="(offer, index) in offers"
+          :key="`offer-${offer.id}`"
+          class="offer"
+          :class="getOfferClass(index)"
+        >
+          <section-title tag="h2" class="offer__name">{{
+            offer.label
+          }}</section-title>
           <ul v-if="offer.sponsors?.data.length" class="sponsors">
-            <li v-for="sponsor in offer.sponsors.data" :key="sponsor.name" class="sponsors__sponsor card">
-              <a :href="sponsor.url || '#'" target="_blank" class="sponsors__sponsor__link" :title="sponsor.name">
+            <li
+              v-for="sponsor in offer.sponsors.data"
+              :key="sponsor.name"
+              class="sponsors__sponsor card"
+            >
+              <a
+                :href="sponsor.url || '#'"
+                target="_blank"
+                class="sponsors__sponsor__link"
+                :title="sponsor.name"
+              >
                 <img
                   class="sponsors__sponsor__image"
                   :src="
@@ -33,52 +84,6 @@
     </section>
   </main>
 </template>
-<script>
-import { formatStrapiData, shuffleArray } from "~/utils";
-
-export default {
-  name: "Sponsors2022Page",
-  layout: "page",
-  head() {
-    return { title: "Sponsors 2022 | BDX I/O" };
-  },
-  data() {
-    return {
-      offers: []
-    };
-  },
-  methods: {
-    getOfferClass(index) {
-      const colors = ["purple", "green", "yellow", "orange"];
-      return `${colors[index]}`;
-    }
-  },
-  async asyncData({ $axios, $config, error, $showSponsors2022 }) {
-    if (!$showSponsors2022) {
-      return error({ statusCode: 404 });
-    }
-
-    const offers = await $axios.$get(`${$config.cmsApiUrl}/offers`, {
-      params: { sort: "id:asc", "populate[sponsors][populate]": "*" }
-    });
-
-    if (!offers) return;
-
-    const offersWithshuffledSponsors = formatStrapiData(offers.data).map((offer) => {
-      if (!offer.sponsors.data.length) {
-        return offer;
-      }
-
-      offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
-      return offer;
-    });
-
-    return {
-      offers: offersWithshuffledSponsors
-    };
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .section-sponsors-2022 {
@@ -103,7 +108,8 @@ export default {
         z-index: -1;
         left: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_left.png")
+          center no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
@@ -122,7 +128,8 @@ export default {
         z-index: -1;
         right: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_right.png")
+          center no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
