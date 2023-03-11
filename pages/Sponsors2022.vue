@@ -30,9 +30,9 @@ function getOfferClass(index) {
 <template>
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
-      <section-title tag="h1" class="section-sponsors-2022__header__title"
-        >Nos sponsors 2022</section-title
-      >
+      <section-title tag="h1" class="section-sponsors-2022__header__title">
+        Nos sponsors 2022
+      </section-title>
       <p>
         L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors
         pour nous permettre de vous proposer cette édition 2022.

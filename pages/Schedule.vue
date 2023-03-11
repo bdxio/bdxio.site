@@ -163,9 +163,9 @@ const { categories, schedule } = data.value;
                   "
                   :href="`image abstraite représentant la catégorie ${category.name}`"
                 />
-                <span class="categories__category__label">{{
-                  category.name
-                }}</span>
+                <span class="categories__category__label">
+                  {{ category.name }}
+                </span>
               </li>
             </ul>
           </div>
@@ -206,12 +206,12 @@ const { categories, schedule } = data.value;
                             :href="`image abstraite représentant la catégorie ${talk.category.name}`"
                           />
                           <div class="talk__infos__content">
-                            <span class="talk__infos__content__title">{{
-                              talk.title
-                            }}</span>
-                            <span class="talk__infos__content__subinfos">{{
-                              displayTalkSubInfos(talk)
-                            }}</span>
+                            <span class="talk__infos__content__title">
+                              {{ talk.title }}
+                            </span>
+                            <span class="talk__infos__content__subinfos">
+                              {{ displayTalkSubInfos(talk) }}
+                            </span>
                           </div>
                         </div>
                       </nuxt-link>
@@ -219,9 +219,9 @@ const { categories, schedule } = data.value;
                   </ul>
                   <div v-else-if="space" class="slots__slot__infos__interlude">
                     <span class="room">{{ space }}</span>
-                    <span class="slots__slot__infos__interlude__name">{{
-                      name
-                    }}</span>
+                    <span class="slots__slot__infos__interlude__name">
+                      {{ name }}
+                    </span>
                     <div v-if="showOpenfeedback" class="openfeedback-keynote">
                       <open-feedback
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
