@@ -1,4 +1,8 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+import { SectionTitle } from "#components";
+
 type Volunteer = {
   id: string;
   active: boolean;
@@ -56,13 +60,13 @@ function getVolunteerName(
 
 <template>
   <section class="section section-association-volunteers">
-    <section-title tag="h3" class="text-align--center title"
-      >Découvrez les membres <br />
-      de notre <span class="after">équipe</span></section-title
-    >
+    <SectionTitle tag="h3" class="text-align--center title">
+      Découvrez les membres <br />
+      de notre <span class="after">équipe</span>
+    </SectionTitle>
 
-    <flex-container tag="ul" gutter-s class="volunteers">
-      <flex-item
+    <div tag="ul" gutter-s class="volunteers">
+      <div
         tag="li"
         v-for="volunteer in volunteers"
         :key="`v-${volunteer.id}`"
@@ -149,11 +153,10 @@ function getVolunteerName(
             </div>
           </div>
         </div>
-      </flex-item>
-    </flex-container>
+      </div>
+    </div>
   </section>
 </template>
-
 
 <style lang="scss" scoped>
 .section-association-volunteers {

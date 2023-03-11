@@ -1,19 +1,21 @@
 <script setup lang="ts">
+// @ts-nocheck
 import {
   definePageMeta,
   useHead,
-  ref,
+  useNuxtApp,
+  useConfig,
   useFetch,
+  ref,
   computed,
-  inject,
+  onClickOutside,
 } from "#imports";
-import { useConfig } from "~/composables";
+import { SectionTitle, AssociationOpenFeedback, NuxtLink } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Programme | BDX I/O" });
 
-const showOpenfeedback = inject("showOpenfeedback");
-const showYoutube = inject("showYoutube");
+const { $showOpenfeedback, $showYoutube } = useNuxtApp();
 
 const filters = ref([]);
 const openPanel = ref(false);
@@ -101,7 +103,6 @@ function closeMobilePanel() {
 }
 
 onClickOutside(categoriesWrapper, () => openMobilePanel());
-
 const { API_URL } = useConfig();
 
 const { data } = await useFetch(`${API_URL}/schedule`);
@@ -112,9 +113,9 @@ const { categories, schedule } = data.value;
 <template>
   <main class="section section-schedule">
     <header class="section-schedule__header">
-      <section-title tag="h1" class="section-schedule__header__title">
+      <SectionTitle tag="h1" class="section-schedule__header__title">
         Le programme de la journée
-      </section-title>
+      </SectionTitle>
     </header>
 
     <section class="section-schedule__body">
@@ -122,8 +123,8 @@ const { categories, schedule } = data.value;
         <!-- <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
           >Télécharger le programme</a
         > -->
-        <open-feedback
-          v-if="showOpenfeedback"
+        <AssociationOpenFeedback
+          v-if="$showOpenfeedback"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
         />
       </div>
@@ -156,9 +157,9 @@ const { categories, schedule } = data.value;
                   class="categories__category__image"
                   :src="
                     getCategoryImg(category.name)
-                      ? require(`~/assets/img/drawings/categories/${getCategoryImg(
+                      ? `~/assets/img/drawings/categories/${getCategoryImg(
                           category.name
-                        )}`)
+                        )}`
                       : ''
                   "
                   :href="`image abstraite représentant la catégorie ${category.name}`"
@@ -192,15 +193,15 @@ const { categories, schedule } = data.value;
                       class="talk"
                     >
                       <div class="room">{{ talk.room.name }}</div>
-                      <nuxt-link :to="`/talks/${talk.id}`">
+                      <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <img
                             class="talk__infos__image"
                             :src="
                               getCategoryImg(talk.category.name)
-                                ? require(`~/assets/img/drawings/categories/${getCategoryImg(
+                                ? `~/assets/img/drawings/categories/${getCategoryImg(
                                     talk.category.name
-                                  )}`)
+                                  )}`
                                 : ''
                             "
                             :href="`image abstraite représentant la catégorie ${talk.category.name}`"
@@ -214,7 +215,7 @@ const { categories, schedule } = data.value;
                             </span>
                           </div>
                         </div>
-                      </nuxt-link>
+                      </NuxtLink>
                     </li>
                   </ul>
                   <div v-else-if="space" class="slots__slot__infos__interlude">
@@ -222,17 +223,17 @@ const { categories, schedule } = data.value;
                     <span class="slots__slot__infos__interlude__name">
                       {{ name }}
                     </span>
-                    <div v-if="showOpenfeedback" class="openfeedback-keynote">
-                      <open-feedback
+                    <div v-if="$showOpenfeedback" class="openfeedback-keynote">
+                      <AssociationOpenFeedback
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                         v-if="name === `Keynote d'ouverture`"
                       />
-                      <open-feedback
+                      <AssociationOpenFeedback
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
                         v-if="name === `Keynote de fermeture`"
                       />
                     </div>
-                    <div v-if="showYoutube" class="youtube-keynote">
+                    <div v-if="$showYoutube" class="youtube-keynote">
                       <show-on-youtube
                         href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
                         v-if="name === `Keynote d'ouverture`"

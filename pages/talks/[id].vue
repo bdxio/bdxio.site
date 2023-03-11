@@ -1,15 +1,30 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useFetch, computed } from "#imports";
-import { useConfig } from "~/composables";
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useRoute,
+  useConfig,
+  useFetch,
+  computed,
+} from "#imports";
+import {
+  TalkSectionTheme,
+  TalkSectionPresentation,
+  TalkSectionSpeaker,
+  NuxtLink,
+} from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Talk | BDX I/O" });
-const { params } = useRoute();
 
+const { params } = useRoute();
 const { API_URL } = useConfig();
+
 const { data } = await useFetch(`${API_URL}/talks/${params.id}`, {
   params: { populate: "*" },
 });
+
 const { attributes } = data.value.data;
 
 const presentation = computed(() => ({
@@ -31,19 +46,19 @@ const speakers = computed(() => [
 
 <template>
   <main class="section section-talk">
-    <talk-section-theme :category="category" />
-    <talk-section-presentation :presentation="presentation" />
-    <talk-section-speaker
+    <TalkSectionTheme :category="category" />
+    <TalkSectionPresentation :presentation="presentation" />
+    <TalkSectionSpeaker
       v-for="(speaker, index) in speakers"
       :key="index"
       :speaker="speaker"
     />
-    <nuxt-link
+    <NuxtLink
       to="/schedule"
       class="button button-primary button-primary--light backto"
     >
       Voir le programme
-    </nuxt-link>
+    </NuxtLink>
   </main>
 </template>
 

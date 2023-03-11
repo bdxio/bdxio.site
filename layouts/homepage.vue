@@ -1,8 +1,12 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { LayoutTheHeader, LayoutTheFooter } from "#components";
+</script>
+
 <template>
   <div>
-    <the-toaster />
-    <the-header background="dark" />
-    <nuxt />
-    <the-footer />
+    <LayoutTheHeader background="dark" />
+    <slot />
+    <LayoutTheFooter />
   </div>
 </template>

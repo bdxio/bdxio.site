@@ -1,45 +1,33 @@
 <script setup lang="ts">
-import { h, Component, useAttrs, useSlots } from "vue";
+// @ts-nocheck
+import { withDefaults, defineProps } from "vue";
 
-type SectionTitle = {
-  tag: "h1" | "h2" | "h3" | "h4";
-  color: "light" | "dark";
+interface Props {
+  tag?: "h1" | "h2" | "h3" | "h4";
+  color?: "light" | "dark";
   section?: true;
-};
+}
 
-const props = withDefaults(defineProps<SectionTitle>(), {
+withDefaults(defineProps<Props>(), {
   tag: "h2",
   color: "dark",
-  section: undefined,
+  section: false,
 });
-const children = useSlots();
-const attrs = useAttrs();
-
-const getTitleClasses = (props: SectionTitle) => {
-  if (!props) {
-    return "";
-  }
-
-  const classes = [];
-
-  classes.push(props.color || "dark");
-  classes.push(
-    props.section === undefined ? `title--subsection` : `title--section`
-  );
-
-  return classes.join(" ");
-};
-
-return () =>
-  h(
-    props.tag,
-    {
-      class: `${getTitleClasses(props)} ${attrs.staticClass || ""}`,
-      on: attrs.listeners,
-    },
-    children
-  );
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="{
+      'title--section': section,
+      'title--subsection': !section,
+      'title--light': color === 'light',
+      'title--dark': color === 'dark',
+    }"
+  >
+    <slot />
+  </component>
+</template>
 
 <style lang="scss">
 .title {

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+
 defineProps({
   href: {
     type: String,

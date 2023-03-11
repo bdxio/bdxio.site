@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { ref, computed, inject } from "#imports";
+// @ts-nocheck
+import { useNuxtApp, ref, computed } from "#imports";
+import {
+  LayoutSectionGuidage,
+  LayoutTheNavigation,
+  NuxtLink,
+} from "#components";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -12,7 +18,7 @@ const disabledButton = computed(() => {
   return validateEmail(email.value);
 });
 
-const showNavigation = computed(() => inject("showNavigation") ?? false);
+const { $showNavigation } = useNuxtApp();
 
 const validateEmail = (email: string) =>
   email
@@ -30,24 +36,24 @@ const registerNewsletter = () => {
 
 <template>
   <div class="footer">
-    <section-guidage />
+    <LayoutSectionGuidage />
     <footer class="section">
       <div class="bdxio">
-        <nuxt-link class="logo" to="/">
+        <NuxtLink class="logo" to="/">
           <img
             src="~/assets/img/bdxio_logo_blue.png"
             alt="Logo de l'association BDX.IO"
           />
           <span>Bordeaux Developers eXperience</span>
-        </nuxt-link>
+        </NuxtLink>
       </div>
       <div class="content">
         <div class="location">
           <a href="https://goo.gl/maps/aScUymM4T4DqeBvz8" target="_blank">
             <span class="location-name">Palais des congrès</span><br />
-            <span class="location-address"
-              >Avenue Jean Gabriel Domergue<br />33300 BORDEAUX</span
-            >
+            <span class="location-address">
+              Avenue Jean Gabriel Domergue<br />33300 BORDEAUX
+            </span>
           </a>
         </div>
         <ul class="contact">
@@ -94,14 +100,14 @@ const registerNewsletter = () => {
             </a>
           </li>
         </ul>
-        <div class="links" v-if="showNavigation">
-          <the-navigation />
+        <div class="links" v-if="$showNavigation">
+          <LayoutTheNavigation display-cfp />
         </div>
         <ul class="newsletter">
           <li>
-            <span @click="showEmailForm = true" class="cursor--pointer"
-              >S'incrire à la newsletter</span
-            >
+            <span @click="showEmailForm = true" class="cursor--pointer">
+              S'incrire à la newsletter
+            </span>
             <form
               v-if="showEmailForm"
               class="newsletter__form"
@@ -137,7 +143,7 @@ const registerNewsletter = () => {
         </ul>
       </div>
       <div class="legal">
-        <nuxt-link to="/conduct"><small>Code de conduite</small></nuxt-link>
+        <NuxtLink to="/conduct"><small>Code de conduite</small></NuxtLink>
         <!-- <small>Kit communication</small> -->
         <small>©2022 - BDX I/O</small>
         <div>

@@ -1,5 +1,8 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
 import { computed } from "#imports";
+import { SectionTitle, TalkSpeakerProfile } from "#components";
 
 type Speaker = {
   name: string;
@@ -66,16 +69,16 @@ const speakerSocialLinks = computed(() => {
 <template>
   <section class="talk-section-speaker">
     <div class="talk-section-speaker__header">
-      <section-title tag="h3">
-        <speaker-profile :speaker="speaker" />
+      <SectionTitle tag="h3">
+        <TalkSpeakerProfile :speaker="speaker" />
         <span>{{ speaker.name }}</span>
-      </section-title>
-      <flex-container
+      </SectionTitle>
+      <div
         tag="ul"
         class="speaker-socials"
         v-if="speakerSocialLinks.length > 0"
       >
-        <flex-item
+        <div
           v-for="(link, index) in speakerSocialLinks"
           :key="index"
           tag="li"
@@ -83,13 +86,13 @@ const speakerSocialLinks = computed(() => {
         >
           <a :href="link.url" target="_blank" v-if="link.url">
             <img
-              :src="require(`~/assets/img/${link.imgPath}`)"
+              :src="`~/assets/img/${link.imgPath}`"
               :alt="link.alt"
               class="info-logo"
             />
           </a>
-        </flex-item>
-      </flex-container>
+        </div>
+      </div>
     </div>
     <p v-if="speaker.bio" v-html="$md.render(speaker.bio)" />
   </section>

@@ -1,9 +1,14 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { TheCounter } from "#components";
+</script>
+
 <template>
   <div tag="section" class="section-key-concepts" no-gutter>
     <div class="picture picture-amphi" />
     <div class="info info-amphis card-1">
       <p class="key">
-        <the-counter :value="5" />
+        <TheCounter :value="5" />
       </p>
       <p class="concept">Amphis</p>
       <p class="content">Toujours une conf à votre goût !</p>
@@ -11,7 +16,7 @@
     <div class="picture picture-conversation" />
     <div class="info info-themes card-2">
       <p class="key">
-        <the-counter :value="7" />
+        <TheCounter :value="7" />
       </p>
       <p class="concept">Thématiques</p>
       <p class="content">Du dev, de la méthodo jusqu'au design</p>
@@ -19,7 +24,7 @@
     <div class="picture picture-mascotte" />
     <div class="info info-conferences card-3">
       <p class="key">
-        <the-counter :value="40" />
+        <TheCounter :value="40" />
       </p>
       <p class="concept">conférences</p>
       <p class="content">Une répartition à 50% de bordelais&nbsp;!</p>
@@ -28,7 +33,7 @@
     <div class="picture picture-speaker show-s" />
     <div class="info info-attendees card-4">
       <p class="key">
-        <the-counter :value="900" :step="25" />
+        <TheCounter :value="900" :step="25" />
       </p>
       <p class="concept">Participants</p>
       <p class="content">Réunis autour d’une ambiance familliale</p>

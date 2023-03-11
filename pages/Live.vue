@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useFetch } from "#imports";
-import { formatStrapiData } from "~/utils";
-import { useConfig } from "~/composables";
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useConfig,
+  useFetch,
+  formatStrapiData,
+} from "#imports";
+import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Live 🎥 | BDX I/O" });
@@ -21,19 +27,13 @@ const rooms = formatStrapiData(data.value)
 <template>
   <main class="section section-live">
     <header class="section-live__header">
-      <section-title tag="h1" class="section-live__header__title">
+      <SectionTitle tag="h1" class="section-live__header__title">
         Le live
-      </section-title>
+      </SectionTitle>
     </header>
     <section class="section-live__body">
-      <flex-container tag="ul" class="rooms" gutter-s v-if="rooms.length">
-        <flex-item
-          tag="li"
-          v-for="room in rooms"
-          :key="room.name"
-          class="room"
-          m6
-        >
+      <div tag="ul" class="rooms" gutter-s v-if="rooms.length">
+        <div tag="li" v-for="room in rooms" :key="room.name" class="room" m6>
           <div class="room__name">{{ room.name }}</div>
           <div class="room__video">
             <iframe
@@ -46,8 +46,8 @@ const rooms = formatStrapiData(data.value)
               allowfullscreen
             />
           </div>
-        </flex-item>
-      </flex-container>
+        </div>
+      </div>
       <p v-else class="noLive">
         Aucun live actuellement, merci de réessayer pendant l'évènement
       </p>

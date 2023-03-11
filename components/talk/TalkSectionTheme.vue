@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
 import { computed } from "#imports";
 
 const categories = [
@@ -44,8 +46,9 @@ const themeClass = computed(() => {
       <span
         :class="`theme${themeClass}`"
         style="font-size: 30px; line-height: 40px; width: 250px"
-        >{{ category }}</span
       >
+        {{ category }}
+      </span>
     </div>
   </section>
 </template>

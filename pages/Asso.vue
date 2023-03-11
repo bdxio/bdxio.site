@@ -1,30 +1,26 @@
 <script setup lang="ts">
-import { formatStrapiData, shuffleArray } from "~/utils";
+// @ts-nocheck
 import {
   definePageMeta,
   useHead,
-  ref,
+  useNuxtApp,
+  useConfig,
   useFetch,
-  computed,
-  inject,
+  ref,
+  shuffleArray,
+  formatStrapiData,
 } from "#imports";
-import { useConfig } from "~/composables";
+import { AssociationSectionPresentation } from "#components";
 
-const { API_URL } = useConfig();
+definePageMeta({ layout: "page" });
+useHead({ title: "L'association | BDX I/O" });
+
 const volunteers = ref([]);
-const showVolunteers2022 = computed(
-  () => inject("showVolunteers2022") ?? false
-);
 
-definePageMeta({
-  layout: "page",
-});
+const { $showVolunteers2022 } = useNuxtApp();
 
-useHead({
-  title: "BDX I/O | L'association",
-});
-
-if (showVolunteers2022) {
+if ($showVolunteers2022) {
+  const { API_URL } = useConfig();
   const { data } = await useFetch(`${API_URL}/volunteers`, {
     params: {
       populate: "*",
@@ -36,9 +32,9 @@ if (showVolunteers2022) {
 
 <template>
   <main>
-    <association-section-presentation />
-    <association-section-volunteers
-      v-if="volunteers.length > 0"
+    <AssociationSectionPresentation />
+    <AssociationSectionVolunteers
+      v-if="volunteers.length"
       :volunteers="volunteers"
     />
   </main>

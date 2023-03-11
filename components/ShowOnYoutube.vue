@@ -1,7 +1,10 @@
 <script setup lang="ts">
-  defineProps<{
-    href: string;
-  }>();
+// @ts-nocheck
+import { defineProps } from "vue";
+
+defineProps<{
+  href: string;
+}>();
 </script>
 
 <template>

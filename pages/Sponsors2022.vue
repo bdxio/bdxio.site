@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useFetch, computed, inject } from "#imports";
-import { formatStrapiData, shuffleArray } from "~/utils";
-import { useConfig } from "~/composables";
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useNuxtApp,
+  useFetch,
+  useConfig,
+  formatStrapiData,
+  shuffleArray,
+} from "#imports";
+import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors 2022 | BDX I/O" });
 
-if (!inject("showSponsors2022")) {
+const { $showSponsors2022 } = useNuxtApp();
+
+if (!$showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
@@ -30,9 +40,9 @@ function getOfferClass(index) {
 <template>
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
-      <section-title tag="h1" class="section-sponsors-2022__header__title">
+      <SectionTitle tag="h1" class="section-sponsors-2022__header__title">
         Nos sponsors 2022
-      </section-title>
+      </SectionTitle>
       <p>
         L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors
         pour nous permettre de vous proposer cette édition 2022.
@@ -47,9 +57,9 @@ function getOfferClass(index) {
           class="offer"
           :class="getOfferClass(index)"
         >
-          <section-title tag="h2" class="offer__name">{{
-            offer.label
-          }}</section-title>
+          <SectionTitle tag="h2" class="offer__name">
+            {{ offer.label }}
+          </SectionTitle>
           <ul v-if="offer.sponsors?.data.length" class="sponsors">
             <li
               v-for="sponsor in offer.sponsors.data"

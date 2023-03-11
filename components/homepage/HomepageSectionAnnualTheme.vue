@@ -1,10 +1,15 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <div class="section section-annual-theme" id="annual-theme">
-    <flex-item s12 m4 l5 class="text-container">
-      <section-title section tag="h2">Thème 2022</section-title>
-      <section-title tag="h3" color="light">
+    <div s12 m4 l5 class="text-container">
+      <SectionTitle section tag="h2">Thème 2022</SectionTitle>
+      <SectionTitle tag="h3" color="light">
         Cette année les femmes sont à l'honneur&nbsp;!
-      </section-title>
+      </SectionTitle>
       <p>
         À l'occasion de la 7ème édition de BDX I/O, nous avons choisi de mettre
         en avant : Les femmes célèbres dans l'IT.
@@ -14,8 +19,8 @@
         conférenciers sur les contenus et leurs présentations et donner une
         unité à la conférence.
       </p>
-    </flex-item>
-    <flex-item s12 m8 l7 class="section-annual-theme__portraits">
+    </div>
+    <div s12 m8 l7 class="section-annual-theme__portraits">
       <div class="portrait elizabethfeinler">
         <img
           src="/annual-theme/elizabethfeinler.png"
@@ -37,7 +42,7 @@
       <div class="portrait feifei">
         <img src="/annual-theme/feifei.png" alt="Portrait de Feifei" />
       </div>
-    </flex-item>
+    </div>
   </div>
 </template>
 

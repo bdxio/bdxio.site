@@ -1,17 +1,27 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useFetch, computed, inject } from "#imports";
-import { formatStrapiData, shuffleArray } from "~/utils";
-import { useConfig } from "~/composables";
-import SectionBecomeSponsor from "~/components/sponsors/SectionBecomeSponsor.vue";
-import SectionSponsorOffersAndSponsors from "~/components/sponsors/SectionSponsorOffersAndSponsors.vue";
-import SectionSponsorOffers from "~/components/sponsors/SectionSponsorOffers.vue";
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useNuxtApp,
+  useFetch,
+  useConfig,
+  computed,
+  formatStrapiData,
+  shuffleArray,
+} from "#imports";
+import {
+  SponsorsSectionBecomeSponsor,
+  SponsorsSectionSponsorOffers,
+  SponsorsSectionSponsorOffersAndSponsors,
+} from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors | BDX I/O" });
 
-const showSponsors2022 = inject("showSponsors2022");
+const { $showSponsors2022 } = useNuxtApp();
 
-if (!showSponsors2022) {
+if (!$showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
@@ -20,7 +30,7 @@ const { data } = await useFetch(`${API_URL}/offers`, {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
-const showSponsors = computed(() => data?.value?.length && showSponsors2022);
+const showSponsors = computed(() => data?.value?.length && $showSponsors2022);
 
 const offers = formatStrapiData(data.value.data).map((offer) => {
   if (offer.sponsors?.data?.length) {
@@ -32,11 +42,11 @@ const offers = formatStrapiData(data.value.data).map((offer) => {
 
 <template>
   <main>
-    <section-become-sponsor />
-    <section-sponsor-offers-and-sponsors
+    <SponsorsSectionBecomeSponsor />
+    <SponsorsSectionSponsorOffersAndSponsors
       v-if="showSponsors && offers"
       :offers="offers"
     />
-    <section-sponsor-offers v-else />
+    <SponsorsSectionSponsorOffers v-else />
   </main>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
 import { computed } from "#imports";
 
 const props = defineProps<{

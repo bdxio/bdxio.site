@@ -1,6 +1,11 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { LayoutTheHeader, LayoutTheFooter } from "#components";
+</script>
+
 <template>
   <div>
-    <the-header background="light" />
+    <LayoutTheHeader background="light" />
     <section class="section section-error">
       <div class="message">
         <img
@@ -13,7 +18,7 @@
         </p>
       </div>
     </section>
-    <the-footer />
+    <LayoutTheFooter />
   </div>
 </template>
 

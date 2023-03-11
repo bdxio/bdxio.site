@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, inject } from "#imports";
+// @ts-nocheck
+import { defineProps } from "vue";
+import { useNuxtApp, computed } from "#imports";
+import {
+  SectionTitle,
+  ShowOnYoutube,
+  AssociationOpenFeedback,
+} from "#components";
 
 const props = defineProps<{
   presentation: {
@@ -12,6 +19,8 @@ const props = defineProps<{
   };
 }>();
 
+const { $showOpenfeedback, $showYoutube } = useNuxtApp();
+
 const duration = computed(() => {
   switch (props.presentation.format) {
     case "Quickie":
@@ -22,40 +31,35 @@ const duration = computed(() => {
       return 45;
   }
 });
-const showOpenfeedback = computed(() => inject("showOpenfeedback") ?? false);
-const showYoutube = computed(() => inject("showYoutube") ?? false);
 </script>
 
 <template>
   <section class="section talk-section-presentation">
-    <section-title tag="h2">
+    <SectionTitle tag="h2">
       {{ presentation.title }}
-    </section-title>
+    </SectionTitle>
     <img
       src="~/assets/img/drawings/cyan_scribble_3.png"
       alt="Gribouillages BDXI/O"
       aria-hidden="true"
       class="underline-scribble"
     />
-    <flex-container class="tag-container">
-      <flex-item class="tag"
-        >{{ presentation.format }} - {{ duration }}min</flex-item
-      >
-      <flex-item class="tag">{{ presentation.level }}</flex-item>
-      <flex-item class="tag" v-if="presentation.language">{{
-        presentation.language
-      }}</flex-item>
-      <flex-item v-if="showOpenfeedback && presentation.openfeedbackUrl">
-        <open-feedback :href="presentation.openfeedbackUrl" />
-      </flex-item>
-      <flex-item v-if="showYoutube && presentation.youtubeUrl">
-        <show-on-youtube :href="presentation.youtubeUrl" />
-      </flex-item>
-    </flex-container>
+    <div class="tag-container">
+      <div class="tag">{{ presentation.format }} - {{ duration }}min</div>
+      <div class="tag">{{ presentation.level }}</div>
+      <div class="tag" v-if="presentation.language">
+        {{ presentation.language }}
+      </div>
+      <div v-if="$showOpenfeedback && presentation.openfeedbackUrl">
+        <AssociationOpenFeedback :href="presentation.openfeedbackUrl" />
+      </div>
+      <div v-if="$showYoutube && presentation.youtubeUrl">
+        <ShowOnYoutube :href="presentation.youtubeUrl" />
+      </div>
+    </div>
     <p v-html="$md.render(presentation.abstract)" />
   </section>
 </template>
-
 
 <style lang="scss" scoped>
 .talk-section-presentation {

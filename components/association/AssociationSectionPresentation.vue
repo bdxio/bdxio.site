@@ -1,39 +1,42 @@
 <script setup lang="ts">
-import { computed, inject } from "#imports";
+// @ts-nocheck
+import { useNuxtApp } from "#imports";
+import { SectionTitle, NuxtLink } from "#components";
 
-const showProgramme = computed(() => inject("showProgramme") ?? false);
+const { $showProgramme } = useNuxtApp();
 </script>
 
 <template>
   <div class="section section-presentation">
     <header class="section-presentation__header">
-      <section-title tag="h1" class="section-presentation__header__title">
+      <SectionTitle tag="h1" class="section-presentation__header__title">
         L'asso BDX I/O
-      </section-title>
+      </SectionTitle>
       <p class="margin--null">
         Tout connaître sur nous, l’asso n’aura plus aucun <br />
         secret pour vous !
       </p>
     </header>
-    <flex-container
+    <div
       tag="section"
       class="section-presentation__body"
       gutter-l
       align-center-xs
     >
-      <flex-item xs12 m6 class="section-presentation__body__content">
-        <section-title
+      <div xs12 m6 class="section-presentation__body__content">
+        <SectionTitle
           section
           tag="h2"
           class="section-presentation__body__content__pre-title"
-          >Qui sommes nous ?</section-title
         >
-        <section-title
+          Qui sommes nous ?
+        </SectionTitle>
+        <SectionTitle
           tag="h2"
           class="section-presentation__body__content__title"
         >
           Un petit groupe de bénévoles <span class="boxed">bordelais</span> !
-        </section-title>
+        </SectionTitle>
 
         <p class="section-presentation__body__content__description">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial
@@ -43,14 +46,15 @@ const showProgramme = computed(() => inject("showProgramme") ?? false);
           !
         </p>
 
-        <nuxt-link
-          v-if="showProgramme"
+        <NuxtLink
+          v-if="$showProgramme"
           to="/programme"
           class="button button-secondary button-secondary--dark"
-          >Découvrir le programme 2022</nuxt-link
         >
-      </flex-item>
-      <flex-item xs12 m6 class="section-presentation__body__imgs">
+          Découvrir le programme 2022
+        </NuxtLink>
+      </div>
+      <div xs12 m6 class="section-presentation__body__imgs">
         <div class="section-presentation__imgs__column">
           <picture>
             <source type="image/webp" srcset="/asso/pic-scene-1.webp" />
@@ -91,8 +95,8 @@ const showProgramme = computed(() => inject("showProgramme") ?? false);
             />
           </picture>
         </div>
-      </flex-item>
-    </flex-container>
+      </div>
+    </div>
   </div>
 </template>
 

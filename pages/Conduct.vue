@@ -1,19 +1,16 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { definePageMeta, useHead } from "#imports";
+import { SectionTitle } from "#components";
 
-definePageMeta({
-  layout: "page",
-});
-
-useHead({
-  title: "BDX I/O | Code de conduite",
-});
+definePageMeta({ layout: "page" });
+useHead({ title: "Code de conduite | BDX I/O" });
 </script>
 
 <template>
   <main>
     <section class="section section-conduct">
-      <section-title tag="h2">Code de conduite</section-title>
+      <SectionTitle tag="h2">Code de conduite</SectionTitle>
       <p>
         <strong>
           Toutes les personnes qui participent à la conférence doivent accepter

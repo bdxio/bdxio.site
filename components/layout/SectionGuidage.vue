@@ -1,17 +1,22 @@
+<script setup lang="ts">
+// @ts-check
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <section class="section guidage" id="join-us">
     <div class="text-container">
       <div class="infos">
-        <section-title section tag="h2">Transports</section-title>
-        <section-title tag="h3"
-          >Comment rejoindre<br />l'évènement ?</section-title
-        >
+        <SectionTitle section tag="h2">Transports</SectionTitle>
+        <SectionTitle tag="h3">
+          Comment rejoindre<br />l'évènement ?
+        </SectionTitle>
         <div class="address-container">
           <span class="title">Palais des congrès</span>
-          <span class="description"
-            >Avenue Jean Gabriel Domergue <br />
-            33300 BORDEAUX</span
-          >
+          <span class="description">
+            Avenue Jean Gabriel Domergue <br />
+            33300 BORDEAUX
+          </span>
         </div>
 
         <div>
@@ -20,9 +25,9 @@
         </div>
         <div>
           <span class="title">Vélo :</span>
-          <span class="description"
-            >Parking vélo disponible et station VCub à proximité</span
-          >
+          <span class="description">
+            Parking vélo disponible et station VCub à proximité
+          </span>
         </div>
         <div>
           <span class="title">Voiture :</span>
@@ -55,7 +60,7 @@
     }
   }
 
-  .subsection-title {
+  .subSectionTitle {
     margin: 30px 0;
     padding: 0;
   }

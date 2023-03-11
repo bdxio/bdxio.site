@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+
 type Color =
   | `rgb(${number}, ${number}, ${number})`
   | `rgba(${number}, ${number}, ${number}, ${number})`

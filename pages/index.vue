@@ -1,30 +1,35 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { definePageMeta, useHead } from "#imports";
+import {
+  HomepageSectionHero,
+  HomepageSectionKeyConcepts,
+  HomepageSectionAbout,
+  HomepageSectionAnnualTheme,
+  HomepageSectionThemes,
+  HomepageSectionSpeaker,
+  HomepageSectionSponsor,
+} from "#components";
 
-definePageMeta({
-  layout: "homepage",
-});
-
-useHead({
-  title: "BDX I/O | Welcome",
-});
+definePageMeta({ layout: "homepage" });
+useHead({ title: "BDX I/O" });
 </script>
 
 <template>
   <main>
-    <homepage-section-hero />
-    <homepage-section-key-concepts />
-    <homepage-section-about />
-    <homepage-section-annual-theme />
-    <homepage-section-themes />
-    <flex-container no-gutter>
-      <flex-item s12 m6 class="sponsor-container">
-        <homepage-section-sponsor />
-      </flex-item>
-      <flex-item s12 m6 class="speaker-container">
-        <homepage-section-speaker />
-      </flex-item>
-    </flex-container>
+    <HomepageSectionHero />
+    <HomepageSectionKeyConcepts />
+    <HomepageSectionAbout />
+    <HomepageSectionAnnualTheme />
+    <HomepageSectionThemes />
+    <div no-gutter>
+      <div s12 m6 class="sponsor-container">
+        <HomepageSectionSponsor />
+      </div>
+      <div s12 m6 class="speaker-container">
+        <HomepageSectionSpeaker />
+      </div>
+    </div>
   </main>
 </template>
 

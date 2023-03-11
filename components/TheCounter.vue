@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
 import { ref, onMounted } from "#imports";
 
 const props = defineProps<{
@@ -7,8 +9,8 @@ const props = defineProps<{
   step?: number;
 }>();
 
-let animatedValue = ref(0);
-const animatedInterval = ref();
+const animatedValue = ref(0);
+const animatedInterval = ref(null);
 
 onMounted(() => {
   const interval = ((props.step || 1) * (props.duration || 1000)) / props.value;

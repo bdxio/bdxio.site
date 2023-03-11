@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useFetch, ref, computed } from "#imports";
-import { shuffleArray } from "~/utils";
-import { useConfig } from "~/composables";
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useConfig,
+  useFetch,
+  computed,
+  ref,
+  shuffleArray,
+} from "#imports";
+import { SectionTitle, NuxtLink } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Talks | BDX I/O" });
@@ -54,15 +62,17 @@ function getSpeakerInitials(name) {
     .charAt(0)
     .toUpperCase()}`;
 }
+
+function setFilter(filter) {}
 </script>
 
 <template>
   <main>
     <div class="section section-talks">
       <header class="section-talks__header">
-        <section-title tag="h1" class="section-talks__header__title">
+        <SectionTitle tag="h1" class="section-talks__header__title">
           Les talks
-        </section-title>
+        </SectionTitle>
         <ul class="section-talks__header__filters" v-if="filters.length">
           <li class="section-talks__header__filters__filter" click="setFilter">
             <input
@@ -106,42 +116,38 @@ function getSpeakerInitials(name) {
 
       <ul class="section-talks__talks">
         <li
-          v-for="{
-            attributes: { title, level, speakers, category },
-            id,
-          } in filteredTalks"
+          v-for="{ attributes, id } in filteredTalks"
           :key="`talk-${id}`"
           class="section-talks__talks__card cursor--pointer"
           :style="{
-            'border-color': category.data.attributes.color || 'black',
+            'border-color':
+              attributes.category.data.attributes.color || 'black',
           }"
         >
-          <nuxt-link :to="`/talks/${id}`">
+          <NuxtLink :to="`/talks/${id}`">
             <div>
-              <h2 class="title">{{ title }}</h2>
-              <span class="level">{{ level }}</span>
+              <h2 class="title">{{ attributes.title }}</h2>
+              <span class="level">{{ attributes.level }}</span>
               <p
-                v-if="category.data.attributes.name"
+                v-if="attributes.category.data.attributes.name"
                 class="category"
-                :style="{ color: category.data.attributes.color }"
+                :style="{ color: attributes.category.data.attributes.color }"
               >
-                {{ category.data.attributes.name }}
+                {{ attributes.category.data.attributes.name }}
               </p>
             </div>
-            <div v-if="speakers.data.length" class="speakers">
+            <div v-if="attributes.speakers.data.length" class="speakers">
               <div
-                v-for="(
-                  { attributes: { photoUrl, name }, id }, index
-                ) in speakers.data"
+                v-for="({ attributes, id }, index) in attributes.speakers.data"
                 :key="`speaker-${id}`"
                 class="speakers__speaker"
                 :class="{ marginTop: index > 0 }"
-                :title="name"
+                :title="attributes.name"
               >
                 <div class="speakers__speaker__infos">
                   <img
-                    v-if="photoUrl"
-                    :src="photoUrl"
+                    v-if="attributes.photoUrl"
+                    :src="attributes.photoUrl"
                     class="speakers__speaker__infos__image"
                   />
                   <span
@@ -149,17 +155,19 @@ function getSpeakerInitials(name) {
                     class="speakers__speaker__infos__initials"
                     :style="{
                       'background-color':
-                        category.data.attributes.color ||
+                        attributes.category.data.attributes.color ||
                         getRandomBackgroundColor(),
                     }"
                   >
-                    {{ getSpeakerInitials(name) }}
+                    {{ getSpeakerInitials(attributes.name) }}
                   </span>
-                  <span class="speakers__speaker__infos__name">{{ name }}</span>
+                  <span class="speakers__speaker__infos__name">{{
+                    attributes.name
+                  }}</span>
                 </div>
               </div>
             </div>
-          </nuxt-link>
+          </NuxtLink>
         </li>
       </ul>
     </div>

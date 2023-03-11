@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+
 type Offer = {
   id: number;
   label: string;
@@ -26,7 +29,6 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
 };
 </script>
 
-
 <template>
   <section class="section section-sponsor-offers" id="offers">
     <h3 class="title">
@@ -34,13 +36,13 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
       <span class="after">sponsors 2022</span>
     </h3>
     <div class="offers">
-      <flex-container
+      <div
         gutter-m
         v-for="(offer, index) in offers"
         :key="`${offer.label}-${offer.id}`"
         class="offer"
       >
-        <flex-item
+        <div
           xs12
           s4
           class="offer__infos"
@@ -51,8 +53,8 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
           <p class="offer__description">
             {{ offer.description }}
           </p>
-        </flex-item>
-        <flex-item
+        </div>
+        <div
           s8
           class="offer__sponsors"
           v-if="offer.sponsors.length"
@@ -80,8 +82,8 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
               />
             </a>
           </div>
-        </flex-item>
-      </flex-container>
+        </div>
+      </div>
     </div>
   </section>
 </template>

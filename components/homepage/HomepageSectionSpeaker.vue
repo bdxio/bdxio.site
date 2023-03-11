@@ -1,29 +1,31 @@
 <script setup lang="ts">
-import { computed, inject } from "#imports";
+// @ts-nocheck
+import { useNuxtApp } from "#imports";
+import { SectionTitle, IconsOpenNewWindow } from "#components";
 
-const showCfp = computed(() => inject("showCfp") ?? false);
+const { $showCfp } = useNuxtApp();
 </script>
 
 <template>
   <section class="section section-speaker" id="become-speaker">
     <div>
-      <section-title section tag="h2">speakers</section-title>
-      <section-title tag="h3" class="title">
+      <SectionTitle section tag="h2">speakers</SectionTitle>
+      <SectionTitle tag="h3" class="title">
         Vous aussi, rejoignez le navire&nbsp;!
-      </section-title>
+      </SectionTitle>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
         <br />Rejoignez notre équipe de speakers pour cette édition 2022.
       </p>
     </div>
     <a
-      v-if="showCfp"
+      v-if="$showCfp"
       class="button button-icon button-secondary button-secondary--grey"
       href="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
       target="_blank"
     >
       Devenir speaker
-      <open-new-window color="#373739" borderColor="#373739" />
+      <IconsOpenNewWindow color="#373739" borderColor="#373739" />
     </a>
     <button
       v-else

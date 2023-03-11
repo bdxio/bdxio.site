@@ -1,8 +1,13 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <section class="section news">
-    <section-title tag="h2" class="title">
+    <SectionTitle tag="h2" class="title">
       Les dernières actualités
-    </section-title>
+    </SectionTitle>
     <div class="news-container">
       <div class="news-item">
         <img

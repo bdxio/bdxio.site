@@ -1,9 +1,14 @@
+<script setup lang="ts">
+// @ts-check
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <section class="section section-become-sponsor" id="why-become-sponsor">
-    <section-title tag="h2"
-      >Pourquoi devenir
-      <span class="sponsor">Sponsor</span>&nbsp;?</section-title
-    >
+    <SectionTitle tag="h2">
+      Pourquoi devenir
+      <span class="sponsor">Sponsor</span>&nbsp;?
+    </SectionTitle>
     <ul class="reasons">
       <li class="reason one">
         <p class="number">1</p>
@@ -46,7 +51,8 @@
       href="/bdxio-2022-sponsors.pdf"
       class="button button-primary button-primary--light"
       download
-      >Télecharger la plaquette</a
+    >
+      Télecharger la plaquette</a
     >
   </section>
 </template>

@@ -1,10 +1,9 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { definePageMeta, useHead } from "#imports";
+import { JobsSectionJobs } from "#components";
 
-definePageMeta({
-  layout: "page",
-});
-
+definePageMeta({ layout: "page" });
 useHead({
   title: "Jobs | BDX I/O",
   script: [
@@ -18,6 +17,6 @@ useHead({
 
 <template>
   <main>
-    <section-jobs />
+    <JobsSectionJobs />
   </main>
 </template>

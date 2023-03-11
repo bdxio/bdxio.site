@@ -1,31 +1,35 @@
-
 <script setup lang="ts">
-import { computed, inject } from "#imports";
+// @ts-nocheck
+import { defineProps } from "vue";
+import { useNuxtApp, computed } from "#imports";
+import { NuxtLink } from "#components";
 
 const props = defineProps<{
   displayCfp: boolean;
 }>();
 
-const showCfp = computed(
-  () => (props.displayCfp && inject("showCfp")) ?? false
-);
-const showBilleterie = computed(() => inject("showBilleterie"));
-const showTalks = computed(() => inject("showTalks"));
-const showProgramme = computed(() => inject("showProgramme"));
-const showLive = computed(() => inject("showLive"));
-const showYoutube = computed(() => inject("showYoutube"));
+const {
+  $showBilleterie,
+  $showTalks,
+  $showProgramme,
+  $showLive,
+  $showYoutube,
+  $showCfp,
+} = useNuxtApp();
+
+const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
 </script>
 
 <template>
   <ul>
     <li>
-      <nuxt-link to="/">Accueil</nuxt-link>
+      <NuxtLink to="/">Accueil</NuxtLink>
     </li>
-    <li v-if="showProgramme">
-      <nuxt-link to="/schedule">Programme</nuxt-link>
+    <li v-if="$showProgramme">
+      <NuxtLink to="/schedule">Programme</NuxtLink>
     </li>
     <li>
-      <nuxt-link to="/sponsors2022">Sponsors</nuxt-link>
+      <NuxtLink to="/sponsors2022">Sponsors</NuxtLink>
     </li>
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
@@ -33,10 +37,10 @@ const showYoutube = computed(() => inject("showYoutube"));
     <li>
       <NuxtLink to="/jobs">Jobs</NuxtLink>
     </li>
-    <li v-if="showTalks">
-      <nuxt-link to="/talks">Talks</nuxt-link>
+    <li v-if="$showTalks">
+      <NuxtLink to="/talks">Talks</NuxtLink>
     </li>
-    <li v-if="showBilleterie">
+    <li v-if="$showBilleterie">
       <a
         class="button button-primary--light"
         href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
@@ -45,15 +49,16 @@ const showYoutube = computed(() => inject("showYoutube"));
         Billetterie
       </a>
     </li>
-    <li v-if="showLive">
-      <nuxt-link
+    <li v-if="$showLive">
+      <NuxtLink
         to="/live"
         class="button button-icon button-secondary button-secondary--light"
-        >Live
-        <div class="live"
-      /></nuxt-link>
+      >
+        Live
+        <div class="live" />
+      </NuxtLink>
     </li>
-    <li v-if="showYoutube">
+    <li v-if="$showYoutube">
       <a
         class="button button-primary--light"
         href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
@@ -69,7 +74,7 @@ const showYoutube = computed(() => inject("showYoutube"));
         target="_blank"
       >
         CFP
-        <!-- <open-new-window :color="iconColor" :borderColor="iconBorderColor" /> -->
+        <!-- <IconsOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
       </a>
     </li>
   </ul>
