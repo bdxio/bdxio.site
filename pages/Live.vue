@@ -1,11 +1,39 @@
+<script setup lang="ts">
+import { definePageMeta, useHead, useFetch } from "#imports";
+import { formatStrapiData } from "~/utils";
+import { useConfig } from "~/composables";
+
+definePageMeta({ layout: "page" });
+useHead({ title: "Live 🎥 | BDX I/O" });
+
+const { innerWidth: iframeWidth, innerHeight: iframeHeight } = window;
+
+const { API_URL } = useConfig();
+const { data } = await useFetch(`${API_URL}/rooms`, {
+  params: { sort: "name" },
+});
+
+const rooms = formatStrapiData(data.value)
+  .filter((r) => r.iframeId)
+  .map(({ name, iframeId }) => ({ name, iframeId }));
+</script>
+
 <template>
   <main class="section section-live">
     <header class="section-live__header">
-      <section-title tag="h1" class="section-live__header__title">Le live</section-title>
+      <section-title tag="h1" class="section-live__header__title">
+        Le live
+      </section-title>
     </header>
     <section class="section-live__body">
       <flex-container tag="ul" class="rooms" gutter-s v-if="rooms.length">
-        <flex-item tag="li" v-for="room in rooms" :key="room.name" class="room" m6>
+        <flex-item
+          tag="li"
+          v-for="room in rooms"
+          :key="room.name"
+          class="room"
+          m6
+        >
           <div class="room__name">{{ room.name }}</div>
           <div class="room__video">
             <iframe
@@ -20,52 +48,12 @@
           </div>
         </flex-item>
       </flex-container>
-      <p v-else class="noLive">Aucun live actuellement, merci de réessayer pendant l'évènement</p>
+      <p v-else class="noLive">
+        Aucun live actuellement, merci de réessayer pendant l'évènement
+      </p>
     </section>
   </main>
 </template>
-
-<script>
-export default {
-  name: "LivePage",
-  layout: "page",
-  head() {
-    return {
-      title: "Live 🎥 | BDX I/O"
-    };
-  },
-  computed: {
-    iframeWidth() {
-      return window.innerWidth;
-    },
-    iframeHeight() {
-      return window.innerHeight;
-    }
-  },
-  data() {
-    return {
-      rooms: null
-    };
-  },
-  async asyncData({ $axios, $config }) {
-    const {
-      data: { data }
-    } = await $axios.get(`${$config.cmsApiUrl}/rooms`, {
-      params: {
-        sort: "name"
-      }
-    });
-    return {
-      rooms: data
-        .filter((r) => r.attributes.iframeId)
-        .map(({ attributes: { name, iframeId } }) => ({
-          name,
-          iframeId
-        }))
-    };
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .section-live {
@@ -90,7 +78,8 @@ export default {
         z-index: -1;
         left: -70px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_left.png")
+          center no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
@@ -109,7 +98,8 @@ export default {
         z-index: -1;
         right: -70px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_right.png")
+          center no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
