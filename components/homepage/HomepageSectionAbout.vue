@@ -1,9 +1,14 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <section class="section bourse" id="about">
     <div class="section about-us">
-      <section-title tag="h2"
-        >Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?</section-title
-      >
+      <SectionTitle tag="h2">
+        Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?
+      </SectionTitle>
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.
@@ -13,12 +18,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: "HomepageSectionAbout",
-};
-</script>
 
 <style lang="scss" scoped>
 .bourse {

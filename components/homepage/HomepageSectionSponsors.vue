@@ -1,7 +1,12 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <div class="section section-sponsors">
-    <section-title tag="h2">Ils nous soutiennent</section-title>
-    <flex-container class="sponsors">
+    <SectionTitle tag="h2">Ils nous soutiennent</SectionTitle>
+    <div class="sponsors">
       <a href="https://www.atinternet.com/en/" target="_blank" class="sponsor">
         <img
           src="~/assets/img/sponsors/at-internet.png"
@@ -36,15 +41,9 @@
           alt="logo du sponsor One Point"
         />
       </a>
-    </flex-container>
+    </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "HomepageSectionSponsors",
-};
-</script>
 
 <style lang="scss" scoped>
 .section-sponsors {

@@ -1,7 +1,15 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <section class="section section-jobs">
-    <section-title tag="h2">Les jobs de <span class="sponsor">nos partenaires</span></section-title>
-    <jobs-widget
+    <SectionTitle tag="h2">
+      Les jobs de <span class="sponsor">nos partenaires</span>
+    </SectionTitle>
+    <!-- @TODO : idk what this component is -->
+    <!-- <jobs-widget
       color="#7D7DF2"
       locale="fr"
       items="40"
@@ -10,15 +18,9 @@
       referralCode="BDXIO"
       customAlgoliaFilters="inSelections.-NGVxFQ3IDZ1Ep5hDwMu > 0"
       eventMode="true"
-    />
+    /> -->
   </section>
 </template>
-
-<script>
-export default {
-  name: "SectionBecoreSponsor"
-};
-</script>
 
 <style lang="scss" scoped>
 .section-jobs {

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+
+defineProps<{
+  href: string;
+}>();
+</script>
+
 <template>
   <div class="show-on-youtube">
     <a :href="href" target="_blank" class="button">
@@ -6,18 +15,6 @@
     </a>
   </div>
 </template>
-
-<script>
-export default {
-  name: "ShowOnYoutube",
-  props: {
-    href: {
-      type: String,
-      required: true
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .show-on-youtube {

@@ -1,3 +1,19 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+
+type Color =
+  | `rgb(${number}, ${number}, ${number})`
+  | `rgba(${number}, ${number}, ${number}, ${number})`
+  | `#${string}`
+  | string;
+
+defineProps<{
+  color: Color;
+  borderColor: Color;
+}>();
+</script>
+
 <template>
   <svg
     width="20"
@@ -20,25 +36,3 @@
     />
   </svg>
 </template>
-
-<script>
-export default {
-  name: "OpenNewWindowIcon",
-  props: {
-    color: {
-      type: String,
-      default: "white",
-      validator(value) {
-        return typeof value === "string";
-      },
-    },
-    borderColor: {
-      type: String,
-      default: "white",
-      validator(value) {
-        return typeof value === "string";
-      },
-    },
-  },
-};
-</script>

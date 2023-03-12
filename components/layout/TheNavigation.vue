@@ -1,13 +1,35 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+import { useNuxtApp, computed } from "#imports";
+import { NuxtLink } from "#components";
+
+const props = defineProps<{
+  displayCfp: boolean;
+}>();
+
+const {
+  $showBilleterie,
+  $showTalks,
+  $showProgramme,
+  $showLive,
+  $showYoutube,
+  $showCfp,
+} = useNuxtApp();
+
+const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
+</script>
+
 <template>
   <ul>
     <li>
-      <nuxt-link to="/">Accueil</nuxt-link>
+      <NuxtLink to="/">Accueil</NuxtLink>
     </li>
-    <li v-if="showProgramme">
+    <li v-if="$showProgramme">
       <NuxtLink to="/schedule">Programme</NuxtLink>
     </li>
     <li>
-      <nuxt-link to="/sponsors2022">Sponsors</nuxt-link>
+      <NuxtLink to="/sponsors2022">Sponsors</NuxtLink>
     </li>
     <li>
       <NuxtLink to="/asso">L'asso</NuxtLink>
@@ -15,10 +37,10 @@
     <li>
       <NuxtLink to="/jobs">Jobs</NuxtLink>
     </li>
-    <li v-if="showTalks">
-      <nuxt-link to="/talks">Talks</nuxt-link>
+    <li v-if="$showTalks">
+      <NuxtLink to="/talks">Talks</NuxtLink>
     </li>
-    <li v-if="showBilleterie">
+    <li v-if="$showBilleterie">
       <a
         class="button button-primary--light"
         href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
@@ -27,13 +49,16 @@
         Billetterie
       </a>
     </li>
-    <li v-if="showLive">
-      <nuxt-link to="/live" class="button button-icon button-secondary button-secondary--light"
-        >Live
-        <div class="live"
-      /></nuxt-link>
+    <li v-if="$showLive">
+      <NuxtLink
+        to="/live"
+        class="button button-icon button-secondary button-secondary--light"
+      >
+        Live
+        <div class="live" />
+      </NuxtLink>
     </li>
-    <li v-if="showYoutube">
+    <li v-if="$showYoutube">
       <a
         class="button button-primary--light"
         href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
@@ -49,51 +74,11 @@
         target="_blank"
       >
         CFP
-        <open-new-window :color="iconColor" :borderColor="iconBorderColor" />
+        <!-- <IconsOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
       </a>
     </li>
   </ul>
 </template>
-
-<script>
-import css from "~/assets/styles/main.scss?inline";
-
-export default {
-  name: "TheNavigation",
-  props: {
-    displayCfp: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    showCfp() {
-      return this.displayCfp && this.$showCfp;
-    },
-    showBilleterie() {
-      return this.$showBilleterie;
-    },
-    showTalks() {
-      return this.$showTalks;
-    },
-    showProgramme() {
-      return this.$showProgramme;
-    },
-    showLive() {
-      return this.$showLive;
-    },
-    showYoutube() {
-      return this.$showYoutube;
-    },
-    iconBorderColor() {
-      return css?.primaryLight ?? "#ffffff";
-    },
-    iconColor() {
-      return css?.light ?? "#ffffff";
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .live {

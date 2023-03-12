@@ -1,9 +1,78 @@
+<script setup lang="ts">
+// @ts-nocheck
+import {
+  definePageMeta,
+  useHead,
+  useConfig,
+  useFetch,
+  computed,
+  ref,
+  shuffleArray,
+} from "#imports";
+import { SectionTitle, NuxtLink } from "#components";
+
+definePageMeta({ layout: "page" });
+useHead({ title: "Talks | BDX I/O" });
+
+const currentFilter = ref("all");
+
+const { API_URL } = useConfig();
+const [{ data: dataCategories }, { data: dataTalks }] = await Promise.all([
+  useFetch(`${API_URL}/categories`, {
+    params: { fields: ["id", "name", "color"] },
+  }),
+  useFetch(`${API_URL}/talks`, {
+    params: {
+      fields: ["id", "title", "level"],
+      "populate[category]": "*",
+      "populate[speakers]": "*",
+    },
+  }),
+]);
+
+const filteredTalks = computed(() => {
+  if (!dataTalks?.value?.length) return [];
+  if (currentFilter.value === "all") return dataTalks;
+  return dataTalks.value.filter(
+    (t) => t.attributes.category.data.id === currentFilter.value
+  );
+});
+
+const filters = computed(() => dataCategories.value);
+
+function getRandomBackgroundColor() {
+  return shuffleArray([
+    "#9ADCFF",
+    "#FFF89A",
+    "#FFB2A6",
+    "#FF8AAE",
+    "#FFF9CA",
+    "#FFDEB4",
+    "#FFB4B4",
+    "#B2A4FF",
+  ])[0];
+}
+function getSpeakerInitials(name) {
+  const parts = name.split(" ");
+  if (parts.length === 1) {
+    return parts[0].charAt(0).toUpperCase();
+  }
+
+  return `${parts[0].charAt(0).toUpperCase()}${parts[1]
+    .charAt(0)
+    .toUpperCase()}`;
+}
+
+function setFilter(filter) {}
+</script>
+
 <template>
   <main>
     <div class="section section-talks">
       <header class="section-talks__header">
-        <section-title tag="h1" class="section-talks__header__title">Les talks</section-title>
-
+        <SectionTitle tag="h1" class="section-talks__header__title">
+          Les talks
+        </SectionTitle>
         <ul class="section-talks__header__filters" v-if="filters.length">
           <li class="section-talks__header__filters__filter" click="setFilter">
             <input
@@ -38,127 +107,72 @@
                   ? `border-color: ${filter.attributes.color}; color: ${filter.attributes.color}`
                   : ''
               "
-              >{{ filter.attributes.name }}</label
             >
+              {{ filter.attributes.name }}
+            </label>
           </li>
         </ul>
       </header>
 
       <ul class="section-talks__talks">
         <li
-          v-for="{ attributes: { title, level, speakers, category }, id } in filteredTalks"
+          v-for="{ attributes, id } in filteredTalks"
           :key="`talk-${id}`"
           class="section-talks__talks__card cursor--pointer"
           :style="{
-            'border-color': category.data.attributes.color || 'black'
+            'border-color':
+              attributes.category.data.attributes.color || 'black',
           }"
         >
-          <nuxt-link :to="`/talks/${id}`">
+          <NuxtLink :to="`/talks/${id}`">
             <div>
-              <h2 class="title">{{ title }}</h2>
-              <span class="level">{{ level }}</span>
+              <h2 class="title">{{ attributes.title }}</h2>
+              <span class="level">{{ attributes.level }}</span>
               <p
-                v-if="category.data.attributes.name"
+                v-if="attributes.category.data.attributes.name"
                 class="category"
-                :style="{ color: category.data.attributes.color }"
+                :style="{ color: attributes.category.data.attributes.color }"
               >
-                {{ category.data.attributes.name }}
+                {{ attributes.category.data.attributes.name }}
               </p>
             </div>
-            <div v-if="speakers.data.length" class="speakers">
+            <div v-if="attributes.speakers.data.length" class="speakers">
               <div
-                v-for="({ attributes: { photoUrl, name }, id }, index) in speakers.data"
+                v-for="({ attributes, id }, index) in attributes.speakers.data"
                 :key="`speaker-${id}`"
                 class="speakers__speaker"
                 :class="{ marginTop: index > 0 }"
-                :title="name"
+                :title="attributes.name"
               >
                 <div class="speakers__speaker__infos">
-                  <img v-if="photoUrl" :src="photoUrl" class="speakers__speaker__infos__image" />
+                  <img
+                    v-if="attributes.photoUrl"
+                    :src="attributes.photoUrl"
+                    class="speakers__speaker__infos__image"
+                  />
                   <span
                     v-else
                     class="speakers__speaker__infos__initials"
-                    :style="{ 'background-color': category.data.attributes.color || getRandomBackgroundColor() }"
-                    >{{ getSpeakerInitials(name) }}</span
+                    :style="{
+                      'background-color':
+                        attributes.category.data.attributes.color ||
+                        getRandomBackgroundColor(),
+                    }"
                   >
-                  <span class="speakers__speaker__infos__name">{{ name }}</span>
+                    {{ getSpeakerInitials(attributes.name) }}
+                  </span>
+                  <span class="speakers__speaker__infos__name">{{
+                    attributes.name
+                  }}</span>
                 </div>
               </div>
             </div>
-          </nuxt-link>
+          </NuxtLink>
         </li>
       </ul>
     </div>
   </main>
 </template>
-
-<script>
-import { shuffleArray } from "~/utils";
-
-export default {
-  name: "TalksPage",
-  layout: "page",
-  data() {
-    return {
-      talks: [],
-      filters: [],
-      currentFilter: "all"
-    };
-  },
-  computed: {
-    filteredTalks() {
-      if (!this.talks || !this.talks.length) return [];
-
-      if (this.currentFilter === "all") {
-        return this.talks;
-      }
-
-      return this.talks.filter((t) => t.attributes.category.data.id === this.currentFilter);
-    }
-  },
-  head() {
-    return {
-      title: "Talks | BDX I/O"
-    };
-  },
-  methods: {
-    setFilter() {},
-    getRandomBackgroundColor() {
-      return shuffleArray(["#9ADCFF", "#FFF89A", "#FFB2A6", "#FF8AAE", "#FFF9CA", "#FFDEB4", "#FFB4B4", "#B2A4FF"])[0];
-    },
-
-    getSpeakerInitials(name) {
-      const parts = name.split(" ");
-      if (parts.length === 1) {
-        return parts[0].charAt(0).toUpperCase();
-      }
-
-      return `${parts[0].charAt(0).toUpperCase()}${parts[1].charAt(0).toUpperCase()}`;
-    }
-  },
-  async asyncData({ $axios, $config }) {
-    const [filters, talks] = await Promise.all([
-      $axios.get(`${$config.cmsApiUrl}/categories`, {
-        params: {
-          fields: ["id", "name", "color"]
-        }
-      }),
-      $axios.get(`${$config.cmsApiUrl}/talks`, {
-        params: {
-          fields: ["id", "title", "level"],
-          "populate[category]": "*",
-          "populate[speakers]": "*"
-        }
-      })
-    ]);
-
-    return {
-      talks: talks.data.data.length ? talks.data.data : [],
-      filters: filters.data.data.length ? filters.data.data : []
-    };
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .section-talks {
@@ -181,7 +195,8 @@ export default {
         z-index: -1;
         left: -110px;
         bottom: -20px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_left.png")
+          center no-repeat;
         background-size: cover;
       }
 
@@ -194,7 +209,8 @@ export default {
         z-index: -1;
         right: -110px;
         bottom: -20px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png") center no-repeat;
+        background: url("~/assets/img/drawings/blue_presentation_right.png")
+          center no-repeat;
         background-size: cover;
       }
     }

@@ -1,38 +1,33 @@
-<script>
-function getTitleClasses(props) {
-  if (!props) {
-    return "";
-  }
+<script setup lang="ts">
+// @ts-nocheck
+import { withDefaults, defineProps } from "vue";
 
-  const classes = [];
-
-  classes.push(props.color || "dark");
-  classes.push(
-    props.section === undefined ? `title--subsection` : `title--section`
-  );
-
-  return classes.join(" ");
+interface Props {
+  tag?: "h1" | "h2" | "h3" | "h4";
+  color?: "light" | "dark";
+  section?: true;
 }
 
-export default {
-  name: "SectionTitle",
-  functional: true,
-  render(h, { props, listeners, children, data }) {
-    const tagProp = props.tag || "h2";
-
-    return h(
-      tagProp,
-      {
-        attrs: {
-          class: `${getTitleClasses(props)} ${data.staticClass || ""}`,
-        },
-        on: listeners,
-      },
-      children
-    );
-  },
-};
+withDefaults(defineProps<Props>(), {
+  tag: "h2",
+  color: "dark",
+  section: false,
+});
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="{
+      'title--section': section,
+      'title--subsection': !section,
+      'title--light': color === 'light',
+      'title--dark': color === 'dark',
+    }"
+  >
+    <slot />
+  </component>
+</template>
 
 <style lang="scss">
 .title {

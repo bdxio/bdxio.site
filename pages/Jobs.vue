@@ -1,28 +1,22 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { definePageMeta, useHead } from "#imports";
+import { JobsSectionJobs } from "#components";
+
+definePageMeta({ layout: "page" });
+useHead({
+  title: "Jobs | BDX I/O",
+  script: [
+    {
+      src: "https://widget.welovedevs.com/jobs-widget.js",
+      type: "module",
+    },
+  ],
+});
+</script>
+
 <template>
   <main>
-    <section-jobs />
+    <JobsSectionJobs />
   </main>
 </template>
-
-<script>
-import SectionJobs from "~/components/jobs/SectionJobs.vue";
-
-export default {
-  name: "JobsPage",
-  layout: "page",
-  head() {
-    return {
-      title: "Jobs | BDX I/O",
-      script: [
-        {
-          src: "https://widget.welovedevs.com/jobs-widget.js",
-          type: "module"
-        }
-      ]
-    };
-  },
-  components: {
-    SectionJobs
-  }
-};
-</script>

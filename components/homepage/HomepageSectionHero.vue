@@ -1,3 +1,8 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { SectionTitle } from "#components";
+</script>
+
 <template>
   <header class="section section-hero">
     <h1 class="section-hero__title">
@@ -8,17 +13,11 @@
       de Bordeaux Lac
     </div>
     <time class="section-hero__date" datetime="2022-12-02">02/12/2022</time>
-    <section-title tag="h2" class="section-hero__invitation"
-      >Et on a hâte de vous y (re)voir&nbsp;!</section-title
-    >
+    <SectionTitle tag="h2" class="section-hero__invitation">
+      Et on a hâte de vous y (re)voir&nbsp;!
+    </SectionTitle>
   </header>
 </template>
-
-<script>
-export default {
-  name: "HomepageSectionHero",
-};
-</script>
 
 <style lang="scss" scoped>
 .section-hero {

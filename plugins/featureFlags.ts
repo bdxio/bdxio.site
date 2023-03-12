@@ -1,4 +1,6 @@
-// @ts-ignore
+// @ts-nocheck
+import { defineNuxtPlugin } from "#imports";
+
 const FLAGS = {
   NAVIGATION: true,
   PROGRAMME: true,
@@ -12,7 +14,7 @@ const FLAGS = {
   YOUTUBE: true,
 };
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const flags = Object.entries(FLAGS).reduce((flags, [key, value]) => {
     const formattedKey =
       key.toLowerCase().charAt(0).toUpperCase() + key.toLowerCase().slice(1);

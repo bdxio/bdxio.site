@@ -1,87 +1,102 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { defineProps } from "vue";
+import { computed } from "#imports";
+import { SectionTitle, TalkSpeakerProfile } from "#components";
+
+type Speaker = {
+  name: string;
+  bio: string;
+  github: string;
+  linkedin: string;
+  twitter: string;
+  website: string;
+};
+
+const props = defineProps<{
+  speaker: Speaker;
+}>();
+
+const getSocialUrl = (
+  link: string,
+  social:
+    | Speaker["twitter"]
+    | Speaker["github"]
+    | Speaker["website"]
+    | Speaker["linkedin"]
+) => {
+  if (link.startsWith("http")) {
+    return link;
+  }
+  return `https://${social}.com/${link.replace("@", "")}`;
+};
+
+const speakerSocialLinks = computed(() => {
+  const socials = [];
+  if (props.speaker.twitter) {
+    socials.push({
+      imgPath: "socials/twitter.svg",
+      alt: "Icône Twitter",
+      url: getSocialUrl(props.speaker.twitter, "twitter"),
+    });
+  }
+  if (props.speaker.github) {
+    socials.push({
+      imgPath: "socials/github.svg",
+      alt: "Icône Github",
+      url: getSocialUrl(props.speaker.github, "github"),
+    });
+  }
+  if (props.speaker.linkedin) {
+    socials.push({
+      imgPath: "socials/linkedin.svg",
+      alt: "Icône Linkedin",
+      url: getSocialUrl(props.speaker.linkedin, "linkedin"),
+    });
+  }
+  if (props.speaker.website) {
+    socials.push({
+      imgPath: "socials/website.svg",
+      alt: "Icône site personnel",
+      url: props.speaker.website,
+    });
+  }
+
+  return socials;
+});
+</script>
+
 <template>
   <section class="talk-section-speaker">
     <div class="talk-section-speaker__header">
-      <section-title tag="h3">
-        <speaker-profile :speaker="speaker" />
+      <SectionTitle tag="h3">
+        <TalkSpeakerProfile :speaker="speaker" />
         <span>{{ speaker.name }}</span>
-      </section-title>
-      <flex-container tag="ul" class="speaker-socials" v-if="speakerSocialLinks.length">
-        <flex-item v-for="(link, index) in speakerSocialLinks" :key="index" tag="li" class="speaker-infos__details">
+      </SectionTitle>
+      <div
+        tag="ul"
+        class="speaker-socials"
+        v-if="speakerSocialLinks.length > 0"
+      >
+        <div
+          v-for="(link, index) in speakerSocialLinks"
+          :key="index"
+          tag="li"
+          class="speaker-infos__details"
+        >
           <a :href="link.url" target="_blank" v-if="link.url">
-            <img :src="require(`~/assets/img/${link.imgPath}`)" :alt="link.alt" class="info-logo" />
+            <img
+              :src="`~/assets/img/${link.imgPath}`"
+              :alt="link.alt"
+              class="info-logo"
+            />
           </a>
-        </flex-item>
-      </flex-container>
+        </div>
+      </div>
     </div>
     <p v-if="speaker.bio" v-html="$md.render(speaker.bio)" />
   </section>
 </template>
-
-<script>
-import SpeakerProfile from "./SpeakerProfile.vue";
-export default {
-  components: { SpeakerProfile },
-  name: "TalkSectionSpeaker",
-  props: {
-    speaker: {
-      type: Object,
-      required: true,
-      validator: (value) => {
-        let result = true;
-        ["name"].forEach((key) => {
-          if (!Object.prototype.hasOwnProperty.call(value, key)) {
-            result = false;
-          }
-        });
-        return result;
-      }
-    }
-  },
-  computed: {
-    speakerSocialLinks() {
-      const result = [];
-      if (this.speaker.twitter) {
-        result.push({
-          imgPath: "socials/twitter.svg",
-          alt: "Icône Twitter",
-          url: this.getSocialUrl(this.speaker.twitter, "twitter")
-        });
-      }
-      if (this.speaker.github) {
-        result.push({
-          imgPath: "socials/github.svg",
-          alt: "Icône Github",
-          url: this.getSocialUrl(this.speaker.github, "github")
-        });
-      }
-      if (this.speaker.linkedin) {
-        result.push({
-          imgPath: "socials/linkedin.svg",
-          alt: "Icône Linkedin",
-          url: this.getSocialUrl(this.speaker.linkedin, "linkedin")
-        });
-      }
-      if (this.speaker.website) {
-        result.push({
-          imgPath: "socials/website.svg",
-          alt: "Icône site personnel",
-          url: this.speaker.website
-        });
-      }
-
-      return result;
-    }
-  },
-  methods: {
-    getSocialUrl(link, social) {
-      if (link.startsWith("http")) {
-        return link;
-      }
-      return `https://${social}.com/${link.replace("@", "")}`;
-    }
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .talk-section-speaker {

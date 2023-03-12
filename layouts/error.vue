@@ -1,26 +1,26 @@
+<script setup lang="ts">
+// @ts-nocheck
+import { LayoutTheHeader, LayoutTheFooter } from "#components";
+</script>
+
 <template>
   <div>
-    <the-header background="light" />
+    <LayoutTheHeader background="light" />
     <section class="section section-error">
       <div class="message">
-        <img src="~/assets/img/404-img.png" alt="Une illlustration représentant un ordinateur retro" />
+        <img
+          src="~/assets/img/404-img.png"
+          alt="Une illlustration représentant un ordinateur retro"
+        />
         <p>
-          Oups ! Il semblerait qu'une erreur soit survenue. N'hésitez pas à utiliser la navigation pour retourner sur le
-          site
+          Oups ! Il semblerait qu'une erreur soit survenue. N'hésitez pas à
+          utiliser la navigation pour retourner sur le site
         </p>
       </div>
     </section>
-    <the-footer />
-    <go-to-top />
+    <LayoutTheFooter />
   </div>
 </template>
-
-<script>
-export default {
-  name: "ErrorLayout",
-  props: ["error"]
-};
-</script>
 
 <style lang="scss" scoped>
 .section-error {

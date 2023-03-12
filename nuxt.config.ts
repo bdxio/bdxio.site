@@ -1,9 +1,12 @@
 export default defineNuxtConfig({
-  modules: ["@vueuse/nuxt"],
-  css: ["@/assets/styles/main.scss"],
+  typescript: {
+    strict: true,
+  },
   imports: {
     autoImport: false,
   },
+  modules: ["@vueuse/nuxt"],
+  css: ["@/assets/styles/main.scss"],
   vite: {
     css: {
       preprocessorOptions: {
@@ -14,6 +17,11 @@ export default defineNuxtConfig({
           `,
         },
       },
+    },
+  },
+  runtimeConfig: {
+    public: {
+      API_URL: process.env.API_URL,
     },
   },
 });
