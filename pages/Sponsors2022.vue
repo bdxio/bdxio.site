@@ -1,13 +1,6 @@
 <script setup lang="ts">
 // @ts-nocheck
-import {
-  definePageMeta,
-  useHead,
-  useNuxtApp,
-  useAPI,
-  formatStrapiData,
-  shuffleArray,
-} from "#imports";
+import { definePageMeta, useHead, useNuxtApp, useAPI } from "#imports";
 import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -19,15 +12,8 @@ if (!$showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-const { data } = await useAPI("/offers", {
+const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
-});
-
-const offers = formatStrapiData(data.value?.data).map((offer) => {
-  if (offer.sponsors?.data?.length) {
-    offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
-  }
-  return offer;
 });
 
 function getOfferClass(index) {
@@ -58,9 +44,9 @@ function getOfferClass(index) {
           <SectionTitle tag="h2" class="offer__name">
             {{ offer.label }}
           </SectionTitle>
-          <ul v-if="offer.sponsors?.data.length" class="sponsors">
+          <ul v-if="offer.sponsors?.length" class="sponsors">
             <li
-              v-for="sponsor in offer.sponsors.data"
+              v-for="sponsor in offer.sponsors"
               :key="sponsor.name"
               class="sponsors__sponsor card"
             >
@@ -73,8 +59,8 @@ function getOfferClass(index) {
                 <img
                   class="sponsors__sponsor__image"
                   :src="
-                    sponsor.logo && sponsor.logo.data
-                      ? sponsor.logo.data.attributes.formats.thumbnail.url
+                    sponsor.logo && sponsor.logo
+                      ? sponsor.logo.formats.thumbnail.url
                       : 'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
                   "
                   :alt="`Logo de ${sponsor.name}`"

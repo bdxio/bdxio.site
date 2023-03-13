@@ -13,35 +13,27 @@ useHead({ title: "Talk | BDX I/O" });
 
 const { params } = useRoute();
 
-const { data } = await useAPI(`/talks/${params.id}`, {
+const { data: talk } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 
-const { attributes } = data.value.data;
-
 const presentation = computed(() => ({
-  title: attributes.title || null,
-  level: attributes.level || null,
-  language: attributes.language || null,
-  abstract: attributes.abstract || null,
-  format: attributes.format.data.attributes.name || null,
-  openfeedbackUrl: attributes.openfeedbackUrl || null,
-  youtubeUrl: attributes.youtubeUrl || null,
+  title: talk.title || null,
+  level: talk.level || null,
+  language: talk.language || null,
+  abstract: talk.abstract || null,
+  format: talk.format.name || null,
+  openfeedbackUrl: talk.openfeedbackUrl || null,
+  youtubeUrl: talk.youtubeUrl || null,
 }));
-const category = computed(
-  () => attributes.category.data.attributes.name || null
-);
-const speakers = computed(() => [
-  ...attributes.speakers.data.map(({ attributes }) => attributes),
-]);
 </script>
 
 <template>
   <main class="section section-talk">
-    <TalkSectionTheme :category="category" />
+    <TalkSectionTheme :category="talk.category?.name || null" />
     <TalkSectionPresentation :presentation="presentation" />
     <TalkSectionSpeaker
-      v-for="(speaker, index) in speakers"
+      v-for="(speaker, index) in talk.speakers"
       :key="index"
       :speaker="speaker"
     />

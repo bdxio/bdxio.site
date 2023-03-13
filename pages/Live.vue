@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { definePageMeta, useHead, useAPI, formatStrapiData } from "#imports";
+import { definePageMeta, useHead, useAPI } from "#imports";
 import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -12,7 +12,7 @@ const { data } = await useAPI("/rooms", {
   params: { sort: "name" },
 });
 
-const rooms = formatStrapiData(data.value)
+const rooms = data.value
   .filter((r) => r.iframeId)
   .map(({ name, iframeId }) => ({ name, iframeId }));
 </script>

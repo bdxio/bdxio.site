@@ -1,8 +1,4 @@
 // @ts-nocheck
-export function formatStrapiData(data = null) {
-  return data?.map(({ id, attributes }) => ({ id, ...attributes })) || [];
-}
-
 export function shuffleArray(array) {
   return (
     array

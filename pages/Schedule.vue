@@ -20,13 +20,17 @@ const filters = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
+const { data } = await useAPI("/schedule");
+
+const { categories, schedule } = data.value;
+
 const isMobileContext = computed(() => window.innerWidth <= 992);
 const filteredSchedule = computed(() => {
-  if (!filters.value.length) {
-    return schedule.value;
+  if (!filters.value) {
+    return schedule;
   }
 
-  return schedule.value
+  return schedule
     .map((slot) => {
       return {
         ...slot,
@@ -102,10 +106,6 @@ function closeMobilePanel() {
 }
 
 onClickOutside(categoriesWrapper, () => openMobilePanel());
-
-const { data } = await useAPI("/schedule");
-
-const { categories, schedule } = data.value;
 </script>
 
 <template>

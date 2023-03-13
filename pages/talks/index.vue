@@ -15,7 +15,7 @@ useHead({ title: "Talks | BDX I/O" });
 
 const currentFilter = ref("all");
 
-const [{ data: dataCategories }, { data: dataTalks }] = await Promise.all([
+const [{ data: categories }, { data: talks }] = await Promise.all([
   useAPI("/categories", {
     params: { fields: ["id", "name", "color"] },
   }),
@@ -29,14 +29,12 @@ const [{ data: dataCategories }, { data: dataTalks }] = await Promise.all([
 ]);
 
 const filteredTalks = computed(() => {
-  if (!dataTalks?.value?.length) return [];
-  if (currentFilter.value === "all") return dataTalks;
-  return dataTalks.value.filter(
-    (t) => t.attributes.category.data.id === currentFilter.value
-  );
+  if (!talks?.value?.length) return [];
+  if (currentFilter.value === "all") return talks;
+  return talks.value.filter((t) => t.category.id === currentFilter.value);
 });
 
-const filters = computed(() => dataCategories.value);
+const filters = computed(() => categories.value);
 
 function getRandomBackgroundColor() {
   return shuffleArray([
@@ -91,22 +89,22 @@ function setFilter(filter) {}
           >
             <input
               type="radio"
-              :id="filter.attributes.name"
+              :id="filter.name"
               :value="filter.id"
               v-model="currentFilter"
               class="display--none"
               :class="{ active: currentFilter === filter.id }"
             />
             <label
-              :for="filter.attributes.name"
+              :for="filter.name"
               class="cursor--pointer"
               :style="
                 currentFilter === filter.id
-                  ? `border-color: ${filter.attributes.color}; color: ${filter.attributes.color}`
+                  ? `border-color: ${filter.color}; color: ${filter.color}`
                   : ''
               "
             >
-              {{ filter.attributes.name }}
+              {{ filter.name }}
             </label>
           </li>
         </ul>
@@ -114,38 +112,37 @@ function setFilter(filter) {}
 
       <ul class="section-talks__talks">
         <li
-          v-for="{ attributes, id } in filteredTalks"
-          :key="`talk-${id}`"
+          v-for="talk in filteredTalks"
+          :key="`talk-${talk.id}`"
           class="section-talks__talks__card cursor--pointer"
           :style="{
-            'border-color':
-              attributes.category.data.attributes.color || 'black',
+            'border-color': talk.category.color || 'black',
           }"
         >
           <NuxtLink :to="`/talks/${id}`">
             <div>
-              <h2 class="title">{{ attributes.title }}</h2>
-              <span class="level">{{ attributes.level }}</span>
+              <h2 class="title">{{ talk.title }}</h2>
+              <span class="level">{{ talk.level }}</span>
               <p
-                v-if="attributes.category.data.attributes.name"
+                v-if="talk.category.name"
                 class="category"
-                :style="{ color: attributes.category.data.attributes.color }"
+                :style="{ color: talk.category.color }"
               >
-                {{ attributes.category.data.attributes.name }}
+                {{ talk.category.name }}
               </p>
             </div>
-            <div v-if="attributes.speakers.data.length" class="speakers">
+            <div v-if="talk.speakers?.length" class="speakers">
               <div
-                v-for="({ attributes, id }, index) in attributes.speakers.data"
-                :key="`speaker-${id}`"
+                v-for="(speaker, index) in talk.speakers"
+                :key="`speaker-${speaker.id}`"
                 class="speakers__speaker"
                 :class="{ marginTop: index > 0 }"
-                :title="attributes.name"
+                :title="speaker.name"
               >
                 <div class="speakers__speaker__infos">
                   <img
-                    v-if="attributes.photoUrl"
-                    :src="attributes.photoUrl"
+                    v-if="speaker.photoUrl"
+                    :src="speaker.photoUrl"
                     class="speakers__speaker__infos__image"
                   />
                   <span
@@ -153,15 +150,14 @@ function setFilter(filter) {}
                     class="speakers__speaker__infos__initials"
                     :style="{
                       'background-color':
-                        attributes.category.data.attributes.color ||
-                        getRandomBackgroundColor(),
+                        speaker.category.color || getRandomBackgroundColor(),
                     }"
                   >
-                    {{ getSpeakerInitials(attributes.name) }}
+                    {{ getSpeakerInitials(speaker.name) }}
                   </span>
-                  <span class="speakers__speaker__infos__name">{{
-                    attributes.name
-                  }}</span>
+                  <span class="speakers__speaker__infos__name">
+                    {{ speaker.name }}
+                  </span>
                 </div>
               </div>
             </div>

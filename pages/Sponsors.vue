@@ -6,8 +6,6 @@ import {
   useNuxtApp,
   useAPI,
   computed,
-  formatStrapiData,
-  shuffleArray,
 } from "#imports";
 import {
   SponsorsSectionBecomeSponsor,
@@ -24,18 +22,11 @@ if (!$showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-const { data } = await useAPI("/offers", {
+const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
 const showSponsors = computed(() => data?.value?.length && $showSponsors2022);
-
-const offers = formatStrapiData(data.value.data).map((offer) => {
-  if (offer.sponsors?.data?.length) {
-    offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
-  }
-  return offer;
-});
 </script>
 
 <template>
