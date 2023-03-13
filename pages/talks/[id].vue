@@ -1,13 +1,6 @@
 <script setup lang="ts">
 // @ts-nocheck
-import {
-  definePageMeta,
-  useHead,
-  useRoute,
-  useConfig,
-  useFetch,
-  computed,
-} from "#imports";
+import { definePageMeta, useHead, useRoute, useAPI, computed } from "#imports";
 import {
   TalkSectionTheme,
   TalkSectionPresentation,
@@ -19,9 +12,8 @@ definePageMeta({ layout: "page" });
 useHead({ title: "Talk | BDX I/O" });
 
 const { params } = useRoute();
-const { API_URL } = useConfig();
 
-const { data } = await useFetch(`${API_URL}/talks/${params.id}`, {
+const { data } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 

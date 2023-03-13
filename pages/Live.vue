@@ -1,12 +1,6 @@
 <script setup lang="ts">
 // @ts-nocheck
-import {
-  definePageMeta,
-  useHead,
-  useConfig,
-  useFetch,
-  formatStrapiData,
-} from "#imports";
+import { definePageMeta, useHead, useAPI, formatStrapiData } from "#imports";
 import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -14,8 +8,7 @@ useHead({ title: "Live 🎥 | BDX I/O" });
 
 const { innerWidth: iframeWidth, innerHeight: iframeHeight } = window;
 
-const { API_URL } = useConfig();
-const { data } = await useFetch(`${API_URL}/rooms`, {
+const { data } = await useAPI("/rooms", {
   params: { sort: "name" },
 });
 

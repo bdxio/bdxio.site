@@ -4,8 +4,7 @@ import {
   definePageMeta,
   useHead,
   useNuxtApp,
-  useConfig,
-  useFetch,
+  useAPI,
   ref,
   shuffleArray,
   formatStrapiData,
@@ -20,8 +19,7 @@ const volunteers = ref([]);
 const { $showVolunteers2022 } = useNuxtApp();
 
 if ($showVolunteers2022) {
-  const { API_URL } = useConfig();
-  const { data } = await useFetch(`${API_URL}/volunteers`, {
+  const { data } = await useAPI("/volunteers", {
     params: {
       populate: "*",
     },

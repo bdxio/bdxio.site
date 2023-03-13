@@ -4,8 +4,7 @@ import {
   definePageMeta,
   useHead,
   useNuxtApp,
-  useFetch,
-  useConfig,
+  useAPI,
   formatStrapiData,
   shuffleArray,
 } from "#imports";
@@ -20,12 +19,11 @@ if (!$showSponsors2022) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-const { API_URL } = useConfig();
-const { data } = await useFetch(`${API_URL}/offers`, {
+const { data } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
-const offers = formatStrapiData(data.value.data).map((offer) => {
+const offers = formatStrapiData(data.value?.data).map((offer) => {
   if (offer.sponsors?.data?.length) {
     offer.sponsors.data = shuffleArray(formatStrapiData(offer.sponsors.data));
   }

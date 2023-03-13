@@ -2,11 +2,13 @@
 
 ## Setup
 
-Make sure to install the dependencies:
+1. Make sure to install the dependencies:
 
 ```bash
 npm install
 ```
+
+2. Fill the environment variables by creating a `.env` file at root level based on `.env.example`.
 
 ## Development Server
 

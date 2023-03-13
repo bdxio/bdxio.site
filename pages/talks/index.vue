@@ -3,8 +3,7 @@
 import {
   definePageMeta,
   useHead,
-  useConfig,
-  useFetch,
+  useAPI,
   computed,
   ref,
   shuffleArray,
@@ -16,12 +15,11 @@ useHead({ title: "Talks | BDX I/O" });
 
 const currentFilter = ref("all");
 
-const { API_URL } = useConfig();
 const [{ data: dataCategories }, { data: dataTalks }] = await Promise.all([
-  useFetch(`${API_URL}/categories`, {
+  useAPI("/categories", {
     params: { fields: ["id", "name", "color"] },
   }),
-  useFetch(`${API_URL}/talks`, {
+  useAPI("/talks", {
     params: {
       fields: ["id", "title", "level"],
       "populate[category]": "*",

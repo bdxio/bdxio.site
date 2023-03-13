@@ -4,8 +4,7 @@ import {
   definePageMeta,
   useHead,
   useNuxtApp,
-  useConfig,
-  useFetch,
+  useAPI,
   ref,
   computed,
   onClickOutside,
@@ -103,9 +102,8 @@ function closeMobilePanel() {
 }
 
 onClickOutside(categoriesWrapper, () => openMobilePanel());
-const { API_URL } = useConfig();
 
-const { data } = await useFetch(`${API_URL}/schedule`);
+const { data } = await useAPI("/schedule");
 
 const { categories, schedule } = data.value;
 </script>
