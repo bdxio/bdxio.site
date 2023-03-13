@@ -3,6 +3,10 @@
 import { defineProps } from "vue";
 import { useRoute, useNuxtApp, computed, ref, watch } from "#imports";
 import { NuxtLink, LayoutTheNavigation } from "#components";
+import iconClose from "~/assets/img/icons/close.svg";
+import iconCloseBlue from "~/assets/img/icons/close_blue.svg";
+import iconBurger from "~/assets/img/icons/burger.svg";
+import iconBurgerBlue from "~/assets/img/icons/burger_blue.svg";
 
 const props = defineProps<{
   background: "light" | "dark";
@@ -43,21 +47,13 @@ watch(
     <div v-if="$showNavigation" @click.prevent="toggleMenu">
       <img
         v-if="mobileOpen"
-        :src="
-          background === 'light'
-            ? '~/assets/img/icons/close_blue.svg'
-            : '~/assets/img/icons/close.svg'
-        "
+        :src="background === 'light' ? iconCloseBlue : iconClose"
         alt="icone pour ouvrir le menu sur mobile"
         class="header__burger hidden-m"
       />
       <img
         v-else
-        :src="
-          background === 'light'
-            ? '~/assets/img/icons/burger_blue.svg'
-            : '~/assets/img/icons/burger.svg'
-        "
+        :src="background === 'light' ? iconBurgerBlue : iconBurger"
         alt="icone pour fermer le menu sur mobile"
         class="header__burger hidden-m"
       />

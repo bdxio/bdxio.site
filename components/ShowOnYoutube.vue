@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { defineProps } from "vue";
+import iconYoutube from "~/assets/img/socials/youtube.svg";
 
 defineProps<{
   href: string;
@@ -11,7 +12,7 @@ defineProps<{
   <div class="show-on-youtube">
     <a :href="href" target="_blank" class="button">
       voir sur youtube
-      <img src="~/assets/img/socials/youtube.svg" alt="Logo youtube" />
+      <img :src="iconYoutube" alt="Logo youtube" />
     </a>
   </div>
 </template>

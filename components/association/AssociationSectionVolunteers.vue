@@ -2,6 +2,10 @@
 // @ts-nocheck
 import { defineProps } from "vue";
 import { SectionTitle } from "#components";
+import iconGithub from "~/assets/img/socials/github.svg";
+import iconLinkedin from "~/assets/img/socials/linkedin.svg";
+import iconTwitter from "~/assets/img/socials/twitter.svg";
+import iconWebsite from "~/assets/img/socials/website.svg";
 
 type Volunteer = {
   id: string;
@@ -106,10 +110,7 @@ function getVolunteerName(
                 )}`"
                 class="volunteer__infos__socials__link"
               >
-                <img
-                  src="~/assets/img/socials/linkedin.svg"
-                  alt="Icône LinkedIn"
-                />
+                <img :src="iconLinkedin" alt="Icône LinkedIn" />
               </a>
               <a
                 v-if="volunteer.twitter"
@@ -121,10 +122,7 @@ function getVolunteerName(
                 )}`"
                 class="volunteer__infos__socials__link"
               >
-                <img
-                  src="~/assets/img/socials/twitter.svg"
-                  alt="Icône Twitter"
-                />
+                <img :src="iconTwitter" alt="Icône Twitter" />
               </a>
               <a
                 v-if="volunteer.github"
@@ -136,7 +134,7 @@ function getVolunteerName(
                 )}`"
                 class="volunteer__infos__socials__link"
               >
-                <img src="~/assets/img/socials/github.svg" alt="Icône Github" />
+                <img :src="iconGithub" alt="Icône Github" />
               </a>
               <a
                 v-if="volunteer.website"
@@ -148,7 +146,7 @@ function getVolunteerName(
                 )}`"
                 class="volunteer__infos__socials__link"
               >
-                <img src="~/assets/img/socials/website.svg" alt="Icône lien" />
+                <img :src="iconWebsite" alt="Icône lien" />
               </a>
             </div>
           </div>

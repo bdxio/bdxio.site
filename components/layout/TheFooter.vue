@@ -6,6 +6,10 @@ import {
   LayoutTheNavigation,
   NuxtLink,
 } from "#components";
+import iconLinkedin from "~/assets/img/socials/linkedin.svg";
+import iconTwitter from "~/assets/img/socials/twitter.svg";
+import iconCloseBlue from "~/assets/img/icons/close_blue.svg";
+import iconYoutube from "~/assets/img/socials/youtube.svg";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -70,10 +74,7 @@ const registerNewsletter = () => {
               href="https://www.linkedin.com/company/10651416/"
               target="_blank"
             >
-              <img
-                src="~/assets/img/socials/linkedin.svg"
-                alt="Icône LinkedIn BDX IO"
-              />
+              <img :src="iconLinkedin" alt="Icône LinkedIn BDX IO" />
             </a>
           </li>
           <li>
@@ -82,10 +83,7 @@ const registerNewsletter = () => {
               target="_blank"
               aria-label="Twitter BDX I/O"
             >
-              <img
-                src="~/assets/img/socials/twitter.svg"
-                alt="Icône Twitter BDX IO"
-              />
+              <img :src="iconTwitter" alt="Icône Twitter BDX IO" />
             </a>
           </li>
           <li>
@@ -93,10 +91,7 @@ const registerNewsletter = () => {
               href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"
               target="_blank"
             >
-              <img
-                src="~/assets/img/socials/youtube.svg"
-                alt="Icône Youtube BDX IO"
-              />
+              <img :src="iconYoutube" alt="Icône Youtube BDX IO" />
             </a>
           </li>
         </ul>
@@ -115,7 +110,7 @@ const registerNewsletter = () => {
               @submit.prevent="registerNewsletter"
             >
               <img
-                src="~/assets/img/icons/close_blue.svg"
+                :src="iconCloseBlue"
                 alt="icone pour fermer le formulaire d'ajout d'email à la newsletter"
                 class="newsletter__form__close"
                 @click="showEmailForm = false"
