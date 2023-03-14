@@ -1,19 +1,23 @@
 // @ts-nocheck
-import { useRuntimeConfig, useFetch, ref } from "#imports";
+import { useRuntimeConfig, useFetch, ref, createError } from "#imports";
 
 export default async function useAPI(endpoint, options) {
   const config = useRuntimeConfig();
   const { data, error } = await useFetch(
     `${config.public.API_URL}${endpoint}`,
     {
-      headers: { Authorization: `Bearer ${config.API_TOKEN}` },
+      headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
       ...options,
     }
   );
-  if (error.value) return { error };
+
+  if (error.value?.status === 404) {
+    throw createError({ statusCode: 404, statusMessage: "Page not found" });
+  }
+
   return {
     data: ref(deep(data.value, flat)),
-    meta: ref(data.value.meta),
+    meta: ref(data.value?.meta),
   };
 }
 
