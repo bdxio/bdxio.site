@@ -26,7 +26,7 @@ const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
-const showSponsors = computed(() => data?.value?.length && $showSponsors2022);
+const showSponsors = computed(() => offers.value?.length && $showSponsors2022);
 </script>
 
 <template>

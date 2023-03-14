@@ -1,6 +1,13 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { definePageMeta, useHead, useRoute, useAPI, computed } from "#imports";
+import {
+  definePageMeta,
+  useHead,
+  useRoute,
+  useAPI,
+  computed,
+  createError,
+} from "#imports";
 import {
   TalkSectionTheme,
   TalkSectionPresentation,
@@ -17,14 +24,18 @@ const { data: talk } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 
+if (!talk.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page not found" });
+}
+
 const presentation = computed(() => ({
-  title: talk.title || null,
-  level: talk.level || null,
-  language: talk.language || null,
-  abstract: talk.abstract || null,
-  format: talk.format.name || null,
-  openfeedbackUrl: talk.openfeedbackUrl || null,
-  youtubeUrl: talk.youtubeUrl || null,
+  title: talk.value.title || null,
+  level: talk.value.level || null,
+  language: talk.value.language || null,
+  abstract: talk.value.abstract || null,
+  format: talk.value.format.name || null,
+  openfeedbackUrl: talk.value.openfeedbackUrl || null,
+  youtubeUrl: talk.value.youtubeUrl || null,
 }));
 </script>
 
