@@ -9,25 +9,19 @@ import { SectionTitle } from "#components";
     <div class="sponsors">
       <a href="https://www.atinternet.com/en/" target="_blank" class="sponsor">
         <img
-          src="~/assets/img/sponsors/at-internet.png"
+          src="/images/sponsors/at-internet.png"
           alt="logo du sponsor AT Internet"
         />
       </a>
       <a href="https://apside.com/" target="_blank" class="sponsor">
-        <img
-          src="~/assets/img/sponsors/apside.png"
-          alt="logo du sponsor Apside"
-        />
+        <img src="/images/sponsors/apside.png" alt="logo du sponsor Apside" />
       </a>
       <a href="https://astekgroup.fr/" target="_blank" class="sponsor">
-        <img
-          src="~/assets/img/sponsors/astek.webp"
-          alt="logo du sponsor Astek"
-        />
+        <img src="/images/sponsors/astek.webp" alt="logo du sponsor Astek" />
       </a>
       <a href="https://www.groupe-creative.fr/" target="_blank" class="sponsor">
         <img
-          src="~/assets/img/sponsors/groupe-creative.png"
+          src="/images/sponsors/groupe-creative.png"
           alt="logo du sponsor Groupe Creative"
         />
       </a>
@@ -37,7 +31,7 @@ import { SectionTitle } from "#components";
         class="sponsor"
       >
         <img
-          src="~/assets/img/sponsors/onepoint.png"
+          src="/images/sponsors/onepoint.png"
           alt="logo du sponsor One Point"
         />
       </a>
@@ -85,7 +79,7 @@ import { SectionTitle } from "#components";
       margin-top: -20px;
       position: absolute;
       z-index: -1;
-      background: url("~/assets/img/drawings/purple_triangle.png") no-repeat;
+      background: url("/images/drawings/purple_triangle.png") no-repeat;
 
       @include mobileFirst(s) {
         margin-left: 0px;

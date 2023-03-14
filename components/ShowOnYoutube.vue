@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { defineProps } from "vue";
-import iconYoutube from "~/assets/img/socials/youtube.svg";
+import iconYoutube from "/images/socials/youtube.svg";
 
 defineProps<{
   href: string;

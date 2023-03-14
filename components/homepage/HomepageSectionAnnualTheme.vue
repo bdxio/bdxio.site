@@ -93,7 +93,7 @@ import { SectionTitle } from "#components";
         width: 244px;
         height: 245px;
         position: absolute;
-        background: url("~/assets/img/drawings/fond1.png") center no-repeat;
+        background: url("/images/drawings/fond1.png") center no-repeat;
         background-size: cover;
       }
     }
@@ -106,7 +106,7 @@ import { SectionTitle } from "#components";
         width: 244px;
         height: 245px;
         position: absolute;
-        background: url("~/assets/img/drawings/fond3.png") center no-repeat;
+        background: url("/images/drawings/fond3.png") center no-repeat;
         background-size: cover;
       }
     }
@@ -119,7 +119,7 @@ import { SectionTitle } from "#components";
         width: 244px;
         height: 245px;
         position: absolute;
-        background: url("~/assets/img/drawings/fond2.png") center no-repeat;
+        background: url("/images/drawings/fond2.png") center no-repeat;
         background-size: cover;
       }
     }
@@ -132,7 +132,7 @@ import { SectionTitle } from "#components";
         width: 244px;
         height: 245px;
         position: absolute;
-        background: url("~/assets/img/drawings/fond4.png") center no-repeat;
+        background: url("/images/drawings/fond4.png") center no-repeat;
         background-size: cover;
       }
     }

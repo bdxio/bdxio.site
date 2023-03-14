@@ -74,10 +74,7 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
             >
               <img
                 class="offer__sponsors__sponsor__image"
-                :src="
-                  sponsor.logo?.url ||
-                  'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
-                "
+                :src="sponsor.logo?.url || '/images/bdxio_logo_blue.png'"
                 :alt="`Logo de ${sponsor.name}`"
               />
             </a>
@@ -101,7 +98,7 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
         height: 45px;
         position: absolute;
         z-index: -1;
-        background: url("~/assets/img/drawings/purple_underline.png") no-repeat;
+        background: url("/images/drawings/purple_underline.png") no-repeat;
         background-size: contain;
         bottom: -40px;
       }
@@ -116,7 +113,7 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
         height: 90px;
         position: absolute;
         z-index: -1;
-        background: url("~/assets/img/drawings/yellow_heart.png") no-repeat;
+        background: url("/images/drawings/yellow_heart.png") no-repeat;
         background-size: contain;
         bottom: -20px;
         right: -50px;

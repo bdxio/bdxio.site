@@ -1,12 +1,10 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { definePageMeta, useHead, useAPI } from "#imports";
+import { definePageMeta, useHead, useAPI, computed } from "#imports";
 import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Live 🎥 | BDX I/O" });
-
-const { innerWidth: iframeWidth, innerHeight: iframeHeight } = window;
 
 const { data } = await useAPI("/rooms", {
   params: { sort: "name" },
@@ -15,6 +13,13 @@ const { data } = await useAPI("/rooms", {
 const rooms = data.value
   .filter((r) => r.iframeId)
   .map(({ name, iframeId }) => ({ name, iframeId }));
+
+const iframeDimensions = computed(() => {
+  return {
+    width: globalThis.window?.innerWidth,
+    height: globalThis.window?.innerHeight,
+  };
+});
 </script>
 
 <template>
@@ -30,8 +35,8 @@ const rooms = data.value
           <div class="room__name">{{ room.name }}</div>
           <div class="room__video">
             <iframe
-              :width="iframeWidth"
-              :height="iframeHeight"
+              :width="iframeDimensions.width"
+              :height="iframeDimensions.height"
               :src="`https://www.youtube.com/embed/${room.iframeId}`"
               title="YouTube video player"
               frameborder="0"
@@ -71,8 +76,8 @@ const rooms = data.value
         z-index: -1;
         left: -70px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_left.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
@@ -91,8 +96,8 @@ const rooms = data.value
         z-index: -1;
         right: -70px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_right.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {

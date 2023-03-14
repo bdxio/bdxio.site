@@ -39,7 +39,7 @@ const duration = computed(() => {
       {{ presentation.title }}
     </SectionTitle>
     <img
-      src="~/assets/img/drawings/cyan_scribble_3.png"
+      src="/images/drawings/cyan_scribble_3.png"
       alt="Gribouillages BDXI/O"
       aria-hidden="true"
       class="underline-scribble"

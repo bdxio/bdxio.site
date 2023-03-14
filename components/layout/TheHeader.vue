@@ -3,10 +3,10 @@
 import { defineProps } from "vue";
 import { useRoute, useNuxtApp, computed, ref, watch } from "#imports";
 import { NuxtLink, LayoutTheNavigation } from "#components";
-import iconClose from "~/assets/img/icons/close.svg";
-import iconCloseBlue from "~/assets/img/icons/close_blue.svg";
-import iconBurger from "~/assets/img/icons/burger.svg";
-import iconBurgerBlue from "~/assets/img/icons/burger_blue.svg";
+import iconClose from "/images/icons/close.svg";
+import iconCloseBlue from "/images/icons/close_blue.svg";
+import iconBurger from "/images/icons/burger.svg";
+import iconBurgerBlue from "/images/icons/burger_blue.svg";
 
 const props = defineProps<{
   background: "light" | "dark";
@@ -39,7 +39,7 @@ watch(
   <header class="header" :class="background">
     <NuxtLink class="logo" to="/">
       <img
-        src="~/assets/img/bdxio_logo_blue.png"
+        src="/images/bdxio_logo_blue.png"
         alt="Logo de l'association BDX.IO"
         class="display--block"
       />

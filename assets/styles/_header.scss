@@ -4,7 +4,6 @@
   align-items: center;
   padding: $spc-m 0px;
 
-
   @include mobileFirst(m) {
     padding: 30px 50px;
     justify-content: space-between;
@@ -18,7 +17,7 @@
 
   &__burger {
     position: absolute;
-    @include z-index(  modal);
+    @include z-index(modal);
     right: $spc-m;
     top: $spc-m;
     cursor: pointer;
@@ -46,11 +45,11 @@
       align-items: center;
 
       li {
-        margin: 0; 
+        margin: 0;
 
         a {
           text-decoration: none;
-          font-size:  25px;
+          font-size: 25px;
 
           @include mobileFirst(m) {
             font-size: $font-size-content;
@@ -68,8 +67,8 @@
               bottom: -30px;
               left: 50%;
               transform: translateX(-50%);
-              background: url("~/assets/img/drawings/blue_underline.png")
-                no-repeat center / cover;
+              background: url("/images/drawings/blue_underline.png") no-repeat
+                center / cover;
             }
           }
         }
@@ -93,8 +92,6 @@
         }
       }
     }
-
-
 
     @include mobileFirst(m) {
       position: initial;
@@ -132,7 +129,7 @@
 
 .header.light {
   background-color: $white;
-    
+
   .header__nav {
     background-color: $white;
 

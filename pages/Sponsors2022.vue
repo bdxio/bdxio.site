@@ -1,6 +1,12 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { definePageMeta, useHead, useNuxtApp, useAPI } from "#imports";
+import {
+  definePageMeta,
+  useHead,
+  useNuxtApp,
+  useAPI,
+  createError,
+} from "#imports";
 import { SectionTitle } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -61,7 +67,7 @@ function getOfferClass(index) {
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url
-                      : 'https://www.bdxio.fr/_nuxt/img/bdxio_logo_blue.7a3769d.png'
+                      : '/images/bdxio_logo_blue.png'
                   "
                   :alt="`Logo de ${sponsor.name}`"
                 />
@@ -98,8 +104,8 @@ function getOfferClass(index) {
         z-index: -1;
         left: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_left.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
@@ -118,8 +124,8 @@ function getOfferClass(index) {
         z-index: -1;
         right: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_right.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {

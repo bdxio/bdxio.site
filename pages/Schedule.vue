@@ -74,7 +74,7 @@ function setFilter(filter) {
   filters.value = filters.value.filter((f) => f !== filter);
 }
 
-function getCategoryImg(category) {
+function getCategoryImageName(category) {
   switch (category) {
     case "Frontend":
       return "frontend.png";
@@ -93,6 +93,11 @@ function getCategoryImg(category) {
     default:
       return null;
   }
+}
+
+function getCategoryImagePath(category) {
+  const imageName = getCategoryImageName(category);
+  return imageName ? `/images/drawings/categories/${imageName}` : null;
 }
 
 function openMobilePanel() {
@@ -133,9 +138,9 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
             :class="{ open: openPanel }"
             ref="categoriesWrapper"
           >
-            <span class="categories__title" @click.prevent="openMobilePanel"
-              >Filtrer par thème</span
-            >
+            <span class="categories__title" @click.prevent="openMobilePanel">
+              Filtrer par thème
+            </span>
             <ul class="categories__list">
               <li
                 @click="setFilter('tous')"
@@ -153,14 +158,8 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
               >
                 <img
                   class="categories__category__image"
-                  :src="
-                    getCategoryImg(category.name)
-                      ? `~/assets/img/drawings/categories/${getCategoryImg(
-                          category.name
-                        )}`
-                      : ''
-                  "
-                  :href="`image abstraite représentant la catégorie ${category.name}`"
+                  :src="getCategoryImagePath(category.name)"
+                  :alt="`Catégorie ${category.name}`"
                 />
                 <span class="categories__category__label">
                   {{ category.name }}
@@ -195,14 +194,8 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                         <div class="talk__infos">
                           <img
                             class="talk__infos__image"
-                            :src="
-                              getCategoryImg(talk.category.name)
-                                ? `~/assets/img/drawings/categories/${getCategoryImg(
-                                    talk.category.name
-                                  )}`
-                                : ''
-                            "
-                            :href="`image abstraite représentant la catégorie ${talk.category.name}`"
+                            :src="getCategoryImagePath(talk.category.name)"
+                            :alt="`Catégorie ${talk.category.name}`"
                           />
                           <div class="talk__infos__content">
                             <span class="talk__infos__content__title">
@@ -278,8 +271,8 @@ ul {
         z-index: -1;
         left: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_left.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {
@@ -298,8 +291,8 @@ ul {
         z-index: -1;
         right: -30px;
         bottom: -10px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_right.png") center
+          no-repeat;
         background-size: cover;
 
         @include mobileFirst(m) {

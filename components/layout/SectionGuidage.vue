@@ -41,7 +41,7 @@ import { SectionTitle } from "#components";
 
 <style lang="scss" scoped>
 .guidage {
-  background: url("~/assets/img/illustration_palais_congres.png") no-repeat;
+  background: url("/images/illustration_palais_congres.png") no-repeat;
   background-position-x: left;
   background-position-y: bottom;
   background-size: contain;

@@ -86,7 +86,7 @@ const speakerSocialLinks = computed(() => {
         >
           <a :href="link.url" target="_blank" v-if="link.url">
             <img
-              :src="`~/assets/img/${link.imgPath}`"
+              :src="`/images/${link.imgPath}`"
               :alt="link.alt"
               class="info-logo"
             />

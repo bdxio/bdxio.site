@@ -21,7 +21,7 @@ import { SectionTitle } from "#components";
 
 <style lang="scss" scoped>
 .bourse {
-  background: url("~/assets/img/place_de_la_bourse.png") no-repeat left bottom;
+  background: url("/images/place_de_la_bourse.png") no-repeat left bottom;
   background-size: 100%;
   padding-bottom: 200px;
   overflow: hidden;

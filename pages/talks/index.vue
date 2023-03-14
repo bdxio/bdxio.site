@@ -34,8 +34,6 @@ const filteredTalks = computed(() => {
   return talks.value.filter((t) => t.category.id === currentFilter.value);
 });
 
-const filters = computed(() => categories.value);
-
 function getRandomBackgroundColor() {
   return shuffleArray([
     "#9ADCFF",
@@ -69,7 +67,7 @@ function setFilter(filter) {}
         <SectionTitle tag="h1" class="section-talks__header__title">
           Les talks
         </SectionTitle>
-        <ul class="section-talks__header__filters" v-if="filters.length">
+        <ul class="section-talks__header__filters" v-if="categories.length">
           <li class="section-talks__header__filters__filter" click="setFilter">
             <input
               type="radio"
@@ -83,28 +81,28 @@ function setFilter(filter) {}
           </li>
           <li
             class="section-talks__header__filters__filter"
-            v-for="filter in filters"
-            :key="`filter-${filter.id}`"
-            @click="setFilter(filter.id)"
+            v-for="category in categories"
+            :key="`filter-${category.id}`"
+            @click="setFilter(category.id)"
           >
             <input
               type="radio"
-              :id="filter.name"
-              :value="filter.id"
+              :id="category.name"
+              :value="category.id"
               v-model="currentFilter"
               class="display--none"
-              :class="{ active: currentFilter === filter.id }"
+              :class="{ active: currentFilter === category.id }"
             />
             <label
-              :for="filter.name"
+              :for="category.name"
               class="cursor--pointer"
               :style="
-                currentFilter === filter.id
-                  ? `border-color: ${filter.color}; color: ${filter.color}`
+                currentFilter === category.id
+                  ? `border-color: ${category.color}; color: ${category.color}`
                   : ''
               "
             >
-              {{ filter.name }}
+              {{ category.name }}
             </label>
           </li>
         </ul>
@@ -116,7 +114,7 @@ function setFilter(filter) {}
           :key="`talk-${talk.id}`"
           class="section-talks__talks__card cursor--pointer"
           :style="{
-            'border-color': talk.category.color || 'black',
+            'border-color': talk.category?.color || 'black',
           }"
         >
           <NuxtLink :to="`/talks/${id}`">
@@ -124,11 +122,11 @@ function setFilter(filter) {}
               <h2 class="title">{{ talk.title }}</h2>
               <span class="level">{{ talk.level }}</span>
               <p
-                v-if="talk.category.name"
+                v-if="talk.category?.name"
                 class="category"
-                :style="{ color: talk.category.color }"
+                :style="{ color: talk.category?.color }"
               >
-                {{ talk.category.name }}
+                {{ talk.category?.name }}
               </p>
             </div>
             <div v-if="talk.speakers?.length" class="speakers">
@@ -150,7 +148,7 @@ function setFilter(filter) {}
                     class="speakers__speaker__infos__initials"
                     :style="{
                       'background-color':
-                        speaker.category.color || getRandomBackgroundColor(),
+                        speaker.category?.color || getRandomBackgroundColor(),
                     }"
                   >
                     {{ getSpeakerInitials(speaker.name) }}
@@ -189,8 +187,8 @@ function setFilter(filter) {}
         z-index: -1;
         left: -110px;
         bottom: -20px;
-        background: url("~/assets/img/drawings/blue_presentation_left.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_left.png") center
+          no-repeat;
         background-size: cover;
       }
 
@@ -203,8 +201,8 @@ function setFilter(filter) {}
         z-index: -1;
         right: -110px;
         bottom: -20px;
-        background: url("~/assets/img/drawings/blue_presentation_right.png")
-          center no-repeat;
+        background: url("/images/drawings/blue_presentation_right.png") center
+          no-repeat;
         background-size: cover;
       }
     }

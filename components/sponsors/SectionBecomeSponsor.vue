@@ -76,7 +76,7 @@ import { SectionTitle } from "#components";
       height: 125px;
       top: -42px;
       left: -30px;
-      background: url("~/assets/img/drawings/orange_circle.png") no-repeat;
+      background: url("/images/drawings/orange_circle.png") no-repeat;
       background-size: cover;
     }
   }
@@ -110,7 +110,7 @@ import { SectionTitle } from "#components";
       height: 100px;
       top: 20%;
       left: 80%;
-      background: url("~/assets/img/drawings/purple_arrow.png") no-repeat;
+      background: url("/images/drawings/purple_arrow.png") no-repeat;
       background-size: cover;
     }
 
@@ -121,7 +121,7 @@ import { SectionTitle } from "#components";
       height: 100px;
       top: 20%;
       left: 40%;
-      background: url("~/assets/img/drawings/cyan_scribbles.png") no-repeat;
+      background: url("/images/drawings/cyan_scribbles.png") no-repeat;
       background-size: cover;
     }
 
@@ -132,7 +132,7 @@ import { SectionTitle } from "#components";
       height: 100px;
       bottom: 0px;
       left: -50px;
-      background: url("~/assets/img/drawings/yellow_scribbles.png") no-repeat;
+      background: url("/images/drawings/yellow_scribbles.png") no-repeat;
       background-size: cover;
     }
 
@@ -143,7 +143,7 @@ import { SectionTitle } from "#components";
       height: 100px;
       top: 0;
       left: 60%;
-      background: url("~/assets/img/drawings/orange_highlight_2.png") no-repeat;
+      background: url("/images/drawings/orange_highlight_2.png") no-repeat;
       background-size: cover;
     }
   }

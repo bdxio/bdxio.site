@@ -11,7 +11,7 @@ import { SectionTitle } from "#components";
     <div class="news-container">
       <div class="news-item">
         <img
-          src="~/assets/img/team.png"
+          src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 1</span>
@@ -22,7 +22,7 @@ import { SectionTitle } from "#components";
       </div>
       <div class="news-item">
         <img
-          src="~/assets/img/team.png"
+          src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 2</span>
@@ -33,7 +33,7 @@ import { SectionTitle } from "#components";
       </div>
       <div class="news-item">
         <img
-          src="~/assets/img/team.png"
+          src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
         />
         <span class="item-title">Title 3</span>

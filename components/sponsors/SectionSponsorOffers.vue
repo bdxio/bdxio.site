@@ -61,7 +61,7 @@ import { SectionTitle } from "#components";
       height: 45px;
       position: absolute;
       z-index: -1;
-      background: url("~/assets/img/drawings/purple_underline.png") no-repeat;
+      background: url("/images/drawings/purple_underline.png") no-repeat;
       background-size: contain;
       right: 52%;
       bottom: -40px;

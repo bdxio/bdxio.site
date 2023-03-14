@@ -9,7 +9,7 @@ import { LayoutTheHeader, LayoutTheFooter } from "#components";
     <section class="section section-error">
       <div class="message">
         <img
-          src="~/assets/img/404-img.png"
+          src="/images/404-img.png"
           alt="Une illlustration représentant un ordinateur retro"
         />
         <p>

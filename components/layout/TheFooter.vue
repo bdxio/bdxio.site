@@ -6,10 +6,10 @@ import {
   LayoutTheNavigation,
   NuxtLink,
 } from "#components";
-import iconLinkedin from "~/assets/img/socials/linkedin.svg";
-import iconTwitter from "~/assets/img/socials/twitter.svg";
-import iconCloseBlue from "~/assets/img/icons/close_blue.svg";
-import iconYoutube from "~/assets/img/socials/youtube.svg";
+import iconLinkedin from "/images/socials/linkedin.svg";
+import iconTwitter from "/images/socials/twitter.svg";
+import iconCloseBlue from "/images/icons/close_blue.svg";
+import iconYoutube from "/images/socials/youtube.svg";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -45,7 +45,7 @@ const registerNewsletter = () => {
       <div class="bdxio">
         <NuxtLink class="logo" to="/">
           <img
-            src="~/assets/img/bdxio_logo_blue.png"
+            src="/images/bdxio_logo_blue.png"
             alt="Logo de l'association BDX.IO"
           />
           <span>Bordeaux Developers eXperience</span>

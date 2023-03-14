@@ -48,7 +48,7 @@ const { $showProgramme } = useNuxtApp();
 
         <NuxtLink
           v-if="$showProgramme"
-          to="/programme"
+          to="/schedule"
           class="button button-secondary button-secondary--dark"
         >
           Découvrir le programme 2022
@@ -124,7 +124,7 @@ const { $showProgramme } = useNuxtApp();
         right: -30px;
         bottom: -15px;
         transform: rotate(-20deg);
-        background: url("~/assets/img/drawings/yellow_scribbles.png") center
+        background: url("/images/drawings/yellow_scribbles.png") center
           no-repeat;
         background-size: cover;
 
@@ -171,8 +171,7 @@ const { $showProgramme } = useNuxtApp();
             height: 100px;
             position: absolute;
             z-index: 0;
-            background: url("~/assets/img/drawings/green_box.png") center
-              no-repeat;
+            background: url("/images/drawings/green_box.png") center no-repeat;
             background-size: cover;
             top: -10px;
             left: -20px;

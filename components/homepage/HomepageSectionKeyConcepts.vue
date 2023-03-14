@@ -113,7 +113,7 @@ import { TheCounter } from "#components";
           @include positionAbsolute;
           content: "";
           display: block;
-          background: url("~/assets/img/drawings/yellow_circle_2.png") center
+          background: url("/images/drawings/yellow_circle_2.png") center
             no-repeat;
           background-size: contain;
           width: 170px;
@@ -139,8 +139,7 @@ import { TheCounter } from "#components";
       top: 25%;
       left: 0;
       transform: translateX(-40%) translateY(-30%);
-      background: url("~/assets/img/drawings/cyan_scribble_4.png") center
-        no-repeat;
+      background: url("/images/drawings/cyan_scribble_4.png") center no-repeat;
       background-size: contain;
     }
 
@@ -152,7 +151,7 @@ import { TheCounter } from "#components";
       top: 25%;
       right: 100px;
       transform: translateX(40%) translateY(-50%);
-      background: url("~/assets/img/drawings/orange_highlight_2.png") center
+      background: url("/images/drawings/orange_highlight_2.png") center
         no-repeat;
       background-size: contain;
 
@@ -169,7 +168,7 @@ import { TheCounter } from "#components";
       top: 30%;
       right: 100px;
       transform: translateX(30%) translateY(-50%);
-      background: url("~/assets/img/drawings/blue_arrow_2.png") center no-repeat;
+      background: url("/images/drawings/blue_arrow_2.png") center no-repeat;
       background-size: contain;
 
       @include mobileFirst(m) {

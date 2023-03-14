@@ -40,8 +40,8 @@ import { SectionTitle } from "#components";
       right: 0;
       left: 0;
       bottom: -20px;
-      background: url("~/assets/img/drawings/yellow_line_1.png") no-repeat
-        center / cover;
+      background: url("/images/drawings/yellow_line_1.png") no-repeat center /
+        cover;
     }
   }
 
@@ -63,7 +63,7 @@ import { SectionTitle } from "#components";
     font-weight: $font-weight-bold;
     font-style: $font-style-italic;
     padding: 50px; //50px
-    background: url("~/assets/img/drawings/purple_circle.png") no-repeat center /
+    background: url("/images/drawings/purple_circle.png") no-repeat center /
       contain;
   }
 
