@@ -2,19 +2,20 @@
   "name": "bdxio.site",
   "version": "0.1.0",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.0",
-    "nuxt": "^3.2.3",
-    "sass": "^1.59.2"
+    "build": "nuxt build",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@vueuse/nuxt": "^9.13.0",
     "markdown-it": "^13.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@types/node": "^18.15.0",
+    "eslint": "^8.36.0",
+    "nuxt": "^3.2.3",
+    "sass": "^1.59.2"
   }
 }
