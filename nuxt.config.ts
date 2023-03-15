@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   modules: ["@vueuse/nuxt"],
-  css: ["@/assets/styles/main.scss"],
+  css: ["~/assets/css/main.css", "@/assets/styles/main.scss"],
   postcss: {
     plugins: {
       tailwindcss: {},
