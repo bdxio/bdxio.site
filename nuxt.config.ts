@@ -7,6 +7,12 @@ export default defineNuxtConfig({
   },
   modules: ["@vueuse/nuxt"],
   css: ["@/assets/styles/main.scss"],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
