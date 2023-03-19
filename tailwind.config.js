@@ -49,6 +49,7 @@ module.exports = {
       xxxl: "1800px",
     },
     spacing: {
+      0: "0px",
       1: "0.5rem",
       2: "1rem",
       3: "1.5rem",
@@ -57,6 +58,16 @@ module.exports = {
       6: "3rem",
       7: "3.5rem",
       8: "4rem",
+      100: "100px"
+    },
+    zIndex: {
+      upper: 9999,
+      modal: 5,
+      design: 4,
+      absolute: 3,
+      relative: 2,
+      default: 1,
+      negative: -1,
     },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
