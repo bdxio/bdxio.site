@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { SectionTitle, NuxtLink } from "#components";
+import { SectionTitle, ButtonSecondary } from "#components";
 
 const { $showProgramme } = useNuxtApp();
 </script>
@@ -21,27 +21,23 @@ const { $showProgramme } = useNuxtApp();
     </header>
     <div
       tag="section"
-      class="mt-100 flex justify-between section-presentation__body"
+      class="mt-100 m:flex m:justify-between m:gap-x-[40px]"
       gutter-l
       align-center-xs
     >
-      <div
-        xs12
-        m6
-        class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] section-presentation__body__content"
-      >
+      <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
         <SectionTitle
           section
           tag="h2"
-          class="text-green section-presentation__body__content__pre-title"
+          class="text-green"
         >
           Qui sommes nous ?
         </SectionTitle>
         <SectionTitle
           tag="h2"
-          class="my-3 bordelais"
+          class="my-3"
         >
-          Un petit groupe de bénévoles <span class="boxed">bordelais</span> !
+          Un petit groupe de bénévoles <span class="bordelais">bordelais</span> !
         </SectionTitle>
 
         <p class="mt-4">
@@ -52,21 +48,17 @@ const { $showProgramme } = useNuxtApp();
           !
         </p>
 
-        <NuxtLink
+        <ButtonSecondary
           v-if="$showProgramme"
+          color="dark"
           to="/schedule"
-          class="mt-8 button button-secondary button-secondary--dark"
         >
           Découvrir le programme 2022
-        </NuxtLink>
+        </ButtonSecondary>
       </div>
-      <div
-        xs12
-        m6
-        class="flex gap-4 section-presentation__body__imgs"
-      >
+      <div class="flex gap-4 basis-full m:basis-1/2">
         <div class="w-1/2">
-          <picture class="w-full mb-4">
+          <picture>
             <source
               type="image/webp"
               srcset="/asso/pic-scene-1.webp"
@@ -78,7 +70,7 @@ const { $showProgramme } = useNuxtApp();
             <img
               src="/asso/pic-scene-1.jpg"
               alt="photo de l'équipe prise sur la scene de l'évènement"
-              class="picture"
+              class="w-full mb-4"
             >
           </picture>
           <picture class="w-full mb-4">
@@ -93,7 +85,7 @@ const { $showProgramme } = useNuxtApp();
             <img
               src="/asso/pic-scene-2.jpg"
               alt="photo de l'équipe prise sur la scene de l'évènement"
-              class="picture"
+              class="w-full mb-4"
             >
           </picture>
         </div>
@@ -110,7 +102,7 @@ const { $showProgramme } = useNuxtApp();
             <img
               src="/asso/pic-meeting-1.jpg"
               alt="photo de l'équipe prise pendant un meeting bdx io"
-              class="picture"
+              class="w-full mb-4"
             >
           </picture>
           <picture class="w-full mb-4">
@@ -125,7 +117,7 @@ const { $showProgramme } = useNuxtApp();
             <img
               src="/asso/pic-meeting-2.jpg"
               alt="photo de l'équipe prise pendant un meeting bdx io"
-              class="picture"
+              class="w-full mb-4"
             >
           </picture>
         </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { definePageMeta, useHead, useNuxtApp, useAPI } from "#imports";
-import { AssociationSectionPresentation } from "#components";
+import { AssociationPresentation } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "L'association | BDX I/O" });
@@ -17,9 +16,9 @@ const { data: volunteers } = await useAPI("/volunteers", {
 
 <template>
   <main>
-    <AssociationSectionPresentation />
+    <AssociationPresentation />
     <AssociationSectionVolunteers
-      v-if="$showVolunteers2022"
+      v-if="$showVolunteers2022 && volunteers?.length > 0"
       :volunteers="volunteers"
     />
   </main>
