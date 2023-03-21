@@ -1,11 +1,6 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
-import { SectionTitle, NuxtLink } from "#components";
-import iconGithub from "/images/socials/github.svg";
-import iconLinkedin from "/images/socials/linkedin.svg";
-import iconTwitter from "/images/socials/twitter.svg";
-import iconWebsite from "/images/socials/website.svg";
+import { SectionTitle, NuxtLink, } from "#components";
 
 type Volunteer = {
   id: string;
@@ -19,7 +14,9 @@ type Volunteer = {
   twitter?: string;
   github?: string;
   website?: string;
-  profilePicture?: string;
+  profilePicture?: {
+    url: string
+  };
 };
 
 defineProps<{
@@ -47,33 +44,40 @@ function getVolunteerName(
 </script>
 
 <template>
-  <section class="section section-association-volunteers">
-    <SectionTitle tag="h3" class="text-align--center title">
-      Découvrez les membres <br />
-      de notre <span class="after">équipe</span>
+  <section class="bg-white pt-0 section section-association-volunteers">
+    <SectionTitle
+      tag="h3"
+      class="text-center mt-0 title"
+    >
+      Découvrez les membres <br>
+      de notre <span class="relative z-relative équipe">équipe</span>
     </SectionTitle>
 
-    <div tag="ul" gutter-s class="volunteers">
-      <div
-        tag="li"
+    <ul
+      tag="ul"
+      gutter-s
+      class="s:flex s:gap-[40px] mt-100"
+    >
+      <li
         v-for="volunteer in volunteers"
         :key="`v-${volunteer.id}`"
-        xs12
-        s6
-        m4
-        xl3
+        tag="li"
+        class="s:basis-1/2 m:basis-1/3 xl:basis-1/4"
       >
-        <div v-if="volunteer.active" class="volunteer card">
+        <div
+          v-if="volunteer.active"
+          class="rounded-radius overflow-hidden max-w-[265px] h-[430px] mt-0 mb-6 mx-auto shadow-card block"
+        >
           <img
             v-if="volunteer.profilePicture?.url"
             :src="volunteer.profilePicture?.url"
-            class="volunteer__image"
-          />
-          <div class="volunteer__infos">
-            <div class="volunteer__infos__name">
+            class="w-full object-cover object-center"
+          >
+          <div class="p-2">
+            <div class="text-2xl font-bold mb-1">
               {{ getVolunteerName(volunteer.firstname, volunteer.lastname) }}
             </div>
-            <div class="volunteer__infos__job">
+            <div class="text-green mb-4">
               <template v-if="!volunteer.jobCompanyName">
                 {{ volunteer.jobLabel }}
               </template>
@@ -93,7 +97,7 @@ function getVolunteerName(
                 {{ volunteer.jobLabel }} chez {{ volunteer.jobCompanyName }}
               </template>
             </div>
-            <div class="volunteer__infos__socials">
+            <div class="flex justify-center gap-2">
               <NuxtLink
                 v-if="volunteer.linkedin"
                 :to="volunteer.linkedin"
@@ -102,9 +106,11 @@ function getVolunteerName(
                   volunteer.firstname,
                   volunteer.lastname
                 )}`"
-                class="volunteer__infos__socials__link"
               >
-                <img :src="iconLinkedin" alt="Icône LinkedIn" />
+                <img
+                  src="/images/socials/linkedin.svg"
+                  alt="Icône LinkedIn"
+                >
               </NuxtLink>
               <NuxtLink
                 v-if="volunteer.twitter"
@@ -114,9 +120,11 @@ function getVolunteerName(
                   volunteer.firstname,
                   volunteer.lastname
                 )}`"
-                class="volunteer__infos__socials__link"
               >
-                <img :src="iconTwitter" alt="Icône Twitter" />
+                <img                  
+                  src="/images/socials/twitter.svg"
+                  alt="Icône Twitter"
+                >
               </NuxtLink>
               <NuxtLink
                 v-if="volunteer.github"
@@ -126,9 +134,11 @@ function getVolunteerName(
                   volunteer.firstname,
                   volunteer.lastname
                 )}`"
-                class="volunteer__infos__socials__link"
               >
-                <img :src="iconGithub" alt="Icône Github" />
+                <img
+                  src="/images/socials/github.svg"
+                  alt="Icône Github"
+                >
               </NuxtLink>
               <NuxtLink
                 v-if="volunteer.website"
@@ -138,77 +148,30 @@ function getVolunteerName(
                   volunteer.firstname,
                   volunteer.lastname
                 )}`"
-                class="volunteer__infos__socials__link"
               >
-                <img :src="iconWebsite" alt="Icône lien" />
+                <img
+                  src="/images/socials/website.svg"
+                  alt="Icône lien"
+                >
               </NuxtLink>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
-<style lang="scss" scoped>
-.section-association-volunteers {
-  background: $white;
-  padding-top: 0;
-  .title {
-    margin-top: 0;
-    .after {
-      @include positionRelative;
-      &::after {
-        content: "";
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        background: url("/images/drawings/yellow_heart.png") no-repeat center;
-        background-size: contain;
-        right: -30px;
-        bottom: -20px;
-      }
-    }
-  }
-}
-
-.volunteers {
-  margin-top: 100px;
-}
-
-.volunteer {
-  border-radius: 8px;
-  overflow: hidden;
-  max-width: 265px;
-  height: 430px;
-  margin-bottom: $spc-xl;
-  display: block;
-  margin: 0 auto $spc-xl auto;
-
-  &__image {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  &__infos {
-    padding: $spc-xs;
-
-    &__name {
-      font-size: 24px;
-      font-weight: $font-weight-bold;
-      margin-bottom: $spc-xxs;
-    }
-    &__job {
-      color: $green;
-      margin-bottom: $spc-m;
-    }
-
-    &__socials {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-  }
+<style lang="css" scoped>
+.équipe::after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  background: url("/images/drawings/yellow_heart.png") no-repeat center;
+  background-size: contain;
+  right: -30px;
+  bottom: -20px;
 }
 </style>

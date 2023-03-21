@@ -73,5 +73,11 @@ module.exports = {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
     },
+    boxShadow: {
+      card: "0px 7px 29px rgba(36, 36, 87, 0.1)"
+    },
+    borderRadius: {
+      radius: "8px"
+    }
   },
 };

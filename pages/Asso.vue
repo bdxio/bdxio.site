@@ -17,7 +17,7 @@ const { data: volunteers } = await useAPI("/volunteers", {
 <template>
   <main>
     <AssociationPresentation />
-    <AssociationSectionVolunteers
+    <AssociationVolunteers
       v-if="$showVolunteers2022 && volunteers?.length > 0"
       :volunteers="volunteers"
     />
