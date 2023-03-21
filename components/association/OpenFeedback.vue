@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
 
 defineProps({
@@ -11,32 +10,16 @@ defineProps({
 </script>
 
 <template>
-  <a :href="href" target="_blank" class="openfeedback">
-    donnez votre avis sur<br />
-    <img src="/images/logo-openfeedback.png" alt="Logo openfeedback" />
+  <a
+    :href="href"
+    target="_blank"
+    class="text-lg text-center leading-none mt-4 hover:text-bdxio-blue-dark active:text-bdxio-blue-dark visited:text-bdxio-blue-dark s:ml-5 s:mt-0"
+  >
+    donnez votre avis sur<br>
+    <img
+      src="/images/logo-openfeedback.png"
+      alt="Logo openfeedback"
+      class="h-[30px]"
+    >
   </a>
 </template>
-
-<style lang="scss" scoped>
-.openfeedback {
-  font-size: 18px;
-  text-align: center;
-  line-height: 1;
-  margin-top: $spc-m;
-
-  &:hover,
-  &:active,
-  &:visited {
-    color: $primary-dark;
-  }
-
-  img {
-    height: 30px;
-  }
-
-  @include mobileFirst(s) {
-    margin-left: $spc-l;
-    margin-top: 0;
-  }
-}
-</style>
