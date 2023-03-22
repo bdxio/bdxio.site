@@ -78,6 +78,10 @@ module.exports = {
     },
     borderRadius: {
       radius: "8px"
+    },
+    gridTemplateColumns: {
+      'homepage-portraits': 'repeat(4, 210px)',
+      'homepage-portraits-m': 'repeat(2, 210px)',
     }
   },
 };
