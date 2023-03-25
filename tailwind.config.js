@@ -84,7 +84,9 @@ module.exports = {
       'homepage-portraits': 'repeat(4, 210px)',
       'homepage-portraits-m': 'repeat(2, 210px)',
       'homepage-key-concepts': 'repeat(2, 50%)',
-      'homepage-key-concepts-m': 'repeat(6, 1fr)'
+      'homepage-key-concepts-m': 'repeat(6, 1fr)',
+      'homegpage-categories-m': 'repeat(2, 1fr)',
+      'homegpage-categories-xxl': 'repeat(3, 1fr)',
     }
   },
 };
