@@ -1,7 +1,6 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { definePageMeta, useHead } from "#imports";
-import { JobsSectionJobs } from "#components";
+import { SectionJobs } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({
@@ -17,6 +16,6 @@ useHead({
 
 <template>
   <main>
-    <JobsSectionJobs />
+    <SectionJobs />
   </main>
 </template>

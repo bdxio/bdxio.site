@@ -1,7 +1,6 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { definePageMeta, useHead } from "#imports";
-import { SectionTitle } from "#components";
+import { SectionTitle, Link } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Code de conduite | BDX I/O" });
@@ -9,8 +8,10 @@ useHead({ title: "Code de conduite | BDX I/O" });
 
 <template>
   <main>
-    <section class="section section-conduct">
-      <SectionTitle tag="h2">Code de conduite</SectionTitle>
+    <section class="section bg-white">
+      <SectionTitle tag="h2">
+        Code de conduite
+      </SectionTitle>
       <p>
         <strong>
           Toutes les personnes qui participent à la conférence doivent accepter
@@ -25,10 +26,19 @@ useHead({ title: "Code de conduite | BDX I/O" });
       <div>
         Besoin d'aide ?
         <ul>
-          <li>Par email : <a href="mailto:team@bdxio.fr">team@bdxio.fr</a></li>
+          <li>
+            Par email : <Link href="mailto:team@bdxio.fr">
+              team@bdxio.fr
+            </Link>
+          </li>
           <li>
             Par twitter :
-            <a href="https://twitter.com/bdxio" target="_blank">@bdxio</a>
+            <Link
+              href="https://twitter.com/bdxio"
+              target="_blank"
+            >
+              @bdxio
+            </Link>
           </li>
         </ul>
       </div>
@@ -103,39 +113,33 @@ useHead({ title: "Code de conduite | BDX I/O" });
 
       <p>
         <strong>Version originale et crédit :</strong>
-        <a href="http://2012.jsconf.us/#/about" target="_blank">
+        <Link
+          href="http://2012.jsconf.us/#/about"
+          target="_blank"
+        >
           http://2012.jsconf.us/#/about
-        </a>
-        & The Ada Initiative <br />
+        </Link>
+        & The Ada Initiative <br>
         <strong>
           Merci d'aider à la traduction et à l'amélioration de ce texte:
         </strong>
-        <a
+        <Link
           href="http://github.com/leftlogic/confcodeofconduct.com"
           target="_blank"
         >
           http://github.com/leftlogic/confcodeofconduct.com
-        </a>
-        <br />
+        </Link>
+        <br>
         <strong>
           Ce texte est sous licence Creative
-          <a
+          <Link
             href="https://creativecommons.org/licenses/by/3.0/deed.en_US"
             target="_blank"
           >
             Commons Attribution 3.0 Unported License
-          </a>
+          </Link>
         </strong>
       </p>
     </section>
   </main>
 </template>
-
-<style lang="scss" scoped>
-.section-conduct {
-  background-color: $white;
-  a {
-    color: $primary-light;
-  }
-}
-</style>

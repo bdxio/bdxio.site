@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { SectionTitle } from "#components";
 </script>
 
@@ -22,7 +21,7 @@ import { SectionTitle } from "#components";
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .section-jobs {
   --w3d-main-color: #7d7df2;
   --w3d-accent-color: #fff;

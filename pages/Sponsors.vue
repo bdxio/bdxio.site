@@ -8,9 +8,9 @@ import {
   computed,
 } from "#imports";
 import {
-  SponsorsSectionBecomeSponsor,
-  SponsorsSectionSponsorOffers,
-  SponsorsSectionSponsorOffersAndSponsors,
+  SectionSponsorsBecomeSponsor,
+  SectionSponsorsOffersAndSponsors,
+  SectionSponsorOffers
 } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -31,11 +31,11 @@ const showSponsors = computed(() => offers.value?.length && $showSponsors2022);
 
 <template>
   <main>
-    <SponsorsSectionBecomeSponsor />
-    <SponsorsSectionSponsorOffersAndSponsors
+    <SectionSponsorsBecomeSponsor />
+    <SectionSponsorsOffersAndSponsors
       v-if="showSponsors && offers"
       :offers="offers"
     />
-    <SponsorsSectionSponsorOffers v-else />
+    <SectionSponsorOffers v-else />
   </main>
 </template>

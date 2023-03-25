@@ -25,14 +25,30 @@ const iframeDimensions = computed(() => {
 <template>
   <main class="section section-live">
     <header class="section-live__header">
-      <SectionTitle tag="h1" class="section-live__header__title">
+      <SectionTitle
+        tag="h1"
+        class="section-live__header__title"
+      >
         Le live
       </SectionTitle>
     </header>
     <section class="section-live__body">
-      <div tag="ul" class="rooms" gutter-s v-if="rooms.length">
-        <div tag="li" v-for="room in rooms" :key="room.name" class="room" m6>
-          <div class="room__name">{{ room.name }}</div>
+      <div
+        v-if="rooms.length"
+        tag="ul"
+        class="rooms"
+        gutter-s
+      >
+        <div
+          v-for="room in rooms"
+          :key="room.name"
+          tag="li"
+          class="room"
+          m6
+        >
+          <div class="room__name">
+            {{ room.name }}
+          </div>
           <div class="room__video">
             <iframe
               :width="iframeDimensions.width"
@@ -46,7 +62,10 @@ const iframeDimensions = computed(() => {
           </div>
         </div>
       </div>
-      <p v-else class="noLive">
+      <p
+        v-else
+        class="noLive"
+      >
         Aucun live actuellement, merci de réessayer pendant l'évènement
       </p>
     </section>

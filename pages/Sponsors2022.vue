@@ -30,7 +30,10 @@ function getOfferClass(index) {
 <template>
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
-      <SectionTitle tag="h1" class="section-sponsors-2022__header__title">
+      <SectionTitle
+        tag="h1"
+        class="section-sponsors-2022__header__title"
+      >
         Nos sponsors 2022
       </SectionTitle>
       <p>
@@ -47,10 +50,16 @@ function getOfferClass(index) {
           class="offer"
           :class="getOfferClass(index)"
         >
-          <SectionTitle tag="h2" class="offer__name">
+          <SectionTitle
+            tag="h2"
+            class="offer__name"
+          >
             {{ offer.label }}
           </SectionTitle>
-          <ul v-if="offer.sponsors?.length" class="sponsors">
+          <ul
+            v-if="offer.sponsors?.length"
+            class="sponsors"
+          >
             <li
               v-for="sponsor in offer.sponsors"
               :key="sponsor.name"
@@ -70,13 +79,15 @@ function getOfferClass(index) {
                       : '/images/bdxio_logo_blue.png'
                   "
                   :alt="`Logo de ${sponsor.name}`"
-                />
+                >
               </a>
             </li>
           </ul>
         </li>
       </ul>
-      <p v-else>Pas de sponsors...</p>
+      <p v-else>
+        Pas de sponsors...
+      </p>
     </section>
   </main>
 </template>
