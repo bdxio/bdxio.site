@@ -1,9 +1,10 @@
 <script setup lang="ts">
   import { computed } from '#imports'
+  import { NuxtLink } from "#components";
 
   const props = defineProps<{
+    to: string
     color: "white" | "light" | "grey" | "dark"
-    disabled?: true
   }>();
 
   const colorClasses = computed(() => {
@@ -24,9 +25,10 @@
 </script>
 
 <template>
-  <button
-    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit block mt-8 ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
+  <NuxtLink
+    :to="to"
+    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit block mt-8 ${colorClasses}`"
   >
     <slot />
-  </button>
+  </NuxtLink>
 </template>

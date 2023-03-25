@@ -213,5 +213,4 @@ import { TheCounter } from "#components";
       display: block;
     }
   }
-}
 </style>
