@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { withDefaults, defineProps } from "vue";
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   tag: "h2",
   color: "dark",
-  section: false,
+  section: undefined,
 });
 </script>
 
@@ -19,35 +18,12 @@ withDefaults(defineProps<Props>(), {
   <component
     :is="tag"
     :class="{
-      'title--section': section,
+      'text-xl font-light leading-6 uppercase p-0 m-0 tracking-[2px': section,
       'title--subsection': !section,
-      'title--light': color === 'light',
-      'title--dark': color === 'dark',
+      'text-bdxio-font-light': color === 'light',
+      'text-bdxio-font-dark': color === 'dark',
     }"
   >
     <slot />
   </component>
 </template>
-
-<style lang="scss">
-.title {
-  &--section {
-    font-family: $font-family-body;
-    font-size: 20px;
-    font-weight: $font-weight-light;
-    line-height: 24px;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0;
-    letter-spacing: 2px;
-  }
-
-  &.dark {
-    color: $primary-dark;
-  }
-
-  &.light {
-    color: $light-font;
-  }
-}
-</style>
