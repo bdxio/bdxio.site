@@ -20,7 +20,7 @@ import { SectionTitle } from "#components";
         </SectionTitle>
         <SectionTitle
           tag="h3"
-          class="title"
+          class="relative title"
         >
           Quels seront les thèmes abordés&nbsp;?
         </SectionTitle>

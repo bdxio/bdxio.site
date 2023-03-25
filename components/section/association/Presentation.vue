@@ -2,7 +2,7 @@
 import { useNuxtApp } from "#imports";
 import { SectionTitle, ButtonSecondary } from "#components";
 
-const { $showProgramme } = useNuxtApp();
+const { LINK_PROGRAMME_PDF } = useNuxtApp();
 </script>
 
 <template>
@@ -49,7 +49,7 @@ const { $showProgramme } = useNuxtApp();
         </p>
 
         <ButtonSecondary
-          v-if="$showProgramme"
+          v-if="LINK_PROGRAMME_PDF"
           color="dark"
           to="/schedule"
         >

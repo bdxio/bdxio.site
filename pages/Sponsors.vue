@@ -16,9 +16,9 @@ import {
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors | BDX I/O" });
 
-const { $showSponsors2022 } = useNuxtApp();
+const { SHOW_PAGE_SPONSORS } = useNuxtApp();
 
-if (!$showSponsors2022) {
+if (!SHOW_PAGE_SPONSORS) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
@@ -26,7 +26,7 @@ const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
-const showSponsors = computed(() => offers.value?.length && $showSponsors2022);
+const showSponsors = computed(() => offers.value?.length && SHOW_PAGE_SPONSORS);
 </script>
 
 <template>

@@ -14,12 +14,12 @@ import { SectionTitle } from "#components";
       de Bordeaux Lac
     </div>
     <time
-      class="text-4xl text-bdxio-blue-dark italic p-[50px] date m:text-[40px] m:p-[60px]"
+      class="text-4xl text-bdxio-font-light italic p-[50px] date m:text-[40px] m:p-[60px]"
       datetime="2022-12-02"
     >02/12/2022</time>
     <SectionTitle
       tag="h2"
-      class="text-2xl mb-0 m:text-[32px]"
+      class="text-2xl mb-0 m:text-[32px] text-bdxio-font-light"
     >
       Et on a hâte de vous y (re)voir&nbsp;!
     </SectionTitle>

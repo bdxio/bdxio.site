@@ -1,32 +1,20 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
-import { useRoute, useNuxtApp, computed, ref, watch } from "#imports";
+import { useRoute, ref, watch } from "#imports";
 import { NuxtLink, LayoutNavigation } from "#components";
-import iconClose from "/images/icons/close.svg";
-import iconCloseBlue from "/images/icons/close_blue.svg";
-import iconBurger from "/images/icons/burger.svg";
-import iconBurgerBlue from "/images/icons/burger_blue.svg";
 
-const props = defineProps<{
+
+defineProps<{
   background: "light" | "dark";
 }>();
 
 const mobileOpen = ref(false);
 const { path } = useRoute();
-const { $showNavigation } = useNuxtApp();
 
-const propClasses = computed(() => {
-  let classes = props.background.toString();
-
-  if (mobileOpen.value) {
-    classes += " mobile-open";
-  }
-  return classes;
-});
-
-const toggleMenu = () => (mobileOpen.value = !mobileOpen.value);
-
+const toggleMenu = () => {
+  mobileOpen.value = !mobileOpen.value
+  console.log(mobileOpen.value)
+};
 watch(
   () => path,
   () => {
@@ -49,25 +37,28 @@ watch(
       >
     </NuxtLink>
     <div
-      v-if="$showNavigation"
       @click.prevent="toggleMenu"
     >
       <img
-        v-if="mobileOpen.value"
-        :src="background === 'light' ? iconCloseBlue : iconClose"
+        v-if="mobileOpen"
+        :src="background === 'light' ? '/images/icons/close_blue.svg' : '/images/icons/close.svg'"
         alt="icone pour ouvrir le menu sur mobile"
         class="absolute z-modal right-4 top-4 cursor-pointer m:hidden"
       >
       <img
         v-else
-        :src="background === 'light' ? iconBurgerBlue : iconBurger"
+        :src="background === 'light' ? '/images/icons/burger_blue.svg' : '/images/icons/burger.svg'"
         alt="icone pour fermer le menu sur mobile"
         class="absolute z-modal right-4 top-4 cursor-pointer m:hidden"
       >
       <nav
-        :class="`absolute z-design w-full top-0 right-full bottom-0 flex justify-center items-center ${mobileOpen.value && 'right-0'}`"
+        :class="`absolute z-design w-full top-0 bottom-0 flex justify-center items-center ${mobileOpen ? 'right-0' : 'right-full'} ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:static m:block m:w-full m:bg-none`"
       >
-        <LayoutNavigation display-cfp />
+        <LayoutNavigation
+          display-cfp
+          :background="background"
+          :mobile-open="mobileOpen"
+        />
       </nav>
     </div>
   </header>

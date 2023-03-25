@@ -19,7 +19,7 @@ const props = defineProps<{
   };
 }>();
 
-const { $showOpenfeedback, $showYoutube } = useNuxtApp();
+const { SHOW_LINK_OPENFEEDBACK, SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const duration = computed(() => {
   switch (props.presentation.format) {
@@ -57,10 +57,10 @@ const duration = computed(() => {
       >
         {{ presentation.language }}
       </div>
-      <div v-if="$showOpenfeedback && presentation.openfeedbackUrl">
+      <div v-if="SHOW_LINK_OPENFEEDBACK && presentation.openfeedbackUrl">
         <SectionAssociationOpenFeedback :href="presentation.openfeedbackUrl" />
       </div>
-      <div v-if="$showYoutube && presentation.youtubeUrl">
+      <div v-if="SHOW_LINK_YOUTUBE && presentation.youtubeUrl">
         <ShowOnYoutube :href="presentation.youtubeUrl" />
       </div>
     </div>

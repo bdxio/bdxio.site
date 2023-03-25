@@ -5,7 +5,7 @@ import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#c
 definePageMeta({ layout: "page" });
 useHead({ title: "L'association | BDX I/O" });
 
-const { $showVolunteers2022 } = useNuxtApp();
+const { SHOW_SECTION_VOLUNTEERS } = useNuxtApp();
 
 const { data: volunteers } = await useAPI("/volunteers", {
   params: {
@@ -18,7 +18,7 @@ const { data: volunteers } = await useAPI("/volunteers", {
   <main>
     <SectionAssociationPresentation />
     <SectionAssociationVolunteers
-      v-if="$showVolunteers2022 && volunteers?.length > 0"
+      v-if="SHOW_SECTION_VOLUNTEERS && volunteers?.length > 0"
       :volunteers="volunteers"
     />
   </main>

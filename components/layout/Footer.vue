@@ -2,7 +2,7 @@
 import { useNuxtApp, ref, computed } from "#imports";
 import {
   LayoutSectionGuidage,
-  LayoutTheNavigation,
+  LayoutNavigation,
   NuxtLink,
 } from "#components";
 
@@ -17,7 +17,6 @@ const disabledButton = computed(() => {
   return validateEmail(email.value);
 });
 
-const { $showNavigation } = useNuxtApp();
 
 const validateEmail = (email: string) =>
   email
@@ -106,10 +105,9 @@ const registerNewsletter = () => {
           </li>
         </ul>
         <div
-          v-if="$showNavigation"
           class="links"
         >
-          <LayoutTheNavigation display-cfp />
+          <LayoutNavigation display-cfp />
         </div>
         <ul class="newsletter">
           <li>

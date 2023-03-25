@@ -12,9 +12,9 @@ import { SectionTitle } from "#components";
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors 2022 | BDX I/O" });
 
-const { $showSponsors2022 } = useNuxtApp();
+const { SHOW_PAGE_SPONSORS } = useNuxtApp();
 
-if (!$showSponsors2022) {
+if (!SHOW_PAGE_SPONSORS) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 

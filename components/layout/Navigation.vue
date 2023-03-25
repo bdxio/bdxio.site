@@ -5,79 +5,103 @@ import { NuxtLink } from "#components";
 
 const props = defineProps<{
   displayCfp: boolean;
+  background?: 'light' | 'dark';
+  mobileOpen: boolean
 }>();
 
 const {
-  $showBilleterie,
-  $showTalks,
-  $showProgramme,
-  $showLive,
-  $showYoutube,
-  $showCfp,
+  SHOW_LINK_BILLETERIE,
+  SHOW_LINK_YOUTUBE,
+  SHOW_LINK_CFP,
+  SHOW_PAGE_TALKS,
+  SHOW_PAGE_PROGRAMME,
+  SHOW_PAGE_LIVE,
 } = useNuxtApp();
 
-const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
+const showCfp = computed(() => (props.displayCfp && SHOW_LINK_CFP) ?? false);
+
+const linkColor = computed(() => {
+  if (!props.background) {
+    return `text-bdxio-font-dark`;
+  }
+
+  if (props.background === 'dark') {
+    return `text-bdxio-font-light`;
+  }
+
+  return `text-bdxio-blue-dark`;
+})
+
+const mobileOpenClass = computed(() => {
+  console.log("mobile open", props.mobileOpen)
+  if (props.mobileOpen) {
+    return `mb-[100px]`;
+  }
+
+  return ""
+})
+
 </script>
 
 <template>
-  <ul class="flex flex-col justify-center items-center">
-    <li class="m-0">
+  <ul class="flex flex-col justify-center items-center m:flex-row m:justify-end">
+    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
       <NuxtLink
         to="/"
-        class="no-underline text-2xl m:text-[22px]"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Accueil
       </NuxtLink>
     </li>
     <li
-      v-if="$showProgramme"
-      class="m-0"
+      v-if="SHOW_PAGE_PROGRAMME"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
         to="/schedule"
-        class="no-underline text-[25px] m:text-base"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Programme
       </NuxtLink>
     </li>
-    <li class="m-0">
+    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
       <NuxtLink
         to="/sponsors2022"
-        class="no-underline text-[25px] m:text-base"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Sponsors
       </NuxtLink>
     </li>
-    <li class="m-0">
+    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
       <NuxtLink
         to="/asso"
-        class="no-underline text-[25px] m:text-base"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         L'asso
       </NuxtLink>
     </li>
-    <li class="m-0">
+    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
       <NuxtLink
         to="/jobs"
-        class="no-underline text-[25px] m:text-base"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Jobs
       </NuxtLink>
     </li>
     <li
-      v-if="$showTalks"
-      class="m-0"
+      v-if="SHOW_PAGE_TALKS"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
         to="/talks"
-        class="no-underline text-[25px] m:text-base"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Talks
       </NuxtLink>
     </li>
     <li
-      v-if="$showBilleterie"
-      class="m-0"
+      v-if="SHOW_LINK_BILLETERIE"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <a
         class="button button-primary--light"
@@ -88,8 +112,8 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
       </a>
     </li>
     <li
-      v-if="$showLive"
-      class="m-0"
+      v-if="SHOW_PAGE_LIVE"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
         to="/live"
@@ -100,8 +124,8 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
       </NuxtLink>
     </li>
     <li
-      v-if="$showYoutube"
-      class="m-0"
+      v-if="SHOW_LINK_YOUTUBE"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <a
         class="button button-primary--light"
@@ -113,7 +137,7 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
     </li>
     <li
       v-if="showCfp"
-      class="m-0"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <a
         class="button button-icon button-secondary button-secondary--light"
@@ -128,6 +152,23 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
 </template>
 
 <style lang="scss" scoped>
+
+.router-link-exact-active {
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 90px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("/images/drawings/blue_underline.png") no-repeat
+      center / cover;
+  }
+}
 .live {
   margin-left: 15px;
   width: 15px;

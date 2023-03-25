@@ -14,7 +14,7 @@ import { SectionTitle, AssociationOpenFeedback, NuxtLink } from "#components";
 definePageMeta({ layout: "page" });
 useHead({ title: "Programme | BDX I/O" });
 
-const { $showOpenfeedback, $showYoutube } = useNuxtApp();
+const { SHOW_LINK_OPENFEEDBACK, SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const filters = ref([]);
 const openPanel = ref(false);
@@ -106,17 +106,16 @@ function openMobilePanel() {
   }
 }
 
-function closeMobilePanel() {
-  openPanel.value = false;
-}
-
 onClickOutside(categoriesWrapper, () => openMobilePanel());
 </script>
 
 <template>
   <main class="section section-schedule">
     <header class="section-schedule__header">
-      <SectionTitle tag="h1" class="section-schedule__header__title">
+      <SectionTitle
+        tag="h1"
+        class="section-schedule__header__title"
+      >
         Le programme de la journée
       </SectionTitle>
     </header>
@@ -127,40 +126,46 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
           >Télécharger le programme</a
         > -->
         <AssociationOpenFeedback
-          v-if="$showOpenfeedback"
+          v-if="SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
         />
       </div>
       <div class="schedule-container">
-        <div v-if="categories.length" class="categories-container">
+        <div
+          v-if="categories.length"
+          class="categories-container"
+        >
           <div
+            ref="categoriesWrapper"
             class="categories"
             :class="{ open: openPanel }"
-            ref="categoriesWrapper"
           >
-            <span class="categories__title" @click.prevent="openMobilePanel">
+            <span
+              class="categories__title"
+              @click.prevent="openMobilePanel"
+            >
               Filtrer par thème
             </span>
             <ul class="categories__list">
               <li
-                @click="setFilter('tous')"
                 class="categories__category all"
                 :class="{ active: !filters.length }"
+                @click="setFilter('tous')"
               >
                 <span>Tous</span>
               </li>
               <li
                 v-for="category in categories"
                 :key="category.name"
-                @click="setFilter(category.name)"
                 class="categories__category"
                 :class="{ active: filters.includes(category.name) }"
+                @click="setFilter(category.name)"
               >
                 <img
                   class="categories__category__image"
                   :src="getCategoryImagePath(category.name)"
                   :alt="`Catégorie ${category.name}`"
-                />
+                >
                 <span class="categories__category__label">
                   {{ category.name }}
                 </span>
@@ -168,7 +173,10 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
             </ul>
           </div>
         </div>
-        <div v-if="schedule.length" class="slots">
+        <div
+          v-if="schedule.length"
+          class="slots"
+        >
           <div class="schedule">
             <div class="pre-schedule">
               <span class="pre-schedule__circle" />
@@ -181,22 +189,29 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                 ) in filteredSchedule"
                 :key="`slot-${indexSlot}`"
               >
-                <h4 class="slots__slot__hour">{{ formattedSlot }}</h4>
+                <h4 class="slots__slot__hour">
+                  {{ formattedSlot }}
+                </h4>
                 <div class="slots__slot__infos">
-                  <ul v-if="talks.length" class="slots__slot__infos__talks">
+                  <ul
+                    v-if="talks.length"
+                    class="slots__slot__infos__talks"
+                  >
                     <li
                       v-for="(talk, indexTalk) in talks"
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <div class="room">{{ talk.room.name }}</div>
+                      <div class="room">
+                        {{ talk.room.name }}
+                      </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <img
                             class="talk__infos__image"
                             :src="getCategoryImagePath(talk.category.name)"
                             :alt="`Catégorie ${talk.category.name}`"
-                          />
+                          >
                           <div class="talk__infos__content">
                             <span class="talk__infos__content__title">
                               {{ talk.title }}
@@ -209,29 +224,38 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       </NuxtLink>
                     </li>
                   </ul>
-                  <div v-else-if="space" class="slots__slot__infos__interlude">
+                  <div
+                    v-else-if="space"
+                    class="slots__slot__infos__interlude"
+                  >
                     <span class="room">{{ space }}</span>
                     <span class="slots__slot__infos__interlude__name">
                       {{ name }}
                     </span>
-                    <div v-if="$showOpenfeedback" class="openfeedback-keynote">
+                    <div
+                      v-if="SHOW_LINK_OPENFEEDBACK"
+                      class="openfeedback-keynote"
+                    >
                       <AssociationOpenFeedback
-                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                         v-if="name === `Keynote d'ouverture`"
+                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                       />
                       <AssociationOpenFeedback
-                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
                         v-if="name === `Keynote de fermeture`"
+                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
                       />
                     </div>
-                    <div v-if="$showYoutube" class="youtube-keynote">
+                    <div
+                      v-if="SHOW_LINK_YOUTUBE"
+                      class="youtube-keynote"
+                    >
                       <show-on-youtube
-                        href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
                         v-if="name === `Keynote d'ouverture`"
+                        href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
                       />
                       <show-on-youtube
-                        href="https://www.youtube.com/watch?v=ifXy9jRLWl8&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=40&ab_channel=bdxio"
                         v-if="name === `Keynote de fermeture`"
+                        href="https://www.youtube.com/watch?v=ifXy9jRLWl8&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=40&ab_channel=bdxio"
                       />
                     </div>
                   </div>
