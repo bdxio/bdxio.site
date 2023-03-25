@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
 import { NuxtLink } from "#components";
@@ -21,26 +20,65 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
 </script>
 
 <template>
-  <ul>
-    <li>
-      <NuxtLink to="/">Accueil</NuxtLink>
+  <ul class="flex flex-col justify-center items-center">
+    <li class="m-0">
+      <NuxtLink
+        to="/"
+        class="no-underline text-2xl m:text-[22px]"
+      >
+        Accueil
+      </NuxtLink>
     </li>
-    <li v-if="$showProgramme">
-      <NuxtLink to="/schedule">Programme</NuxtLink>
+    <li
+      v-if="$showProgramme"
+      class="m-0"
+    >
+      <NuxtLink
+        to="/schedule"
+        class="no-underline text-[25px] m:text-base"
+      >
+        Programme
+      </NuxtLink>
     </li>
-    <li>
-      <NuxtLink to="/sponsors2022">Sponsors</NuxtLink>
+    <li class="m-0">
+      <NuxtLink
+        to="/sponsors2022"
+        class="no-underline text-[25px] m:text-base"
+      >
+        Sponsors
+      </NuxtLink>
     </li>
-    <li>
-      <NuxtLink to="/asso">L'asso</NuxtLink>
+    <li class="m-0">
+      <NuxtLink
+        to="/asso"
+        class="no-underline text-[25px] m:text-base"
+      >
+        L'asso
+      </NuxtLink>
     </li>
-    <li>
-      <NuxtLink to="/jobs">Jobs</NuxtLink>
+    <li class="m-0">
+      <NuxtLink
+        to="/jobs"
+        class="no-underline text-[25px] m:text-base"
+      >
+        Jobs
+      </NuxtLink>
     </li>
-    <li v-if="$showTalks">
-      <NuxtLink to="/talks">Talks</NuxtLink>
+    <li
+      v-if="$showTalks"
+      class="m-0"
+    >
+      <NuxtLink
+        to="/talks"
+        class="no-underline text-[25px] m:text-base"
+      >
+        Talks
+      </NuxtLink>
     </li>
-    <li v-if="$showBilleterie">
+    <li
+      v-if="$showBilleterie"
+      class="m-0"
+    >
       <a
         class="button button-primary--light"
         href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
@@ -49,7 +87,10 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
         Billetterie
       </a>
     </li>
-    <li v-if="$showLive">
+    <li
+      v-if="$showLive"
+      class="m-0"
+    >
       <NuxtLink
         to="/live"
         class="button button-icon button-secondary button-secondary--light"
@@ -58,7 +99,10 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
         <div class="live" />
       </NuxtLink>
     </li>
-    <li v-if="$showYoutube">
+    <li
+      v-if="$showYoutube"
+      class="m-0"
+    >
       <a
         class="button button-primary--light"
         href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
@@ -67,7 +111,10 @@ const showCfp = computed(() => (props.displayCfp && $showCfp) ?? false);
         Revoir les talks
       </a>
     </li>
-    <li v-if="showCfp">
+    <li
+      v-if="showCfp"
+      class="m-0"
+    >
       <a
         class="button button-icon button-secondary button-secondary--light"
         href="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"

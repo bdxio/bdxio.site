@@ -1,27 +1,27 @@
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: $spc-m 0px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // padding: $spc-m 0px;
 
-  @include mobileFirst(m) {
-    padding: 30px 50px;
-    justify-content: space-between;
-  }
+  // @include mobileFirst(m) {
+  //   padding: 30px 50px;
+  //   justify-content: space-between;
+  // }
 
-  .logo img {
-    width: 100%;
-    height: auto;
-    max-width: 160px;
-  }
+  // .logo img {
+  //   width: 100%;
+  //   height: auto;
+  //   max-width: 160px;
+  // }
 
-  &__burger {
-    position: absolute;
-    @include z-index(modal);
-    right: $spc-m;
-    top: $spc-m;
-    cursor: pointer;
-  }
+  // &__burger {
+  //   position: absolute;
+  //   @include z-index(modal);
+  //   right: $spc-m;
+  //   top: $spc-m;
+  //   cursor: pointer;
+  // }
 
   &__nav {
     position: absolute;

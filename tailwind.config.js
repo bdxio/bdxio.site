@@ -69,6 +69,10 @@ module.exports = {
       default: 1,
       negative: -1,
     },
+    fontSize: {
+      base: "22px",
+      title: "40px"
+    },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
