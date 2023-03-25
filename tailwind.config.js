@@ -75,7 +75,8 @@ module.exports = {
     },
     boxShadow: {
       card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
-      'homepage-about': '0px 0px 30px 20px #F5F5F5'
+      'homepage-about': '0px 0px 30px 20px #F5F5F5',
+      'guidage': '0px 0px 30px 20px #F5F5F5;'
     },
     borderRadius: {
       radius: "8px"

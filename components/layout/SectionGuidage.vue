@@ -1,105 +1,63 @@
 <script setup lang="ts">
-// @ts-check
 import { SectionTitle } from "#components";
 </script>
 
 <template>
-  <section class="section guidage" id="join-us">
-    <div class="text-container">
-      <div class="infos">
-        <SectionTitle section tag="h2">Transports</SectionTitle>
-        <SectionTitle tag="h3">
-          Comment rejoindre<br />l'évènement ?
+  <section
+    id="join-us"
+    class="section bg-no-repeat bg-contain bg-grey-100 guidage"
+  >
+    <div class="relative pb-[450px] s:pb-0">
+      <div class="relative bg-grey-100 shadow-guidage s:max-w-[50%] infos">
+        <SectionTitle
+          section
+          tag="h2"
+          class="mx-[30px] my-0"
+        >
+          Transports
         </SectionTitle>
-        <div class="address-container">
+        <SectionTitle tag="h3">
+          Comment rejoindre<br>l'évènement ?
+        </SectionTitle>
+        <div class="flex flex-col gap-1 mb-[30px] address-container">
           <span class="title">Palais des congrès</span>
           <span class="description">
-            Avenue Jean Gabriel Domergue <br />
+            Avenue Jean Gabriel Domergue <br>
             33300 BORDEAUX
           </span>
         </div>
 
         <div>
-          <span class="title">Transport en commun :</span>
-          <span class="description">Bus 15 ou Tram C</span>
+          <span class="leading-7 font-bold text-2xl">Transport en commun :</span>
+          <span class="leading-[26px]">Bus 15 ou Tram C</span>
         </div>
         <div>
-          <span class="title">Vélo :</span>
-          <span class="description">
+          <span class="leading-7 font-bold text-2xl">Vélo :</span>
+          <span class="leading-[26px]">
             Parking vélo disponible et station VCub à proximité
           </span>
         </div>
         <div>
-          <span class="title">Voiture :</span>
-          <span class="description">Parking gratuit sur place</span>
+          <span class="leading-7 font-bold text-2xl">Voiture :</span>
+          <span class="leading-[26px]">Parking gratuit sur place</span>
         </div>
       </div>
-      <span class="show-m legend">À seulement 10 min de Bordeaux !</span>
+      <span class="italic absolute right-0 top-0 hidden m:block">À seulement 10 min de Bordeaux !</span>
     </div>
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .guidage {
-  background: url("/images/illustration_palais_congres.png") no-repeat;
+  background-image: url("/images/illustration_palais_congres.png");
   background-position-x: left;
   background-position-y: bottom;
-  background-size: contain;
-  background-color: $grey-100;
+}
 
-  @include mobileFirst(s) {
+@media screen and (min-width: 768px) {
+  .guidage {
     background-position-x: right;
-  }
 
-  .text-container {
-    position: relative;
-    padding-bottom: 450px;
-
-    @include mobileFirst(s) {
-      padding-bottom: 0;
-    }
-  }
-
-  .subSectionTitle {
-    margin: 30px 0;
-    padding: 0;
-  }
-
-  .address-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 30px;
-  }
-
-  .title {
-    line-height: 29px;
-    font-weight: $font-weight-bold;
-    font-size: 24px;
-  }
-
-  .description {
-    line-height: 26px;
-  }
-
-  .legend {
-    font-style: $font-style-italic;
-    position: absolute;
-    right: 0;
-
-    @include mobileFirst(s) {
-      top: 0;
-    }
-  }
-
-  .infos {
-    position: relative;
-    background-color: $grey-100;
-    box-shadow: 0px 0px 30px 20px $grey-100;
-
-    @include mobileFirst(s) {
-      max-width: 50%;
-    }
   }
 }
 </style>
