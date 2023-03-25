@@ -28,17 +28,17 @@ import { SectionTitle } from "#components";
         </div>
 
         <div>
-          <span class="leading-7 font-bold text-2xl">Transport en commun :</span>
+          <span class="leading-7 font-bold text-2xl">Transport en commun : </span>
           <span class="leading-[26px]">Bus 15 ou Tram C</span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Vélo :</span>
+          <span class="leading-7 font-bold text-2xl">Vélo : </span>
           <span class="leading-[26px]">
             Parking vélo disponible et station VCub à proximité
           </span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Voiture :</span>
+          <span class="leading-7 font-bold text-2xl">Voiture : </span>
           <span class="leading-[26px]">Parking gratuit sur place</span>
         </div>
       </div>

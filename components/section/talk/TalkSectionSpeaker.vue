@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { defineProps } from "vue";
 import { computed } from "#imports";
-import { SectionTitle, TalkSpeakerProfile } from "#components";
+import { SectionTitle, SectionTalkSpeakerProfile } from "#components";
 
 type Speaker = {
   name: string;
@@ -70,13 +70,13 @@ const speakerSocialLinks = computed(() => {
   <section class="talk-section-speaker">
     <div class="talk-section-speaker__header">
       <SectionTitle tag="h3">
-        <TalkSpeakerProfile :speaker="speaker" />
+        <SectionTalkSpeakerProfile :speaker="speaker" />
         <span>{{ speaker.name }}</span>
       </SectionTitle>
       <div
+        v-if="speakerSocialLinks.length > 0"
         tag="ul"
         class="speaker-socials"
-        v-if="speakerSocialLinks.length > 0"
       >
         <div
           v-for="(link, index) in speakerSocialLinks"
@@ -84,17 +84,24 @@ const speakerSocialLinks = computed(() => {
           tag="li"
           class="speaker-infos__details"
         >
-          <a :href="link.url" target="_blank" v-if="link.url">
+          <a
+            v-if="link.url"
+            :href="link.url"
+            target="_blank"
+          >
             <img
               :src="`/images/${link.imgPath}`"
               :alt="link.alt"
               class="info-logo"
-            />
+            >
           </a>
         </div>
       </div>
     </div>
-    <p v-if="speaker.bio" v-html="$md.render(speaker.bio)" />
+    <p
+      v-if="speaker.bio"
+      v-html="$md.render(speaker.bio)"
+    />
   </section>
 </template>
 

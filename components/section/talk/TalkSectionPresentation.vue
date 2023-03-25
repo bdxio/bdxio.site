@@ -5,7 +5,7 @@ import { useNuxtApp, computed } from "#imports";
 import {
   SectionTitle,
   ShowOnYoutube,
-  AssociationOpenFeedback,
+  SectionAssociationOpenFeedback,
 } from "#components";
 
 const props = defineProps<{
@@ -43,15 +43,22 @@ const duration = computed(() => {
       alt="Gribouillages BDXI/O"
       aria-hidden="true"
       class="underline-scribble"
-    />
+    >
     <div class="tag-container">
-      <div class="tag">{{ presentation.format }} - {{ duration }}min</div>
-      <div class="tag">{{ presentation.level }}</div>
-      <div class="tag" v-if="presentation.language">
+      <div class="tag">
+        {{ presentation.format }} - {{ duration }}min
+      </div>
+      <div class="tag">
+        {{ presentation.level }}
+      </div>
+      <div
+        v-if="presentation.language"
+        class="tag"
+      >
         {{ presentation.language }}
       </div>
       <div v-if="$showOpenfeedback && presentation.openfeedbackUrl">
-        <AssociationOpenFeedback :href="presentation.openfeedbackUrl" />
+        <SectionAssociationOpenFeedback :href="presentation.openfeedbackUrl" />
       </div>
       <div v-if="$showYoutube && presentation.youtubeUrl">
         <ShowOnYoutube :href="presentation.youtubeUrl" />

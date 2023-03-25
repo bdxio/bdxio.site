@@ -1,15 +1,10 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { useNuxtApp, ref, computed } from "#imports";
 import {
   LayoutSectionGuidage,
   LayoutTheNavigation,
   NuxtLink,
 } from "#components";
-import iconLinkedin from "/images/socials/linkedin.svg";
-import iconTwitter from "/images/socials/twitter.svg";
-import iconCloseBlue from "/images/icons/close_blue.svg";
-import iconYoutube from "/images/socials/youtube.svg";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -43,20 +38,26 @@ const registerNewsletter = () => {
     <LayoutSectionGuidage />
     <footer class="section">
       <div class="bdxio">
-        <NuxtLink class="logo" to="/">
+        <NuxtLink
+          class="logo"
+          to="/"
+        >
           <img
             src="/images/bdxio_logo_blue.png"
             alt="Logo de l'association BDX.IO"
-          />
+          >
           <span>Bordeaux Developers eXperience</span>
         </NuxtLink>
       </div>
       <div class="content">
         <div class="location">
-          <a href="https://goo.gl/maps/aScUymM4T4DqeBvz8" target="_blank">
-            <span class="location-name">Palais des congrès</span><br />
+          <a
+            href="https://goo.gl/maps/aScUymM4T4DqeBvz8"
+            target="_blank"
+          >
+            <span class="location-name">Palais des congrès</span><br>
             <span class="location-address">
-              Avenue Jean Gabriel Domergue<br />33300 BORDEAUX
+              Avenue Jean Gabriel Domergue<br>33300 BORDEAUX
             </span>
           </a>
         </div>
@@ -74,7 +75,10 @@ const registerNewsletter = () => {
               href="https://www.linkedin.com/company/10651416/"
               target="_blank"
             >
-              <img :src="iconLinkedin" alt="Icône LinkedIn BDX IO" />
+              <img
+                src="/images/socials/linkedin.svg"
+                alt="Icône LinkedIn BDX IO"
+              >
             </a>
           </li>
           <li>
@@ -83,7 +87,10 @@ const registerNewsletter = () => {
               target="_blank"
               aria-label="Twitter BDX I/O"
             >
-              <img :src="iconTwitter" alt="Icône Twitter BDX IO" />
+              <img
+                src="/images/socials/twitter.svg"
+                alt="Icône Twitter BDX IO"
+              >
             </a>
           </li>
           <li>
@@ -91,16 +98,25 @@ const registerNewsletter = () => {
               href="https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ"
               target="_blank"
             >
-              <img :src="iconYoutube" alt="Icône Youtube BDX IO" />
+              <img
+                src="/images/socials/youtube.svg"
+                alt="Icône Youtube BDX IO"
+              >
             </a>
           </li>
         </ul>
-        <div class="links" v-if="$showNavigation">
+        <div
+          v-if="$showNavigation"
+          class="links"
+        >
           <LayoutTheNavigation display-cfp />
         </div>
         <ul class="newsletter">
           <li>
-            <span @click="showEmailForm = true" class="cursor--pointer">
+            <span
+              class="cursor--pointer"
+              @click="showEmailForm = true"
+            >
               S'incrire à la newsletter
             </span>
             <form
@@ -110,12 +126,15 @@ const registerNewsletter = () => {
               @submit.prevent="registerNewsletter"
             >
               <img
-                :src="iconCloseBlue"
+                src="/images/icons/close_blue.svg"
                 alt="icone pour fermer le formulaire d'ajout d'email à la newsletter"
                 class="newsletter__form__close"
                 @click="showEmailForm = false"
-              />
-              <label for="email" class="label">Mon email :</label>
+              >
+              <label
+                for="email"
+                class="label"
+              >Mon email :</label>
               <input
                 v-model="email"
                 class="input"
@@ -124,7 +143,7 @@ const registerNewsletter = () => {
                 placeholder="hello@email.com"
                 size="30"
                 required
-              />
+              >
               <button
                 class="button"
                 :class="{ disabled: !disabledButton }"
@@ -138,7 +157,9 @@ const registerNewsletter = () => {
         </ul>
       </div>
       <div class="legal">
-        <NuxtLink to="/conduct"><small>Code de conduite</small></NuxtLink>
+        <NuxtLink to="/conduct">
+          <small>Code de conduite</small>
+        </NuxtLink>
         <!-- <small>Kit communication</small> -->
         <small>©2022 - BDX I/O</small>
         <div>
