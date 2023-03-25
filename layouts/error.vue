@@ -6,12 +6,13 @@ import { LayoutTheHeader, LayoutTheFooter } from "#components";
 <template>
   <div>
     <LayoutTheHeader background="light" />
-    <section class="section section-error">
-      <div class="message">
+    <section class="section flex justify-center items-center w-full">
+      <div class="flex flex-col items-center">
         <img
           src="/images/404-img.png"
           alt="Une illlustration représentant un ordinateur retro"
-        />
+          class="w-full max-w-[500px]"
+        >
         <p>
           Oups ! Il semblerait qu'une erreur soit survenue. N'hésitez pas à
           utiliser la navigation pour retourner sur le site
@@ -21,33 +22,3 @@ import { LayoutTheHeader, LayoutTheFooter } from "#components";
     <LayoutTheFooter />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.section-error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  .message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      width: 100%;
-      max-width: 500px;
-    }
-
-    .error {
-      padding: 30px;
-      background: $black;
-      border-radius: 12px;
-      color: $light;
-    }
-    a {
-      margin-top: $spc-m;
-    }
-  }
-}
-</style>

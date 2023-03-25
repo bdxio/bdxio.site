@@ -1,12 +1,11 @@
 <script setup lang="ts">
-// @ts-nocheck
-import { LayoutTheHeader, LayoutTheFooter } from "#components";
+import { LayoutHeader, LayoutFooter } from "#components";
 </script>
 
 <template>
   <div>
-    <LayoutTheHeader background="light" />
+    <LayoutHeader background="light" />
     <slot />
-    <LayoutTheFooter />
+    <LayoutFooter />
   </div>
 </template>
