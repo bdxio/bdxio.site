@@ -1,43 +1,48 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { SectionTitle } from "#components";
 </script>
 
 <template>
-  <section class="section news">
-    <SectionTitle tag="h2" class="title">
+  <section class="section flex flex-col gap-[50px] text-bdxio-blue-dark m:gap-[80px] m:items-center">
+    <SectionTitle
+      tag="h2"
+      class="text-center mt-0 mb-5 l:mb-[80px]"
+    >
       Les dernières actualités
     </SectionTitle>
-    <div class="news-container">
-      <div class="news-item">
+    <div class="flex overflow-x-auto gap-[35px]">
+      <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
-        />
-        <span class="item-title">Title 1</span>
-        <span class="item-description">
+          class="max-w-[310px] mb-4"
+        >
+        <span class="mb-1 font-bold text-[30px] leading-9">Title 1</span>
+        <span class="font-normal leading-8">
           Exemple de description d’une actualité très intéressante qui est
           arrivée recemment
         </span>
       </div>
-      <div class="news-item">
+      <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
-        />
-        <span class="item-title">Title 2</span>
-        <span class="item-description">
+          class="max-w-[310px] mb-4"
+        >
+        <span class="mb-1 font-bold text-[30px] leading-9">Title 2</span>
+        <span class="font-normal leading-8">
           Exemple de description d’une actualité très intéressante qui est
           arrivée recemment
         </span>
       </div>
-      <div class="news-item">
+      <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
           alt="photographie de l'équipe d'organisation de bdx.io"
-        />
-        <span class="item-title">Title 3</span>
-        <span class="item-description">
+          class="max-w-[310px] mb-4"
+        >
+        <span class="mb-1 font-bold text-[30px] leading-9">Title 3</span>
+        <span class="font-normal leading-8">
           Exemple de description d’une actualité très intéressante qui est
           arrivée recemment
         </span>
@@ -45,70 +50,3 @@ import { SectionTitle } from "#components";
     </div>
   </section>
 </template>
-
-<style lang="scss" scoped>
-.news {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  color: $primary-dark;
-
-  @include mobileFirst(m) {
-    gap: 80px;
-  }
-
-  .title {
-    text-align: center;
-  }
-
-  @include mobileFirst(m) {
-    align-items: center;
-  }
-
-  .subsection-title {
-    margin-top: 0;
-    margin-bottom: 40px;
-    @include mobileFirst(l) {
-      margin-bottom: 80px;
-    }
-  }
-
-  .news-container {
-    display: flex;
-    overflow-x: scroll;
-    gap: 35px;
-  }
-
-  .news-item {
-    max-width: 310px;
-    display: flex;
-    flex-direction: column;
-
-    img {
-      max-width: 310px;
-      margin-bottom: 34px;
-    }
-
-    .item-title {
-      margin-bottom: 8px;
-      font-style: normal;
-      font-weight: $font-weight-bold;
-      font-size: 30px;
-      line-height: 38px;
-    }
-
-    .item-description {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 400;
-      font-size: $font-size-content;
-      line-height: 32px;
-    }
-  }
-
-  .subsection-title {
-    // white-space: nowrap;
-    text-align: center;
-  }
-}
-</style>
