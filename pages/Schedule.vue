@@ -14,7 +14,7 @@ import { SectionTitle, AssociationOpenFeedback, NuxtLink } from "#components";
 definePageMeta({ layout: "page" });
 useHead({ title: "Programme | BDX I/O" });
 
-const { SHOW_LINK_OPENFEEDBACK, SHOW_LINK_YOUTUBE } = useNuxtApp();
+const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const filters = ref([]);
 const openPanel = ref(false);
@@ -126,7 +126,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
           >Télécharger le programme</a
         > -->
         <AssociationOpenFeedback
-          v-if="SHOW_LINK_OPENFEEDBACK"
+          v-if="$SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
         />
       </div>
@@ -233,7 +233,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       {{ name }}
                     </span>
                     <div
-                      v-if="SHOW_LINK_OPENFEEDBACK"
+                      v-if="$SHOW_LINK_OPENFEEDBACK"
                       class="openfeedback-keynote"
                     >
                       <AssociationOpenFeedback
@@ -246,7 +246,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       />
                     </div>
                     <div
-                      v-if="SHOW_LINK_YOUTUBE"
+                      v-if="$SHOW_LINK_YOUTUBE"
                       class="youtube-keynote"
                     >
                       <show-on-youtube

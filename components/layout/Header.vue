@@ -55,7 +55,6 @@ watch(
         :class="`absolute z-design w-full top-0 bottom-0 flex justify-center items-center ${mobileOpen ? 'right-0' : 'right-full'} ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:static m:block m:w-full m:bg-none`"
       >
         <LayoutNavigation
-          display-cfp
           :background="background"
           :mobile-open="mobileOpen"
         />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNuxtApp, ref, computed } from "#imports";
+import { ref, computed } from "#imports";
 import {
   LayoutSectionGuidage,
   LayoutNavigation,
@@ -107,7 +107,7 @@ const registerNewsletter = () => {
         <div
           class="links"
         >
-          <LayoutNavigation display-cfp />
+          <LayoutNavigation />
         </div>
         <ul class="newsletter">
           <li>

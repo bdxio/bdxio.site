@@ -2,7 +2,7 @@
 import { useNuxtApp } from "#imports";
 import { SectionTitle, IconsOpenNewWindow, LinkSecondary } from "#components";
 
-const { SHOW_LINK_CFP } = useNuxtApp();
+const { $SHOW_LINK_CFP } = useNuxtApp();
 </script>
 
 <template>
@@ -29,7 +29,7 @@ const { SHOW_LINK_CFP } = useNuxtApp();
       </p>
     </div>
     <LinkSecondary
-      v-if="SHOW_LINK_CFP"
+      v-if="$SHOW_LINK_CFP"
       color="grey"
       to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
       target="_blank"

@@ -1,27 +1,26 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
-import { NuxtLink } from "#components";
+import { NuxtLink, LinkSecondary } from "#components";
 
 const props = defineProps<{
-  displayCfp: boolean;
   background?: 'light' | 'dark';
-  mobileOpen: boolean
+  mobileOpen?: boolean
 }>();
 
 const {
-  SHOW_LINK_BILLETERIE,
-  SHOW_LINK_YOUTUBE,
-  SHOW_LINK_CFP,
-  SHOW_PAGE_TALKS,
-  SHOW_PAGE_PROGRAMME,
-  SHOW_PAGE_LIVE,
-  SHOW_PAGE_SPONSORS,
-  SHOW_PAGE_ASSOCIATION,
-  SHOW_PAGE_JOBS
+  $SHOW_LINK_BILLETERIE,
+  $SHOW_LINK_YOUTUBE,
+  $SHOW_LINK_CFP,
+  $SHOW_PAGE_TALKS,
+  $SHOW_PAGE_PROGRAMME,
+  $SHOW_PAGE_LIVE,
+  $SHOW_PAGE_SPONSORS,
+  $SHOW_PAGE_ASSOCIATION,
+  $SHOW_PAGE_JOBS
 } = useNuxtApp();
 
-const showCfp = computed(() => (props.displayCfp && SHOW_LINK_CFP) ?? false);
+console.log(useNuxtApp())
 
 const linkColor = computed(() => {
   if (!props.background) {
@@ -36,7 +35,6 @@ const linkColor = computed(() => {
 })
 
 const mobileOpenClass = computed(() => {
-  console.log("mobile open", props.mobileOpen)
   if (props.mobileOpen) {
     return `mb-[100px]`;
   }
@@ -57,7 +55,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li
-      v-if="SHOW_PAGE_PROGRAMME"
+      v-if="$SHOW_PAGE_PROGRAMME"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -68,7 +66,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li 
-      v-if="SHOW_PAGE_SPONSORS"
+      v-if="$SHOW_PAGE_SPONSORS"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -79,7 +77,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li 
-      v-if="SHOW_PAGE_ASSOCIATION"
+      v-if="$SHOW_PAGE_ASSOCIATION"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -90,7 +88,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li 
-      v-if="SHOW_PAGE_JOBS"
+      v-if="$SHOW_PAGE_JOBS"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -101,7 +99,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li
-      v-if="SHOW_PAGE_TALKS"
+      v-if="$SHOW_PAGE_TALKS"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -112,7 +110,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li
-      v-if="SHOW_PAGE_LIVE"
+      v-if="$SHOW_PAGE_LIVE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
@@ -124,7 +122,7 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li
-      v-if="SHOW_LINK_BILLETERIE"
+      v-if="$SHOW_LINK_BILLETERIE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <a
@@ -136,7 +134,7 @@ const mobileOpenClass = computed(() => {
       </a>
     </li>
     <li
-      v-if="SHOW_LINK_YOUTUBE"
+      v-if="$SHOW_LINK_YOUTUBE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <a
@@ -148,27 +146,28 @@ const mobileOpenClass = computed(() => {
       </a>
     </li>
     <li
-      v-if="showCfp"
+      v-if="$SHOW_LINK_CFP"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
-      <a
-        class="button button-icon button-secondary button-secondary--light"
-        href="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+      <LinkSecondary
+        to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+        color="light"
         target="_blank"
       >
         CFP
         <!-- <IconsOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
-      </a>
+      </LinkSecondary>
     </li>
   </ul>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 
 .router-link-exact-active {
   position: relative;
+}
 
-  &:after {
+.router-link-exact-active::after {
     content: "";
     width: 90px;
     height: 30px;
@@ -179,7 +178,6 @@ const mobileOpenClass = computed(() => {
     transform: translateX(-50%);
     background: url("/images/drawings/blue_underline.png") no-repeat
       center / cover;
-  }
 }
 .live {
   margin-left: 15px;
