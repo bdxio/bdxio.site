@@ -129,7 +129,7 @@ function setFilter() {}
             'border-color': talk.category?.color || 'black',
           }"
         >
-          <NuxtLink :to="`/talks/${id}`">
+          <NuxtLink :to="`/talks/${talk.id}`">
             <div>
               <h2 class="title">
                 {{ talk.title }}
