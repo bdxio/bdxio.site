@@ -2,7 +2,7 @@ import { defineNuxtPlugin } from "#imports";
 
 const sectionsFlags = {
   SHOW_SECTION_VOLUNTEERS: false,
-}
+};
 
 const linksFlags = {
   SHOW_LINK_CFP: true,
@@ -10,7 +10,7 @@ const linksFlags = {
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
   SHOW_LINK_PROGRAMME_PDF: false,
-}
+};
 
 const pageFlags = {
   SHOW_PAGE_PROGRAMME: false,
@@ -19,7 +19,7 @@ const pageFlags = {
   SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKs: false,
   SHOW_PAGE_LIVE: false,
-}
+};
 
 const FLAGS = {
   ...linksFlags,
