@@ -3,7 +3,10 @@ import { SectionTitle } from "#components";
 </script>
 
 <template>
-  <div class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px] m:gap-[90px] section-sponsors">
+  <div
+    class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px] 
+      m:gap-[90px] section-sponsors"
+  >
     <SectionTitle
       tag="h2"
       class="relative z-relative s:after:ml-0 m:after:ml-[50px] title"
@@ -14,7 +17,8 @@ import { SectionTitle } from "#components";
       <a
         href="https://www.atinternet.com/en/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center justify-center"
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center 
+          justify-center"
       >
         <img
           src="/images/sponsors/at-internet.png"
@@ -25,7 +29,8 @@ import { SectionTitle } from "#components";
       <a
         href="https://apside.com/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center justify-center"
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center 
+          justify-center"
       >
         <img
           src="/images/sponsors/apside.png"
@@ -36,7 +41,8 @@ import { SectionTitle } from "#components";
       <a
         href="https://astekgroup.fr/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center justify-center"
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center
+          justify-center"
       >
         <img
           src="/images/sponsors/astek.webp"
@@ -47,7 +53,8 @@ import { SectionTitle } from "#components";
       <a
         href="https://www.groupe-creative.fr/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center justify-center"
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center
+          justify-center"
       >
         <img
           src="/images/sponsors/groupe-creative.png"
@@ -58,7 +65,8 @@ import { SectionTitle } from "#components";
       <a
         href="https://www.groupeonepoint.com/fr/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center justify-center"
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center
+          justify-center"
       >
         <img
           src="/images/sponsors/onepoint.png"

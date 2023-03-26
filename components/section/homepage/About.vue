@@ -7,7 +7,10 @@ import { SectionTitle } from "#components";
     id="about"
     class="pb-[200px] xs:pb-[250px] s:bg-[50%] s:pb-0 s:flex s:justify-end l:bg-[45%] overflow-hidden section bourse"
   >
-    <div class="ml-0 bg-grey-100 shadow-homepage-about s:bg-center s:relative s:flex s:flex-col s:justify-center s:ml-[55%] s:pl-0 section about-us">
+    <div
+      class="ml-0 bg-grey-100 shadow-homepage-about s:bg-center s:relative s:flex s:flex-col s:justify-center 
+        s:ml-[55%] s:pl-0 section about-us"
+    >
       <SectionTitle tag="h2">
         Qu'est-ce que <span class="whitespace-nowrap">BDX I/O</span>&nbsp;?
       </SectionTitle>

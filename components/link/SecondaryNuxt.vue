@@ -26,7 +26,8 @@ const colorClasses = computed(() => {
 <template>
   <NuxtLink
     :to="to"
-    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit block mt-8 ${colorClasses}`"
+    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit 
+      block mt-8 ${colorClasses}`"
   >
     <slot />
   </NuxtLink>

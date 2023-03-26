@@ -7,7 +7,10 @@ import { TheCounter } from "#components";
     class="grid grid-cols-homepage-key-concepts m:grid-cols-homepage-key-concepts-m section-key-concepts"
   >
     <div class="picture picture-amphi" />
-    <div class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 py-4 relative z-absolute info-amphis card-1">
+    <div
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+        py-4 relative z-absolute info-amphis card-1"
+    >
       <p class="block m-0 font-bold text-[82px] leading-none">
         <TheCounter :value="5" />
       </p>
@@ -19,7 +22,10 @@ import { TheCounter } from "#components";
       </p>
     </div>
     <div class="picture picture-conversation" />
-    <div class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 py-4 relative z-absolute info-themes card-2">
+    <div
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+        py-4 relative z-absolute info-themes card-2"
+    >
       <p class="block m-0 font-bold text-[82px] leading-none">
         <TheCounter :value="7" />
       </p>
@@ -31,7 +37,10 @@ import { TheCounter } from "#components";
       </p>
     </div>
     <div class="picture picture-mascotte" />
-    <div class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 py-4 relative z-absolute info-conferences card-3">
+    <div
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+      py-4 relative z-absolute info-conferences card-3"
+    >
       <p class="block m-0 relative z-relative font-bold text-[82px] leading-none">
         <TheCounter :value="40" />
       </p>
@@ -44,7 +53,10 @@ import { TheCounter } from "#components";
     </div>
     <div class="picture picture-mascotte2" />
     <div class="picture picture-speaker show-s" />
-    <div class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 py-4 relative z-absolute info-attendees card-4">
+    <div
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
+        py-4 relative z-absolute info-attendees card-4"
+    >
       <p class="block m-0 font-bold text-[82px] leading-none">
         <TheCounter
           :value="900"

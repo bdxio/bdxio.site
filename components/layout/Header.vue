@@ -24,7 +24,8 @@ watch(
 
 <template>
   <header
-    :class="`pt-3 flex justify-center items-center px-4 py-0 m:px-[30px] m:py-[50px] m:justify-between ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} header`"
+    :class="`pt-3 flex justify-center items-center px-4 py-0 m:px-[30px] m:py-[50px] m:justify-between 
+      ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} header`"
   >
     <NuxtLink
       to="/"
@@ -49,7 +50,9 @@ watch(
         class="absolute z-modal right-4 top-4 cursor-pointer m:hidden"
       >
       <nav
-        :class="`absolute z-design w-full top-0 bottom-0 flex justify-center items-center ${mobileOpen ? 'right-0' : 'right-full'} ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:static m:block m:w-full m:bg-none`"
+        :class="`absolute z-design w-full top-0 bottom-0 flex justify-center items-center 
+          ${mobileOpen ? 'right-0' : 'right-full'} ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} 
+          m:static m:block m:w-full m:bg-none`"
       >
         <LayoutNavigation
           :background="background"
