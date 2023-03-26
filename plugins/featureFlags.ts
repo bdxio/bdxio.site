@@ -1,10 +1,10 @@
 import { defineNuxtPlugin } from "#imports";
 
-const sectionsFlags = {
+const sectionFlags = {
   SHOW_SECTION_VOLUNTEERS: false,
 };
 
-const linksFlags = {
+const linkFlags = {
   SHOW_LINK_CFP: false,
   SHOW_LINK_BILLETERIE: false,
   SHOW_LINK_OPENFEEDBACK: false,
@@ -22,9 +22,9 @@ const pageFlags = {
 };
 
 const FLAGS = {
-  ...linksFlags,
+  ...linkFlags,
   ...pageFlags,
-  ...sectionsFlags,
+  ...sectionFlags,
 };
 
 export default defineNuxtPlugin(() => {
