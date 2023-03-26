@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { SectionTitle, IconsOpenNewWindow, LinkSecondary } from "#components";
+import { SectionTitle, IconOpenNewWindow, LinkSecondary } from "#components";
 
 const { $SHOW_LINK_CFP } = useNuxtApp();
 </script>
@@ -35,7 +35,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       target="_blank"
     >
       Devenir speaker
-      <IconsOpenNewWindow
+      <IconOpenNewWindow
         color="#373739"
         border-color="#373739"
       />

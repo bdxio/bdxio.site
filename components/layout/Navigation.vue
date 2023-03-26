@@ -142,7 +142,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
         target="_blank"
       >
         CFP
-        <!-- <IconsOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
+        <!-- <IconOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
       </LinkSecondary>
     </li>
   </ul>
