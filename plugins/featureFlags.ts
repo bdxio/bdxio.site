@@ -5,7 +5,7 @@ const sectionsFlags = {
 };
 
 const linksFlags = {
-  SHOW_LINK_CFP: true,
+  SHOW_LINK_CFP: false,
   SHOW_LINK_BILLETERIE: false,
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
@@ -17,7 +17,7 @@ const pageFlags = {
   SHOW_PAGE_SPONSORS: false,
   SHOW_PAGE_ASSOCIATION: false,
   SHOW_PAGE_JOBS: false,
-  SHOW_PAGE_TALKs: false,
+  SHOW_PAGE_TALKS: false,
   SHOW_PAGE_LIVE: false,
 };
 
