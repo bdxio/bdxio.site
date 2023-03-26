@@ -16,6 +16,9 @@ const {
   SHOW_PAGE_TALKS,
   SHOW_PAGE_PROGRAMME,
   SHOW_PAGE_LIVE,
+  SHOW_PAGE_SPONSORS,
+  SHOW_PAGE_ASSOCIATION,
+  SHOW_PAGE_JOBS
 } = useNuxtApp();
 
 const showCfp = computed(() => (props.displayCfp && SHOW_LINK_CFP) ?? false);
@@ -64,7 +67,10 @@ const mobileOpenClass = computed(() => {
         Programme
       </NuxtLink>
     </li>
-    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
+    <li 
+      v-if="SHOW_PAGE_SPONSORS"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+    >
       <NuxtLink
         to="/sponsors2022"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
@@ -72,7 +78,10 @@ const mobileOpenClass = computed(() => {
         Sponsors
       </NuxtLink>
     </li>
-    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
+    <li 
+      v-if="SHOW_PAGE_ASSOCIATION"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+    >
       <NuxtLink
         to="/asso"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
@@ -80,7 +89,10 @@ const mobileOpenClass = computed(() => {
         L'asso
       </NuxtLink>
     </li>
-    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
+    <li 
+      v-if="SHOW_PAGE_JOBS"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+    >
       <NuxtLink
         to="/jobs"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
@@ -100,18 +112,6 @@ const mobileOpenClass = computed(() => {
       </NuxtLink>
     </li>
     <li
-      v-if="SHOW_LINK_BILLETERIE"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
-    >
-      <a
-        class="button button-primary--light"
-        href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
-        target="_blank"
-      >
-        Billetterie
-      </a>
-    </li>
-    <li
       v-if="SHOW_PAGE_LIVE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
@@ -122,6 +122,18 @@ const mobileOpenClass = computed(() => {
         Live
         <div class="live" />
       </NuxtLink>
+    </li>
+    <li
+      v-if="SHOW_LINK_BILLETERIE"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+    >
+      <a
+        class="button button-primary--light"
+        href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
+        target="_blank"
+      >
+        Billetterie
+      </a>
     </li>
     <li
       v-if="SHOW_LINK_YOUTUBE"

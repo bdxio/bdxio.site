@@ -25,7 +25,7 @@ watch(
 
 <template>
   <header
-    :class="`flex justify-center items-center px-4 py-0 m:px-[30px] m:py-[50px] m:justify-between ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} header`"
+    :class="`pt-3 flex justify-center items-center px-4 py-0 m:px-[30px] m:py-[50px] m:justify-between ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} header`"
   >
     <NuxtLink
       to="/"
