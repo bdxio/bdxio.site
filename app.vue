@@ -1,15 +1,12 @@
-<script lang="ts" setup>
-import { ref, useHead } from "#imports";
-
-const title = ref("BDX I/O");
-const description = ref(/* @TODO : fill it */ "");
+<script setup lang="ts">
+import { useHead } from "#imports";
 
 useHead({
-  title,
+  title: "BDX I/O",
   meta: [
     {
       name: "description",
-      content: description,
+      content: "BDX I/O est une conférence pour les développeur•euse•s, sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.",
     },
   ],
 });
