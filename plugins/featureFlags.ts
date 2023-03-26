@@ -1,6 +1,5 @@
 import { defineNuxtPlugin } from "#imports";
 
-
 const sectionsFlags = {
   SHOW_SECTION_VOLUNTEERS: false,
 }
@@ -10,7 +9,7 @@ const linksFlags = {
   SHOW_LINK_BILLETERIE: false,
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
-  SHOW_LINK_PROGRAMME_PDF: false
+  SHOW_LINK_PROGRAMME_PDF: false,
 }
 
 const pageFlags = {
@@ -25,14 +24,12 @@ const pageFlags = {
 const FLAGS = {
   ...linksFlags,
   ...pageFlags,
-  ...sectionsFlags
+  ...sectionsFlags,
 };
 
 export default defineNuxtPlugin(() => {
   const flags = Object.entries(FLAGS).reduce((flags, [key, value]) => {
-    Object.assign(flags, {
-     [key]: value
-    })
+    Object.assign(flags, { [key]: value });
     return flags;
   }, {});
 

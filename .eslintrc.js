@@ -2,6 +2,8 @@ module.exports = {
   root: true,
   extends: ["@nuxt/eslint-config"],
   rules: {
-    "vue/multi-word-component-names": "off"
-  }
+    "quotes": ["error", "double"],
+    "comma-dangle": ["error", "always-multiline"],
+    "vue/multi-word-component-names": "off",
+  },
 };

@@ -23,7 +23,7 @@ const getSocialUrl = (
     | Speaker["twitter"]
     | Speaker["github"]
     | Speaker["website"]
-    | Speaker["linkedin"]
+    | Speaker["linkedin"],
 ) => {
   if (link.startsWith("http")) {
     return link;
@@ -98,9 +98,10 @@ const speakerSocialLinks = computed(() => {
         </div>
       </div>
     </div>
+    <!-- eslint-disable vue/no-v-html -->
     <p
       v-if="speaker.bio"
-      v-html="$md.render(speaker.bio)"
+      v-html="$md.render(speaker.bio)" 
     />
   </section>
 </template>

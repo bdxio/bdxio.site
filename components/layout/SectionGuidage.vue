@@ -26,7 +26,6 @@ import { SectionTitle } from "#components";
             33300 BORDEAUX
           </span>
         </div>
-
         <div>
           <span class="leading-7 font-bold text-2xl">Transport en commun : </span>
           <span class="leading-[26px]">Bus 15 ou Tram C</span>

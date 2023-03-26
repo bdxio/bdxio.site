@@ -35,7 +35,7 @@ const filteredSchedule = computed(() => {
       return {
         ...slot,
         talks: slot.talks.filter((t) =>
-          filters.value.includes(t.category.name)
+          filters.value.includes(t.category.name),
         ),
       };
     })

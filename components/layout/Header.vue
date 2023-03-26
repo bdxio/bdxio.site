@@ -3,7 +3,6 @@ import { defineProps } from "vue";
 import { useRoute, ref, watch } from "#imports";
 import { NuxtLink, LayoutNavigation } from "#components";
 
-
 defineProps<{
   background: "light" | "dark";
 }>();
@@ -12,14 +11,14 @@ const mobileOpen = ref(false);
 const { path } = useRoute();
 
 const toggleMenu = () => {
-  mobileOpen.value = !mobileOpen.value
-  console.log(mobileOpen.value)
+  mobileOpen.value = !mobileOpen.value;
 };
+
 watch(
   () => path,
   () => {
     mobileOpen.value = false;
-  }
+  },
 );
 </script>
 
@@ -36,9 +35,7 @@ watch(
         class="block w-full h-auto max-w-[160px]"
       >
     </NuxtLink>
-    <div
-      @click.prevent="toggleMenu"
-    >
+    <div @click.prevent="toggleMenu">
       <img
         v-if="mobileOpen"
         :src="background === 'light' ? '/images/icons/close_blue.svg' : '/images/icons/close.svg'"

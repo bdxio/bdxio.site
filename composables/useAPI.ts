@@ -8,7 +8,7 @@ export default async function useAPI(endpoint, options) {
     {
       headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
       ...options,
-    }
+    },
   );
 
   if (error.value?.status === 404) {

@@ -10,9 +10,16 @@ defineProps<{
 
 <template>
   <div class="show-on-youtube">
-    <a :href="href" target="_blank" class="button">
+    <a
+      :href="href"
+      target="_blank"
+      class="button"
+    >
       voir sur youtube
-      <img :src="iconYoutube" alt="Logo youtube" />
+      <img
+        :src="iconYoutube"
+        alt="Logo youtube"
+      >
     </a>
   </div>
 </template>

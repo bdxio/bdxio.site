@@ -10,7 +10,7 @@ import {
 import {
   SectionSponsorsBecomeSponsor,
   SectionSponsorsOffersAndSponsors,
-  SectionSponsorOffers
+  SectionSponsorOffers,
 } from "#components";
 
 definePageMeta({ layout: "page" });

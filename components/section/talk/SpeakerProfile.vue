@@ -23,8 +23,11 @@ const initials = computed(() => {
       class="speaker-picture"
       :src="speaker.photoUrl"
       :alt="`Photo de ${speaker.name}`"
-    />
-    <div v-else class="custom-profil">
+    >
+    <div
+      v-else
+      class="custom-profil"
+    >
       <span>{{ initials }}</span>
     </div>
   </div>

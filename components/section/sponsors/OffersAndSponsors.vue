@@ -30,16 +30,19 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
 </script>
 
 <template>
-  <section class="section section-sponsor-offers" id="offers">
+  <section
+    id="offers"
+    class="section section-sponsor-offers"
+  >
     <h3 class="title">
       Les <span class="before">offres</span> et
       <span class="after">sponsors 2022</span>
     </h3>
     <div class="offers">
       <div
-        gutter-m
         v-for="(offer, index) in offers"
         :key="`${offer.label}-${offer.id}`"
+        gutter-m
         class="offer"
       >
         <div
@@ -48,23 +51,25 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
           class="offer__infos"
           :class="getOfferClasses(offer.full, index)"
         >
-          <h4 class="offer__name">{{ offer.label }}</h4>
+          <h4 class="offer__name">
+            {{ offer.label }}
+          </h4>
           <span class="offer__price">{{ offer.price }} €</span>
           <p class="offer__description">
             {{ offer.description }}
           </p>
         </div>
         <div
+          v-if="offer.sponsors.length"
           s8
           class="offer__sponsors"
-          v-if="offer.sponsors.length"
           :style="{
             gridTemplateColumns: `repeat(${offer.sponsors.length}, 210px)`,
           }"
         >
           <div
-            v-for="(sponsor, index) in offer.sponsors"
-            :key="`sponsor-${index}`"
+            v-for="(sponsor, sponsorIndex) in offer.sponsors"
+            :key="`sponsor-${sponsorIndex}`"
             class="offer__sponsors__sponsor card"
           >
             <a
@@ -76,7 +81,7 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
                 class="offer__sponsors__sponsor__image"
                 :src="sponsor.logo?.url || '/images/bdxio_logo_blue.png'"
                 :alt="`Logo de ${sponsor.name}`"
-              />
+              >
             </a>
           </div>
         </div>

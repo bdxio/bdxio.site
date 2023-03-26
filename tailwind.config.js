@@ -58,7 +58,7 @@ module.exports = {
       6: "3rem",
       7: "3.5rem",
       8: "4rem",
-      100: "100px"
+      100: "100px",
     },
     zIndex: {
       upper: 9999,
@@ -71,7 +71,7 @@ module.exports = {
     },
     fontSize: {
       base: "22px",
-      title: "40px"
+      title: "40px",
     },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
@@ -79,19 +79,19 @@ module.exports = {
     },
     boxShadow: {
       card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
-      'homepage-about': '0px 0px 30px 20px #F5F5F5',
-      'guidage': '0px 0px 30px 20px #F5F5F5;'
+      "homepage-about": "0px 0px 30px 20px #F5F5F5",
+      "guidage": "0px 0px 30px 20px #F5F5F5;",
     },
     borderRadius: {
-      radius: "8px"
+      radius: "8px",
     },
     gridTemplateColumns: {
-      'homepage-portraits': 'repeat(4, 210px)',
-      'homepage-portraits-m': 'repeat(2, 210px)',
-      'homepage-key-concepts': 'repeat(2, 50%)',
-      'homepage-key-concepts-m': 'repeat(6, 1fr)',
-      'homegpage-categories-m': 'repeat(2, 1fr)',
-      'homegpage-categories-xxl': 'repeat(3, 1fr)',
-    }
+      "homepage-portraits": "repeat(4, 210px)",
+      "homepage-portraits-m": "repeat(2, 210px)",
+      "homepage-key-concepts": "repeat(2, 50%)",
+      "homepage-key-concepts-m": "repeat(6, 1fr)",
+      "homegpage-categories-m": "repeat(2, 1fr)",
+      "homegpage-categories-xxl": "repeat(3, 1fr)",
+    },
   },
 };

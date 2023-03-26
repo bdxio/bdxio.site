@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { SectionTitle, NuxtLink, } from "#components";
+import { SectionTitle, NuxtLink } from "#components";
 
 type Volunteer = {
   id: string;
@@ -15,7 +15,7 @@ type Volunteer = {
   github?: string;
   website?: string;
   profilePicture?: {
-    url: string
+    url: string;
   };
 };
 
@@ -25,7 +25,7 @@ defineProps<{
 
 function getVolunteerName(
   firstname: Volunteer["firstname"],
-  lastname: Volunteer["lastname"]
+  lastname: Volunteer["lastname"],
 ) {
   if (!firstname && !lastname) {
     return null;
@@ -50,7 +50,7 @@ function getVolunteerName(
       class="text-center mt-0 title"
     >
       Découvrez les membres <br>
-      de notre <span class="relative z-relative équipe">équipe</span>
+      de notre <span class="relative z-relative team">équipe</span>
     </SectionTitle>
 
     <ul
@@ -163,7 +163,7 @@ function getVolunteerName(
 </template>
 
 <style lang="css" scoped>
-.équipe::after {
+.team::after {
   content: "";
   width: 80px;
   height: 80px;

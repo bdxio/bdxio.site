@@ -39,7 +39,6 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
         >
           Un petit groupe de bénévoles <span class="bordelais">bordelais</span> !
         </SectionTitle>
-
         <p class="mt-4">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial
           et de grande ampleur. Notre objectif est de permettre à l’ensemble des
@@ -47,7 +46,6 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           conférences dédiées à l’ensemble des métiers du web, et ce depuis 2014
           !
         </p>
-
         <ButtonSecondary
           v-if="LINK_PROGRAMME_PDF"
           color="dark"

@@ -57,42 +57,54 @@ function getSpeakerInitials(name) {
     .toUpperCase()}`;
 }
 
-function setFilter(filter) {}
+function setFilter() {}
 </script>
 
 <template>
   <main>
     <div class="section section-talks">
       <header class="section-talks__header">
-        <SectionTitle tag="h1" class="section-talks__header__title">
+        <SectionTitle
+          tag="h1"
+          class="section-talks__header__title"
+        >
           Les talks
         </SectionTitle>
-        <ul class="section-talks__header__filters" v-if="categories.length">
-          <li class="section-talks__header__filters__filter" click="setFilter">
-            <input
-              type="radio"
-              id="all"
-              value="all"
-              v-model="currentFilter"
-              class="display--none"
-              :class="{ active: currentFilter === 'all' }"
-            />
-            <label for="all" class="cursor--pointer">Tous</label>
-          </li>
+        <ul
+          v-if="categories.length"
+          class="section-talks__header__filters"
+        >
           <li
             class="section-talks__header__filters__filter"
+            click="setFilter"
+          >
+            <input
+              id="all"
+              v-model="currentFilter"
+              type="radio"
+              value="all"
+              class="display--none"
+              :class="{ active: currentFilter === 'all' }"
+            >
+            <label
+              for="all"
+              class="cursor--pointer"
+            >Tous</label>
+          </li>
+          <li
             v-for="category in categories"
             :key="`filter-${category.id}`"
+            class="section-talks__header__filters__filter"
             @click="setFilter(category.id)"
           >
             <input
-              type="radio"
               :id="category.name"
-              :value="category.id"
               v-model="currentFilter"
+              type="radio"
+              :value="category.id"
               class="display--none"
               :class="{ active: currentFilter === category.id }"
-            />
+            >
             <label
               :for="category.name"
               class="cursor--pointer"
@@ -119,7 +131,9 @@ function setFilter(filter) {}
         >
           <NuxtLink :to="`/talks/${id}`">
             <div>
-              <h2 class="title">{{ talk.title }}</h2>
+              <h2 class="title">
+                {{ talk.title }}
+              </h2>
               <span class="level">{{ talk.level }}</span>
               <p
                 v-if="talk.category?.name"
@@ -129,7 +143,10 @@ function setFilter(filter) {}
                 {{ talk.category?.name }}
               </p>
             </div>
-            <div v-if="talk.speakers?.length" class="speakers">
+            <div
+              v-if="talk.speakers?.length"
+              class="speakers"
+            >
               <div
                 v-for="(speaker, index) in talk.speakers"
                 :key="`speaker-${speaker.id}`"
@@ -142,7 +159,7 @@ function setFilter(filter) {}
                     v-if="speaker.photoUrl"
                     :src="speaker.photoUrl"
                     class="speakers__speaker__infos__image"
-                  />
+                  >
                   <span
                     v-else
                     class="speakers__speaker__infos__initials"

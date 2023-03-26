@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "#imports";
-import {
-  LayoutSectionGuidage,
-  LayoutNavigation,
-  NuxtLink,
-} from "#components";
+import { LayoutSectionGuidage, LayoutNavigation, NuxtLink } from "#components";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -17,12 +13,11 @@ const disabledButton = computed(() => {
   return validateEmail(email.value);
 });
 
-
 const validateEmail = (email: string) =>
   email
     .toLowerCase()
     .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     );
 
 const registerNewsletter = () => {
@@ -104,9 +99,7 @@ const registerNewsletter = () => {
             </a>
           </li>
         </ul>
-        <div
-          class="links"
-        >
+        <div class="links">
           <LayoutNavigation />
         </div>
         <ul class="newsletter">
@@ -132,7 +125,9 @@ const registerNewsletter = () => {
               <label
                 for="email"
                 class="label"
-              >Mon email :</label>
+              >
+                Mon email :
+              </label>
               <input
                 v-model="email"
                 class="input"

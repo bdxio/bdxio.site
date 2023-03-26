@@ -5,12 +5,26 @@ import { SectionTitle } from "#components";
 </script>
 
 <template>
-  <section class="section section-sponsor-offers" id="offers">
-    <SectionTitle tag="h3" class="text-align--center title">
+  <section
+    id="offers"
+    class="section section-sponsor-offers"
+  >
+    <SectionTitle
+      tag="h3"
+      class="text-align--center title"
+    >
       Les offres
     </SectionTitle>
-    <div gutter-m class="offers">
-      <div xs12 s6 l3 class="offer soldout">
+    <div
+      gutter-m
+      class="offers"
+    >
+      <div
+        xs12
+        s6
+        l3
+        class="offer soldout"
+      >
         <span class="offer__name purple">Balthazar</span>
         <span class="offer__price">5 000 €</span>
         <p class="offer__description">
@@ -18,7 +32,12 @@ import { SectionTitle } from "#components";
           entreprise avant l’événement et avoir une expérience unique le jour J.
         </p>
       </div>
-      <div xs12 s6 l3 class="offer soldout">
+      <div
+        xs12
+        s6
+        l3
+        class="offer soldout"
+      >
         <span class="offer__name green">Impériale</span>
         <span class="offer__price">2 500 €</span>
         <p class="offer__description">
@@ -27,7 +46,12 @@ import { SectionTitle } from "#components";
           avec vous.
         </p>
       </div>
-      <div xs12 s6 l3 class="offer">
+      <div
+        xs12
+        s6
+        l3
+        class="offer"
+      >
         <span class="offer__name yellow">Magnum</span>
         <span class="offer__price">1 000 €</span>
         <p class="offer__description">
@@ -35,7 +59,12 @@ import { SectionTitle } from "#components";
           votre nom auprès de la communauté bordelaise.
         </p>
       </div>
-      <div xs12 s6 l3 class="offer">
+      <div
+        xs12
+        s6
+        l3
+        class="offer"
+      >
         <span class="offer__name orange">Startup</span>
         <span class="offer__price">500 €</span>
         <p class="offer__description">

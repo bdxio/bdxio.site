@@ -64,6 +64,7 @@ const duration = computed(() => {
         <ShowOnYoutube :href="presentation.youtubeUrl" />
       </div>
     </div>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <p v-html="$md.render(presentation.abstract)" />
   </section>
 </template>

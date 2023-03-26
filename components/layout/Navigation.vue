@@ -4,8 +4,8 @@ import { useNuxtApp, computed } from "#imports";
 import { NuxtLink, LinkSecondary } from "#components";
 
 const props = defineProps<{
-  background?: 'light' | 'dark';
-  mobileOpen?: boolean
+  background?: "light" | "dark";
+  mobileOpen?: boolean;
 }>();
 
 const {
@@ -17,30 +17,17 @@ const {
   $SHOW_PAGE_LIVE,
   $SHOW_PAGE_SPONSORS,
   $SHOW_PAGE_ASSOCIATION,
-  $SHOW_PAGE_JOBS
+  $SHOW_PAGE_JOBS,
 } = useNuxtApp();
-
-console.log(useNuxtApp())
 
 const linkColor = computed(() => {
   if (!props.background) {
-    return `text-bdxio-font-dark`;
+    return "text-bdxio-font-dark";
   }
+  return props.background === "dark" ? "text-bdxio-font-light" : "text-bdxio-blue-dark";
+});
 
-  if (props.background === 'dark') {
-    return `text-bdxio-font-light`;
-  }
-
-  return `text-bdxio-blue-dark`;
-})
-
-const mobileOpenClass = computed(() => {
-  if (props.mobileOpen) {
-    return `mb-[100px]`;
-  }
-
-  return ""
-})
+const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
 
 </script>
 

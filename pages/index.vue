@@ -7,7 +7,7 @@ import {
   SectionHomepageAnnualTheme,
   SectionHomepageCategories,
   SectionHomepageSponsor,
-  SectionHomepageSpeaker
+  SectionHomepageSpeaker,
 } from "#components";
 
 definePageMeta({ layout: "homepage" });
