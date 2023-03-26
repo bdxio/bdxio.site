@@ -9,9 +9,9 @@ import {
   createError,
 } from "#imports";
 import {
-  TalkSectionTheme,
-  TalkSectionPresentation,
-  TalkSectionSpeaker,
+  SectionTalkTheme,
+  SectionTalkPresentation,
+  SectionTalkSpeaker,
   NuxtLink,
 } from "#components";
 
@@ -41,9 +41,9 @@ const presentation = computed(() => ({
 
 <template>
   <main class="section section-talk">
-    <TalkSectionTheme :category="talk.category?.name || null" />
-    <TalkSectionPresentation :presentation="presentation" />
-    <TalkSectionSpeaker
+    <SectionTalkTheme :category="talk.category?.name || null" />
+    <SectionTalkPresentation :presentation="presentation" />
+    <SectionTalkSpeaker
       v-for="(speaker, index) in talk.speakers"
       :key="index"
       :speaker="speaker"

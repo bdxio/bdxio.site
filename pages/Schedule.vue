@@ -9,7 +9,7 @@ import {
   computed,
   onClickOutside,
 } from "#imports";
-import { SectionTitle, AssociationOpenFeedback, NuxtLink } from "#components";
+import { SectionTitle, SectionAssociationOpenFeedback, NuxtLink } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Programme | BDX I/O" });
@@ -125,7 +125,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
         <!-- <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
           >Télécharger le programme</a
         > -->
-        <AssociationOpenFeedback
+        <SectionAssociationOpenFeedback
           v-if="$SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
         />
@@ -236,11 +236,11 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       v-if="$SHOW_LINK_OPENFEEDBACK"
                       class="openfeedback-keynote"
                     >
-                      <AssociationOpenFeedback
+                      <SectionAssociationOpenFeedback
                         v-if="name === `Keynote d'ouverture`"
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                       />
-                      <AssociationOpenFeedback
+                      <SectionAssociationOpenFeedback
                         v-if="name === `Keynote de fermeture`"
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
                       />

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { LayoutTheHeader, LayoutTheFooter } from "#components";
+import { LayoutHeader, LayoutFooter } from "#components";
 </script>
 
 <template>
   <div>
-    <LayoutTheHeader background="light" />
+    <LayoutHeader background="light" />
     <section class="section flex justify-center items-center w-full">
       <div class="flex flex-col items-center">
         <img
@@ -19,6 +19,6 @@ import { LayoutTheHeader, LayoutTheFooter } from "#components";
         </p>
       </div>
     </section>
-    <LayoutTheFooter />
+    <LayoutFooter />
   </div>
 </template>

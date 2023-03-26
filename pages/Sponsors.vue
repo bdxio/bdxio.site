@@ -10,7 +10,7 @@ import {
 import {
   SectionSponsorsBecomeSponsor,
   SectionSponsorsOffersAndSponsors,
-  SectionSponsorOffers,
+  SectionSponsorsOffers,
 } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -36,6 +36,6 @@ const showSponsors = computed(() => offers.value?.length && $SHOW_PAGE_SPONSORS)
       v-if="showSponsors && offers"
       :offers="offers"
     />
-    <SectionSponsorOffers v-else />
+    <SectionSponsorsOffers v-else />
   </main>
 </template>
