@@ -22,3 +22,15 @@ jobs:
 
       - name: Lint code
         run: npm run lint
+  type-check:
+    name: Type check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Access repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
