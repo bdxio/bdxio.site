@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TheCounter } from "#components";
+import { Counter } from "#components";
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import { TheCounter } from "#components";
         py-4 relative z-absolute info-amphis card-1"
     >
       <p class="block m-0 font-bold text-[82px] leading-none">
-        <TheCounter :value="5" />
+        <Counter :value="5" />
       </p>
       <p class="block m-0 text-bold text-3xl mr-3 ml-2">
         Amphis
@@ -27,7 +27,7 @@ import { TheCounter } from "#components";
         py-4 relative z-absolute info-themes card-2"
     >
       <p class="block m-0 font-bold text-[82px] leading-none">
-        <TheCounter :value="7" />
+        <Counter :value="7" />
       </p>
       <p class="block m-0 text-bold text-3xl mr-3 ml-2">
         Thématiques
@@ -42,7 +42,7 @@ import { TheCounter } from "#components";
       py-4 relative z-absolute info-conferences card-3"
     >
       <p class="block m-0 relative z-relative font-bold text-[82px] leading-none">
-        <TheCounter :value="40" />
+        <Counter :value="40" />
       </p>
       <p class="block m-0 text-bold text-3xl mr-3 ml-2">
         conférences
@@ -58,7 +58,7 @@ import { TheCounter } from "#components";
         py-4 relative z-absolute info-attendees card-4"
     >
       <p class="block m-0 font-bold text-[82px] leading-none">
-        <TheCounter
+        <Counter
           :value="900"
           :step="25"
         />

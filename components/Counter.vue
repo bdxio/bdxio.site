@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
 import { ref, onMounted } from "#imports";
 
@@ -10,7 +9,7 @@ const props = defineProps<{
 }>();
 
 const animatedValue = ref(0);
-const animatedInterval = ref(null);
+const animatedInterval = ref<NodeJS.Timer>();
 
 onMounted(() => {
   const interval = ((props.step || 1) * (props.duration || 1000)) / props.value;
