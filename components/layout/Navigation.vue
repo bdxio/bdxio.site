@@ -46,7 +46,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
-        to="/schedule"
+        to="/programme"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Programme
@@ -68,7 +68,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
-        to="/asso"
+        to="/association"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         L'asso

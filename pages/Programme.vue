@@ -8,13 +8,18 @@ import {
   ref,
   computed,
   onClickOutside,
+  createError,
 } from "#imports";
 import { SectionTitle, SectionAssociationOpenFeedback, NuxtLink } from "#components";
 
+const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+
+if(!$SHOW_PAGE_PROGRAMME) {
+  throw createError({ statusCode: 404 });
+}
+
 definePageMeta({ layout: "page" });
 useHead({ title: "Programme | BDX I/O" });
-
-const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const filters = ref([]);
 const openPanel = ref(false);

@@ -1,7 +1,13 @@
 <script setup lang="ts">
 // @ts-nocheck
-import { definePageMeta, useHead, useAPI, computed } from "#imports";
+import { definePageMeta, useHead, useAPI, computed, useNuxtApp, createError } from "#imports";
 import { SectionTitle } from "#components";
+
+const {$SHOW_PAGE_LIVE} = useNuxtApp();
+
+if(!$SHOW_PAGE_LIVE) {
+  throw createError({ statusCode: 404 });
+}
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Live 🎥 | BDX I/O" });

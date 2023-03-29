@@ -4,6 +4,7 @@ import {
   definePageMeta,
   useHead,
   useNuxtApp,
+  createError,
   useAPI,
   computed,
 } from "#imports";
@@ -13,14 +14,16 @@ import {
   SectionSponsorsOffers,
 } from "#components";
 
-definePageMeta({ layout: "page" });
-useHead({ title: "Sponsors | BDX I/O" });
+
 
 const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
 
 if (!$SHOW_PAGE_SPONSORS) {
-  throw createError({ statusCode: 404, statusMessage: "Page not found" });
+  throw createError({ statusCode: 404 });
 }
+
+definePageMeta({ layout: "page" });
+useHead({ title: "Sponsors | BDX I/O" });
 
 const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },

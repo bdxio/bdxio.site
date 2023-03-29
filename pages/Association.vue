@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp, useAPI } from "#imports";
+import { definePageMeta, useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#components";
+
+const { $SHOW_SECTION_VOLUNTEERS, $SHOW_PAGE_ASSOCIATION } = useNuxtApp();
+
+if(!$SHOW_PAGE_ASSOCIATION) {
+  throw createError({ statusCode: 404 });
+}
 
 definePageMeta({ layout: "page" });
 useHead({ title: "L'association | BDX I/O" });
-
-const { $SHOW_SECTION_VOLUNTEERS } = useNuxtApp();
 
 const { data: volunteers } = await useAPI("/volunteers", {
   params: {

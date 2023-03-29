@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { LayoutHeader, LayoutFooter } from "#components";
 </script>
 

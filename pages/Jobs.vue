@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { definePageMeta, useHead } from "#imports";
+import { definePageMeta, useHead, useNuxtApp, createError } from "#imports";
 import { SectionJobs } from "#components";
+
+const {$SHOW_PAGE_JOBS} = useNuxtApp();
+
+if(!$SHOW_PAGE_JOBS) {
+  throw createError({ statusCode: 404 });
+}
 
 definePageMeta({ layout: "page" });
 useHead({
