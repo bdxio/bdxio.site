@@ -105,7 +105,7 @@ const registerNewsletter = () => {
         <ul class="newsletter">
           <li>
             <span
-              class="cursor--pointer"
+              class="cursor-pointer"
               @click="showEmailForm = true"
             >
               S'incrire à la newsletter

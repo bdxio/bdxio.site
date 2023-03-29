@@ -50,22 +50,6 @@ ul {
   }
 }
 
-.cursor {
-  &--pointer {
-    cursor: pointer;
-  }
-}
-
-
-.nowrap {
-  white-space: nowrap;
-}
-
-.display {
-  &--block { display: block; }
-  &--none { display: none; }
-}
-
 .flex-centered {
   display: flex;
   align-items: center;
@@ -110,32 +94,6 @@ ul {
   }
 }
 
-a {
-  color: $primary-dark;
-  text-decoration: none;
-
-  &:hover, &:focus, &.nuxt-link-exact-active {
-    &:not(.button) {
-      color: $primary-light;
-    }
-  }
-
-  &.volunteer__job__link {
-    color: $green;
-
-    &:hover, &:focus, &.nuxt-link-exact-active { 
-      text-decoration: underline;
-      color: $green;
-    }
-
-  }
-}
-
-.margin {
-  &--null{
-    margin : 0;
-  }
-}
 
 .card {
   box-shadow: 0px 7px 29px rgba(36, 36, 87, 0.1);

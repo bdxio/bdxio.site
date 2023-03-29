@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
-import { NuxtLink, LinkSecondary } from "#components";
+import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
 
 const props = defineProps<{
   background?: "light" | "dark";
@@ -100,37 +100,39 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       v-if="$SHOW_PAGE_LIVE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
-      <NuxtLink
+      <LinkSecondaryNuxt
+        color="light"
         to="/live"
-        class="button button-icon button-secondary button-secondary--light"
       >
-        Live
-        <div class="live" />
-      </NuxtLink>
+        <div class="flex items-center">
+          Live
+          <div class="live" />
+        </div>
+      </LinkSecondaryNuxt>
     </li>
     <li
       v-if="$SHOW_LINK_BILLETERIE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
-      <a
-        class="button button-primary--light"
-        href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
+      <LinkPrimary
+        color="light"
+        to="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
         target="_blank"
       >
         Billetterie
-      </a>
+      </LinkPrimary>
     </li>
     <li
       v-if="$SHOW_LINK_YOUTUBE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
-      <a
-        class="button button-primary--light"
-        href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
+      <LinkPrimary
+        color="light"
+        to="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
         target="_blank"
       >
         Revoir les talks
-      </a>
+      </LinkPrimary>
     </li>
     <li
       v-if="$SHOW_LINK_CFP"
@@ -149,7 +151,6 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
 </template>
 
 <style lang="css" scoped>
-
 .router-link-exact-active {
   position: relative;
 }

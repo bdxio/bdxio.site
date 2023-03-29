@@ -12,7 +12,6 @@ import {
   SectionTalkTheme,
   SectionTalkPresentation,
   SectionTalkSpeaker,
-  NuxtLink,
 } from "#components";
 
 definePageMeta({ layout: "page" });
@@ -40,7 +39,7 @@ const presentation = computed(() => ({
 </script>
 
 <template>
-  <main class="section section-talk">
+  <main class="section bg-white section-talk">
     <SectionTalkTheme :category="talk.category?.name || null" />
     <SectionTalkPresentation :presentation="presentation" />
     <SectionTalkSpeaker
@@ -48,22 +47,12 @@ const presentation = computed(() => ({
       :key="index"
       :speaker="speaker"
     />
-    <NuxtLink
+    <LinkPrimaryNuxt
+      color="light"
       to="/schedule"
-      class="button button-primary button-primary--light backto"
+      class="block mt-5 mx-auto mb-0"
     >
       Voir le programme
-    </NuxtLink>
+    </LinkPrimaryNuxt>
   </main>
 </template>
-
-<style lang="scss" scoped>
-.section-talk {
-  background: #fff;
-}
-
-.backto {
-  margin: $spc-l auto 0 auto;
-  display: block;
-}
-</style>

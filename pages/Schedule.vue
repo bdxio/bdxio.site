@@ -122,9 +122,13 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
 
     <section class="section-schedule__body">
       <div class="schedule-download">
-        <!-- <a href="/bdxio-2022-programme.pdf" class="button button-primary button-primary--light center" download
-          >Télécharger le programme</a
-        > -->
+        <!-- <LinkPrimary
+          color="light"
+          to="/bdxio-2022-programme.pdf"
+          download
+        >
+          Télécharger le programme
+        </LinkPrimary> -->
         <SectionAssociationOpenFeedback
           v-if="$SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"

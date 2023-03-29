@@ -83,12 +83,12 @@ function setFilter() {}
               v-model="currentFilter"
               type="radio"
               value="all"
-              class="display--none"
+              class="hidden"
               :class="{ active: currentFilter === 'all' }"
             >
             <label
               for="all"
-              class="cursor--pointer"
+              class="cursor-pointer"
             >Tous</label>
           </li>
           <li
@@ -102,12 +102,12 @@ function setFilter() {}
               v-model="currentFilter"
               type="radio"
               :value="category.id"
-              class="display--none"
+              class="hidden"
               :class="{ active: currentFilter === category.id }"
             >
             <label
               :for="category.name"
-              class="cursor--pointer"
+              class="cursor-pointer"
               :style="
                 currentFilter === category.id
                   ? `border-color: ${category.color}; color: ${category.color}`
@@ -124,7 +124,7 @@ function setFilter() {}
         <li
           v-for="talk in filteredTalks"
           :key="`talk-${talk.id}`"
-          class="section-talks__talks__card cursor--pointer"
+          class="section-talks__talks__card cursor-pointer"
           :style="{
             'border-color': talk.category?.color || 'black',
           }"

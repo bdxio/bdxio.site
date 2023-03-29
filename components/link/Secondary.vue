@@ -11,11 +11,11 @@ const colorClasses = computed(() => {
     case "white":
       return "border-bdxio-cream-base text-bdxio-cream-base";
     case "light":
-      return "border-bdxio-blue-light text-bdxio-blue-light hover:border-bdxio-blue-dark hover:text-bdxio-blue-dark";
+      return "border-bdxio-blue-light text-bdxio-blue-light";
     case "grey": 
     return "border-bdxio-font-dark text-bdxio-font-dark";
     case "dark":
-      return "border-bdxio-blue-dark text-bdxio-blue-dark hover:border-bdxio-blue-light hover:text-bdxio-blue-light";
+      return "border-bdxio-blue-dark text-bdxio-blue-dark";
     default:
       return null;
   }
@@ -23,10 +23,10 @@ const colorClasses = computed(() => {
 </script>
 
 <template>
-  <button
+  <a
     :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit 
       block ${colorClasses}`"
   >
     <slot />
-  </button>
+  </a>
 </template>

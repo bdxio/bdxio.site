@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { SectionTitle, LinkPrimary } from "#components";
 </script>
 
 <template>
@@ -59,12 +59,13 @@ import { SectionTitle } from "#components";
         </p>
       </li>
     </ul>
-    <a
-      href="/bdxio-2022-sponsors.pdf"
-      class="button button-primary button-primary--light"
+    <LinkPrimary
+      color="light"
+      to="/bdxio-2022-sponsors.pdf"
       download
     >
-      Télecharger la plaquette</a>
+      Télecharger la plaquette
+    </LinkPrimary>
   </section>
 </template>
 
