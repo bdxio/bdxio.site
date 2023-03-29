@@ -6,6 +6,7 @@
     "generate": "nuxt generate",
     "build": "nuxt build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "type-check": "nuxi typecheck --noEmit"
   },
   "dependencies": {
