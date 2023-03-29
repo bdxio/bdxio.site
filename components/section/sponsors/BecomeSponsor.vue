@@ -5,56 +5,56 @@ import { SectionTitle, LinkPrimary } from "#components";
 <template>
   <section
     id="why-become-sponsor"
-    class="section section-become-sponsor"
+    class="section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden"
   >
     <SectionTitle tag="h2">
       Pourquoi devenir
-      <span class="sponsor">Sponsor</span>&nbsp;?
+      <span class="relative z-relative sponsor">Sponsor</span>&nbsp;?
     </SectionTitle>
-    <ul class="reasons">
-      <li class="reason one">
-        <p class="number">
+    <ul class="flex flex-wrap justify-center gap-5">
+      <li class="flex flex-col items-center relative z-relative one">
+        <p class="text-[74px]">
           1
         </p>
-        <p class="description">
+        <p class="text-center max-w-[350px]">
           Une visibilité sur le plus grand événement bordelais fédérant
           l’ensemble de la communauté digitale et IT bordelaise
         </p>
       </li>
 
-      <li class="reason two">
-        <p class="number">
+      <li class="flex flex-col items-center relative z-relative two">
+        <p class="text-[74px]">
           2
         </p>
-        <p class="description">
+        <p class="text-center max-w-[350px]">
           Être un acteur majeur en contribuant au développement de cet
           écosystème local
         </p>
       </li>
 
-      <li class="reason three">
-        <p class="number">
+      <li class="flex flex-col items-center relative z-relative three">
+        <p class="text-[74px]">
           3
         </p>
-        <p class="description">
+        <p class="text-center max-w-[350px]">
           Affirmer le dynamisme de votre structure et stimuler vos équipes
         </p>
       </li>
 
-      <li class="reason four">
-        <p class="number">
+      <li class="flex flex-col items-center relative z-relative four">
+        <p class="text-[74px]">
           4
         </p>
-        <p class="description">
+        <p class="text-center max-w-[350px]">
           Une mise en avant de vos services, produits et compétences
         </p>
       </li>
 
-      <li class="reason five">
-        <p class="number">
+      <li class="flex flex-col items-center relative z-relative five">
+        <p class="text-[74px]">
           5
         </p>
-        <p class="description">
+        <p class="text-center max-w-[350px]">
           Rencontrer vos futurs collaborateurs, partenaires ou fournisseurs
         </p>
       </li>
@@ -63,106 +63,67 @@ import { SectionTitle, LinkPrimary } from "#components";
       color="light"
       to="/bdxio-2022-sponsors.pdf"
       download
+      class="mt-[160px] self-center"
     >
       Télecharger la plaquette
     </LinkPrimary>
   </section>
 </template>
 
-<style lang="scss" scoped>
-.section-become-sponsor {
-  display: flex;
-  flex-direction: column;
-  background-color: $primary-dark;
-  color: $light-font;
-  gap: 20px;
-  overflow: hidden;
+<style lang="css" scoped>
+.sponsor:after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 125px;
+  top: -42px;
+  left: -30px;
+  background: url("/images/drawings/orange_circle.png") no-repeat;
+  background-size: cover;
+}
 
-  .sponsor {
-    position: relative;
 
-    &:after {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 125px;
-      top: -42px;
-      left: -30px;
-      background: url("/images/drawings/orange_circle.png") no-repeat;
-      background-size: cover;
-    }
-  }
+.one:after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  top: 20%;
+  left: 80%;
+  background: url("/images/drawings/purple_arrow.png") no-repeat;
+  background-size: cover;
+}
 
-  .reasons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
+.three:after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  top: 20%;
+  left: 40%;
+  background: url("/images/drawings/cyan_scribbles.png") no-repeat;
+  background-size: cover;
+}
 
-  .reason {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+.four:after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  bottom: 0px;
+  left: -50px;
+  background: url("/images/drawings/yellow_scribbles.png") no-repeat;
+  background-size: cover;
+}
 
-    .number {
-      font-size: 74px;
-    }
-
-    .description {
-      text-align: center;
-      max-width: 350px;
-    }
-
-    &.one:after {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 100px;
-      top: 20%;
-      left: 80%;
-      background: url("/images/drawings/purple_arrow.png") no-repeat;
-      background-size: cover;
-    }
-
-    &.three:after {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 100px;
-      top: 20%;
-      left: 40%;
-      background: url("/images/drawings/cyan_scribbles.png") no-repeat;
-      background-size: cover;
-    }
-
-    &.four:after {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 100px;
-      bottom: 0px;
-      left: -50px;
-      background: url("/images/drawings/yellow_scribbles.png") no-repeat;
-      background-size: cover;
-    }
-
-    &.five:after {
-      content: "";
-      position: absolute;
-      width: 75px;
-      height: 100px;
-      top: 0;
-      left: 60%;
-      background: url("/images/drawings/orange_highlight_2.png") no-repeat;
-      background-size: cover;
-    }
-  }
-
-  .button {
-    margin-top: 160px;
-    align-self: center;
-  }
+.five:after {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 100px;
+  top: 0;
+  left: 60%;
+  background: url("/images/drawings/orange_highlight_2.png") no-repeat;
+  background-size: cover;
 }
 </style>
