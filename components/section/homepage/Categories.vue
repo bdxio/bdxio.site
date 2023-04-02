@@ -3,7 +3,7 @@ import { Heading, HeadingSub } from "#components";
 </script>
 
 <template>
-  <section class="section text-bdxio-font-dark bg-white section-themes">
+  <section class="section text-bdxio-font-dark bg-white">
     <div
       no-gutter
       class="flex justify-between-xs align-center-m"
@@ -14,13 +14,13 @@ import { Heading, HeadingSub } from "#components";
         <HeadingSub
           tag="h2"
           class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
-            m:before:w-[120px] m:before:h-[70px] title"
+            m:before:w-[120px] m:before:h-[70px] scribble"
         >
           thématique
         </HeadingSub>
         <Heading
           tag="h3"
-          class="relative title"
+          class="relative quote"
         >
           Quels seront les thèmes abordés&nbsp;?
         </Heading>
@@ -33,7 +33,7 @@ import { Heading, HeadingSub } from "#components";
       <div
         class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-relative gap-4 items-center px-6 py-5 
           m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7 
-          overflow-hidden xxl:grid-cols-homegpage-categories-xxl items"
+          overflow-hidden xxl:grid-cols-homegpage-categories-xxl"
       >
         <div class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card">
           <span
@@ -97,7 +97,7 @@ import { Heading, HeadingSub } from "#components";
 </template>
 
 <style lang="css" scoped>
-.title:before {
+.scribble:before {
   content: "";
   position: absolute;
   top: -37px;
@@ -108,7 +108,7 @@ import { Heading, HeadingSub } from "#components";
   background-size: contain;
 }
 
-.items:after {
+.quote:after {
   content: "";
   z-index: -1;
   width: 140px;

@@ -1,17 +1,8 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
 import { computed } from "#imports";
-import { Heading, SectionTalkSpeakerProfile } from "#components";
-
-type Speaker = {
-  name: string;
-  bio: string;
-  github: string;
-  linkedin: string;
-  twitter: string;
-  website: string;
-};
+import { Heading, SectionTalkSpeakerPicture } from "#components";
+import { Speaker } from "@/types";
 
 const props = defineProps<{
   speaker: Speaker;
@@ -67,108 +58,42 @@ const speakerSocialLinks = computed(() => {
 </script>
 
 <template>
-  <section class="talk-section-speaker">
-    <div class="talk-section-speaker__header">
-      <Heading tag="h3">
-        <SectionTalkSpeakerProfile :speaker="speaker" />
-        <span>{{ speaker.name }}</span>
-      </Heading>
-      <div
-        v-if="speakerSocialLinks.length > 0"
-        tag="ul"
-        class="speaker-socials"
+  <section class="bg-grey-100 p-12">
+    <div class="flex items-center mb-8">
+      <SectionTalkSpeakerPicture :speaker="speaker" />
+      <Heading
+        tag="h3"
+        class="!mb-0 !text-2xl"
       >
-        <div
-          v-for="(link, index) in speakerSocialLinks"
-          :key="index"
-          tag="li"
-          class="speaker-infos__details"
-        >
-          <a
-            v-if="link.url"
-            :href="link.url"
-            target="_blank"
-          >
-            <img
-              :src="`/images/${link.imgPath}`"
-              :alt="link.alt"
-              class="info-logo"
-            >
-          </a>
-        </div>
-      </div>
+        {{ speaker.name }}
+      </Heading>
     </div>
+    <ul
+      v-if="speakerSocialLinks.length > 0"
+      class="flex flex-wrap gap-4 mb-8"
+    >
+      <li
+        v-for="(link, index) in speakerSocialLinks"
+        :key="index"
+        tag="li"
+      >
+        <a
+          v-if="link.url"
+          :href="link.url"
+          target="_blank"
+        >
+          <img
+            :src="`/images/${link.imgPath}`"
+            :alt="link.alt"
+          >
+        </a>
+      </li>
+    </ul>
     <!-- eslint-disable vue/no-v-html -->
-    <p
+    <div
       v-if="speaker.bio"
       v-html="$md.render(speaker.bio)" 
     />
+    <!-- eslint-enable vue/no-v-html -->
   </section>
 </template>
-
-<style lang="scss" scoped>
-.talk-section-speaker {
-  background: #f5f5f5;
-  padding: 50px;
-
-  @include mobileFirst(m) {
-    &__header {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-  }
-
-  &:not(:last-of-type) {
-    margin-bottom: 80px;
-  }
-
-  h3 {
-    margin: 0;
-    font-family: "Lato";
-    color: #000;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-  }
-
-  .speaker-socials {
-    margin-top: $spc-l;
-    gap: 20px;
-
-    @include mobileFirst(m) {
-      margin-top: 0;
-      margin-left: 30px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-  }
-
-  .speaker-infos {
-    gap: 80px;
-    margin: 60px 0;
-
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & > * {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .info-logo {
-        width: 40px;
-        height: 40px;
-        margin-right: 12px;
-      }
-    }
-  }
-
-  p {
-    margin: 0;
-  }
-}
-</style>

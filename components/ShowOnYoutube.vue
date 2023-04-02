@@ -15,7 +15,7 @@ defineProps({
     color="light"
     :to="href"
     target="_blank"
-    class="mx-auto"
+    class="mx-auto mt-8"
   >
     Voir sur YouTube
     <IconYouTube class="ml-1 inline-block" />

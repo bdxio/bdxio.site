@@ -82,11 +82,6 @@ module.exports = {
       default: 1,
       negative: -1,
     },
-    fontSize: {
-      base: "22px",
-      subtitle: "20px",
-      title: "40px",
-    },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
@@ -94,9 +89,6 @@ module.exports = {
     boxShadow: {
       card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
       "homepage-about": "0px 0px 30px 20px #F5F5F5",
-    },
-    borderRadius: {
-      radius: "8px",
     },
     gridTemplateColumns: {
       "homepage-portraits": "repeat(4, 210px)",

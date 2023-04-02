@@ -1,24 +1,17 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
 import { Heading, OpenFeedback, ShowOnYoutube } from "#components";
+import { Talk } from "@/types";
 
 const props = defineProps<{
-  presentation: {
-    title: string;
-    format: string;
-    level: string;
-    abstract: string;
-    openfeedbackUrl: string;
-    youtubeUrl: string;
-  };
+  talk: Talk;
 }>();
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const duration = computed(() => {
-  switch (props.presentation.format) {
+  switch (props.talk.format?.name) {
     case "Quickie":
       return 15;
     case "Hands on lab":
@@ -30,67 +23,43 @@ const duration = computed(() => {
 </script>
 
 <template>
-  <section class="section talk-section-presentation">
-    <Heading tag="h2">
-      {{ presentation.title }}
+  <section class="section !pt-0 mb-20">
+    <Heading tag="h1">
+      {{ talk.title }}
     </Heading>
     <img
       src="/images/drawings/cyan_scribble_3.png"
-      alt="Gribouillages BDXI/O"
+      alt="Illustration d'un gribouillage"
       aria-hidden="true"
       class="underline-scribble"
     >
-    <div class="tag-container">
-      <div class="tag">
-        {{ presentation.format }} - {{ duration }}min
-      </div>
-      <div class="tag">
-        {{ presentation.level }}
-      </div>
-      <div
-        v-if="presentation.language"
-        class="tag"
+    <div class="flex flex-wrap gap-6 my-12">
+      <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
+        {{ talk.format.name }} - {{ duration }}min
+      </span>
+      <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
+        {{ talk.level }}
+      </span>
+      <span
+        v-if="talk.language"
+        class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4"
       >
-        {{ presentation.language }}
-      </div>
-      <OpenFeedback
-        v-if="$SHOW_LINK_OPENFEEDBACK && presentation.openfeedbackUrl"
-        :href="presentation.openfeedbackUrl"
-      />
-      <ShowOnYoutube
-        v-if="$SHOW_LINK_YOUTUBE && presentation.youtubeUrl"
-        :href="presentation.youtubeUrl"
-      />
+        {{ talk.language }}
+      </span>
     </div>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-html="$md.render(presentation.abstract)" />
+    <!-- eslint-disable vue/no-v-html -->
+    <div
+      class="mb-20"
+      v-html="$md.render(talk.abstract)"
+    />
+    <!-- eslint-enable vue/no-v-html -->
+    <OpenFeedback
+      v-if="$SHOW_LINK_OPENFEEDBACK && talk.openfeedbackUrl"
+      :href="talk.openfeedbackUrl"
+    />
+    <ShowOnYoutube
+      v-if="$SHOW_LINK_YOUTUBE && talk.youtubeUrl"
+      :href="talk.youtubeUrl"
+    />
   </section>
 </template>
-
-<style lang="scss" scoped>
-.talk-section-presentation {
-  padding-top: 0;
-  padding-bottom: 5rem;
-}
-
-h2 {
-  margin-bottom: 0;
-}
-
-.underline-scribble {
-  margin: 10px 0 33px -69px;
-}
-
-.tag-container {
-  gap: 20px;
-}
-
-.tag {
-  border: 2px solid #242457;
-  border-radius: 130px;
-  font-size: 18px;
-  padding: 12px 20px;
-  line-height: 18px;
-  height: 46px;
-}
-</style>
