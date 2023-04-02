@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { withDefaults, defineProps } from "vue";
 import { computed } from "#imports";
 import { Speaker } from "@/types";
 
-const props = defineProps<{
+interface Props {
   speaker: Speaker;
-}>();
+  size?: "small" | "large";
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  size: "large",
+});
 
 const initials = computed(() => {
   const [firstName, lastName] = props.speaker.name.split(" ");
@@ -17,13 +22,15 @@ const initials = computed(() => {
   <div class="mr-6">
     <img
       v-if="speaker.photoUrl"
-      class="h-16 w-16 rounded-full object-cover"
+      class="rounded-full object-cover"
+      :class="size === 'small' ? 'h-8 w-8' : 'h-16 w-16'"
       :src="speaker.photoUrl"
       :alt="`Photo de ${speaker.name}`"
     >
     <span
       v-else
-      class="flex items-center justify-center h-16 w-16 rounded-full bg-bdxio-blue-light text-white"
+      class="flex items-center justify-center rounded-full bg-bdxio-blue-light text-white"
+      :class="size === 'small' ? 'h-8 w-8 text-xs' : 'h-16 w-16'"
     >
       {{ initials }}
     </span>
