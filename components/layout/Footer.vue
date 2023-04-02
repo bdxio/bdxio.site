@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "#imports";
-import { LayoutSectionGuidage, LayoutNavigation, NuxtLink } from "#components";
+import { LayoutLocation, LayoutNavigation, NuxtLink } from "#components";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -29,7 +29,7 @@ const registerNewsletter = () => {
 
 <template>
   <div class="footer">
-    <LayoutSectionGuidage />
+    <LayoutLocation />
     <footer class="section">
       <div class="bdxio">
         <NuxtLink

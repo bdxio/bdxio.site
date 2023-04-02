@@ -1,25 +1,22 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading, HeadingSub } from "#components";
 </script>
 
 <template>
-  <section
-    id="join-us"
-    class="section bg-no-repeat bg-contain bg-grey-100 guidage"
-  >
+  <!-- @TODO : Remove remaining raw CSS classes -->
+  <section class="section bg-no-repeat bg-contain bg-grey-100 location">
     <div class="relative pb-[450px] s:pb-0">
-      <div class="relative bg-grey-100 shadow-guidage s:max-w-[50%] infos">
-        <SectionTitle
-          section
+      <div class="relative bg-grey-100 location-boxshadow s:max-w-[50%] infos">
+        <HeadingSub
           tag="h2"
           class="mx-[30px] my-0"
         >
           Transports
-        </SectionTitle>
-        <SectionTitle tag="h3">
+        </HeadingSub>
+        <Heading tag="h3">
           Comment rejoindre<br>l'évènement ?
-        </SectionTitle>
-        <div class="flex flex-col gap-1 mb-[30px] address-container">
+        </Heading>
+        <div class="flex flex-col gap-1 mb-[30px]">
           <span class="title">Palais des congrès</span>
           <span class="description">
             Avenue Jean Gabriel Domergue <br>
@@ -47,16 +44,19 @@ import { SectionTitle } from "#components";
 </template>
 
 <style lang="css" scoped>
-.guidage {
+.location {
   background-image: url("/images/illustration_palais_congres.png");
   background-position-x: left;
   background-position-y: bottom;
 }
 
-@media screen and (min-width: 768px) {
-  .guidage {
-    background-position-x: right;
+.location-boxshadow {
+  box-shadow: 0px 0px 30px 20px #F5F5F5;
+}
 
+@media screen and (min-width: 768px) {
+  .location {
+    background-position-x: right;
   }
 }
 </style>
