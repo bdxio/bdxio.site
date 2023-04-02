@@ -4,7 +4,7 @@ import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#c
 
 const { $SHOW_SECTION_VOLUNTEERS, $SHOW_PAGE_ASSOCIATION } = useNuxtApp();
 
-if(!$SHOW_PAGE_ASSOCIATION) {
+if (!$SHOW_PAGE_ASSOCIATION) {
   throw createError({ statusCode: 404 });
 }
 

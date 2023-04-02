@@ -5,7 +5,7 @@ import { SectionTitle } from "#components";
 
 const {$SHOW_PAGE_LIVE} = useNuxtApp();
 
-if(!$SHOW_PAGE_LIVE) {
+if (!$SHOW_PAGE_LIVE) {
   throw createError({ statusCode: 404 });
 }
 

@@ -1,26 +1,26 @@
 <script setup lang="ts">
-  import { computed } from "#imports";
-  import { NuxtLink } from "#components";
+import { computed } from "#imports";
+import { NuxtLink } from "#components";
 
-  const props = defineProps<{
+const props = defineProps<{
     to: string
     color: "white" | "light" | "grey" | "dark"
   }>();
 
-  const colorClasses = computed(() => {
-    switch (props.color) {
-      case "white":
-        return "bg-bdxio-cream-base text-bdxio-blue-dark";
-      case "light":
-        return "bg-bdxio-blue-light text-bdxio-font-light";
-      case "grey": 
+const colorClasses = computed(() => {
+  switch (props.color) {
+    case "white":
+      return "bg-bdxio-cream-base text-bdxio-blue-dark";
+    case "light":
+      return "bg-bdxio-blue-light text-bdxio-font-light";
+    case "grey": 
       return "bg-bdxio-font-dark text-bdxio-font-light";
-      case "dark":
-        return "bg-bdxio-blue-dark text-bdxio-font-light";
-      default:
-        return "";
-    }
-  });
+    case "dark":
+      return "bg-bdxio-blue-dark text-bdxio-font-light";
+    default:
+      return "";
+  }
+});
 
 </script>
 
