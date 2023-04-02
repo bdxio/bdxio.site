@@ -16,11 +16,17 @@ defineProps({
     class="text-lg text-center leading-none mt-4 hover:text-bdxio-blue-dark active:text-bdxio-blue-dark 
       visited:text-bdxio-blue-dark s:ml-5 s:mt-0"
   >
-    donnez votre avis sur<br>
+    Donnez votre avis sur
     <img
       src="/images/logo-openfeedback.png"
-      alt="Logo openfeedback"
-      class="h-[30px]"
+      alt="Logo Open Feedback"
+      class="logo h-[30px] inline-block"
     >
   </a>
 </template>
+
+<style scoped>
+.logo {
+  margin: 5px 0 0 3px;
+}
+</style>

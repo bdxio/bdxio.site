@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { withDefaults, defineProps } from "vue";
+import type { IconProps, Color } from "@/types";
 
-type Color =
-  | `rgb(${number}, ${number}, ${number})`
-  | `rgba(${number}, ${number}, ${number}, ${number})`
-  | `#${string}`
-  | string;
-
-defineProps<{
-  color: Color;
+interface Props extends IconProps {
   borderColor: Color;
-}>();
+}
+
+withDefaults(defineProps<Props>(), {
+  color: "#4652F8", /* @TODO: Use variable from Tailwind */
+  width: 20,
+  height: 20,
+});
 </script>
+
 
 <template>
   <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    :width="width"
+    :height="height"
   >
     <path
       d="M18.5982 18.5983L18.5983 18.5982C19.0155 18.1807 19.25 17.6146 19.25 17.0244V10C19.25 9.49817 18.8433 9.09146 
@@ -29,9 +30,9 @@ defineProps<{
         0.75 1.81931 0.984472 1.40183 1.40174L1.40173 1.40183C0.984483 1.81933 0.75 2.38543 0.75 2.97561V17.0244C0.75 
         17.6146 0.984472 18.1807 1.40173 18.5982L1.40183 18.5983C1.81933 19.0155 2.38543 19.25 2.97561 
         19.25H17.0244C17.6146 19.25 18.1807 19.0155 18.5982 18.5983Z"
+      stroke-width="0.5"
       :fill="color"
       :stroke="borderColor"
-      stroke-width="0.5"
     />
     <path
       d="M19.1725 1.31004C19.0798 1.08611 18.9014 0.908925 18.6775 0.817088L18.6768 0.816815C18.571 0.773806 18.4577 

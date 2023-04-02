@@ -10,11 +10,11 @@ import {
   onClickOutside,
   createError,
 } from "#imports";
-import { SectionTitle, SectionAssociationOpenFeedback, NuxtLink } from "#components";
+import { SectionTitle, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
-if(!$SHOW_PAGE_PROGRAMME) {
+if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
 }
 
@@ -50,9 +50,9 @@ const filteredSchedule = computed(() => {
 function displayTalkSubInfos({ speakers, format, level }) {
   const formattedSpeakers = speakers.length
     ? speakers
-        .map((s) => s.name)
-        .toString()
-        .replace(",", " / ")
+      .map((s) => s.name)
+      .toString()
+      .replace(",", " / ")
     : "";
 
   let text = "";
@@ -134,7 +134,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
         >
           Télécharger le programme
         </LinkPrimary> -->
-        <SectionAssociationOpenFeedback
+        <OpenFeedback
           v-if="$SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
         />
@@ -245,12 +245,12 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       v-if="$SHOW_LINK_OPENFEEDBACK"
                       class="openfeedback-keynote"
                     >
-                      <SectionAssociationOpenFeedback
-                        v-if="name === `Keynote d'ouverture`"
+                      <OpenFeedback
+                        v-if="name === 'Keynote d\'ouverture'"
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
                       />
-                      <SectionAssociationOpenFeedback
-                        v-if="name === `Keynote de fermeture`"
+                      <OpenFeedback
+                        v-if="name === 'Keynote de fermeture'"
                         href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
                       />
                     </div>
@@ -258,12 +258,12 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       v-if="$SHOW_LINK_YOUTUBE"
                       class="youtube-keynote"
                     >
-                      <show-on-youtube
-                        v-if="name === `Keynote d'ouverture`"
+                      <ShowOnYoutube
+                        v-if="name === 'Keynote d\'ouverture'"
                         href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
                       />
-                      <show-on-youtube
-                        v-if="name === `Keynote de fermeture`"
+                      <ShowOnYoutube
+                        v-if="name === 'Keynote de fermeture'"
                         href="https://www.youtube.com/watch?v=ifXy9jRLWl8&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=40&ab_channel=bdxio"
                       />
                     </div>

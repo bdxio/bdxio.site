@@ -2,11 +2,7 @@
 // @ts-nocheck
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
-import {
-  SectionTitle,
-  ShowOnYoutube,
-  SectionAssociationOpenFeedback,
-} from "#components";
+import { SectionTitle, OpenFeedback, ShowOnYoutube } from "#components";
 
 const props = defineProps<{
   presentation: {
@@ -57,12 +53,14 @@ const duration = computed(() => {
       >
         {{ presentation.language }}
       </div>
-      <div v-if="$SHOW_LINK_OPENFEEDBACK && presentation.openfeedbackUrl">
-        <SectionAssociationOpenFeedback :href="presentation.openfeedbackUrl" />
-      </div>
-      <div v-if="$SHOW_LINK_YOUTUBE && presentation.youtubeUrl">
-        <ShowOnYoutube :href="presentation.youtubeUrl" />
-      </div>
+      <OpenFeedback
+        v-if="$SHOW_LINK_OPENFEEDBACK && presentation.openfeedbackUrl"
+        :href="presentation.openfeedbackUrl"
+      />
+      <ShowOnYoutube
+        v-if="$SHOW_LINK_YOUTUBE && presentation.youtubeUrl"
+        :href="presentation.youtubeUrl"
+      />
     </div>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <p v-html="$md.render(presentation.abstract)" />
@@ -94,10 +92,5 @@ h2 {
   padding: 12px 20px;
   line-height: 18px;
   height: 46px;
-}
-
-.openfeedback {
-  display: block;
-  margin-left: 0;
 }
 </style>
