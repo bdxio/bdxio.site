@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { definePageMeta, useHead, useAPI, computed, useNuxtApp, createError } from "#imports";
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 
 const {$SHOW_PAGE_LIVE} = useNuxtApp();
 
@@ -31,12 +31,12 @@ const iframeDimensions = computed(() => {
 <template>
   <main class="section section-live">
     <header class="section-live__header">
-      <SectionTitle
+      <Heading
         tag="h1"
         class="section-live__header__title"
       >
         Le live
-      </SectionTitle>
+      </Heading>
     </header>
     <section class="section-live__body">
       <div

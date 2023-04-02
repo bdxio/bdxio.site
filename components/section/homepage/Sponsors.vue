@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 </script>
 
 <template>
@@ -7,12 +7,12 @@ import { SectionTitle } from "#components";
     class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px] 
       m:gap-[90px] section-sponsors"
   >
-    <SectionTitle
+    <Heading
       tag="h2"
-      class="relative z-relative s:after:ml-0 m:after:ml-[50px] title"
+      class="relative z-relative s:after:ml-0 m:after:ml-[50px] triangle"
     >
       Ils nous soutiennent
-    </SectionTitle>
+    </Heading>
     <div class="flex flex-wrap justify-center gap-[10px] s:gap-[30px] m:gap-[60px]">
       <a
         href="https://www.atinternet.com/en/"
@@ -79,7 +79,7 @@ import { SectionTitle } from "#components";
 </template>
 
 <style lang="scss" scoped>
-.title::after {
+.triangle::after {
   content: "";
   width: 60px;
   height: 87px;

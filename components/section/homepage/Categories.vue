@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading, HeadingSub } from "#components";
 </script>
 
 <template>
@@ -11,20 +11,19 @@ import { SectionTitle } from "#components";
       <div
         class="text-container basis-full m:basis-4/12 l:basis-5/12"
       >
-        <SectionTitle
-          section
+        <HeadingSub
           tag="h2"
           class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
             m:before:w-[120px] m:before:h-[70px] title"
         >
           thématique
-        </SectionTitle>
-        <SectionTitle
+        </HeadingSub>
+        <Heading
           tag="h3"
           class="relative title"
         >
           Quels seront les thèmes abordés&nbsp;?
-        </SectionTitle>
+        </Heading>
         <p>
           BDX I/O propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez

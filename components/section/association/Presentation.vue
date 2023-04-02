@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { SectionTitle, ButtonSecondary } from "#components";
+import { Heading, HeadingSub, ButtonSecondary } from "#components";
 
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
 </script>
@@ -8,12 +8,12 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
 <template>
   <div class="bg-white section section-presentation">
     <header class="flex flex-col items-center justify-center text-center">
-      <SectionTitle
+      <Heading
         tag="h1"
-        class="mb-4 relative z-relative"
+        class="mb-4 relative z-relative scribble"
       >
         L'asso BDX I/O
-      </SectionTitle>
+      </Heading>
       <p class="m-0">
         Tout connaître sur nous, l’asso n’aura plus aucun <br>
         secret pour vous !
@@ -26,19 +26,18 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       align-center-xs
     >
       <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
-        <SectionTitle
-          section
+        <HeadingSub
           tag="h2"
           class="text-green"
         >
           Qui sommes nous ?
-        </SectionTitle>
-        <SectionTitle
-          tag="h2"
+        </HeadingSub>
+        <Heading
+          tag="h3"
           class="my-3"
         >
-          Un petit groupe de bénévoles <span class="bordelais">bordelais</span> !
-        </SectionTitle>
+          Un petit groupe de bénévoles <span class="frame">bordelais</span> !
+        </Heading>
         <p class="mt-4">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial
           et de grande ampleur. Notre objectif est de permettre à l’ensemble des
@@ -125,7 +124,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
 </template>
 
 <style lang="scss" scoped>
-.title {
+.scribble {
   &:after {
     content: "";
     display: block;
@@ -148,7 +147,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   }
 }
 
-.bordelais {
+.frame {
   position: relative;
 
   &::after {

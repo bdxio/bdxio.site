@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading, HeadingSub } from "#components";
 </script>
 
 <template>
@@ -9,18 +9,18 @@ import { SectionTitle } from "#components";
       section-annual-theme"
   >
     <div class="m:basis-1/3 l:basis-5/12">
-      <SectionTitle
-        section
+      <HeadingSub
         tag="h2"
+        class="text-bdxio-font-light"
       >
         Thème 2022
-      </SectionTitle>
-      <SectionTitle
+      </HeadingSub>
+      <Heading
         tag="h3"
-        color="light"
+        class="text-bdxio-font-light"
       >
         Cette année les femmes sont à l'honneur&nbsp;!
-      </SectionTitle>
+      </Heading>
       <p>
         À l'occasion de la 7ème édition de BDX I/O, nous avons choisi de mettre
         en avant : Les femmes célèbres dans l'IT.

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 </script>
 
 <template>
   <section class="section section-jobs">
-    <SectionTitle tag="h2">
+    <Heading tag="h2">
       Les jobs de <span class="sponsor">nos partenaires</span>
-    </SectionTitle>
+    </Heading>
     <!-- @TODO : idk what this component is -->
     <!-- <jobs-widget
       color="#7D7DF2"

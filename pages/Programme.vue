@@ -10,7 +10,7 @@ import {
   onClickOutside,
   createError,
 } from "#imports";
-import { SectionTitle, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
+import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
@@ -117,12 +117,12 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
 <template>
   <main class="section section-schedule">
     <header class="section-schedule__header">
-      <SectionTitle
+      <Heading
         tag="h1"
         class="section-schedule__header__title"
       >
         Le programme de la journée
-      </SectionTitle>
+      </Heading>
     </header>
 
     <section class="section-schedule__body">

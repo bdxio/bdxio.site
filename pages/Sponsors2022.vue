@@ -7,7 +7,7 @@ import {
   useAPI,
   createError,
 } from "#imports";
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors 2022 | BDX I/O" });
@@ -30,12 +30,12 @@ function getOfferClass(index) {
 <template>
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
-      <SectionTitle
+      <Heading
         tag="h1"
         class="section-sponsors-2022__header__title"
       >
         Nos sponsors 2022
-      </SectionTitle>
+      </Heading>
       <p>
         L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors
         pour nous permettre de vous proposer cette édition 2022.
@@ -50,12 +50,12 @@ function getOfferClass(index) {
           class="offer"
           :class="getOfferClass(index)"
         >
-          <SectionTitle
+          <Heading
             tag="h2"
             class="offer__name"
           >
             {{ offer.label }}
-          </SectionTitle>
+          </Heading>
           <ul
             v-if="offer.sponsors?.length"
             class="sponsors"

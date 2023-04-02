@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 </script>
 
 <template>
@@ -17,13 +17,15 @@ import { SectionTitle } from "#components";
     <time
       class="text-4xl text-bdxio-font-light italic p-[50px] date m:text-[40px] m:p-[60px]"
       datetime="2022-12-02"
-    >02/12/2022</time>
-    <SectionTitle
-      tag="h2"
+    >
+      02/12/2022
+    </time>
+    <Heading
+      tag="h3"
       class="text-2xl mb-0 m:text-[32px] text-bdxio-font-light"
     >
       Et on a hâte de vous y (re)voir&nbsp;!
-    </SectionTitle>
+    </Heading>
   </header>
 </template>
 

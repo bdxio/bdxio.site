@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle, LinkPrimary } from "#components";
+import { Heading, LinkPrimary } from "#components";
 </script>
 
 <template>
@@ -7,10 +7,10 @@ import { SectionTitle, LinkPrimary } from "#components";
     id="why-become-sponsor"
     class="section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden"
   >
-    <SectionTitle tag="h2">
+    <Heading tag="h2">
       Pourquoi devenir
       <span class="relative z-relative sponsor">Sponsor</span>&nbsp;?
-    </SectionTitle>
+    </Heading>
     <ul class="flex flex-wrap justify-center gap-5">
       <li class="flex flex-col items-center relative z-relative one">
         <p class="text-[74px]">

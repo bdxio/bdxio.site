@@ -71,6 +71,7 @@ module.exports = {
     },
     fontSize: {
       base: "22px",
+      subtitle: "20px",
       title: "40px",
     },
     fontFamily: {

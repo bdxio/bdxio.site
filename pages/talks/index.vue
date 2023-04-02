@@ -8,7 +8,7 @@ import {
   ref,
   shuffleArray,
 } from "#imports";
-import { SectionTitle, NuxtLink } from "#components";
+import { Heading, NuxtLink } from "#components";
 
 definePageMeta({ layout: "page" });
 useHead({ title: "Talks | BDX I/O" });
@@ -64,12 +64,12 @@ function setFilter() {}
   <main>
     <div class="section section-talks">
       <header class="section-talks__header">
-        <SectionTitle
+        <Heading
           tag="h1"
           class="section-talks__header__title"
         >
           Les talks
-        </SectionTitle>
+        </Heading>
         <ul
           v-if="categories.length"
           class="section-talks__header__filters"

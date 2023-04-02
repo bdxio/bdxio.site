@@ -1,7 +1,6 @@
 <script setup lang="ts">
-// @ts-check
-
-import { SectionTitle } from "#components";
+// @ts-nocheck
+import { Heading } from "#components";
 </script>
 
 <template>
@@ -9,12 +8,12 @@ import { SectionTitle } from "#components";
     id="offers"
     class="section section-sponsor-offers"
   >
-    <SectionTitle
-      tag="h3"
+    <Heading
+      tag="h2"
       class="text-align--center title"
     >
       Les offres
-    </SectionTitle>
+    </Heading>
     <div
       gutter-m
       class="offers"

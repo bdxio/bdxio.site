@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle, ButtonSecondary } from "#components";
+import { Heading, HeadingSub, ButtonSecondary } from "#components";
 </script>
 
 <template>
@@ -8,20 +8,19 @@ import { SectionTitle, ButtonSecondary } from "#components";
     class="section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-font-light"
   >
     <div>
-      <SectionTitle
-        section
+      <HeadingSub
         tag="h2"
-        color="light"
+        class="bdxio-font-light"
       >
         sponsors
-      </SectionTitle>
-      <SectionTitle
+      </HeadingSub>
+      <Heading
         tag="h3"
         class="title"
         color="light"
       >
         Embarquez avec nous dans l'aventure&nbsp;!
-      </SectionTitle>
+      </Heading>
       <p>
         Vous souhaitez devenir sponsor de cette nouvelle édition&nbsp;? <br>
         En cliquant sur le bouton ci-dessous vous trouverez toutes les

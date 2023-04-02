@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 </script>
 
 <template>
   <section class="section flex flex-col gap-[50px] text-bdxio-blue-dark m:gap-[80px] m:items-center">
-    <SectionTitle
+    <Heading
       tag="h2"
       class="text-center mt-0 mb-5 l:mb-[80px]"
     >
       Les dernières actualités
-    </SectionTitle>
+    </Heading>
     <div class="flex overflow-x-auto gap-[35px]">
       <div class="flex flex-col max-w-[310px]">
         <img

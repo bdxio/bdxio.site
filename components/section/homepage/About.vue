@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SectionTitle } from "#components";
+import { Heading } from "#components";
 </script>
 
 <template>
@@ -11,9 +11,9 @@ import { SectionTitle } from "#components";
       class="ml-0 bg-grey-100 shadow-homepage-about s:bg-center s:relative s:flex s:flex-col s:justify-center 
         s:ml-[55%] s:pl-0 section about-us"
     >
-      <SectionTitle tag="h2">
+      <Heading tag="h2">
         Qu'est-ce que <span class="whitespace-nowrap">BDX I/O</span>&nbsp;?
-      </SectionTitle>
+      </Heading>
       <p>
         BDX I/O est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { SectionTitle, IconOpenNewWindow, LinkSecondary } from "#components";
+import { Heading, HeadingSub, IconOpenNewWindow, LinkSecondary } from "#components";
 
 const { $SHOW_LINK_CFP } = useNuxtApp();
 </script>
@@ -11,18 +11,12 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
     class="section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full"
   >
     <div>
-      <SectionTitle
-        section
-        tag="h2"
-      >
-        speakers
-      </SectionTitle>
-      <SectionTitle
-        tag="h3"
-        class="title"
-      >
+      <HeadingSub tag="h2">
+        Speakers
+      </HeadingSub>
+      <Heading tag="h3">
         Vous aussi, rejoignez le navire&nbsp;!
-      </SectionTitle>
+      </Heading>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
         <br>Rejoignez notre équipe de speakers pour cette édition 2022.

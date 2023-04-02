@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
-import { SectionTitle, OpenFeedback, ShowOnYoutube } from "#components";
+import { Heading, OpenFeedback, ShowOnYoutube } from "#components";
 
 const props = defineProps<{
   presentation: {
@@ -31,9 +31,9 @@ const duration = computed(() => {
 
 <template>
   <section class="section talk-section-presentation">
-    <SectionTitle tag="h2">
+    <Heading tag="h2">
       {{ presentation.title }}
-    </SectionTitle>
+    </Heading>
     <img
       src="/images/drawings/cyan_scribble_3.png"
       alt="Gribouillages BDXI/O"

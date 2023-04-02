@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { SectionTitle, NuxtLink } from "#components";
+import { Heading, NuxtLink } from "#components";
 
 type Volunteer = {
   id: string;
@@ -45,13 +45,13 @@ function getVolunteerName(
 
 <template>
   <section class="bg-white pt-0 section section-association-volunteers">
-    <SectionTitle
-      tag="h3"
+    <Heading
+      tag="h2"
       class="text-center mt-0 title"
     >
       Découvrez les membres <br>
-      de notre <span class="relative z-relative team">équipe</span>
-    </SectionTitle>
+      de notre <span class="relative z-relative heart">équipe</span>
+    </Heading>
 
     <ul
       tag="ul"
@@ -163,7 +163,7 @@ function getVolunteerName(
 </template>
 
 <style lang="css" scoped>
-.team::after {
+.heart::after {
   content: "";
   width: 80px;
   height: 80px;

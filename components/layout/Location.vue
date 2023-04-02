@@ -7,10 +7,7 @@ import { Heading, HeadingSub } from "#components";
   <section class="section bg-no-repeat bg-contain bg-grey-100 location">
     <div class="relative pb-[450px] s:pb-0">
       <div class="relative bg-grey-100 location-boxshadow s:max-w-[50%] infos">
-        <HeadingSub
-          tag="h2"
-          class="mx-[30px] my-0"
-        >
+        <HeadingSub tag="h2">
           Transports
         </HeadingSub>
         <Heading tag="h3">

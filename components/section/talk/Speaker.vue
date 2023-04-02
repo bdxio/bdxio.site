@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { defineProps } from "vue";
 import { computed } from "#imports";
-import { SectionTitle, SectionTalkSpeakerProfile } from "#components";
+import { Heading, SectionTalkSpeakerProfile } from "#components";
 
 type Speaker = {
   name: string;
@@ -69,10 +69,10 @@ const speakerSocialLinks = computed(() => {
 <template>
   <section class="talk-section-speaker">
     <div class="talk-section-speaker__header">
-      <SectionTitle tag="h3">
+      <Heading tag="h3">
         <SectionTalkSpeakerProfile :speaker="speaker" />
         <span>{{ speaker.name }}</span>
-      </SectionTitle>
+      </Heading>
       <div
         v-if="speakerSocialLinks.length > 0"
         tag="ul"
