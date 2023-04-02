@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vue-macros/nuxt", "@vueuse/nuxt"],
   css: ["~/assets/css/main.css", "@/assets/styles/main.scss"],
   postcss: {
     plugins: {
