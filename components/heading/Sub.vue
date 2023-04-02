@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     :is="tag"
-    class="text-bdxio-font-dark text-subtitle font-body font-light leading-6 uppercase tracking-[2px] mb-4"
+    class="text-bdxio-font-dark text-subtitle font-body font-light leading-6 uppercase tracking-[2px] mb-8"
   >
     <slot />
   </component>
