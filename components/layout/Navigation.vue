@@ -16,6 +16,7 @@ const {
   $SHOW_PAGE_PROGRAMME,
   $SHOW_PAGE_LIVE,
   $SHOW_PAGE_SPONSORS,
+  $SHOW_PAGE_SPONSORS2022,
   $SHOW_PAGE_ASSOCIATION,
   $SHOW_PAGE_JOBS,
 } = useNuxtApp();
@@ -57,10 +58,21 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
       <NuxtLink
-        to="/sponsors2022"
+        to="/sponsors"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
         Sponsors
+      </NuxtLink>
+    </li>    
+    <li 
+      v-if="$SHOW_PAGE_SPONSORS2022"
+      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+    >
+      <NuxtLink
+        to="/sponsors2022"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+      >
+        Sponsors 2022
       </NuxtLink>
     </li>
     <li 
