@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <component
     :is="`h${level}`"
-    class="font-body font-light text-bdxio-font-dark text-xl leading-6 uppercase tracking-[2px] mb-8"
+    class="font-body font-light text-bdxio-font-dark text-xl leading-tight uppercase tracking-[2px] mb-8"
   >
     <slot />
   </component>

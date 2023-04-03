@@ -4,53 +4,36 @@ import { EDITION } from "~/services/constants";
 </script>
 
 <template>
-  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center section section-hero">
+  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center section">
     <Heading
       level="1"
-      class="relative z-relative text-4xl mt-0 m:text-[42px] m:after:w-[400px] m:after:h-[50px] m:after:-bottom-[40px] 
-        m:after:left-2/4 m:after:-translate-x-1/2"
+      class="text-bdxio-font-light !mb-0"
     >
       En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
     </Heading>
     <img
       src="/images/drawings/line-yellow.png"
       alt="Illustration d'une ligne jaune"
-      class=""
+      class="-m-5 mb-4"
     >
-    <div>
-      On se retrouve au Palais des Congrès <br>
-      de Bordeaux Lac
-    </div>
+    <p class="mb-3">
+      On se retrouve au Palais des Congrès <br>de Bordeaux Lac
+    </p>
+    <!-- @TODO : Change this date -->
     <time
-      class="text-4xl text-bdxio-font-light italic p-[50px] date m:text-[40px] m:p-[60px]"
-      datetime="2022-12-02"
+      class="font-title text-4xl m:text-5xl text-bdxio-font-light italic p-10 m:p-16 circle"
+      datetime="2023-xx-xx"
     >
-      <!-- @TODO : Change this date -->
-      02/12/2022
+      xx/xx/2023
     </time>
-    <Heading
-      level="3"
-      class="text-2xl mb-0 m:text-[32px] text-bdxio-font-light"
-    >
+    <p class="text-2xl m:text-3xl text-bdxio-font-light mt-4">
       Et on a hâte de vous y (re)voir&nbsp;!
-    </Heading>
+    </p>
   </header>
 </template>
 
 <style scoped>
-.underlined::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 150px;
-  height: 30px;
-  right: 0;
-  left: 0;
-  bottom: -20px;
-  background: url("/images/drawings/line-yellow.png") no-repeat center / cover;
-}
-
-.date {
+.circle {
   background: url("/images/drawings/circle-purple.png") no-repeat center / contain;
 }
 </style>

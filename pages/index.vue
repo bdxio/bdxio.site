@@ -22,21 +22,9 @@ useHead({ title: ASSOCIATION_NAME });
     <SectionHomepageAbout />
     <SectionHomepageAnnualTheme />
     <SectionHomepageCategories />
-    <div no-gutter>
-      <div
-        s12
-        m6
-        class="sponsor-container"
-      >
-        <SectionHomepageSponsor />
-      </div>
-      <div
-        s12
-        m6
-        class="speaker-container"
-      >
-        <SectionHomepageSpeaker />
-      </div>
+    <div class="flex flex-col m:flex-row">
+      <SectionHomepageSponsor class="!w-full !m:w-1/2" />
+      <SectionHomepageSpeaker class="!w-full !m:w-1/2" />
     </div>
   </main>
 </template>
