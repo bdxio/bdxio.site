@@ -5,21 +5,15 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
-  modules: ["@vue-macros/nuxt", "@vueuse/nuxt", "@nuxtjs/google-fonts"],
-  css: ["~/assets/css/main.css", "@/assets/styles/main.scss"],
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
+  css: ["@/assets/styles/main.scss"],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `
-            @import "~/assets/styles/_variables.scss";
-            @import "~/assets/styles/_mixins.scss";
+            @import "@/assets/styles/_variables.scss";
+            @import "@/assets/styles/_mixins.scss";
           `,
         },
       },
