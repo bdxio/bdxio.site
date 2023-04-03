@@ -8,9 +8,10 @@ import {
   createError,
 } from "#imports";
 import { Heading } from "#components";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Sponsors 2022 | BDX I/O" });
+useHead({ title: `Sponsors ${EDITION} | ${ASSOCIATION_NAME}` });
 
 const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
 
@@ -34,11 +35,11 @@ function getOfferClass(index) {
         tag="h1"
         class="section-sponsors-2022__header__title"
       >
-        Nos sponsors 2022
+        Nos sponsors {{ EDITION }}
       </Heading>
       <p>
-        L’équipe de BDX I/O tient à remercier tous les partenaires et sponsors
-        pour nous permettre de vous proposer cette édition 2022.
+        L’équipe de {{ ASSOCIATION_NAME }} tient à remercier tous les partenaires et sponsors
+        pour nous permettre de vous proposer cette édition {{ EDITION }}.
       </p>
     </header>
 

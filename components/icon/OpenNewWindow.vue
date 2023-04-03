@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { withDefaults, defineProps } from "vue";
-import type { IconProps, Color } from "@/types";
+import type { IconProps, Color } from "~/types";
 
 interface Props extends IconProps {
   borderColor: Color;

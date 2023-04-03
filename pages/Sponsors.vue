@@ -11,7 +11,7 @@ import {
   SectionSponsorsOffersAndSponsors,
   SectionSponsorsOffers,
 } from "#components";
-
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 
 const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
@@ -21,9 +21,9 @@ if (!$SHOW_PAGE_SPONSORS) {
 }
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Sponsors | BDX I/O" });
+useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const { data} = await useAPI("/offers", {
+const { data } = await useAPI("/offers", {
 });
 
 </script>

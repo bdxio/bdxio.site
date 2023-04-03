@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "#imports";
 import { LayoutLocation, LayoutNavigation, NuxtLink } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 const email = ref("");
 const showEmailForm = ref(false);
@@ -38,7 +39,7 @@ const registerNewsletter = () => {
         >
           <img
             src="/images/bdxio_logo_blue.png"
-            alt="Logo de l'association BDX.IO"
+            :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
           >
           <span>Bordeaux Developers eXperience</span>
         </NuxtLink>
@@ -79,11 +80,11 @@ const registerNewsletter = () => {
             <a
               href="https://twitter.com/bdxio"
               target="_blank"
-              aria-label="Twitter BDX I/O"
+              :aria-label="`Twitter ${ASSOCIATION_NAME}`"
             >
               <img
                 src="/images/socials/twitter.svg"
-                alt="Icône Twitter BDX IO"
+                :alt="`Icône Twitter ${ASSOCIATION_NAME}`"
               >
             </a>
           </li>
@@ -94,7 +95,7 @@ const registerNewsletter = () => {
             >
               <img
                 src="/images/socials/youtube.svg"
-                alt="Icône Youtube BDX IO"
+                :alt="`Icône Youtube ${ASSOCIATION_NAME}`"
               >
             </a>
           </li>
@@ -154,7 +155,7 @@ const registerNewsletter = () => {
           <small>Code de conduite</small>
         </NuxtLink>
         <!-- <small>Kit communication</small> -->
-        <small>©2022 - BDX I/O</small>
+        <small>©{{ new Date().getFullYear() }} - {{ ASSOCIATION_NAME }}</small>
         <div>
           <small>Événement soutenu par Bordeaux Métropole</small>
         </div>

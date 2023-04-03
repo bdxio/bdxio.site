@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
 import { Heading, HeadingSub, IconOpenNewWindow, LinkSecondary } from "#components";
+import { EDITION } from "~/services/constants";
 
 const { $SHOW_LINK_CFP } = useNuxtApp();
 </script>
@@ -19,7 +20,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       </Heading>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
-        <br>Rejoignez notre équipe de speakers pour cette édition 2022.
+        <br>Rejoignez notre équipe de speakers pour cette édition {{ EDITION }}.
       </p>
     </div>
     <LinkSecondary

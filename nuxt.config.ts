@@ -6,14 +6,14 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
-  css: ["@/assets/styles/main.scss"],
+  css: ["~/assets/styles/main.scss"],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `
-            @import "@/assets/styles/_variables.scss";
-            @import "@/assets/styles/_mixins.scss";
+            @import "~/assets/styles/_variables.scss";
+            @import "~/assets/styles/_mixins.scss";
           `,
         },
       },

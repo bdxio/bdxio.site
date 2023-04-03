@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
 import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
+import { EDITION } from "~/services/constants";
 
 const props = defineProps<{
   background?: "light" | "dark";
@@ -72,7 +73,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
         to="/sponsors2022"
         :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
       >
-        Sponsors 2022
+        Sponsors {{ EDITION }}
       </NuxtLink>
     </li>
     <li 

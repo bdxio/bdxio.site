@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Heading, HeadingSub } from "#components";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import { Heading, HeadingSub } from "#components";
         tag="h2"
         class="text-bdxio-font-light"
       >
-        Thème 2022
+        Thème {{ EDITION }}
       </HeadingSub>
       <Heading
         tag="h3"
@@ -22,7 +23,7 @@ import { Heading, HeadingSub } from "#components";
         Cette année les femmes sont à l'honneur&nbsp;!
       </Heading>
       <p>
-        À l'occasion de la 7ème édition de BDX I/O, nous avons choisi de mettre
+        À l'occasion de la 7ème édition de {{ ASSOCIATION_NAME }}, nous avons choisi de mettre
         en avant : Les femmes célèbres dans l'IT.
         <br>
         <br>Le thème n'est pas obligatoire pour participer, mais il est là

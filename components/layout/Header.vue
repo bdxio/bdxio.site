@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import { useRoute, ref, watch } from "#imports";
 import { NuxtLink, LayoutNavigation } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 defineProps<{
   background: "light" | "dark";
@@ -32,7 +33,7 @@ watch(
     >
       <img
         src="/images/bdxio_logo_blue.png"
-        alt="Logo de l'association BDX.IO"
+        :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
         class="block w-full h-auto max-w-[160px]"
       >
     </NuxtLink>

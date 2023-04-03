@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Heading } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import { Heading } from "#components";
       <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
+          :alt="`Photographie de l'équipe ${ASSOCIATION_NAME}`"
           class="max-w-[310px] mb-4"
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 1</span>
@@ -26,7 +27,7 @@ import { Heading } from "#components";
       <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
+          :alt="`Photographie de l'équipe ${ASSOCIATION_NAME}`"
           class="max-w-[310px] mb-4"
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 2</span>
@@ -38,7 +39,7 @@ import { Heading } from "#components";
       <div class="flex flex-col max-w-[310px]">
         <img
           src="/images/team.png"
-          alt="photographie de l'équipe d'organisation de bdx.io"
+          :alt="`Photographie de l'équipe ${ASSOCIATION_NAME}`"
           class="max-w-[310px] mb-4"
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 3</span>

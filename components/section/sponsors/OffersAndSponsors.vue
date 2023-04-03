@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { defineProps } from "vue";
+import { EDITION } from "~/services/constants";
 
 type Offer = {
   id: number;
@@ -36,7 +37,7 @@ const getOfferClasses = (full: Offer["full"], id: Offer["id"]) => {
   >
     <h3 class="title">
       Les <span class="before">offres</span> et
-      <span class="after">sponsors 2022</span>
+      <span class="after">sponsors {{ EDITION }}</span>
     </h3>
     <div class="offers">
       <div

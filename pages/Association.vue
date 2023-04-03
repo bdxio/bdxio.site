@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { definePageMeta, useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_SECTION_VOLUNTEERS, $SHOW_PAGE_ASSOCIATION } = useNuxtApp();
 
@@ -9,7 +10,7 @@ if (!$SHOW_PAGE_ASSOCIATION) {
 }
 
 definePageMeta({ layout: "page" });
-useHead({ title: "L'association | BDX I/O" });
+useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 
 const { data: volunteers } = await useAPI("/volunteers", {
   params: {

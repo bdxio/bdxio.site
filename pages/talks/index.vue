@@ -8,10 +8,11 @@ import {
   Ref,
 } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
-import { TalkCategory, Talk } from "@/types";
+import { ASSOCIATION_NAME } from "~/services/constants";
+import { TalkCategory, Talk } from "~/types";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Talks | BDX I/O" });
+useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
 const ALL = "all";
 const currentFilter = ref(ALL);

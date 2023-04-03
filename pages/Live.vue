@@ -2,6 +2,7 @@
 // @ts-nocheck
 import { definePageMeta, useHead, useAPI, computed, useNuxtApp, createError } from "#imports";
 import { Heading } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 const {$SHOW_PAGE_LIVE} = useNuxtApp();
 
@@ -10,7 +11,7 @@ if (!$SHOW_PAGE_LIVE) {
 }
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Live 🎥 | BDX I/O" });
+useHead({ title: `Live 🎥 | ${ASSOCIATION_NAME}` });
 
 const { data } = await useAPI("/rooms", {
   params: { sort: "name" },

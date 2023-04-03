@@ -12,10 +12,11 @@ import {
   SectionTalkPresentation,
   SectionTalkSpeaker,
 } from "#components";
-import { Talk } from "@/types";
+import { ASSOCIATION_NAME } from "~/services/constants";
+import { Talk } from "~/types";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Talk | BDX I/O" });
+useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
 const { params } = useRoute();
 

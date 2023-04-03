@@ -11,6 +11,7 @@ import {
   createError,
 } from "#imports";
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
@@ -19,7 +20,7 @@ if (!$SHOW_PAGE_PROGRAMME) {
 }
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Programme | BDX I/O" });
+useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
 const filters = ref([]);
 const openPanel = ref(false);

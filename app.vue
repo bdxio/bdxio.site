@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 useHead({
-  title: "BDX I/O",
+  title: ASSOCIATION_NAME,
   meta: [
     {
       name: "description",
-      content: "BDX I/O est une conférence pour les développeur•euse•s, sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.",
+      content: `${ASSOCIATION_NAME} est une conférence pour les développeur•euse•s, sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
 });

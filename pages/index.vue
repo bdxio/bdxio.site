@@ -9,9 +9,10 @@ import {
   SectionHomepageSponsor,
   SectionHomepageSpeaker,
 } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 definePageMeta({ layout: "homepage" });
-useHead({ title: "BDX I/O" });
+useHead({ title: ASSOCIATION_NAME });
 </script>
 
 <template>

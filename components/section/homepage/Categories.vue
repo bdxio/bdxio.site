@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Heading, HeadingSub } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
 <template>
@@ -25,7 +26,7 @@ import { Heading, HeadingSub } from "#components";
           Quels seront les thèmes abordés&nbsp;?
         </Heading>
         <p>
-          BDX I/O propose des conférences autour de 7 thématiques différentes,
+          {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes,
           avec des durées différentes et pour tous les niveaux : Vous trouverez
           forcément votre bonheur&nbsp;!
         </p>

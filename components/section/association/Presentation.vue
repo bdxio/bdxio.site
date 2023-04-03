@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
 import { Heading, HeadingSub, ButtonSecondary } from "#components";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
 </script>
@@ -12,7 +13,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
         tag="h1"
         class="mb-4 relative z-relative scribble"
       >
-        L'asso BDX I/O
+        L'asso {{ ASSOCIATION_NAME }}
       </Heading>
       <p class="m-0">
         Tout connaître sur nous, l’asso n’aura plus aucun <br>
@@ -50,7 +51,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           color="dark"
           to="/schedule"
         >
-          Découvrir le programme 2022
+          Découvrir le programme {{ EDITION }}
         </ButtonSecondary>
       </div>
       <div class="flex gap-4 basis-full m:basis-1/2">

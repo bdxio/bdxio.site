@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { definePageMeta, useHead } from "#imports";
 import { Heading, Link } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Code de conduite | BDX I/O" });
+useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
 </script>
 
 <template>

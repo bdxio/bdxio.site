@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Heading } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
 <template>
@@ -12,10 +13,10 @@ import { Heading } from "#components";
         s:ml-[55%] s:pl-0 section about-us"
     >
       <Heading tag="h2">
-        Qu'est-ce que <span class="whitespace-nowrap">BDX I/O</span>&nbsp;?
+        Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
       </Heading>
       <p>
-        BDX I/O est un conférence bordelaise sur le thème de la programmation et
+        {{ ASSOCIATION_NAME }} est un conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.
         <br>Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s
         lors d'une journée de découvertes et de bonne humeur&nbsp;!
