@@ -5,8 +5,11 @@ export default async function useAPI(endpoint, options) {
   const config = useRuntimeConfig();
 
   if (!config.public.API_TOKEN) {
-    console.error("a api token env variable is missing");
-    return;
+    console.error("Missing API_TOKEN environment variable");
+    return {
+      data: ref(null),
+      meta: ref(null),
+    };
   }
 
   const { data, error } = await useFetch(
