@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
-  modules: ["@vue-macros/nuxt", "@vueuse/nuxt"],
+  modules: ["@vue-macros/nuxt", "@vueuse/nuxt", "@nuxtjs/google-fonts"],
   css: ["~/assets/css/main.css", "@/assets/styles/main.scss"],
   postcss: {
     plugins: {
@@ -29,6 +29,18 @@ export default defineNuxtConfig({
     public: {
       API_TOKEN: process.env.API_TOKEN,
       API_URL: process.env.API_URL,
+    },
+  },
+  googleFonts: {
+    families: {
+      Merriweather: {
+        wght: [700],
+        ital: [700],
+      },
+      Lato: {
+        wght: [300, 400, 700],
+        ital: [300,400, 700],
+      },
     },
   },
 });

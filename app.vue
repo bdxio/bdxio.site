@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div class="font-body">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

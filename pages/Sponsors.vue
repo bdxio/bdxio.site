@@ -5,7 +5,6 @@ import {
   useNuxtApp,
   createError,
   useAPI,
-  computed,
 } from "#imports";
 import {
   SectionSponsorsBecomeSponsor,
@@ -24,20 +23,21 @@ if (!$SHOW_PAGE_SPONSORS) {
 definePageMeta({ layout: "page" });
 useHead({ title: "Sponsors | BDX I/O" });
 
-const { data: offers } = await useAPI("/offers", {
-  params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
+const { data} = await useAPI("/offers", {
 });
 
-const showSponsors = computed(() => offers.value?.length && $SHOW_PAGE_SPONSORS);
 </script>
 
 <template>
   <main>
     <SectionSponsorsBecomeSponsor />
-    <SectionSponsorsOffersAndSponsors
+    <!-- <SectionSponsorsOffersAndSponsors
       v-if="showSponsors && offers"
       :offers="offers"
+    /> -->
+    <SectionSponsorsOffers
+      v-if="data.length !== 0"
+      :offers="data"
     />
-    <SectionSponsorsOffers v-else />
   </main>
 </template>

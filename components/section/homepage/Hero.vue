@@ -4,12 +4,13 @@ import { Heading } from "#components";
 
 <template>
   <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center section section-hero">
-    <h1
+    <Heading
+      tag="h1"
       class="relative z-relative text-4xl mt-0 m:text-[42px] m:after:w-[400px] m:after:h-[50px] m:after:-bottom-[40px] 
         m:after:left-2/4 m:after:-translate-x-1/2"
     >
       En 2022,<br>Nous sommes de <span class="relative z-relative underlined">retour&nbsp;!</span>
-    </h1>
+    </Heading>
     <div class="font-light mx-3 my-5 text-[28px]">
       On se retrouve au Palais des Congrès <br>
       de Bordeaux Lac
