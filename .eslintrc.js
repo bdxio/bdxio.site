@@ -12,8 +12,9 @@ module.exports = {
     }],
     "comma-dangle": [ERROR, "always-multiline"],
     "max-len": [ERROR, { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true }],
-    "vue/multi-word-component-names": OFF,
     "keyword-spacing": [ERROR, { "before": true, "after": true }],
     "space-before-function-paren": [ERROR, {"anonymous": "always", "named": "never"}],
+    "vue/multi-word-component-names": OFF,
+    "vue/no-multiple-template-root": OFF,
   },
 };
