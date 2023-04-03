@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import { Config }  from "tailwindcss";
+
+const config: Config = {
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -74,13 +75,13 @@ module.exports = {
       "96": "24rem",
     },
     zIndex: {
-      upper: 9999,
-      modal: 5,
-      design: 4,
-      absolute: 3,
-      relative: 2,
-      default: 1,
-      negative: -1,
+      upper: "9999",
+      modal: "5",
+      design: "4",
+      absolute: "3",
+      relative: "2",
+      default: "1",
+      negative: "-1",
     },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
@@ -100,3 +101,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = config;
