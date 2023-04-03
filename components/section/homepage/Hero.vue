@@ -6,13 +6,18 @@ import { EDITION } from "~/services/constants";
 <template>
   <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center section section-hero">
     <Heading
-      tag="h1"
+      level="1"
       class="relative z-relative text-4xl mt-0 m:text-[42px] m:after:w-[400px] m:after:h-[50px] m:after:-bottom-[40px] 
         m:after:left-2/4 m:after:-translate-x-1/2"
     >
-      En {{ EDITION }},<br>Nous sommes de <span class="relative z-relative underlined">retour&nbsp;!</span>
+      En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
     </Heading>
-    <div class="font-light mx-3 my-5 text-[28px]">
+    <img
+      src="/images/drawings/line-yellow.png"
+      alt="Illustration d'une ligne jaune"
+      class=""
+    >
+    <div>
       On se retrouve au Palais des Congrès <br>
       de Bordeaux Lac
     </div>
@@ -24,7 +29,7 @@ import { EDITION } from "~/services/constants";
       02/12/2022
     </time>
     <Heading
-      tag="h3"
+      level="3"
       class="text-2xl mb-0 m:text-[32px] text-bdxio-font-light"
     >
       Et on a hâte de vous y (re)voir&nbsp;!
@@ -32,7 +37,7 @@ import { EDITION } from "~/services/constants";
   </header>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
 .underlined::after {
   content: "";
   display: block;
@@ -42,10 +47,10 @@ import { EDITION } from "~/services/constants";
   right: 0;
   left: 0;
   bottom: -20px;
-  background: url("/images/drawings/yellow_line_1.png") no-repeat center / cover;
+  background: url("/images/drawings/line-yellow.png") no-repeat center / cover;
 }
 
 .date {
-  background: url("/images/drawings/purple_circle.png") no-repeat center / contain;
+  background: url("/images/drawings/circle-purple.png") no-repeat center / contain;
 }
 </style>

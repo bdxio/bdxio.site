@@ -119,7 +119,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
   <main class="section section-schedule">
     <header class="section-schedule__header">
       <Heading
-        tag="h1"
+        level="1"
         class="section-schedule__header__title"
       >
         Le programme de la journée

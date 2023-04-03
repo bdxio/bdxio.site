@@ -12,7 +12,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       class="ml-0 bg-grey-100 shadow-homepage-about s:bg-center s:relative s:flex s:flex-col s:justify-center 
         s:ml-[55%] s:pl-0 section about-us"
     >
-      <Heading tag="h2">
+      <Heading level="2">
         Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
       </Heading>
       <p>

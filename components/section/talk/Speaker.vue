@@ -62,7 +62,7 @@ const speakerSocialLinks = computed(() => {
     <div class="flex items-center mb-8">
       <SectionTalkSpeakerPicture :speaker="speaker" />
       <Heading
-        tag="h3"
+        level="3"
         class="!mb-0 !text-2xl"
       >
         {{ speaker.name }}
@@ -75,7 +75,6 @@ const speakerSocialLinks = computed(() => {
       <li
         v-for="(link, index) in speakerSocialLinks"
         :key="index"
-        tag="li"
       >
         <a
           v-if="link.url"

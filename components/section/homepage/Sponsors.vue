@@ -8,7 +8,7 @@ import { Heading } from "#components";
       m:gap-[90px] section-sponsors"
   >
     <Heading
-      tag="h2"
+      level="2"
       class="relative z-relative s:after:ml-0 m:after:ml-[50px] triangle"
     >
       Ils nous soutiennent

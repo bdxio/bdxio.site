@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSub } from "#components";
+import { Heading, HeadingSection } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
@@ -12,15 +12,15 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       <div
         class="text-container basis-full m:basis-4/12 l:basis-5/12"
       >
-        <HeadingSub
-          tag="h2"
+        <HeadingSection
+          level="2"
           class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
             m:before:w-[120px] m:before:h-[70px] scribble"
         >
           thématique
-        </HeadingSub>
+        </HeadingSection>
         <Heading
-          tag="h3"
+          level="3"
           class="relative quote"
         >
           Quels seront les thèmes abordés&nbsp;?

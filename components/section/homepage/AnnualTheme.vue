@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSub } from "#components";
+import { Heading, HeadingSection } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 </script>
 
@@ -10,14 +10,14 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       section-annual-theme"
   >
     <div class="m:basis-1/3 l:basis-5/12">
-      <HeadingSub
-        tag="h2"
+      <HeadingSection
+        level="2"
         class="text-bdxio-font-light"
       >
         Thème {{ EDITION }}
-      </HeadingSub>
+      </HeadingSection>
       <Heading
-        tag="h3"
+        level="3"
         class="text-bdxio-font-light"
       >
         Cette année les femmes sont à l'honneur&nbsp;!

@@ -46,7 +46,7 @@ function getVolunteerName(
 <template>
   <section class="bg-white pt-0 section section-association-volunteers">
     <Heading
-      tag="h2"
+      level="2"
       class="text-center mt-0 title"
     >
       Découvrez les membres <br>

@@ -24,7 +24,7 @@ const duration = computed(() => {
 
 <template>
   <section class="section !pt-0 mb-20">
-    <Heading tag="h1">
+    <Heading level="1">
       {{ talk.title }}
     </Heading>
     <img

@@ -32,7 +32,7 @@ function getOfferClass(index) {
   <main class="section section-sponsors-2022">
     <header class="section-sponsors-2022__header">
       <Heading
-        tag="h1"
+        level="1"
         class="section-sponsors-2022__header__title"
       >
         Nos sponsors {{ EDITION }}
@@ -52,7 +52,7 @@ function getOfferClass(index) {
           :class="getOfferClass(index)"
         >
           <Heading
-            tag="h2"
+            level="2"
             class="offer__name"
           >
             {{ offer.label }}

@@ -7,7 +7,7 @@ import { Heading, LinkPrimary } from "#components";
     id="why-become-sponsor"
     class="section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden"
   >
-    <Heading tag="h2">
+    <Heading level="2">
       Pourquoi devenir
       <span class="relative z-relative sponsor">Sponsor</span>&nbsp;?
     </Heading>

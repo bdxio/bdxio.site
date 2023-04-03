@@ -20,7 +20,7 @@ defineProps<{
     class="section bg-white"
   >
     <Heading
-      tag="h3"
+      level="3"
       class="text-center relative z-relative title"
     >
       Les offres

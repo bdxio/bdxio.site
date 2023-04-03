@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { Heading, HeadingSub, ButtonSecondary } from "#components";
+import { Heading, HeadingSection, ButtonSecondary } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
@@ -10,7 +10,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   <div class="bg-white section section-presentation">
     <header class="flex flex-col items-center justify-center text-center">
       <Heading
-        tag="h1"
+        level="1"
         class="mb-4 relative z-relative scribble"
       >
         L'asso {{ ASSOCIATION_NAME }}
@@ -27,14 +27,14 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       align-center-xs
     >
       <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
-        <HeadingSub
-          tag="h2"
+        <HeadingSection
+          level="2"
           class="text-green"
         >
           Qui sommes nous ?
-        </HeadingSub>
+        </HeadingSection>
         <Heading
-          tag="h3"
+          level="3"
           class="my-3"
         >
           Un petit groupe de bénévoles <span class="frame">bordelais</span> !

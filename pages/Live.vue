@@ -33,7 +33,7 @@ const iframeDimensions = computed(() => {
   <main class="section section-live">
     <header class="section-live__header">
       <Heading
-        tag="h1"
+        level="1"
         class="section-live__header__title"
       >
         Le live

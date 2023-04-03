@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { Heading, HeadingSub, IconOpenNewWindow, LinkSecondary } from "#components";
+import { Heading, HeadingSection, IconOpenNewWindow, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
 const { $SHOW_LINK_CFP } = useNuxtApp();
@@ -12,10 +12,10 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
     class="section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full"
   >
     <div>
-      <HeadingSub tag="h2">
+      <HeadingSection level="2">
         Speakers
-      </HeadingSub>
-      <Heading tag="h3">
+      </HeadingSection>
+      <Heading level="3">
         Vous aussi, rejoignez le navire&nbsp;!
       </Heading>
       <p>

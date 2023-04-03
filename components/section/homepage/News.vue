@@ -6,7 +6,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 <template>
   <section class="section flex flex-col gap-[50px] text-bdxio-blue-dark m:gap-[80px] m:items-center">
     <Heading
-      tag="h2"
+      level="2"
       class="text-center mt-0 mb-5 l:mb-[80px]"
     >
       Les dernières actualités

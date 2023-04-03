@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSub, ButtonSecondary } from "#components";
+import { Heading, HeadingSection, ButtonSecondary } from "#components";
 </script>
 
 <template>
@@ -8,16 +8,15 @@ import { Heading, HeadingSub, ButtonSecondary } from "#components";
     class="section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-font-light"
   >
     <div>
-      <HeadingSub
-        tag="h2"
+      <HeadingSection
+        level="2"
         class="bdxio-font-light"
       >
         sponsors
-      </HeadingSub>
+      </HeadingSection>
       <Heading
-        tag="h3"
+        level="3"
         class="title"
-        color="light"
       >
         Embarquez avec nous dans l'aventure&nbsp;!
       </Heading>

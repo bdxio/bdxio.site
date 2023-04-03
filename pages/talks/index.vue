@@ -45,7 +45,7 @@ function setFilter(categoryId: string) {
 <template>
   <main class="section bg-white flex flex-col">
     <Heading
-      tag="h1"
+      level="1"
       class="title relative block mx-auto !mb-16"
     >
       Les talks

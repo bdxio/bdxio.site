@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSub } from "#components";
+import { Heading, HeadingSection } from "#components";
 </script>
 
 <template>
@@ -7,10 +7,10 @@ import { Heading, HeadingSub } from "#components";
   <section class="section bg-no-repeat bg-contain bg-grey-100 location">
     <div class="relative pb-[450px] s:pb-0">
       <div class="relative bg-grey-100 location-boxshadow s:max-w-[50%] infos">
-        <HeadingSub tag="h2">
+        <HeadingSection level="2">
           Transports
-        </HeadingSub>
-        <Heading tag="h3">
+        </HeadingSection>
+        <Heading level="3">
           Comment rejoindre<br>l'évènement ?
         </Heading>
         <div class="flex flex-col gap-1 mb-[30px]">
