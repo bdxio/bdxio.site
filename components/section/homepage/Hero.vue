@@ -4,7 +4,7 @@ import { EDITION } from "~/services/constants";
 </script>
 
 <template>
-  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center section">
+  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center p-section">
     <Heading
       level="1"
       class="text-bdxio-font-light !mb-0"

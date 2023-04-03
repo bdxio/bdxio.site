@@ -1,4 +1,5 @@
-.section {
+// @TODO : Remove '.section' class when all pages are updated to use '.p-section' class
+.section, .p-section {
   padding: theme('spacing.16') theme('spacing.8');
 
   @media screen(m) {
