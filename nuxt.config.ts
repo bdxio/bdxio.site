@@ -6,7 +6,15 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
-  css: ["~/assets/styles/main.scss"],
+  css: ["~/assets/styles/main.scss", "~/assets/css/main.css"],
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      tailwindcss: {},
+      "tailwindcss/nesting": {},
+      "postcss-import": {},
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {

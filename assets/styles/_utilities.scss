@@ -58,31 +58,6 @@ ul {
   }
 }
 
-.section {
-  padding: 4rem 2rem;
-
-  @include mobileFirst(m) {
-    padding: 4rem;
-  }
-
-  @include mobileFirst(l) {
-    padding: 5rem;
-  }
-
-  @include mobileFirst(xl) {
-    padding: 6rem;
-  }
-
-  @include mobileFirst(xxl) {
-    padding: 7rem;
-  }
-
-  @include mobileFirst(xxxl) {
-    padding: 8rem;
-  }
-}
-
-
 .card {
   box-shadow: 0px 7px 29px rgba(36, 36, 87, 0.1);
   border-radius: 8px;
