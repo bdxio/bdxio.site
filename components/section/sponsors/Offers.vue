@@ -27,20 +27,20 @@ defineProps<{
     </Heading>
     <div
       gutter-m
-      class="flex gap-8 flex-row mt-[75px]"
+      class="flex gap-8 flex-col m:flex-row mt-[75px]"
     >
       <div
         v-for="offer in offers"
         :key="offer.label"
-        :class="`w-12/12 s:w-6/12 l:w-3/12 mb-7 xl:mb-0 ${
+        :class="`mb-7 xl:mb-0 ${
           offer.full ? 'cursor-not-allowed relative z-relative soldout' : ''
         }`"
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
           <span
-            :class="`block font-bold mb-2 uppercase text-[20px] tracking-[3px] text-bdxio-blue-dark ${offer.color}`"
+            :class="`block font-bold uppercase text-[20px] tracking-[3px] text-bdxio-blue-dark ${offer.color}`"
           >{{ offer.label }}</span>
-          <span class="text-[30px] font-bold font-title">{{ offer.price }} €</span>
+          <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
           <p class="text-[22px] font-normal">
             {{ offer.description }}
           </p>

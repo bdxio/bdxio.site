@@ -66,9 +66,10 @@ import { Heading, LinkPrimary } from "#components";
       color="light"
       to="/bdxio-2022-sponsors.pdf"
       download
+      :disabled="true"
       class="mt-[160px] self-center"
     >
-      Télecharger la plaquette
+      Télécharger la plaquette
     </LinkPrimary>
   </section>
 </template>
