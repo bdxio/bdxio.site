@@ -8,7 +8,6 @@ import {
 } from "#imports";
 import {
   SectionSponsorsBecomeSponsor,
-  SectionSponsorsOffersAndSponsors,
   SectionSponsorsOffers,
 } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
@@ -31,10 +30,6 @@ const { data } = await useAPI("/offers", {
 <template>
   <main>
     <SectionSponsorsBecomeSponsor />
-    <!-- <SectionSponsorsOffersAndSponsors
-      v-if="showSponsors && offers"
-      :offers="offers"
-    /> -->
     <SectionSponsorsOffers
       v-if="data.length !== 0"
       :offers="data"
