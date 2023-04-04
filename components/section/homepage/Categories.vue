@@ -15,7 +15,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         <HeadingSection
           level="2"
           class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
-            m:before:w-[120px] m:before:h-[70px] scribble"
+            m:before:w-[120px] m:before:h-[70px] scribble text-subtitle"
         >
           thématique
         </HeadingSection>

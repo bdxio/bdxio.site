@@ -12,7 +12,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
     <div class="m:basis-1/3 l:basis-5/12">
       <HeadingSection
         level="2"
-        class="text-bdxio-font-light"
+        class="text-bdxio-font-light text-subtitle"
       >
         Thème {{ EDITION }}
       </HeadingSection>

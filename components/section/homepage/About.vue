@@ -13,7 +13,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         s:ml-[55%] s:pl-0 section about-us"
     >
       <Heading level="2">
-        Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
+        Qu'est-ce que <span class="whitespace-nowrap text-bdxio-blue-dark">{{ ASSOCIATION_NAME }}</span>&nbsp;?
       </Heading>
       <p>
         {{ ASSOCIATION_NAME }} est un conférence bordelaise sur le thème de la programmation et

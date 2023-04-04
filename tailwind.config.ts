@@ -62,6 +62,12 @@ const config: Config = {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
     },
+    fontSize: {
+      small: "16px",
+      base: "22px",
+      title: "40px",
+      subtitle: "20px",
+    },
     boxShadow: {
       card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
       "homepage-about": "0px 0px 30px 20px #F5F5F5",

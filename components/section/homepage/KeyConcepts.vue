@@ -8,13 +8,13 @@ import { Counter } from "#components";
   >
     <div class="picture picture-amphi" />
     <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark px-4 
         py-4 relative z-absolute info-amphis card-1"
     >
-      <p class="block m-0 font-bold text-[82px] leading-none">
+      <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter :value="5" />
       </p>
-      <p class="block m-0 text-bold text-3xl mr-3 ml-2">
+      <p class="block font-title text-bold text-[30px] m-3">
         Amphis
       </p>
       <p class="block m-0 mb-4">
@@ -26,10 +26,10 @@ import { Counter } from "#components";
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
         py-4 relative z-absolute info-themes card-2"
     >
-      <p class="block m-0 font-bold text-[82px] leading-none">
+      <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter :value="7" />
       </p>
-      <p class="block m-0 text-bold text-3xl mr-3 ml-2">
+      <p class="block font-title text-bold text-[30px] m-3">
         Thématiques
       </p>
       <p class="block m-0 mb-4">
@@ -41,10 +41,10 @@ import { Counter } from "#components";
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
       py-4 relative z-absolute info-conferences card-3"
     >
-      <p class="block m-0 relative z-relative font-bold text-[82px] leading-none">
+      <p class="block m-0 relative z-relative font-bold text-[82px] font-title leading-none">
         <Counter :value="40" />
       </p>
-      <p class="block m-0 text-bold text-3xl mr-3 ml-2">
+      <p class="block font-title text-bold text-[30px] m-3">
         conférences
       </p>
       <p class="block m-0 mb-4">
@@ -57,13 +57,13 @@ import { Counter } from "#components";
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
         py-4 relative z-absolute info-attendees card-4"
     >
-      <p class="block m-0 font-bold text-[82px] leading-none">
+      <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter
           :value="900"
           :step="25"
         />
       </p>
-      <p class="block m-0 text-bold text-3xl mr-3 ml-2">
+      <p class="block font-title text-bold text-[30px] m-3">
         Participants
       </p>
       <p class="block m-0 mb-4">

@@ -12,7 +12,10 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
     class="section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full"
   >
     <div>
-      <HeadingSection level="2">
+      <HeadingSection
+        level="2"
+        class="text-subtitle"
+      >
         Speakers
       </HeadingSection>
       <Heading level="3">

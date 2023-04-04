@@ -10,13 +10,13 @@ import { Heading, HeadingSection, ButtonSecondary } from "#components";
     <div>
       <HeadingSection
         level="2"
-        class="bdxio-font-light"
+        class="text-bdxio-font-light text-subtitle"
       >
         sponsors
       </HeadingSection>
       <Heading
         level="3"
-        class="title"
+        class="title text-bdxio-font-light"
       >
         Embarquez avec nous dans l'aventure&nbsp;!
       </Heading>

@@ -7,11 +7,14 @@ import { Heading, LinkPrimary } from "#components";
     id="why-become-sponsor"
     class="section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden"
   >
-    <Heading level="2">
+    <Heading
+      level="2"
+      class="text-bdxio-font-light"
+    >
       Pourquoi devenir
       <span class="relative z-relative sponsor">Sponsor</span>&nbsp;?
     </Heading>
-    <ul class="flex flex-wrap justify-center gap-5">
+    <ul class="flex flex-wrap justify-center gap-[60px] mt-[100px]">
       <li class="flex flex-col items-center relative z-relative one">
         <p class="text-[74px] mb-[50px]">
           1
@@ -87,7 +90,7 @@ import { Heading, LinkPrimary } from "#components";
   position: absolute;
   width: 160px;
   height: 100px;
-  top: 20%;
+  top: 0;
   left: 80%;
   background: url("/images/drawings/purple_arrow.png") no-repeat;
   background-size: cover;
@@ -98,10 +101,11 @@ import { Heading, LinkPrimary } from "#components";
   position: absolute;
   width: 160px;
   height: 100px;
-  top: 20%;
+  top: 0;
   left: 40%;
   background: url("/images/drawings/cyan_scribbles.png") no-repeat;
   background-size: cover;
+  z-index: -1;
 }
 
 .four:after {
@@ -109,7 +113,7 @@ import { Heading, LinkPrimary } from "#components";
   position: absolute;
   width: 160px;
   height: 100px;
-  bottom: 0px;
+  bottom: 0;
   left: -50px;
   background: url("/images/drawings/yellow_scribbles.png") no-repeat;
   background-size: cover;
@@ -118,11 +122,11 @@ import { Heading, LinkPrimary } from "#components";
 .five:after {
   content: "";
   position: absolute;
-  width: 75px;
-  height: 100px;
-  top: 0;
+  width: 55px;
+  height: 70px;
+  top: -30px;
   left: 60%;
   background: url("/images/drawings/orange_highlight_2.png") no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 </style>
