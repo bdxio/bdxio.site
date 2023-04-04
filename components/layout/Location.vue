@@ -21,7 +21,8 @@ import { Heading, HeadingSection } from "#components";
           </span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Transport en commun : </span>
+          <span class="leading-7 font-bold text-2xl">Transport en commun :
+          </span>
           <span class="leading-[26px]">Bus 15 ou Tram C</span>
         </div>
         <div>
@@ -48,7 +49,7 @@ import { Heading, HeadingSection } from "#components";
 }
 
 .location-boxshadow {
-  box-shadow: 0px 0px 30px 20px #F5F5F5;
+  box-shadow: 0px 0px 30px 20px #f5f5f5;
 }
 
 @media screen and (min-width: 768px) {

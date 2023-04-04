@@ -13,9 +13,7 @@ import { Heading, LinkPrimary } from "#components";
     </Heading>
     <ul class="flex flex-wrap justify-center gap-5">
       <li class="flex flex-col items-center relative z-relative one">
-        <p class="text-[74px]">
-          1
-        </p>
+        <p class="text-[74px] mb-[50px]">1</p>
         <p class="text-center max-w-[350px]">
           Une visibilité sur le plus grand événement bordelais fédérant
           l’ensemble de la communauté digitale et IT bordelaise
@@ -23,9 +21,7 @@ import { Heading, LinkPrimary } from "#components";
       </li>
 
       <li class="flex flex-col items-center relative z-relative two">
-        <p class="text-[74px]">
-          2
-        </p>
+        <p class="text-[74px] mb-[50px]">2</p>
         <p class="text-center max-w-[350px]">
           Être un acteur majeur en contribuant au développement de cet
           écosystème local
@@ -33,27 +29,21 @@ import { Heading, LinkPrimary } from "#components";
       </li>
 
       <li class="flex flex-col items-center relative z-relative three">
-        <p class="text-[74px]">
-          3
-        </p>
+        <p class="text-[74px] mb-[50px]">3</p>
         <p class="text-center max-w-[350px]">
           Affirmer le dynamisme de votre structure et stimuler vos équipes
         </p>
       </li>
 
       <li class="flex flex-col items-center relative z-relative four">
-        <p class="text-[74px]">
-          4
-        </p>
+        <p class="text-[74px] mb-[50px]">4</p>
         <p class="text-center max-w-[350px]">
           Une mise en avant de vos services, produits et compétences
         </p>
       </li>
 
       <li class="flex flex-col items-center relative z-relative five">
-        <p class="text-[74px]">
-          5
-        </p>
+        <p class="text-[74px] mb-[50px]">5</p>
         <p class="text-center max-w-[350px]">
           Rencontrer vos futurs collaborateurs, partenaires ou fournisseurs
         </p>
@@ -81,7 +71,6 @@ import { Heading, LinkPrimary } from "#components";
   background: url("/images/drawings/orange_circle.png") no-repeat;
   background-size: cover;
 }
-
 
 .one:after {
   content: "";
