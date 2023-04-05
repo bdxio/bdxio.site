@@ -30,33 +30,32 @@ const iframeDimensions = computed(() => {
 </script>
 
 <template>
-  <main class="section section-live">
-    <header class="section-live__header">
+  <main class="section bg-white section-live">
+    <header class="flex flex-col justify-center items-center text-center section-live__header">
       <Heading
         level="1"
-        class="section-live__header__title"
+        class="relative z-relative title m:before:w-[120px] m:before:h-[120px] m:before:-left-[110px]
+        m:after:w-[120px] m:after:h-[120px] m:after:-right-[110px]"
       >
         Le live
       </Heading>
     </header>
-    <section class="section-live__body">
-      <div
+    <section class="mt-[60px] m:mt-[100px] section-live__body">
+      <ul
         v-if="rooms.length"
         tag="ul"
-        class="rooms"
+        class="flex flex-row"
         gutter-s
       >
-        <div
+        <li
           v-for="room in rooms"
           :key="room.name"
-          tag="li"
-          class="room"
-          m6
+          class="basis-full m:basis-1/2 w-full overflow-hidden mb-8"
         >
-          <div class="room__name">
+          <div class="font-bold mb-2">
             {{ room.name }}
           </div>
-          <div class="room__video">
+          <div class="relative z-relative w-full h-0 pb-[56.25%]  room__video">
             <iframe
               :width="iframeDimensions.width"
               :height="iframeDimensions.height"
@@ -65,13 +64,14 @@ const iframeDimensions = computed(() => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
+              class="!absolute top-0 left-0 w-full h-full"
             />
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
       <p
         v-else
-        class="noLive"
+        class="text-center"
       >
         Aucun live actuellement, merci de réessayer pendant l'évènement
       </p>
@@ -79,96 +79,32 @@ const iframeDimensions = computed(() => {
   </main>
 </template>
 
-<style lang="scss" scoped>
-.section-live {
-  background: $white;
+<style lang="css" scoped>
+.title::before {
+    content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  left: -70px;
+  bottom: -10px;
+  background: url("/images/drawings/blue_presentation_left.png") center
+    no-repeat;
+  background-size: cover;
+}
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    &__title {
-      @include positionRelative;
-
-      &:before {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        left: -70px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_left.png") center
-          no-repeat;
-        background-size: cover;
-
-        @include mobileFirst(m) {
-          width: 120px;
-          height: 120px;
-          left: -110px;
-        }
-      }
-
-      &:after {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        right: -70px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_right.png") center
-          no-repeat;
-        background-size: cover;
-
-        @include mobileFirst(m) {
-          width: 120px;
-          height: 120px;
-          right: -110px;
-        }
-      }
-    }
-  }
-
-  &__body {
-    margin-top: 60px;
-
-    @include mobileFirst(m) {
-      margin-top: 100px;
-    }
-
-    .room {
-      width: 100%;
-      overflow: hidden;
-      margin-bottom: $spc-m;
-      &__name {
-        font-weight: $font-weight-bold;
-        margin-bottom: $spc-xxs;
-      }
-
-      &__video {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 56.25%;
-        iframe {
-          position: absolute !important;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
-
-  .noLive {
-    text-align: center;
-  }
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  right: -70px;
+  bottom: -10px;
+  background: url("/images/drawings/blue_presentation_right.png") center
+    no-repeat;
+  background-size: cover;
 }
 </style>
