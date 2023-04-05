@@ -15,6 +15,7 @@ const toggleMenu = () => {
   mobileOpen.value = !mobileOpen.value;
 };
 
+
 watch(
   () => path,
   () => {
@@ -25,7 +26,7 @@ watch(
 
 <template>
   <header
-    :class="`pt-3 flex justify-center items-center px-4 py-0 m:px-[30px] m:py-[50px] m:justify-between 
+    :class="`py-3 flex justify-between items-center px-4 m:px-[30px] m:py-[50px] m:justify-between m:items-start
       ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} header`"
   >
     <NuxtLink
@@ -37,18 +38,20 @@ watch(
         class="block w-full h-auto max-w-[160px]"
       >
     </NuxtLink>
-    <div @click.prevent="toggleMenu">
+    <div>
       <img
         v-if="mobileOpen"
         :src="background === 'light' ? '/images/icons/close_blue.svg' : '/images/icons/close.svg'"
         alt="icone pour ouvrir le menu sur mobile"
-        class="absolute z-modal right-4 top-4 cursor-pointer m:hidden"
+        class="relative z-modal cursor-pointer m:hidden"
+        @click.prevent="toggleMenu"
       >
       <img
         v-else
         :src="background === 'light' ? '/images/icons/burger_blue.svg' : '/images/icons/burger.svg'"
         alt="icone pour fermer le menu sur mobile"
-        class="absolute z-modal right-4 top-4 cursor-pointer m:hidden"
+        class="cursor-pointer m:hidden"
+        @click.prevent="toggleMenu"
       >
       <nav
         :class="`absolute z-design w-full top-0 bottom-0 flex justify-center items-center 

@@ -166,6 +166,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
 <style lang="css" scoped>
 .router-link-exact-active {
   position: relative;
+  pointer-events: none;
 }
 
 .router-link-exact-active::after {
