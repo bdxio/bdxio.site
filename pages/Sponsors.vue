@@ -24,7 +24,6 @@ useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
 const { data } = await useAPI("/offers", {
 });
-
 </script>
 
 <template>
