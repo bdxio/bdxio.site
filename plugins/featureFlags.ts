@@ -20,6 +20,7 @@ const pageFlags = {
   SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKS: false,
   SHOW_PAGE_LIVE: false,
+  SHOW_PAGE_FAQ: true,
 };
 
 const FLAGS = {
