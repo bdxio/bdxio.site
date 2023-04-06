@@ -10,6 +10,7 @@ const linkFlags = {
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
   SHOW_LINK_PROGRAMME_PDF: false,
+  SHOW_LINK_LIVE: true,
 };
 
 const pageFlags = {
@@ -19,7 +20,6 @@ const pageFlags = {
   SHOW_PAGE_ASSOCIATION: true,
   SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKS: false,
-  SHOW_PAGE_LIVE: false,
 };
 
 const FLAGS = {
