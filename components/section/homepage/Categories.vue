@@ -15,13 +15,13 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         <HeadingSection
           level="2"
           class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
-            m:before:w-[120px] m:before:h-[70px] scribble text-subtitle"
+            m:before:w-[120px] m:before:h-[70px]  text-subtitle"
         >
           thématique
         </HeadingSection>
         <Heading
           level="3"
-          class="relative quote"
+          class="relative z-relative scribble !text-bdxio-blue-dark"
         >
           Quels seront les thèmes abordés&nbsp;?
         </Heading>
@@ -34,7 +34,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       <div
         class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-relative gap-4 items-center px-6
          py-5 m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7 
-         overflow-hidden xxl:grid-cols-homegpage-categories-xxl"
+         overflow-hidden xxl:grid-cols-homegpage-categories-xxl quote"
       >
         <div
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
@@ -115,23 +115,12 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 .scribble:before {
   content: "";
   position: absolute;
-  top: -37px;
-  left: -19px;
+  top: -15px;
+  left: -15px;
   width: 110px;
   height: 60px;
-  background: url("/images/drawings/cyan_scribble_2.png") center no-repeat;
-  background-size: contain;
-}
-
-.quote:after {
-  content: "";
   z-index: -1;
-  width: 140px;
-  height: 140px;
-  position: absolute;
-  bottom: 114px;
-  right: -10px;
-  background: url("/images/drawings/yellow_citation.png") center no-repeat;
+  background: url("/images/drawings/cyan_scribble_2.png") center no-repeat;
   background-size: contain;
 }
 

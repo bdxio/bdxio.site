@@ -10,14 +10,14 @@ const linkFlags = {
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
   SHOW_LINK_PROGRAMME_PDF: false,
-  SHOW_LINK_LIVE: true,
+  SHOW_LINK_LIVE: false,
 };
 
 const pageFlags = {
   SHOW_PAGE_PROGRAMME: false,
-  SHOW_PAGE_SPONSORS: true,
+  SHOW_PAGE_SPONSORS: false,
   SHOW_PAGE_SPONSORS2022: false,
-  SHOW_PAGE_ASSOCIATION: true,
+  SHOW_PAGE_ASSOCIATION: false,
   SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKS: false,
 };

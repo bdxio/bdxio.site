@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import {
   definePageMeta,
   useHead,
@@ -10,30 +9,31 @@ import {
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
-definePageMeta({ layout: "page" });
-useHead({ title: `Sponsors ${EDITION} | ${ASSOCIATION_NAME}` });
 
-const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
+const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();
 
-if (!$SHOW_PAGE_SPONSORS) {
+if (!$SHOW_PAGE_SPONSORS2022) {
   throw createError({ statusCode: 404 });
 }
+
+definePageMeta({ layout: "page" });
+useHead({ title: `Sponsors ${EDITION} | ${ASSOCIATION_NAME}` });
 
 const { data: offers } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
-function getOfferClass(index) {
+function getOfferClass(index: number) {
   return ["purple", "green", "yellow", "orange"][index];
 }
 </script>
 
 <template>
-  <main class="section section-sponsors-2022">
-    <header class="section-sponsors-2022__header">
+  <main class="section bg-white section-sponsors-2022">
+    <header class="flex flex-col justify-center items-center text-center">
       <Heading
         level="1"
-        class="section-sponsors-2022__header__title"
+        class="relative z-relative m:before:w-[120px] m:before:h-[120px] m:before:-left-[110px] title"
       >
         Nos sponsors {{ EDITION }}
       </Heading>
@@ -43,37 +43,37 @@ function getOfferClass(index) {
       </p>
     </header>
 
-    <section class="section-sponsors-2022__body">
+    <section class="section-sponsors-2022__body mt-[100px]">
       <ul v-if="offers.length">
         <li
           v-for="(offer, index) in offers"
           :key="`offer-${offer.id}`"
-          class="offer"
-          :class="getOfferClass(index)"
+          class="mb-12 offer"
         >
           <Heading
             level="2"
-            class="offer__name"
+            class="!text-[20px] !mb-0 uppercase tracking-[3px] font-bold"
+            :class="getOfferClass(index)"
           >
             {{ offer.label }}
           </Heading>
           <ul
             v-if="offer.sponsors?.length"
-            class="sponsors"
+            class="flex gap-[30px] flex-wrap self-center p-8 sponsors"
           >
             <li
               v-for="sponsor in offer.sponsors"
               :key="sponsor.name"
-              class="sponsors__sponsor card"
+              class="card min-w-[180px] min-h-[180px] block mx-auto my-0 s:min-w-[210px] s:min-h-[210px] s:m-0"
             >
               <a
                 :href="sponsor.url || '#'"
                 target="_blank"
-                class="sponsors__sponsor__link"
+                class="block w-full h-full relative z-relative"
                 :title="sponsor.name"
               >
                 <img
-                  class="sponsors__sponsor__image"
+                  class="w-1/2 absolute z-absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url
@@ -94,135 +94,33 @@ function getOfferClass(index) {
 </template>
 
 <style lang="scss" scoped>
-.section-sponsors-2022 {
-  background: $white;
+.title::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  left: -65px;
+  bottom: -10px;
+  background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
+  background-size: cover;
+}
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 
-    &__title {
-      @include positionRelative;
+.purple {
+  color: $purple;
+}
 
-      &:before {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        left: -30px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_left.png") center
-          no-repeat;
-        background-size: cover;
+.green {
+  color: $green;
+}
 
-        @include mobileFirst(m) {
-          width: 120px;
-          height: 120px;
-          left: -110px;
-        }
-      }
+.yellow {
+  color: $yellow;
+}
 
-      &:after {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        right: -30px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_right.png") center
-          no-repeat;
-        background-size: cover;
-
-        @include mobileFirst(m) {
-          width: 120px;
-          height: 120px;
-          right: -110px;
-        }
-      }
-    }
-  }
-
-  &__body {
-    margin-top: 100px;
-    .sponsors {
-      display: flex;
-      grid-gap: 30px;
-      flex-wrap: wrap;
-      // overflow-x: auto;
-      // overflow-y: hidden;
-      align-self: center;
-      padding: $spc-m;
-
-      &__sponsor {
-        min-width: 180px;
-        min-height: 180px;
-        display: block;
-        margin: 0 auto;
-
-        &__link {
-          display: block;
-          width: 100%;
-          height: 100%;
-          position: relative;
-          @include positionRelative;
-        }
-
-        &__image {
-          width: 50%;
-          @include positionAbsolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        @include mobileFirst(s) {
-          min-width: 210px;
-          min-height: 210px;
-          margin: initial;
-        }
-      }
-    }
-
-    .offer {
-      margin-bottom: $spc-xl;
-      &__name {
-        font-size: 20px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-weight: $font-weight-bold;
-      }
-
-      &.purple {
-        .offer__name {
-          color: $purple;
-        }
-      }
-
-      &.green {
-        .offer__name {
-          color: $green;
-        }
-      }
-
-      &.yellow {
-        .offer__name {
-          color: $yellow;
-        }
-      }
-
-      &.orange {
-        .offer__name {
-          color: $orange;
-        }
-      }
-    }
-  }
+.orange {
+  color: $orange;
 }
 </style>
