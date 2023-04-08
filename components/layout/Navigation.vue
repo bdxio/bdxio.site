@@ -15,7 +15,7 @@ const {
   $SHOW_LINK_CFP,
   $SHOW_PAGE_TALKS,
   $SHOW_PAGE_PROGRAMME,
-  $SHOW_PAGE_LIVE,
+  $SHOW_LINK_LIVE,
   $SHOW_PAGE_SPONSORS,
   $SHOW_PAGE_SPONSORS2022,
   $SHOW_PAGE_ASSOCIATION,
@@ -122,18 +122,20 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       </NuxtLink>
     </li>
     <li
-      v-if="$SHOW_PAGE_LIVE"
+      v-if="$SHOW_LINK_LIVE"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
-      <LinkSecondaryNuxt
+      <LinkSecondary
+        to="#"
         color="light"
-        to="/live"
+        target="_blank"
       >
         <div class="flex items-center">
           Live
           <div class="live" />
         </div>
-      </LinkSecondaryNuxt>
+        <!-- <IconOpenNewWindow :color="iconColor" :borderColor="iconBorderColor" /> -->
+      </LinkSecondary>
     </li>
     <li
       v-if="$SHOW_LINK_BILLETERIE"
@@ -178,6 +180,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
 <style lang="css" scoped>
 .router-link-exact-active {
   position: relative;
+  pointer-events: none;
 }
 
 .router-link-exact-active::after {

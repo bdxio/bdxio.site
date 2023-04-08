@@ -20,11 +20,8 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
         secret pour vous !
       </p>
     </header>
-    <div
-      tag="section"
-      class="mt-100 m:flex m:justify-between m:gap-x-[40px]"
-      gutter-l
-      align-center-xs
+    <section
+      class="mt-[100px] m:flex m:justify-between m:gap-x-[40px]"
     >
       <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
         <HeadingSection
@@ -37,7 +34,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           level="3"
           class="my-3"
         >
-          Un petit groupe de bénévoles <span class="frame">bordelais</span> !
+          Un petit groupe de bénévoles <span class="relative z-relative">bordelais</span> !
         </Heading>
         <p class="mt-4">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial
@@ -54,7 +51,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           Découvrir le programme {{ EDITION }}
         </ButtonSecondary>
       </div>
-      <div class="flex gap-4 basis-full m:basis-1/2">
+      <div class="flex gap-4 basis-full mt-[100px] m:mt-0 m:basis-1/2">
         <div class="w-1/2">
           <picture>
             <source
@@ -120,13 +117,12 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           </picture>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.scribble {
-  &:after {
+<style lang="css" scoped>
+.scribble::after {
     content: "";
     display: block;
     width: 150px;
@@ -138,29 +134,5 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
     transform: rotate(-20deg);
     background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
     background-size: cover;
-
-    @include mobileFirst(m) {
-      width: 180px;
-      height: 100px;
-      right: -60px;
-      bottom: -55px;
-    }
   }
-}
-
-.frame {
-  position: relative;
-
-  &::after {
-    content: "";
-    width: 240px;
-    height: 100px;
-    position: absolute;
-    z-index: 0;
-    background: url("/images/drawings/green_box.png") center no-repeat;
-    background-size: cover;
-    top: -10px;
-    left: -20px;
-  }
-}
 </style>

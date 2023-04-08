@@ -12,7 +12,7 @@ import { Heading, LinkPrimary } from "#components";
       class="text-bdxio-font-light"
     >
       Pourquoi devenir
-      <span class="relative z-relative sponsor">Sponsor</span>&nbsp;?
+      <span class="relative z-relative sponsor">Sponsor&nbsp;?</span>
     </Heading>
     <ul class="flex flex-wrap justify-center gap-[60px] mt-[100px]">
       <li class="flex flex-col items-center relative z-relative one">
