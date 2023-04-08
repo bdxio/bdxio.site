@@ -19,12 +19,11 @@ import { EDITION } from "~/services/constants";
     <p class="mb-3 text-[28px]">
       On se retrouve au Palais des Congrès <br>de Bordeaux Lac
     </p>
-    <!-- @TODO : Change this date -->
     <time
       class="font-title text-title text-bdxio-font-light italic p-10 m:p-16 circle"
-      datetime="2023-xx-xx"
+      datetime="2023-11-10"
     >
-      xx/xx/2023
+      10/11/2023
     </time>
     <p class="font-title text-bdxio-font-light mt-4 text-[32px]">
       Et on a hâte de vous y (re)voir&nbsp;!
