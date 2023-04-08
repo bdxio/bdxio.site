@@ -52,7 +52,7 @@ export default defineNuxtConfig({
           rel: "icon",
           href: "/favicon.ico",
         },
-      ], 
+      ],
     },
   },
 });

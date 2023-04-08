@@ -81,7 +81,7 @@ export interface Slot {
   startSlot: string;
   endSlot: string;
   name: SlotName;
-  space: null; // @TODO : Remove it ? 
+  space: null; // @TODO : Remove it ?
   naturalId: string;
   createdAt: string;
   puslishedAt: string;

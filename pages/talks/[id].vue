@@ -1,17 +1,7 @@
 <script setup lang="ts">
-import {
-  definePageMeta,
-  useHead,
-  useRoute,
-  useAPI,
-  createError,
-  Ref,
-} from "#imports";
-import {
-  SectionTalkCategory,
-  SectionTalkPresentation,
-  SectionTalkSpeaker,
-} from "#components";
+import { Ref } from "vue";
+import { definePageMeta, useHead, useRoute, useAPI, createError } from "#imports";
+import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import { Talk } from "~/types";
 

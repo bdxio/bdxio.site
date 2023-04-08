@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import {
-  definePageMeta,
-  useHead,
-  useAPI,
-  computed,
-  ref,
-  Ref,
-} from "#imports";
+import { Ref } from "vue";
+import { definePageMeta, useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import { TalkCategory, Talk } from "~/types";
@@ -17,7 +11,7 @@ useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 const ALL = "all";
 const currentFilter = ref(ALL);
 
-const [{ data: categories }, { data: talks }]: [{ data: Ref<TalkCategory[]>}, {data: Ref<Talk[]>}] = 
+const [{ data: categories }, { data: talks }]: [{ data: Ref<TalkCategory[]>}, {data: Ref<Talk[]>}] =
   await Promise.all([
     useAPI("/categories", {
       params: { fields: ["id", "name", "color"] },

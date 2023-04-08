@@ -9,7 +9,6 @@ import {
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
-
 const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();
 
 if (!$SHOW_PAGE_SPONSORS2022) {
@@ -106,7 +105,6 @@ function getOfferClass(index: number) {
   background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
   background-size: cover;
 }
-
 
 .purple {
   color: $purple;

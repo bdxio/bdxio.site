@@ -55,7 +55,7 @@ const categoryNumber = computed(() => {
   }
   &--5 {
     background-image: url("/images/drawings/themes/theme-5.png");
-  } 
+  }
   &--6 {
     background-image: url("/images/drawings/themes/theme-6.png");
   }

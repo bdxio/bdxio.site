@@ -23,22 +23,11 @@ defineProps<{
   volunteers: Volunteer[];
 }>();
 
-function getVolunteerName(
-  firstname: Volunteer["firstname"],
-  lastname: Volunteer["lastname"],
-) {
-  if (!firstname && !lastname) {
-    return null;
-  }
-
-  if (!firstname) {
-    return lastname;
-  }
-
-  if (!lastname) {
-    return firstname;
-  }
-
+function getVolunteerName(volunteer: Volunteer): string | null {
+  const { firstname, lastname } = volunteer;
+  if (!firstname && !lastname) return null;
+  if (!firstname) return lastname || null;
+  if (!lastname) return firstname || null;
   return `${firstname} ${lastname}`;
 }
 </script>
@@ -75,7 +64,7 @@ function getVolunteerName(
           >
           <div class="p-2">
             <div class="text-2xl font-bold mb-1">
-              {{ getVolunteerName(volunteer.firstname, volunteer.lastname) }}
+              {{ getVolunteerName(volunteer) }}
             </div>
             <div class="text-green mb-4">
               <template v-if="!volunteer.jobCompanyName">
@@ -102,10 +91,7 @@ function getVolunteerName(
                 v-if="volunteer.linkedin"
                 :to="volunteer.linkedin"
                 target="_blank"
-                :aria-label="`Lien du profil linkedin de ${getVolunteerName(
-                  volunteer.firstname,
-                  volunteer.lastname
-                )}`"
+                :ariaCurrentValue="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)}`"
               >
                 <img
                   src="/images/socials/linkedin.svg"
@@ -116,12 +102,9 @@ function getVolunteerName(
                 v-if="volunteer.twitter"
                 :to="volunteer.twitter"
                 target="_blank"
-                :aria-label="`Lien du profil twitter de ${getVolunteerName(
-                  volunteer.firstname,
-                  volunteer.lastname
-                )}`"
+                :ariaCurrentValue="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
               >
-                <img                  
+                <img
                   src="/images/socials/twitter.svg"
                   alt="Icône Twitter"
                 >
@@ -130,24 +113,18 @@ function getVolunteerName(
                 v-if="volunteer.github"
                 :to="volunteer.github"
                 target="_blank"
-                :aria-label="`Lien du profil github de ${getVolunteerName(
-                  volunteer.firstname,
-                  volunteer.lastname
-                )}`"
+                :ariaCurrentValue="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
               >
                 <img
                   src="/images/socials/github.svg"
-                  alt="Icône Github"
+                  alt="Icône GitHub"
                 >
               </NuxtLink>
               <NuxtLink
                 v-if="volunteer.website"
                 :to="volunteer.website"
                 target="_blank"
-                :aria-label="`Lien personnalisé de de ${getVolunteerName(
-                  volunteer.firstname,
-                  volunteer.lastname
-                )}`"
+                :ariaCurrentValue="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
               >
                 <img
                   src="/images/socials/website.svg"

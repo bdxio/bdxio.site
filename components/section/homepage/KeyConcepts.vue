@@ -8,7 +8,7 @@ import { Counter } from "#components";
   >
     <div class="picture picture-amphi" />
     <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark px-4 
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark px-4
         py-4 relative z-absolute info-amphis card-1"
     >
       <p class="block m-0 font-bold text-[82px] font-title leading-none">
@@ -23,7 +23,7 @@ import { Counter } from "#components";
     </div>
     <div class="picture picture-conversation" />
     <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
         py-4 relative z-absolute info-themes card-2"
     >
       <p class="block m-0 font-bold text-[82px] font-title leading-none">
@@ -38,7 +38,7 @@ import { Counter } from "#components";
     </div>
     <div class="picture picture-mascotte" />
     <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4 
+      class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
       py-4 relative z-absolute info-conferences card-3"
     >
       <p class="block m-0 relative z-relative font-bold text-[82px] font-title leading-none">
@@ -101,7 +101,6 @@ import { Counter } from "#components";
       "data-themes pic-mascotte pic-mascotte data-conferences pic-mascotte2 pic-mascotte2"
       "pic-speaker data-attendees pic-big-amphi pic-big-amphi pic-big-amphi pic-big-amphi";
   }
-
   
     &:after {
       content: "";

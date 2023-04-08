@@ -55,7 +55,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
         Programme
       </NuxtLink>
     </li>
-    <li 
+    <li
       v-if="$SHOW_PAGE_SPONSORS"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
@@ -65,8 +65,8 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       >
         Sponsors
       </NuxtLink>
-    </li> 
-    <li 
+    </li>
+    <li
       v-if="$SHOW_PAGE_FAQ"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
@@ -76,8 +76,8 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
       >
         FAQ Sponsors
       </NuxtLink>
-    </li>        
-    <li 
+    </li>
+    <li
       v-if="$SHOW_PAGE_SPONSORS2022"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
@@ -88,7 +88,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
         Sponsors {{ EDITION }}
       </NuxtLink>
     </li>
-    <li 
+    <li
       v-if="$SHOW_PAGE_ASSOCIATION"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >
@@ -99,7 +99,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
         L'asso
       </NuxtLink>
     </li>
-    <li 
+    <li
       v-if="$SHOW_PAGE_JOBS"
       :class="`m-0 m:mr-5 ${mobileOpenClass}`"
     >

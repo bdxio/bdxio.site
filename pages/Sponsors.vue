@@ -12,7 +12,6 @@ import {
 } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
-
 const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
 
 if (!$SHOW_PAGE_SPONSORS) {

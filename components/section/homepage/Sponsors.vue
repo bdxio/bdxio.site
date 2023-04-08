@@ -4,7 +4,7 @@ import { Heading } from "#components";
 
 <template>
   <div
-    class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px] 
+    class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px]
       m:gap-[90px] section-sponsors"
   >
     <Heading
@@ -17,7 +17,7 @@ import { Heading } from "#components";
       <a
         href="https://www.atinternet.com/en/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center 
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center
           justify-center"
       >
         <img
@@ -29,7 +29,7 @@ import { Heading } from "#components";
       <a
         href="https://apside.com/"
         target="_blank"
-        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center 
+        class="bg-white bg-center bg-contain bg-no-repeat bg-origin-content w-[172px] h-[172px] flex items-center
           justify-center"
       >
         <img

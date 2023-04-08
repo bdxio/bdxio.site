@@ -7,14 +7,13 @@ const props = defineProps<{
     download?: true
   }>();
 
-
 const colorClasses = computed(() => {
   switch (props.color) {
     case "white":
       return "bg-bdxio-cream-base text-bdxio-blue-dark";
     case "light":
       return "bg-bdxio-blue-light text-bdxio-font-light hover:text-bdxio-font-light";
-    case "grey": 
+    case "grey":
       return "bg-bdxio-font-dark text-bdxio-font-light";
     case "dark":
       return "bg-bdxio-blue-dark text-bdxio-font-light";
@@ -27,7 +26,7 @@ const colorClasses = computed(() => {
 
 <template>
   <a
-    :class="`border-none py-[12px] px-[25px] rounded-[8px] duration-300 w-fit block 
+    :class="`border-none py-[12px] px-[25px] rounded-[8px] duration-300 w-fit block
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
     :download="download"
   >

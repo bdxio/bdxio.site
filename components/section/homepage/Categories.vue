@@ -14,7 +14,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       >
         <HeadingSection
           level="2"
-          class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px] 
+          class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px]
             m:before:w-[120px] m:before:h-[70px]  text-subtitle"
         >
           thématique
@@ -33,14 +33,14 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       </div>
       <div
         class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-relative gap-4 items-center px-6
-         py-5 m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7 
+         py-5 m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7
          overflow-hidden xxl:grid-cols-homegpage-categories-xxl quote"
       >
         <div
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--1"
           >
             Frontend
@@ -50,7 +50,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] px-0 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] px-0
             leading-[30px] bg-center bg-no-repeat bg-contain theme--2"
           >
             Backend
@@ -60,7 +60,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--3"
           >
             Big Data & IA
@@ -70,7 +70,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--4"
           >
             Design & UX
@@ -80,7 +80,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--5"
           >
             Cloud & Dev.Sec.Ops
@@ -90,7 +90,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--6"
           >
             Methodo & Architecture
@@ -100,7 +100,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
         >
           <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] 
+            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
             px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--7"
           >
             Hors piste

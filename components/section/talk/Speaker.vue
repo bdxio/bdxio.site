@@ -91,7 +91,7 @@ const speakerSocialLinks = computed(() => {
     <!-- eslint-disable vue/no-v-html -->
     <div
       v-if="speaker.bio"
-      v-html="$md.render(speaker.bio)" 
+      v-html="$md.render(speaker.bio)"
     />
     <!-- eslint-enable vue/no-v-html -->
   </section>

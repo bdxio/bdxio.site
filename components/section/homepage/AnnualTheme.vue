@@ -6,7 +6,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 <template>
   <div
     id="annual-theme"
-    class="flex flex-col bg-bdxio-blue-dark text-bdxio-font-light m:justify-between m:flex-row section 
+    class="flex flex-col bg-bdxio-blue-dark text-bdxio-font-light m:justify-between m:flex-row section
       section-annual-theme"
   >
     <div class="m:basis-1/3 l:basis-5/12">
@@ -33,7 +33,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       </p>
     </div>
     <div
-      class="m:basis-8/12 l:basis-7/12 grid grid-cols-homepage-portraits gap-4 overflow-x-auto overflow-y-hidden 
+      class="m:basis-8/12 l:basis-7/12 grid grid-cols-homepage-portraits gap-4 overflow-x-auto overflow-y-hidden
         pt-5 m:mt-0 m:overflow-hidden m:grid-cols-homepage-portraits-m m:justify-center"
     >
       <div class="relative z-relative elizabethfeinler">
