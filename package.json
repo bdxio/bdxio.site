@@ -19,13 +19,13 @@
     "@nuxtjs/tailwindcss": "^6.6.5",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.15.11",
-    "@vue-macros/nuxt": "^1.2.7",
+    "@vue-macros/nuxt": "^1.2.8",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "nuxt": "^3.3.3",
     "postcss-import": "^15.1.0",
-    "sass": "^1.60.0",
-    "typescript": "^5.0.3",
+    "sass": "^1.61.0",
+    "typescript": "^5.0.4",
     "vue-tsc": "^1.2.0"
   }
 }
