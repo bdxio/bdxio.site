@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { defineNuxtPlugin } from "#imports";
 import MarkdownIt from "markdown-it";
 
