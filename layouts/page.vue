@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { LayoutHeader, LayoutFooter } from "#components";
+import { LayoutHeader, LayoutLocation, LayoutFooter } from "#components";
 </script>
 
 <template>
   <LayoutHeader background="light" />
   <slot />
+  <LayoutLocation />
   <LayoutFooter />
 </template>

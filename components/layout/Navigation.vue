@@ -37,7 +37,7 @@ const linkColor = computed(() => {
     <li class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0">
       <NuxtLink
         to="/"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Accueil
       </NuxtLink>
@@ -48,7 +48,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/programme"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Programme
       </NuxtLink>
@@ -59,7 +59,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/sponsors"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Sponsors
       </NuxtLink>
@@ -70,7 +70,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/faq"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         FAQ Sponsors
       </NuxtLink>
@@ -81,7 +81,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/sponsors2022"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Sponsors {{ EDITION }}
       </NuxtLink>
@@ -92,7 +92,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/association"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         L'asso
       </NuxtLink>
@@ -103,7 +103,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/jobs"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Jobs
       </NuxtLink>
@@ -114,7 +114,7 @@ const linkColor = computed(() => {
     >
       <NuxtLink
         to="/talks"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
+        :class="`no-underline text-2xl m:text-base ${linkColor}`"
       >
         Talks
       </NuxtLink>

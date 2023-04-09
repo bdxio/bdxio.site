@@ -25,7 +25,7 @@ watch(
 
 <template>
   <header
-    :class="`flex justify-between items-center m:justify-between m:items-start py-5 m:py-8 px-7 m:px-12
+    :class="`flex justify-between items-center m:justify-between m:items-center py-5 m:py-8 px-7 m:px-12
       ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'}`"
   >
     <NuxtLink
@@ -34,7 +34,7 @@ watch(
       <img
         src="/images/bdxio_logo_blue.png"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
-        class="block w-full h-auto max-w-[120px] m:max-w-[160px]"
+        class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-20"
       >
     </NuxtLink>
     <img
@@ -52,7 +52,7 @@ watch(
       @click.prevent="toggleMenu"
     >
     <nav
-      :class="`fixed m:static top-0 bottom-0 z-10 w-full flex justify-center m:justify-end items-center
+      :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-10
           min-h-full m:min-h-auto
           ${open ? 'right-0' : 'right-full'}
           ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`

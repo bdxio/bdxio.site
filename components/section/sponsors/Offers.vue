@@ -41,7 +41,7 @@ defineProps<{
             :class="`block font-bold uppercase text-[20px] tracking-[3px] text-bdxio-blue-dark ${offer.color}`"
           >{{ offer.label }}</span>
           <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
-          <p class="text-[22px] font-normal">
+          <p class="text-base font-normal">
             {{ offer.description }}
           </p>
         </div>

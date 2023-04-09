@@ -9,10 +9,10 @@ export default defineNuxtConfig({
   css: ["~/assets/styles/main.scss", "~/assets/css/main.css"],
   postcss: {
     plugins: {
+      "postcss-import": {},
+      "tailwindcss/nesting": {},
       autoprefixer: {},
       tailwindcss: {},
-      "tailwindcss/nesting": {},
-      "postcss-import": {},
     },
   },
   vite: {
