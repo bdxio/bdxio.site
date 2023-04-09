@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
-  css: ["~/assets/styles/main.scss", "~/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
       "postcss-import": {},
