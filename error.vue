@@ -1,22 +1,35 @@
 <script setup lang="ts">
-import { LayoutHeader, LayoutFooter } from "#components";
+import { LayoutHeader, LayoutFooter, LinkPrimaryNuxt } from "#components";
+
+const props = defineProps<{
+  error: any;
+}>();
+
+const status = props.error?.statusCode || 500;
 </script>
 
 <template>
-  <div>
+  <div class="font-body text-base">
     <LayoutHeader background="light" />
-    <section class="section flex justify-center items-center w-full">
-      <div class="flex flex-col items-center">
-        <img
-          src="/images/404-img.png"
-          alt="Une illlustration représentant un ordinateur retro"
-          class="w-full max-w-[500px]"
-        >
-        <p>
-          Oups ! Il semblerait qu'une erreur soit survenue. N'hésitez pas à
-          utiliser la navigation pour retourner sur le site
-        </p>
-      </div>
+    <section class="p-section flex flex-col items-center">
+      <img
+        src="/images/error.png"
+        alt="Illustration d'un ordinateur rétro"
+        class="w-full max-w-[500px]"
+      >
+      <p v-if="status === 404">
+        Oups ! Vous êtes perdus ? <br>
+      </p>
+      <p v-else>
+        Oups ! Il semblerait qu'il y ait eu une erreur.<br>
+      </p>
+      <LinkPrimaryNuxt
+        color="dark"
+        to="/"
+        class="mt-5"
+      >
+        Revenir à l'accueil
+      </LinkPrimaryNuxt>
     </section>
     <LayoutFooter />
   </div>
