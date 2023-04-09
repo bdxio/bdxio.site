@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { useRoute, ref, watch } from "#imports";
-import { NuxtLink, LayoutNavigation } from "#components";
+import { NuxtLink, LayoutHeaderNavigation } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 defineProps<{
@@ -58,7 +58,7 @@ watch(
           ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`
       "
     >
-      <LayoutNavigation :background="background" />
+      <LayoutHeaderNavigation :background="background" />
     </nav>
   </header>
 </template>

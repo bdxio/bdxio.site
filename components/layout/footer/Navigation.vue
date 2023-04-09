@@ -4,7 +4,7 @@ import { NuxtLink } from "#components";
 
 const instance = useNuxtApp();
 
-const links = [
+const pages = [
   {
     name: "Accueil",
     path: "/",
@@ -40,22 +40,22 @@ const links = [
     path: "/talks",
     show: instance.$SHOW_PAGE_TALKS,
   },
-].filter((link) => link.show);
+].filter((page) => page.show);
 </script>
 
 <template>
   <nav>
     <ul class="flex flex-col">
       <li
-        v-for="link in links"
-        :key="link.path"
+        v-for="page in pages"
+        :key="page.path"
         class="mr-5 mb-2 last:mr-0 last:mb-0"
       >
         <NuxtLink
-          :to="link.path"
+          :to="page.path"
           class="text-2xl m:text-base"
         >
-          {{ link.name }}
+          {{ page.name }}
         </NuxtLink>
       </li>
     </ul>
