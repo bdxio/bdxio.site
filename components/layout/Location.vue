@@ -3,10 +3,12 @@ import { Heading, HeadingSection } from "#components";
 </script>
 
 <template>
-  <!-- @TODO : Remove remaining raw CSS classes -->
-  <section class="section bg-no-repeat bg-contain bg-grey-100 location">
-    <div class="relative pb-[450px] s:pb-0">
-      <div class="relative bg-grey-100 location-boxshadow s:max-w-[50%] infos">
+  <section
+    class="p-section bg-no-repeat bg-contain bg-right-bottom bg-grey-100"
+    style="background-image: url('/images/illustration_palais_congres.png')"
+  >
+    <div class="relative pb-52 s:pb-20 m:pb-0">
+      <div class="relative bg-grey-100 s:max-w-[50%] boxshadow">
         <HeadingSection
           level="2"
           class="text-subtitle"
@@ -17,26 +19,23 @@ import { Heading, HeadingSection } from "#components";
           Comment rejoindre<br>l'évènement ?
         </Heading>
         <div class="flex flex-col gap-1 mb-[30px]">
-          <span class="title">Palais des congrès</span>
-          <span class="description">
-            Avenue Jean Gabriel Domergue <br>
-            33300 BORDEAUX
-          </span>
+          <span class="font-bold text-2xl">Palais des Congrès</span>
+          <span>Avenue Jean Gabriel Domergue<br>33300 BORDEAUX</span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Transport en commun :
+          <span class="font-bold text-2xl">Transport en commun :
           </span>
-          <span class="leading-[26px]">Bus 15 ou Tram C</span>
+          <span>Bus 15 ou Tram C</span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Vélo : </span>
-          <span class="leading-[26px]">
+          <span class="font-bold text-2xl">Vélo : </span>
+          <span>
             Parking vélo disponible et station VCub à proximité
           </span>
         </div>
         <div>
-          <span class="leading-7 font-bold text-2xl">Voiture : </span>
-          <span class="leading-[26px]">Parking gratuit sur place</span>
+          <span class="font-bold text-2xl">Voiture : </span>
+          <span>Parking gratuit sur place</span>
         </div>
       </div>
       <span class="italic absolute right-0 top-0 hidden m:block">À seulement 10 min de Bordeaux !</span>
@@ -44,20 +43,9 @@ import { Heading, HeadingSection } from "#components";
   </section>
 </template>
 
-<style lang="css" scoped>
-.location {
-  background-image: url("/images/illustration_palais_congres.png");
-  background-position-x: left;
-  background-position-y: bottom;
-}
+<style lang="postcss" scoped>
 
-.location-boxshadow {
+.boxshadow {
   box-shadow: 0px 0px 30px 20px #f5f5f5;
-}
-
-@media screen and (min-width: 768px) {
-  .location {
-    background-position-x: right;
-  }
 }
 </style>
