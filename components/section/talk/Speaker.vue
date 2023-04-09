@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 import { computed } from "#imports";
 import { Heading, SectionTalkSpeakerPicture } from "#components";
-import { Speaker } from "~/types";
+import type { Speaker } from "~/types";
 
 const props = defineProps<{
   speaker: Speaker;

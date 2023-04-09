@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
 import { Heading, OpenFeedback, ShowOnYoutube } from "#components";
-import { Talk } from "~/types";
+import type { Talk } from "~/types";
 
 const props = defineProps<{
   talk: Talk;

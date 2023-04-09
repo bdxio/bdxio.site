@@ -3,7 +3,7 @@ import { Ref } from "vue";
 import { definePageMeta, useHead, useRoute, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import { Talk } from "~/types";
+import type { Talk } from "~/types";
 
 definePageMeta({ layout: "page" });
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
