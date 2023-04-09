@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "nuxi typecheck --noEmit"
+    "type-check": "nuxi typecheck --noEmit",
+    "diag": "npm run lint && npm run type-check"
   },
   "dependencies": {
     "@vueuse/nuxt": "^9.13.0",
