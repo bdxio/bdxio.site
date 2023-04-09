@@ -30,100 +30,98 @@ const linkColor = computed(() => {
   return props.background === "dark" ? "text-bdxio-font-light" : "text-bdxio-blue-dark";
 });
 
-const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
-
 </script>
 
 <template>
   <ul class="flex flex-col justify-center items-center m:flex-row m:justify-end">
-    <li :class="`m-0 m:mr-5 ${mobileOpenClass}`">
+    <li class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0">
       <NuxtLink
         to="/"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Accueil
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_PROGRAMME"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/programme"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Programme
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_SPONSORS"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/sponsors"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Sponsors
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_FAQ"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/faq"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         FAQ Sponsors
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_SPONSORS2022"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/sponsors2022"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Sponsors {{ EDITION }}
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_ASSOCIATION"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/association"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         L'asso
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_JOBS"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/jobs"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Jobs
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_PAGE_TALKS"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <NuxtLink
         to="/talks"
-        :class="`no-underline text-2xl m:text-[22px] ${linkColor} ${mobileOpenClass}`"
+        :class="`no-underline text-2xl m:text-[22px] ${linkColor}`"
       >
         Talks
       </NuxtLink>
     </li>
     <li
       v-if="$SHOW_LINK_LIVE"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <LinkSecondary
         to="#"
@@ -139,7 +137,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
     </li>
     <li
       v-if="$SHOW_LINK_BILLETERIE"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <LinkPrimary
         color="light"
@@ -151,7 +149,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
     </li>
     <li
       v-if="$SHOW_LINK_YOUTUBE"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <LinkPrimary
         color="light"
@@ -163,7 +161,7 @@ const mobileOpenClass = computed(() => props.mobileOpen ? "mb-[100px]" : null);
     </li>
     <li
       v-if="$SHOW_LINK_CFP"
-      :class="`m-0 m:mr-5 ${mobileOpenClass}`"
+      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
     >
       <LinkSecondary
         to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
