@@ -2,16 +2,32 @@
 import { defineProps } from "vue";
 import { Heading } from "#components";
 type Offer = {
-  label: string;
+  label: "Startup" | "Magnum" | "Impériale" | "Balthazar";
   price: number;
   description: string;
-  color: string;
   full?: true;
 };
 
-defineProps<{
+const props = defineProps<{
   offers: Offer[];
 }>();
+
+const getOfferColorClass = (offer: Offer["label"]) => {
+  switch (offer) {
+    case "Startup":
+      return "text-orange";
+    case "Magnum":
+      return "text-yellow";
+    case "Impériale":
+      return "text-green";
+    case "Balthazar":
+      return "text-purple";
+    default:
+      return "text-bdxio-blue-base";
+  }
+};
+
+console.log(props.offers);
 </script>
 
 <template>
@@ -38,7 +54,8 @@ defineProps<{
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
           <span
-            :class="`block font-bold uppercase text-[20px] tracking-[3px] text-bdxio-blue-dark ${offer.color}`"
+            :class="`block font-bold uppercase text-[20px] tracking-[3px]
+            ${getOfferColorClass(offer.label)}`"
           >{{ offer.label }}</span>
           <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
           <p class="text-base font-normal">

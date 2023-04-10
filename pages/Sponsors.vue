@@ -21,8 +21,7 @@ if (!$SHOW_PAGE_SPONSORS) {
 definePageMeta({ layout: "page" });
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const { data } = await useAPI("/offers", {
-});
+const { data } = await useAPI("/offers", {});
 </script>
 
 <template>
