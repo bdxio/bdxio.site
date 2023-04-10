@@ -26,13 +26,12 @@ const questions: Question[] = data;
     <section class="section bg-white">
       <Heading
         level="2"
-        class="text-center !text-bdxio-blue-dark"
+        class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"
       >
         F.A.Q
       </Heading>
-      <p class="max-w-[500px] text-center block mx-auto">
-        Que vous soyez sponsors, speakers ou encore participants découvrez les réponses
-        aux questions les plus fréquemment posées.
+      <p class="max-w-[500px] text-center block mx-auto text-bdxio-blue-dark">
+        Découvrez les réponses aux questions les plus fréquemment posées.
       </p>
 
       <ul class="mt-[100px] m:max-w-[50%] m:mx-auto">
@@ -51,7 +50,7 @@ const questions: Question[] = data;
             </Heading>
           </template>
           <template #content>
-            <p class="m-0 mt-4">
+            <p class="m-0 mt-4 text-bdxio-blue-dark">
               {{ question.answer }}
             </p>
           </template>
@@ -60,3 +59,19 @@ const questions: Question[] = data;
     </section>
   </main>
 </template>
+
+<style lang="css" scoped>
+.title::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 110px;
+  position: absolute;
+  top: -17px;
+  right: -80px;
+  z-index: -1;
+  background: url("/images/drawings/coffee.png") no-repeat;
+  background-size: cover;
+}
+
+</style>
