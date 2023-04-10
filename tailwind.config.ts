@@ -43,14 +43,6 @@ const config: Config = {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
     },
-    gridTemplateColumns: {
-      "homepage-portraits": "repeat(4, 210px)",
-      "homepage-portraits-m": "repeat(2, 210px)",
-      "homepage-key-concepts": "repeat(2, 50%)",
-      "homepage-key-concepts-m": "repeat(6, 1fr)",
-      "homegpage-categories-m": "repeat(2, 1fr)",
-      "homegpage-categories-xxl": "repeat(3, 1fr)",
-    },
     extend: {
       screens: {
         xxs: "320px",
@@ -71,6 +63,10 @@ const config: Config = {
       boxShadow: {
         card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
         illustration: "0px 0px 30px 20px #F5F5F5",
+      },
+      gridTemplateColumns: {
+        "homepage-key-concepts": "repeat(2, 50%)",
+        "homepage-key-concepts-m": "repeat(6, 1fr)",
       },
     },
   },

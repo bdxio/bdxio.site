@@ -1,117 +1,77 @@
 <script setup lang="ts">
 import { Heading, HeadingSection } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+
+const categories = [
+  {
+    name: "Frontend",
+    icon: "/images/drawings/categories/frontend.png",
+  },
+  {
+    name: "Backend",
+    icon: "/images/drawings/categories/backend.png",
+  },
+  {
+    name: "Big Data & IA",
+    icon: "/images/drawings/categories/bigdataia.png",
+  },
+  {
+    name: "Design & UX",
+    icon: "/images/drawings/categories/designux.png",
+  },
+  {
+    name: "Cloud & Dev.Sec.Ops",
+    icon: "/images/drawings/categories/cloudetdevsecops.png",
+  },
+  {
+    name: "Methodo & Architecture",
+    icon: "/images/drawings/categories/methodoarchitecture.png",
+  },
+  {
+    name: "Hors piste",
+    icon: "/images/drawings/categories/horspiste.png",
+  },
+];
 </script>
 
 <template>
-  <section class="section text-bdxio-font-dark bg-white">
-    <div
-      no-gutter
-      class="flex justify-between-xs align-center-m"
-    >
-      <div
-        class="text-container basis-full m:basis-4/12 l:basis-5/12"
+  <section class="p-section flex flex-col m:flex-row">
+    <div class="w-full m:w-2/5">
+      <HeadingSection
+        level="2"
+        class="text-subtitle"
       >
-        <HeadingSection
-          level="2"
-          class="relative z-10 mr-[20px] before:-z-10 m:before:-top-[20px] m:before:-left-[50px]
-            m:before:w-[120px] m:before:h-[70px]  text-subtitle"
-        >
-          thématique
-        </HeadingSection>
-        <Heading
-          level="3"
-          class="relative z-10 scribble !text-bdxio-blue-dark"
-        >
-          Quels seront les thèmes abordés&nbsp;?
-        </Heading>
-        <p>
-          {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes,
-          avec des durées différentes et pour tous les niveaux : Vous trouverez
-          forcément votre bonheur&nbsp;!
-        </p>
-      </div>
-      <div
-        class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-10 gap-4 items-center px-6
-         py-5 m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7
-         overflow-hidden xxl:grid-cols-homegpage-categories-xxl quote"
+        Thématiques
+      </HeadingSection>
+      <Heading
+        level="3"
+        class="relative z-10 scribble"
       >
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
+        Quels seront les thématiques abordées&nbsp;?
+      </Heading>
+      <p>
+        {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes,
+        avec des durées différentes et pour tous les niveaux : vous trouverez
+        forcément votre bonheur&nbsp;!
+      </p>
+    </div>
+    <div class="w-full m:w-3/5 grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
+      <div
+        v-for="category in categories"
+        :key="category.name"
+        class="shadow-card flex flex-col items-center justify-center p-4 rounded-xl"
+      >
+        <img
+          :src="category.icon"
+          class="h-12"
         >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--1"
-          >
-            Frontend
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px] px-0
-            leading-[30px] bg-center bg-no-repeat bg-contain theme--2"
-          >
-            Backend
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--3"
-          >
-            Big Data & IA
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--4"
-          >
-            Design & UX
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--5"
-          >
-            Cloud & Dev.Sec.Ops
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--6"
-          >
-            Methodo & Architecture
-          </span>
-        </div>
-        <div
-          class="flex items-center justify-center h-[200px] font-bold bg-white m:h-[136px] card"
-        >
-          <span
-            class="uppercase text-center w-[150px] mx-0 my-[30px] py-[30px]
-            px-0 leading-[30px] bg-center bg-no-repeat bg-contain theme--7"
-          >
-            Hors piste
-          </span>
-        </div>
+        <span class="font-bold uppercase mt-4 text-center text-small m:text-base">{{ category.name }}</span>
       </div>
     </div>
   </section>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .scribble:before {
   content: "";
   position: absolute;
@@ -122,41 +82,5 @@ import { ASSOCIATION_NAME } from "~/services/constants";
   z-index: -1;
   background: url("/images/drawings/cyan_scribble_2.png") center no-repeat;
   background-size: contain;
-}
-
-.theme--1 {
-  background-image: url("/images/drawings/themes/theme-1.png");
-}
-.theme--2 {
-  background-image: url("/images/drawings/themes/theme-2.png");
-}
-.theme--3 {
-  background-image: url("/images/drawings/themes/theme-3.png");
-}
-.theme--4 {
-  background-image: url("/images/drawings/themes/theme-4.png");
-}
-.theme--5 {
-  position: relative;
-  z-index: 1;
-}
-.theme--5::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  z-index: -1;
-  background-image: url("/images/drawings/themes/theme-5.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.theme--6 {
-  background-image: url("/images/drawings/themes/theme-6.png");
-}
-.theme--7 {
-  background-image: url("/images/drawings/themes/theme-7.png");
 }
 </style>
