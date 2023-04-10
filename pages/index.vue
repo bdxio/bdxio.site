@@ -4,7 +4,7 @@ import {
   SectionHomepageHero,
   SectionHomepageKeyConcepts,
   SectionHomepageAbout,
-  SectionHomepageAnnualTheme,
+  SectionHomepageTheme,
   SectionHomepageCategories,
   SectionHomepageSponsor,
   SectionHomepageSpeaker,
@@ -20,7 +20,7 @@ useHead({ title: ASSOCIATION_NAME });
     <SectionHomepageHero />
     <SectionHomepageKeyConcepts />
     <SectionHomepageAbout />
-    <SectionHomepageAnnualTheme />
+    <SectionHomepageTheme />
     <SectionHomepageCategories />
     <div class="flex flex-col m:flex-row">
       <SectionHomepageSponsor class="!w-full !m:w-1/2" />
