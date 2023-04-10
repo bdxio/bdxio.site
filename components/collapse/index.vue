@@ -22,7 +22,7 @@ function toggleOpen() {
       class="flex flex-row items-center cursor-pointer"
       @click="toggleOpen"
     >
-      <CollapseArrowDown :class="`mr-4 ${open ? '' : 'rotate-180'}`" />
+      <CollapseArrowDown :class="`min-w-[15px] mr-4 ${open ? '' : 'rotate-180'}`" />
       <slot name="title" />
     </div>
     <slot

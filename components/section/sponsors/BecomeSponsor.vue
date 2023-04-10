@@ -16,7 +16,7 @@ import { Heading, LinkPrimary } from "#components";
     </Heading>
     <ul class="flex flex-wrap justify-center gap-[60px] mt-[100px]">
       <li class="flex flex-col items-center relative z-10 one">
-        <p class="text-[74px] mb-[50px]">
+        <p class="text-[74px] mb-5 m:mb-[50px]">
           1
         </p>
         <p class="text-center max-w-[350px]">
@@ -26,7 +26,7 @@ import { Heading, LinkPrimary } from "#components";
       </li>
 
       <li class="flex flex-col items-center relative z-10 two">
-        <p class="text-[74px] mb-[50px]">
+        <p class="text-[74px] mb-5 m:mb-[50px]">
           2
         </p>
         <p class="text-center max-w-[350px]">
@@ -36,7 +36,7 @@ import { Heading, LinkPrimary } from "#components";
       </li>
 
       <li class="flex flex-col items-center relative z-10 three">
-        <p class="text-[74px] mb-[50px]">
+        <p class="text-[74px] mb-5 m:mb-[50px]">
           3
         </p>
         <p class="text-center max-w-[350px]">
@@ -44,17 +44,20 @@ import { Heading, LinkPrimary } from "#components";
         </p>
       </li>
 
-      <li class="flex flex-col items-center relative z-10 four">
-        <p class="text-[74px] mb-[50px]">
+      <li class="flex flex-col items-center  ">
+        <p
+          class="text-[74px] mb-5 m:mb-[50px]
+        "
+        >
           4
         </p>
-        <p class="text-center max-w-[350px]">
+        <p class="text-center max-w-[350px] relative z-10 four">
           Une mise en avant de vos services, produits et compétences
         </p>
       </li>
 
       <li class="flex flex-col items-center relative z-10 five">
-        <p class="text-[74px] mb-[50px]">
+        <p class="text-[74px] mb-5 m:mb-[50px]">
           5
         </p>
         <p class="text-center max-w-[350px]">
@@ -113,11 +116,12 @@ import { Heading, LinkPrimary } from "#components";
   content: "";
   position: absolute;
   width: 160px;
-  height: 100px;
+  height: 70px;
   bottom: 0;
   left: -50px;
   background: url("/images/drawings/yellow_scribbles.png") no-repeat;
   background-size: cover;
+  z-index: -1;
 }
 
 .five:after {
