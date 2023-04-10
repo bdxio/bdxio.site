@@ -2,7 +2,7 @@
 import { definePageMeta, useHead } from "#imports";
 import {
   SectionHomepageHero,
-  SectionHomepageKeyConcepts,
+  SectionHomepageFigures,
   SectionHomepageAbout,
   SectionHomepageTheme,
   SectionHomepageCategories,
@@ -18,7 +18,7 @@ useHead({ title: ASSOCIATION_NAME });
 <template>
   <main>
     <SectionHomepageHero />
-    <SectionHomepageKeyConcepts />
+    <SectionHomepageFigures />
     <SectionHomepageAbout />
     <SectionHomepageTheme />
     <SectionHomepageCategories />
