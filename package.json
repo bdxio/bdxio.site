@@ -1,0 +1,32 @@
+{
+  "name": "bdxio.site",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "build": "nuxt build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "nuxi typecheck --noEmit",
+    "diag": "npm run lint && npm run type-check"
+  },
+  "dependencies": {
+    "@vueuse/nuxt": "^9.13.0",
+    "markdown-it": "^13.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxtjs/google-fonts": "^3.0.0",
+    "@nuxtjs/tailwindcss": "^6.6.5",
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.15.11",
+    "@vue-macros/nuxt": "^1.2.8",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "nuxt": "^3.3.3",
+    "postcss-import": "^15.1.0",
+    "sass": "^1.61.0",
+    "typescript": "^5.0.4",
+    "vue-tsc": "^1.2.0"
+  }
+}
