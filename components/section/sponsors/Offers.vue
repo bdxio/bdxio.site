@@ -26,8 +26,6 @@ const getOfferColorClass = (offer: Offer["label"]) => {
       return "text-bdxio-blue-base";
   }
 };
-
-console.log(props.offers);
 </script>
 
 <template>
