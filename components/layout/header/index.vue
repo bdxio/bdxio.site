@@ -1,15 +1,28 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 import { useRoute, ref, watch } from "#imports";
 import { NuxtLink, LayoutHeaderNavigation } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
-defineProps<{
+const props = defineProps<{
   background: "light" | "dark";
 }>();
 
 const open = ref(false);
 const { path } = useRoute();
+
+const icon = computed(() => {
+  return open.value
+    ? {
+      src: props.background === "light" ? "/images/icons/close_blue.svg" : "/images/icons/close.svg",
+      alt: "Icône croix",
+    }
+    : {
+      src: props.background === "light" ? "/images/icons/burger_blue.svg" : "/images/icons/burger.svg",
+      alt: "Icône navigation",
+    };
+
+});
 
 const toggleMenu = () => {
   open.value = !open.value;
@@ -38,27 +51,14 @@ watch(
       >
     </NuxtLink>
     <img
-      v-if="open"
-      :src="background === 'light' ? '/images/icons/close_blue.svg' : '/images/icons/close.svg'"
-      alt="Icône navigation"
+      :src="icon.src"
+      :alt="icon.alt"
       class="cursor-pointer m:hidden relative z-20"
       @click.prevent="toggleMenu"
     >
-    <img
-      v-else
-      :src="background === 'light' ? '/images/icons/burger_blue.svg' : '/images/icons/burger.svg'"
-      alt="Icône croix"
-      class="cursor-pointer m:hidden"
-      @click.prevent="toggleMenu"
-    >
-    <nav
-      :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-10
-          min-h-full m:min-h-auto
-          ${open ? 'right-0' : 'right-full'}
-          ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`
-      "
-    >
-      <LayoutHeaderNavigation :background="background" />
-    </nav>
+    <LayoutHeaderNavigation
+      :background="background"
+      :open="open"
+    />
   </header>
 </template>

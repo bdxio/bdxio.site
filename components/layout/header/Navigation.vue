@@ -5,6 +5,7 @@ import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
+  open: boolean;
 }>();
 
 const instance = useNuxtApp();
@@ -49,72 +50,78 @@ const pages = [
 </script>
 
 <template>
-  <ul class="flex flex-col m:flex-row justify-center m:justify-end items-center">
-    <li
-      v-for="page in pages"
-      :key="page.name"
-      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
-    >
-      <NuxtLink
-        :to="page.path"
-        :class="`no-underline text-2xl m:text-base
+  <nav
+    :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-10
+      min-h-full m:min-h-auto ${open ? 'right-0' : 'right-full'}
+      ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`"
+  >
+    <ul class="flex flex-col m:flex-row justify-center m:justify-end items-center">
+      <li
+        v-for="page in pages"
+        :key="page.name"
+        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+      >
+        <NuxtLink
+          :to="page.path"
+          :class="`no-underline text-2xl m:text-base
           ${background === 'dark' ? 'text-bdxio-font-light' : 'text-bdxio-blue-dark'}`"
+        >
+          {{ page.name }}
+        </NuxtLink>
+      </li>
+      <li
+        v-if="instance.$SHOW_LINK_LIVE"
+        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
       >
-        {{ page.name }}
-      </NuxtLink>
-    </li>
-    <li
-      v-if="instance.$SHOW_LINK_LIVE"
-      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
-    >
-      <LinkSecondary
-        to="#"
-        color="light"
-        target="_blank"
+        <LinkSecondary
+          to="#"
+          color="light"
+          target="_blank"
+        >
+          <div class="flex items-center">
+            Live
+            <div class="live" />
+          </div>
+        </LinkSecondary>
+      </li>
+      <li
+        v-if="instance.$SHOW_LINK_BILLETERIE"
+        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
       >
-        <div class="flex items-center">
-          Live
-          <div class="live" />
-        </div>
-      </LinkSecondary>
-    </li>
-    <li
-      v-if="instance.$SHOW_LINK_BILLETERIE"
-      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
-    >
-      <LinkPrimary
-        color="light"
-        to="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
-        target="_blank"
+        <LinkPrimary
+          color="light"
+          to="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
+          target="_blank"
+        >
+          Billetterie
+        </LinkPrimary>
+      </li>
+      <li
+        v-if="instance.$SHOW_LINK_YOUTUBE"
+        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
       >
-        Billetterie
-      </LinkPrimary>
-    </li>
-    <li
-      v-if="instance.$SHOW_LINK_YOUTUBE"
-      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
-    >
-      <LinkPrimary
-        color="light"
-        to="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
-        target="_blank"
+        <LinkPrimary
+          color="light"
+          to="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
+          target="_blank"
+        >
+          Revoir les talks
+        </LinkPrimary>
+      </li>
+      <li
+        v-if="instance.$SHOW_LINK_CFP"
+        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
       >
-        Revoir les talks
-      </LinkPrimary>
-    </li>
-    <li
-      v-if="instance.$SHOW_LINK_CFP"
-      class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
-    >
-      <LinkSecondary
-        to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
-        color="light"
-        target="_blank"
-      >
-        CFP
-      </LinkSecondary>
-    </li>
-  </ul>
+        <LinkSecondary
+          to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+          color="light"
+          target="_blank"
+        >
+          CFP
+        </LinkSecondary>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <style lang="css" scoped>
