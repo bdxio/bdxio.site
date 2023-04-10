@@ -42,8 +42,9 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       v-else
       color="grey"
       disabled
+      class="mt-8"
     >
-      Non disponible
+      Bientôt disponible
     </ButtonSecondary>
   </section>
 </template>

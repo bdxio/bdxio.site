@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSection, ButtonSecondary } from "#components";
+import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
 </script>
 
 <template>
@@ -26,11 +26,12 @@ import { Heading, HeadingSection, ButtonSecondary } from "#components";
         informations nécessaires.
       </p>
     </div>
-    <ButtonSecondary
-      color="grey"
-      disabled
+    <LinkSecondaryNuxt
+      to="/sponsors"
+      color="white"
+      class="mt-8"
     >
-      Non disponible
-    </ButtonSecondary>
+      Devenir sponsor
+    </LinkSecondaryNuxt>
   </section>
 </template>
