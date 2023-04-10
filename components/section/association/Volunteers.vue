@@ -39,7 +39,7 @@ function getVolunteerName(volunteer: Volunteer): string | null {
       class="text-center mt-0 title"
     >
       Découvrez les membres <br>
-      de notre <span class="relative z-relative heart">équipe</span>
+      de notre <span class="relative z-10 heart">équipe</span>
     </Heading>
 
     <ul

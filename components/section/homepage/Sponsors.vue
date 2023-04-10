@@ -9,7 +9,7 @@ import { Heading } from "#components";
   >
     <Heading
       level="2"
-      class="relative z-relative s:after:ml-0 m:after:ml-[50px] triangle"
+      class="relative z-10 s:after:ml-0 m:after:ml-[50px] triangle"
     >
       Ils nous soutiennent
     </Heading>

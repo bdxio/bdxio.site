@@ -32,7 +32,7 @@ function getOfferClass(index: number) {
     <header class="flex flex-col justify-center items-center text-center">
       <Heading
         level="1"
-        class="relative z-relative m:before:w-[120px] m:before:h-[120px] m:before:-left-[110px] title"
+        class="relative z-10 m:before:w-[120px] m:before:h-[120px] m:before:-left-[110px] title"
       >
         Nos sponsors {{ EDITION }}
       </Heading>
@@ -68,11 +68,11 @@ function getOfferClass(index: number) {
               <a
                 :href="sponsor.url || '#'"
                 target="_blank"
-                class="block w-full h-full relative z-relative"
+                class="block w-full h-full relative z-10"
                 :title="sponsor.name"
               >
                 <img
-                  class="w-1/2 absolute z-absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"
+                  class="w-1/2 absolute z-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url

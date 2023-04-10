@@ -14,14 +14,14 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       >
         <HeadingSection
           level="2"
-          class="relative z-relative mr-[20px] before:z-negative m:before:-top-[20px] m:before:-left-[50px]
+          class="relative z-10 mr-[20px] before:-z-10 m:before:-top-[20px] m:before:-left-[50px]
             m:before:w-[120px] m:before:h-[70px]  text-subtitle"
         >
           thématique
         </HeadingSection>
         <Heading
           level="3"
-          class="relative z-relative scribble !text-bdxio-blue-dark"
+          class="relative z-10 scribble !text-bdxio-blue-dark"
         >
           Quels seront les thèmes abordés&nbsp;?
         </Heading>
@@ -32,7 +32,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         </p>
       </div>
       <div
-        class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-relative gap-4 items-center px-6
+        class="after:hidden basis-full m:basis-8/12 l:basis-7/12 flex relative z-10 gap-4 items-center px-6
          py-5 m:after:visible m:grid m:justify-center m:grid-cols-homegpage-categories-m m:px-5 m:pt-3 m:pb-7
          overflow-hidden xxl:grid-cols-homegpage-categories-xxl quote"
       >

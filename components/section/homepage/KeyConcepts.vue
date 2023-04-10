@@ -9,7 +9,7 @@ import { Counter } from "#components";
     <div class="picture picture-amphi" />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark px-4
-        py-4 relative z-absolute info-amphis card-1"
+        py-4 relative info-amphis card-1"
     >
       <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter :value="5" />
@@ -24,7 +24,7 @@ import { Counter } from "#components";
     <div class="picture picture-conversation" />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
-        py-4 relative z-absolute info-themes card-2"
+        py-4 relative info-themes card-2"
     >
       <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter :value="7" />
@@ -39,9 +39,9 @@ import { Counter } from "#components";
     <div class="picture picture-mascotte" />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
-      py-4 relative z-absolute info-conferences card-3"
+      py-4 relative info-conferences card-3"
     >
-      <p class="block m-0 relative z-relative font-bold text-[82px] font-title leading-none">
+      <p class="block m-0 relative z-10 font-bold text-[82px] font-title leading-none">
         <Counter :value="40" />
       </p>
       <p class="block font-title text-bold text-[30px] m-3">
@@ -55,7 +55,7 @@ import { Counter } from "#components";
     <div class="picture picture-speaker show-s" />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark pr-4
-        py-4 relative z-absolute info-attendees card-4"
+        py-4 relative info-attendees card-4"
     >
       <p class="block m-0 font-bold text-[82px] font-title leading-none">
         <Counter

@@ -8,7 +8,7 @@ import { Heading, HeadingSection } from "#components";
     style="background-image: url('/images/illustration_palais_congres.png')"
   >
     <div class="relative pb-52 s:pb-20 m:pb-0">
-      <div class="relative bg-grey-100 s:max-w-[50%] boxshadow">
+      <div class="bg-grey-100 s:max-w-[50%] shadow-illustration p-8">
         <HeadingSection
           level="2"
           class="text-subtitle"
@@ -42,10 +42,3 @@ import { Heading, HeadingSection } from "#components";
     </div>
   </section>
 </template>
-
-<style lang="postcss" scoped>
-
-.boxshadow {
-  box-shadow: 0px 0px 30px 20px #f5f5f5;
-}
-</style>

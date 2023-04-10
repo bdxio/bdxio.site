@@ -11,7 +11,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
     <header class="flex flex-col items-center justify-center text-center">
       <Heading
         level="1"
-        class="mb-4 relative z-relative scribble"
+        class="mb-4 relative z-10 scribble"
       >
         L'asso {{ ASSOCIATION_NAME }}
       </Heading>
@@ -34,7 +34,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           level="3"
           class="my-3"
         >
-          Un petit groupe de bénévoles <span class="relative z-relative">bordelais</span> !
+          Un petit groupe de bénévoles <span class="relative z-10">bordelais</span> !
         </Heading>
         <p class="mt-4">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial

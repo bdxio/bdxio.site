@@ -36,25 +36,25 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       class="m:basis-8/12 l:basis-7/12 grid grid-cols-homepage-portraits gap-4 overflow-x-auto overflow-y-hidden
         pt-5 m:mt-0 m:overflow-hidden m:grid-cols-homepage-portraits-m m:justify-center"
     >
-      <div class="relative z-relative elizabethfeinler">
+      <div class="relative z-10 elizabethfeinler">
         <img
           src="/annual-theme/elizabethfeinler.png"
           alt="Portrait de Elizabeth Feinler"
         >
       </div>
-      <div class="relative z-relative maryallenwilkes">
+      <div class="relative z-10 maryallenwilkes">
         <img
           src="/annual-theme/maryallenwilkes.png"
           alt="Portrait de Mary Allen Wilkes"
         >
       </div>
-      <div class="relative z-relative katherinecolemangoblejohnson">
+      <div class="relative z-10 katherinecolemangoblejohnson">
         <img
           src="/annual-theme/katherinecolemangoblejohnson.png"
           alt="Portrait de Katherine Coleman Goble Johnson"
         >
       </div>
-      <div class="relative z-relative feifei">
+      <div class="relative z-10 feifei">
         <img
           src="/annual-theme/feifei.png"
           alt="Portrait de Feifei"

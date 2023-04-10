@@ -39,24 +39,9 @@ const config: Config = {
       white: "#FFFFFF",
       black: "#000000",
     },
-    screens: {
-      xxs: "320px",
-      xs: "480px",
-      s: "768px",
-      m: "992px",
-      l: "1200px",
-      xl: "1400px",
-      xxl: "1600px",
-      xxxl: "1800px",
-    },
     fontFamily: {
       body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
-    },
-
-    boxShadow: {
-      card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
-      "homepage-about": "0px 0px 30px 20px #F5F5F5",
     },
     gridTemplateColumns: {
       "homepage-portraits": "repeat(4, 210px)",
@@ -67,20 +52,25 @@ const config: Config = {
       "homegpage-categories-xxl": "repeat(3, 1fr)",
     },
     extend: {
+      screens: {
+        xxs: "320px",
+        xs: "480px",
+        s: "768px",
+        m: "992px",
+        l: "1200px",
+        xl: "1400px",
+        xxl: "1600px",
+        xxxl: "1800px",
+      },
       fontSize: {
         small: "16px",
+        subtitle: "20px",
         base: "22px",
         title: "40px",
-        subtitle: "20px",
       },
-      zIndex: {
-        upper: "9999",
-        modal: "5",
-        design: "4",
-        absolute: "3",
-        relative: "2",
-        default: "1",
-        negative: "-1",
+      boxShadow: {
+        card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
+        illustration: "0px 0px 30px 20px #F5F5F5",
       },
     },
   },

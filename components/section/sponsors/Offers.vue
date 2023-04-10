@@ -21,7 +21,7 @@ defineProps<{
   >
     <Heading
       level="3"
-      class="text-center relative z-relative title"
+      class="text-center relative z-10 title"
     >
       Les offres
     </Heading>
@@ -33,7 +33,7 @@ defineProps<{
         v-for="offer in offers"
         :key="offer.label"
         :class="`mb-7 xl:mb-0 ${
-          offer.full ? 'cursor-not-allowed relative z-relative soldout' : ''
+          offer.full ? 'cursor-not-allowed relative z-10 soldout' : ''
         }`"
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">

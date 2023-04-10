@@ -7,7 +7,7 @@ import { EDITION } from "~/services/constants";
   <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center p-section">
     <Heading
       level="1"
-      class="text-bdxio-font-light !mb-0 text-[42px]"
+      class="text-bdxio-font-light !mb-0 text-4xl m:text-[42px]"
     >
       En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
     </Heading>
@@ -25,7 +25,7 @@ import { EDITION } from "~/services/constants";
     >
       10/11/2023
     </time>
-    <p class="font-title text-bdxio-font-light mt-4 text-[32px]">
+    <p class="font-title text-bdxio-font-light mt-4 text-3xl m:text-[32px]">
       Et on a hâte de vous y (re)voir&nbsp;!
     </p>
   </header>

@@ -12,10 +12,10 @@ import { Heading, LinkPrimary } from "#components";
       class="text-bdxio-font-light"
     >
       Pourquoi devenir
-      <span class="relative z-relative sponsor">Sponsor&nbsp;?</span>
+      <span class="relative z-10 sponsor">Sponsor&nbsp;?</span>
     </Heading>
     <ul class="flex flex-wrap justify-center gap-[60px] mt-[100px]">
-      <li class="flex flex-col items-center relative z-relative one">
+      <li class="flex flex-col items-center relative z-10 one">
         <p class="text-[74px] mb-[50px]">
           1
         </p>
@@ -25,7 +25,7 @@ import { Heading, LinkPrimary } from "#components";
         </p>
       </li>
 
-      <li class="flex flex-col items-center relative z-relative two">
+      <li class="flex flex-col items-center relative z-10 two">
         <p class="text-[74px] mb-[50px]">
           2
         </p>
@@ -35,7 +35,7 @@ import { Heading, LinkPrimary } from "#components";
         </p>
       </li>
 
-      <li class="flex flex-col items-center relative z-relative three">
+      <li class="flex flex-col items-center relative z-10 three">
         <p class="text-[74px] mb-[50px]">
           3
         </p>
@@ -44,7 +44,7 @@ import { Heading, LinkPrimary } from "#components";
         </p>
       </li>
 
-      <li class="flex flex-col items-center relative z-relative four">
+      <li class="flex flex-col items-center relative z-10 four">
         <p class="text-[74px] mb-[50px]">
           4
         </p>
@@ -53,7 +53,7 @@ import { Heading, LinkPrimary } from "#components";
         </p>
       </li>
 
-      <li class="flex flex-col items-center relative z-relative five">
+      <li class="flex flex-col items-center relative z-10 five">
         <p class="text-[74px] mb-[50px]">
           5
         </p>
