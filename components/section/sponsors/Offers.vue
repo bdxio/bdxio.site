@@ -8,7 +8,7 @@ type Offer = {
   full?: true;
 };
 
-const props = defineProps<{
+defineProps<{
   offers: Offer[];
 }>();
 
