@@ -1,308 +1,169 @@
 <script setup lang="ts">
-// @ts-nocheck
-import {
-  definePageMeta,
-  useHead,
-  useAPI,
-  computed,
-  ref,
-  shuffleArray,
-} from "#imports";
-import { SectionTitle, NuxtLink } from "#components";
+import { Ref } from "vue";
+import { definePageMeta, useHead, useAPI, computed, ref } from "#imports";
+import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
+import type { TalkCategory, Talk } from "~/types";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Talks | BDX I/O" });
+useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
-const currentFilter = ref("all");
+const ALL = "all";
+const currentFilter = ref(ALL);
 
-const [{ data: categories }, { data: talks }] = await Promise.all([
-  useAPI("/categories", {
-    params: { fields: ["id", "name", "color"] },
-  }),
-  useAPI("/talks", {
-    params: {
-      fields: ["id", "title", "level"],
-      "populate[category]": "*",
-      "populate[speakers]": "*",
-    },
-  }),
-]);
+const [{ data: categories }, { data: talks }]: [{ data: Ref<TalkCategory[]>}, {data: Ref<Talk[]>}] =
+  await Promise.all([
+    useAPI("/categories", {
+      params: { fields: ["id", "name", "color"] },
+    }),
+    useAPI("/talks", {
+      params: {
+        fields: ["id", "title", "level"],
+        "populate[category]": "*",
+        "populate[speakers]": "*",
+      },
+    }),
+  ]);
 
 const filteredTalks = computed(() => {
-  if (!talks?.value?.length) return [];
-  if (currentFilter.value === "all") return talks;
-  return talks.value.filter((t) => t.category.id === currentFilter.value);
+  if (!talks.value?.length) return [];
+  if (currentFilter.value === ALL) return talks.value;
+  return talks.value.filter((talk) => talk.category.id.toString() === currentFilter.value);
 });
 
-function getRandomBackgroundColor() {
-  return shuffleArray([
-    "#9ADCFF",
-    "#FFF89A",
-    "#FFB2A6",
-    "#FF8AAE",
-    "#FFF9CA",
-    "#FFDEB4",
-    "#FFB4B4",
-    "#B2A4FF",
-  ])[0];
+function setFilter(categoryId: string) {
+  currentFilter.value = categoryId;
 }
-function getSpeakerInitials(name) {
-  const parts = name.split(" ");
-  if (parts.length === 1) {
-    return parts[0].charAt(0).toUpperCase();
-  }
-
-  return `${parts[0].charAt(0).toUpperCase()}${parts[1]
-    .charAt(0)
-    .toUpperCase()}`;
-}
-
-function setFilter(filter) {}
 </script>
 
 <template>
-  <main>
-    <div class="section section-talks">
-      <header class="section-talks__header">
-        <SectionTitle tag="h1" class="section-talks__header__title">
-          Les talks
-        </SectionTitle>
-        <ul class="section-talks__header__filters" v-if="categories.length">
-          <li class="section-talks__header__filters__filter" click="setFilter">
-            <input
-              type="radio"
-              id="all"
-              value="all"
-              v-model="currentFilter"
-              class="display--none"
-              :class="{ active: currentFilter === 'all' }"
-            />
-            <label for="all" class="cursor--pointer">Tous</label>
-          </li>
-          <li
-            class="section-talks__header__filters__filter"
-            v-for="category in categories"
-            :key="`filter-${category.id}`"
-            @click="setFilter(category.id)"
-          >
-            <input
-              type="radio"
-              :id="category.name"
-              :value="category.id"
-              v-model="currentFilter"
-              class="display--none"
-              :class="{ active: currentFilter === category.id }"
-            />
-            <label
-              :for="category.name"
-              class="cursor--pointer"
-              :style="
-                currentFilter === category.id
-                  ? `border-color: ${category.color}; color: ${category.color}`
-                  : ''
-              "
-            >
-              {{ category.name }}
-            </label>
-          </li>
-        </ul>
-      </header>
-
-      <ul class="section-talks__talks">
-        <li
-          v-for="talk in filteredTalks"
-          :key="`talk-${talk.id}`"
-          class="section-talks__talks__card cursor--pointer"
+  <main class="section bg-white flex flex-col">
+    <Heading
+      level="1"
+      class="title relative block mx-auto !mb-16"
+    >
+      Les talks
+    </Heading>
+    <ul
+      v-if="categories.length"
+      class="flex flex-wrap justify-center gap-12 w-1/2 mx-auto mb-20"
+    >
+      <li
+        class="text-center"
+        @click="setFilter(ALL)"
+      >
+        <input
+          :id="ALL"
+          v-model="currentFilter"
+          type="radio"
+          :value="ALL"
+          class="hidden"
+          :class="{ active: currentFilter === ALL }"
+        >
+        <label
+          :for="ALL"
+          class="cursor-pointer border-black"
+        >
+          Tous
+        </label>
+      </li>
+      <li
+        v-for="category in categories"
+        :key="`filter-${category.id}`"
+        class="text-center"
+        @click="setFilter(category.id.toString())"
+      >
+        <input
+          :id="category.name"
+          v-model="currentFilter"
+          type="radio"
+          :value="category.id.toString()"
+          class="hidden"
+          :class="{ active: currentFilter === category.id.toString() }"
+        >
+        <label
+          :for="category.name"
+          class="cursor-pointer"
           :style="{
-            'border-color': talk.category?.color || 'black',
+            'border-color': category.color,
           }"
         >
-          <NuxtLink :to="`/talks/${id}`">
-            <div>
-              <h2 class="title">{{ talk.title }}</h2>
-              <span class="level">{{ talk.level }}</span>
-              <p
-                v-if="talk.category?.name"
-                class="category"
-                :style="{ color: talk.category?.color }"
-              >
-                {{ talk.category?.name }}
-              </p>
-            </div>
-            <div v-if="talk.speakers?.length" class="speakers">
-              <div
-                v-for="(speaker, index) in talk.speakers"
-                :key="`speaker-${speaker.id}`"
-                class="speakers__speaker"
-                :class="{ marginTop: index > 0 }"
-                :title="speaker.name"
-              >
-                <div class="speakers__speaker__infos">
-                  <img
-                    v-if="speaker.photoUrl"
-                    :src="speaker.photoUrl"
-                    class="speakers__speaker__infos__image"
-                  />
-                  <span
-                    v-else
-                    class="speakers__speaker__infos__initials"
-                    :style="{
-                      'background-color':
-                        speaker.category?.color || getRandomBackgroundColor(),
-                    }"
-                  >
-                    {{ getSpeakerInitials(speaker.name) }}
-                  </span>
-                  <span class="speakers__speaker__infos__name">
-                    {{ speaker.name }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </NuxtLink>
-        </li>
-      </ul>
-    </div>
+          {{ category.name }}
+        </label>
+      </li>
+    </ul>
+    <ul class="flex flex-wrap justify-center gap-8">
+      <li
+        v-for="talk in filteredTalks"
+        :key="`talk-${talk.id}`"
+        class="flex flex-col justify-between cursor-pointer p-4 border-2 border-solid rounded-lg w-full l:w-1/5"
+        :style="{
+          'border-color': talk.category?.color || 'black',
+        }"
+      >
+        <NuxtLink :to="`/talks/${talk.id}`">
+          <div>
+            <h2 class="text-lg">
+              {{ talk.title }}
+            </h2>
+            <span class="font-light italic">{{ talk.level }}</span>
+            <p
+              v-if="talk.category?.name"
+              class="font-bold"
+              :style="{ color: talk.category?.color }"
+            >
+              {{ talk.category?.name }}
+            </p>
+          </div>
+          <div
+            v-if="talk.speakers?.length"
+            class="flex"
+          >
+            <SectionTalkSpeakerPicture
+              v-for="speaker in talk.speakers"
+              :key="`speaker-${speaker.id}`"
+              :speaker="speaker"
+              size="small"
+              class="!mr-2 mt-5"
+            />
+          </div>
+        </NuxtLink>
+      </li>
+    </ul>
   </main>
 </template>
 
 <style lang="scss" scoped>
-.section-talks {
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    &__title {
-      @include positionRelative;
-
-      &:before {
-        content: "";
-        display: block;
-        width: 120px;
-        height: 120px;
-        position: absolute;
-        z-index: -1;
-        left: -110px;
-        bottom: -20px;
-        background: url("/images/drawings/blue_presentation_left.png") center
-          no-repeat;
-        background-size: cover;
-      }
-
-      &:after {
-        content: "";
-        display: block;
-        width: 120px;
-        height: 120px;
-        position: absolute;
-        z-index: -1;
-        right: -110px;
-        bottom: -20px;
-        background: url("/images/drawings/blue_presentation_right.png") center
-          no-repeat;
-        background-size: cover;
-      }
-    }
-
-    &__filters {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      margin: 40px 40px 0 40px;
-
-      &__filter {
-        cursor: pointer;
-        margin-bottom: 50px;
-
-        .active {
-          & + label {
-            padding-bottom: 5px;
-            border-bottom: 3px solid $primary-dark;
-          }
-        }
-      }
-
-      @include mobileFirst(s) {
-        grid-template-columns: repeat(3, 1fr);
-
-        &__filter {
-          margin-bottom: 30px;
-        }
-      }
-    }
+.title {
+  &:before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: -110px;
+    bottom: -20px;
+    background: url("/images/drawings/blue_presentation_left.png") center
+      no-repeat;
+    background-size: cover;
   }
-  &__talks {
-    display: flex;
-    justify-content: center;
-    grid-gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 100px;
 
-    &__card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1rem;
-      border: 2px solid black;
-      border-radius: 8px;
-      max-width: 280px; //275px
-
-      .title {
-        font-family: $font-family-body;
-        font-weight: $font-weight-bold;
-        font-size: 24px;
-        margin-top: 0;
-        margin-bottom: 0.625rem; //10px
-      }
-
-      .level {
-        font-style: $font-style-italic;
-        font-weight: $font-weight-light;
-      }
-
-      .category {
-        font-weight: $font-weight-bold;
-      }
-
-      .speakers {
-        margin-top: 20px;
-        &__speaker {
-          &__infos {
-            display: flex;
-            align-items: center;
-
-            &__image,
-            &__initials {
-              display: table-cell;
-              vertical-align: middle;
-              border-radius: 50%;
-              font-size: 15px;
-              height: 40px;
-              width: 40px;
-            }
-
-            &__image {
-              filter: grayscale(1);
-            }
-
-            &__initials {
-              text-align: center;
-              text-decoration: none;
-            }
-
-            &__name {
-              font-size: 16px;
-              margin-left: 10px;
-            }
-          }
-          &.marginTop {
-            margin-top: 10px;
-          }
-        }
-      }
-    }
+  &:after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: -110px;
+    bottom: -20px;
+    background: url("/images/drawings/blue_presentation_right.png") center
+      no-repeat;
+    background-size: cover;
   }
+}
+
+input:checked + label {
+  padding-bottom: 5px;
+  border-bottom: 3px solid;
 }
 </style>

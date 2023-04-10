@@ -1,41 +1,35 @@
 <script setup lang="ts">
-// @ts-nocheck
 import {
   definePageMeta,
   useHead,
   useNuxtApp,
+  createError,
   useAPI,
-  computed,
 } from "#imports";
 import {
-  SponsorsSectionBecomeSponsor,
-  SponsorsSectionSponsorOffers,
-  SponsorsSectionSponsorOffersAndSponsors,
+  SectionSponsorsBecomeSponsor,
+  SectionSponsorsOffers,
 } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
-definePageMeta({ layout: "page" });
-useHead({ title: "Sponsors | BDX I/O" });
+const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
 
-const { $showSponsors2022 } = useNuxtApp();
-
-if (!$showSponsors2022) {
-  throw createError({ statusCode: 404, statusMessage: "Page not found" });
+if (!$SHOW_PAGE_SPONSORS) {
+  throw createError({ statusCode: 404 });
 }
 
-const { data: offers } = await useAPI("/offers", {
-  params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
-});
+definePageMeta({ layout: "page" });
+useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const showSponsors = computed(() => offers.value?.length && $showSponsors2022);
+const { data } = await useAPI("/offers", {});
 </script>
 
 <template>
   <main>
-    <SponsorsSectionBecomeSponsor />
-    <SponsorsSectionSponsorOffersAndSponsors
-      v-if="showSponsors && offers"
-      :offers="offers"
+    <SectionSponsorsBecomeSponsor />
+    <SectionSponsorsOffers
+      v-if="data.length !== 0"
+      :offers="data"
     />
-    <SponsorsSectionSponsorOffers v-else />
   </main>
 </template>

@@ -1,11 +1,17 @@
 <script setup lang="ts">
-// @ts-nocheck
-import { definePageMeta, useHead } from "#imports";
-import { JobsSectionJobs } from "#components";
+import { definePageMeta, useHead, useNuxtApp, createError } from "#imports";
+import { SectionJobs } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
+
+const { $SHOW_PAGE_JOBS } = useNuxtApp();
+
+if (!$SHOW_PAGE_JOBS) {
+  throw createError({ statusCode: 404 });
+}
 
 definePageMeta({ layout: "page" });
 useHead({
-  title: "Jobs | BDX I/O",
+  title: `Jobs | ${ASSOCIATION_NAME}`,
   script: [
     {
       src: "https://widget.welovedevs.com/jobs-widget.js",
@@ -17,6 +23,6 @@ useHead({
 
 <template>
   <main>
-    <JobsSectionJobs />
+    <SectionJobs />
   </main>
 </template>

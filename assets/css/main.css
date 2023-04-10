@@ -1,3 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @TODO : Remove '.section' class when all pages are updated to use '.p-section' class */
+
+.section, .p-section {
+  padding: theme('spacing.16') theme('spacing.8');
+
+  @media screen(s) {
+    padding: theme('spacing.16');
+  }
+
+  @media screen(m) {
+    padding: theme('spacing.16');
+  }
+
+  @media screen(l) {
+    padding: theme('spacing.20');
+  }
+
+  @media screen(xl) {
+    padding: theme('spacing.24');
+  }
+
+  @media screen(xxl) {
+    padding: theme('spacing.28');
+  }
+
+  @media screen(xxxl) {
+    padding: theme('spacing.32');
+  }
+}

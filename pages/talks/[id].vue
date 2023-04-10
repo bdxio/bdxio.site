@@ -1,69 +1,39 @@
 <script setup lang="ts">
-// @ts-nocheck
-import {
-  definePageMeta,
-  useHead,
-  useRoute,
-  useAPI,
-  computed,
-  createError,
-} from "#imports";
-import {
-  TalkSectionTheme,
-  TalkSectionPresentation,
-  TalkSectionSpeaker,
-  NuxtLink,
-} from "#components";
+import { Ref } from "vue";
+import { definePageMeta, useHead, useRoute, useAPI, createError } from "#imports";
+import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Talk } from "~/types";
 
 definePageMeta({ layout: "page" });
-useHead({ title: "Talk | BDX I/O" });
+useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
 const { params } = useRoute();
 
-const { data: talk } = await useAPI(`/talks/${params.id}`, {
+const { data: talk }: { data: Ref<Talk>} = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 
 if (!talk.value) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
-
-const presentation = computed(() => ({
-  title: talk.value.title || null,
-  level: talk.value.level || null,
-  language: talk.value.language || null,
-  abstract: talk.value.abstract || null,
-  format: talk.value.format.name || null,
-  openfeedbackUrl: talk.value.openfeedbackUrl || null,
-  youtubeUrl: talk.value.youtubeUrl || null,
-}));
 </script>
 
 <template>
-  <main class="section section-talk">
-    <TalkSectionTheme :category="talk.category?.name || null" />
-    <TalkSectionPresentation :presentation="presentation" />
-    <TalkSectionSpeaker
-      v-for="(speaker, index) in talk.speakers"
-      :key="index"
+  <main class="section bg-white">
+    <SectionTalkCategory :category="talk.category" />
+    <SectionTalkPresentation :talk="talk" />
+    <SectionTalkSpeaker
+      v-for="speaker in talk.speakers"
+      :key="speaker.id"
       :speaker="speaker"
     />
-    <NuxtLink
+    <LinkPrimaryNuxt
+      color="light"
       to="/schedule"
-      class="button button-primary button-primary--light backto"
+      class="block mt-5 mx-auto mb-0"
     >
       Voir le programme
-    </NuxtLink>
+    </LinkPrimaryNuxt>
   </main>
 </template>
-
-<style lang="scss" scoped>
-.section-talk {
-  background: #fff;
-}
-
-.backto {
-  margin: $spc-l auto 0 auto;
-  display: block;
-}
-</style>

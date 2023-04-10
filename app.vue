@@ -1,22 +1,20 @@
-<script lang="ts" setup>
-import { ref, useHead } from "#imports";
-
-const title = ref("BDX I/O");
-const description = ref(/* @TODO : fill it */ "");
+<script setup lang="ts">
+import { useHead } from "#imports";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
 useHead({
-  title,
+  title: ASSOCIATION_NAME,
   meta: [
     {
       name: "description",
-      content: description,
+      content: `${ASSOCIATION_NAME} est une conférence pour les développeur•euse•s, sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
 });
 </script>
 
 <template>
-  <div>
+  <div class="font-body text-base">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
