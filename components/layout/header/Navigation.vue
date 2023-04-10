@@ -51,7 +51,7 @@ const pages = [
 
 <template>
   <nav
-    :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-10
+    :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-20
       min-h-full m:min-h-auto ${open ? 'right-0' : 'right-full'}
       ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`"
   >

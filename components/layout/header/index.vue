@@ -47,13 +47,13 @@ watch(
       <img
         src="/images/bdxio_logo_blue.png"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
-        class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-20"
+        class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
       >
     </NuxtLink>
     <img
       :src="icon.src"
       :alt="icon.alt"
-      class="cursor-pointer m:hidden relative z-20"
+      class="cursor-pointer m:hidden relative z-30"
       @click.prevent="toggleMenu"
     >
     <LayoutHeaderNavigation
