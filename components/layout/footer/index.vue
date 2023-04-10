@@ -21,7 +21,7 @@ import {
       <LayoutFooterNavigation class="m:w-1/3 mb-8 m:mb-0" />
       <div class="m:w-1/3">
         <LayoutFooterContact class="mb-8" />
-        <LayoutFooterNewsletter />
+        <LayoutFooterNewsletter v-if="false" /> <!-- @TODO : Fix Newsletter registration before enabling it -->
       </div>
     </div>
     <LayoutFooterSite />
