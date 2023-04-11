@@ -3,10 +3,7 @@ import { Heading, LinkPrimary } from "#components";
 </script>
 
 <template>
-  <section
-    id="why-become-sponsor"
-    class="section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden"
-  >
+  <section class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden">
     <Heading
       level="2"
       class="text-bdxio-font-light"
@@ -67,9 +64,8 @@ import { Heading, LinkPrimary } from "#components";
     </ul>
     <LinkPrimary
       color="light"
-      to="/bdxio-2022-sponsors.pdf"
+      href="/bdxio-2023-sponsors.pdf"
       download
-      :disabled="true"
       class="mt-[160px] self-center"
     >
       Télécharger la plaquette
