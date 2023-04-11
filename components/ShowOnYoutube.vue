@@ -13,7 +13,7 @@ defineProps({
 <template>
   <LinkPrimary
     color="light"
-    :to="href"
+    :href="href"
     target="_blank"
     class="mx-auto mt-8"
   >
