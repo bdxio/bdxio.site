@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Heading } from "#components";
+
 type Offer = {
   label: "Startup" | "Magnum" | "Impériale" | "Balthazar";
   price: number;
@@ -29,32 +30,27 @@ const getOfferColorClass = (offer: Offer["label"]) => {
 </script>
 
 <template>
-  <section
-    id="offers"
-    class="section bg-white"
-  >
+  <section class="p-section bg-white">
     <Heading
       level="3"
       class="text-center relative z-10 title"
     >
       Les offres
     </Heading>
-    <div
-      gutter-m
-      class="flex gap-8 flex-col m:flex-row mt-[75px]"
-    >
+    <div class="flex gap-8 flex-col m:flex-row mt-[75px]">
       <div
         v-for="offer in offers"
         :key="offer.label"
-        :class="`mb-7 xl:mb-0 ${
-          offer.full ? 'cursor-not-allowed relative z-10 soldout' : ''
-        }`"
+        :class="`mb-7 xl:mb-0 w-full m:w-1/4
+        ${offer.full ? 'cursor-not-allowed relative z-10 soldout' : null}`"
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
           <span
             :class="`block font-bold uppercase text-[20px] tracking-[3px]
             ${getOfferColorClass(offer.label)}`"
-          >{{ offer.label }}</span>
+          >
+            {{ offer.label }}
+          </span>
           <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
           <p class="text-base font-normal">
             {{ offer.description }}

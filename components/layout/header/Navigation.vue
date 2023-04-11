@@ -90,7 +90,7 @@ const pages = [
       >
         <LinkPrimary
           color="light"
-          to="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
+          href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
           target="_blank"
         >
           Billetterie
@@ -102,7 +102,7 @@ const pages = [
       >
         <LinkPrimary
           color="light"
-          to="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
+          href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
           target="_blank"
         >
           Revoir les talks

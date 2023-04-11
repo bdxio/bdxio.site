@@ -2,10 +2,11 @@
 import { computed } from "#imports";
 
 const props = defineProps<{
-    color: "white" | "light" | "grey" | "dark"
-    disabled?: true
-    download?: true
-  }>();
+    color: "white" | "light" | "grey" | "dark";
+    href: string;
+    disabled?: true;
+    download?: true;
+}>();
 
 const colorClasses = computed(() => {
   switch (props.color) {
@@ -28,6 +29,7 @@ const colorClasses = computed(() => {
   <a
     :class="`border-none py-[12px] px-[25px] rounded-[8px] duration-300 w-fit block
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
+    :href="href"
     :download="download"
   >
     <slot />

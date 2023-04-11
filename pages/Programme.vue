@@ -130,7 +130,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
       <div class="schedule-download">
         <!-- <LinkPrimary
           color="light"
-          to="/bdxio-2022-programme.pdf"
+          href="/bdxio-2022-programme.pdf"
           download
         >
           Télécharger le programme

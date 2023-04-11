@@ -13,7 +13,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
     <div class="p-section w-full m:1/2">
       <div class="shadow-illustration shadow-bdxio-font-light bg-bdxio-font-light max-w-3xl m-auto">
         <Heading level="2">
-          Qu'est-ce que <span class="whitespace-nowrap text-bdxio-blue-dark">{{ ASSOCIATION_NAME }}</span>&nbsp;?
+          Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
         </Heading>
         <p>
           {{ ASSOCIATION_NAME }} est un conférence bordelaise sur le thème de la programmation et
