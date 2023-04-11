@@ -5,9 +5,6 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
-  experimental: {
-    payloadExtraction: false,
-  },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
   css: ["~/assets/css/main.css"],
   postcss: {
