@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp, useAPI, createError } from "#imports";
+import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
@@ -9,7 +9,6 @@ if (!$SHOW_PAGE_ASSOCIATION) {
   throw createError({ statusCode: 404 });
 }
 
-definePageMeta({ layout: "page" });
 useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 
 const { data: volunteers } = await useAPI("/volunteers", {

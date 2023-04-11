@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { Ref } from "vue";
-import { definePageMeta, useHead, useAPI, computed, ref } from "#imports";
+import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { TalkCategory, Talk } from "~/types";
 
-definePageMeta({ layout: "page" });
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
 const ALL = "all";

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // @ts-nocheck
 import {
-  definePageMeta,
   useHead,
   useNuxtApp,
   useAPI,
@@ -19,7 +18,6 @@ if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
 }
 
-definePageMeta({ layout: "page" });
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
 const filters = ref([]);

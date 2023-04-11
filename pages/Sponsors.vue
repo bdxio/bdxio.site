@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  definePageMeta,
   useHead,
   useNuxtApp,
   createError,
@@ -18,7 +17,6 @@ if (!$SHOW_PAGE_SPONSORS) {
   throw createError({ statusCode: 404 });
 }
 
-definePageMeta({ layout: "page" });
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
 const { data } = await useAPI("/offers", {});
