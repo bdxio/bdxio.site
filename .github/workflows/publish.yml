@@ -16,7 +16,7 @@ jobs:
         run: cd app && yarn install --frozen-lockfile && yarn generate
         env:
           API_TOKEN: ${{ secrets.API_TOKEN }}
-          API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          API_URL: ${{ secrets.API_URL }}
           NEWSLETTER_URL: ${{ secrets.NEWSLETTER_URL }}
 
       - uses: peaceiris/actions-gh-pages@v3
