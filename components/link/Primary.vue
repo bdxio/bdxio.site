@@ -5,7 +5,7 @@ const props = defineProps<{
     color: "white" | "light" | "grey" | "dark";
     href: string;
     disabled?: true;
-    download?: true;
+    download?: string;
 }>();
 
 const colorClasses = computed(() => {

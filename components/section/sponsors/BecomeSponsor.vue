@@ -65,7 +65,7 @@ import { Heading, LinkPrimary } from "#components";
     <LinkPrimary
       color="light"
       href="/bdxio-2023-sponsors.pdf"
-      download
+      download="bdxio-2023-sponsors.pdf"
       class="mt-[160px] self-center"
     >
       Télécharger la plaquette
