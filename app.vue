@@ -16,7 +16,7 @@ useHead({
 <template>
   <div class="font-body text-base">
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage page-key="static" />
     </NuxtLayout>
   </div>
 </template>
