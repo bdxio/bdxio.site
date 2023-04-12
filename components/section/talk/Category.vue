@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+
 import { computed } from "#imports";
 import type { TalkCategory } from "~/types";
 

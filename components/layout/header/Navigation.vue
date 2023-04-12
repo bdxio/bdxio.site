@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+
 import { useNuxtApp } from "#imports";
 import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
 

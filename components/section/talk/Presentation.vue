@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+
 import { useNuxtApp, computed } from "#imports";
 import { Heading, OpenFeedback, ShowOnYoutube } from "#components";
 import type { Talk } from "~/types";

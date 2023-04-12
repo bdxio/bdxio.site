@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxi generate",
     "build": "nuxt build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

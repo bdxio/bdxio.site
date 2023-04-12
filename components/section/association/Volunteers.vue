@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+
 import { Heading, NuxtLink } from "#components";
 
 type Volunteer = {
