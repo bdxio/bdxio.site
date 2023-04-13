@@ -105,18 +105,18 @@ function getOfferClass(index: number) {
 }
 
 .purple {
-  color: $purple;
+  color: theme('colors.purple');
 }
 
 .green {
-  color: $green;
+  color: theme('colors.green');
 }
 
 .yellow {
-  color: $yellow;
+  color: theme('colors.yellow');
 }
 
 .orange {
-  color: $orange;
+  color: theme('colors.orange');
 }
 </style>
