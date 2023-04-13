@@ -40,7 +40,6 @@ const questions: Question[] = data;
           :key="`question-${question.id}`"
           tag="li"
           class="mb-10"
-          isOpen
         >
           <template #title>
             <Heading
