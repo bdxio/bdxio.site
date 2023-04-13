@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { defineProps } from "vue";
 import { Heading } from "#components";
 
 type Offer = {

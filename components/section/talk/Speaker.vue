@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import { computed } from "#imports";
+import { defineProps, computed } from "vue";
 import { Heading, SectionTalkSpeakerPicture } from "#components";
 import type { Speaker } from "~/types";
 

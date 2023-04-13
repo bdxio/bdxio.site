@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 defineProps<{
   level: "1" | "2" | "3" | "4" | "5" | "6";
 }>();

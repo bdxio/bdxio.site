@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { withDefaults, defineProps } from "vue";
-import { computed } from "#imports";
+import { withDefaults, defineProps, computed } from "vue";
 import type { Speaker } from "~/types";
 
 interface Props {
