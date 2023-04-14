@@ -9,7 +9,7 @@ useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
 const { params } = useRoute();
 
-const { data: talk }: { data: Ref<Talk>} = await useAPI(`/talks/${params.id}`, {
+const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 
@@ -20,7 +20,10 @@ if (!talk.value) {
 
 <template>
   <main class="section bg-white">
-    <SectionTalkCategory :category="talk.category" />
+    <SectionTalkCategory
+      v-if="talk.category"
+      :category="talk.category"
+    />
     <SectionTalkPresentation :talk="talk" />
     <SectionTalkSpeaker
       v-for="speaker in talk.speakers"

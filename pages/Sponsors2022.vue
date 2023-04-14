@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import {
-  useHead,
-  useNuxtApp,
-  useAPI,
-  createError,
-} from "#imports";
+import { Ref } from "vue";
+import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import type { Offer } from "~/types";
 
 const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();
 
@@ -16,7 +13,7 @@ if (!$SHOW_PAGE_SPONSORS2022) {
 
 useHead({ title: `Sponsors ${EDITION} | ${ASSOCIATION_NAME}` });
 
-const { data: offers } = await useAPI("/offers", {
+const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 

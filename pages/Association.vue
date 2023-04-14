@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { Ref } from "vue";
 import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { SectionAssociationPresentation, SectionAssociationVolunteers } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Volunteer } from "~/types";
 
 const { $SHOW_SECTION_VOLUNTEERS, $SHOW_PAGE_ASSOCIATION } = useNuxtApp();
 
@@ -11,7 +13,7 @@ if (!$SHOW_PAGE_ASSOCIATION) {
 
 useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 
-const { data: volunteers } = await useAPI("/volunteers", {
+const { data: volunteers }: { data: Ref<Volunteer[]> } = await useAPI("/volunteers", {
   params: {
     populate: "*",
   },
@@ -22,7 +24,7 @@ const { data: volunteers } = await useAPI("/volunteers", {
   <main>
     <SectionAssociationPresentation />
     <SectionAssociationVolunteers
-      v-if="$SHOW_SECTION_VOLUNTEERS && volunteers?.length > 0"
+      v-if="$SHOW_SECTION_VOLUNTEERS && volunteers?.length"
       :volunteers="volunteers"
     />
   </main>
