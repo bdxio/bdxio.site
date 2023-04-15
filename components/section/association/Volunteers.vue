@@ -1,23 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Heading, NuxtLink } from "#components";
-
-type Volunteer = {
-  id: string;
-  active: boolean;
-  firstname?: string;
-  lastname?: string;
-  jobLabel: string;
-  jobCompanyName?: string;
-  jobCompanyUrl?: string;
-  linkedin?: string;
-  twitter?: string;
-  github?: string;
-  website?: string;
-  profilePicture?: {
-    url: string;
-  };
-};
+import type { Volunteer } from "~/types";
 
 defineProps<{
   volunteers: Volunteer[];

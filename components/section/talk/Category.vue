@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
-import type { TalkCategory } from "~/types";
+import type { Category } from "~/types";
 
 const props = defineProps<{
-  category: TalkCategory;
+  category: Category;
 }>();
 
 const categoryNumber = computed(() => {

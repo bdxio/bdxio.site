@@ -24,6 +24,7 @@ const filters = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
+/* @TODO: type it */
 const { data } = await useAPI("/schedule");
 
 const { categories, schedule } = data.value;

@@ -35,7 +35,7 @@ const duration = computed(() => {
     >
     <div class="flex flex-wrap gap-6 my-12">
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
-        {{ talk.format.name }} - {{ duration }}min
+        {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min
       </span>
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.level }}
@@ -49,6 +49,7 @@ const duration = computed(() => {
     </div>
     <!-- eslint-disable vue/no-v-html -->
     <div
+      v-if="talk.abstract"
       class="mb-20"
       v-html="$md.render(talk.abstract)"
     />
