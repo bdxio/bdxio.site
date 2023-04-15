@@ -1,16 +1,9 @@
 <script setup lang="ts">
-// @ts-nocheck
-import {
-  useHead,
-  useNuxtApp,
-  useAPI,
-  ref,
-  computed,
-  onClickOutside,
-  createError,
-} from "#imports";
+import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
+import type { Category, Schedule, Talk } from "~/types";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
@@ -20,12 +13,11 @@ if (!$SHOW_PAGE_PROGRAMME) {
 
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
-const filters = ref([]);
+const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
-/* @TODO: type it */
-const { data } = await useAPI("/schedule");
+const { data }: { data: Ref<{ categories: Category[], schedule: Schedule }>} = await useAPI("/schedule");
 
 const { categories, schedule } = data.value;
 
@@ -36,20 +28,20 @@ const filteredSchedule = computed(() => {
   }
 
   return schedule
-    .map((slot) => {
+    .map((scheduleItem) => {
       return {
-        ...slot,
-        talks: slot.talks.filter((t) =>
-          filters.value.includes(t.category.name),
+        ...scheduleItem,
+        talks: scheduleItem.talks.filter((t) =>
+          t.category && filters.value.includes(t.category.name),
         ),
       };
     })
     .filter((s) => s.talks.length > 0);
 });
 
-function displayTalkSubInfos({ speakers, format, level }) {
-  const formattedSpeakers = speakers.length
-    ? speakers
+function displayTalkSubInfos(talk: Talk) {
+  const formattedSpeakers = talk.speakers.length
+    ? talk.speakers
       .map((s) => s.name)
       .toString()
       .replace(",", " / ")
@@ -58,14 +50,14 @@ function displayTalkSubInfos({ speakers, format, level }) {
   let text = "";
 
   if (formattedSpeakers) text += `${formattedSpeakers} -`;
-  if (format.name) text += ` ${format.name}`;
-  if (format.duration) text += ` (${format.duration})`;
-  if (level) text += ` - Niveau ${level}`;
+  if (talk.format?.name) text += ` ${talk.format.name}`;
+  if (talk.format?.duration) text += ` (${talk.format.duration})`;
+  if (talk.level) text += ` - Niveau ${talk.level}`;
 
   return text;
 }
 
-function setFilter(filter) {
+function setFilter(filter: string) {
   if (filter === "tous") {
     filters.value = [];
     return;
@@ -79,8 +71,8 @@ function setFilter(filter) {
   filters.value = filters.value.filter((f) => f !== filter);
 }
 
-function getCategoryImageName(category) {
-  switch (category) {
+function getCategoryImageName(category: Category) {
+  switch (category.name) {
     case "Frontend":
       return "frontend.png";
     case "Design & UX":
@@ -96,13 +88,13 @@ function getCategoryImageName(category) {
     case "Hors-piste":
       return "horspiste.png";
     default:
-      return null;
+      return "";
   }
 }
 
-function getCategoryImagePath(category) {
+function getCategoryImagePath(category: Category) {
   const imageName = getCategoryImageName(category);
-  return imageName ? `/images/drawings/categories/${imageName}` : null;
+  return imageName ? `/images/drawings/categories/${imageName}` : "";
 }
 
 function openMobilePanel() {
@@ -172,7 +164,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
               >
                 <img
                   class="categories__category__image"
-                  :src="getCategoryImagePath(category.name)"
+                  :src="getCategoryImagePath(category)"
                   :alt="`Catégorie ${category.name}`"
                 >
                 <span class="categories__category__label">
@@ -211,14 +203,18 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <div class="room">
+                      <div
+                        v-if="talk.room"
+                        class="room"
+                      >
                         {{ talk.room.name }}
                       </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <img
+                            v-if="talk.category"
                             class="talk__infos__image"
-                            :src="getCategoryImagePath(talk.category.name)"
+                            :src="getCategoryImagePath(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
                           >
                           <div class="talk__infos__content">

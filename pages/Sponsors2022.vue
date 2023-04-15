@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Ref } from "vue";
 import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import type { Ref } from "vue";
 import type { Offer } from "~/types";
 
 const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();

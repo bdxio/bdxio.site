@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Ref } from "vue";
 import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
 import type { Category, Talk } from "~/types";
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });

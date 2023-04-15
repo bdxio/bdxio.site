@@ -2,6 +2,7 @@
 import { useHead, useNuxtApp, createError, useAPI } from "#imports";
 import { Collapse, Heading } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
 import type { FAQQuestion } from "~/types";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
@@ -12,8 +13,7 @@ if (!$SHOW_PAGE_FAQ) {
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
-const {data} = await useAPI("/faq-questions", {});
-const questions: FAQQuestion[] = data;
+const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {});
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Ref } from "vue";
 import { useHead, useRoute, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
 import type { Talk } from "~/types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });

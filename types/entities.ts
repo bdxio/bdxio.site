@@ -203,3 +203,13 @@ export type Volunteer = {
   publishedAt: string;
   updatedAt: string;
 };
+
+export type Schedule = ScheduleItem[];
+
+export type ScheduleItem = {
+  slot: string;
+  formattedSlot: string;
+  name: string;
+  talks: Talk[];
+  space?: boolean;
+}
