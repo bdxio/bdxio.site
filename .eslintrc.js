@@ -44,7 +44,8 @@ module.exports = {
     ],
     "import/newline-after-import": [ERROR, { "count": 1 }],
     "semi-spacing": ERROR,
-    /* TypeScript*/
+    "spaced-comment": [ERROR, "always", { "block": { "balanced": true } }],
+    /* TypeScript */
     "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
     /* Vue */
     "vue/multi-word-component-names": OFF,
