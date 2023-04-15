@@ -4,7 +4,7 @@ import { Heading } from "#components";
 
 <template>
   <div
-    class="section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px]
+    class="p-section flex flex-col items-center bg-bdxio-blue-dark text-bdxio-font-light text-center gap-[20px]
       m:gap-[90px] section-sponsors"
   >
     <Heading

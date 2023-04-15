@@ -17,7 +17,7 @@ function getVolunteerName(volunteer: Volunteer): string | null {
 </script>
 
 <template>
-  <section class="bg-white pt-0 section section-association-volunteers">
+  <section class="bg-white pt-0 p-section section-association-volunteers">
     <Heading
       level="2"
       class="text-center mt-0 title"

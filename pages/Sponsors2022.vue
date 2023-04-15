@@ -23,7 +23,7 @@ function getOfferClass(index: number) {
 </script>
 
 <template>
-  <main class="section bg-white section-sponsors-2022">
+  <main class="p-section bg-white section-sponsors-2022">
     <header class="flex flex-col justify-center items-center text-center">
       <Heading
         level="1"

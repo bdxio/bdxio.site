@@ -34,7 +34,7 @@ function setFilter(categoryId: string) {
 </script>
 
 <template>
-  <main class="section bg-white flex flex-col">
+  <main class="p-section bg-white flex flex-col">
     <Heading
       level="1"
       class="title relative block mx-auto !mb-16"

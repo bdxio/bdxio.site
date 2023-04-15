@@ -3,7 +3,7 @@ import { Heading } from "#components";
 </script>
 
 <template>
-  <section class="section section-jobs">
+  <section class="p-section section-jobs">
     <Heading level="2">
       Les jobs de <span class="sponsor">nos partenaires</span>
     </Heading>

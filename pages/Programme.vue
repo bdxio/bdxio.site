@@ -115,7 +115,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
 </script>
 
 <template>
-  <main class="section section-schedule bg-white">
+  <main class="p-section section-schedule bg-white">
     <header class="section-schedule__header">
       <Heading
         level="1"

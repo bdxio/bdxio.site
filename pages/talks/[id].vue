@@ -19,7 +19,7 @@ if (!talk.value) {
 </script>
 
 <template>
-  <main class="section bg-white">
+  <main class="p-section bg-white">
     <SectionTalkCategory
       v-if="talk.category"
       :category="talk.category"

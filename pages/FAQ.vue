@@ -18,7 +18,7 @@ const questions: FAQQuestion[] = data;
 
 <template>
   <main>
-    <section class="section bg-white">
+    <section class="p-section bg-white">
       <Heading
         level="2"
         class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"

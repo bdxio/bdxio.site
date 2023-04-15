@@ -5,7 +5,7 @@ import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
 <template>
   <section
     id="become-sponsor"
-    class="section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-font-light"
+    class="p-section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-font-light"
   >
     <div>
       <HeadingSection

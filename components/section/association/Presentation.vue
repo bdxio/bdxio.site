@@ -7,7 +7,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
 </script>
 
 <template>
-  <div class="bg-white section section-presentation">
+  <div class="bg-white p-section section-presentation">
     <header class="flex flex-col items-center justify-center text-center">
       <Heading
         level="1"
