@@ -3,8 +3,21 @@ const ERROR = 2;
 
 module.exports = {
   root: true,
-  extends: ["@nuxt/eslint-config"],
+  extends: ["@nuxt/eslint-config", "plugin:import/recommended", "plugin:import/typescript"],
+  settings: {
+    "import/resolver": {
+      "alias": {
+        map: [
+          ["#imports", ".nuxt/imports.d.ts"],
+          ["#components", ".nuxt/components.d.ts"],
+          ["~/services", "./services"],
+        ],
+        "extensions": [".ts"],
+      },
+    },
+  },
   rules: {
+    /* General */
     "semi": [ERROR, "always"],
     "quotes": [ERROR, "double"],
     "indent": [ERROR, 2, {
@@ -18,6 +31,19 @@ module.exports = {
     "no-multiple-empty-lines": [ERROR, { "max": 1, "maxBOF": 0, "maxEOF": 0 }],
     "no-trailing-spaces": [ERROR, { "skipBlankLines": true }],
     "space-before-blocks": [ERROR, "always"],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          ["internal", "parent","sibling"],
+          "index",
+          "type",
+        ],
+      },
+    ],
+    "import/newline-after-import": [ERROR, { "count": 1 }],
+    /* Vue specific */
     "vue/multi-word-component-names": OFF,
     "vue/no-multiple-template-root": OFF,
     "vue/attribute-hyphenation": OFF,
