@@ -43,7 +43,10 @@ module.exports = {
       },
     ],
     "import/newline-after-import": [ERROR, { "count": 1 }],
-    /* Vue specific */
+    "semi-spacing": ERROR,
+    /* TypeScript*/
+    "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
+    /* Vue */
     "vue/multi-word-component-names": OFF,
     "vue/no-multiple-template-root": OFF,
     "vue/attribute-hyphenation": OFF,
