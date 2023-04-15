@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
-import { useRoute, ref, watch } from "#imports";
+import { defineProps } from "vue";
+import { useRoute, ref, watch, computed } from "#imports";
 import { NuxtLink, LayoutHeaderNavigation } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 

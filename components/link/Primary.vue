@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
+import { defineProps } from "vue";
+import { computed } from "#imports";
 
 const props = defineProps<{
     color: "white" | "light" | "grey" | "dark";
