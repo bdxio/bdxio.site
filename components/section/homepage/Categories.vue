@@ -55,7 +55,7 @@ const categories = [
         forcément votre bonheur&nbsp;!
       </p>
     </div>
-    <div class="w-full m:w-3/5 grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
+    <div class="grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
       <div
         v-for="category in categories"
         :key="category.name"

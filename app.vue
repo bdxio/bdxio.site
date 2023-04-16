@@ -7,7 +7,8 @@ useHead({
   meta: [
     {
       name: "description",
-      content: `${ASSOCIATION_NAME} est une conférence pour les développeur•euse•s, sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
+      content: `${ASSOCIATION_NAME} est une conférence pour les développeur•euse•s, 
+        sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
 });
