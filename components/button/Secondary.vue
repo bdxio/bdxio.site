@@ -4,7 +4,7 @@ import { computed } from "#imports";
 
 const props = defineProps<{
   color: "white" | "light" | "grey" | "dark";
-  disabled?: true;
+  disabled?: boolean;
 }>();
 
 const colorClasses = computed(() => {
