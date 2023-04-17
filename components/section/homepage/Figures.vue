@@ -200,7 +200,7 @@ import { Counter } from "#components";
 
 .picture-speaker {
   background-position-y: 20%;
-  background-image: url("/concepts/5/ùconcept-img-5.webp");
+  background-image: url("/concepts/5/concept-img-5.webp");
   grid-area: pic-speaker;
 }
 

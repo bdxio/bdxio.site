@@ -28,7 +28,7 @@ const colorClasses = computed(() => {
 
 <template>
   <a
-    :class="`border-none py-[12px] px-[25px] rounded-[8px] duration-300 w-fit block
+    :class="`border-none py-[12px] px-[25px] rounded-lg duration-300 w-fit block
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
     :href="href"
     :download="download"

@@ -24,9 +24,9 @@ module.exports = {
       "SwitchCase": 1,
     }],
     "comma-dangle": [ERROR, "always-multiline"],
-    "max-len": [ERROR, { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true }],
+    "max-len": [ERROR, { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreRegExpLiterals": true }],
     "keyword-spacing": [ERROR, { "before": true, "after": true }],
-    "space-before-function-paren": [ERROR, {"anonymous": "always", "named": "never"}],
+    "space-before-function-paren": [ERROR, { "anonymous": "always", "named": "never" }],
     "no-multi-spaces": [ERROR, { "ignoreEOLComments": true }],
     "no-multiple-empty-lines": [ERROR, { "max": 1, "maxBOF": 0, "maxEOF": 0 }],
     "no-trailing-spaces": [ERROR, { "skipBlankLines": true }],
@@ -45,6 +45,7 @@ module.exports = {
     "import/newline-after-import": [ERROR, { "count": 1 }],
     "semi-spacing": ERROR,
     "spaced-comment": [ERROR, "always", { "block": { "balanced": true } }],
+    "object-curly-spacing": [ERROR, "always"],
     /* TypeScript */
     "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
     /* Vue */

@@ -4,7 +4,7 @@ import { computed } from "#imports";
 
 const props = defineProps<{
   color: "white" | "light" | "grey" | "dark";
-  disabled?: true;
+  disabled?: boolean;
 }>();
 
 const colorClasses = computed(() => {
@@ -25,8 +25,8 @@ const colorClasses = computed(() => {
 
 <template>
   <button
-    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit
-      block mt-8 ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
+    :class="`block bg-none border-[2px] border-solid py-2 px-4 rounded-lg cursor-pointer duration-300
+      ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
   >
     <slot />
   </button>
