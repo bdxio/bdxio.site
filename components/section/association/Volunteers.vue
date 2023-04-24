@@ -26,16 +26,11 @@ function getVolunteerName(volunteer: Volunteer): string | null {
       de notre <span class="relative z-10 heart">équipe</span>
     </Heading>
 
-    <ul
-      tag="ul"
-      gutter-s
-      class="s:flex s:gap-[40px] mt-100"
-    >
+    <ul class="s:flex s:justify-start s:flex-wrap mt-[100px] max-w-6xl mx-auto">
       <li
         v-for="volunteer in volunteers"
         :key="`v-${volunteer.id}`"
-        tag="li"
-        class="s:basis-1/2 m:basis-1/3 xl:basis-1/4"
+        class="s:w-1/2 m:!w-1/3 l:!w-1/4"
       >
         <div
           v-if="volunteer.active"
@@ -44,7 +39,8 @@ function getVolunteerName(volunteer: Volunteer): string | null {
           <img
             v-if="volunteer.profilePicture?.url"
             :src="volunteer.profilePicture?.url"
-            class="w-full object-cover object-center"
+            :alt="volunteer.profilePicture?.alternativeText"
+            class="max-h-[175px] w-auto object-cover object-center"
           >
           <div class="p-2">
             <div class="text-2xl font-bold mb-1">
