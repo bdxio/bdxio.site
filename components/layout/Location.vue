@@ -3,11 +3,16 @@ import { Heading, HeadingSection } from "#components";
 </script>
 
 <template>
-  <section class="p-section bg-no-repeat bg-contain bg-right-bottom bg-grey-100"
-    style="background-image: url('/images/illustration_palais_congres.png')">
+  <section
+    class="p-section bg-no-repeat bg-contain bg-right-bottom bg-grey-100"
+    style="background-image: url('/images/illustration_palais_congres.png')"
+  >
     <div class="relative pb-52 s:pb-20 m:pb-0">
       <div class="bg-grey-100 s:max-w-[50%] shadow-illustration p-0 m:p-8">
-        <HeadingSection level="2" class="text-subtitle">
+        <HeadingSection
+          level="2"
+          class="text-subtitle"
+        >
           Transports
         </HeadingSection>
         <Heading level="3">
