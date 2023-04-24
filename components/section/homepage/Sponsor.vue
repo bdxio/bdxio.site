@@ -3,10 +3,7 @@ import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
 </script>
 
 <template>
-  <section
-    id="become-sponsor"
-    class="p-section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-light"
-  >
+  <section class="p-section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-light">
     <div>
       <HeadingSection
         level="2"
