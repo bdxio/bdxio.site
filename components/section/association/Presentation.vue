@@ -21,7 +21,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       </p>
     </header>
     <section
-      class="mt-[100px] m:flex m:justify-between m:gap-x-[40px]"
+      class="mt-[100px] l:flex l:justify-between l:items-center l:gap-x-[40px]"
     >
       <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
         <HeadingSection
@@ -36,7 +36,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
         >
           Un petit groupe de bénévoles <span class="relative z-10">bordelais</span> !
         </Heading>
-        <p class="mt-4">
+        <p class="mt-4 l:max-w-[450px] font-normal">
           Nous avons à cœur de vous proposer un événement fédérateur, convivial
           et de grande ampleur. Notre objectif est de permettre à l’ensemble des
           membres de la communauté IT de se rassembler au sein d’une journée de
@@ -51,72 +51,11 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           Découvrir le programme {{ EDITION }}
         </ButtonSecondary>
       </div>
-      <div class="flex gap-4 basis-full mt-[100px] m:mt-0 m:basis-1/2">
-        <div class="w-1/2">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="/asso/pic-scene-1.webp"
-            >
-            <source
-              type="image/jpeg"
-              srcset="/asso/pic-scene-1.jpg"
-            >
-            <img
-              src="/asso/pic-scene-1.jpg"
-              alt="photo de l'équipe prise sur la scene de l'évènement"
-              class="w-full mb-4"
-            >
-          </picture>
-          <picture class="w-full mb-4">
-            <source
-              type="image/webp"
-              srcset="/asso/pic-scene-2.webp"
-            >
-            <source
-              type="image/jpeg"
-              srcset="/asso/pic-scene-2.jpg"
-            >
-            <img
-              src="/asso/pic-scene-2.jpg"
-              alt="photo de l'équipe prise sur la scene de l'évènement"
-              class="w-full mb-4"
-            >
-          </picture>
-        </div>
-        <div class="w-1/2">
-          <picture class="w-full mb-4">
-            <source
-              type="image/webp"
-              srcset="/asso/pic-meeting-1.webp"
-            >
-            <source
-              type="image/jpeg"
-              srcset="/asso/pic-meeting-1.jpg"
-            >
-            <img
-              src="/asso/pic-meeting-1.jpg"
-              alt="photo de l'équipe prise pendant un meeting bdx io"
-              class="w-full mb-4"
-            >
-          </picture>
-          <picture class="w-full mb-4">
-            <source
-              type="image/webp"
-              srcset="/asso/pic-meeting-2.webp"
-            >
-            <source
-              type="image/jpeg"
-              srcset="/asso/pic-meeting-2.jpg"
-            >
-            <img
-              src="/asso/pic-meeting-2.jpg"
-              alt="photo de l'équipe prise pendant un meeting bdx io"
-              class="w-full mb-4"
-            >
-          </picture>
-        </div>
-      </div>
+      <img
+        src="/asso/team2022.webp"
+        alt="Photo de l'équipe de BDXIO 2022"
+        class="max-w-[500px] l:max-w-[600px] 2xl:max-w-[700px] mx-auto mt-10 w-full h-auto"
+      >
     </section>
   </div>
 </template>

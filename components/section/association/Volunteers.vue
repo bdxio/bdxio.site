@@ -40,22 +40,22 @@ function getVolunteerName(volunteer: Volunteer): string | null {
             v-if="volunteer.profilePicture?.url"
             :src="volunteer.profilePicture?.url"
             :alt="volunteer.profilePicture?.alternativeText"
-            class="max-h-[175px] w-auto object-cover object-center"
+            class="w-full object-cover object-center"
           >
-          <div class="p-2">
-            <div class="text-2xl font-bold mb-1">
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 mt-6">
               {{ getVolunteerName(volunteer) }}
             </div>
-            <div class="text-green mb-4">
+            <div class="text-green text-sm mb-7">
               <template v-if="!volunteer.jobCompanyName">
                 {{ volunteer.jobLabel }}
               </template>
               <template
                 v-else-if="volunteer.jobCompanyUrl && volunteer.jobCompanyName"
               >
-                {{ volunteer.jobLabel }} chez
+                {{ volunteer.jobLabel }}
                 <NuxtLink
-                  class="volunteer__job__link"
+                  class="underline"
                   :to="volunteer.jobCompanyUrl"
                   target="_blank"
                 >

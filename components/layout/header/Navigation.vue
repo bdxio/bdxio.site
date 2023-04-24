@@ -59,7 +59,7 @@ const pages = [
       <li
         v-for="page in pages"
         :key="page.name"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <NuxtLink
           :to="page.path"
@@ -71,7 +71,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_LIVE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkSecondary
           to="#"
@@ -86,7 +86,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_BILLETERIE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkPrimary
           color="light"
@@ -98,7 +98,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_YOUTUBE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkPrimary
           color="light"
@@ -110,7 +110,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_CFP"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkSecondary
           to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
