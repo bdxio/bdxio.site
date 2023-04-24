@@ -14,11 +14,11 @@ const colorClasses = computed(() => {
     case "white":
       return "bg-bdxio-cream-base text-bdxio-blue-dark";
     case "light":
-      return "bg-bdxio-blue-light text-bdxio-font-light hover:text-bdxio-font-light";
+      return "bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light";
     case "grey":
-      return "bg-bdxio-font-dark text-bdxio-font-light";
+      return "bg-bdxio-dark text-bdxio-light";
     case "dark":
-      return "bg-bdxio-blue-dark text-bdxio-font-light";
+      return "bg-bdxio-blue-dark text-bdxio-light";
     default:
       return "";
   }

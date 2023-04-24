@@ -26,7 +26,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       <div class="mb-100 mt-4 l:max-w-[500px] l:mb-0 xl:max-w-[650px] basis-full m:basis-1/2">
         <HeadingSection
           level="2"
-          class="text-green"
+          class="!text-bdxio-blue-base"
         >
           Qui sommes nous ?
         </HeadingSection>

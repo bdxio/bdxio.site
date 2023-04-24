@@ -4,14 +4,14 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
 <template>
-  <section class="py-0 m:py-20 flex flex-col-reverse items-center m:flex-row bg-bdxio-font-light">
+  <section class="py-0 m:py-20 flex flex-col-reverse items-center m:flex-row bg-bdxio-grey-100">
     <img
       src="/images/place_de_la_bourse.png"
       class="object-contain w-full m:1/2 max-w-screen-xl"
     >
 
     <div class="p-section w-full m:1/2">
-      <div class="shadow-illustration shadow-bdxio-font-light bg-bdxio-font-light max-w-3xl m-auto">
+      <div class="shadow-illustration shadow-grey-100 bg-grey-100 max-w-3xl m-auto">
         <Heading level="2">
           Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
         </Heading>

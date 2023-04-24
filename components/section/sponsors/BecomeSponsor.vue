@@ -3,10 +3,10 @@ import { Heading, LinkPrimary } from "#components";
 </script>
 
 <template>
-  <section class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-font-light gap-[20px] overflow-hidden">
+  <section class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-light gap-[20px] overflow-hidden">
     <Heading
       level="2"
-      class="text-bdxio-font-light"
+      class="text-bdxio-light"
     >
       Pourquoi devenir
       <span class="relative z-10 sponsor">Sponsor&nbsp;?</span>

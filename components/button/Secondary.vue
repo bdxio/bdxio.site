@@ -14,7 +14,7 @@ const colorClasses = computed(() => {
     case "light":
       return "border-bdxio-blue-light text-bdxio-blue-light hover:border-bdxio-blue-dark hover:text-bdxio-blue-dark";
     case "grey":
-      return "border-bdxio-font-dark text-bdxio-font-dark";
+      return "border-bdxio-dark text-bdxio-dark";
     case "dark":
       return "border-bdxio-blue-dark text-bdxio-blue-dark hover:border-bdxio-blue-light hover:text-bdxio-blue-light";
     default:
