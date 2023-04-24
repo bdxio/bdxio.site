@@ -14,7 +14,7 @@ const colorClasses = computed(() => {
     case "light":
       return "border-bdxio-blue-light text-bdxio-blue-light";
     case "grey":
-      return "border-bdxio-font-dark text-bdxio-font-dark";
+      return "border-bdxio-dark text-bdxio-dark";
     case "dark":
       return "border-bdxio-blue-dark text-bdxio-blue-dark";
     default:
