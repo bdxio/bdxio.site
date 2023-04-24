@@ -54,7 +54,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       <img
         src="/asso/team2022.webp"
         alt="Photo de l'équipe de BDXIO 2022"
-        class="max-w-[500px] l:max-w-[600px] 2xl:max-w-[700px] mx-auto mt-10 w-full h-auto"
+        class="s:max-w-[500px] l:max-w-[600px] 2xl:max-w-[700px] mx-auto mt-10 w-full h-auto"
       >
     </section>
   </div>
