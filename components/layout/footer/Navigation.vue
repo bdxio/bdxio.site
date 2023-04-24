@@ -26,7 +26,7 @@ const pages = [
     show: instance.$SHOW_PAGE_FAQ,
   },
   {
-    name: "L'asso",
+    name: "L'association",
     path: "/association",
     show: instance.$SHOW_PAGE_ASSOCIATION,
   },

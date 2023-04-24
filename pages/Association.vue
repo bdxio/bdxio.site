@@ -16,6 +16,7 @@ useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 const { data: volunteers }: { data: Ref<Volunteer[]> } = await useAPI("/volunteers", {
   params: {
     populate: "*",
+    sort: "firstname:asc",
   },
 });
 </script>
