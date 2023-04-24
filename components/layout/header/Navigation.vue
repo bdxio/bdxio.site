@@ -64,7 +64,7 @@ const pages = [
         <NuxtLink
           :to="page.path"
           :class="`no-underline text-2xl m:text-base
-          ${background === 'dark' ? 'text-bdxio-font-light' : 'text-bdxio-blue-dark'}`"
+          ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
         >
           {{ page.name }}
         </NuxtLink>
