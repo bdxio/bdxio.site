@@ -5,7 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxi generate",
     "build": "nuxt build",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "type-check": "nuxi typecheck --noEmit",
     "diag": "npm run lint && npm run type-check"
