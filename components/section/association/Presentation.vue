@@ -58,7 +58,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .scribble::after {
     content: "";
     display: block;

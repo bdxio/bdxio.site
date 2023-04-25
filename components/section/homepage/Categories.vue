@@ -71,7 +71,7 @@ const categories = [
   </section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped lang="postcss">
 .scribble:before {
   content: "";
   position: absolute;

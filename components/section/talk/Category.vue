@@ -39,7 +39,7 @@ const categoryNumber = computed(() => {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .category {
   &--1 {
     background-image: url("/images/drawings/themes/theme-1.png");

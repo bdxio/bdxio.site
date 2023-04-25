@@ -73,7 +73,7 @@ import { Heading, LinkPrimary } from "#components";
   </section>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .sponsor:after {
   content: "";
   position: absolute;

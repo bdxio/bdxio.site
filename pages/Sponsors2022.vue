@@ -87,7 +87,7 @@ function getOfferClass(index: number) {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .title::before {
   content: "";
   display: block;

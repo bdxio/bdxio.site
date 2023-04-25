@@ -55,7 +55,7 @@ const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-que
   </main>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .title::after {
   content: "";
   display: block;

@@ -118,7 +118,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
   </section>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .heart::after {
   content: "";
   width: 80px;

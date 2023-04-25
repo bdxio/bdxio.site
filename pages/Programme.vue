@@ -274,7 +274,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 ul {
   list-style: none;
 }
@@ -481,7 +481,7 @@ ul {
       }
 
       &__infos {
-        font-size: 1.125rem; //18px
+        font-size: 1.125rem;
         border-left: 2px solid theme('colors.bdxio-blue.base');
         margin-left: 30px;
         padding: 25px 0 25px 25px;
