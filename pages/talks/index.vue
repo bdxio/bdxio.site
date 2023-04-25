@@ -10,7 +10,7 @@ useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 const ALL = "all";
 const currentFilter = ref(ALL);
 
-const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]>}, {data: Ref<Talk[]>}] =
+const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] =
   await Promise.all([
     useAPI("/categories", { params: { populate: "*" } }),
     useAPI("/talks", {
@@ -130,7 +130,7 @@ function setFilter(categoryId: string) {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .title {
   &:before {
     content: "";

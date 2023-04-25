@@ -5,7 +5,7 @@ import { Heading, LinkPrimary } from "#components";
 <template>
   <section class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-light gap-[20px] overflow-hidden">
     <Heading
-      level="2"
+      level="1"
       class="text-bdxio-light"
     >
       Pourquoi devenir
@@ -17,8 +17,8 @@ import { Heading, LinkPrimary } from "#components";
           1
         </p>
         <p class="text-center max-w-[350px]">
-          Une visibilité sur le plus grand événement bordelais fédérant
-          l’ensemble de la communauté digitale et IT bordelaise
+          Une visibilité sur le plus grand évènement bordelais fédérant
+          l'ensemble de la communauté digitale et IT bordelaise
         </p>
       </li>
 
@@ -73,7 +73,7 @@ import { Heading, LinkPrimary } from "#components";
   </section>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .sponsor:after {
   content: "";
   position: absolute;

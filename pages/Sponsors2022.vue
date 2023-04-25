@@ -32,7 +32,7 @@ function getOfferClass(index: number) {
         Nos sponsors {{ EDITION }}
       </Heading>
       <p>
-        L’équipe de {{ ASSOCIATION_NAME }} tient à remercier tous les partenaires et sponsors
+        L'équipe de {{ ASSOCIATION_NAME }} tient à remercier tous les partenaires et sponsors
         pour nous permettre de vous proposer cette édition {{ EDITION }}.
       </p>
     </header>
@@ -87,7 +87,7 @@ function getOfferClass(index: number) {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .title::before {
   content: "";
   display: block;

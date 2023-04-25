@@ -78,7 +78,7 @@ import { Heading } from "#components";
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .triangle::after {
   content: "";
   width: 60px;

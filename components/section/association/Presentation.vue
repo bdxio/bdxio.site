@@ -40,7 +40,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           Un petit groupe de <br class="hidden m:inline"> bénévoles <span class="relative z-10">bordelais</span> !
         </Heading>
         <p class="mt-4 font-normal">
-          Nous avons à cœur de vous proposer un événement fédérateur, convivial
+          Nous avons à cœur de vous proposer un évènement fédérateur, convivial
           et de grande ampleur. Notre objectif est de permettre à l'ensemble des
           membres de la communauté IT de se rassembler au sein d'une journée de
           conférences dédiées à l'ensemble des métiers du web, et ce depuis 2014
@@ -58,18 +58,18 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .scribble::after {
-    content: "";
-    display: block;
-    width: 150px;
-    height: 70px;
-    position: absolute;
-    z-index: -1;
-    right: -30px;
-    bottom: -15px;
-    transform: rotate(-20deg);
-    background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
-    background-size: cover;
+  content: "";
+  display: block;
+  width: 150px;
+  height: 70px;
+  position: absolute;
+  z-index: -1;
+  right: -30px;
+  bottom: -15px;
+  transform: rotate(-20deg);
+  background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
+  background-size: cover;
   }
 </style>

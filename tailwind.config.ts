@@ -61,10 +61,6 @@ const config: Config = {
         card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
         illustration: "0px 0px 30px 20px #F5F5F5",
       },
-      gridTemplateColumns: {
-        "homepage-key-concepts": "repeat(2, 50%)",
-        "homepage-key-concepts-m": "repeat(6, 1fr)",
-      },
     },
   },
 };

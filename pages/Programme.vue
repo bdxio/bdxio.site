@@ -17,7 +17,7 @@ const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
-const { data }: { data: Ref<{ categories: Category[], schedule: Schedule }>} = await useAPI("/schedule");
+const { data }: { data: Ref<{ categories: Category[], schedule: Schedule }> } = await useAPI("/schedule");
 
 const { categories, schedule } = data.value;
 
@@ -116,7 +116,6 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
         Le programme de la journée
       </Heading>
     </header>
-
     <section class="section-schedule__body">
       <div class="schedule-download">
         <!-- <LinkPrimary
@@ -274,7 +273,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 ul {
   list-style: none;
 }
@@ -323,7 +322,6 @@ ul {
         background-size: cover;
 
         @media screen and (min-width: theme('screens.m')) {
-
           width: 120px;
           height: 120px;
           right: -110px;
@@ -348,14 +346,11 @@ ul {
 
       @media screen and (min-width: theme('screens.s')) {
         flex-direction: row;
-
       }
     }
 
     .schedule-container {
-
       @media screen and (min-width: theme('screens.m')) {
-
         display: flex;
       }
     }
@@ -365,7 +360,6 @@ ul {
 
       @media screen and (min-width: theme('screens.s')) {
         max-width: 345px;
-
       }
     }
   }
@@ -425,7 +419,6 @@ ul {
     }
 
     @media screen and (min-width: theme('screens.m')) {
-
       position: sticky;
       top: 0;
       width: inherit;
@@ -481,13 +474,12 @@ ul {
       }
 
       &__infos {
-        font-size: 1.125rem; //18px
+        font-size: 1.125rem;
         border-left: 2px solid theme('colors.bdxio-blue.base');
         margin-left: 30px;
         padding: 25px 0 25px 25px;
 
         @media screen and (min-width: theme('screens.m')) {
-
           padding: 50px;
         }
 

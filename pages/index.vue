@@ -22,9 +22,9 @@ useHead({ title: ASSOCIATION_NAME });
     <SectionHomepageAbout />
     <SectionHomepageTheme />
     <SectionHomepageCategories />
-    <div class="flex flex-col m:flex-row">
-      <SectionHomepageSponsor class="!w-full !m:w-1/2" />
-      <SectionHomepageSpeaker class="!w-full !m:w-1/2" />
+    <div class="grid grid-cols-1 m:grid-cols-2">
+      <SectionHomepageSponsor />
+      <SectionHomepageSpeaker />
     </div>
   </main>
 </template>

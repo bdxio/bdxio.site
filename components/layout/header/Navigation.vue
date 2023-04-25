@@ -124,24 +124,25 @@ const pages = [
   </nav>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .router-link-exact-active {
   position: relative;
   pointer-events: none;
 }
 
 .router-link-exact-active::after {
-    content: "";
-    width: 90px;
-    height: 30px;
-    display: block;
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: url("/images/drawings/blue_underline.png") no-repeat
-      center / cover;
+  content: "";
+  width: 90px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url("/images/drawings/blue_underline.png") no-repeat
+    center / cover;
 }
+
 .live {
   margin-left: 15px;
   width: 15px;
