@@ -14,6 +14,7 @@ if (!$SHOW_PAGE_SPONSORS) {
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
 const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", {});
+data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 </script>
 
 <template>
