@@ -17,6 +17,11 @@ const links = [
     href: "https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ",
     icon: "/images/socials/youtube.svg",
   },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bdx.io/",
+    icon: "/images/socials/instagram.svg",
+  },
 ];
 </script>
 
