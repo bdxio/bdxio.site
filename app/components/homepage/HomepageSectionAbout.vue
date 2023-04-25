@@ -5,7 +5,7 @@
         >Qu'est-ce que <span class="nowrap">BDX I/O</span>&nbsp;?</section-title
       >
       <p>
-        BDX I/O est un conférence bordelaise sur le thème de la programmation et
+        BDX I/O est une conférence bordelaise sur le thème de la programmation et
         de ses métiers annexes.
         <br />Lors de l'édition 2020, nous avons reçu plus de 850 passionné·e·s
         lors d'une journée de découvertes et de bonne humeur&nbsp;!
