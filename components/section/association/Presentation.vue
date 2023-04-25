@@ -40,7 +40,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           Un petit groupe de <br class="hidden m:inline"> bénévoles <span class="relative z-10">bordelais</span> !
         </Heading>
         <p class="mt-4 font-normal">
-          Nous avons à cœur de vous proposer un événement fédérateur, convivial
+          Nous avons à cœur de vous proposer un évènement fédérateur, convivial
           et de grande ampleur. Notre objectif est de permettre à l'ensemble des
           membres de la communauté IT de se rassembler au sein d'une journée de
           conférences dédiées à l'ensemble des métiers du web, et ce depuis 2014

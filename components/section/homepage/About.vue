@@ -15,7 +15,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
           Qu'est-ce que <span class="whitespace-nowrap">{{ ASSOCIATION_NAME }}</span>&nbsp;?
         </Heading>
         <p>
-          {{ ASSOCIATION_NAME }} est un conférence bordelaise sur le thème de la programmation et
+          {{ ASSOCIATION_NAME }} est une conférence bordelaise sur le thème de la programmation et
           de ses métiers annexes.
           <br>Lors de l'édition 2022, nous avons reçu plus de <span class="font-bold">1000 passionné·e·s</span>
           lors d'une journée de découvertes et de bonne humeur&nbsp;!

@@ -18,7 +18,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
           le code de conduite suivant.
         </strong>
         L'équipe d'organisation s'attachera à faire respecter ce code durant
-        l'événement. Nous attendons de la part de chacune des personnes
+        l'évènement. Nous attendons de la part de chacune des personnes
         présentes une coopération pour assurer un environnement sain pour tout
         le monde.
       </p>
@@ -51,7 +51,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         votre apparence physique, votre poids, votre origine ou votre religion.
         Nous ne tolérons aucun harcèlement des personnes présentes à la
         conférence, quelque soit sa forme. Les expressions et les images à
-        connotation sexuelle ne sont pas appropriées lors de l'événement. Ceci
+        connotation sexuelle ne sont pas appropriées lors de l'évènement. Ceci
         inclut les conférences, les ateliers, les soirées, Twitter et les autres
         médias en ligne. Les personnes présentes à la conférence qui violent ces
         règles peuvent être sanctionnées, voire exclues de la conférence sans
@@ -65,7 +65,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         poids, l'origine, la religion, les images à connotation sexuelle dans
         des lieux publics, les intimidations délibérées, la traque, la
         poursuite, un harcèlement photographique ou vidéo, une suite
-        d'interruption des conférences et des autres événements, un contact
+        d'interruption des conférences et des autres évènements, un contact
         physique inapproprié et des avances sexuelles non désirées.
       </p>
 
@@ -100,14 +100,14 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         <strong>Si vous vous sentez victime de harcèlement</strong>, si vous
         pensez que quelqu'un se fait harceler, et plus généralement en cas de
         problème, merci de contacter immédiatement un membre de l'organisation
-        de l'événement. Les membres sont facilement identifiables à leur t-shirt
-        aux couleurs de l'événement.
+        de l'évènement. Les membres sont facilement identifiables à leur t-shirt
+        aux couleurs de l'évènement.
       </p>
 
       <p>
-        Nous attendons des personnes présentes à l'événement qu'elles
+        Nous attendons des personnes présentes à l'évènement qu'elles
         <strong>suivent ces règles</strong> dans le bâtiment des conférences et
-        des ateliers, ainsi que pendant les événements sociaux relatifs à la
+        des ateliers, ainsi que pendant les évènements sociaux relatifs à la
         conférence.
       </p>
 
