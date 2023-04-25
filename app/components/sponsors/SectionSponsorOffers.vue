@@ -5,7 +5,7 @@
       <flex-item xs12 s6 l3 class="offer soldout"
         ><span class="offer__name purple">Balthazar</span><span class="offer__price">5 000 €</span>
         <p class="offer__description">
-          Le pack complet du partenariat pour offrir de la visibilité à votre entreprise avant l’événement et avoir une
+          Le pack complet du partenariat pour offrir de la visibilité à votre entreprise avant l’évènement et avoir une
           expérience unique le jour J.
         </p>
       </flex-item>
@@ -19,7 +19,7 @@
       <flex-item xs12 s6 l3 class="offer"
         ><span class="offer__name yellow">Magnum</span><span class="offer__price">1 000 €</span>
         <p class="offer__description">
-          Apportez votre soutien à BDX I/O avec cette offre et faite retentir votre nom auprès de la communauté
+          Apportez votre soutien à BDX I/O avec cette offre et faites retentir votre nom auprès de la communauté
           bordelaise.
         </p>
       </flex-item>
