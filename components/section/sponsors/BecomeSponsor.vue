@@ -5,7 +5,7 @@ import { Heading, LinkPrimary } from "#components";
 <template>
   <section class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-light gap-[20px] overflow-hidden">
     <Heading
-      level="2"
+      level="1"
       class="text-bdxio-light"
     >
       Pourquoi devenir

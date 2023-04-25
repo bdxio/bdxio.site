@@ -20,7 +20,7 @@ const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-que
   <main>
     <section class="p-section bg-white">
       <Heading
-        level="2"
+        level="1"
         class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"
       >
         F.A.Q
