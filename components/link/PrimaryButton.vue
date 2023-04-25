@@ -20,7 +20,6 @@ const colorClasses = computed(() => {
       return "";
   }
 });
-
 </script>
 
 <template>

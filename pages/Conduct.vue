@@ -22,7 +22,6 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         présentes une coopération pour assurer un environnement sain pour tout
         le monde.
       </p>
-
       <div>
         Besoin d'aide ?
         <ul>
@@ -42,7 +41,6 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
           </li>
         </ul>
       </div>
-
       <p>
         <strong>
           Notre conférence se veut une expérience sans harcèlement
@@ -58,7 +56,6 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         remboursement, à la discrétion de l'équipe d'organisation de la
         conférence.
       </p>
-
       <p>
         <strong>Le harcèlement</strong> inclut des commentaires oraux sur le
         sexe, l'orientation sexuelle, le handicap, l'apparence physique, le
@@ -68,13 +65,11 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         d'interruption des conférences et des autres évènements, un contact
         physique inapproprié et des avances sexuelles non désirées.
       </p>
-
       <p>
         Les personnes à qui il sera demandé d'arrêter
         <strong>tout comportement de harcèlement</strong> doivent arrêter
         immédiatement.
       </p>
-
       <p>
         <strong>
           Les sponsors sont aussi sujet à la politique anti-harcèlement.
@@ -86,7 +81,6 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         à connotation sexuelle. Ils ne doivent pas non plus créer un
         environnement sexualisé.
       </p>
-
       <p>
         <strong>
           Si un participant ou une participante a un comportement de harcèlement
@@ -95,7 +89,6 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         lui semble adéquate. Cela va d'un simple avertissement à l'exclusion de
         la personne de la conférence sans remboursement.
       </p>
-
       <p>
         <strong>Si vous vous sentez victime de harcèlement</strong>, si vous
         pensez que quelqu'un se fait harceler, et plus généralement en cas de
@@ -103,14 +96,12 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         de l'évènement. Les membres sont facilement identifiables à leur t-shirt
         aux couleurs de l'évènement.
       </p>
-
       <p>
         Nous attendons des personnes présentes à l'évènement qu'elles
         <strong>suivent ces règles</strong> dans le bâtiment des conférences et
         des ateliers, ainsi que pendant les évènements sociaux relatifs à la
         conférence.
       </p>
-
       <p>
         <strong>Version originale et crédit :</strong>
         <Link

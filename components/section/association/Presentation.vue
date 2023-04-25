@@ -60,16 +60,16 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
 
 <style scoped lang="postcss">
 .scribble::after {
-    content: "";
-    display: block;
-    width: 150px;
-    height: 70px;
-    position: absolute;
-    z-index: -1;
-    right: -30px;
-    bottom: -15px;
-    transform: rotate(-20deg);
-    background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
-    background-size: cover;
+  content: "";
+  display: block;
+  width: 150px;
+  height: 70px;
+  position: absolute;
+  z-index: -1;
+  right: -30px;
+  bottom: -15px;
+  transform: rotate(-20deg);
+  background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
+  background-size: cover;
   }
 </style>

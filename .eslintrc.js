@@ -46,6 +46,7 @@ module.exports = {
     "semi-spacing": ERROR,
     "spaced-comment": [ERROR, "always", { "block": { "balanced": true } }],
     "object-curly-spacing": [ERROR, "always"],
+    "eol-last": [ERROR, "always"],
     /* TypeScript */
     "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
     /* Vue */

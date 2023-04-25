@@ -25,7 +25,7 @@ defineProps({
   </a>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .logo {
   margin: 5px 0 0 3px; /* Align the logo vertically with the text */
 }

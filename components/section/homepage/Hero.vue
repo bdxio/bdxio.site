@@ -31,7 +31,7 @@ import { EDITION } from "~/services/constants";
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .circle {
   background: url("/images/drawings/circle-purple.png") no-repeat center / contain;
 }
