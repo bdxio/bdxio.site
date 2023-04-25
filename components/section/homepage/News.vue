@@ -20,7 +20,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 1</span>
         <span class="font-normal leading-8">
-          Exemple de description d’une actualité très intéressante qui est
+          Exemple de description d'une actualité très intéressante qui est
           arrivée recemment
         </span>
       </div>
@@ -32,7 +32,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 2</span>
         <span class="font-normal leading-8">
-          Exemple de description d’une actualité très intéressante qui est
+          Exemple de description d'une actualité très intéressante qui est
           arrivée recemment
         </span>
       </div>
@@ -44,7 +44,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         >
         <span class="mb-1 font-bold text-[30px] leading-9">Title 3</span>
         <span class="font-normal leading-8">
-          Exemple de description d’une actualité très intéressante qui est
+          Exemple de description d'une actualité très intéressante qui est
           arrivée recemment
         </span>
       </div>

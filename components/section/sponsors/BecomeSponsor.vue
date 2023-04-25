@@ -18,7 +18,7 @@ import { Heading, LinkPrimary } from "#components";
         </p>
         <p class="text-center max-w-[350px]">
           Une visibilité sur le plus grand événement bordelais fédérant
-          l’ensemble de la communauté digitale et IT bordelaise
+          l'ensemble de la communauté digitale et IT bordelaise
         </p>
       </li>
 
