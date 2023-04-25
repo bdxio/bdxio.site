@@ -13,7 +13,7 @@ defineProps({
   <a
     :href="href"
     target="_blank"
-    class="block text-lg text-center leading-none mt-4 hover:text-bdxio-blue-dark active:text-bdxio-blue-dark
+    class="block text-lg text-center leading-none hover:text-bdxio-blue-dark active:text-bdxio-blue-dark
       visited:text-bdxio-blue-dark mt-8"
   >
     Donnez votre avis sur
