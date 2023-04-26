@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { Ref } from "vue";
 import { useHead, useRoute, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
 import type { Talk } from "~/types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
 const { params } = useRoute();
 
-const { data: talk }: { data: Ref<Talk>} = await useAPI(`/talks/${params.id}`, {
+const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
 });
 
@@ -19,8 +19,11 @@ if (!talk.value) {
 </script>
 
 <template>
-  <main class="section bg-white">
-    <SectionTalkCategory :category="talk.category" />
+  <main class="p-section bg-white">
+    <SectionTalkCategory
+      v-if="talk.category"
+      :category="talk.category"
+    />
     <SectionTalkPresentation :talk="talk" />
     <SectionTalkSpeaker
       v-for="speaker in talk.speakers"

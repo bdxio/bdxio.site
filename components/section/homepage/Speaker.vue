@@ -7,10 +7,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
 </script>
 
 <template>
-  <section
-    id="become-speaker"
-    class="section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full"
-  >
+  <section class="p-section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full">
     <div>
       <HeadingSection
         level="2"

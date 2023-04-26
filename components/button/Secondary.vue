@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 import { computed } from "#imports";
 
 const props = defineProps<{
   color: "white" | "light" | "grey" | "dark";
-  disabled?: true;
+  disabled?: boolean;
 }>();
 
 const colorClasses = computed(() => {
@@ -13,7 +14,7 @@ const colorClasses = computed(() => {
     case "light":
       return "border-bdxio-blue-light text-bdxio-blue-light hover:border-bdxio-blue-dark hover:text-bdxio-blue-dark";
     case "grey":
-      return "border-bdxio-font-dark text-bdxio-font-dark";
+      return "border-bdxio-dark text-bdxio-dark";
     case "dark":
       return "border-bdxio-blue-dark text-bdxio-blue-dark hover:border-bdxio-blue-light hover:text-bdxio-blue-light";
     default:
@@ -24,8 +25,8 @@ const colorClasses = computed(() => {
 
 <template>
   <button
-    :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit
-      block mt-8 ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
+    :class="`block bg-none border-[2px] border-solid py-2 px-4 rounded-lg cursor-pointer duration-300
+      ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
   >
     <slot />
   </button>

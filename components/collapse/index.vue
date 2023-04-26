@@ -1,5 +1,6 @@
-<script lang="ts" setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { defineProps } from "vue";
+import { ref } from "#imports";
 
 const props = defineProps<{
   tag: string
@@ -11,7 +12,6 @@ const open = ref(!!props.isOpen);
 function toggleOpen() {
   return open.value = !open.value;
 }
-
 </script>
 
 <template>
@@ -22,7 +22,7 @@ function toggleOpen() {
       class="flex flex-row items-center cursor-pointer"
       @click="toggleOpen"
     >
-      <CollapseArrowDown :class="`min-w-[15px] mr-4 ${open ? '' : 'rotate-180'}`" />
+      <CollapseArrowDown :class="`min-w-[15px] mr-4 ${open ? '' : '-rotate-90'}`" />
       <slot name="title" />
     </div>
     <slot

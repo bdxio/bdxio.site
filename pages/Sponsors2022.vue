@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import {
-  useHead,
-  useNuxtApp,
-  useAPI,
-  createError,
-} from "#imports";
+import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import type { Ref } from "vue";
+import type { Offer } from "~/types";
 
 const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();
 
@@ -16,7 +13,7 @@ if (!$SHOW_PAGE_SPONSORS2022) {
 
 useHead({ title: `Sponsors ${EDITION} | ${ASSOCIATION_NAME}` });
 
-const { data: offers } = await useAPI("/offers", {
+const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", {
   params: { sort: "id:asc", "populate[sponsors][populate]": "*" },
 });
 
@@ -26,7 +23,7 @@ function getOfferClass(index: number) {
 </script>
 
 <template>
-  <main class="section bg-white section-sponsors-2022">
+  <main class="p-section bg-white section-sponsors-2022">
     <header class="flex flex-col justify-center items-center text-center">
       <Heading
         level="1"
@@ -35,7 +32,7 @@ function getOfferClass(index: number) {
         Nos sponsors {{ EDITION }}
       </Heading>
       <p>
-        L’équipe de {{ ASSOCIATION_NAME }} tient à remercier tous les partenaires et sponsors
+        L'équipe de {{ ASSOCIATION_NAME }} tient à remercier tous les partenaires et sponsors
         pour nous permettre de vous proposer cette édition {{ EDITION }}.
       </p>
     </header>
@@ -90,7 +87,7 @@ function getOfferClass(index: number) {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .title::before {
   content: "";
   display: block;
@@ -105,18 +102,18 @@ function getOfferClass(index: number) {
 }
 
 .purple {
-  color: $purple;
+  color: theme('colors.purple');
 }
 
 .green {
-  color: $green;
+  color: theme('colors.green');
 }
 
 .yellow {
-  color: $yellow;
+  color: theme('colors.yellow');
 }
 
 .orange {
-  color: $orange;
+  color: theme('colors.orange');
 }
 </style>

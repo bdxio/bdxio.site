@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
+  devServer: {
+    port: 3615,
+  },
   typescript: {
     strict: true,
   },
@@ -15,22 +18,11 @@ export default defineNuxtConfig({
       tailwindcss: {},
     },
   },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-            @import "~/assets/styles/_variables.scss";
-            @import "~/assets/styles/_mixins.scss";
-          `,
-        },
-      },
-    },
-  },
   runtimeConfig: {
     public: {
       API_TOKEN: process.env.API_TOKEN,
       API_URL: process.env.API_URL,
+      NEWSLETTER_URL: process.env.NEWSLETTER_URL,
     },
   },
   googleFonts: {

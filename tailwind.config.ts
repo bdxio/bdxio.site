@@ -1,4 +1,4 @@
-import { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -10,6 +10,8 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      "bdxio-light": "#fff7ec",
+      "bdxio-dark": "#373739",
       "bdxio-blue": {
         base: "#4652f8",
         light: "#7d7df8",
@@ -21,14 +23,9 @@ const config: Config = {
       "bdxio-cream": {
         base: "#f6f2e8",
       },
-      "bdxio-font": {
-        light: "#fff7ec",
-        dark: "#373739",
-      },
       grey: {
         100: "#F5F5F5",
         200: "#e3e3e3",
-        300: "#F5F5F5",
         400: "#72767A",
       },
       green: "#19D2B1",
@@ -63,10 +60,6 @@ const config: Config = {
       boxShadow: {
         card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
         illustration: "0px 0px 30px 20px #F5F5F5",
-      },
-      gridTemplateColumns: {
-        "homepage-key-concepts": "repeat(2, 50%)",
-        "homepage-key-concepts-m": "repeat(6, 1fr)",
       },
     },
   },

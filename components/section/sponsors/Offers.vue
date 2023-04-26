@@ -1,13 +1,7 @@
 <script setup lang="ts">
-
+import { defineProps } from "vue";
 import { Heading } from "#components";
-
-type Offer = {
-  label: "Startup" | "Magnum" | "Impériale" | "Balthazar";
-  price: number;
-  description: string;
-  full?: true;
-};
+import type { Offer } from "~/types";
 
 defineProps<{
   offers: Offer[];
@@ -61,7 +55,7 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   </section>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .title::after {
   content: "";
   width: 170px;
@@ -80,7 +74,6 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   text-transform: uppercase;
   width: 100px;
   height: 50px;
-
   font-size: 15px;
   padding: 5px 10px;
   font-weight: 700;

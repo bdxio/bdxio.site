@@ -1,16 +1,9 @@
 <script setup lang="ts">
-// @ts-nocheck
-import {
-  useHead,
-  useNuxtApp,
-  useAPI,
-  ref,
-  computed,
-  onClickOutside,
-  createError,
-} from "#imports";
+import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
+import type { Ref } from "vue";
+import type { Category, Schedule, Talk } from "~/types";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
@@ -20,11 +13,11 @@ if (!$SHOW_PAGE_PROGRAMME) {
 
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
-const filters = ref([]);
+const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
-const { data } = await useAPI("/schedule");
+const { data }: { data: Ref<{ categories: Category[], schedule: Schedule }> } = await useAPI("/schedule");
 
 const { categories, schedule } = data.value;
 
@@ -35,20 +28,20 @@ const filteredSchedule = computed(() => {
   }
 
   return schedule
-    .map((slot) => {
+    .map((scheduleItem) => {
       return {
-        ...slot,
-        talks: slot.talks.filter((t) =>
-          filters.value.includes(t.category.name),
+        ...scheduleItem,
+        talks: scheduleItem.talks.filter((t) =>
+          t.category && filters.value.includes(t.category.name),
         ),
       };
     })
     .filter((s) => s.talks.length > 0);
 });
 
-function displayTalkSubInfos({ speakers, format, level }) {
-  const formattedSpeakers = speakers.length
-    ? speakers
+function displayTalkSubInfos(talk: Talk) {
+  const formattedSpeakers = talk.speakers.length
+    ? talk.speakers
       .map((s) => s.name)
       .toString()
       .replace(",", " / ")
@@ -57,14 +50,14 @@ function displayTalkSubInfos({ speakers, format, level }) {
   let text = "";
 
   if (formattedSpeakers) text += `${formattedSpeakers} -`;
-  if (format.name) text += ` ${format.name}`;
-  if (format.duration) text += ` (${format.duration})`;
-  if (level) text += ` - Niveau ${level}`;
+  if (talk.format?.name) text += ` ${talk.format.name}`;
+  if (talk.format?.duration) text += ` (${talk.format.duration})`;
+  if (talk.level) text += ` - Niveau ${talk.level}`;
 
   return text;
 }
 
-function setFilter(filter) {
+function setFilter(filter: string) {
   if (filter === "tous") {
     filters.value = [];
     return;
@@ -78,8 +71,8 @@ function setFilter(filter) {
   filters.value = filters.value.filter((f) => f !== filter);
 }
 
-function getCategoryImageName(category) {
-  switch (category) {
+function getCategoryImageName(category: Category) {
+  switch (category.name) {
     case "Frontend":
       return "frontend.png";
     case "Design & UX":
@@ -95,13 +88,13 @@ function getCategoryImageName(category) {
     case "Hors-piste":
       return "horspiste.png";
     default:
-      return null;
+      return "";
   }
 }
 
-function getCategoryImagePath(category) {
+function getCategoryImagePath(category: Category) {
   const imageName = getCategoryImageName(category);
-  return imageName ? `/images/drawings/categories/${imageName}` : null;
+  return imageName ? `/images/drawings/categories/${imageName}` : "";
 }
 
 function openMobilePanel() {
@@ -114,7 +107,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
 </script>
 
 <template>
-  <main class="section section-schedule">
+  <main class="p-section section-schedule bg-white">
     <header class="section-schedule__header">
       <Heading
         level="1"
@@ -123,16 +116,15 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
         Le programme de la journée
       </Heading>
     </header>
-
     <section class="section-schedule__body">
       <div class="schedule-download">
         <!-- <LinkPrimary
-          color="light"
-          href="/bdxio-2022-programme.pdf"
-          download
-        >
-          Télécharger le programme
-        </LinkPrimary> -->
+            color="light"
+            href="/bdxio-2022-programme.pdf"
+            download
+          >
+            Télécharger le programme
+          </LinkPrimary> -->
         <OpenFeedback
           v-if="$SHOW_LINK_OPENFEEDBACK"
           href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
@@ -171,7 +163,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
               >
                 <img
                   class="categories__category__image"
-                  :src="getCategoryImagePath(category.name)"
+                  :src="getCategoryImagePath(category)"
                   :alt="`Catégorie ${category.name}`"
                 >
                 <span class="categories__category__label">
@@ -210,14 +202,18 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <div class="room">
+                      <div
+                        v-if="talk.room"
+                        class="room"
+                      >
                         {{ talk.room.name }}
                       </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <img
+                            v-if="talk.category"
                             class="talk__infos__image"
-                            :src="getCategoryImagePath(talk.category.name)"
+                            :src="getCategoryImagePath(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
                           >
                           <div class="talk__infos__content">
@@ -277,13 +273,12 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 ul {
   list-style: none;
 }
-.section-schedule {
-  background: $white;
 
+.section-schedule {
   &__header {
     display: flex;
     flex-direction: column;
@@ -292,7 +287,8 @@ ul {
     text-align: center;
 
     &__title {
-      @include positionRelative;
+      position: relative;
+      z-index: theme('zIndex.0');
 
       &:before {
         content: "";
@@ -303,11 +299,10 @@ ul {
         z-index: -1;
         left: -30px;
         bottom: -10px;
-        background: url("/images/drawings/blue_presentation_left.png") center
-          no-repeat;
+        background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
         background-size: cover;
 
-        @include mobileFirst(m) {
+        @media screen and (min-width: theme('screens.m')) {
           width: 120px;
           height: 120px;
           left: -110px;
@@ -323,11 +318,10 @@ ul {
         z-index: -1;
         right: -30px;
         bottom: -10px;
-        background: url("/images/drawings/blue_presentation_right.png") center
-          no-repeat;
+        background: url("/images/drawings/blue_presentation_right.png") center no-repeat;
         background-size: cover;
 
-        @include mobileFirst(m) {
+        @media screen and (min-width: theme('screens.m')) {
           width: 120px;
           height: 120px;
           right: -110px;
@@ -339,7 +333,7 @@ ul {
   &__body {
     margin-top: 60px;
 
-    @include mobileFirst(m) {
+    @media screen and (min-width: theme('screens.m')) {
       margin-top: 50px;
     }
 
@@ -350,13 +344,13 @@ ul {
       align-items: center;
       flex-direction: column;
 
-      @include mobileFirst(s) {
+      @media screen and (min-width: theme('screens.s')) {
         flex-direction: row;
       }
     }
 
     .schedule-container {
-      @include mobileFirst(m) {
+      @media screen and (min-width: theme('screens.m')) {
         display: flex;
       }
     }
@@ -364,153 +358,159 @@ ul {
     .categories-container {
       width: 100%;
 
-      @include mobileFirst(s) {
+      @media screen and (min-width: theme('screens.s')) {
         max-width: 345px;
       }
     }
-    .categories {
-      background-color: $grey-100;
-      margin-bottom: 100px;
-      padding-bottom: 30px;
+  }
+
+  .categories {
+    background-color: theme('colors.grey.100');
+    margin-bottom: 100px;
+    padding-bottom: 30px;
+    height: 60px;
+    overflow: hidden;
+
+    &.open {
+      height: auto;
+    }
+
+    &__list {
+      margin-top: 20px;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 18px;
+      height: 30px;
+      margin-top: 15px;
+      display: block;
+      color: theme('colors.grey.400');
+      font-weight: theme('fontWeight.bold');
+      cursor: pointer;
+    }
+
+    &__category {
+      opacity: 0.3;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      line-height: auto;
       height: 60px;
-      overflow: hidden;
 
-      &.open {
-        height: auto;
+      &.all {
+        margin-left: 80px;
       }
 
-      &__list {
-        margin-top: 20px;
+      &__image {
+        width: 30px;
+        height: 30px;
+        margin-left: 30px;
+        margin-right: 20px;
       }
+
+      &__label {
+        line-height: auto;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (min-width: theme('screens.m')) {
+      position: sticky;
+      top: 0;
+      width: inherit;
+      height: auto;
+      padding: 30px;
+      margin-bottom: 0;
+      height: auto;
 
       &__title {
         text-align: center;
         font-size: 18px;
-        height: 30px;
-        margin-top: 15px;
+        margin-top: 0;
         display: block;
-        color: $grey-400;
-        font-weight: $font-weight-bold;
-        cursor: pointer;
-      }
-
-      &__category {
-        opacity: 0.3;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        line-height: auto;
-        height: 60px;
-        &.all {
-          margin-left: 80px;
-        }
-
-        &__image {
-          width: 30px;
-          height: 30px;
-          margin-left: 30px;
-          margin-right: 20px;
-        }
-
-        &__label {
-          line-height: auto;
-        }
-
-        &.active {
-          opacity: 1;
-        }
-      }
-
-      @include mobileFirst(m) {
-        position: sticky;
-        top: 0;
-        width: inherit;
-        height: auto;
-        padding: 30px;
-        margin-bottom: 0;
-        height: auto;
-
-        &__title {
-          text-align: center;
-          font-size: 18px;
-          margin-top: 0;
-          display: block;
-          color: $grey-400;
-          font-weight: $font-weight-regular;
-          cursor: initial;
-        }
+        color: theme('colors.grey.400');
+        font-weight: theme('fontWeight.normal');
+        cursor: initial;
       }
     }
+  }
 
-    .pre-schedule {
-      margin-left: 30px;
+  .pre-schedule {
+    margin-left: 30px;
 
-      &__circle {
-        display: block;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background-color: $primary;
-        transform: translateX(-34%);
-      }
-
-      &__line {
-        display: block;
-        width: 2px;
-        height: 30px;
-        background-color: $primary;
-      }
+    &__circle {
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: theme('colors.bdxio-blue.base');
+      transform: translateX(-34%);
     }
 
-    .schedule {
-      @include mobileFirst(m) {
-        margin-left: 100px;
-      }
+    &__line {
+      display: block;
+      width: 2px;
+      height: 30px;
+      background-color: theme('colors.bdxio-blue.base');
     }
+  }
 
-    .slots {
-      &__slot {
-        &__hour {
-          font-size: $font-size-content;
-          color: $primary;
-          margin: 5px 0;
+  .schedule {
+    @media screen and (min-width: theme('screens.m')) {
+      margin-left: 100px;
+    }
+  }
+
+  .slots {
+    &__slot {
+      &__hour {
+        font-size: theme('fontSize.base');
+        color: theme('colors.bdxio-blue.base');
+        margin: 5px 0;
+      }
+
+      &__infos {
+        font-size: 1.125rem;
+        border-left: 2px solid theme('colors.bdxio-blue.base');
+        margin-left: 30px;
+        padding: 25px 0 25px 25px;
+
+        @media screen and (min-width: theme('screens.m')) {
+          padding: 50px;
         }
-        &__infos {
-          font-size: 1.125rem; //18px
-          border-left: 2px solid $primary;
-          margin-left: 30px;
-          padding: 25px 0 25px 25px;
 
-          @include mobileFirst(m) {
-            padding: 50px;
+        &__interlude {
+          &__name {
+            font-weight: theme('fontWeight.bold');
+            margin-left: 30px;
           }
+        }
 
-          &__interlude {
-            &__name {
-              font-weight: $font-weight-bold;
-              margin-left: 30px;
-            }
-          }
+        &__talks {
+          .talk {
+            margin-bottom: 30px;
 
-          &__talks {
-            .talk {
-              margin-bottom: 30px;
+            &__infos {
+              display: flex;
 
-              &__infos {
-                display: flex;
-                &__image {
-                  width: 40px;
-                  height: 40px;
-                  margin-right: 10px;
+              &__image {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+              }
+
+              &__content {
+                &__title {
+                  font-weight: theme('fontWeight.bold');
+                  display: block;
                 }
-                &__content {
-                  &__title {
-                    font-weight: $font-weight-bold;
-                    display: block;
-                  }
-                  &__subinfos {
-                    font-weight: 200;
-                  }
+
+                &__subinfos {
+                  font-weight: 200;
                 }
               }
             }

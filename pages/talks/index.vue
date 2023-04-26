@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { Ref } from "vue";
 import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { TalkCategory, Talk } from "~/types";
+import type { Ref } from "vue";
+import type { Category, Talk } from "~/types";
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
 const ALL = "all";
 const currentFilter = ref(ALL);
 
-const [{ data: categories }, { data: talks }]: [{ data: Ref<TalkCategory[]>}, {data: Ref<Talk[]>}] =
+const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] =
   await Promise.all([
-    useAPI("/categories", {
-      params: { fields: ["id", "name", "color"] },
-    }),
+    useAPI("/categories", { params: { populate: "*" } }),
     useAPI("/talks", {
       params: {
-        fields: ["id", "title", "level"],
+        populate: "*",
         "populate[category]": "*",
         "populate[speakers]": "*",
       },
@@ -27,7 +25,7 @@ const [{ data: categories }, { data: talks }]: [{ data: Ref<TalkCategory[]>}, {d
 const filteredTalks = computed(() => {
   if (!talks.value?.length) return [];
   if (currentFilter.value === ALL) return talks.value;
-  return talks.value.filter((talk) => talk.category.id.toString() === currentFilter.value);
+  return talks.value.filter((talk) => talk.category?.id.toString() === currentFilter.value);
 });
 
 function setFilter(categoryId: string) {
@@ -36,7 +34,7 @@ function setFilter(categoryId: string) {
 </script>
 
 <template>
-  <main class="section bg-white flex flex-col">
+  <main class="p-section bg-white flex flex-col">
     <Heading
       level="1"
       class="title relative block mx-auto !mb-16"
@@ -132,7 +130,7 @@ function setFilter(categoryId: string) {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .title {
   &:before {
     content: "";

@@ -2,12 +2,8 @@
 import { useHead, useNuxtApp, createError, useAPI } from "#imports";
 import { Collapse, Heading } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-
-type Question = {
-  id: number;
-  title: string;
-  answer: string;
-}
+import type { Ref } from "vue";
+import type { FAQQuestion } from "~/types";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
 
@@ -17,15 +13,14 @@ if (!$SHOW_PAGE_FAQ) {
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
-const {data} = await useAPI("/faq-questions", {});
-const questions: Question[] = data;
+const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {});
 </script>
 
 <template>
   <main>
-    <section class="section bg-white">
+    <section class="p-section bg-white">
       <Heading
-        level="2"
+        level="1"
         class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"
       >
         F.A.Q
@@ -40,7 +35,6 @@ const questions: Question[] = data;
           :key="`question-${question.id}`"
           tag="li"
           class="mb-10"
-          isOpen
         >
           <template #title>
             <Heading
@@ -61,7 +55,7 @@ const questions: Question[] = data;
   </main>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .title::after {
   content: "";
   display: block;

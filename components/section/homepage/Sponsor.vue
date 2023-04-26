@@ -3,20 +3,17 @@ import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
 </script>
 
 <template>
-  <section
-    id="become-sponsor"
-    class="section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-font-light"
-  >
+  <section class="p-section flex flex-col justify-between items-start bg-bdxio-blue-light text-bdxio-light">
     <div>
       <HeadingSection
         level="2"
-        class="text-bdxio-font-light text-subtitle"
+        class="text-bdxio-light text-subtitle"
       >
         sponsors
       </HeadingSection>
       <Heading
         level="3"
-        class="title text-bdxio-font-light"
+        class="title text-bdxio-light"
       >
         Embarquez avec nous dans l'aventure&nbsp;!
       </Heading>

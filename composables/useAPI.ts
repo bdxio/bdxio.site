@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useRuntimeConfig, useFetch, ref, createError } from "#imports";
 
-export default async function useAPI(endpoint, options) {
+export default async function useAPI(endpoint, options = {}) {
   const config = useRuntimeConfig();
 
   if (!config.public.API_TOKEN) {

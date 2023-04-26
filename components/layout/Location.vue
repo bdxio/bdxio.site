@@ -37,10 +37,10 @@ import { Heading, HeadingSection } from "#components";
           <span class="font-bold text-2xl">Voiture : </span>
           <span>Parking gratuit sur place</span>
         </div>
+        <span class="italic absolute right-0 top-0 hidden m:block">
+          À seulement 10 min de Bordeaux !
+        </span>
       </div>
-      <span class="italic absolute right-0 top-0 hidden m:block">
-        À seulement 10 min de Bordeaux !
-      </span>
     </div>
   </section>
 </template>

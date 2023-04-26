@@ -1,5 +1,5 @@
-import { defineNuxtPlugin } from "#imports";
 import MarkdownIt from "markdown-it";
+import { defineNuxtPlugin } from "#imports";
 
 export default defineNuxtPlugin(() => {
   return {

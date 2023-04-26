@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 import { ref, onMounted } from "#imports";
 
 const props = defineProps<{
@@ -15,7 +16,8 @@ onMounted(() => {
 
   if (interval < 4) {
     console.warn(
-      `The interval needed to render ${props.value} in ${props.duration}ms with a step of ${props.step} is lower than 4. You should consider increasing duration or step.`,
+      `The interval needed to render ${props.value} in ${props.duration}ms with a step 
+      of ${props.step} is lower than 4. You should consider increasing duration or step.`,
     );
   }
 

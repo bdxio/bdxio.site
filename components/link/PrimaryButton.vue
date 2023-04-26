@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 import { computed } from "#imports";
 
 const props = defineProps<{
@@ -10,21 +11,20 @@ const colorClasses = computed(() => {
     case "white":
       return "bg-bdxio-cream-base text-bdxio-blue-dark";
     case "light":
-      return "bg-bdxio-blue-light text-bdxio-font-light";
+      return "bg-bdxio-blue-light text-bdxio-light";
     case "grey":
-      return "bg-bdxio-font-dark text-bdxio-font-light";
+      return "bg-bdxio-dark text-bdxio-light";
     case "dark":
-      return "bg-bdxio-blue-dark text-bdxio-font-light";
+      return "bg-bdxio-blue-dark text-bdxio-light";
     default:
       return "";
   }
 });
-
 </script>
 
 <template>
   <button
-    :class="`border-none py-[12px] px-[25px] rounded-[8px] cursor-pointer duration-300 w-fit block ${colorClasses}`"
+    :class="`border-none py-[12px] px-[25px] rounded-lg cursor-pointer duration-300 w-fit block ${colorClasses}`"
   >
     <slot />
   </button>

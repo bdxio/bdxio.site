@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { defineProps } from "vue";
 import { useNuxtApp } from "#imports";
 import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
 
@@ -32,7 +32,7 @@ const pages = [
     show: instance.$SHOW_PAGE_FAQ,
   },
   {
-    name: "L'asso",
+    name: "Association",
     path: "/association",
     show: instance.$SHOW_PAGE_ASSOCIATION,
   },
@@ -59,19 +59,19 @@ const pages = [
       <li
         v-for="page in pages"
         :key="page.name"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <NuxtLink
           :to="page.path"
           :class="`no-underline text-2xl m:text-base
-          ${background === 'dark' ? 'text-bdxio-font-light' : 'text-bdxio-blue-dark'}`"
+          ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
         >
           {{ page.name }}
         </NuxtLink>
       </li>
       <li
         v-if="instance.$SHOW_LINK_LIVE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkSecondary
           to="#"
@@ -86,7 +86,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_BILLETERIE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkPrimary
           color="light"
@@ -98,7 +98,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_YOUTUBE"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkPrimary
           color="light"
@@ -110,7 +110,7 @@ const pages = [
       </li>
       <li
         v-if="instance.$SHOW_LINK_CFP"
-        class="mb-8 m:mb-0 m:mr-5 last:mr-0 last:mb-0"
+        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkSecondary
           to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
@@ -124,24 +124,25 @@ const pages = [
   </nav>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="postcss">
 .router-link-exact-active {
   position: relative;
   pointer-events: none;
 }
 
 .router-link-exact-active::after {
-    content: "";
-    width: 90px;
-    height: 30px;
-    display: block;
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: url("/images/drawings/blue_underline.png") no-repeat
-      center / cover;
+  content: "";
+  width: 90px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url("/images/drawings/blue_underline.png") no-repeat
+    center / cover;
 }
+
 .live {
   margin-left: 15px;
   width: 15px;
