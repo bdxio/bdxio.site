@@ -5,7 +5,7 @@ import { Counter } from "#components";
 <template>
   <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-3 m:grid-cols-12">
     <img
-      src="/images/home-1.jpg"
+      src="/images/home-1.webp"
       class="w-full h-full object-cover inline-flex col-start-1 col-end-2 m:col-start-1 m:col-end-5 max-h-[280px]"
     >
     <div
@@ -23,7 +23,7 @@ import { Counter } from "#components";
       </p>
     </div>
     <img
-      src="/images/home-2.png"
+      src="/images/home-2.webp"
       class="w-full h-full object-cover inline-flex row-start-1 col-start-1 col-end-2
         m:col-start-8 m:col-end-13 max-h-[280px]"
     >
@@ -42,7 +42,7 @@ import { Counter } from "#components";
       </p>
     </div>
     <img
-      src="/images/home-3.png"
+      src="/images/home-3.webp"
       class="w-full h-full object-cover inline-flex col-start-2 col-end-3 m:col-start-4 m:col-end-7 max-h-[280px]"
     >
     <div
@@ -61,12 +61,12 @@ import { Counter } from "#components";
       </p>
     </div>
     <img
-      src="/images/home-4.png"
+      src="/images/home-4.webp"
       class="w-full h-full object-cover inline-flex row-start-2 col-start-2 col-end-3 m:col-start-10
         m:col-end-13 m:row-start-2 max-h-[280px]"
     >
     <img
-      src="/images/home-5.png"
+      src="/images/home-5.webp"
       class="w-full h-full object-cover hidden m:inline-flex m:col-start-1 m:col-end-4 max-h-[280px]"
     >
     <div
@@ -88,7 +88,7 @@ import { Counter } from "#components";
       </p>
     </div>
     <img
-      src="/images/home-6.png"
+      src="/images/home-6.webp"
       class="w-full h-full object-cover hidden m:inline-flex m:col-start-7 m:col-end-13 max-h-[280px]"
     >
   </section>
