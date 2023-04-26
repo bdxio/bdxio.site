@@ -5,7 +5,7 @@ import { Heading, HeadingSection } from "#components";
 <template>
   <section
     class="p-section bg-no-repeat bg-contain bg-right-bottom bg-grey-100"
-    style="background-image: url('/images/illustration_palais_congres.png')"
+    style="background-image: url('/images/illustrations/palais_congres.webp')"
   >
     <div class="relative pb-52 s:pb-20 m:pb-0">
       <div class="bg-grey-100 s:max-w-[50%] shadow-illustration p-0 m:p-8">
