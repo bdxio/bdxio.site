@@ -45,7 +45,7 @@ watch(
       to="/"
     >
       <img
-        src="/images/bdxio_logo_blue.png"
+        src="/images/logo_blue.png"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
         class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
       >
