@@ -74,7 +74,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/icons/linkedin.webp"
+                src="/images/icons/linkedin.svg"
                 alt="Icône LinkedIn"
               >
             </NuxtLink>
@@ -85,7 +85,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/icons/twitter.webp"
+                src="/images/icons/twitter.svg"
                 alt="Icône Twitter"
               >
             </NuxtLink>
@@ -107,7 +107,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/icons/website.webp"
+                src="/images/icons/website.svg"
                 alt="Icône lien"
               >
             </NuxtLink>
