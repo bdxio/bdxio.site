@@ -71,7 +71,7 @@ function getOfferClass(index: number) {
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url
-                      : '/images/logo_blue.png'
+                      : '/images/logo_blue.webp'
                   "
                   :alt="`Logo de ${sponsor.name}`"
                 >
