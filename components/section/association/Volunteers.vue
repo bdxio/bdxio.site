@@ -96,7 +96,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/icons/github.webp"
+                src="/images/icons/github.svg"
                 alt="Icône GitHub"
               >
             </NuxtLink>
