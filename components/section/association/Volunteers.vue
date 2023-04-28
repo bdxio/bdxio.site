@@ -74,7 +74,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/socials/linkedin.svg"
+                src="/images/icons/linkedin.svg"
                 alt="Icône LinkedIn"
               >
             </NuxtLink>
@@ -85,7 +85,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/socials/twitter.svg"
+                src="/images/icons/twitter.svg"
                 alt="Icône Twitter"
               >
             </NuxtLink>
@@ -96,7 +96,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/socials/github.svg"
+                src="/images/icons/github.svg"
                 alt="Icône GitHub"
               >
             </NuxtLink>
@@ -107,7 +107,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
               :ariaCurrentValue="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
             >
               <img
-                src="/images/socials/website.svg"
+                src="/images/icons/website.svg"
                 alt="Icône lien"
               >
             </NuxtLink>
@@ -125,7 +125,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
   height: 80px;
   position: absolute;
   z-index: -1;
-  background: url("/images/drawings/yellow_heart.png") no-repeat center;
+  background: url("/images/drawings/yellow_heart.webp") no-repeat center;
   background-size: contain;
   right: -30px;
   bottom: -20px;

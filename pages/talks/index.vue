@@ -140,7 +140,7 @@ function setFilter(categoryId: string) {
     position: absolute;
     left: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_left.png") center
+    background: url("/images/drawings/blue_presentation_left.webp") center
       no-repeat;
     background-size: cover;
   }
@@ -153,7 +153,7 @@ function setFilter(categoryId: string) {
     position: absolute;
     right: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_right.png") center
+    background: url("/images/drawings/blue_presentation_right.webp") center
       no-repeat;
     background-size: cover;
   }

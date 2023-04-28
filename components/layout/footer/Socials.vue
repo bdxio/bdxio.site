@@ -5,22 +5,22 @@ const links = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/10651416/",
-    icon: "/images/socials/linkedin.svg",
+    icon: "/images/icons/linkedin.svg",
   },
   {
     label: "Twitter",
     href: "https://twitter.com/bdxio",
-    icon: "/images/socials/twitter.svg",
+    icon: "/images/icons/twitter.svg",
   },
   {
     label: "YouTube",
     href: "https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ",
-    icon: "/images/socials/youtube.svg",
+    icon: "/images/icons/youtube.svg",
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/bdx.io/",
-    icon: "/images/socials/instagram.svg",
+    icon: "/images/icons/instagram.svg",
   },
 ];
 </script>

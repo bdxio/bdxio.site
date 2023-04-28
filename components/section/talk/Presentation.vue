@@ -28,7 +28,7 @@ const duration = computed(() => {
       {{ talk.title }}
     </Heading>
     <img
-      src="/images/drawings/cyan_scribble_3.png"
+      src="/images/drawings/cyan_scribble_3.webp"
       alt="Illustration d'un gribouillage"
       aria-hidden="true"
       class="underline-scribble"

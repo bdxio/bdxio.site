@@ -139,7 +139,7 @@ const pages = [
   bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background: url("/images/drawings/blue_underline.png") no-repeat
+  background: url("/images/drawings/blue_underline.webp") no-repeat
     center / cover;
 }
 

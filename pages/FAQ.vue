@@ -65,7 +65,7 @@ const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-que
   top: -17px;
   right: -80px;
   z-index: -1;
-  background: url("/images/drawings/coffee.png") no-repeat;
+  background: url("/images/drawings/coffee.webp") no-repeat;
   background-size: cover;
 }
 

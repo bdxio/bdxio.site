@@ -299,7 +299,7 @@ ul {
         z-index: -1;
         left: -30px;
         bottom: -10px;
-        background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
+        background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
         background-size: cover;
 
         @media screen and (min-width: theme('screens.m')) {
@@ -318,7 +318,7 @@ ul {
         z-index: -1;
         right: -30px;
         bottom: -10px;
-        background: url("/images/drawings/blue_presentation_right.png") center no-repeat;
+        background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
         background-size: cover;
 
         @media screen and (min-width: theme('screens.m')) {
