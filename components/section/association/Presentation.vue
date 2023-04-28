@@ -22,7 +22,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
     </section>
     <section class="mt-12 m:mt-24 grid grid-cols-1 l:grid-cols-2 items-center">
       <img
-        src="/asso/team2022.webp"
+        src="/images/association/team2022.webp"
         :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${EDITION}`"
         class="l:w-4/5 rounded-lg"
       >
@@ -69,7 +69,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   right: -30px;
   bottom: -15px;
   transform: rotate(-20deg);
-  background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
+  background: url("/images/drawings/yellow_scribbles.webp") center no-repeat;
   background-size: cover;
   }
 </style>

@@ -14,9 +14,9 @@ const status = props.error?.statusCode || 500;
     <LayoutHeader background="light" />
     <section class="p-section flex flex-col items-center">
       <img
-        src="/images/error.png"
+        src="/images/association/team2022.webp"
         alt="Illustration d'un ordinateur rétro"
-        class="w-full max-w-[500px]"
+        class="w-full max-w-[500px] mb-6"
       >
       <p v-if="status === 404">
         Oups ! Vous êtes perdus ? <br>

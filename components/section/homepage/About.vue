@@ -6,7 +6,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 <template>
   <section class="py-0 m:py-20 flex flex-col-reverse items-center m:flex-row bg-bdxio-grey-100 bg-bdxio-cream-base">
     <img
-      src="/images/place_de_la_bourse.png"
+      src="/images/illustrations/place_de_la_bourse.webp"
       class="object-contain w-full m:1/2 max-w-screen-xl"
     >
     <div class="p-section w-full m:1/2">

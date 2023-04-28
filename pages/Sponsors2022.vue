@@ -71,7 +71,7 @@ function getOfferClass(index: number) {
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url
-                      : '/images/bdxio_logo_blue.png'
+                      : '/images/logo_blue.webp'
                   "
                   :alt="`Logo de ${sponsor.name}`"
                 >
@@ -97,7 +97,7 @@ function getOfferClass(index: number) {
   z-index: -1;
   left: -65px;
   bottom: -10px;
-  background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
+  background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
   background-size: cover;
 }
 
