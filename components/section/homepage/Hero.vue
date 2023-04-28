@@ -12,7 +12,7 @@ import { EDITION } from "~/services/constants";
       En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
     </Heading>
     <img
-      src="/images/drawings/line-yellow.png"
+      src="/images/drawings/line-yellow.webp"
       alt="Illustration d'une ligne jaune"
       class="-m-5 mb-4"
     >
@@ -33,6 +33,6 @@ import { EDITION } from "~/services/constants";
 
 <style scoped lang="postcss">
 .circle {
-  background: url("/images/drawings/circle-purple.png") no-repeat center / contain;
+  background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
 }
 </style>

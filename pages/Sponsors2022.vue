@@ -97,7 +97,7 @@ function getOfferClass(index: number) {
   z-index: -1;
   left: -65px;
   bottom: -10px;
-  background: url("/images/drawings/blue_presentation_left.png") center no-repeat;
+  background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
   background-size: cover;
 }
 

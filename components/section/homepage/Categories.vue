@@ -5,31 +5,31 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 const categories = [
   {
     name: "Frontend",
-    icon: "/images/drawings/categories/frontend.png",
+    icon: "/images/drawings/categories/frontend.webp",
   },
   {
     name: "Backend",
-    icon: "/images/drawings/categories/backend.png",
+    icon: "/images/drawings/categories/backend.webp",
   },
   {
     name: "Big Data & IA",
-    icon: "/images/drawings/categories/bigdataia.png",
+    icon: "/images/drawings/categories/bigdataia.webp",
   },
   {
     name: "Design & UX",
-    icon: "/images/drawings/categories/designux.png",
+    icon: "/images/drawings/categories/designux.webp",
   },
   {
     name: "Cloud & Dev.Sec.Ops",
-    icon: "/images/drawings/categories/cloudetdevsecops.png",
+    icon: "/images/drawings/categories/cloudetdevsecops.webp",
   },
   {
     name: "Methodo & Architecture",
-    icon: "/images/drawings/categories/methodoarchitecture.png",
+    icon: "/images/drawings/categories/methodoarchitecture.webp",
   },
   {
     name: "Hors piste",
-    icon: "/images/drawings/categories/horspiste.png",
+    icon: "/images/drawings/categories/horspiste.webp",
   },
 ];
 </script>

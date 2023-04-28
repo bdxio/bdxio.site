@@ -42,25 +42,25 @@ const categoryNumber = computed(() => {
 <style scoped lang="postcss">
 .category {
   &--1 {
-    background-image: url("/images/drawings/themes/theme-1.png");
+    background-image: url("/images/drawings/themes/theme-1.webp");
   }
   &--2 {
-    background-image: url("/images/drawings/themes/theme-2.png");
+    background-image: url("/images/drawings/themes/theme-2.webp");
   }
   &--3 {
-    background-image: url("/images/drawings/themes/theme-3.png");
+    background-image: url("/images/drawings/themes/theme-3.webp");
   }
   &--4 {
-    background-image: url("/images/drawings/themes/theme-4.png");
+    background-image: url("/images/drawings/themes/theme-4.webp");
   }
   &--5 {
-    background-image: url("/images/drawings/themes/theme-5.png");
+    background-image: url("/images/drawings/themes/theme-5.webp");
   }
   &--6 {
-    background-image: url("/images/drawings/themes/theme-6.png");
+    background-image: url("/images/drawings/themes/theme-6.webp");
   }
   &--7 {
-    background-image: url("/images/drawings/themes/theme-7.png");
+    background-image: url("/images/drawings/themes/theme-7.webp");
   }
 }
 </style>

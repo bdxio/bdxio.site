@@ -62,7 +62,7 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   height: 45px;
   position: absolute;
   z-index: -1;
-  background: url("/images/drawings/purple_underline.png") no-repeat;
+  background: url("/images/drawings/purple_underline.webp") no-repeat;
   background-size: contain;
   right: 52%;
   bottom: -40px;

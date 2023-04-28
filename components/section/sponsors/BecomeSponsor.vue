@@ -81,7 +81,7 @@ import { Heading, LinkPrimary } from "#components";
   height: 125px;
   top: -42px;
   left: -30px;
-  background: url("/images/drawings/orange_circle.png") no-repeat;
+  background: url("/images/drawings/orange_circle.webp") no-repeat;
   background-size: cover;
 }
 
@@ -92,7 +92,7 @@ import { Heading, LinkPrimary } from "#components";
   height: 100px;
   top: 0;
   left: 80%;
-  background: url("/images/drawings/purple_arrow.png") no-repeat;
+  background: url("/images/drawings/purple_arrow.webp") no-repeat;
   background-size: cover;
 }
 
@@ -103,7 +103,7 @@ import { Heading, LinkPrimary } from "#components";
   height: 100px;
   top: 0;
   left: 40%;
-  background: url("/images/drawings/cyan_scribbles.png") no-repeat;
+  background: url("/images/drawings/cyan_scribbles.webp") no-repeat;
   background-size: cover;
   z-index: -1;
 }
@@ -115,7 +115,7 @@ import { Heading, LinkPrimary } from "#components";
   height: 70px;
   bottom: 0;
   left: -50px;
-  background: url("/images/drawings/yellow_scribbles.png") no-repeat;
+  background: url("/images/drawings/yellow_scribbles.webp") no-repeat;
   background-size: cover;
   z-index: -1;
 }
@@ -127,7 +127,7 @@ import { Heading, LinkPrimary } from "#components";
   height: 70px;
   top: -30px;
   left: 60%;
-  background: url("/images/drawings/orange_highlight_2.png") no-repeat;
+  background: url("/images/drawings/orange_highlight_2.webp") no-repeat;
   background-size: contain;
 }
 </style>

@@ -73,7 +73,7 @@ async function register() {
   >
     <span class="cursor-pointer">S'incrire à la newsletter</span>
     <img
-      src="/images/drawings/purple_envelope.png"
+      src="/images/drawings/purple_envelope.webp"
       class="w-16 m:w-24 cursor-pointer"
     >
   </div>

@@ -69,7 +69,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
   right: -30px;
   bottom: -15px;
   transform: rotate(-20deg);
-  background: url("/images/drawings/yellow_scribbles.png") center no-repeat;
+  background: url("/images/drawings/yellow_scribbles.webp") center no-repeat;
   background-size: cover;
   }
 </style>

@@ -125,7 +125,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
   height: 80px;
   position: absolute;
   z-index: -1;
-  background: url("/images/drawings/yellow_heart.png") no-repeat center;
+  background: url("/images/drawings/yellow_heart.webp") no-repeat center;
   background-size: contain;
   right: -30px;
   bottom: -20px;
