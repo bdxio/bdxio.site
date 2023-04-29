@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, useRuntimeConfig, useFetch } from "#imports";
-import { ButtonSecondary, Loader } from "#components";
+import { ButtonSecondary, Loader, NuxtImg } from "#components";
 
 const state = reactive({
   open: false,
@@ -72,21 +72,26 @@ async function register() {
     @click="toggleForm"
   >
     <span class="cursor-pointer">S'incrire à la newsletter</span>
-    <img
+    <NuxtImg
       src="/images/drawings/purple_envelope.webp"
       class="w-16 m:w-24 cursor-pointer"
-    >
+      width="96"
+      height="46"
+    />
   </div>
   <div
     v-if="state.open"
     class="fixed top-0 left-0 bg-bdxio-blue-dark w-screen h-screen flex flex-col items-center justify-center z-20"
   >
-    <img
+    <NuxtImg
       src="/images/icons/close.svg"
+      loading="lazy"
+      width="22"
+      height="22"
       alt="Icône croix"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
       @click="toggleForm"
-    >
+    />
     <p
       v-if="state.success"
       class="text-white"

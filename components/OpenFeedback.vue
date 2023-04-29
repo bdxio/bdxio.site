@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { NuxtImg } from "#components";
 
 defineProps({
   href: {
@@ -17,16 +18,11 @@ defineProps({
       visited:text-bdxio-blue-dark mt-8"
   >
     Donnez votre avis sur
-    <img
-      src="/images/logo-openfeedback.png"
+    <NuxtImg
+      src="/images/logo-openfeedback.webp"
       alt="Logo Open Feedback"
-      class="logo h-8 inline-block"
-    >
+      class="h-8 inline-block mt-[5px] mx-0 mb-[3px]"
+      loading="lazy"
+    />
   </a>
 </template>
-
-<style scoped lang="postcss">
-.logo {
-  margin: 5px 0 0 3px; /* Align the logo vertically with the text */
-}
-</style>

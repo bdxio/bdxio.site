@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink } from "#components";
+import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Schedule, Talk } from "~/types";
@@ -74,19 +74,19 @@ function setFilter(filter: string) {
 function getCategoryImageName(category: Category) {
   switch (category.name) {
     case "Frontend":
-      return "frontend.png";
+      return "frontend.webp";
     case "Design & UX":
-      return "designux.png";
+      return "designux.webp";
     case "Méthodo & Architecture":
-      return "methodoarchitecture.png";
+      return "methodoarchitecture.webp";
     case "Cloud & DevSecOps":
-      return "cloudetdevsecops.png";
+      return "cloudetdevsecops.webp";
     case "Backend":
-      return "backend.png";
+      return "backend.webp";
     case "Big Data & I.A.":
-      return "bigdataia.png";
+      return "bigdataia.webp";
     case "Hors-piste":
-      return "horspiste.png";
+      return "horspiste.webp";
     default:
       return "";
   }
@@ -161,11 +161,13 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                 :class="{ active: filters.includes(category.name) }"
                 @click="setFilter(category.name)"
               >
-                <img
+                <NuxtImg
                   class="categories__category__image"
                   :src="getCategoryImagePath(category)"
                   :alt="`Catégorie ${category.name}`"
-                >
+                  width="30"
+                  preload
+                />
                 <span class="categories__category__label">
                   {{ category.name }}
                 </span>
@@ -210,12 +212,13 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
-                          <img
+                          <NuxtImg
                             v-if="talk.category"
                             class="talk__infos__image"
                             :src="getCategoryImagePath(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
-                          >
+                            width="40"
+                          />
                           <div class="talk__infos__content">
                             <span class="talk__infos__content__title">
                               {{ talk.title }}

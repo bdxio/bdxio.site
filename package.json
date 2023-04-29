@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
     "@nuxtjs/google-fonts": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@types/markdown-it": "^12.2.3",
