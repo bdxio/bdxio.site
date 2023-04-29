@@ -20,7 +20,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       >
         Cette année nous mettrons à l'honneur le numérique responsable&nbsp;!
       </Heading>
-      <p>
+      <p class="font-medium">
         À l'occasion de la <span class="font-bold">8ème édition</span> de {{ ASSOCIATION_NAME }},
         nous avons choisi de mettre en avant le numérique responsable !
         <br><br>
