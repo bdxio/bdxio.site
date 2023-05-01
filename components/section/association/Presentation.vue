@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { Heading, HeadingSection, ButtonSecondary } from "#components";
+import { Heading, HeadingSection, ButtonSecondary, NuxtImg } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
@@ -21,11 +21,13 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
       </p>
     </section>
     <section class="mt-12 m:mt-24 grid grid-cols-1 l:grid-cols-2 items-center">
-      <img
+      <NuxtImg
         src="/images/association/team2022.webp"
         :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${EDITION}`"
         class="l:w-4/5 rounded-lg"
-      >
+        preload
+        sizes="sm:100vw lg:80vw"
+      />
       <div class="mb-100 xxxl:w-2/3 mt-10 l:mt-0">
         <HeadingSection
           level="2"

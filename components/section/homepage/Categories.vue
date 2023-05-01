@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSection } from "#components";
+import { Heading, HeadingSection, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const categories = [
@@ -61,10 +61,12 @@ const categories = [
         :key="category.name"
         class="shadow-card flex flex-col items-center justify-center p-4 rounded-xl"
       >
-        <img
+        <NuxtImg
           :src="category.icon"
           class="h-12"
-        >
+          loading="lazy"
+          height="48"
+        />
         <span class="font-bold uppercase mt-4 text-center text-small m:text-base">{{ category.name }}</span>
       </div>
     </div>

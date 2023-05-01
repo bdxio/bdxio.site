@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { useRoute, ref, watch, computed } from "#imports";
-import { NuxtLink, LayoutHeaderNavigation } from "#components";
+import { NuxtLink, LayoutHeaderNavigation, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const props = defineProps<{
@@ -44,18 +44,21 @@ watch(
     <NuxtLink
       to="/"
     >
-      <img
+      <NuxtImg
         src="/images/logo_blue.webp"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
+        width="139"
+        height="50"
         class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
-      >
+      />
     </NuxtLink>
-    <img
+    <NuxtImg
       :src="icon.src"
       :alt="icon.alt"
       class="cursor-pointer m:hidden relative z-30"
+      width="27"
       @click.prevent="toggleMenu"
-    >
+    />
     <LayoutHeaderNavigation
       :background="background"
       :open="open"

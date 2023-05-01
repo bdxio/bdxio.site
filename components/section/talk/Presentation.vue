@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { useNuxtApp, computed } from "#imports";
-import { Heading, OpenFeedback, ShowOnYoutube } from "#components";
+import { Heading, OpenFeedback, ShowOnYoutube, NuxtImg } from "#components";
 import type { Talk } from "~/types";
 
 const props = defineProps<{
@@ -27,12 +27,13 @@ const duration = computed(() => {
     <Heading level="1">
       {{ talk.title }}
     </Heading>
-    <img
+    <NuxtImg
       src="/images/drawings/cyan_scribble_3.webp"
       alt="Illustration d'un gribouillage"
       aria-hidden="true"
       class="underline-scribble"
-    >
+      loading="lazy"
+    />
     <div class="flex flex-wrap gap-6 my-12">
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min

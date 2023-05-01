@@ -66,15 +66,17 @@ function getOfferClass(index: number) {
                 class="block w-full h-full relative z-10"
                 :title="sponsor.name"
               >
-                <img
+                <NuxtImg
                   class="w-1/2 absolute z-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"
                   :src="
                     sponsor.logo && sponsor.logo
                       ? sponsor.logo.formats.thumbnail.url
                       : '/images/logo_blue.webp'
                   "
+                  loading="lazy"
+                  width="105"
                   :alt="`Logo de ${sponsor.name}`"
-                >
+                />
               </a>
             </li>
           </ul>
