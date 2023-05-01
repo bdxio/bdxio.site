@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { withDefaults, defineProps } from "vue";
-import type { IconProps } from "~/types";
+import { type IconProps } from "~/types";
 
 withDefaults(defineProps<IconProps>(), {
   color: "#4652F8", /* @TODO: Use variable from Tailwind */
