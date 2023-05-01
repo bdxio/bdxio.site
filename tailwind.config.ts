@@ -37,7 +37,7 @@ const config: Config = {
       black: "#000000",
     },
     fontFamily: {
-      body: ["Lato", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif"],
+      body: ["Arial", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
     },
     extend: {

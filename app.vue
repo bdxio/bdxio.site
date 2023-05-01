@@ -15,7 +15,7 @@ useHead({
 </script>
 
 <template>
-  <div class="font-body text-base text-bdxio-blue-dark">
+  <div class="font-body text-base text-bdxio-blue-dark font-normal">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
