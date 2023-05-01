@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt", "@nuxt/image-edge"],
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
@@ -31,10 +31,6 @@ export default defineNuxtConfig({
         wght: [700],
         ital: [700],
       },
-      Lato: {
-        wght: [300, 400, 700],
-        ital: [300,400, 700],
-      },
     },
   },
   app: {
@@ -45,6 +41,16 @@ export default defineNuxtConfig({
           href: "/favicon.ico",
         },
       ],
+    },
+  },
+  image: {
+    screens: {
+      xs: 320,
+      sm: 768,
+      md: 992,
+      lg: 1200,
+      xl: 1400,
+      "2xl": 1600,
     },
   },
 });

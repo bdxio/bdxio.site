@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { withDefaults, defineProps } from "vue";
 import { computed } from "#imports";
+import { NuxtImg } from "#components";
 import type { Speaker } from "~/types";
 
 interface Props {
@@ -20,13 +21,14 @@ const initials = computed(() => {
 
 <template>
   <div class="mr-6">
-    <img
+    <NuxtImg
       v-if="speaker.photoUrl"
       class="rounded-full object-cover"
       :class="size === 'small' ? 'h-8 w-8' : 'h-16 w-16'"
       :src="speaker.photoUrl"
       :alt="`Photo de ${speaker.name}`"
-    >
+      loading="lazy"
+    />
     <span
       v-else
       class="flex items-center justify-center rounded-full bg-bdxio-blue-light text-white"

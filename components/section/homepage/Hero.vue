@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading } from "#components";
+import { Heading, NuxtImg } from "#components";
 import { EDITION } from "~/services/constants";
 </script>
 
@@ -11,11 +11,13 @@ import { EDITION } from "~/services/constants";
     >
       En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
     </Heading>
-    <img
+    <NuxtImg
       src="/images/drawings/line-yellow.webp"
       alt="Illustration d'une ligne jaune"
       class="-m-5 mb-4"
-    >
+      preload
+      width="450"
+    />
     <p class="mb-3 text-[28px]">
       On se retrouve au Palais des Congrès <br>de Bordeaux Lac
     </p>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const links = [
@@ -37,10 +38,13 @@ const links = [
         target="_blank"
         :aria-label="`${link.label} ${ASSOCIATION_NAME}`"
       >
-        <img
+        <NuxtImg
           :src="link.icon"
           :alt="`Icône ${link.label}`"
-        >
+          width="40"
+          height="40"
+          loading="lazy"
+        />
       </a>
     </li>
   </ul>

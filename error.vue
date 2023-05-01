@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { LayoutHeader, LayoutFooter, LinkPrimaryNuxt } from "#components";
+import { LayoutHeader, LayoutFooter, LinkPrimaryNuxt, NuxtImg } from "#components";
 
 const props = defineProps<{
   error: any;
@@ -13,11 +13,12 @@ const status = props.error?.statusCode || 500;
   <div class="font-body text-base">
     <LayoutHeader background="light" />
     <section class="p-section flex flex-col items-center">
-      <img
+      <NuxtImg
         src="/images/association/team2022.webp"
-        alt="Illustration d'un ordinateur rétro"
-        class="w-full max-w-[500px] mb-6"
-      >
+        alt="Photo de l'équipe bdxio 2022"
+        class="mb-6"
+        width="500"
+      />
       <p v-if="status === 404">
         Oups ! Vous êtes perdus ? <br>
       </p>

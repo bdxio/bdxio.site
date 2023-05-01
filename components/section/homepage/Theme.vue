@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSection } from "#components";
+import { Heading, HeadingSection, NuxtImg } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 </script>
 
@@ -20,7 +20,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       >
         Cette année nous mettrons à l'honneur le numérique responsable&nbsp;!
       </Heading>
-      <p>
+      <p class="font-medium">
         À l'occasion de la <span class="font-bold">8ème édition</span> de {{ ASSOCIATION_NAME }},
         nous avons choisi de mettre en avant le numérique responsable !
         <br><br>
@@ -30,12 +30,13 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       </p>
     </div>
     <div class="w-full l:w-5/12 flex justify-center item-center mt-16 m:mt-0">
-      <img
+      <NuxtImg
         src="/images/illustrations/theme.webp"
         alt="Illustration de la planète Terre encerclée de feuilles"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
-      >
+        size="xs:50vw lg:100vw"
+      />
     </div>
   </div>
 </template>

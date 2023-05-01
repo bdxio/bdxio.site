@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { LinkPrimary, IconYouTube } from "#components";
+import { LinkPrimary, NuxtImg } from "#components";
 
 defineProps({
   href: {
@@ -18,6 +18,11 @@ defineProps({
     class="mx-auto mt-8"
   >
     Voir sur YouTube
-    <IconYouTube class="ml-1 inline-block" />
+    <NuxtImg
+      src="/images/icons/youtube.svg"
+      width="40"
+      loading="lazy"
+      class="ml-1 inline-block"
+    />
   </LinkPrimary>
 </template>

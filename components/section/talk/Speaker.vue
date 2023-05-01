@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { computed } from "#imports";
-import { Heading, SectionTalkSpeakerPicture } from "#components";
+import { Heading, SectionTalkSpeakerPicture, NuxtImg } from "#components";
 import type { Speaker } from "~/types";
 
 const props = defineProps<{
@@ -81,10 +81,11 @@ const speakerSocialLinks = computed(() => {
           :href="link.url"
           target="_blank"
         >
-          <img
+          <NuxtImg
             :src="`/images/${link.imgPath}`"
             :alt="link.alt"
-          >
+            loading="lazy"
+          />
         </a>
       </li>
     </ul>

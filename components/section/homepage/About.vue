@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { Heading } from "#components";
+import { Heading, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 </script>
 
 <template>
   <section class="py-0 m:py-20 flex flex-col-reverse items-center m:flex-row bg-bdxio-grey-100 bg-bdxio-cream-base">
-    <img
+    <NuxtImg
       src="/images/illustrations/place_de_la_bourse.webp"
-      class="object-contain w-full m:1/2 max-w-screen-xl"
-    >
+      class="object-contain m:1/2 max-w-screen-xl"
+      loading="lazy"
+      width="650"
+    />
     <div class="p-section w-full m:1/2">
       <div class="shadow-illustration shadow-bdxio-cream-base bg-bdxio-cream-base max-w-3xl m-auto">
         <Heading level="2">
