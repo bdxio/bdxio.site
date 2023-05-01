@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
-import { Heading, Link } from "#components";
+import { Heading, LinkNative } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
@@ -26,18 +26,18 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         Besoin d'aide ?
         <ul>
           <li>
-            Par email : <Link href="mailto:team@bdxio.fr">
+            Par email : <LinkNative href="mailto:team@bdxio.fr">
               team@bdxio.fr
-            </Link>
+            </LinkNative>
           </li>
           <li>
             Par twitter :
-            <Link
+            <LinkNative
               href="https://twitter.com/bdxio"
               target="_blank"
             >
               @bdxio
-            </Link>
+            </LinkNative>
           </li>
         </ul>
       </div>
@@ -104,31 +104,31 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
       </p>
       <p>
         <strong>Version originale et crédit :</strong>
-        <Link
+        <LinkNative
           href="http://2012.jsconf.us/#/about"
           target="_blank"
         >
           http://2012.jsconf.us/#/about
-        </Link>
+        </LinkNative>
         & The Ada Initiative <br>
         <strong>
           Merci d'aider à la traduction et à l'amélioration de ce texte:
         </strong>
-        <Link
+        <LinkNative
           href="http://github.com/leftlogic/confcodeofconduct.com"
           target="_blank"
         >
           http://github.com/leftlogic/confcodeofconduct.com
-        </Link>
+        </LinkNative>
         <br>
         <strong>
           Ce texte est sous licence Creative
-          <Link
+          <LinkNative
             href="https://creativecommons.org/licenses/by/3.0/deed.en_US"
             target="_blank"
           >
             Commons Attribution 3.0 Unported License
-          </Link>
+          </LinkNative>
         </strong>
       </p>
     </section>
