@@ -31,7 +31,7 @@ const pages = [
     show: instance.$SHOW_PAGE_ASSOCIATION,
   },
   {
-    name: "Jobs",
+    name: "Offres d'emploi",
     path: "/jobs",
     show: instance.$SHOW_PAGE_JOBS,
   },

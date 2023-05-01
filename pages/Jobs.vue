@@ -10,7 +10,7 @@ if (!$SHOW_PAGE_JOBS) {
 }
 
 useHead({
-  title: `Jobs | ${ASSOCIATION_NAME}`,
+  title: `Offres d'emploi | ${ASSOCIATION_NAME}`,
   script: [
     {
       src: "https://widget.welovedevs.com/jobs-widget.js",
