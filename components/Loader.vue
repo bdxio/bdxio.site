@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { withDefaults, defineProps } from "vue";
+import type { IconProps } from "~/types";
 
-defineProps<{
-  color: string;
-  width: number;
-  height: number
-}>();
+withDefaults(defineProps<IconProps>(), {
+  color: "#4652F8", /* @TODO: Use variable from Tailwind */
+  width: 50,
+  height: 50,
+});
 </script>
 
 <template>
@@ -13,8 +14,8 @@ defineProps<{
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 100"
     fill="none"
-    :width="width || 50"
-    :height="height || 50"
+    :width="width"
+    :height="height"
   >
     <circle
       :fill="color"
@@ -32,7 +33,7 @@ defineProps<{
       />
     </circle>
     <circle
-      :fill="color || '#4652F8'"
+      :fill="color"
       stroke="none"
       cx="26"
       cy="50"
@@ -47,7 +48,7 @@ defineProps<{
       />
     </circle>
     <circle
-      :fill="color || '#4652F8'"
+      :fill="color"
       stroke="none"
       cx="46"
       cy="50"
