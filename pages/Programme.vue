@@ -23,7 +23,7 @@ const { categories, schedule } = data.value;
 
 const isMobileContext = computed(() => window.innerWidth <= 992);
 const filteredSchedule = computed(() => {
-  if (!filters.value) {
+  if (!filters.value.length) {
     return schedule;
   }
 
