@@ -16,6 +16,7 @@ defineProps({
     :href="href"
     target="_blank"
     class="mx-auto mt-8"
+    aria-label="lien pour voir sur youtube - Nouvelle fenêtre"
   >
     Voir sur YouTube
     <NuxtImg

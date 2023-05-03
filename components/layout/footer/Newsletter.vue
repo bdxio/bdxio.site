@@ -89,6 +89,7 @@ async function register() {
       width="22"
       height="22"
       alt="Icône croix"
+      aria-label="Fermer la fenêtre"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
       @click="toggleForm"
     />
