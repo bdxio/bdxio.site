@@ -45,7 +45,9 @@ const pages = [
 
 <template>
   <nav>
-    <ul class="flex flex-col">
+    <ul
+      class="flex flex-col"
+    >
       <li
         v-for="page in pages"
         :key="page.path"
