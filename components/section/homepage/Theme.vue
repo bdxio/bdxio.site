@@ -35,6 +35,8 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
         alt="Illustration de la planète Terre encerclée de feuilles"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
+        width="672"
+        height="672"
         size="xs:50vw lg:100vw"
       />
     </div>
