@@ -45,7 +45,7 @@ watch(
       to="/"
     >
       <NuxtImg
-        src="/images/logo_blue.webp"
+        src="/images/logo_blue_header.webp"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
         width="139"
         height="50"
