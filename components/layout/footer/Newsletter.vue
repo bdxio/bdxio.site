@@ -69,11 +69,15 @@ async function register() {
 <template>
   <div
     class="flex items-center"
+    tabindex="0"
     @click="toggleForm"
+    @keydown.enter.exact="toggleForm"
   >
     <span class="cursor-pointer">S'incrire à la newsletter</span>
     <NuxtImg
       src="/images/drawings/purple_envelope.webp"
+      alt=""
+      aria-hidden="true"
       class="w-16 m:w-24 cursor-pointer"
       width="96"
       height="46"
@@ -91,7 +95,9 @@ async function register() {
       alt="Icône croix"
       aria-label="Fermer la fenêtre"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
+      tabindex="1"
       @click="toggleForm"
+      @keydown.enter.exact="toggleForm"
     />
     <p
       v-if="state.success"
