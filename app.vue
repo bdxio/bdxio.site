@@ -11,6 +11,9 @@ useHead({
         sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
+  htmlAttrs: {
+    lang: "fr",
+  },
 });
 </script>
 
