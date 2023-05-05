@@ -9,7 +9,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
     class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16"
   >
     <NuxtImg
-      src="/images/logo_blue.webp"
+      src="/images/logo_blue_footer.webp"
       width="160"
       height="58"
       :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
