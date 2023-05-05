@@ -32,7 +32,8 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
     <div class="w-full l:w-5/12 flex justify-center item-center mt-16 m:mt-0">
       <NuxtImg
         src="/images/illustrations/theme.webp"
-        alt="Illustration de la planète Terre encerclée de feuilles"
+        alt=""
+        :aria-hidden="true"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
         width="672"

@@ -15,7 +15,8 @@ const status = props.error?.statusCode || 500;
     <section class="p-section flex flex-col items-center">
       <NuxtImg
         src="/images/association/team2022.webp"
-        alt="Photo de l'équipe bdxio 2022"
+        alt=""
+        aria-hidden="true"
         class="mb-6"
         width="500"
       />

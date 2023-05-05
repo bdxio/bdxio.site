@@ -89,6 +89,7 @@ const speakerSocialLinks = computed(() => {
           <NuxtImg
             :src="`/images/${link.imgPath}`"
             :alt="link.alt"
+            :aria-label="link.alt"
             loading="lazy"
           />
         </a>
