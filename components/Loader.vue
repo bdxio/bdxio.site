@@ -12,6 +12,7 @@ defineProps<{
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 100"
+    :aria-hidden="true"
     fill="none"
     :width="width || 50"
     :height="height || 50"

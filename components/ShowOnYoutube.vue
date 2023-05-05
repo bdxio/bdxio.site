@@ -23,6 +23,8 @@ defineProps({
       src="/images/icons/youtube.svg"
       width="40"
       loading="lazy"
+      alt=""
+      :aria-hidden="true"
       class="ml-1 inline-block"
     />
   </LinkPrimary>

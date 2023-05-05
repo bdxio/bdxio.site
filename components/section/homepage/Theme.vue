@@ -33,6 +33,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
       <NuxtImg
         src="/images/illustrations/theme.webp"
         alt="Illustration de la planète Terre connectée et entourée de feuillages"
+        :aria-hidden="true"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
         width="620"

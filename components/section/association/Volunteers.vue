@@ -39,7 +39,10 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
         <NuxtImg
           v-if="volunteer.profilePicture?.url"
           :src="volunteer.profilePicture?.url"
-          :alt="volunteer.profilePicture?.alternativeText"
+          :alt="volunteer.profilePicture?.alternativeText ||
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole BDX I/O)`"
+          :aria-label="volunteer.profilePicture?.alternativeText ||
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole BDX I/O)`"
           class="object-cover object-center rounded-t-lg"
           loading="lazy"
           width="260"

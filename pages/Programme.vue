@@ -162,9 +162,10 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                 @click="setFilter(category.name)"
               >
                 <NuxtImg
-                  class="categories__category__image"
                   :src="getCategoryImagePath(category)"
-                  :alt="`Catégorie ${category.name}`"
+                  :aria-hidden="true"
+                  class="categories__category__image"
+                  alt=""
                   width="30"
                   preload
                 />
@@ -217,6 +218,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                             class="talk__infos__image"
                             :src="getCategoryImagePath(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
+                            :aria-label="`Catégorie ${talk.category.name}`"
                             width="40"
                           />
                           <div class="talk__infos__content">

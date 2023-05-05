@@ -21,7 +21,8 @@ defineProps({
     Donnez votre avis sur
     <NuxtImg
       src="/images/logo-openfeedback.webp"
-      alt="Logo Open Feedback"
+      alt=""
+      :aria-hidden="true"
       class="h-8 inline-block mt-[5px] mx-0 mb-[3px]"
       loading="lazy"
     />
