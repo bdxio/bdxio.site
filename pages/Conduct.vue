@@ -9,7 +9,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
 <template>
   <main>
     <section class="p-section bg-white">
-      <Heading level="2">
+      <Heading level="1">
         Code de conduite
       </Heading>
       <p>
