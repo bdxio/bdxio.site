@@ -31,6 +31,7 @@ const colorClasses = computed(() => {
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
     :href="href"
     :download="download"
+    :tabindex="disabled ? '-1' : 1"
   >
     <slot />
   </a>
