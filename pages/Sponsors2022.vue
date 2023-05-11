@@ -64,18 +64,18 @@ function getOfferClass(index: number) {
                 :href="sponsor.url || '#'"
                 target="_blank"
                 class="block w-full h-full relative z-10"
-                :title="sponsor.name"
+                :aria-label="`lien vers le sponsor ${sponsor.name} - Nouvelle fenêtre`"
               >
                 <NuxtImg
                   class="w-1/2 absolute z-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]"
                   :src="
-                    sponsor.logo && sponsor.logo
+                    sponsor.logo && sponsor.logo.formats.thumbnail.url
                       ? sponsor.logo.formats.thumbnail.url
-                      : '/images/logo_blue.webp'
+                      : '/images/logo_blue_footer.webp'
                   "
                   loading="lazy"
                   width="105"
-                  :alt="`Logo de ${sponsor.name}`"
+                  :alt="`${sponsor.logo && sponsor.logo.formats.thumbnail.url ?'Logo de' + sponsor.name : ''}`"
                 />
               </a>
             </li>

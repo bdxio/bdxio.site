@@ -28,6 +28,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       color="grey"
       to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
       target="_blank"
+      aria-label="lien vers le CFP (call for paper) pour devenir speaker - Nouvelle fenêtre"
     >
       Devenir speaker
       <IconOpenNewWindow

@@ -26,6 +26,7 @@ const speakerSocialLinks = computed(() => {
   const socials = [];
   if (props.speaker.twitter) {
     socials.push({
+      label: "twitter",
       imgPath: "socials/twitter.svg",
       alt: "Icône Twitter",
       url: getSocialUrl(props.speaker.twitter, "twitter"),
@@ -33,6 +34,7 @@ const speakerSocialLinks = computed(() => {
   }
   if (props.speaker.github) {
     socials.push({
+      label: "github",
       imgPath: "socials/github.svg",
       alt: "Icône Github",
       url: getSocialUrl(props.speaker.github, "github"),
@@ -40,6 +42,7 @@ const speakerSocialLinks = computed(() => {
   }
   if (props.speaker.linkedin) {
     socials.push({
+      label: "linkedin",
       imgPath: "socials/linkedin.svg",
       alt: "Icône Linkedin",
       url: getSocialUrl(props.speaker.linkedin, "linkedin"),
@@ -47,6 +50,7 @@ const speakerSocialLinks = computed(() => {
   }
   if (props.speaker.website) {
     socials.push({
+      label: "site",
       imgPath: "socials/website.svg",
       alt: "Icône site personnel",
       url: props.speaker.website,
@@ -80,10 +84,12 @@ const speakerSocialLinks = computed(() => {
           v-if="link.url"
           :href="link.url"
           target="_blank"
+          :aria-label="`Lien vers le ${link.label} du speaker ${speaker.name} - Nouvelle fenêtre`"
         >
           <NuxtImg
             :src="`/images/${link.imgPath}`"
             :alt="link.alt"
+            :aria-label="link.alt"
             loading="lazy"
           />
         </a>

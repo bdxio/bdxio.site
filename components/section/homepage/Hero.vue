@@ -13,7 +13,8 @@ import { EDITION } from "~/services/constants";
     </Heading>
     <NuxtImg
       src="/images/drawings/line-yellow.webp"
-      alt="Illustration d'une ligne jaune"
+      alt=""
+      :aria-hidden="true"
       class="-m-5 mb-4"
       preload
       width="450"
