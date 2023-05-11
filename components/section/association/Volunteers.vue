@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Heading, NuxtLink, NuxtImg } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Volunteer } from "~/types";
 
 const props = defineProps<{
@@ -40,9 +41,9 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
           v-if="volunteer.profilePicture?.url"
           :src="volunteer.profilePicture?.url"
           :alt="volunteer.profilePicture?.alternativeText ||
-            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole BDX I/O)`"
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
           :aria-label="volunteer.profilePicture?.alternativeText ||
-            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole BDX I/O)`"
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
           class="object-cover object-center rounded-t-lg"
           loading="lazy"
           width="260"
