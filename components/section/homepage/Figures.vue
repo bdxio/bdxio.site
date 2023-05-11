@@ -3,11 +3,12 @@ import { Counter } from "#components";
 </script>
 
 <template>
-  <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-3 m:grid-cols-12">
-    <img
-      src="/images/conferences/home-1.webp"
+  <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-2 m:grid-cols-12">
+    <NuxtImg
+      src="/images/conferences/home-1.png"
       class="w-full h-full object-cover inline-flex col-start-1 col-end-2 m:col-start-1 m:col-end-5 max-h-[280px]"
-    >
+      loading="lazy"
+    />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 col-start-2 col-end-3 row-start-1 m:col-start-5 m:col-end-8 max-h-[280px]"
@@ -61,14 +62,14 @@ import { Counter } from "#components";
       </p>
     </div>
     <img
-      src="/images/conferences/home-4.webp"
+      src="/images/conferences/home-4.png"
       class="w-full h-full object-cover inline-flex row-start-2 col-start-2 col-end-3 m:col-start-10
         m:col-end-13 m:row-start-2 max-h-[280px]"
     >
-    <img
+    <!-- <img
       src="/images/conferences/home-5.webp"
       class="w-full h-full object-cover hidden m:inline-flex m:col-start-1 m:col-end-4 max-h-[280px]"
-    >
+    > -->
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 row-start-3 col-start-2 col-end-3 m:col-start-4 m:col-end-7
@@ -87,9 +88,6 @@ import { Counter } from "#components";
         Réunis autour d'une ambiance familliale
       </p>
     </div>
-    <img
-      src="/images/conferences/home-6.webp"
-      class="w-full h-full object-cover hidden m:inline-flex m:col-start-7 m:col-end-13 max-h-[280px]"
-    >
+    -->
   </section>
 </template>
