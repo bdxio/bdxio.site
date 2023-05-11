@@ -29,8 +29,8 @@ const duration = computed(() => {
     </Heading>
     <NuxtImg
       src="/images/drawings/cyan_scribble_3.webp"
-      alt="Illustration d'un gribouillage"
-      aria-hidden="true"
+      :aria-hidden="true"
+      alt=""
       class="underline-scribble"
       loading="lazy"
     />

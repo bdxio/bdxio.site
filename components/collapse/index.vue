@@ -19,8 +19,10 @@ function toggleOpen() {
     :is="tag"
   >
     <div
+      tabindex="0"
       class="flex flex-row items-center cursor-pointer"
       @click="toggleOpen"
+      @keydown.enter.exact="toggleOpen"
     >
       <CollapseArrowDown :class="`min-w-[15px] mr-4 ${open ? '' : '-rotate-90'}`" />
       <slot name="title" />

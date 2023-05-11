@@ -8,6 +8,8 @@ import { ASSOCIATION_NAME } from "~/services/constants";
     <NuxtImg
       src="/images/illustrations/place_de_la_bourse.webp"
       class="w-full object-contain m:1/2 max-w-screen-xl"
+      alt=""
+      :aria-hidden="true"
       loading="lazy"
       width="650"
     />

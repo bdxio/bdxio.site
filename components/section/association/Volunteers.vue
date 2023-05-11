@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Heading, NuxtLink, NuxtImg } from "#components";
+import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Volunteer } from "~/types";
 
 const props = defineProps<{
@@ -39,7 +40,10 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
         <NuxtImg
           v-if="volunteer.profilePicture?.url"
           :src="volunteer.profilePicture?.url"
-          :alt="volunteer.profilePicture?.alternativeText"
+          :alt="volunteer.profilePicture?.alternativeText ||
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
+          :aria-label="volunteer.profilePicture?.alternativeText ||
+            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
           class="object-cover object-center rounded-t-lg"
           loading="lazy"
           width="260"
@@ -60,6 +64,9 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
                 class="underline"
                 :to="volunteer.jobCompanyUrl"
                 target="_blank"
+                :aria-label="`
+                lien vers l'entreprise ${volunteer.jobLabel} de ${getVolunteerName(volunteer)} - Nouvelle fenêtre
+                `"
               >
                 @{{ volunteer.jobCompanyName }}
               </NuxtLink>
@@ -69,11 +76,11 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
             </template>
           </div>
           <div class="flex justify-center gap-2">
-            <NuxtLink
+            <a
               v-if="volunteer.linkedin"
-              :to="volunteer.linkedin"
+              :href="volunteer.linkedin"
               target="_blank"
-              :ariaCurrentValue="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)}`"
+              :aria-label="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)} - Nouvelle fenêtre`"
             >
               <NuxtImg
                 src="/images/icons/linkedin.svg"
@@ -82,12 +89,12 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
                 width="40"
                 height="40"
               />
-            </NuxtLink>
-            <NuxtLink
+            </a>
+            <a
               v-if="volunteer.twitter"
-              :to="volunteer.twitter"
+              :href="volunteer.twitter"
               target="_blank"
-              :ariaCurrentValue="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
+              :aria-label="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
             >
               <NuxtImg
                 src="/images/icons/twitter.svg"
@@ -96,12 +103,12 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
                 width="40"
                 height="40"
               />
-            </NuxtLink>
-            <NuxtLink
+            </a>
+            <a
               v-if="volunteer.github"
-              :to="volunteer.github"
+              :href="volunteer.github"
               target="_blank"
-              :ariaCurrentValue="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
+              :aria-label="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
             >
               <NuxtImg
                 src="/images/icons/github.svg"
@@ -110,12 +117,12 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
                 width="40"
                 height="40"
               />
-            </NuxtLink>
-            <NuxtLink
+            </a>
+            <a
               v-if="volunteer.website"
-              :to="volunteer.website"
+              :href="volunteer.website"
               target="_blank"
-              :ariaCurrentValue="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
+              :aria-label="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
             >
               <NuxtImg
                 src="/images/icons/website.svg"
@@ -124,7 +131,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
                 width="40"
                 height="40"
               />
-            </NuxtLink>
+            </a>
           </div>
         </div>
       </li>

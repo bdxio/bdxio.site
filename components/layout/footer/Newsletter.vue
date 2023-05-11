@@ -69,11 +69,15 @@ async function register() {
 <template>
   <div
     class="flex items-center"
+    tabindex="0"
     @click="toggleForm"
+    @keydown.enter.exact="toggleForm"
   >
     <span class="cursor-pointer">S'incrire à la newsletter</span>
     <NuxtImg
       src="/images/drawings/purple_envelope.webp"
+      alt=""
+      aria-hidden="true"
       class="w-16 m:w-24 cursor-pointer"
       width="96"
       height="46"
@@ -89,8 +93,11 @@ async function register() {
       width="22"
       height="22"
       alt="Icône croix"
+      aria-label="Fermer la fenêtre"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
+      tabindex="1"
       @click="toggleForm"
+      @keydown.enter.exact="toggleForm"
     />
     <p
       v-if="state.success"
@@ -100,7 +107,7 @@ async function register() {
     </p>
     <form
       v-else
-      class="flex flex-col m:justify-center w-full m:w-auto p-4"
+      class="flex flex-col justify-center items-center w-full m:w-auto p-4"
       @submit.prevent="register"
     >
       <Loader
@@ -111,18 +118,19 @@ async function register() {
         class="m-auto"
       />
       <template v-else>
-        <p class="text-white text-3xl m:text-4xl mb-4">
-          S'inscrire à la newsletter
-        </p>
-        <div class="flex flex-col m:flex-row m:justify-center">
+        <label
+          for="email"
+          class="text-center text-white text-3xl "
+        >Saisissez votre adresse email</label>"
+        <div class="w-full max-w-[400px]">
           <input
             v-model="state.email"
             name="email"
-            placeholder="Saisissez votre adresse email"
+            placeholder="email@exemple.com"
             size="30"
             required
             :class="{ valid: state.valid }"
-            class="py-3 px-6 rounded-xl border-solid border-2"
+            class="py-3 px-6 rounded-xl border-solid border-2 w-full max-w-[400px]"
             @input="onType"
           >
           <ButtonSecondary
@@ -130,7 +138,7 @@ async function register() {
             :disabled="!state.valid"
             type="submit"
             :class="{ disabled: !state.valid }"
-            class="m:ml-4 mt-4 m:mt-0"
+            class="mt-4 mx-auto"
           >
             S'inscrire
           </ButtonSecondary>

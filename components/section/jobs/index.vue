@@ -4,7 +4,7 @@ import { Heading } from "#components";
 
 <template>
   <section class="p-section section-jobs">
-    <Heading level="2">
+    <Heading level="1">
       Les jobs de <span class="sponsor">nos partenaires</span>
     </Heading>
     <!-- @TODO : idk what this component is -->

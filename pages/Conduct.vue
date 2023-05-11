@@ -9,7 +9,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
 <template>
   <main>
     <section class="p-section bg-white">
-      <Heading level="2">
+      <Heading level="1">
         Code de conduite
       </Heading>
       <p>
@@ -34,6 +34,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
             Par twitter :
             <LinkNative
               href="https://twitter.com/bdxio"
+              aria-label="contacter par twitter - Nouvelle fenêtre"
               target="_blank"
             >
               @bdxio
@@ -106,6 +107,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         <strong>Version originale et crédit :</strong>
         <LinkNative
           href="http://2012.jsconf.us/#/about"
+          aria-label="lien vers la version originale du texte du code de conduite - Nouvelle fenêtre"
           target="_blank"
         >
           http://2012.jsconf.us/#/about
@@ -116,6 +118,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
         </strong>
         <LinkNative
           href="http://github.com/leftlogic/confcodeofconduct.com"
+          aria-label="lien vers le github du texte du code de conduite - Nouvelle fenêtre"
           target="_blank"
         >
           http://github.com/leftlogic/confcodeofconduct.com
@@ -125,6 +128,7 @@ useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
           Ce texte est sous licence Creative
           <LinkNative
             href="https://creativecommons.org/licenses/by/3.0/deed.en_US"
+            aria-label="lien vers le site des creative commons - Nouvelle fenêtre"
             target="_blank"
           >
             Commons Attribution 3.0 Unported License

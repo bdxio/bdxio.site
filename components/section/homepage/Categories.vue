@@ -63,6 +63,8 @@ const categories = [
       >
         <NuxtImg
           :src="category.icon"
+          alt=""
+          :aria-hidden="true"
           class="h-12"
           loading="lazy"
           height="48"
