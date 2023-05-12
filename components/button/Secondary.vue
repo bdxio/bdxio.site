@@ -27,7 +27,7 @@ const colorClasses = computed(() => {
   <button
     :class="`block bg-none border-[2px] border-solid py-2 px-4 rounded-lg cursor-pointer duration-300
       ${disabled && 'pointer-events-none opacity-30'} ${colorClasses}`"
-    :tabindex="disabled ? '-1' : 1"
+    :disabled="disabled"
   >
     <slot />
   </button>
