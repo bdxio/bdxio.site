@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@vueuse/nuxt": "^10.1.0",
+    "fetch-jsonp": "^1.2.3",
     "markdown-it": "^13.0.1"
   },
   "devDependencies": {

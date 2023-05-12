@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive, useRuntimeConfig, useFetch } from "#imports";
+import fetchJsonp from "fetch-jsonp";
+import { reactive, useRuntimeConfig } from "#imports";
 import { ButtonSecondary, Loader, NuxtImg } from "#components";
 
 const state = reactive({
@@ -40,7 +41,7 @@ async function register() {
   if (!validateEmail(state.email)) {
     return;
   }
-  
+
   state.loading = true;
 
   if (!config.public.NEWSLETTER_URL) {
@@ -50,19 +51,20 @@ async function register() {
     return;
   }
 
-  const { error: requestError } = await useFetch(
-    `${config.public.NEWSLETTER_URL}&EMAIL=${state.email}`,
-    { method: "POST" },
-  );
-
-  if (requestError) {
+  try {
+    const response = await (await fetchJsonp(
+      `${config.public.NEWSLETTER_URL}&EMAIL=${state.email}`, { jsonpCallback: "c" },
+    )).json();
+    if (response?.result !== "success") {
+      state.error = true;
+      return;
+    }
+    state.success = true;
+  } catch (e) {
     state.error = true;
+  } finally {
     state.loading = false;
-    return;
   }
-
-  state.success = true;
-  state.loading = false;
 }
 </script>
 
