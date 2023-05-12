@@ -36,11 +36,12 @@ const links = [
       <a
         :href="link.href"
         target="_blank"
-        :aria-label="`${link.label} ${ASSOCIATION_NAME}`"
+        :aria-label="`lien vers le compte ${link.label} de ${ASSOCIATION_NAME} - Nouvelle fenêtre`"
       >
         <NuxtImg
           :src="link.icon"
           :alt="`Icône ${link.label}`"
+          :aria-label="`Consulter le compte de ${ASSOCIATION_NAME} sur ${link.label}`"
           width="40"
           height="40"
           loading="lazy"

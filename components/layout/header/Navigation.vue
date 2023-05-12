@@ -76,6 +76,7 @@ const pages = [
         <LinkSecondary
           to="#"
           color="light"
+          aria-label="lien vers le live - Nouvelle fenêtre"
           target="_blank"
         >
           <div class="flex items-center">
@@ -92,6 +93,7 @@ const pages = [
           color="light"
           href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
           target="_blank"
+          title="lien vers la billeterie - Nouvelle fenêtre"
         >
           Billetterie
         </LinkPrimary>
@@ -104,6 +106,7 @@ const pages = [
           color="light"
           href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
           target="_blank"
+          title="lien vers le replay youtube - Nouvelle fenêtre"
         >
           Revoir les talks
         </LinkPrimary>
@@ -116,6 +119,7 @@ const pages = [
           to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
           color="light"
           target="_blank"
+          aria-label="lien vers le CFP conference hall - Nouvelle fenêtre"
         >
           CFP
         </LinkSecondary>

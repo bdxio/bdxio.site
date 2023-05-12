@@ -26,7 +26,7 @@ const getOfferColorClass = (offer: Offer["label"]) => {
 <template>
   <section class="p-section bg-white">
     <Heading
-      level="3"
+      level="2"
       class="text-center relative z-10 title"
     >
       Les offres

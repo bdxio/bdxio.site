@@ -7,7 +7,9 @@ import { ASSOCIATION_NAME } from "~/services/constants";
   <section class="py-0 m:py-20 flex flex-col-reverse items-center m:flex-row bg-bdxio-grey-100 bg-bdxio-cream-base">
     <NuxtImg
       src="/images/illustrations/place_de_la_bourse.webp"
-      class="object-contain m:1/2 max-w-screen-xl"
+      class="w-full object-contain m:1/2 max-w-screen-xl"
+      alt=""
+      :aria-hidden="true"
       loading="lazy"
       width="650"
     />

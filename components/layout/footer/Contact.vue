@@ -18,7 +18,10 @@ const links = [
       :key="link.label"
       class="mb-2"
     >
-      <a :href="link.href">{{ link.label }}</a>
+      <a
+        :href="link.href"
+        :title="`Envoyer un mail à ${link.label} - Nouvelle fenêtre`"
+      >{{ link.label }}</a>
     </li>
   </ul>
 </template>

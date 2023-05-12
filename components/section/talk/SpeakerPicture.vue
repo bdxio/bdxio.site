@@ -27,6 +27,7 @@ const initials = computed(() => {
       :class="size === 'small' ? 'h-8 w-8' : 'h-16 w-16'"
       :src="speaker.photoUrl"
       :alt="`Photo de ${speaker.name}`"
+      :aria-label="`Photo de ${speaker.name}`"
       loading="lazy"
     />
     <span

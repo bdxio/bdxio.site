@@ -45,16 +45,18 @@ watch(
       to="/"
     >
       <NuxtImg
-        src="/images/logo_blue.webp"
+        src="/images/logo_blue_header.webp"
         :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
         width="139"
         height="50"
+        aria-label="Retourner sur la page d'accueil"
         class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
       />
     </NuxtLink>
     <NuxtImg
       :src="icon.src"
       :alt="icon.alt"
+      :aria-label="open ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
       class="cursor-pointer m:hidden relative z-30"
       width="27"
       @click.prevent="toggleMenu"
