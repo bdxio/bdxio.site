@@ -121,8 +121,9 @@ async function register() {
         <label
           for="email"
           class="text-white text-3xl m:text-4xl mb-4"
-        >Saisissez votre adresse email</label>"
-        
+        >
+          Saisissez votre adresse email
+        </label>
         <div class="flex flex-col m:flex-row m:justify-center">
           <input
             v-model="state.email"
