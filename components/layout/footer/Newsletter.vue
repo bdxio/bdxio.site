@@ -107,7 +107,7 @@ async function register() {
     </p>
     <form
       v-else
-      class="flex flex-col justify-center items-center w-full m:w-auto p-4"
+      class="flex flex-col m:justify-center w-full m:w-auto p-4"
       @submit.prevent="register"
     >
       <Loader
@@ -120,9 +120,11 @@ async function register() {
       <template v-else>
         <label
           for="email"
-          class="text-center text-white text-3xl "
-        >Saisissez votre adresse email</label>"
-        <div class="w-full max-w-[400px]">
+          class="text-white text-3xl m:text-4xl mb-4"
+        >
+          Saisissez votre adresse email
+        </label>
+        <div class="flex flex-col m:flex-row m:justify-center">
           <input
             v-model="state.email"
             name="email"
@@ -130,7 +132,7 @@ async function register() {
             size="30"
             required
             :class="{ valid: state.valid }"
-            class="py-3 px-6 rounded-xl border-solid border-2 w-full max-w-[400px]"
+            class="py-3 px-6 rounded-xl border-solid border-2"
             @input="onType"
           >
           <ButtonSecondary
@@ -138,7 +140,7 @@ async function register() {
             :disabled="!state.valid"
             type="submit"
             :class="{ disabled: !state.valid }"
-            class="mt-4 mx-auto"
+            class="m:ml-4 mt-4 m:mt-0"
           >
             S'inscrire
           </ButtonSecondary>

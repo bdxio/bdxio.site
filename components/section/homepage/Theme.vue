@@ -36,8 +36,8 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
         :aria-hidden="true"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
-        width="672"
-        height="672"
+        width="620"
+        height="480"
         size="xs:50vw lg:100vw"
       />
     </div>

@@ -4,11 +4,13 @@ import { Heading } from "#components";
 
 <template>
   <section class="p-section section-jobs">
-    <Heading level="1">
-      Les jobs de <span class="sponsor">nos partenaires</span>
+    <Heading
+      level="1"
+      class="text-center"
+    >
+      Les offres d'emplois de nos partenaires
     </Heading>
-    <!-- @TODO : idk what this component is -->
-    <!-- <jobs-widget
+    <jobs-widget
       color="#7D7DF2"
       locale="fr"
       items="40"
@@ -17,7 +19,8 @@ import { Heading } from "#components";
       referralCode="BDXIO"
       customAlgoliaFilters="inSelections.-NGVxFQ3IDZ1Ep5hDwMu > 0"
       eventMode="true"
-    /> -->
+      class="mt-12 m:mt-24"
+    />
   </section>
 </template>
 
