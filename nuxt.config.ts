@@ -43,6 +43,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === "jobs-widget",
+    },
+  },
   image: {
     screens: {
       xs: 320,
