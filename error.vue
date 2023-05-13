@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { LayoutHeader, LayoutFooter, LinkPrimaryNuxt, NuxtImg } from "#components";
 
 const props = defineProps<{
