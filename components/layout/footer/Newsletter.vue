@@ -51,6 +51,9 @@ async function register() {
     return;
   }
 
+  /**
+   * JSONP is used to avoid CORS issues with Mailchimp.
+   */
   try {
     const response = await (await fetchJsonp(
       `${config.public.NEWSLETTER_URL}&EMAIL=${state.email}`, { jsonpCallback: "c" },
