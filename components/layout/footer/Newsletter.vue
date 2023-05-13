@@ -92,18 +92,16 @@ async function register() {
     v-if="state.open"
     class="fixed top-0 left-0 bg-bdxio-blue-dark w-screen h-screen flex flex-col items-center justify-center z-20"
   >
-    <NuxtImg
+    <img
       src="/images/icons/close.svg"
       loading="lazy"
-      width="22"
-      height="22"
       alt="Icône croix"
       aria-label="Fermer la fenêtre"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
       tabindex="1"
       @click="toggleForm"
       @keydown.enter.exact="toggleForm"
-    />
+    >
     <p
       v-if="state.success"
       class="text-white"
