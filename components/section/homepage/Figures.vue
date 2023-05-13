@@ -30,6 +30,7 @@ import { Counter } from "#components";
       class="w-full h-full object-cover inline-flex row-start-2 col-start-2 col-end-3
         m:row-start-1 m:col-start-7 m:col-end-11 max-h-[280px]"
       loading="lazy"
+      height="280"
     />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center
@@ -67,6 +68,7 @@ import { Counter } from "#components";
       class="w-full h-full object-cover inline-flex row-start-3 col-start-1 col-end-2
       m:row-start-2 m:col-start-3 m:col-end-7 max-h-[280px]"
       loading="lazy"
+      height=""
     />
 
     <div
@@ -93,6 +95,7 @@ import { Counter } from "#components";
       class="w-full h-full object-cover inline-flex row-start-4 col-start-2 col-end-3
          m:row-start-2 m:col-start-9 m:col-end-13  max-h-[280px]"
       loading="lazy"
+      height=""
     />
   </section>
 </template>

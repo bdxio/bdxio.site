@@ -6,30 +6,44 @@ const categories = [
   {
     name: "Frontend",
     icon: "/images/drawings/categories/frontend.webp",
+    width: "36",
+    height: "48",
   },
   {
     name: "Backend",
     icon: "/images/drawings/categories/backend.webp",
+    width: "37",
+    height: "48",
   },
   {
     name: "Big Data & IA",
     icon: "/images/drawings/categories/bigdataia.webp",
+    width: "51",
+    height: "48",
   },
   {
     name: "Design & UX",
     icon: "/images/drawings/categories/designux.webp",
+    width: "50",
+    height: "48",
   },
   {
     name: "Cloud & Dev.Sec.Ops",
     icon: "/images/drawings/categories/cloudetdevsecops.webp",
+    width: "60",
+    height: "48",
   },
   {
     name: "Methodo & Architecture",
     icon: "/images/drawings/categories/methodoarchitecture.webp",
+    width: "54",
+    height: "48",
   },
   {
     name: "Hors piste",
     icon: "/images/drawings/categories/horspiste.webp",
+    width: "47",
+    height: "48",
   },
 ];
 </script>
@@ -67,7 +81,8 @@ const categories = [
           :aria-hidden="true"
           class="h-12"
           loading="lazy"
-          height="48"
+          :width="category.width"
+          :height="category.height"
         />
         <span class="font-bold uppercase mt-4 text-center text-small m:text-base">{{ category.name }}</span>
       </div>
