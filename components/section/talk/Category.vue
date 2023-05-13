@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { computed } from "#imports";
 import type { Category } from "~/types";
 

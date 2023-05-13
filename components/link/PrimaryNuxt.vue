@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { computed } from "#imports";
 import { NuxtLink } from "#components";
 
