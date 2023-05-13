@@ -18,6 +18,7 @@ import { EDITION } from "~/services/constants";
       class="-m-5 mb-4"
       preload
       width="450"
+      height="71"
     />
     <p class="mb-3 text-[28px]">
       On se retrouve au Palais des Congrès <br>de Bordeaux Lac

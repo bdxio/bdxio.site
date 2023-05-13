@@ -11,7 +11,8 @@ import { ASSOCIATION_NAME } from "~/services/constants";
       alt=""
       :aria-hidden="true"
       loading="lazy"
-      width="650"
+      width="648"
+      height="366"
     />
     <div class="p-section w-full m:1/2">
       <div class="shadow-illustration shadow-bdxio-cream-base bg-bdxio-cream-base max-w-3xl m-auto">

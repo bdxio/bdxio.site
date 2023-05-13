@@ -52,14 +52,13 @@ watch(
         class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
       />
     </NuxtLink>
-    <NuxtImg
+    <img
       :src="icon.src"
       :alt="icon.alt"
       :aria-label="open ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
       class="cursor-pointer m:hidden relative z-30"
-      width="27"
       @click.prevent="toggleMenu"
-    />
+    >
     <LayoutHeaderNavigation
       :background="background"
       :open="open"
