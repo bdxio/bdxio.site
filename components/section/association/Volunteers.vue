@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { Heading, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Volunteer } from "~/types";
