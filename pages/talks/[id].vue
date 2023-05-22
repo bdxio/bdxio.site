@@ -7,7 +7,7 @@ import type { Talk } from "~/types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
-const { params } = useRoute();
+const { params } = useRoute("talks-id");
 
 const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },

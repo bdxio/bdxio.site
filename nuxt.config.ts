@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false,
   },
+  experimental: {
+    typedPages: true,
+  },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt", "@nuxt/image-edge"],
   css: ["~/assets/css/main.css"],
   postcss: {
