@@ -12,13 +12,29 @@ if (!$SHOW_PAGE_FAQ) {
 }
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
+const filters = [{
+  title: "Sponsors",
+  value: "sponsors",
+  image: "coffee.png",
+}, {
+  title: "Speakers",
+  value: "speakers",
+  image: "mic.png",
+},
+{
+  title: "Participants",
+  value: "participants",
+  image: "participants.png",
+  disabled: true,
+}];
+
 const faqTarget: Ref<FAQTarget["target"]> = ref("sponsors");
 const questions: Ref<FAQQuestion[]> = ref([]);
 
-const updateFaqTarget = async (event: Event) => {
-  const newTarget = (event.target as HTMLInputElement).value as FAQTarget["target"];
-  faqTarget.value = newTarget;
-  await getQuestions(newTarget);
+const updateFaqTarget = async (newTarget : string) => {
+  const target = newTarget as FAQTarget["target"];
+  faqTarget.value = target;
+  await getQuestions(target);
 };
 
 const getQuestions = async (target: FAQTarget["target"]) => {
@@ -47,46 +63,28 @@ await getQuestions(faqTarget.value);
         découvrez les réponses aux questions les plus fréquemment posées.
       </p>
 
-      <form class="flex gap-4 justify-center my-14">
-        <fieldset>
+      <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
+        <fieldset
+          v-for="{title, value, image, disabled} in filters"
+          :key="`filter-${value}`"
+        >
           <input
-            id="sponsors"
+            :id="value"
             v-model="faqTarget"
             type="radio"
-            value="sponsors"
-            @change="updateFaqTarget($event)"
+            :value="value"
+            class="hidden"
           >
           <label
             for="sponsors"
-            class="ml-1"
-          >Sponsors</label>
-        </fieldset>
-        <fieldset>
-          <input
-            id="speakers"
-            v-model="faqTarget"
-            type="radio"
-            value="speakers"
-            @change="updateFaqTarget($event)"
-          >
-          <label
-            for="speakers"
-            class="ml-1"
-          >Speakers</label>
-        </fieldset>
-        
-        <fieldset>
-          <input
-            id="participants"
-            type="radio"
-            value="participants"
-            disabled
-            @change="updateFaqTarget($event)"
-          >
-          <label
-            for="participants"
-            class="ml-1"
-          >Participants</label>
+            tabindex="1"
+            :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
+            bg-[url('/images/drawings/${image}')] bg-contain bg-center bg-no-repeat uppercase
+            ${faqTarget === value ? 'font-bold' : 'opacity-50'}
+            ${disabled ? 'pointer-events-none' : 'cursor-pointer'}`"
+            @click.prevent="updateFaqTarget(value)"
+            @keydown.enter.exact="updateFaqTarget(value)"
+          >{{ title }}</label>
         </fieldset>
       </form>
 
@@ -136,7 +134,6 @@ await getQuestions(faqTarget.value);
   top: -17px;
   right: -80px;
   z-index: -1;
-  background: url("/images/drawings/coffee.webp") no-repeat;
   background-size: cover;
 }
 
