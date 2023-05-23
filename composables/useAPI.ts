@@ -24,6 +24,8 @@ export default async function useAPI(endpoint, options = {}) {
     throw createError({ statusCode: 404, statusMessage: "Page not found" });
   }
 
+  console.log(data.value.data.length);
+
   return {
     data: ref(data.value?.data || data.value),
     meta: ref(data.value?.meta || null),

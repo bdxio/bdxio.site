@@ -21,7 +21,7 @@ const pages = [
     show: instance.$SHOW_PAGE_SPONSORS,
   },
   {
-    name: "FAQ Sponsors",
+    name: "FAQ",
     path: "/faq",
     show: instance.$SHOW_PAGE_FAQ,
   },
