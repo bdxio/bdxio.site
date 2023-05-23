@@ -30,7 +30,7 @@ import { Counter } from "#components";
       class="w-full h-full object-cover inline-flex row-start-2 col-start-2 col-end-3
         m:row-start-1 m:col-start-7 m:col-end-11 max-h-[280px]"
       loading="lazy"
-      height="280"
+      height=""
     />
     <div
       class="flex flex-col items-center justify-center bg-white box-border text-center
