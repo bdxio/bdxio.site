@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, createError, useAPI, ref } from "#imports";
+import { useHead, useNuxtApp, createError, useAPI, ref, computed } from "#imports";
 import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
@@ -10,6 +10,7 @@ const { $SHOW_PAGE_FAQ } = useNuxtApp();
 if (!$SHOW_PAGE_FAQ) {
   throw createError({ statusCode: 404 });
 }
+
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
 const filters: Array<{
@@ -32,27 +33,22 @@ const filters: Array<{
 // }
 ];
 
-const faqTarget: Ref<FAQTarget["target"]> = ref("sponsors");
-const questions: Ref<FAQQuestion[]> = ref([]);
-const noQuestions: Ref<boolean> = ref(false);
- 
-const updateFaqTarget = async (target: FAQTarget["target"]) => {
-  faqTarget.value = target;
-  await getQuestions(target);
-};
+const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
 
-const getQuestions = async (target: FAQTarget["target"]) => {
-  questions.value = [];
-  const { data }: { data: Ref<FAQQuestion[]> } =
-  await useAPI(`/faq-questions?filters[faq_target][target][$eq]=${target}`);
-  if (data.value.length > 0) {
-    questions.value = data.value;
-  } else {
-    noQuestions.value = true;
-  }
-};
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: { "populate": "*" } });
 
-await getQuestions(faqTarget.value);
+const questions = computed(() => {
+  return targets.reduce((result, target) => {
+    result[target] = data.value.filter((question) => question.faq_target?.target === target);
+    return result;
+  }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
+});
+
+const currentTarget = ref<FAQTarget["target"]>("sponsors");
+
+function changeTarget(target: FAQTarget["target"]) {
+  currentTarget.value = target;
+}
 </script>
 
 <template>
@@ -68,7 +64,6 @@ await getQuestions(faqTarget.value);
         Que vous soyez sponsors, speakers ou encore participants
         découvrez les réponses aux questions les plus fréquemment posées.
       </p>
-
       <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
         <fieldset
           v-for="{title, value, image} in filters"
@@ -76,7 +71,7 @@ await getQuestions(faqTarget.value);
         >
           <input
             :id="value"
-            v-model="faqTarget"
+            v-model="currentTarget"
             type="radio"
             :value="value"
             class="hidden"
@@ -85,48 +80,44 @@ await getQuestions(faqTarget.value);
             for="sponsors"
             tabindex="1"
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
-            bg-contain bg-center bg-no-repeat uppercase cursor-pointer
-            ${faqTarget === value ? 'font-bold' : 'opacity-50'}`"
+            bg-contain bg-center bg-no-repeat uppercase cursor-pointer hover:opacity-100
+            ${currentTarget === value ? 'font-bold' : 'opacity-50'}`"
             :style="{'background-image': `url(/images/drawings/${image})`}"
-            @click.prevent="updateFaqTarget(value)"
-            @keydown.enter.exact="updateFaqTarget(value)"
-          >{{ title }}</label>
+            @click.prevent="changeTarget(value)"
+            @keydown.enter.exact="changeTarget(value)"
+          >
+            {{ title }}
+          </label>
         </fieldset>
       </form>
-
-      <ul
-        v-if="questions.length > 0"
-        class="mt-[100px] m:max-w-[50%] m:mx-auto"
+      <template
+        v-for="target in targets"
+        :key="target"
       >
-        <Collapse
-          v-for="question in questions"
-          :key="`question-${question.id}`"
-          tag="li"
-          class="mb-10"
-        >
-          <template #title>
-            <Heading
-              level="2"
-              class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
-            >
-              {{ question.title }}
-            </Heading>
-          </template>
-          <template #content>
-            <Markdown
-              :content="question.answer"
-              class="mt-3"
-            />
-          </template>
-        </Collapse>
-      </ul>
-
-      <p
-        v-if="noQuestions"
-        class="italic text-center mt-14"
-      >
-        Aucune réponse disponible
-      </p>
+        <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
+          <Collapse
+            v-for="question in questions[target]"
+            :key="`question-${question.id}`"
+            tag="li"
+            class="mb-10"
+          >
+            <template #title>
+              <Heading
+                level="2"
+                class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
+              >
+                {{ question.title }}
+              </Heading>
+            </template>
+            <template #content>
+              <Markdown
+                :content="question.answer"
+                class="mt-3"
+              />
+            </template>
+          </Collapse>
+        </ul>
+      </template>
     </section>
   </main>
 </template>
