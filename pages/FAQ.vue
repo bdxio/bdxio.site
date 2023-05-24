@@ -21,16 +21,17 @@ const filters = [{
   value: "speakers",
   image: "mic.png",
 },
-{
-  title: "Participants",
-  value: "participants",
-  image: "participants.png",
-  disabled: true,
-}];
+// {
+//   title: "Participants",
+//   value: "participants",
+//   image: "participants.png",
+// }
+];
 
 const faqTarget: Ref<FAQTarget["target"]> = ref("sponsors");
 const questions: Ref<FAQQuestion[]> = ref([]);
-
+const noQuestions: Ref<boolean> = ref(false);
+ 
 const updateFaqTarget = async (newTarget : string) => {
   const target = newTarget as FAQTarget["target"];
   faqTarget.value = target;
@@ -43,6 +44,8 @@ const getQuestions = async (target: FAQTarget["target"]) => {
   await useAPI(`/faq-questions?filters[faq_target][target][$eq]=${target}`);
   if (data.value.length > 0) {
     questions.value = data.value;
+  } else {
+    noQuestions.value = true;
   }
 };
 
@@ -65,7 +68,7 @@ await getQuestions(faqTarget.value);
 
       <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
         <fieldset
-          v-for="{title, value, image, disabled} in filters"
+          v-for="{title, value, image} in filters"
           :key="`filter-${value}`"
         >
           <input
@@ -79,9 +82,8 @@ await getQuestions(faqTarget.value);
             for="sponsors"
             tabindex="1"
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
-            bg-[url('/images/drawings/${image}')] bg-contain bg-center bg-no-repeat uppercase
-            ${faqTarget === value ? 'font-bold' : 'opacity-50'}
-            ${disabled ? 'pointer-events-none' : 'cursor-pointer'}`"
+            bg-[url('/images/drawings/${image}')] bg-contain bg-center bg-no-repeat uppercase cursor-pointer
+            ${faqTarget === value ? 'font-bold' : 'opacity-50'}`"
             @click.prevent="updateFaqTarget(value)"
             @keydown.enter.exact="updateFaqTarget(value)"
           >{{ title }}</label>
@@ -115,7 +117,7 @@ await getQuestions(faqTarget.value);
       </ul>
 
       <p
-        v-else
+        v-if="noQuestions"
         class="italic text-center mt-14"
       >
         Aucune réponse disponible
@@ -128,13 +130,15 @@ await getQuestions(faqTarget.value);
 .title::after {
   content: "";
   display: block;
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 70px;
   position: absolute;
-  top: -17px;
-  right: -80px;
+  right: -100px;
+  bottom: -30px;
   z-index: -1;
-  background-size: cover;
+  background-image: url("/images/drawings/yellow_scribbles.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 </style>
