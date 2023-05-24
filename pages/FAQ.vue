@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, createError, useAPI } from "#imports";
-import { Collapse, Heading } from "#components";
+import { useHead, useNuxtApp, createError, useAPI, ref, computed } from "#imports";
+import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
-import type { FAQQuestion } from "~/types";
+import type { FAQQuestion, FAQTarget } from "~/types";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
 
@@ -13,7 +13,42 @@ if (!$SHOW_PAGE_FAQ) {
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
-const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {});
+const filters: Array<{
+  title: string,
+  value: FAQTarget["target"],
+  image: string
+}> = [{
+  title: "Sponsors",
+  value: "sponsors",
+  image: "coffee.png",
+}, {
+  title: "Speakers",
+  value: "speakers",
+  image: "mic.png",
+},
+// {
+//   title: "Participants",
+//   value: "participants",
+//   image: "participants.png",
+// }
+];
+
+const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
+
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: { "populate": "*" } });
+
+const questions = computed(() => {
+  return targets.reduce((result, target) => {
+    result[target] = data.value.filter((question) => question.faq_target?.target === target);
+    return result;
+  }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
+});
+
+const currentTarget = ref<FAQTarget["target"]>("sponsors");
+
+function changeTarget(target: FAQTarget["target"]) {
+  currentTarget.value = target;
+}
 </script>
 
 <template>
@@ -26,31 +61,63 @@ const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-que
         F.A.Q
       </Heading>
       <p class="max-w-[500px] text-center block mx-auto text-bdxio-blue-dark">
-        Découvrez les réponses aux questions les plus fréquemment posées.
+        Que vous soyez sponsors, speakers ou encore participants
+        découvrez les réponses aux questions les plus fréquemment posées.
       </p>
-
-      <ul class="mt-[100px] m:max-w-[50%] m:mx-auto">
-        <Collapse
-          v-for="question in questions"
-          :key="`question-${question.id}`"
-          tag="li"
-          class="mb-10"
+      <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
+        <fieldset
+          v-for="{title, value, image} in filters"
+          :key="`filter-${value}`"
         >
-          <template #title>
-            <Heading
-              level="2"
-              class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
-            >
-              {{ question.title }}
-            </Heading>
-          </template>
-          <template #content>
-            <p class="m-0 mt-4 text-bdxio-blue-dark">
-              {{ question.answer }}
-            </p>
-          </template>
-        </Collapse>
-      </ul>
+          <input
+            :id="value"
+            v-model="currentTarget"
+            type="radio"
+            :value="value"
+            class="hidden"
+          >
+          <label
+            for="sponsors"
+            tabindex="1"
+            :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
+            bg-contain bg-center bg-no-repeat uppercase cursor-pointer hover:opacity-100
+            ${currentTarget === value ? 'font-bold' : 'opacity-50'}`"
+            :style="{'background-image': `url(/images/drawings/${image})`}"
+            @click.prevent="changeTarget(value)"
+            @keydown.enter.exact="changeTarget(value)"
+          >
+            {{ title }}
+          </label>
+        </fieldset>
+      </form>
+      <template
+        v-for="target in targets"
+        :key="target"
+      >
+        <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
+          <Collapse
+            v-for="question in questions[target]"
+            :key="`question-${question.id}`"
+            tag="li"
+            class="mb-10"
+          >
+            <template #title>
+              <Heading
+                level="2"
+                class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
+              >
+                {{ question.title }}
+              </Heading>
+            </template>
+            <template #content>
+              <Markdown
+                :content="question.answer"
+                class="mt-3"
+              />
+            </template>
+          </Collapse>
+        </ul>
+      </template>
     </section>
   </main>
 </template>
@@ -59,14 +126,14 @@ const { data: questions }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-que
 .title::after {
   content: "";
   display: block;
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 70px;
   position: absolute;
-  top: -17px;
-  right: -80px;
+  right: -100px;
+  bottom: -30px;
   z-index: -1;
-  background: url("/images/drawings/coffee.webp") no-repeat;
-  background-size: cover;
+  background-image: url("/images/drawings/yellow_scribbles.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-
 </style>
