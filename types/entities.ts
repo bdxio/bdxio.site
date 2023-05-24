@@ -32,7 +32,7 @@ export type FAQQuestion = {
 
 export type FAQTarget = {
   id: number;
-  target?: "speakers" | "sponsors" | "participants";
+  target: "speakers" | "sponsors" | "participants";
   description?: string;
   createdAt: string;
   publishedAt: string;
