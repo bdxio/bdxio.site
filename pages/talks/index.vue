@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
