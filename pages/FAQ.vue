@@ -82,8 +82,9 @@ await getQuestions(faqTarget.value);
             for="sponsors"
             tabindex="1"
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
-            bg-[url('/images/drawings/${image}')] bg-contain bg-center bg-no-repeat uppercase cursor-pointer
+            bg-contain bg-center bg-no-repeat uppercase cursor-pointer
             ${faqTarget === value ? 'font-bold' : 'opacity-50'}`"
+            :style="{'background-image': `url(/images/drawings/${image})`}"
             @click.prevent="updateFaqTarget(value)"
             @keydown.enter.exact="updateFaqTarget(value)"
           >{{ title }}</label>
