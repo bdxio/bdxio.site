@@ -25,3 +25,12 @@
     padding: theme('spacing.32');
   }
 }
+
+.markdown ul {
+  list-style-type: disc;
+  padding-left: theme("spacing.5")
+}
+.markdown a {
+  color: theme('colors.bdxio-blue.base');
+}
+

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, createError, useAPI, ref } from "#imports";
-import { Collapse, Heading } from "#components";
+import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
 import type { FAQQuestion, FAQTarget } from "~/types";
@@ -12,7 +12,11 @@ if (!$SHOW_PAGE_FAQ) {
 }
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
-const filters = [{
+const filters: Array<{
+  title: string,
+  value: FAQTarget["target"],
+  image: string
+}> = [{
   title: "Sponsors",
   value: "sponsors",
   image: "coffee.png",
@@ -32,8 +36,7 @@ const faqTarget: Ref<FAQTarget["target"]> = ref("sponsors");
 const questions: Ref<FAQQuestion[]> = ref([]);
 const noQuestions: Ref<boolean> = ref(false);
  
-const updateFaqTarget = async (newTarget : string) => {
-  const target = newTarget as FAQTarget["target"];
+const updateFaqTarget = async (target: FAQTarget["target"]) => {
   faqTarget.value = target;
   await getQuestions(target);
 };
@@ -110,9 +113,10 @@ await getQuestions(faqTarget.value);
             </Heading>
           </template>
           <template #content>
-            <p class="m-0 mt-4 text-bdxio-blue-dark">
-              {{ question.answer }}
-            </p>
+            <Markdown
+              :content="question.answer"
+              class="mt-3"
+            />
           </template>
         </Collapse>
       </ul>
@@ -140,6 +144,10 @@ await getQuestions(faqTarget.value);
   background-image: url("/images/drawings/yellow_scribbles.webp");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.answer a {
+  color: theme('colors.bdxio-blue.base')
 }
 
 </style>
