@@ -26,24 +26,18 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
     <LinkSecondary
       v-if="$SHOW_LINK_CFP"
       color="grey"
-      to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+      to="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
       target="_blank"
+      class="flex flex-row items-center"
       aria-label="lien vers le CFP (call for paper) pour devenir speaker - Nouvelle fenêtre"
     >
       Devenir speaker
       <IconOpenNewWindow
         color="#373739"
         border-color="#373739"
+        class="ml-2"
       />
     </LinkSecondary>
-    <!-- <ButtonSecondary
-      v-else
-      color="grey"
-      disabled
-      class="mt-8"
-    >
-      Bientôt disponible
-    </ButtonSecondary> -->
     <p
       v-else
       class="italic text-md"

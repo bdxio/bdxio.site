@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { NuxtLink, LinkPrimary, LinkSecondary } from "#components";
+import { NuxtLink, LinkPrimary } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
@@ -114,14 +114,14 @@ const pages = [
         v-if="instance.$SHOW_LINK_CFP"
         class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
-        <LinkSecondary
-          to="https://conference-hall.io/public/event/OJC5Ou5YJodfetgSJCa3"
+        <LinkPrimary
+          href="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
           color="light"
           target="_blank"
           aria-label="lien vers le CFP conference hall - Nouvelle fenêtre"
         >
           CFP
-        </LinkSecondary>
+        </LinkPrimary>
       </li>
     </ul>
   </nav>
