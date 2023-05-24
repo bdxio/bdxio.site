@@ -26,6 +26,7 @@ const colorClasses = computed(() => {
   <a
     :class="`bg-none border-[2px] border-solid py-[12px] px-[25px] rounded-lg cursor-pointer duration-300 w-fit
       block ${colorClasses}`"
+    :href="to"
   >
     <slot />
   </a>
