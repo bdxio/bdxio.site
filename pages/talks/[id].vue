@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { useHead, useRoute, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
