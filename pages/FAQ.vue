@@ -136,9 +136,4 @@ function changeTarget(target: FAQTarget["target"]) {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-.answer a {
-  color: theme('colors.bdxio-blue.base')
-}
-
 </style>
