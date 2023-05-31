@@ -90,7 +90,7 @@ const pages = [
       >
         <LinkPrimary
           color="light"
-          href="https://www.helloasso.com/associations/bordeaux-developer-experience/evenements/bdx-i-o-2022"
+          href="https://www.billetweb.fr/bdxio-2023"
           target="_blank"
           title="lien vers la billeterie - Nouvelle fenêtre"
         >

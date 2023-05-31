@@ -2,7 +2,7 @@ import { defineNuxtPlugin } from "#imports";
 
 const linkFlags = {
   SHOW_LINK_CFP: true,
-  SHOW_LINK_BILLETERIE: false,
+  SHOW_LINK_BILLETERIE: true,
   SHOW_LINK_OPENFEEDBACK: false,
   SHOW_LINK_YOUTUBE: false,
   SHOW_LINK_PROGRAMME_PDF: false,
