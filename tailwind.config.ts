@@ -16,6 +16,7 @@ const config: Config = {
         base: "#4652f8",
         light: "#7d7df8",
         dark: "#242457",
+        darker: "#0e0b99",
       },
       "bdxio-yellow": {
         base: "#fbdb33",
