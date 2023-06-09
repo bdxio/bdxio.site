@@ -14,6 +14,7 @@ export type Category = {
 export type Edition = {
   id: number;
   date: string;
+  year: string;
   createdAt: string;
   publishedAt: string;
   updatedAt: string;
@@ -157,6 +158,7 @@ export type Sponsor = {
   url?: string;
   logo: Media;
   offer?: Offer;
+  editions: Edition[]
   createdAt: string;
   publishedAt: string;
   updatedAt: string;
@@ -180,7 +182,7 @@ export type Talk = {
   room?: Room;
   speakers: Speaker[];
   format?: Format;
-  edition?: string;
+  edition?: Edition;
   createdAt: string;
   publishedAt: string;
   updatedAt: string;

@@ -45,7 +45,7 @@ const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active
             `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
           class="object-cover object-center rounded-t-lg"
           loading="lazy"
-          width="260"
+          width="500"
         />
         <div class="text-center p-8">
           <div class="text-xl font-bold mb-1">
