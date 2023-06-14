@@ -8,6 +8,7 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "type-check": "nuxi typecheck --noEmit",
+    "prepare": "nuxi prepare",
     "diag": "npm run lint && npm run type-check"
   },
   "dependencies": {
