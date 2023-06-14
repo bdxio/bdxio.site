@@ -3,6 +3,10 @@ const ERROR = 2;
 
 module.exports = {
   root: true,
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+  },
   extends: ["@nuxt/eslint-config", "plugin:import/recommended", "plugin:import/typescript"],
   settings: {
     "import/resolver": {
