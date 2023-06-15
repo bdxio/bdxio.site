@@ -10,30 +10,42 @@ on:
       - main
       - develop
 jobs:
-  lint:
-    name: Lint
+  build:
+    name: 🏗️ Build
     runs-on: ubuntu-latest
     steps:
-      - name: Access repository
+      - name: 📂 Access repository
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: 🏗️ Build
         run: npm run build
+  lint:
+    name: 🚨 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📂 Access repository
+        uses: actions/checkout@v3
 
-      - name: Lint code
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: ⚙️ Create .nuxt/ directory
+        run: npm run prepare
+
+      - name: 🚨 Lint code
         run: npm run lint
   type-check:
-    name: Type check
+    name: 🔎 Type check
     runs-on: ubuntu-latest
     steps:
-      - name: Access repository
+      - name: 📂 Access repository
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Type check
+      - name: 🔎 Type check
         run: npm run type-check
