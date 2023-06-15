@@ -8,6 +8,7 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "type-check": "nuxi typecheck --noEmit",
+    "prepare": "nuxi prepare",
     "diag": "npm run lint && npm run type-check"
   },
   "dependencies": {
@@ -17,7 +18,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxt/image-edge": "^1.0.0-rc.1-28110023.6b8ab9c",
+    "@nuxt/image-edge": "^1.0.0-rc.1-28112642.b1c2038",
     "@nuxtjs/google-fonts": "^3.0.1",
     "@nuxtjs/tailwindcss": "^6.7.2",
     "@types/markdown-it": "^12.2.3",
