@@ -49,7 +49,7 @@ watch(
         width="139"
         height="50"
         aria-label="Retourner sur la page d'accueil"
-        class="relative block w-full h-auto max-w-[120px] m:max-w-[160px] z-30"
+        class="relative block h-auto max-w-[120px] m:max-w-[160px] z-30"
       />
     </NuxtLink>
     <img
