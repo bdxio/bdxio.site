@@ -14,7 +14,7 @@ const pageFlags = {
   SHOW_PAGE_SPONSORS: true,
   SHOW_PAGE_SPONSORS2022: false,
   SHOW_PAGE_ASSOCIATION: true,
-  SHOW_PAGE_JOBS: true,
+  SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKS: false,
   SHOW_PAGE_LIVE: false,
   SHOW_PAGE_FAQ: true,
