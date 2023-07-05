@@ -67,8 +67,9 @@ displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
           >
             <NuxtImg
               :src="sponsor.logo.url"
+              :width="offerIndex === 0 ? 128 : 96"
+              :height="offerIndex === 0 ? 128 : 96"
               :alt="`Logo ${sponsor.name}`"
-              class="w-full"
             />
           </component>
         </li>

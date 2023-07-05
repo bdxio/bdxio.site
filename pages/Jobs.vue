@@ -4,6 +4,7 @@ import { SectionJobs } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_PAGE_JOBS } = useNuxtApp();
+
 if (!$SHOW_PAGE_JOBS) {
   throw createError({ statusCode: 404 });
 }
