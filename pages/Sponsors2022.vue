@@ -3,7 +3,7 @@ import { useHead, useNuxtApp, useAPI, createError } from "#imports";
 import { Heading } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Offer } from "~/types";
+import type { Offer } from "@bdxio/bdxio.types";
 
 const { $SHOW_PAGE_SPONSORS2022 } = useNuxtApp();
 

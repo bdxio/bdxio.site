@@ -3,7 +3,7 @@ import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Category, Schedule, Talk } from "~/types";
+import type { Category, Schedule, Talk } from "@bdxio/bdxio.types";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 

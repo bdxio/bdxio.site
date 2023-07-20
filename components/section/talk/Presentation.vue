@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useNuxtApp, computed } from "#imports";
 import { Heading, OpenFeedback, ShowOnYoutube, NuxtImg } from "#components";
-import type { Talk } from "~/types";
+import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   talk: Talk;

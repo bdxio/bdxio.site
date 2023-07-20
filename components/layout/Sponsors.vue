@@ -3,11 +3,11 @@ import { useAPI } from "#imports";
 import { Heading, HeadingSection, NuxtImg } from "#components";
 import { EDITION } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Sponsor, Offer, Media, Edition } from "~/types";
+import type { Sponsor, Offer, Media, Edition } from "@bdxio/bdxio.types";
 
 type DisplayableSponsor = Sponsor & { offer: Offer, logo: Media, editions: Edition[] };
 
-const [{ data: offers }, { data : sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([
+const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([
   useAPI("/offers", {}),
   useAPI("/sponsors", {
     params: { "populate": "*", "pagination[limit]": 1000 },

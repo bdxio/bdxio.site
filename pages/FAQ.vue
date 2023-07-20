@@ -3,7 +3,7 @@ import { useHead, useNuxtApp, createError, useAPI, ref, computed } from "#import
 import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
-import type { FAQQuestion, FAQTarget } from "~/types";
+import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "#imports";
 import { Heading, SectionTalkSpeakerPicture, NuxtImg } from "#components";
-import type { Speaker } from "~/types";
+import type { Speaker } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   speaker: Speaker;
