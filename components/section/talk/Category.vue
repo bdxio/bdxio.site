@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "#imports";
-import type { Category } from "~/types";
+import type { Category } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   category: Category;

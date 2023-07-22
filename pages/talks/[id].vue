@@ -4,7 +4,7 @@ import { useHead, useRoute, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Talk } from "~/types";
+import type { Talk } from "@bdxio/bdxio.types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 

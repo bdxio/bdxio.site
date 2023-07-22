@@ -17,6 +17,7 @@
     "markdown-it": "^13.0.1"
   },
   "devDependencies": {
+    "@bdxio/bdxio.types": "^1.1.2",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/image-edge": "^1.0.0-rc.1-28164352.ad7c010",
     "@nuxtjs/google-fonts": "^3.0.2",
