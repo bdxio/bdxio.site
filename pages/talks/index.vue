@@ -4,7 +4,7 @@ import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Category, Talk } from "~/types";
+import type { Category, Talk } from "@bdxio/bdxio.types";
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
