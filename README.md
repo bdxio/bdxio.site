@@ -1,4 +1,11 @@
+<div align="center">
+
+[![CI](https://github.com/bdxio/bdxio.site/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bdxio/bdxio.site/actions/workflows/ci.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96891a67-10f3-446a-b72a-c069e9c697d3/deploy-status)](https://app.netlify.com/sites/bdxio/deploys)
+
 # bdxio.site
+
+</div>
 
 ## Setup
 
