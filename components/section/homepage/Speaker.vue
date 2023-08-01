@@ -42,7 +42,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       v-else
       class="italic text-md"
     >
-      Inscriptions bientôt ouvertes
+      Inscriptions clôturées
     </p>
   </section>
 </template>
