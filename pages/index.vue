@@ -7,7 +7,7 @@ import {
   SectionHomepageTheme,
   SectionHomepageCategories,
   SectionHomepageSponsor,
-  SectionHomepageSpeaker,
+  SectionHomepageParticipants,
 } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
@@ -24,7 +24,7 @@ useHead({ title: ASSOCIATION_NAME });
     <SectionHomepageCategories />
     <div class="grid grid-cols-1 m:grid-cols-2">
       <SectionHomepageSponsor />
-      <SectionHomepageSpeaker />
+      <SectionHomepageParticipants />
     </div>
   </main>
 </template>
