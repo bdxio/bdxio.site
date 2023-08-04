@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Heading, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Volunteer } from "~/types";
+import type { Volunteer } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   volunteers: Volunteer[];
