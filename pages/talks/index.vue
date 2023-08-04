@@ -1,8 +1,7 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Talk } from "@bdxio/bdxio.types";
 
@@ -14,13 +13,12 @@ const currentFilter = ref(ALL);
 const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] =
   await Promise.all([
     useAPI("/categories", { params: { populate: "*" } }),
-    useAPI("/talks", {
-      params: {
-        populate: "*",
-        "populate[category]": "*",
-        "populate[speakers]": "*",
-      },
-    }),
+    useAPI("/talks", { params: {
+      "populate": "*",
+      "pagination[limit]": 100,
+      "sort": "title:asc",
+      "filters[edition][year][$eq]": EDITION,
+    } }),
   ]);
 
 const filteredTalks = computed(() => {

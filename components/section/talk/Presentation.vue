@@ -22,7 +22,7 @@ const duration = computed(() => {
 </script>
 
 <template>
-  <section class="p-section !pt-0 mb-20">
+  <section class="!pt-0 m:p-16 l:p-20 xl:p-24 xxl:p-28 xxxl:p-32 mb-20">
     <Heading level="1">
       {{ talk.title }}
     </Heading>

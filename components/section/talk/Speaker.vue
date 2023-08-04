@@ -26,7 +26,7 @@ const speakerSocialLinks = computed(() => {
   if (props.speaker.twitter) {
     socials.push({
       label: "twitter",
-      imgPath: "socials/twitter.svg",
+      imgPath: "icons/twitter.svg",
       alt: "Icône Twitter",
       url: getSocialUrl(props.speaker.twitter, "twitter"),
     });
@@ -34,7 +34,7 @@ const speakerSocialLinks = computed(() => {
   if (props.speaker.github) {
     socials.push({
       label: "github",
-      imgPath: "socials/github.svg",
+      imgPath: "icons/github.svg",
       alt: "Icône Github",
       url: getSocialUrl(props.speaker.github, "github"),
     });
@@ -42,7 +42,7 @@ const speakerSocialLinks = computed(() => {
   if (props.speaker.linkedin) {
     socials.push({
       label: "linkedin",
-      imgPath: "socials/linkedin.svg",
+      imgPath: "icons/linkedin.svg",
       alt: "Icône Linkedin",
       url: getSocialUrl(props.speaker.linkedin, "linkedin"),
     });
@@ -50,7 +50,7 @@ const speakerSocialLinks = computed(() => {
   if (props.speaker.website) {
     socials.push({
       label: "site",
-      imgPath: "socials/website.svg",
+      imgPath: "icons/website.svg",
       alt: "Icône site personnel",
       url: props.speaker.website,
     });
@@ -62,7 +62,7 @@ const speakerSocialLinks = computed(() => {
 
 <template>
   <section class="bg-grey-100 p-12">
-    <div class="flex items-center mb-8">
+    <div class="flex items-center">
       <SectionTalkSpeakerPicture :speaker="speaker" />
       <Heading
         level="3"
@@ -73,7 +73,7 @@ const speakerSocialLinks = computed(() => {
     </div>
     <ul
       v-if="speakerSocialLinks.length > 0"
-      class="flex flex-wrap gap-4 mb-8"
+      class="flex flex-wrap gap-4 mt-8"
     >
       <li
         v-for="(link, index) in speakerSocialLinks"
@@ -97,6 +97,7 @@ const speakerSocialLinks = computed(() => {
     <!-- eslint-disable vue/no-v-html -->
     <div
       v-if="speaker.bio"
+      class="mt-8"
       v-html="$md.render(speaker.bio)"
     />
     <!-- eslint-enable vue/no-v-html -->

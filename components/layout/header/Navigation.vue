@@ -16,6 +16,11 @@ const pages = [
     show: true,
   },
   {
+    name: "Talks",
+    path: "/talks",
+    show: instance.$SHOW_PAGE_TALKS,
+  },
+  {
     name: "Programme",
     path: "/programme",
     show: instance.$SHOW_PAGE_PROGRAMME,
@@ -39,11 +44,6 @@ const pages = [
     name: "Offres d'emploi",
     path: "/jobs",
     show: instance.$SHOW_PAGE_JOBS,
-  },
-  {
-    name: "Talks",
-    path: "/talks",
-    show: instance.$SHOW_PAGE_TALKS,
   },
 ].filter((page) => page.show);
 </script>
