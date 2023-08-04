@@ -6,7 +6,14 @@ const props = defineProps<{
   isOpen?: true
 }>();
 
+/**
+ * Intentionally disables this rule.
+ * In this case, prop value is just used as a starting
+ * value, it's not a problem if we lose reactivity afterwards.
+ */
+/* eslint-disable vue/no-setup-props-destructure */
 const open = ref(!!props.isOpen);
+/* eslint-enable vue/no-setup-props-destructure */
 
 function toggleOpen() {
   return open.value = !open.value;

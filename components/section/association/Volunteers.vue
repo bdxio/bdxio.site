@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "#imports";
 import { Heading, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Volunteer } from "@bdxio/bdxio.types";
@@ -15,7 +16,7 @@ function getVolunteerName(volunteer: Volunteer): string | null {
   return `${firstname} ${lastname}`;
 }
 
-const activeVolunteers = props.volunteers.filter((volunteer) => volunteer.active);
+const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => volunteer.active));
 </script>
 
 <template>
