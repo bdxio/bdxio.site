@@ -8,7 +8,7 @@ const props = defineProps<{
 }>();
 
 const animatedValue = ref(0);
-const animatedInterval = ref<NodeJS.Timer>();
+const animatedInterval = ref();
 
 onMounted(() => {
   const interval = ((props.step || 1) * (props.duration || 1000)) / props.value;
