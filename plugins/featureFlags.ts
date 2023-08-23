@@ -16,6 +16,7 @@ const pageFlags = {
   SHOW_PAGE_ASSOCIATION: true,
   SHOW_PAGE_JOBS: false,
   SHOW_PAGE_TALKS: true,
+  SHOW_PAGE_SPEAKERS: true,
   SHOW_PAGE_LIVE: false,
   SHOW_PAGE_FAQ: true,
 };
