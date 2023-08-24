@@ -29,7 +29,6 @@ if (!talk.value) {
     <SectionTalkPresentation :talk="talk" />
     <SectionTalkSpeaker
       v-for="speaker in talk.speakers"
-      id="speaker"
       :key="speaker.id"
       :speaker="speaker"
     />
