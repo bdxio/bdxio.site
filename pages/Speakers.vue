@@ -54,7 +54,7 @@ return talksWithSpeakers.value.reduce((acc: SpeakerWithTalkId, talk: Talk) => {
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-14"
       >
         <NuxtLink
-          :to="`/talks/${speaker.talkId}#speaker`"
+          :to="`/talks/${speaker.talkId}`"
           class="flex items-start justify-start"
         >
           <SectionTalkSpeakerPicture
