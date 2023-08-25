@@ -18,7 +18,7 @@ const { data: talksWithSpeakers }: {data: Ref<Talk[]>} = await useAPI("/talks", 
 const speakers = computed(() => {
   if (!talksWithSpeakers.value.length) return [];
 
-type SpeakerWithTalkId = Array<Speaker & {
+type SpeakersWithTalkId = Array<Speaker & {
 talkId: number;
 }>;
 
