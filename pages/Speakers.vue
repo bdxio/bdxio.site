@@ -25,7 +25,6 @@ talkId: number;
 return talksWithSpeakers.value.reduce((acc: SpeakerWithTalkId, talk: Talk) => {
   if (!talk.speakers.length) return acc;
 
-  console.log(talk);
 
   talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
   return acc;
