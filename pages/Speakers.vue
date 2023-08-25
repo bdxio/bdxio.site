@@ -45,7 +45,7 @@ return talksWithSpeakers.value.reduce((acc: SpeakerWithTalkId, talk: Talk) => {
     </p>
     <ul
       v-else
-      class="flex flex-row flex-wrap items-start justify-start"
+      class="flex flex-row flex-wrap items-center justify-start"
     >
       <li
         v-for="(speaker, index) in speakers"
