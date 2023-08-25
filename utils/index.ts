@@ -1,1 +1,1 @@
-export { getSpeakerSocialsLinks } from "./getSpeakerSocialsLinks";
+export * as default from "./getSpeakerSocialsLinks";
