@@ -22,9 +22,8 @@ type SpeakersWithTalkId = Array<Speaker & {
 talkId: number;
 }>;
 
-return talksWithSpeakers.value.reduce((acc: SpeakerWithTalkId, talk: Talk) => {
+return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
   if (!talk.speakers.length) return acc;
-
 
   talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
   return acc;
