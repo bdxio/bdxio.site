@@ -11,7 +11,14 @@ export default defineNuxtConfig({
   experimental: {
     typedPages: true,
   },
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "@vue-macros/nuxt", "@vueuse/nuxt", "@nuxt/image-edge"],
+  modules: [
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/tailwindcss",
+    "@vue-macros/nuxt",
+    "@vueuse/nuxt",
+    "@nuxt/image-edge",
+    "nuxt-simple-sitemap",
+  ],
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
