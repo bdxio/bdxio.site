@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, OPENFEEDBACK_URL, KEYNOTES } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Category, Schedule, Talk } from "@bdxio/bdxio.types";
+import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
 if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
@@ -13,30 +13,63 @@ if (!$SHOW_PAGE_PROGRAMME) {
 
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
+const ALL = "all";
 const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
-const { data }: { data: Ref<{ categories: Category[], schedule: Schedule }> } = await useAPI("/schedule");
+const [
+  { data: categories },
+  { data: slots },
+  { data: talks },
+]: [
+  { data: Ref<Category[]> },
+  { data: Ref<Slot[]> },
+  { data: Ref<Talk[]>}
+] =
+  await Promise.all([
+    useAPI("/categories", { params: { populate: "*" } }),
+    useAPI("/slots", { params: { "sort": "startSlot:asc" } }),
+    useAPI("/talks", { params: {
+      "populate": "*",
+      "pagination[limit]": 100,
+      "filters[edition][year][$eq]": EDITION,
+    } }),
+  ]);
 
-const { categories, schedule } = data.value;
+const schedule = slots.value.reduce((result, slot) => {
+  const slotTalks = talks.value
+    .filter((talk) => talk.slot?.startSlot === slot.startSlot)
+    .sort((a, b) => {
+      if (!a.room || !b.room) return 0;
+      if (a?.room.name < b?.room.name) return -1;
+      return 1;
+    });
 
-const isMobileContext = computed(() => window.innerWidth <= 992);
+  result.push({
+    time: `${slot.startSlot.split(":")[0]}h${slot.startSlot.split(":")[1]}`,
+    name: slot.name,
+    talks: slotTalks,
+    rooms: slot.rooms || [],
+  });
+
+  return result;
+}, [] as Schedule);
+
 const filteredSchedule = computed(() => {
   if (!filters.value.length) {
     return schedule;
   }
-
+  
   return schedule
     .map((scheduleItem) => {
       return {
         ...scheduleItem,
-        talks: scheduleItem.talks.filter((t) =>
-          t.category && filters.value.includes(t.category.name),
+        talks: scheduleItem.talks.filter((talk) => talk.category && filters.value.includes(talk.category.id.toString()),
         ),
       };
     })
-    .filter((s) => s.talks.length > 0);
+    .filter((scheduleItem) => scheduleItem.talks.length);
 });
 
 function displayTalkSubInfos(talk: Talk) {
@@ -57,53 +90,47 @@ function displayTalkSubInfos(talk: Talk) {
   return text;
 }
 
-function setFilter(filter: string) {
-  if (filter === "tous") {
+function setFilter(value: string) {
+  if (value === ALL) {
     filters.value = [];
     return;
   }
 
-  if (!filters.value.includes(filter)) {
-    filters.value = [...filters.value, filter];
-    return;
-  }
-
-  filters.value = filters.value.filter((f) => f !== filter);
+  filters.value = filters.value.includes(value) ? filters.value.filter((f) => f !== value) : [...filters.value, value];
 }
 
-function getCategoryImageName(category: Category) {
-  switch (category.name) {
-    case "Frontend":
-      return "frontend.webp";
-    case "Design & UX":
-      return "designux.webp";
-    case "Méthodo & Architecture":
-      return "methodoarchitecture.webp";
-    case "Cloud & DevSecOps":
-      return "cloudetdevsecops.webp";
-    case "Backend":
-      return "backend.webp";
-    case "Big Data & I.A.":
-      return "bigdataia.webp";
-    case "Hors-piste":
-      return "horspiste.webp";
-    default:
-      return "";
-  }
-}
-
-function getCategoryImagePath(category: Category) {
-  const imageName = getCategoryImageName(category);
-  return imageName ? `/images/drawings/categories/${imageName}` : "";
+function getCategoryImage(category: Category) {
+  return [{
+    name: "Frontend",
+    icon: "/images/drawings/categories/frontend.webp",
+  }, {
+    name: "Backend",
+    icon: "/images/drawings/categories/backend.webp",
+  }, {
+    name: "Big Data & I.A.",
+    icon: "/images/drawings/categories/bigdataia.webp",
+  }, {
+    name: "Design & UX",
+    icon: "/images/drawings/categories/designux.webp",
+  }, {
+    name: "Cloud & DevSecOps",
+    icon: "/images/drawings/categories/cloudetdevsecops.webp",
+  }, {
+    name: "Méthodo & Architecture",
+    icon: "/images/drawings/categories/methodoarchitecture.webp",
+  }, {
+    name: "Hors-piste",
+    icon: "/images/drawings/categories/horspiste.webp",
+  }].find((c) => c.name === category.name)?.icon || "";
 }
 
 function openMobilePanel() {
-  if (isMobileContext.value) {
+  if (window.innerWidth <= 992) {
     openPanel.value = !openPanel.value;
   }
 }
 
-onClickOutside(categoriesWrapper, () => openMobilePanel());
+onClickOutside(categoriesWrapper, openMobilePanel);
 </script>
 
 <template>
@@ -118,16 +145,17 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
     </header>
     <section class="section-schedule__body">
       <div class="schedule-download">
-        <!-- <LinkPrimary
-            color="light"
-            href="/bdxio-2022-programme.pdf"
-            download
-          >
-            Télécharger le programme
-          </LinkPrimary> -->
+        <LinkPrimary
+          v-if="$SHOW_LINK_PROGRAMME_PDF"
+          color="light"
+          href="/bdxio-2023-programme.pdf"
+          download="bdxio-2023-programme.pdf"
+        >
+          Télécharger le programme
+        </LinkPrimary>
         <OpenFeedback
           v-if="$SHOW_LINK_OPENFEEDBACK"
-          href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02"
+          :href="OPENFEEDBACK_URL"
         />
       </div>
       <div class="schedule-container">
@@ -150,19 +178,19 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
               <li
                 class="categories__category all"
                 :class="{ active: !filters.length }"
-                @click="setFilter('tous')"
+                @click="setFilter(ALL)"
               >
                 <span>Tous</span>
               </li>
               <li
                 v-for="category in categories"
-                :key="category.name"
+                :key="category.id"
                 class="categories__category"
-                :class="{ active: filters.includes(category.name) }"
-                @click="setFilter(category.name)"
+                :class="{ active: filters.includes(category.id.toString()) }"
+                @click="setFilter(category.id.toString())"
               >
                 <NuxtImg
-                  :src="getCategoryImagePath(category)"
+                  :src="getCategoryImage(category)"
                   :aria-hidden="true"
                   class="categories__category__image"
                   alt=""
@@ -187,21 +215,19 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
             </div>
             <ul>
               <li
-                v-for="(
-                  { formattedSlot, name, talks, space = false }, indexSlot
-                ) in filteredSchedule"
+                v-for="({ time, name, talks: slotTalks, rooms }, indexSlot) in filteredSchedule"
                 :key="`slot-${indexSlot}`"
               >
                 <h4 class="slots__slot__hour">
-                  {{ formattedSlot }}
+                  {{ time }}
                 </h4>
                 <div class="slots__slot__infos">
                   <ul
-                    v-if="talks.length"
+                    v-if="slotTalks.length"
                     class="slots__slot__infos__talks"
                   >
                     <li
-                      v-for="(talk, indexTalk) in talks"
+                      v-for="(talk, indexTalk) in slotTalks"
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
@@ -216,7 +242,7 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                           <NuxtImg
                             v-if="talk.category"
                             class="talk__infos__image"
-                            :src="getCategoryImagePath(talk.category)"
+                            :src="getCategoryImage(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
                             :aria-label="`Catégorie ${talk.category.name}`"
                             width="40"
@@ -234,10 +260,12 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                     </li>
                   </ul>
                   <div
-                    v-else-if="space"
+                    v-else
                     class="slots__slot__infos__interlude"
                   >
-                    <span class="room">{{ space }}</span>
+                    <span class="room">
+                      {{ rooms.length ? rooms.map(room => room.name).join(", ") : "Communiqué le jour J" }}
+                    </span>
                     <span class="slots__slot__infos__interlude__name">
                       {{ name }}
                     </span>
@@ -246,12 +274,8 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       class="openfeedback-keynote"
                     >
                       <OpenFeedback
-                        v-if="name === 'Keynote d\'ouverture'"
-                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1"
-                      />
-                      <OpenFeedback
-                        v-if="name === 'Keynote de fermeture'"
-                        href="https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/2"
+                        v-if="KEYNOTES.some(keynote => keynote.name === name)"
+                        :href="KEYNOTES.find(keynote => keynote.name === name)?.openFeedbackLink || ''"
                       />
                     </div>
                     <div
@@ -259,12 +283,8 @@ onClickOutside(categoriesWrapper, () => openMobilePanel());
                       class="youtube-keynote"
                     >
                       <ShowOnYoutube
-                        v-if="name === 'Keynote d\'ouverture'"
-                        href="https://www.youtube.com/watch?v=0BsP06iB45Y&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=1&ab_channel=bdxio"
-                      />
-                      <ShowOnYoutube
-                        v-if="name === 'Keynote de fermeture'"
-                        href="https://www.youtube.com/watch?v=ifXy9jRLWl8&list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W&index=40&ab_channel=bdxio"
+                        v-if="KEYNOTES.some(keynote => keynote.name === name)"
+                        :href="KEYNOTES.find(keynote => keynote.name === name)?.youtubeLink || ''"
                       />
                     </div>
                   </div>
