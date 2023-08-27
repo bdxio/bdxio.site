@@ -27,7 +27,7 @@ return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
 
   talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
   return acc;
-}, []).sort((a,b) => a.name.localeCompare(b.name));
+}, []).sort((a, b) => a.name.localeCompare(b.name));
 });
 </script>
 
