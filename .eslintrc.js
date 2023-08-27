@@ -40,7 +40,7 @@ module.exports = {
       {
         "groups": [
           ["builtin", "external"],
-          ["internal", "parent","sibling"],
+          ["internal", "parent", "sibling"],
           "index",
           "type",
         ],
@@ -51,6 +51,7 @@ module.exports = {
     "spaced-comment": [ERROR, "always", { "block": { "balanced": true } }],
     "object-curly-spacing": [ERROR, "always"],
     "eol-last": [ERROR, "always"],
+    "comma-spacing": [ERROR, { "before": false, "after": true }],
     /* TypeScript */
     "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
     /* Vue */
