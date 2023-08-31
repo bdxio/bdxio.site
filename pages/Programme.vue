@@ -14,6 +14,7 @@ if (!$SHOW_PAGE_PROGRAMME) {
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
 const ALL = "all";
+const ADVANCED = "Avancé";
 const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
@@ -85,7 +86,7 @@ function displayTalkSubInfos(talk: Talk) {
   if (formattedSpeakers) text += `${formattedSpeakers} -`;
   if (talk.format?.name) text += ` ${talk.format.name}`;
   if (talk.format?.duration) text += ` (${talk.format.duration})`;
-  if (talk.level) text += ` - Niveau ${talk.level}`;
+  if (talk.level) text += ` - Niveau ${talk.level.toLowerCase()}`;
 
   return text;
 }
@@ -252,7 +253,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                               {{ talk.title }}
                             </span>
                             <span class="talk__infos__content__subinfos">
-                              {{ displayTalkSubInfos(talk) }}
+                              {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED && "🌶️" }}
                             </span>
                           </div>
                         </div>
