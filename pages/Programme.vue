@@ -15,6 +15,7 @@ useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
 const ALL = "all";
 const ADVANCED = "Avancé";
+const ENGLISH = "Anglais";
 const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
@@ -250,7 +251,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                           />
                           <div class="talk__infos__content">
                             <span class="talk__infos__content__title">
-                              {{ talk.title }}
+                              {{ talk.title }} {{ talk.language === ENGLISH && "🇬🇧" }}
                             </span>
                             <span class="talk__infos__content__subinfos">
                               {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED && "🌶️" }}
