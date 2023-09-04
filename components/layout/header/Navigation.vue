@@ -22,7 +22,7 @@ const pages = [
   },
   {
     name: "Programme",
-    path: "/programme",
+    path: "/schedule",
     show: instance.$SHOW_PAGE_PROGRAMME,
   },
   {
