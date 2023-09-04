@@ -8,22 +8,21 @@ import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
 useHead({ title: `Speakers | ${ASSOCIATION_NAME}` });
 
-const { data: talksWithSpeakers }: {data: Ref<Talk[]>} = await useAPI("/talks", { params: {
-  "populate": "speakers",
+const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", { params: {
+  "populate": "*",
   "pagination[limit]": 100,
   "filters[edition][year][$eq]": EDITION,
-  "fields[0]": "speakers",
 } });
 
 const speakers = computed(() => {
-  if (!talksWithSpeakers.value.length) return [];
+  if (!talksWithSpeakers.value?.length) return [];
 
 type SpeakersWithTalkId = Array<Speaker & {
-talkId: number;
+  talkId: number;
 }>;
 
 return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
-  if (!talk.speakers.length) return acc;
+  if (!talk.speakers?.length) return acc;
 
   talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
   return acc;
