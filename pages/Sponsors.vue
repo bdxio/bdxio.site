@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, createError, useAPI } from "#imports";
 import { SectionSponsorsBecomeSponsor, SectionSponsorsOffers } from "#components";
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Offer } from "@bdxio/bdxio.types";
 
@@ -13,7 +13,9 @@ if (!$SHOW_PAGE_SPONSORS) {
 
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", {});
+const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
+  "filters[edition][year][$eq]": EDITION,
+} });
 data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 </script>
 
