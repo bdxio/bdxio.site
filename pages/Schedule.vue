@@ -30,8 +30,13 @@ const [
   { data: Ref<Talk[]>}
 ] =
   await Promise.all([
-    useAPI("/categories", { params: { populate: "*" } }),
-    useAPI("/slots", { params: { "sort": "startSlot:asc" } }),
+    useAPI("/categories", { params: {
+      "populate": "*",
+    } }),
+    useAPI("/slots", { params: {
+      "sort": "startSlot:asc",
+      "filters[editions][year][$contains]": EDITION,
+    } }),
     useAPI("/talks", { params: {
       "populate": "*",
       "pagination[limit]": 100,
