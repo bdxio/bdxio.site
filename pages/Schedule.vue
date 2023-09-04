@@ -256,10 +256,10 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                           />
                           <div class="talk__infos__content">
                             <span class="talk__infos__content__title">
-                              {{ talk.title }} {{ talk.language === ENGLISH && "🇬🇧" }}
+                              {{ talk.title }} {{ talk.language === ENGLISH ? "🇬🇧" : null }}
                             </span>
                             <span class="talk__infos__content__subinfos">
-                              {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED && "🌶️" }}
+                              {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED ? "🌶️" : null }}
                             </span>
                           </div>
                         </div>
