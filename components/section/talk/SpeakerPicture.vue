@@ -19,8 +19,8 @@ const initials = computed(() => {
     return "";
   }
 
-  return `${firstName && firstName.length > 0 ? firstName[0].toUpperCase() : ""}
-   ${lastName && lastName.length > 0 ? ` ${lastName[0].toUpperCase()}` : ""}`;
+  return `${firstName?.length > 0 ? firstName[0].toUpperCase() : ""}
+   ${lastName?.length > 0 ? ` ${lastName[0].toUpperCase()}` : ""}`;
 });
 
 function getPictureSizeClasses() {
