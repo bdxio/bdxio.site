@@ -35,12 +35,11 @@ const getOfferColorClass = (offer: Offer["label"]) => {
         v-for="offer in offers"
         :key="offer.label"
         :class="`mb-7 xl:mb-0 w-full m:w-1/4
-        ${offer.full ? 'cursor-not-allowed relative z-10 soldout' : null}`"
+        ${offer.full ? 'cursor-not-allowed relative z-10' : null}`"
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
           <span
-            :class="`block font-bold uppercase text-[20px] tracking-[3px]
-            ${getOfferColorClass(offer.label)}`"
+            :class="`block font-bold uppercase text-[20px] tracking-[3px] ${getOfferColorClass(offer.label)}`"
           >
             {{ offer.label }}
           </span>
@@ -48,6 +47,12 @@ const getOfferColorClass = (offer: Offer["label"]) => {
           <p class="text-base font-normal">
             {{ offer.description }}
           </p>
+          <div
+            v-if="offer.full"
+            :class="`uppercase w-fit text-sm px-4 py-2 bg-bdxio-blue-darker text-white mt-4`"
+          >
+            Complet
+          </div>
         </div>
       </div>
     </div>
@@ -66,15 +71,5 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   right: 52%;
   bottom: -40px;
   transform: translateX(100%);
-}
-
-.soldout::after {
-  content: "complet";
-  text-transform: uppercase;
-  width: 100px;
-  height: 50px;
-  font-size: 15px;
-  padding: 5px 10px;
-  font-weight: 700;
 }
 </style>
