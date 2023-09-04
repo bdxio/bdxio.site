@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "#imports";
+import { computed, useFetch } from "#imports";
 import { NuxtImg } from "#components";
 import type { Speaker } from "@bdxio/bdxio.types";
 
@@ -14,7 +14,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const initials = computed(() => {
   const [firstName, lastName] = props.speaker.name.split(" ");
-  return `${firstName[0].toUpperCase()} ${lastName[0].toUpperCase()}`;
+
+  if (!firstName && !lastName) {
+    return "";
+  }
+
+  return `${firstName && firstName.length > 0 ? firstName[0].toUpperCase() : ""}
+   ${lastName && lastName.length > 0 ? ` ${lastName[0].toUpperCase()}` : ""}`;
 });
 
 function getPictureSizeClasses() {
