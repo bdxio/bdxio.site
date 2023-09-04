@@ -3,22 +3,24 @@ import { useAPI } from "#imports";
 import { Heading, HeadingSection, NuxtImg } from "#components";
 import { EDITION } from "~/services/constants";
 import type { Ref } from "vue";
-import type { Sponsor, Offer, Media, Edition } from "@bdxio/bdxio.types";
-
-type DisplayableSponsor = Sponsor & { offer: Offer, logo: Media, editions: Edition[] };
+import type { Sponsor, Offer } from "@bdxio/bdxio.types";
 
 const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([
-  useAPI("/offers", {}),
-  useAPI("/sponsors", {
-    params: { "populate": "*", "pagination[limit]": 1000 },
-  }),
+  useAPI("/offers", { params: {
+    "filters[edition][year][$eq]": EDITION,
+  } }),
+  useAPI("/sponsors", { params: {
+    "populate": "*",
+    "pagination[limit]": 1000,
+  } }),
 ]);
 
-const displayableSponsors = sponsors.value.filter((sponsor) => (
-  sponsor.offer &&
-  sponsor.logo &&
-  sponsor.editions.some(edition => edition.year === EDITION)
-)) as DisplayableSponsor[];
+const displayableSponsors = sponsors.value
+  .map(sponsor => ({
+    ...sponsor,
+    offer: sponsor.offers?.find(offer => offers.value.map(o => o.id).includes(offer.id)),
+  }))
+  .filter(sponsor => sponsor.offer && sponsor.logo);
 
 displayableSponsors.sort((a, b) => {
   if (a.offer.price !== b.offer.price) {
