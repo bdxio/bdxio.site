@@ -23,6 +23,9 @@ const displayableSponsors = sponsors.value
   .filter(sponsor => sponsor.offer && sponsor.logo);
 
 displayableSponsors.sort((a, b) => {
+  if (!a.offer?.price || !b.offer?.price) {
+    return 0;
+  }
   if (a.offer.price !== b.offer.price) {
     return parseFloat(b.offer.price) - parseFloat(a.offer.price);
   }
@@ -30,7 +33,7 @@ displayableSponsors.sort((a, b) => {
 });
 
 const displayableOffers = offers.value.filter(offer =>
-  displayableSponsors.some(sponsor => sponsor.offer.id === offer.id),
+  displayableSponsors.some(sponsor => sponsor.offer?.id === offer.id),
 );
 
 displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
@@ -57,7 +60,7 @@ displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       </HeadingSection>
       <ul class="flex flex-wrap items-center justify-center w-full s:w-4/5 m:w-3/5">
         <li
-          v-for="sponsor in displayableSponsors.filter(sponsor => sponsor.offer.id === offer.id)"
+          v-for="sponsor in displayableSponsors.filter(sponsor => sponsor.offer?.id === offer.id)"
           :key="sponsor.id"
         >
           <component

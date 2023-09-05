@@ -72,15 +72,15 @@ const filteredSchedule = computed(() => {
     .map((scheduleItem) => {
       return {
         ...scheduleItem,
-        talks: scheduleItem.talks.filter((talk) => talk.category && filters.value.includes(talk.category.id.toString()),
-        ),
+        talks: scheduleItem.talks
+          ?.filter((talk) => talk.category && filters.value.includes(talk.category.id.toString())),
       };
     })
-    .filter((scheduleItem) => scheduleItem.talks.length);
+    .filter((scheduleItem) => scheduleItem.talks?.length);
 });
 
 function displayTalkSubInfos(talk: Talk) {
-  const formattedSpeakers = talk.speakers.length
+  const formattedSpeakers = talk.speakers?.length
     ? talk.speakers
       .map((s) => s.name)
       .toString()
@@ -230,7 +230,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                 </h4>
                 <div class="slots__slot__infos">
                   <ul
-                    v-if="slotTalks.length"
+                    v-if="slotTalks?.length"
                     class="slots__slot__infos__talks"
                   >
                     <li
@@ -271,7 +271,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                     class="slots__slot__infos__interlude"
                   >
                     <span class="room">
-                      {{ rooms.length ? rooms.map(room => room.name).join(", ") : "Communiqué le jour J" }}
+                      {{ rooms?.length ? rooms.map(room => room.name).join(", ") : "Communiqué le jour J" }}
                     </span>
                     <span class="slots__slot__infos__interlude__name">
                       {{ name }}
