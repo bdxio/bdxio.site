@@ -10,7 +10,7 @@ const links = {
 };
 
 const pages = {
-  SHOW_PAGE_PROGRAMME: true,
+  SHOW_PAGE_PROGRAMME: false,
   SHOW_PAGE_SPONSORS: true,
   SHOW_PAGE_SPONSORS2022: false,
   SHOW_PAGE_ASSOCIATION: true,
