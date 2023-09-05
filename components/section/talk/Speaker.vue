@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "#imports";
+import { getSpeakerSocialsLinks } from "#imports";
 import { Heading, SectionTalkSpeakerPicture, NuxtImg } from "#components";
 import type { Speaker } from "@bdxio/bdxio.types";
 
@@ -7,57 +7,7 @@ const props = defineProps<{
   speaker: Speaker;
 }>();
 
-const getSocialUrl = (
-  link: string,
-  social:
-    | Speaker["twitter"]
-    | Speaker["github"]
-    | Speaker["website"]
-    | Speaker["linkedin"],
-) => {
-  if (link.startsWith("http")) {
-    return link;
-  }
-  return `https://${social}.com/${link.replace("@", "")}`;
-};
-
-const speakerSocialLinks = computed(() => {
-  const socials = [];
-  if (props.speaker.twitter) {
-    socials.push({
-      label: "twitter",
-      imgPath: "icons/twitter.svg",
-      alt: "Icône Twitter",
-      url: getSocialUrl(props.speaker.twitter, "twitter"),
-    });
-  }
-  if (props.speaker.github) {
-    socials.push({
-      label: "github",
-      imgPath: "icons/github.svg",
-      alt: "Icône Github",
-      url: getSocialUrl(props.speaker.github, "github"),
-    });
-  }
-  if (props.speaker.linkedin) {
-    socials.push({
-      label: "linkedin",
-      imgPath: "icons/linkedin.svg",
-      alt: "Icône Linkedin",
-      url: getSocialUrl(props.speaker.linkedin, "linkedin"),
-    });
-  }
-  if (props.speaker.website) {
-    socials.push({
-      label: "site",
-      imgPath: "icons/website.svg",
-      alt: "Icône site personnel",
-      url: props.speaker.website,
-    });
-  }
-
-  return socials;
-});
+const speakerSocialLinks = getSpeakerSocialsLinks(props.speaker);
 </script>
 
 <template>
@@ -90,6 +40,8 @@ const speakerSocialLinks = computed(() => {
             :alt="link.alt"
             :aria-label="link.alt"
             loading="lazy"
+            :width="24"
+            :height="24"
           />
         </a>
       </li>

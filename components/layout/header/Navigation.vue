@@ -22,13 +22,18 @@ const pages = [
   },
   {
     name: "Programme",
-    path: "/programme",
+    path: "/schedule",
     show: instance.$SHOW_PAGE_PROGRAMME,
   },
   {
     name: "Sponsors",
     path: "/sponsors",
     show: instance.$SHOW_PAGE_SPONSORS,
+  },
+  {
+    name: "Speakers",
+    path: "/speakers",
+    show: instance.$SHOW_PAGE_SPEAKERS,
   },
   {
     name: "FAQ",

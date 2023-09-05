@@ -5,7 +5,7 @@ import type { Speaker } from "@bdxio/bdxio.types";
 
 interface Props {
   speaker: Speaker;
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -14,8 +14,26 @@ const props = withDefaults(defineProps<Props>(), {
 
 const initials = computed(() => {
   const [firstName, lastName] = props.speaker.name.split(" ");
-  return `${firstName[0].toUpperCase()} ${lastName[0].toUpperCase()}`;
+
+  if (!firstName && !lastName) {
+    return "";
+  }
+
+  return `${firstName?.length > 0 ? firstName[0].toUpperCase() : ""}
+   ${lastName?.length > 0 ? ` ${lastName[0].toUpperCase()}` : ""}`;
 });
+
+function getPictureSizeClasses() {
+  switch (props.size) {
+    case "small":
+      return "h-8 w-8";
+    case "medium":
+      return "h-12 w-12";
+    case "large":
+    default:
+      return "h-16 w-16";
+  }
+}
 </script>
 
 <template>
@@ -23,7 +41,7 @@ const initials = computed(() => {
     <NuxtImg
       v-if="speaker.photoUrl"
       class="rounded-full object-cover"
-      :class="size === 'small' ? 'h-8 w-8' : 'h-16 w-16'"
+      :class="getPictureSizeClasses()"
       :src="speaker.photoUrl"
       :alt="`Photo de ${speaker.name}`"
       :aria-label="`Photo de ${speaker.name}`"
@@ -32,7 +50,7 @@ const initials = computed(() => {
     <span
       v-else
       class="flex items-center justify-center rounded-full bg-bdxio-blue-light text-white"
-      :class="size === 'small' ? 'h-8 w-8 text-xs' : 'h-16 w-16'"
+      :class="`${getPictureSizeClasses()} ${size === 'small' && 'text-xs'}`"
     >
       {{ initials }}
     </span>
