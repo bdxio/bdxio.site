@@ -34,6 +34,7 @@ const [
       "populate": "*",
     } }),
     useAPI("/slots", { params: {
+      "populate": "*",
       "sort": "startSlot:asc",
       "filters[editions][year][$contains]": EDITION,
     } }),
