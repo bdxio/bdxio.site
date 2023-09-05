@@ -150,6 +150,9 @@ onClickOutside(categoriesWrapper, openMobilePanel);
       >
         Le programme de la journée
       </Heading>
+      <p class="ml-10 mb-5 text-sm italic font-semibold">
+        * N.B : L'attribution des salles est encore en cours et est succeptible d'évoluer
+      </p>
     </header>
     <section class="section-schedule__body">
       <div class="schedule-download">
