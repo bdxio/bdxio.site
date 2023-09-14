@@ -18,6 +18,10 @@ const filters: Array<{
   value: FAQTarget["target"],
   image: string
 }> = [{
+  title: "Participants",
+  value: "participants",
+  image: "participants.png",
+}, {
   title: "Sponsors",
   value: "sponsors",
   image: "coffee.png",
@@ -25,17 +29,14 @@ const filters: Array<{
   title: "Speakers",
   value: "speakers",
   image: "mic.png",
-},
-// {
-//   title: "Participants",
-//   value: "participants",
-//   image: "participants.png",
-// }
-];
+}];
 
 const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
 
-const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: { "populate": "*" } });
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: {
+  "populate": "*",
+  "pagination[limit]": 200,
+} });
 
 const questions = computed(() => {
   return targets.reduce((result, target) => {
@@ -44,7 +45,7 @@ const questions = computed(() => {
   }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
 });
 
-const currentTarget = ref<FAQTarget["target"]>("sponsors");
+const currentTarget = ref<FAQTarget["target"]>(filters[0].value);
 
 function changeTarget(target: FAQTarget["target"]) {
   currentTarget.value = target;
