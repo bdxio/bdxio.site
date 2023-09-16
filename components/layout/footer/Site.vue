@@ -6,6 +6,12 @@ import { ASSOCIATION_NAME } from "~/services/constants";
   <div class="flex flex-col m:flex-row border-t border-solid border-black mt-8 m:mt-16 pt-8 m:pt-16">
     <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ ASSOCIATION_NAME }}</span>
     <NuxtLink
+      to="/legal-notice"
+      class="text-lg m:mr-16 mb-4 m:mb-0"
+    >
+      Mentions légales
+    </NuxtLink>
+    <NuxtLink
       to="/conduct"
       class="text-lg m:mr-16 mb-4 m:mb-0"
     >
