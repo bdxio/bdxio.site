@@ -84,8 +84,7 @@ function displayTalkSubInfos(talk: Talk) {
   const formattedSpeakers = talk.speakers?.length
     ? talk.speakers
       .map((s) => s.name)
-      .toString()
-      .replace(",", " / ")
+      .join(" / ")
     : "";
 
   let text = "";
