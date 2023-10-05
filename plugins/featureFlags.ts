@@ -14,7 +14,7 @@ const pages = {
   SHOW_PAGE_SPONSORS: true,
   SHOW_PAGE_SPONSORS2022: false,
   SHOW_PAGE_ASSOCIATION: true,
-  SHOW_PAGE_JOBS: false,
+  SHOW_PAGE_JOBS: true,
   SHOW_PAGE_TALKS: true,
   SHOW_PAGE_SPEAKERS: true,
   SHOW_PAGE_LIVE: false,
