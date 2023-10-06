@@ -8,7 +8,7 @@ import { Heading } from "#components";
       level="1"
       class="text-center"
     >
-      Les offres d'emplois de nos partenaires
+      Les offres d'emploi de nos partenaires
     </Heading>
     <jobs-widget
       color="#7D7DF2"
