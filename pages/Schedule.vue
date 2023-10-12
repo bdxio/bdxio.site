@@ -42,6 +42,7 @@ const [
       "populate": "*",
       "pagination[limit]": 100,
       "filters[edition][year][$eq]": EDITION,
+      "filters[type][$eq]": "standard",
     } }),
   ]);
 

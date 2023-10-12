@@ -18,6 +18,7 @@ const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { dat
       "pagination[limit]": 100,
       "sort": "title:asc",
       "filters[edition][year][$eq]": EDITION,
+      "filters[type][$eq]": "standard",
     } }),
   ]);
 
@@ -40,92 +41,94 @@ function setFilter(categoryId: string) {
     >
       Les talks
     </Heading>
-    <ul
-      v-if="categories.length"
-      class="flex flex-wrap justify-center gap-12 w-1/2 mx-auto mb-20"
-    >
-      <li
-        class="text-center"
-        @click="setFilter(ALL)"
+    <div>
+      <ul
+        v-if="categories.length"
+        class="flex flex-wrap justify-center gap-12 w-1/2 mx-auto mb-20"
       >
-        <input
-          :id="ALL"
-          v-model="currentFilter"
-          type="radio"
-          :value="ALL"
-          class="hidden"
-          :class="{ active: currentFilter === ALL }"
+        <li
+          class="text-center"
+          @click="setFilter(ALL)"
         >
-        <label
-          :for="ALL"
-          class="cursor-pointer border-black"
+          <input
+            :id="ALL"
+            v-model="currentFilter"
+            type="radio"
+            :value="ALL"
+            class="hidden"
+            :class="{ active: currentFilter === ALL }"
+          >
+          <label
+            :for="ALL"
+            class="cursor-pointer border-black"
+          >
+            Tous
+          </label>
+        </li>
+        <li
+          v-for="category in categories"
+          :key="`filter-${category.id}`"
+          class="text-center"
+          @click="setFilter(category.id.toString())"
         >
-          Tous
-        </label>
-      </li>
-      <li
-        v-for="category in categories"
-        :key="`filter-${category.id}`"
-        class="text-center"
-        @click="setFilter(category.id.toString())"
-      >
-        <input
-          :id="category.name"
-          v-model="currentFilter"
-          type="radio"
-          :value="category.id.toString()"
-          class="hidden"
-          :class="{ active: currentFilter === category.id.toString() }"
-        >
-        <label
-          :for="category.name"
-          class="cursor-pointer"
+          <input
+            :id="category.name"
+            v-model="currentFilter"
+            type="radio"
+            :value="category.id.toString()"
+            class="hidden"
+            :class="{ active: currentFilter === category.id.toString() }"
+          >
+          <label
+            :for="category.name"
+            class="cursor-pointer"
+            :style="{
+              'border-color': category.color,
+            }"
+          >
+            {{ category.name }}
+          </label>
+        </li>
+      </ul>
+      <ul class="flex flex-wrap justify-center gap-8">
+        <li
+          v-for="talk in filteredTalks"
+          :key="`talk-${talk.id}`"
+          class="flex flex-col justify-between cursor-pointer p-4 border-2 border-solid rounded-lg w-full l:w-1/5"
           :style="{
-            'border-color': category.color,
+            'border-color': talk.category?.color || 'black',
           }"
         >
-          {{ category.name }}
-        </label>
-      </li>
-    </ul>
-    <ul class="flex flex-wrap justify-center gap-8">
-      <li
-        v-for="talk in filteredTalks"
-        :key="`talk-${talk.id}`"
-        class="flex flex-col justify-between cursor-pointer p-4 border-2 border-solid rounded-lg w-full l:w-1/5"
-        :style="{
-          'border-color': talk.category?.color || 'black',
-        }"
-      >
-        <NuxtLink :to="`/talks/${talk.id}`">
-          <div>
-            <h2 class="text-lg">
-              {{ talk.title }}
-            </h2>
-            <span class="font-light italic">{{ talk.level }}</span>
-            <p
-              v-if="talk.category?.name"
-              class="font-bold"
-              :style="{ color: talk.category?.color }"
+          <NuxtLink :to="`/talks/${talk.id}`">
+            <div>
+              <h2 class="text-lg">
+                {{ talk.title }}
+              </h2>
+              <span class="font-light italic">{{ talk.level }}</span>
+              <p
+                v-if="talk.category?.name"
+                class="font-bold"
+                :style="{ color: talk.category?.color }"
+              >
+                {{ talk.category?.name }}
+              </p>
+            </div>
+            <div
+              v-if="talk.speakers?.length"
+              class="flex"
             >
-              {{ talk.category?.name }}
-            </p>
-          </div>
-          <div
-            v-if="talk.speakers?.length"
-            class="flex"
-          >
-            <SectionTalkSpeakerPicture
-              v-for="speaker in talk.speakers"
-              :key="`speaker-${speaker.id}`"
-              :speaker="speaker"
-              size="small"
-              class="!mr-2 mt-5"
-            />
-          </div>
-        </NuxtLink>
-      </li>
-    </ul>
+              <SectionTalkSpeakerPicture
+                v-for="speaker in talk.speakers"
+                :key="`speaker-${speaker.id}`"
+                :speaker="speaker"
+                size="small"
+                class="!mr-2 mt-5"
+              />
+            </div>
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
   </main>
 </template>
 
