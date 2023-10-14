@@ -86,7 +86,7 @@ import { Counter } from "#components";
         Participant•e•s
       </p>
       <p class="m-0 mb-4">
-        Réunis autour d'une ambiance familliale
+        Réuni•e•s autour d'une ambiance familliale
       </p>
     </div>
 
