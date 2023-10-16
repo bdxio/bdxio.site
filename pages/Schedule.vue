@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
+import { useHead, useNuxtApp, useAPI, useRuntimeConfig, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION, OPENFEEDBACK_URL, KEYNOTES } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, KEYNOTES } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
 const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+
+const config = useRuntimeConfig();
+
+const { OPENFEEDBACK_URL } = config.public;
 
 if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
@@ -165,7 +169,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
           Télécharger le programme
         </LinkPrimary>
         <OpenFeedback
-          v-if="$SHOW_LINK_OPENFEEDBACK"
+          v-if="$SHOW_LINK_OPENFEEDBACK && OPENFEEDBACK_URL"
           :href="OPENFEEDBACK_URL"
         />
       </div>
