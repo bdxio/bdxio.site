@@ -38,7 +38,7 @@ import { Counter } from "#components";
         m:row-start-1 m:col-start-11 m:col-end-13 max-h-[280px]"
     >
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
-        <Counter :value="5" />
+        <Counter :value="6" />
       </p>
       <p class="font-title text-bold text-3xl m-3">
         Amphis
@@ -53,7 +53,7 @@ import { Counter } from "#components";
         m:row-start-2 m:col-start-1 m:col-end-3 max-h-[280px]"
     >
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
-        <Counter :value="40" />
+        <Counter :value="50" />
       </p>
       <p class="font-title text-bold text-3xl m-3">
         Conférences
@@ -83,10 +83,10 @@ import { Counter } from "#components";
         />
       </p>
       <p class="font-title text-bold text-3xl m-3">
-        Participants
+        Participant•e•s
       </p>
       <p class="m-0 mb-4">
-        Réunis autour d'une ambiance familliale
+        Réuni•e•s autour d'une ambiance familliale
       </p>
     </div>
 
