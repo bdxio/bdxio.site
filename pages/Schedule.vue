@@ -242,14 +242,12 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <!-- @TODO : Activer l'affichage de la room quand le programme sera définitif
-                        <div
-                          v-if="talk.room"
-                          class="room"
-                        >
-                          {{ talk.room.name }}
-                        </div>
-                      -->
+                      <div
+                        v-if="talk.room"
+                        class="room"
+                      >
+                        {{ talk.room.name }}
+                      </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <NuxtImg
