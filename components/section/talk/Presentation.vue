@@ -62,13 +62,3 @@ const duration = computed(() => {
     />
   </section>
 </template>
-
-<style>
-#iframe-openfeedback {
-  background-color: #303030;
-  height: 520px;
-  overflow: hidden;
-  padding: 16px 0;
-  width: 100%;
-}
-</style>
