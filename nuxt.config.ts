@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@vue-macros/nuxt",
     "@vueuse/nuxt",
-    "@nuxt/image-edge",
+    "@nuxt/image",
     "nuxt-simple-sitemap",
   ],
   css: ["~/assets/css/main.css"],
