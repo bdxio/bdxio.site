@@ -362,14 +362,14 @@ ul {
     }
 
     .schedule-download {
-      margin-bottom: 100px;
+      margin-bottom: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
 
-      @media screen and (min-width: theme('screens.s')) {
-        flex-direction: row;
+      @media screen and (min-width: theme('screens.m')) {
+        margin-bottom: 100px;
       }
     }
 
@@ -382,7 +382,7 @@ ul {
     .categories-container {
       width: 100%;
 
-      @media screen and (min-width: theme('screens.s')) {
+      @media screen and (min-width: theme('screens.m')) {
         max-width: 345px;
       }
     }
@@ -390,7 +390,7 @@ ul {
 
   .categories {
     background-color: theme('colors.grey.100');
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding-bottom: 30px;
     height: 60px;
     overflow: hidden;
