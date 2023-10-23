@@ -2,8 +2,6 @@ export const ASSOCIATION_NAME = "BDX I/O";
 
 export const EDITION = "2023";
 
-export const OPENFEEDBACK_URL = "https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02";
-
 export const KEYNOTES = [{
   name: "Keynote d'ouverture",
   openFeedbackLink: "https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1",

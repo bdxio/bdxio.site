@@ -22,7 +22,7 @@
     "@nuxt/image": "^1.0.0",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@types/markdown-it": "^13.0.4",
+    "@types/markdown-it": "^13.0.5",
     "@types/node": "^20.8.7",
     "@vue-macros/nuxt": "^1.9.3",
     "autoprefixer": "^10.4.16",
@@ -33,6 +33,6 @@
     "nuxt-simple-sitemap": "^3.4.0",
     "postcss-import": "^15.1.0",
     "typescript": "^5.2.2",
-    "vue-tsc": "^1.8.19"
+    "vue-tsc": "^1.8.20"
   }
 }
