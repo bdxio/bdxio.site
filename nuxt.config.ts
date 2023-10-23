@@ -33,6 +33,7 @@ export default defineNuxtConfig({
       API_TOKEN: process.env.API_TOKEN,
       API_URL: process.env.API_URL,
       NEWSLETTER_URL: process.env.NEWSLETTER_URL,
+      OPENFEEDBACK_URL: process.env.OPENFEEDBACK_URL,
     },
   },
   googleFonts: {

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, ShowOnYoutube, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION, OPENFEEDBACK_URL, KEYNOTES } from "~/services/constants";
+import { Heading, OpenFeedback, NuxtLink, NuxtImg } from "#components";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE, $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 
 if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
@@ -42,7 +42,6 @@ const [
       "populate": "*",
       "pagination[limit]": 100,
       "filters[edition][year][$eq]": EDITION,
-      "filters[type][$eq]": "standard",
     } }),
   ]);
 
@@ -161,10 +160,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
         >
           Télécharger le programme
         </LinkPrimary>
-        <OpenFeedback
-          v-if="$SHOW_LINK_OPENFEEDBACK"
-          :href="OPENFEEDBACK_URL"
-        />
+        <OpenFeedback />
       </div>
       <div class="schedule-container">
         <div
@@ -245,7 +241,10 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                       >
                         {{ talk.room.name }}
                       </div>
-                      <NuxtLink :to="`/talks/${talk.id}`">
+                      <NuxtLink
+                        v-if="talk.type === 'standard'"
+                        :to="`/talks/${talk.id}`"
+                      >
                         <div class="talk__infos">
                           <NuxtImg
                             v-if="talk.category"
@@ -265,6 +264,16 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                           </div>
                         </div>
                       </NuxtLink>
+                      <div v-else>
+                        <div class="talk__infos__content">
+                          <span class="talk__infos__content__title">
+                            {{ talk.title }}
+                          </span>
+                          <span class="talk__infos__content__subinfos">
+                            {{ displayTalkSubInfos(talk) }}
+                          </span>
+                        </div>
+                      </div>
                     </li>
                   </ul>
                   <div
@@ -277,24 +286,6 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                     <span class="slots__slot__infos__interlude__name">
                       {{ name }}
                     </span>
-                    <div
-                      v-if="$SHOW_LINK_OPENFEEDBACK"
-                      class="openfeedback-keynote"
-                    >
-                      <OpenFeedback
-                        v-if="KEYNOTES.some(keynote => keynote.name === name)"
-                        :href="KEYNOTES.find(keynote => keynote.name === name)?.openFeedbackLink || ''"
-                      />
-                    </div>
-                    <div
-                      v-if="$SHOW_LINK_YOUTUBE"
-                      class="youtube-keynote"
-                    >
-                      <ShowOnYoutube
-                        v-if="KEYNOTES.some(keynote => keynote.name === name)"
-                        :href="KEYNOTES.find(keynote => keynote.name === name)?.youtubeLink || ''"
-                      />
-                    </div>
                   </div>
                 </div>
               </li>
