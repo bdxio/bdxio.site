@@ -154,9 +154,6 @@ onClickOutside(categoriesWrapper, openMobilePanel);
       >
         Le programme de la journée
       </Heading>
-      <p class="ml-10 mb-5 text-sm italic font-semibold">
-        * N.B : L'attribution des salles est encore en cours et est susceptible d'évoluer
-      </p>
     </header>
     <section class="section-schedule__body">
       <div class="schedule-download">
@@ -246,14 +243,12 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <!-- @TODO : Activer l'affichage de la room quand le programme sera définitif
-                        <div
-                          v-if="talk.room"
-                          class="room"
-                        >
-                          {{ talk.room.name }}
-                        </div>
-                      -->
+                      <div
+                        v-if="talk.room"
+                        class="room"
+                      >
+                        {{ talk.room.name }}
+                      </div>
                       <NuxtLink :to="`/talks/${talk.id}`">
                         <div class="talk__infos">
                           <NuxtImg
