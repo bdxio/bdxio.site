@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useNuxtApp, computed } from "#imports";
-import { Heading, OpenFeedback, ShowOnYoutube, NuxtImg } from "#components";
+import { computed } from "#imports";
+import { Heading, ShowOnYoutube, NuxtImg, SectionTalkOpenFeedbackFrame } from "#components";
 import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   talk: Talk;
 }>();
-
-const { $SHOW_LINK_OPENFEEDBACK, $SHOW_LINK_YOUTUBE } = useNuxtApp();
 
 const duration = computed(() => {
   switch (props.talk.format?.name) {
@@ -54,13 +52,23 @@ const duration = computed(() => {
       v-html="$md.render(talk.abstract)"
     />
     <!-- eslint-enable vue/no-v-html -->
-    <OpenFeedback
-      v-if="$SHOW_LINK_OPENFEEDBACK && talk.openfeedbackUrl"
-      :href="talk.openfeedbackUrl"
+    <SectionTalkOpenFeedbackFrame
+      v-if="talk.id"
+      :talkId="talk.id"
     />
     <ShowOnYoutube
-      v-if="$SHOW_LINK_YOUTUBE && talk.youtubeUrl"
+      v-if="talk.youtubeUrl"
       :href="talk.youtubeUrl"
     />
   </section>
 </template>
+
+<style>
+#iframe-openfeedback {
+  background-color: #303030;
+  height: 520px;
+  overflow: hidden;
+  padding: 16px 0;
+  width: 100%;
+}
+</style>

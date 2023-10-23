@@ -1,17 +1,25 @@
 <script setup lang="ts">
+import { useRuntimeConfig, useNuxtApp } from "#imports";
 import { NuxtImg } from "#components";
 
 defineProps({
-  href: {
-    type: String,
-    required: true,
+  talkId: {
+    type: Number,
+    default: null,
   },
 });
+
+const { $SHOW_LINK_OPENFEEDBACK } = useNuxtApp();
+
+const config = useRuntimeConfig();
+
+const { OPENFEEDBACK_URL } = config.public;
 </script>
 
 <template>
   <a
-    :href="href"
+    v-if="$SHOW_LINK_OPENFEEDBACK && OPENFEEDBACK_URL"
+    :href="`${OPENFEEDBACK_URL}/${talkId || ''}`"
     target="_blank"
     class="block text-lg text-center leading-none hover:text-bdxio-blue-dark active:text-bdxio-blue-dark
       visited:text-bdxio-blue-dark mt-8"
