@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
@@ -242,7 +242,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                         {{ talk.room.name }}
                       </div>
                       <NuxtLink
-                        v-if="talk.type === 'standard'"
+                        v-if="talk.type === STANDARD_TALK_TYPE"
                         :to="`/talks/${talk.id}`"
                       >
                         <div class="talk__infos">

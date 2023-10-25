@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useAPI, computed, getSpeakerSocialsLinks } from "#imports";
 import { NuxtImg, SectionTalkSpeakerPicture, Heading } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
 
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
@@ -12,7 +12,7 @@ const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks"
   "populate": "*",
   "pagination[limit]": 100,
   "filters[edition][year][$eq]": EDITION,
-  "filters[type][$eq]": "standard",
+  "filters[type][$eq]": STANDARD_TALK_TYPE,
 } });
 
 const speakers = computed(() => {
