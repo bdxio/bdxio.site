@@ -269,9 +269,6 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                           <span class="talk__infos__content__title">
                             {{ talk.title }}
                           </span>
-                          <span class="talk__infos__content__subinfos">
-                            {{ displayTalkSubInfos(talk) }}
-                          </span>
                         </div>
                       </div>
                     </li>
