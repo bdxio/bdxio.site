@@ -15,7 +15,7 @@ const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, 
   params: { populate: "*" },
 });
 
-if (!talk.value || talk.value?.edition?.year !== EDITION) {
+if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type !== "standard") {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 </script>
