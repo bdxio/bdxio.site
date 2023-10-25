@@ -4,6 +4,10 @@ export const EDITION = "2023";
 
 export const STANDARD_TALK_TYPE = "standard";
 
+export const OPENING_TALK_TYPE = "opening";
+
+export const CLOSING_TALK_TYPE = "closing";
+
 export const KEYNOTES = [{
   name: "Keynote d'ouverture",
   openFeedbackLink: "https://openfeedback.io/r46KviPgLYMQfQnFpaGS/2022-12-02/1",

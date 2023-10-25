@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
 import { Heading, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, OPENING_TALK_TYPE, STANDARD_TALK_TYPE } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
@@ -267,7 +267,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                       <div v-else>
                         <div class="talk__infos__content">
                           <span class="talk__infos__content__title">
-                            {{ talk.title }}
+                            {{ talk.type === OPENING_TALK_TYPE ? "Keynote d'ouverture" : "Keynote de fermeture" }}
                           </span>
                         </div>
                       </div>
