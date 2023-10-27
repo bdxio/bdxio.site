@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useRoute, useNuxtApp, useAPI, createError } from "#imports";
 import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
-import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Talk } from "@bdxio/bdxio.types";
 
@@ -15,7 +15,7 @@ const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, 
   params: { populate: "*" },
 });
 
-if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type !== STANDARD_TALK_TYPE) {
+if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type === CLOSING_TALK_TYPE) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 </script>
