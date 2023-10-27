@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useAPI, computed, ref } from "#imports";
 import { Heading, NuxtLink, SectionTalkSpeakerPicture } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Talk } from "@bdxio/bdxio.types";
 
@@ -18,7 +18,7 @@ const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { dat
       "pagination[limit]": 100,
       "sort": "title:asc",
       "filters[edition][year][$eq]": EDITION,
-      "filters[type][$eq]": "standard",
+      "filters[type][$eq]": STANDARD_TALK_TYPE,
     } }),
   ]);
 
