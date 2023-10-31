@@ -131,16 +131,14 @@ function getCategoryImage(category: Category) {
   }].find((c) => c.name === category.name)?.icon || "";
 }
 
-const isMobileContext = window.innerWidth <= 992;
-
 function displayMobilePanel() {
-  if (isMobileContext) {
+  if (window.innerWidth <= 992) {
     openPanel.value = !openPanel.value;
   }
 }
 
 onClickOutside(categoriesWrapper, () => {
-  if (isMobileContext && openPanel.value) {
+  if (window.innerWidth <= 992 && openPanel.value) {
     displayMobilePanel();
   }
   
@@ -158,7 +156,7 @@ onClickOutside(categoriesWrapper, () => {
       </Heading>
     </header>
     <section class="section-schedule__body">
-      <div class="flex flex-col w-full md:flex-row gap-3 justify-center items-center mb-12">
+      <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
           color="light"
