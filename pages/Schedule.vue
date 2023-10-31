@@ -131,13 +131,20 @@ function getCategoryImage(category: Category) {
   }].find((c) => c.name === category.name)?.icon || "";
 }
 
-function openMobilePanel() {
-  if (window.innerWidth <= 992) {
+const isMobileContext = window.innerWidth <= 992;
+
+function displayMobilePanel() {
+  if (isMobileContext) {
     openPanel.value = !openPanel.value;
   }
 }
 
-onClickOutside(categoriesWrapper, openMobilePanel);
+onClickOutside(categoriesWrapper, () => {
+  if (isMobileContext && openPanel.value) {
+    displayMobilePanel();
+  }
+  
+});
 </script>
 
 <template>
@@ -151,7 +158,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
       </Heading>
     </header>
     <section class="section-schedule__body">
-      <div class="flex flex-row gap-3 justify-center items-center mb-12">
+      <div class="flex flex-col w-full md:flex-row gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
           color="light"
@@ -181,7 +188,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
           >
             <span
               class="categories__title"
-              @click.prevent="openMobilePanel"
+              @click.prevent="displayMobilePanel"
             >
               Filtrer par thème
             </span>
