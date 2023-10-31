@@ -18,7 +18,7 @@ const pages = [
   {
     name: "Talks",
     path: "/talks",
-    show: instance.$SHOW_PAGE_TALKS,
+    show: instance.$SHOW_PAGE_TALKS && !instance.$SHOW_PAGE_PROGRAMME,
   },
   {
     name: "Programme",
@@ -33,7 +33,7 @@ const pages = [
   {
     name: "Speakers",
     path: "/speakers",
-    show: instance.$SHOW_PAGE_SPEAKERS,
+    show: instance.$SHOW_PAGE_SPEAKERS && !instance.$SHOW_PAGE_PROGRAMME,
   },
   {
     name: "FAQ",
