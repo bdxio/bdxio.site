@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, OpenFeedback, NuxtLink, NuxtImg } from "#components";
+import { Heading, OpenFeedback, NuxtLink, NuxtImg, LinkSecondaryNuxt } from "#components";
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME, $SHOW_PAGE_SPEAKERS } = useNuxtApp();
 
 if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
@@ -131,13 +131,18 @@ function getCategoryImage(category: Category) {
   }].find((c) => c.name === category.name)?.icon || "";
 }
 
-function openMobilePanel() {
+function displayMobilePanel() {
   if (window.innerWidth <= 992) {
     openPanel.value = !openPanel.value;
   }
 }
 
-onClickOutside(categoriesWrapper, openMobilePanel);
+onClickOutside(categoriesWrapper, () => {
+  if (window.innerWidth <= 992 && openPanel.value) {
+    displayMobilePanel();
+  }
+  
+});
 </script>
 
 <template>
@@ -151,7 +156,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
       </Heading>
     </header>
     <section class="section-schedule__body">
-      <div class="schedule-download">
+      <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
           color="light"
@@ -160,6 +165,13 @@ onClickOutside(categoriesWrapper, openMobilePanel);
         >
           Télécharger le programme
         </LinkPrimary>
+        <LinkSecondaryNuxt
+          v-if="$SHOW_PAGE_SPEAKERS"
+          to="/speakers"
+          color="dark"
+        >
+          Nos speakers
+        </LinkSecondaryNuxt>
         <OpenFeedback />
       </div>
       <div class="schedule-container">
@@ -174,7 +186,7 @@ onClickOutside(categoriesWrapper, openMobilePanel);
           >
             <span
               class="categories__title"
-              @click.prevent="openMobilePanel"
+              @click.prevent="displayMobilePanel"
             >
               Filtrer par thème
             </span>
