@@ -49,7 +49,7 @@ const questions = computed(() => {
 
 const currentTarget = ref<FAQTarget["target"]>(
   !route.query?.target || !isFAQTarget(route.query!.target) ?
-    faqTargets[0] : (route.query.target as FAQTarget["target"]),
+    faqTargets.filter(target => target === "participants")[0] : (route.query.target as FAQTarget["target"]),
 );
 
 function changeTarget(target: FAQTarget["target"]) {
