@@ -69,6 +69,7 @@ const pages = [
           :to="page.path"
           :class="`no-underline text-2xl m:text-base
           ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
+          tabindex="1"
         >
           {{ page.name }}
         </NuxtLink>

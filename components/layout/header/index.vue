@@ -42,6 +42,7 @@ watch(
   >
     <NuxtLink
       to="/"
+      tabindex="1"
     >
       <NuxtImg
         src="/images/logo_blue_header.webp"
