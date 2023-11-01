@@ -268,9 +268,9 @@ onClickOutside(categoriesWrapper, () => {
                           />
                           <div class="font-bold">
                             {{ talk.title }} {{ talk.language === ENGLISH ? "🇬🇧" : null }}
-                            <span class="font-extralight">
+                            <div class="font-extralight">
                               {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED ? "🌶️" : null }}
-                            </span>
+                            </div>
                           </div>
                         </div>
                       </NuxtLink>
