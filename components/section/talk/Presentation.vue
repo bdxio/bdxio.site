@@ -35,7 +35,10 @@ const duration = computed(() => {
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min
       </span>
-      <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
+      <span
+        v-if="talk.level"
+        class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4"
+      >
         {{ talk.level }}
       </span>
       <span

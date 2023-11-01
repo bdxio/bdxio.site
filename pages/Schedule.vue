@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, OpenFeedback, NuxtLink, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION, OPENING_TALK_TYPE, STANDARD_TALK_TYPE } from "~/services/constants";
+import { Heading, OpenFeedback, NuxtLink, NuxtImg, LinkSecondaryNuxt } from "#components";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME, $SHOW_PAGE_SPEAKERS } = useNuxtApp();
 
 if (!$SHOW_PAGE_PROGRAMME) {
   throw createError({ statusCode: 404 });
@@ -131,27 +131,32 @@ function getCategoryImage(category: Category) {
   }].find((c) => c.name === category.name)?.icon || "";
 }
 
-function openMobilePanel() {
-  if (window.innerWidth <= 992) {
+function displayMobilePanel() {
+  if (window.innerWidth <= 1024) {
     openPanel.value = !openPanel.value;
   }
 }
 
-onClickOutside(categoriesWrapper, openMobilePanel);
+onClickOutside(categoriesWrapper, () => {
+  if (window.innerWidth <= 1024 && openPanel.value) {
+    displayMobilePanel();
+  }
+  
+});
 </script>
 
 <template>
-  <main class="p-section section-schedule bg-white">
-    <header class="section-schedule__header">
+  <main class="p-section  bg-white">
+    <header class="flex flex-col justify-center items-center text-center ">
       <Heading
         level="1"
-        class="section-schedule__header__title"
+        class="relative z-0 title"
       >
         Le programme de la journée
       </Heading>
     </header>
-    <section class="section-schedule__body">
-      <div class="schedule-download">
+    <section class="mt-14 md:mt-12">
+      <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
           color="light"
@@ -160,48 +165,56 @@ onClickOutside(categoriesWrapper, openMobilePanel);
         >
           Télécharger le programme
         </LinkPrimary>
+        <LinkSecondaryNuxt
+          v-if="$SHOW_PAGE_SPEAKERS"
+          to="/speakers"
+          color="dark"
+        >
+          Nos speakers
+        </LinkSecondaryNuxt>
         <OpenFeedback />
       </div>
-      <div class="schedule-container">
+      <div class="flex flex-col lg:flex-row">
         <div
           v-if="categories.length"
-          class="categories-container"
+          class="w-full lg:max-w-[375px]"
         >
           <div
             ref="categoriesWrapper"
-            class="categories"
-            :class="{ open: openPanel }"
+            class="bg-grey-100 mb-12 pb-7 h-[60px] overflow-hidden lg:sticky lg:top-0 lg:mb-0 lg:h-auto"
+            :class="{ '!h-full': openPanel }"
           >
             <span
-              class="categories__title"
-              @click.prevent="openMobilePanel"
+              class="text-center text-lg mt-4 block h-7 text-grey-400
+              font-bold cursor-pointer lg:cursor-default "
+              @click.prevent="displayMobilePanel"
             >
               Filtrer par thème
             </span>
-            <ul class="categories__list">
+            <ul class="mt-5 list-none">
               <li
-                class="categories__category all"
-                :class="{ active: !filters.length }"
+                class="flex items-center leading-normal h-14 opacity-30 cursor-pointer ml-20"
+                :class="{ 'opacity-100': !filters.length }"
                 @click="setFilter(ALL)"
               >
-                <span>Tous</span>
+                Tous
               </li>
               <li
                 v-for="category in categories"
                 :key="category.id"
-                class="categories__category"
-                :class="{ active: filters.includes(category.id.toString()) }"
+                class="flex items-center leading-normal h-14 opacity-30 cursor-pointer"
+                :class="{ 'opacity-100': filters.includes(category.id.toString()) }"
                 @click="setFilter(category.id.toString())"
               >
                 <NuxtImg
                   :src="getCategoryImage(category)"
                   :aria-hidden="true"
-                  class="categories__category__image"
+                  class="w-7 h-7 ml-7 mr-5"
                   alt=""
                   width="30"
                   preload
                 />
-                <span class="categories__category__label">
+                <span class="leading-normal">
                   {{ category.name }}
                 </span>
               </li>
@@ -210,25 +223,24 @@ onClickOutside(categoriesWrapper, openMobilePanel);
         </div>
         <div
           v-if="schedule.length"
-          class="slots"
         >
-          <div class="schedule">
-            <div class="pre-schedule">
-              <span class="pre-schedule__circle" />
-              <span class="pre-schedule__line" />
+          <div class="lg:ml-[100px]">
+            <div class="ml-7">
+              <span class="block w-[7px] h-[7px] rounded-full bg-bdxio-blue-base -translate-x-[34%]" />
+              <span class="block w-[2px] h-[30px] bg-bdxio-blue-base" />
             </div>
             <ul>
               <li
                 v-for="({ time, name, talks: slotTalks, rooms }, indexSlot) in filteredSchedule"
                 :key="`slot-${indexSlot}`"
               >
-                <h4 class="slots__slot__hour">
+                <h4 class="text-bdxio-blue-base my-1 mx-0 text-base">
                   {{ time }}
                 </h4>
-                <div class="slots__slot__infos">
+                <div class="text-lg border-l-[2px] border-l-solid border-l-bdxio-blue-base ml-7 p-8 lg:p-12">
                   <ul
                     v-if="slotTalks?.length"
-                    class="slots__slot__infos__talks"
+                    class="flex flex-col gap-8"
                   >
                     <li
                       v-for="(talk, indexTalk) in slotTalks"
@@ -237,52 +249,47 @@ onClickOutside(categoriesWrapper, openMobilePanel);
                     >
                       <div
                         v-if="talk.room"
-                        class="room"
+                        class="uppercase tracking-[2px] font-extralight text-sm"
                       >
                         {{ talk.room.name }}
                       </div>
                       <NuxtLink
-                        v-if="talk.type === STANDARD_TALK_TYPE"
+                        v-if="talk.type !== CLOSING_TALK_TYPE"
                         :to="`/talks/${talk.id}`"
                       >
-                        <div class="talk__infos">
+                        <div class="flex">
                           <NuxtImg
                             v-if="talk.category"
-                            class="talk__infos__image"
+                            class="w-[40px] h-[40px] mr-2"
                             :src="getCategoryImage(talk.category)"
                             :alt="`Catégorie ${talk.category.name}`"
                             :aria-label="`Catégorie ${talk.category.name}`"
                             width="40"
                           />
-                          <div class="talk__infos__content">
-                            <span class="talk__infos__content__title">
-                              {{ talk.title }} {{ talk.language === ENGLISH ? "🇬🇧" : null }}
-                            </span>
-                            <span class="talk__infos__content__subinfos">
+                          <div class="font-bold">
+                            {{ talk.title }} {{ talk.language === ENGLISH ? "🇬🇧" : null }}
+                            <div class="font-extralight">
                               {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED ? "🌶️" : null }}
-                            </span>
+                            </div>
                           </div>
                         </div>
                       </NuxtLink>
                       <div v-else>
-                        <div class="talk__infos__content">
-                          <span class="talk__infos__content__title">
-                            {{ talk.type === OPENING_TALK_TYPE ? "Keynote d'ouverture" : "Keynote de fermeture" }}
-                          </span>
+                        <div class="font-bold">
+                          Keynote de fermeture
                         </div>
                       </div>
                     </li>
                   </ul>
                   <div
                     v-else
-                    class="slots__slot__infos__interlude"
                   >
-                    <span class="room">
+                    <div class="uppercase tracking-[2px] font-extralight text-sm">
                       {{ rooms?.length ? rooms.map(room => room.name).join(", ") : "Communiqué le jour J" }}
-                    </span>
-                    <span class="slots__slot__infos__interlude__name">
+                    </div>
+                    <div class="font-bold">
                       {{ name }}
-                    </span>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -294,275 +301,42 @@ onClickOutside(categoriesWrapper, openMobilePanel);
   </main>
 </template>
 
-<style scoped lang="postcss">
-ul {
-  list-style: none;
-}
-
-.section-schedule {
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    &__title {
-      position: relative;
-      z-index: theme('zIndex.0');
-
-      &:before {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        left: -30px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
-        background-size: cover;
-
-        @media screen and (min-width: theme('screens.m')) {
-          width: 120px;
-          height: 120px;
-          left: -110px;
-        }
-      }
-
-      &:after {
-        content: "";
-        display: block;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        z-index: -1;
-        right: -30px;
-        bottom: -10px;
-        background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
-        background-size: cover;
-
-        @media screen and (min-width: theme('screens.m')) {
-          width: 120px;
-          height: 120px;
-          right: -110px;
-        }
-      }
-    }
-  }
-
-  &__body {
-    margin-top: 60px;
-
-    @media screen and (min-width: theme('screens.m')) {
-      margin-top: 50px;
-    }
-
-    .schedule-download {
-      margin-bottom: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      @media screen and (min-width: theme('screens.m')) {
-        margin-bottom: 100px;
-      }
-    }
-
-    .schedule-container {
-      @media screen and (min-width: theme('screens.m')) {
-        display: flex;
-      }
-    }
-
-    .categories-container {
-      width: 100%;
-
-      @media screen and (min-width: theme('screens.m')) {
-        max-width: 345px;
-      }
-    }
-  }
-
-  .categories {
-    background-color: theme('colors.grey.100');
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-    height: 60px;
-    overflow: hidden;
-
-    &.open {
-      height: auto;
-    }
-
-    &__list {
-      margin-top: 20px;
-    }
-
-    &__title {
-      text-align: center;
-      font-size: 18px;
-      height: 30px;
-      margin-top: 15px;
-      display: block;
-      color: theme('colors.grey.400');
-      font-weight: theme('fontWeight.bold');
-      cursor: pointer;
-    }
-
-    &__category {
-      opacity: 0.3;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      line-height: auto;
-      height: 60px;
-
-      &.all {
-        margin-left: 80px;
-      }
-
-      &__image {
-        width: 30px;
-        height: 30px;
-        margin-left: 30px;
-        margin-right: 20px;
-      }
-
-      &__label {
-        line-height: auto;
-      }
-
-      &.active {
-        opacity: 1;
-      }
-    }
-
-    @media screen and (min-width: theme('screens.m')) {
-      position: sticky;
-      top: 0;
-      width: inherit;
-      height: auto;
-      padding: 30px;
-      margin-bottom: 0;
-      height: auto;
-
-      &__title {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 0;
-        display: block;
-        color: theme('colors.grey.400');
-        font-weight: theme('fontWeight.normal');
-        cursor: initial;
-      }
-    }
-  }
-
-  .pre-schedule {
-    margin-left: 30px;
-
-    &__circle {
-      display: block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: theme('colors.bdxio-blue.base');
-      transform: translateX(-34%);
-    }
-
-    &__line {
-      display: block;
-      width: 2px;
-      height: 30px;
-      background-color: theme('colors.bdxio-blue.base');
-    }
-  }
-
-  .schedule {
-    @media screen and (min-width: theme('screens.m')) {
-      margin-left: 100px;
-    }
-  }
-
-  .slots {
-    &__slot {
-      &__hour {
-        font-size: theme('fontSize.base');
-        color: theme('colors.bdxio-blue.base');
-        margin: 5px 0;
-      }
-
-      &__infos {
-        font-size: 1.125rem;
-        border-left: 2px solid theme('colors.bdxio-blue.base');
-        margin-left: 30px;
-        padding: 25px 0 25px 25px;
-
-        @media screen and (min-width: theme('screens.m')) {
-          padding: 50px;
-        }
-
-        &__interlude {
-          &__name {
-            font-weight: theme('fontWeight.bold');
-            margin-left: 30px;
-          }
-        }
-
-        &__talks {
-          .talk {
-            margin-bottom: 30px;
-
-            &__infos {
-              display: flex;
-
-              &__image {
-                width: 40px;
-                height: 40px;
-                margin-right: 10px;
-              }
-
-              &__content {
-                &__title {
-                  font-weight: theme('fontWeight.bold');
-                  display: block;
-                }
-
-                &__subinfos {
-                  font-weight: 200;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.room {
+<style scoped lang="css">
+.title:before {
+  content: "";
   display: block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 200;
-  font-size: 14px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  left: -30px;
+  bottom: -10px;
+  background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
+  background-size: cover;
+
+  @media screen and (min-width: theme('screens.m')) {
+    width: 120px;
+    height: 120px;
+    left: -110px;
+  }
 }
 
-.openfeedback-keynote,
-.youtube-keynote {
-  margin-left: 30px;
-  margin-top: 15px;
+.title:after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: -1;
+  right: -30px;
+  bottom: -10px;
+  background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
+  background-size: cover;
 
-  a {
-    margin: 0;
-    display: inline-block;
-
-    img {
-      display: block;
-      margin: 0 auto;
-    }
+  @media screen and (min-width: theme('screens.m')) {
+    width: 120px;
+    height: 120px;
+    right: -110px;
   }
 }
 </style>

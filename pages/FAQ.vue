@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, createError, useAPI, ref, computed } from "#imports";
+import { faqTargets, isFAQTarget } from "@bdxio/bdxio.types";
+import { useHead, useRoute, useNuxtApp, createError, useAPI, ref, computed } from "#imports";
 import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Ref } from "vue";
 import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
+import type { Ref } from "vue";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
 
 if (!$SHOW_PAGE_FAQ) {
   throw createError({ statusCode: 404 });
 }
+const route = useRoute();
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 
@@ -31,21 +33,24 @@ const filters: Array<{
   image: "mic.png",
 }];
 
-const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
-
-const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: {
-  "populate": "*",
-  "pagination[limit]": 200,
-} });
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {
+  params: {
+    "populate": "*",
+    "pagination[limit]": 200,
+  },
+});
 
 const questions = computed(() => {
-  return targets.reduce((result, target) => {
+  return faqTargets.reduce((result, target) => {
     result[target] = data.value.filter((question) => question.faq_target?.target === target);
     return result;
   }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
 });
 
-const currentTarget = ref<FAQTarget["target"]>(filters[0].value);
+const currentTarget = ref<FAQTarget["target"]>(
+  !route.query?.target || !isFAQTarget(route.query!.target) ?
+    faqTargets.filter(target => target === "participants")[0] : (route.query.target as FAQTarget["target"]),
+);
 
 function changeTarget(target: FAQTarget["target"]) {
   currentTarget.value = target;
@@ -67,7 +72,7 @@ function changeTarget(target: FAQTarget["target"]) {
       </p>
       <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
         <fieldset
-          v-for="{title, value, image} in filters"
+          v-for="{ title, value, image } in filters"
           :key="`filter-${value}`"
         >
           <input
@@ -83,7 +88,7 @@ function changeTarget(target: FAQTarget["target"]) {
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
             bg-contain bg-center bg-no-repeat uppercase cursor-pointer hover:opacity-100
             ${currentTarget === value ? 'font-bold' : 'opacity-50'}`"
-            :style="{'background-image': `url(/images/drawings/${image})`}"
+            :style="{ 'background-image': `url(/images/drawings/${image})` }"
             @click.prevent="changeTarget(value)"
             @keydown.enter.exact="changeTarget(value)"
           >
@@ -92,7 +97,7 @@ function changeTarget(target: FAQTarget["target"]) {
         </fieldset>
       </form>
       <template
-        v-for="target in targets"
+        v-for="target in faqTargets"
         :key="target"
       >
         <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
