@@ -1,19 +1,31 @@
 <script setup lang="ts">
-import { faqTargets, isFAQTarget } from "@bdxio/bdxio.types";
-import { useHead, useRoute, useNuxtApp, createError, useAPI, ref, computed } from "#imports";
+import {
+  useHead,
+  useNuxtApp,
+  useRoute,
+  useRouter,
+  useAPI,
+  createError,
+  ref,
+  computed,
+  watch,
+  onMounted,
+} from "#imports";
 import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 import type { Ref } from "vue";
+import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 
 const { $SHOW_PAGE_FAQ } = useNuxtApp();
 
 if (!$SHOW_PAGE_FAQ) {
   throw createError({ statusCode: 404 });
 }
-const route = useRoute();
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
+
+const { query } = useRoute();
+const router = useRouter();
 
 const filters: Array<{
   title: string,
@@ -33,28 +45,36 @@ const filters: Array<{
   image: "mic.png",
 }];
 
-const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {
-  params: {
-    "populate": "*",
-    "pagination[limit]": 200,
-  },
-});
+const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
+
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: {
+  "populate": "*",
+  "pagination[limit]": 200,
+} });
 
 const questions = computed(() => {
-  return faqTargets.reduce((result, target) => {
+  return targets.reduce((result, target) => {
     result[target] = data.value.filter((question) => question.faq_target?.target === target);
     return result;
   }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
 });
 
-const currentTarget = ref<FAQTarget["target"]>(
-  !route.query?.target || !isFAQTarget(route.query!.target) ?
-    faqTargets.filter(target => target === "participants")[0] : (route.query.target as FAQTarget["target"]),
-);
+const currentTarget = ref<FAQTarget["target"]>(filters[0].value);
 
 function changeTarget(target: FAQTarget["target"]) {
   currentTarget.value = target;
 }
+
+watch(currentTarget, () => router.replace({ query: { target: currentTarget.value } }));
+
+onMounted(() => {
+  if (targets.includes(query.target as FAQTarget["target"])) {
+    currentTarget.value = (query.target as FAQTarget["target"]);
+  } else {
+    router.replace({ query: { target: currentTarget.value } });
+  }
+});
+
 </script>
 
 <template>
@@ -97,7 +117,7 @@ function changeTarget(target: FAQTarget["target"]) {
         </fieldset>
       </form>
       <template
-        v-for="target in faqTargets"
+        v-for="target in targets"
         :key="target"
       >
         <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
