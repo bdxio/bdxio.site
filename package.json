@@ -12,12 +12,12 @@
     "diag": "npm run lint && npm run type-check"
   },
   "dependencies": {
-    "@bdxio/bdxio.types": "^1.3.6",
     "@vueuse/nuxt": "^10.5.0",
     "fetch-jsonp": "^1.3.0",
     "markdown-it": "^13.0.2"
   },
   "devDependencies": {
+    "@bdxio/bdxio.types": "^1.3.2",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/image": "^1.0.0",
     "@nuxtjs/google-fonts": "^3.0.2",
