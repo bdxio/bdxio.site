@@ -26,7 +26,7 @@ useHead({
 
     <p class="block mx-auto ">
       Cette année l'équipe vous propose un jeu concours au plus près de nos sponsors.
-      Tente de gagner des places pour la prochaine édition et les 10 ans de BDX I/O.
+      Tente de gagner des places pour la prochaine édition : les 10 ans de BDX I/O ✨.
     </p>
 
     <div class="flex flex-col gap-2 justify-center items-center">
@@ -46,8 +46,8 @@ useHead({
   
         À la fin de la journée, 8 participants seront tirés au sort parmi les bonnes réponses.
         Les 5 premiers remporteront une place pour l'année prochaine, les 3 autres gagneront une bouteille de vin
-        collector de cette édition. <br>
-  
+        collector de cette édition. <br><br>
+        
         Bonne chance !
       </p>
   
