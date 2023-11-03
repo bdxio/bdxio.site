@@ -3,7 +3,7 @@ import { Counter } from "#components";
 </script>
 
 <template>
-  <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-2 m:grid-cols-12">
+  <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-2 m:grid-cols-12 overflow-hidden">
     <NuxtImg
       src="/images/conferences/home-1.png"
       class="w-full h-full object-cover inline-flex row-start-1 col-start-1 col-end-2
@@ -18,10 +18,10 @@ import { Counter } from "#components";
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter :value="7" />
       </p>
-      <p class="font-title text-bold text-3xl m-3">
+      <p class="font-title text-bold text-2xl md:text-3xl m-3">
         Thématiques
       </p>
-      <p class="m-0 mb-4">
+      <p class="m-0 mb-4 text-lg md:text-base">
         Du dev, de la méthodo jusqu'au design
       </p>
     </div>
@@ -40,10 +40,10 @@ import { Counter } from "#components";
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter :value="6" />
       </p>
-      <p class="font-title text-bold text-3xl m-3">
+      <p class="font-title text-bold text-2xl md:text-3xl m-3">
         Amphis
       </p>
-      <p class="m-0 mb-4">
+      <p class="m-0 mb-4 text-lg md:text-base">
         Toujours une conf à votre goût !
       </p>
     </div>
@@ -55,10 +55,10 @@ import { Counter } from "#components";
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter :value="50" />
       </p>
-      <p class="font-title text-bold text-3xl m-3">
+      <p class="font-title text-bold text-2xl md:text-3xl m-3">
         Conférences
       </p>
-      <p class="m-0 mb-4">
+      <p class="m-0 mb-4 text-lg md:text-base">
         Une répartition à 50% de bordelais&nbsp;!
       </p>
     </div>
@@ -82,10 +82,10 @@ import { Counter } from "#components";
           :step="25"
         />
       </p>
-      <p class="font-title text-bold text-3xl m-3">
+      <p class="font-title text-bold text-2xl md:text-3xl m-3">
         Participant•e•s
       </p>
-      <p class="m-0 mb-4">
+      <p class="m-0 mb-4 text-lg md:text-base">
         Réuni•e•s autour d'une ambiance familliale
       </p>
     </div>
