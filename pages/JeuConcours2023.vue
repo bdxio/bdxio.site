@@ -26,7 +26,7 @@ useHead({
 
     <p class="block mx-auto ">
       Cette année l'équipe vous propose un jeu concours au plus près de nos sponsors.
-      Tente de gagner des places exclusives pour les 10 ans de BDX I/O.
+      Tente de gagner des places pour la prochaine édition et les 10 ans de BDX I/O.
     </p>
 
     <div class="flex flex-col gap-2 justify-center items-center">
@@ -41,11 +41,12 @@ useHead({
         <span class="font-bold">Le numérique responsable</span> 🌱 <br><br>
   
         Pour t'aider à répondre des indices seront présents sur les différents stands.
-        N'hésitez pas à aller <span class="font-bold">voir nos sponsors !</span><br>
-        Mais attention, des anecdotes sur l'association se cachent parmis les indices.<br><br>
+        N'hésite pas à aller voir nos sponsors !<br>
+        Mais attention, des anecdotes sur l'association se cachent parmi les indices.<br><br>
   
-        À la fin de la journée, 10 participants seront tirées au sort parmi les bonnes réponses
-        et remporterons XXXXXXXXXXX. <br>
+        À la fin de la journée, 8 participants seront tirés au sort parmi les bonnes réponses.
+        Les 5 premiers remporteront une place pour l'année prochaine, les 3 autres gagneront une bouteille de vin
+        collector de cette édition. <br>
   
         Bonne chance !
       </p>
@@ -55,7 +56,7 @@ useHead({
         href="https://docs.google.com/forms/d/1-9tuJtSCXdLv2XkBS_RqIa1KlRS8QwAlVepr7wqOHdg/edit"
         class="mt-8"
       >
-        Tenter votre chance
+        Répondre aux énigmes
       </LinkPrimary>
     </div>
   </main>
