@@ -70,10 +70,14 @@ useHead({
   height: 80px;
   position: absolute;
   z-index: -1;
-  left: -100px;
+  left: -60px;
   bottom: -10px;
   background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
   background-size: cover;
+
+  @media screen and (min-width: thme('screens.sm')){
+    left: -100px;
+  }
 
   @media screen and (min-width: theme('screens.m')) {
     width: 120px;
@@ -89,10 +93,14 @@ useHead({
   height: 80px;
   position: absolute;
   z-index: -1;
-  right: -100px;
+  right: -60px;
   bottom: -10px;
   background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
   background-size: cover;
+
+  @media screen and (min-width: thme('screens.sm')){
+    right: -100px;
+  }
 
   @media screen and (min-width: theme('screens.m')) {
     width: 120px;
