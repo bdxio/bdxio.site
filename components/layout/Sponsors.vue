@@ -40,7 +40,7 @@ const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/spons
             :is="sponsor.url ? 'a' : 'span'"
             :href="sponsor.url || '#'"
             :target="sponsor.url && '_blank'"
-            :class="`flex items-center justify-center p-4 m-4 bg-bdxio-light rounded-lg xs:h-32 xs:w-32`"
+            :class="`flex items-center justify-center p-4 m-4 bg-bdxio-light rounded-lg h-32 w-32`"
           >
             <NuxtImg
               :src="sponsor.logo.url"
