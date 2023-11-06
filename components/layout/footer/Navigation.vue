@@ -4,7 +4,7 @@ import { NuxtLink } from "#components";
 
 const instance = useNuxtApp();
 
-const pages = [
+const pages: Array<{name: string; path: string; show: boolean;}> = [
   {
     name: "Accueil",
     path: "/",
@@ -39,6 +39,12 @@ const pages = [
     name: "Talks",
     path: "/talks",
     show: instance.$SHOW_PAGE_TALKS,
+
+  },
+  {
+    name: "Live",
+    path: "/live",
+    show: instance.$SHOW_PAGE_LIVE,
   },
 ].filter((page) => page.show);
 </script>
