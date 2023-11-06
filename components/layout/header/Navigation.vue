@@ -133,7 +133,7 @@ const pages = [
   </nav>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .router-link-exact-active {
   position: relative;
   pointer-events: none;

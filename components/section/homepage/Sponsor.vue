@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
+import { useNuxtApp } from "#imports";
+
+const { $SHOW_LINK_SPONSORING } = useNuxtApp();
 </script>
 
 <template>
-  <section class="p-section flex flex-col justify-between items-start bg-bdxio-blue-dark text-bdxio-light">
+  <section class="p-section flex flex-col items-start bg-bdxio-blue-dark text-bdxio-light">
     <div>
       <HeadingSection
         level="2"
@@ -24,11 +27,18 @@ import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
       </p>
     </div>
     <LinkSecondaryNuxt
+      v-if="$SHOW_LINK_SPONSORING"
       to="/sponsors"
       color="white"
       class="mt-8"
     >
       Devenir sponsor
     </LinkSecondaryNuxt>
+    <p
+      v-else
+      class="italic text-md mt-4"
+    >
+      Sponsoring fermé
+    </p>
   </section>
 </template>
