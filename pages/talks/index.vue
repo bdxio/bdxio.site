@@ -132,7 +132,7 @@ function setFilter(categoryId: string) {
   </main>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .title {
   &:before {
     content: "";

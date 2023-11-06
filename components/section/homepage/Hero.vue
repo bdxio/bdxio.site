@@ -35,7 +35,7 @@ import { EDITION } from "~/services/constants";
   </header>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .circle {
   background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
 }

@@ -59,7 +59,7 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   </section>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .title::after {
   content: "";
   width: 170px;

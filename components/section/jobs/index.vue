@@ -24,7 +24,7 @@ import { Heading } from "#components";
   </section>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .section-jobs {
   --w3d-main-color: #7d7df2;
   --w3d-accent-color: #fff;

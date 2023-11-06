@@ -162,6 +162,7 @@ onClickOutside(categoriesWrapper, () => {
           color="light"
           href="/bdxio-2023-programme.pdf"
           download="bdxio-2023-programme.pdf"
+          class="whitespace-nowrap"
         >
           Télécharger le programme
         </LinkPrimary>

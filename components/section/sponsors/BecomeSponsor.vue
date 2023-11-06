@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { Heading, LinkPrimary } from "#components";
+import { useNuxtApp } from "#imports";
+
+const { $SHOW_LINK_SPONSORING } = useNuxtApp();
 </script>
 
 <template>
@@ -63,6 +66,7 @@ import { Heading, LinkPrimary } from "#components";
       </li>
     </ul>
     <LinkPrimary
+      v-if="$SHOW_LINK_SPONSORING"
       color="light"
       href="/bdxio-2023-sponsors.pdf"
       download="bdxio-2023-sponsors.pdf"
@@ -73,7 +77,7 @@ import { Heading, LinkPrimary } from "#components";
   </section>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .sponsor:after {
   content: "";
   position: absolute;
