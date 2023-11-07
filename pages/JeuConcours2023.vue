@@ -75,7 +75,7 @@ useHead({
   background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
   background-size: cover;
 
-  @media screen and (min-width: thme('screens.sm')){
+  @media screen and (min-width: theme('screens.sm')){
     left: -100px;
   }
 

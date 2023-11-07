@@ -5,7 +5,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Offer } from "@bdxio/bdxio.types";
 
-const { $SHOW_PAGE_SPONSORS } = useNuxtApp();
+const { $SHOW_PAGE_SPONSORS, $SHOW_LINK_SPONSORING } = useNuxtApp();
 
 if (!$SHOW_PAGE_SPONSORS) {
   throw createError({ statusCode: 404 });
@@ -22,11 +22,13 @@ data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 
 <template>
   <main>
-    <SectionSponsorsBecomeSponsor />
-    <SectionSponsorsOffers
-      v-if="data.length !== 0"
-      :offers="data"
-    />
+    <div v-if="$SHOW_LINK_SPONSORING">
+      <SectionSponsorsBecomeSponsor />
+      <SectionSponsorsOffers
+        v-if="data.length !== 0"
+        :offers="data"
+      />
+    </div>
     <SectionSponsors />
   </main>
 </template>
