@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { NuxtLink, LinkPrimary } from "#components";
+import { NuxtLink, LinkPrimary, LinkPrimaryNuxt } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
@@ -9,7 +9,7 @@ defineProps<{
 
 const instance = useNuxtApp();
 
-const pages = [
+const pages: Array<{name: string; path: string; show: boolean;}> = [
   {
     name: "Accueil",
     path: "/",
@@ -75,20 +75,19 @@ const pages = [
         </NuxtLink>
       </li>
       <li
-        v-if="instance.$SHOW_LINK_LIVE"
+        v-if="instance.$SHOW_PAGE_LIVE"
         class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
-        <LinkSecondary
-          to="#"
+        <LinkPrimaryNuxt
+          to="live"
           color="light"
           aria-label="lien vers le live - Nouvelle fenêtre"
-          target="_blank"
         >
-          <div class="flex items-center">
+          <div class="flex items-center text-white">
             Live
             <div class="live" />
           </div>
-        </LinkSecondary>
+        </LinkPrimaryNuxt>
       </li>
       <li
         v-if="instance.$SHOW_LINK_BILLETERIE"
