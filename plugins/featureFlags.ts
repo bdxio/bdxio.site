@@ -19,7 +19,7 @@ const pages = {
   SHOW_PAGE_JOBS: true,
   SHOW_PAGE_TALKS: false,
   SHOW_PAGE_SPEAKERS: true,
-  SHOW_PAGE_LIVE: false,
+  SHOW_PAGE_LIVE: true,
   SHOW_PAGE_FAQ: true,
   SHOW_PAGE_CONCOURS_2023: true,
 };
