@@ -79,7 +79,7 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
         class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
         <LinkPrimaryNuxt
-          to="live"
+          to="/live"
           color="light"
           aria-label="lien vers le live - Nouvelle fenêtre"
         >
