@@ -18,7 +18,7 @@ const { OPENFEEDBACK_URL } = config.public;
 <template>
   <iframe
     v-if="$SHOW_LINK_OPENFEEDBACK && OPENFEEDBACK_URL && talkId"
-    :src="`${OPENFEEDBACK_URL}/${talkId || ''}`"
+    :src="`${OPENFEEDBACK_URL}/${talkId || ''}`?forceColorScheme=light"
     title="OpenfeedBack"
     class="frame overflow-hidden w-full py-4"
   />
@@ -26,7 +26,7 @@ const { OPENFEEDBACK_URL } = config.public;
 
 <style>
 .frame {
-  background-color: #303030;
+  padding: 0;
   height: 520px;
 }
 </style>
