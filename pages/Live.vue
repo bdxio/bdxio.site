@@ -17,6 +17,7 @@ useHead({
 const { data }: { data: Ref<Room[]> } = await useAPI("/rooms", {
   params: {
     "filters[iframeId][$notNull]": "true",
+    "sort": "name:asc",
   },
 });
 </script>
