@@ -1,1 +1,5 @@
-pages/Live.vue
+pages/**/*.vue
+
+!pages/Association.vue
+!pages/Sponsors.vue
+!pages/index.vue

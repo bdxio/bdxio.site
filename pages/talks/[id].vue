@@ -7,7 +7,7 @@ import type { Talk } from "@bdxio/bdxio.types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
-const { params } = useRoute("talks-id");
+const { params }: {params: Record<string, string>} = useRoute();
 
 const { $SHOW_PAGE_PROGRAMME } = useNuxtApp();
 

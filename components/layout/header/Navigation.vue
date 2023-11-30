@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
 import { NuxtLink, LinkPrimary, LinkPrimaryNuxt } from "#components";
+import { EDITION } from "~/services/constants";
 
 defineProps<{
   background?: "light" | "dark";
@@ -26,7 +27,7 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
     show: instance.$SHOW_PAGE_PROGRAMME,
   },
   {
-    name: "Sponsors",
+    name: `Sponsors ${EDITION}`,
     path: "/sponsors",
     show: instance.$SHOW_PAGE_SPONSORS,
   },
