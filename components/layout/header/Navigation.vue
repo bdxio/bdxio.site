@@ -103,19 +103,6 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
         </LinkPrimary>
       </li>
       <li
-        v-if="instance.$SHOW_LINK_YOUTUBE"
-        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
-      >
-        <LinkPrimary
-          color="light"
-          href="https://www.youtube.com/playlist?list=PLUJzERpatfsWYhMH0NOjSXemQh5Tu9g1W"
-          target="_blank"
-          title="lien vers le replay youtube - Nouvelle fenêtre"
-        >
-          Revoir les talks
-        </LinkPrimary>
-      </li>
-      <li
         v-if="instance.$SHOW_LINK_CFP"
         class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >

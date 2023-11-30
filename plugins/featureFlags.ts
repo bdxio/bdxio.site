@@ -4,7 +4,6 @@ const links = {
   SHOW_LINK_CFP: false,
   SHOW_LINK_BILLETERIE: false,
   SHOW_LINK_OPENFEEDBACK: true,
-  SHOW_LINK_YOUTUBE: false,
   SHOW_LINK_PROGRAMME_PDF: true,
   SHOW_LINK_LIVE: false,
   SHOW_LINK_SPONSORING: false,
