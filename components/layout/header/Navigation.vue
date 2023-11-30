@@ -14,7 +14,7 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
   {
     name: "Accueil",
     path: "/",
-    show: true,
+    show: !instance.$SHOW_PAGE_WIP,
   },
   {
     name: "Talks",

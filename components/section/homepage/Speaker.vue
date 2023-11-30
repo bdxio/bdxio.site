@@ -34,7 +34,6 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       Devenir speaker
       <IconOpenNewWindow
         color="#373739"
-        border-color="#373739"
         class="ml-2"
       />
     </LinkSecondary>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp } from "#imports";
+import { definePageMeta, useHead, useNuxtApp } from "#imports";
 import {
   SectionHomepageHero,
   SectionHomepageFigures,
@@ -12,6 +12,11 @@ import {
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE } = useNuxtApp();
+
+/**
+ * @todo remove when working on 2024 site
+ */
+definePageMeta({ redirect: "/wip" });
 
 useHead({ title: ASSOCIATION_NAME });
 </script>

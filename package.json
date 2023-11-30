@@ -8,8 +8,8 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "type-check": "nuxi typecheck --noEmit",
-    "prepare": "husky install && npx gitmoji -i",
-    "diag": "npm run lint && npm run type-check"
+    "diag": "npm run lint && npm run type-check",
+    "prepare": "nuxi prepare"
   },
   "dependencies": {
     "@vueuse/nuxt": "^10.5.0",
@@ -29,7 +29,6 @@
     "eslint": "^8.52.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.29.0",
-    "husky": "^8.0.3",
     "nuxt": "3.8.0",
     "nuxt-simple-sitemap": "^3.4.1",
     "postcss-import": "^15.1.0",

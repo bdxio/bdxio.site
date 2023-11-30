@@ -8,7 +8,7 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
   {
     name: "Accueil",
     path: "/",
-    show: true,
+    show: !instance.$SHOW_PAGE_WIP,
   },
   {
     name: "Programme",
@@ -39,7 +39,6 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
     name: "Talks",
     path: "/talks",
     show: instance.$SHOW_PAGE_TALKS,
-
   },
   {
     name: "Live",

@@ -10,7 +10,6 @@ const { $SHOW_PAGE_SPONSORS, $SHOW_LINK_SPONSORING } = useNuxtApp();
 if (!$SHOW_PAGE_SPONSORS) {
   throw createError({ statusCode: 404 });
 }
-
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
 const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
