@@ -19,7 +19,7 @@ export default async function useAPI(endpoint, options = {}) {
       ...options,
     },
   );
-  
+
   if (error.value?.status === 404) {
     throw createError({ statusCode: 404, statusMessage: "Page not found" });
   }

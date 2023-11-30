@@ -7,7 +7,6 @@ import type { Sponsor } from "@bdxio/bdxio.types";
 
 const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/sponsors", {
   params: {
-    "pagination[limit]": 1000,
     "populate": "*",
     "filters[offers][edition][year][$eq]": EDITION,
     "filters[offers][label][$eq]": "Balthazar",

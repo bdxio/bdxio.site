@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp } from "#imports";
+import { useHead, useNuxtApp } from "#imports";
 import {
   SectionHomepageHero,
   SectionHomepageFigures,
@@ -13,7 +13,6 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE } = useNuxtApp();
 
-definePageMeta({ layout: "homepage" });
 useHead({ title: ASSOCIATION_NAME });
 </script>
 
