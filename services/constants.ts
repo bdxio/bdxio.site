@@ -2,11 +2,11 @@ export const ASSOCIATION_NAME = "BDX I/O";
 
 export const EDITION = "2023";
 
-export const STANDARD_TALK_TYPE = "standard";
+export const STANDARD_TALK_TYPE= "standard";
 
-export const OPENING_TALK_TYPE = "opening";
+export const OPENING_TALK_TYPE= "opening";
 
-export const CLOSING_TALK_TYPE = "closing";
+export const CLOSING_TALK_TYPE= "closing";
 
 export const KEYNOTES = [{
   name: "Keynote d'ouverture",

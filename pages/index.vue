@@ -13,7 +13,11 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE } = useNuxtApp();
 
-definePageMeta({ layout: "homepage" });
+/**
+ * @todo remove when working on 2024 site
+ */
+definePageMeta({ redirect: "/wip" });
+
 useHead({ title: ASSOCIATION_NAME });
 </script>
 

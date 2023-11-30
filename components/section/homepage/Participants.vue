@@ -31,7 +31,6 @@ const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
       Billetterie
       <IconOpenNewWindow
         color="#373739"
-        border-color="#373739"
         class="ml-2 mt-1"
       />
     </LinkSecondary>

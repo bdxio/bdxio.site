@@ -1,10 +1,13 @@
 <script setup lang="ts">
 defineProps<{
   color?: string;
-  borderColor?: string;
   width?: number;
   height?: number;
 }>();
+
+const defaultColor = "#4652F8";
+const defaultSize = 20;
+
 </script>
 
 <template>
@@ -12,8 +15,8 @@ defineProps<{
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
-    :width="width || 20"
-    :height="height || 20"
+    :width="width || defaultSize"
+    :height="height || defaultSize"
   >
     <path
       d="M18.5982 18.5983L18.5983 18.5982C19.0155 18.1807 19.25 17.6146 19.25 17.0244V10C19.25 9.49817 18.8433 9.09146
@@ -24,8 +27,8 @@ defineProps<{
         17.6146 0.984472 18.1807 1.40173 18.5982L1.40183 18.5983C1.81933 19.0155 2.38543 19.25 2.97561
         19.25H17.0244C17.6146 19.25 18.1807 19.0155 18.5982 18.5983Z"
       stroke-width="0.5"
-      :fill="color || '#4652F8'"
-      :stroke="borderColor"
+      :fill="color || defaultColor"
+      :stroke="color"
     />
     <path
       d="M19.1725 1.31004C19.0798 1.08611 18.9014 0.908925 18.6775 0.817088L18.6768 0.816815C18.571 0.773806 18.4577
@@ -35,7 +38,7 @@ defineProps<{
         10.6422L17.4324 3.85141V5.93022C17.4324 6.43205 17.8391 6.83875 18.341 6.83875C18.8428 6.83875 19.2495 6.43205
         19.2495 5.93022V2.26929L19.2669 2.28696L19.2496 1.65192C19.2464 1.53396 19.2202 1.41782 19.1725 1.31004Z"
       :fill="color || '#4652F8'"
-      :stroke="borderColor || '#4652F8'"
+      :stroke="color || defaultColor"
       stroke-width="0.5"
     />
   </svg>
