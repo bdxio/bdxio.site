@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "#imports";
-import { Heading, ShowOnYoutube, NuxtImg, SectionTalkOpenFeedbackFrame } from "#components";
+import { Heading, NuxtImg, SectionTalkOpenFeedbackFrame } from "#components";
 import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
@@ -58,10 +58,6 @@ const duration = computed(() => {
     <SectionTalkOpenFeedbackFrame
       v-if="talk.id"
       :talkId="talk.id"
-    />
-    <ShowOnYoutube
-      v-if="talk.youtubeUrl"
-      :href="talk.youtubeUrl"
     />
   </section>
 </template>
