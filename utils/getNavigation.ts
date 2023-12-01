@@ -1,4 +1,4 @@
-import { useNuxtApp } from "#imports";
+import { useNuxtApp, useRuntimeConfig } from "#imports";
 import { EDITION } from "~/services/constants";
 
 type Page = {
@@ -11,6 +11,7 @@ type Page = {
 
 export function getNavigation() {
   const instance = useNuxtApp();
+  const config = useRuntimeConfig();
 
   const link = "link" as const;
   const primary = "primary" as const;
@@ -90,7 +91,7 @@ export function getNavigation() {
     },
     {
       name: "CFP",
-      path: `https://conference-hall.io/public/event/${instance.CONFERENCE_HALL_EVENT_ID}`,
+      path: `https://conference-hall.io/public/event/${config.public.CONFERENCE_HALL_EVENT_ID}`,
       show: instance.$SHOW_LINK_CFP,
       type: external,
       design: primary,

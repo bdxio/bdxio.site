@@ -34,6 +34,7 @@ export default defineNuxtConfig({
       API_URL: process.env.API_URL,
       NEWSLETTER_URL: process.env.NEWSLETTER_URL,
       OPENFEEDBACK_URL: process.env.OPENFEEDBACK_URL,
+      CONFERENCE_HALL_EVENT_ID: process.env.CONFERENCE_HALL_EVENT_ID,
     },
   },
   googleFonts: {
