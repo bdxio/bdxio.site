@@ -35,7 +35,7 @@ defineProps<{
     </p>
     <div
       v-if="youtubePlaylistUrl || youtubePlaylistUrl"
-      class="mt-12 flex gap-8"
+      class="mt-12 flex flex-col md:flex-row gap-8"
     >
       <LinkSecondary
         v-if="picturesGalleryUrl"
