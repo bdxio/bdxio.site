@@ -31,7 +31,7 @@ defineProps<{
     />
     <p class="mb-3 text-[28px] font-light">
       BDX I/O {{ EDITION }} c’est terminé ! On vous remercie tous <br>
-      chaleureusement pour votre présence et <br>votre soutient.
+      chaleureusement pour votre présence et <br>votre soutien.
     </p>
     <div
       v-if="youtubePlaylistUrl || youtubePlaylistUrl"
