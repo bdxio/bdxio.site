@@ -52,6 +52,7 @@ useHead({
       </p>
   
       <LinkPrimary
+        type="link"
         color="light"
         href="https://docs.google.com/forms/d/1-9tuJtSCXdLv2XkBS_RqIa1KlRS8QwAlVepr7wqOHdg/edit"
         class="mt-8"

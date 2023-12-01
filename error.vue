@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LayoutHeader, LayoutFooter, LinkPrimaryNuxt, NuxtImg } from "#components";
+import { LayoutHeader, LayoutFooter, LinkPrimary, NuxtImg } from "#components";
 
 const props = defineProps<{
   error: any;
@@ -25,13 +25,14 @@ const status = props.error?.statusCode || 500;
       <p v-else>
         Oups ! Il semblerait qu'il y ait eu une erreur.<br>
       </p>
-      <LinkPrimaryNuxt
+      <LinkPrimary
+        type="nuxt"
         color="dark"
-        to="/"
+        href="/"
         class="mt-5"
       >
         Revenir à l'accueil
-      </LinkPrimaryNuxt>
+      </LinkPrimary>
     </section>
     <LayoutFooter />
   </div>

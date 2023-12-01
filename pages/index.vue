@@ -11,12 +11,15 @@ import {
 } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
-const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE } = useNuxtApp();
+const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE, $SHOW_PAGE_WIP } = useNuxtApp();
 
 /**
  * @todo remove when working on 2024 site
  */
-definePageMeta({ redirect: "/wip" });
+// if ($SHOW_PAGE_WIP) {
+//   console.log($SHOW_PAGE_WIP);
+//   definePageMeta({ redirect: "/wip" });
+// }
 
 useHead({ title: ASSOCIATION_NAME });
 </script>

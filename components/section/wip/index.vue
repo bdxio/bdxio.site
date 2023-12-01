@@ -54,6 +54,7 @@ defineProps<{
       </LinkSecondary>
       <LinkPrimary
         v-if="youtubePlaylistUrl"
+        type="link"
         color="light"
         class="flex items-center"
         target="_blank"

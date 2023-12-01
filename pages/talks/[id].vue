@@ -32,13 +32,14 @@ if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type ===
       :key="speaker.id"
       :speaker="speaker"
     />
-    <LinkPrimaryNuxt
+    <LinkPrimary
       v-if="$SHOW_PAGE_PROGRAMME"
+      type="nuxt"
       color="light"
-      to="/schedule"
+      href="/schedule"
       class="block mt-5 mx-auto mb-0"
     >
       Voir le programme
-    </LinkPrimaryNuxt>
+    </LinkPrimary>
   </main>
 </template>
