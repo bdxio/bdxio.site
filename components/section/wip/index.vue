@@ -31,11 +31,11 @@ defineProps<{
     />
     <p class="mb-3 text-[28px] font-light">
       BDX I/O {{ EDITION }} c’est terminé ! On vous remercie tous <br>
-      chaleureusement pour votre présence et <br>votre soutient.
+      chaleureusement pour votre présence et <br>votre soutien.
     </p>
     <div
       v-if="youtubePlaylistUrl || youtubePlaylistUrl"
-      class="mt-12 flex gap-8"
+      class="mt-12 flex flex-col md:flex-row gap-8"
     >
       <LinkSecondary
         v-if="picturesGalleryUrl"
