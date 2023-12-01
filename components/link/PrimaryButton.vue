@@ -23,7 +23,7 @@ const colorClasses = computed(() => {
 
 <template>
   <button
-    :class="`border-none py-[12px] px-[25px] rounded-lg
+    :class="`border-none py-2 px-4 rounded-lg
     cursor-pointer duration-300 w-fit block ${colorClasses}`"
   >
     <slot />
