@@ -1,57 +1,13 @@
 <script setup lang="ts">
-import { useNuxtApp } from "#imports";
-import { NuxtLink, LinkPrimary, LinkPrimaryNuxt } from "#components";
-import { EDITION } from "~/services/constants";
+import { getNavigation } from "#imports";
+import { NuxtLink, LinkPrimary, LinkPrimaryNuxt, IconOpenNewWindow } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
   open: boolean;
 }>();
 
-const instance = useNuxtApp();
-
-const pages: Array<{name: string; path: string; show: boolean;}> = [
-  {
-    name: "Accueil",
-    path: "/",
-    show: !instance.$SHOW_PAGE_WIP,
-  },
-  {
-    name: "Talks",
-    path: "/talks",
-    show: instance.$SHOW_PAGE_TALKS && !instance.$SHOW_PAGE_PROGRAMME,
-  },
-  {
-    name: "Programme",
-    path: "/schedule",
-    show: instance.$SHOW_PAGE_PROGRAMME,
-  },
-  {
-    name: `Sponsors ${EDITION}`,
-    path: "/sponsors",
-    show: instance.$SHOW_PAGE_SPONSORS,
-  },
-  {
-    name: "Speakers",
-    path: "/speakers",
-    show: instance.$SHOW_PAGE_SPEAKERS && !instance.$SHOW_PAGE_PROGRAMME,
-  },
-  {
-    name: "FAQ",
-    path: "/faq",
-    show: instance.$SHOW_PAGE_FAQ,
-  },
-  {
-    name: "Association",
-    path: "/association",
-    show: instance.$SHOW_PAGE_ASSOCIATION,
-  },
-  {
-    name: "Jobs",
-    path: "/jobs",
-    show: instance.$SHOW_PAGE_JOBS,
-  },
-].filter((page) => page.show);
+const navigation = getNavigation();
 </script>
 
 <template>
@@ -62,59 +18,58 @@ const pages: Array<{name: string; path: string; show: boolean;}> = [
   >
     <ul class="flex flex-col m:flex-row justify-center m:justify-end items-center">
       <li
-        v-for="page in pages"
+        v-for="page in navigation"
         :key="page.name"
         class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
       >
-        <NuxtLink
-          :to="page.path"
-          :class="`no-underline text-2xl m:text-base
-          ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
-          tabindex="1"
-        >
-          {{ page.name }}
-        </NuxtLink>
-      </li>
-      <li
-        v-if="instance.$SHOW_PAGE_LIVE"
-        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
-      >
-        <LinkPrimaryNuxt
-          to="/live"
-          color="light"
-          aria-label="lien vers le live - Nouvelle fenêtre"
-        >
-          <div class="flex items-center text-white">
-            Live
-            <div class="live" />
-          </div>
-        </LinkPrimaryNuxt>
-      </li>
-      <li
-        v-if="instance.$SHOW_LINK_BILLETERIE"
-        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
-      >
-        <LinkPrimary
-          color="light"
-          href="https://www.billetweb.fr/bdxio-2023"
-          target="_blank"
-          title="lien vers la billeterie - Nouvelle fenêtre"
-        >
-          Billetterie
-        </LinkPrimary>
-      </li>
-      <li
-        v-if="instance.$SHOW_LINK_CFP"
-        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
-      >
-        <LinkPrimary
-          href="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
-          color="light"
-          target="_blank"
-          aria-label="lien vers le CFP conference hall - Nouvelle fenêtre"
-        >
-          CFP
-        </LinkPrimary>
+        <div v-if="page.type === 'internal'">
+          <NuxtLink
+            v-if="page.design === 'link'"
+            :to="page.path"
+            :class="`no-underline text-2xl m:text-base
+            ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
+            tabindex="1"
+            :aria-label="`Lien vers la page ${page.name}`"
+          >
+            {{ page.name }}
+          </NuxtLink>
+  
+          <LinkPrimaryNuxt
+            v-if="page.design === 'primary'"
+            :to="page.path"
+            color="light"
+            :aria-label="`Lien vers la page ${page.name}`"
+          >
+            <div
+              v-if="page.name === 'Live'"
+              class="flex items-center text-white"
+            >
+              {{ page.name }}
+              <div class="live" />
+            </div>
+
+            <div v-else>
+              {{ page.name }}
+            </div>
+          </LinkPrimaryNuxt>
+        </div>
+        <div v-else-if="page.type === 'external'">
+          <LinkPrimary
+            v-if="page.design === 'primary'"
+            color="light"
+            :href="page.path"
+            target="_blank"
+            title="lien vers la billeterie - Nouvelle fenêtre"
+            class="flex items-center"
+          >
+            {{ page.name }}
+            <IconOpenNewWindow
+              color="#FFFFFF"
+              border-color="#373739"
+              class="ml-2 mt-1"
+            />
+          </LinkPrimary>
+        </div>
       </li>
     </ul>
   </nav>
