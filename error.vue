@@ -13,7 +13,7 @@ const status = props.error?.statusCode || 500;
     <LayoutHeader background="light" />
     <section class="p-section flex flex-col items-center">
       <NuxtImg
-        src="/images/association/team2022.webp"
+        src="/images/association/team2023.webp"
         alt=""
         aria-hidden="true"
         class="mb-6"
