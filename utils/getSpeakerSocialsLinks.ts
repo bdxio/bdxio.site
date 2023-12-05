@@ -14,7 +14,7 @@ function getSocialUrl(
   return `https://${social}.com/${link.replace("@", "")}`;
 }
 
-export default function getSpeakerSocialsLinks(speaker: Speaker) {
+export function getSpeakerSocialsLinks(speaker: Speaker) {
   const socials = [];
   if (speaker.twitter) {
     socials.push({
