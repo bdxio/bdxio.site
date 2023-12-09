@@ -22,6 +22,7 @@ const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
     </div>
     <LinkSecondary
       v-if="$SHOW_LINK_BILLETERIE"
+      type="link"
       color="grey"
       to="https://www.billetweb.fr/bdxio-2023"
       target="_blank"

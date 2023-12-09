@@ -20,6 +20,7 @@ import { Heading, LinkSecondary } from "#components";
         Vous n'avez qu'à les apporter le jour J, et nous nous occupons du reste ! 💜
 
         <LinkSecondary
+          type="link"
           color="light"
           to="https://www.ecomicro.fr/"
           target="_blank"
