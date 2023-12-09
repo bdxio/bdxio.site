@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getNavigation } from "#imports";
-import { NuxtLink, LinkPrimaryNuxt, IconOpenNewWindow } from "#components";
+import { NuxtLink, LinkPrimary, IconOpenNewWindow } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
@@ -34,9 +34,10 @@ const navigation = getNavigation();
             {{ page.name }}
           </NuxtLink>
   
-          <LinkPrimaryNuxt
+          <LinkPrimary
             v-if="page.design === 'primary'"
-            :to="page.path"
+            type="nuxt"
+            :href="page.path"
             color="light"
             :aria-label="`Lien vers la page ${page.name}`"
           >
@@ -51,11 +52,12 @@ const navigation = getNavigation();
             <div v-else>
               {{ page.name }}
             </div>
-          </LinkPrimaryNuxt>
+          </LinkPrimary>
         </div>
         <div v-else-if="page.type === 'external'">
           <LinkPrimary
             v-if="page.design === 'primary'"
+            type="link"
             color="light"
             :href="page.path"
             target="_blank"

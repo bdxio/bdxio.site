@@ -159,6 +159,7 @@ onClickOutside(categoriesWrapper, () => {
       <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
+          type="link"
           color="light"
           href="/bdxio-2023-programme.pdf"
           download="bdxio-2023-programme.pdf"
