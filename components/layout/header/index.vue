@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRoute, ref, watch, computed } from "#imports";
+import { useRoute, watch, computed, reactive } from "#imports";
 import { NuxtLink, LayoutHeaderNavigation, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
@@ -7,11 +7,12 @@ const props = defineProps<{
   background: "light" | "dark";
 }>();
 
-const open = ref(false);
-const { path } = useRoute();
+const menu = reactive({ isOpen: false });
+
+const route = useRoute();
 
 const icon = computed(() => {
-  return open.value
+  return menu.isOpen
     ? {
       src: props.background === "light" ? "/images/icons/close_blue.svg" : "/images/icons/close.svg",
       alt: "Icône croix",
@@ -24,14 +25,15 @@ const icon = computed(() => {
 });
 
 const toggleMenu = () => {
-  open.value = !open.value;
+  menu.isOpen = !menu.isOpen;
 };
 
 watch(
-  () => path,
+  () => route.path,
   () => {
-    open.value = false;
+    menu.isOpen = false;
   },
+  { deep: true, immediate: true },
 );
 </script>
 
@@ -56,13 +58,13 @@ watch(
     <img
       :src="icon.src"
       :alt="icon.alt"
-      :aria-label="open ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
+      :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
       class="cursor-pointer m:hidden relative z-30"
       @click.prevent="toggleMenu"
     >
     <LayoutHeaderNavigation
       :background="background"
-      :open="open"
+      :open="menu.isOpen"
     />
   </header>
 </template>

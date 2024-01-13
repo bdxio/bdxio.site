@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, NuxtImg } from "#components";
+import { Heading, NuxtImg, LinkSecondary } from "#components";
 import { EDITION, ASSOCIATION_NAME } from "~/services/constants";
 
 defineProps<{
@@ -39,6 +39,7 @@ defineProps<{
     >
       <LinkSecondary
         v-if="picturesGalleryUrl"
+        type="link"
         color="white"
         :to="picturesGalleryUrl"
         target="_blank"
@@ -54,6 +55,7 @@ defineProps<{
       </LinkSecondary>
       <LinkPrimary
         v-if="youtubePlaylistUrl"
+        type="link"
         color="light"
         class="flex items-center"
         target="_blank"

@@ -2,6 +2,7 @@
 import { computed } from "#imports";
 
 const props = defineProps<{
+  type: "nuxt" | "button" | "link";
   to: string;
   color: "white" | "light" | "grey" | "dark";
 }>();
@@ -20,14 +21,28 @@ const colorClasses = computed(() => {
       return null;
   }
 });
+
+const getComponentTag = computed(() => {
+  switch (props.type) {
+    case "nuxt":
+      return "nuxt-link";
+    case "button":
+      return "button";
+    case "link":
+    default:
+      return "a";
+  }
+});
+
 </script>
 
 <template>
-  <a
+  <component
+    :is="getComponentTag"
     :class="`bg-none border-[2px] border-solid py-[6px] px-4 rounded-lg cursor-pointer duration-300 w-fit
       block ${colorClasses}`"
     :href="to"
   >
     <slot />
-  </a>
+  </component>
 </template>

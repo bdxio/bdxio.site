@@ -67,6 +67,7 @@ const { $SHOW_LINK_SPONSORING } = useNuxtApp();
     </ul>
     <LinkPrimary
       v-if="$SHOW_LINK_SPONSORING"
+      type="link"
       color="light"
       href="/bdxio-2023-sponsors.pdf"
       download="bdxio-2023-sponsors.pdf"

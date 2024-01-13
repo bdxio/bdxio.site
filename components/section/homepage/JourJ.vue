@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, LinkSecondaryNuxt } from "#components";
+import { Heading, LinkSecondary } from "#components";
 </script>
 
 <template>
@@ -12,13 +12,14 @@ import { Heading, LinkSecondaryNuxt } from "#components";
         Prêt.e.s pour le jour J&nbsp;?
       </Heading>
 
-      <LinkSecondaryNuxt
+      <LinkSecondary
+        type="nuxt"
         color="white"
         to="/sponsors"
         class="mt-10 mx-auto"
       >
         Découvrir nos sponsors 2023
-      </LinkSecondaryNuxt>
+      </LinkSecondary>
     </div>
   </section>
 </template>

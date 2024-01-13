@@ -25,6 +25,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
     </div>
     <LinkSecondary
       v-if="$SHOW_LINK_CFP"
+      type="link"
       color="grey"
       to="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
       target="_blank"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, OpenFeedback, NuxtLink, NuxtImg, LinkSecondaryNuxt } from "#components";
+import { Heading, OpenFeedback, NuxtLink, NuxtImg, LinkSecondary } from "#components";
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
@@ -159,6 +159,7 @@ onClickOutside(categoriesWrapper, () => {
       <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
           v-if="$SHOW_LINK_PROGRAMME_PDF"
+          type="link"
           color="light"
           href="/bdxio-2023-programme.pdf"
           download="bdxio-2023-programme.pdf"
@@ -166,14 +167,15 @@ onClickOutside(categoriesWrapper, () => {
         >
           Télécharger le programme
         </LinkPrimary>
-        <LinkSecondaryNuxt
+        <LinkSecondary
           v-if="$SHOW_PAGE_SPEAKERS"
+          type="nuxt"
           to="/speakers"
           color="dark"
           tabindex="1"
         >
           Nos speakers
-        </LinkSecondaryNuxt>
+        </LinkSecondary>
         <OpenFeedback />
       </div>
       <div class="flex flex-col lg:flex-row">

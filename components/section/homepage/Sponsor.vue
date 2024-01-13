@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Heading, HeadingSection, LinkSecondaryNuxt } from "#components";
+import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { useNuxtApp } from "#imports";
 
 const { $SHOW_LINK_SPONSORING } = useNuxtApp();
@@ -26,14 +26,15 @@ const { $SHOW_LINK_SPONSORING } = useNuxtApp();
         informations nécessaires.
       </p>
     </div>
-    <LinkSecondaryNuxt
+    <LinkSecondary
       v-if="$SHOW_LINK_SPONSORING"
+      type="nuxt"
       to="/sponsors"
       color="white"
       class="mt-8"
     >
       Devenir sponsor
-    </LinkSecondaryNuxt>
+    </LinkSecondary>
     <p
       v-else
       class="italic text-md mt-4"

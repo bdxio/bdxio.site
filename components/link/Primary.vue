@@ -2,6 +2,7 @@
 import { computed } from "#imports";
 
 const props = defineProps<{
+    type: "nuxt" | "button" | "link";
     color: "white" | "light" | "grey" | "dark";
     href: string;
     disabled?: true;
@@ -22,16 +23,49 @@ const colorClasses = computed(() => {
       return "";
   }
 });
+
+const tag = computed(() => {
+  switch (props.type) {
+    case "nuxt":
+      return "nuxt-link";
+    case "button":
+      return "button";
+    case "link":
+    default:
+      return "a";
+  }
+});
+
+const getProps = computed(() => {
+  switch (props.type) {
+    case "nuxt":
+      return {
+        to: props.href,
+      };
+    case "button":
+      return {
+        type: "button",
+      };
+    case "link":
+    default:
+      return {
+        href: props.href,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        tabindex: props.disabled ? "-1" : 1,
+        download: props.download,
+      };
+  }
+});
 </script>
 
 <template>
-  <a
+  <component
+    :is="tag"
+    v-bind="getProps"
     :class="`border-none py-2 px-4 rounded-lg duration-300 w-fit block
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
-    :href="href"
-    :download="download"
-    :tabindex="disabled ? '-1' : 1"
   >
     <slot />
-  </a>
+  </component>
 </template>
