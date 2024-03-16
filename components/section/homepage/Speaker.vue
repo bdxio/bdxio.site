@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { Heading, HeadingSection, IconOpenNewWindow, LinkSecondary } from "#components";
+import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
 const { $SHOW_LINK_CFP } = useNuxtApp();
@@ -28,15 +28,11 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       type="link"
       color="grey"
       to="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
-      target="_blank"
       class="flex flex-row items-center"
       aria-label="lien vers le CFP (call for paper) pour devenir speaker - Nouvelle fenêtre"
+      new-window
     >
       Devenir speaker
-      <IconOpenNewWindow
-        color="#373739"
-        class="ml-2"
-      />
     </LinkSecondary>
     <p
       v-else

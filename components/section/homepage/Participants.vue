@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNuxtApp } from "#imports";
-import { Heading, HeadingSection, IconOpenNewWindow, LinkSecondary } from "#components";
+import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
 const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
@@ -25,15 +25,11 @@ const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
       type="link"
       color="grey"
       to="https://www.billetweb.fr/bdxio-2023"
-      target="_blank"
       class="flex flex-row items-center"
       aria-label="lien vers la billetterie - Nouvelle fenêtre"
+      new-window
     >
       Billetterie
-      <IconOpenNewWindow
-        color="#373739"
-        class="ml-2 mt-1"
-      />
     </LinkSecondary>
     <p
       v-else

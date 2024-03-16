@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "#imports";
+import { IconOpenNewWindow } from "#components";
 
 const props = defineProps<{
     type: "nuxt" | "button" | "link";
@@ -7,18 +8,31 @@ const props = defineProps<{
     href: string;
     disabled?: true;
     download?: string;
+    newWindow?: true;
 }>();
 
-const colorClasses = computed(() => {
+const color = computed(() => {
   switch (props.color) {
     case "white":
-      return "bg-bdxio-cream-base text-bdxio-blue-dark";
+      return {
+        link: "bg-bdxio-cream-base text-bdxio-blue-dark",
+        icon: "#242457",
+      };
     case "light":
-      return "bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light";
+      return {
+        link: "bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light",
+        icon: "#fff7ec",
+      };
     case "grey":
-      return "bg-bdxio-dark text-bdxio-light";
+      return {
+        link: "bg-bdxio-dark text-bdxio-light",
+        icon: "#fff7ec",
+      };
     case "dark":
-      return "bg-bdxio-blue-dark text-bdxio-light";
+      return {
+        link: "bg-bdxio-blue-dark text-bdxio-light",
+        icon: "#fff7ec",
+      };
     default:
       return "";
   }
@@ -63,9 +77,14 @@ const getProps = computed(() => {
   <component
     :is="tag"
     v-bind="getProps"
-    :class="`border-none py-2 px-4 rounded-lg duration-300 w-fit block
-    ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${colorClasses}`"
+    :class="`border-none py-2 px-4 rounded-lg duration-300 w-fit flex gap-3 items-center
+    ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${color.link}`"
+    :target="props.newWindow ? 'blank' : undefined"
   >
     <slot />
+    <IconOpenNewWindow
+      v-if="props.newWindow"
+      :color="color.icon"
+    />
   </component>
 </template>
