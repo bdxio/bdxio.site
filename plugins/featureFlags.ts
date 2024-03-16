@@ -33,7 +33,7 @@ const pages = {
   SHOW_PAGE_CONCOURS_2023: false,
   SHOW_PAGE_CODE_OF_CONDUCT: false,
   SHOW_PAGE_LEGAL_NOTICE: false,
-  SHOW_PAGE_WIP: false,
+  SHOW_PAGE_WIP: true,
 };
 
 export default defineNuxtPlugin(() => {
