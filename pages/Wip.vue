@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp, type Ref, useAPI } from "#imports";
+import { definePageMeta, useHead, useNuxtApp, type Ref, useAPI, createError } from "#imports";
 import {
   SectionWip,
 } from "#components";
