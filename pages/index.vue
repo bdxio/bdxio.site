@@ -4,6 +4,7 @@ import {
   useNuxtApp,
   type Ref,
   useAPI,
+  navigateTo,
 } from "#imports";
 import {
   SectionHomepageHero,
@@ -18,6 +19,7 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const {
+  $SHOW_PAGE_WIP,
   $SHOW_SECTION_HOMEPAGE_FIGURES,
   $SHOW_SECTION_HOMEPAGE_ABOUT,
   $SHOW_LINK_SPONSORING,
@@ -26,6 +28,10 @@ const {
   $SHOW_SECTION_HOMEPAGE_THEME,
   $SHOW_SECTION_HOMEPAGE_MATERIEL,
 } = useNuxtApp();
+
+if ($SHOW_PAGE_WIP) {
+  navigateTo("/wip");
+}
 
 useHead({ title: ASSOCIATION_NAME });
 
