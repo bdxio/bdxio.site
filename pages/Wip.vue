@@ -58,33 +58,23 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
           type="link"
           color="white"
           :to="picturesGalleryUrl"
-          target="_blank"
           class="flex items-center"
           :aria-label="`lien vers la galerie des photos de ${ASSOCIATION_NAME} ${PREVIOUS_EDITION}  - Nouvelle fenêtre`"
+          new-window
         >
-          Galerie photo
-          <IconOpenNewWindow
-            color="#FFFFFF"
-            border-color="#373739"
-            class="ml-2 mt-1"
-          />
+          Galerie photos
         </LinkSecondary>
         <LinkPrimary
           v-if="youtubePlaylistUrl"
           type="link"
           color="light"
           class="flex items-center"
-          target="_blank"
           :href="youtubePlaylistUrl"
           :aria-label="`lien vers la playlist youtube du replay de l'édition ${PREVIOUS_EDITION} de
         ${ASSOCIATION_NAME} - Nouvelle fenêtre`"
+          new-window
         >
           Replay {{ PREVIOUS_EDITION }}
-          <IconOpenNewWindow
-            color="#FFFFFF"
-            border-color="#373739"
-            class="ml-2 mt-1"
-          />
         </LinkPrimary>
       </div>
     </header>

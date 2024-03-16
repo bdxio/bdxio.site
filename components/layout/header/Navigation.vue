@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getNavigation } from "#imports";
-import { NuxtLink, LinkPrimary, IconOpenNewWindow } from "#components";
+import { NuxtLink, LinkPrimary } from "#components";
 
 defineProps<{
   background?: "light" | "dark";
@@ -60,16 +60,11 @@ const navigation = getNavigation();
             type="link"
             color="light"
             :href="page.path"
-            target="_blank"
             title="lien vers la billeterie - Nouvelle fenêtre"
             class="flex items-center"
+            new-window
           >
             {{ page.name }}
-            <IconOpenNewWindow
-              color="#FFFFFF"
-              border-color="#373739"
-              class="ml-2 mt-1"
-            />
           </LinkPrimary>
         </div>
       </li>
