@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { definePageMeta, useHead, useNuxtApp, type Ref, useAPI, createError } from "#imports";
-import {
-  SectionWip,
-} from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, PREVIOUS_EDITION } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 useHead({ title: ASSOCIATION_NAME });
@@ -15,7 +12,7 @@ if (!$SHOW_PAGE_WIP) {
 }
 
 const { data }: { data: Ref<Edition[]> } = await useAPI("/editions", { params: {
-  "filters[year][$eq]": EDITION,
+  "filters[year][$eq]": PREVIOUS_EDITION,
   "fields[0]": "youtubePlaylistUrl",
   "fields[1]": "picturesGalleryUrl",
 } });
@@ -24,13 +21,72 @@ if (!data.value.length) {
   throw createError({ statusCode: 400, message: "Edition not found in CMS" });
 }
 
+const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
 </script>
 
 <template>
   <main class="flex flex-col items-center justify-center ">
-    <SectionWip
-      :youtubePlaylistUrl="data[0].youtubePlaylistUrl"
-      :picturesGalleryUrl="data[0].picturesGalleryUrl"
-    />
+    <header
+      class="flex flex-col items-center  text-bdxio-light
+  text-center p-section"
+    >
+      <Heading
+        level="1"
+        class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
+      >
+        La conférence technologique <br>bordelaise revient bientôt&nbsp;!
+      </Heading>
+      <NuxtImg
+        src="/images/drawings/line-yellow.webp"
+        alt=""
+        :aria-hidden="true"
+        class="-m-5 mb-4"
+        preload
+        width="450"
+        height="71"
+      />
+      <p class="mb-3 text-[28px] font-light">
+        BDX I/O {{ PREVIOUS_EDITION }} c’est terminé ! On vous remercie tous <br>
+        chaleureusement pour votre présence et <br>votre soutien.
+      </p>
+      <div
+        v-if="youtubePlaylistUrl || picturesGalleryUrl"
+        class="mt-12 flex flex-col items-center md:flex-row gap-8"
+      >
+        <LinkSecondary
+          v-if="picturesGalleryUrl"
+          type="link"
+          color="white"
+          :to="picturesGalleryUrl"
+          target="_blank"
+          class="flex items-center"
+          :aria-label="`lien vers la galerie des photos de ${ASSOCIATION_NAME} ${PREVIOUS_EDITION}  - Nouvelle fenêtre`"
+        >
+          Galerie photo
+          <IconOpenNewWindow
+            color="#FFFFFF"
+            border-color="#373739"
+            class="ml-2 mt-1"
+          />
+        </LinkSecondary>
+        <LinkPrimary
+          v-if="youtubePlaylistUrl"
+          type="link"
+          color="light"
+          class="flex items-center"
+          target="_blank"
+          :href="youtubePlaylistUrl"
+          :aria-label="`lien vers la playlist youtube du replay de l'édition ${PREVIOUS_EDITION} de
+        ${ASSOCIATION_NAME} - Nouvelle fenêtre`"
+        >
+          Replay {{ PREVIOUS_EDITION }}
+          <IconOpenNewWindow
+            color="#FFFFFF"
+            border-color="#373739"
+            class="ml-2 mt-1"
+          />
+        </LinkPrimary>
+      </div>
+    </header>
   </main>
 </template>
