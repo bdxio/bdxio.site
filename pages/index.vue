@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp } from "#imports";
+import {
+  useHead,
+  useNuxtApp,
+  type Ref,
+  useAPI,
+} from "#imports";
 import {
   SectionHomepageHero,
   SectionHomepageFigures,
@@ -9,27 +14,39 @@ import {
   SectionHomepageSponsor,
   SectionHomepageParticipants,
 } from "#components";
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import type { Edition } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_SPONSORING, $SHOW_LINK_BILLETERIE } = useNuxtApp();
-
-/**
- * @todo remove when working on 2024 site
- */
-definePageMeta({ redirect: "/wip" });
+const {
+  $SHOW_SECTION_HOMEPAGE_FIGURES,
+  $SHOW_SECTION_HOMEPAGE_ABOUT,
+  $SHOW_LINK_SPONSORING,
+  $SHOW_LINK_BILLETERIE,
+  $SHOW_SECTION_HOMEPAGE_JOUR_J,
+  $SHOW_SECTION_HOMEPAGE_THEME,
+  $SHOW_SECTION_HOMEPAGE_MATERIEL,
+} = useNuxtApp();
 
 useHead({ title: ASSOCIATION_NAME });
+
+const { data }: { data: Ref<Array<Edition>> } = await useAPI("/editions", {
+  params: {
+    "filters[year][$eq]": EDITION,
+  },
+});
+
+const edition = data.value[0];
 </script>
 
 <template>
   <main>
-    <SectionHomepageHero />
-    <SectionHomepageFigures />
-    <SectionHomepageAbout />
-    <SectionHomepageTheme />
-    <SectionHomepageMateriel v-if="$SHOW_LINK_MATERIEL" />
-    <SectionHomepageJourJ />
-    <SectionHomepageCategories />
+    <SectionHomepageHero :edition="edition" />
+    <SectionHomepageFigures v-if="$SHOW_SECTION_HOMEPAGE_FIGURES" />
+    <SectionHomepageAbout v-if="$SHOW_SECTION_HOMEPAGE_ABOUT" />
+    <SectionHomepageTheme v-if="$SHOW_SECTION_HOMEPAGE_THEME" />
+    <SectionHomepageMateriel v-if="$SHOW_SECTION_HOMEPAGE_MATERIEL" />
+    <SectionHomepageJourJ v-if="$SHOW_SECTION_HOMEPAGE_JOUR_J" />
+    <SectionHomepageCategories v-if="$SHOW_SECTION_HOMEPAGE_CATEGORIES" />
     <div class="grid grid-cols-1 m:grid-cols-2">
       <SectionHomepageSponsor v-if="$SHOW_LINK_SPONSORING" />
       <SectionHomepageParticipants v-if="$SHOW_LINK_BILLETERIE" />

@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { displayDate } from "#imports";
 import { Heading, NuxtImg } from "#components";
-import { EDITION } from "~/services/constants";
+import type { Edition } from "@bdxio/bdxio.types";
+
+const { edition } = defineProps<{
+  edition: Edition
+}>();
+
 </script>
 
 <template>
@@ -9,7 +15,7 @@ import { EDITION } from "~/services/constants";
       level="1"
       class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
     >
-      En {{ EDITION }},<br> Nous sommes de retour&nbsp;!
+      En {{ edition.year }},<br> Nous sommes de retour&nbsp;!
     </Heading>
     <NuxtImg
       src="/images/drawings/line-yellow.webp"
@@ -27,7 +33,7 @@ import { EDITION } from "~/services/constants";
       class="font-title text-title text-bdxio-light italic p-10 m:p-16 circle"
       datetime="2023-11-10"
     >
-      10/11/2023
+      {{ displayDate(edition.date) }}
     </time>
     <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">
       Et on a hâte de vous y (re)voir&nbsp;!
