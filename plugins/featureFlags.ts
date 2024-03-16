@@ -8,6 +8,7 @@ const links = {
   SHOW_LINK_LIVE: false,
   SHOW_LINK_SPONSORING: false,
   SHOW_LINK_MATERIEL: false,
+  SHOW_LINK_KIT_COMMUNICATION: false,
 };
 
 const sections = {
@@ -32,7 +33,7 @@ const pages = {
   SHOW_PAGE_CONCOURS_2023: false,
   SHOW_PAGE_CODE_OF_CONDUCT: false,
   SHOW_PAGE_LEGAL_NOTICE: false,
-  SHOW_PAGE_WIP: true,
+  SHOW_PAGE_WIP: false,
 };
 
 export default defineNuxtPlugin(() => {

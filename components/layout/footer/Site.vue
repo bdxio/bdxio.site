@@ -3,7 +3,7 @@ import { useNuxtApp } from "#imports";
 
 import { ASSOCIATION_NAME } from "~/services/constants";
 
-const { $SHOW_PAGE_LEGAL_NOTICE, $SHOW_PAGE_CODE_OF_CONDUCT } = useNuxtApp();
+const { $SHOW_PAGE_LEGAL_NOTICE, $SHOW_PAGE_CODE_OF_CONDUCT, $SHOW_LINK_KIT_COMMUNICATION } = useNuxtApp();
 
 </script>
 
@@ -25,6 +25,7 @@ const { $SHOW_PAGE_LEGAL_NOTICE, $SHOW_PAGE_CODE_OF_CONDUCT } = useNuxtApp();
       Code de conduite
     </NuxtLink>
     <a
+      v-if="$SHOW_LINK_KIT_COMMUNICATION"
       href="/bdxio-kit-communication.zip"
       download
       class="text-lg m:mr-16"
