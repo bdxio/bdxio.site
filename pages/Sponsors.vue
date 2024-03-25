@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useNuxtApp, createError, useAPI } from "#imports";
 import { SectionSponsorsBecomeSponsor, SectionSponsorsOffers } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, EDITION, PREVIOUS_EDITION } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Offer } from "@bdxio/bdxio.types";
 
@@ -28,6 +28,6 @@ data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         :offers="data"
       />
     </div>
-    <SectionSponsors />
+    <SectionSponsors :edition="PREVIOUS_EDITION" />
   </main>
 </template>
