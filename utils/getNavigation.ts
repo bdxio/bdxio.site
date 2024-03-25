@@ -1,13 +1,13 @@
 import { useNuxtApp, useRuntimeConfig } from "#imports";
-import { EDITION } from "~/services/constants";
+import { PREVIOUS_EDITION } from "~/services/constants";
 
 type Page = {
-    name: string,
-    path: string,
-    show: boolean;
-    type: "internal" | "external"
-    design: "link" | "primary"
-}
+  name: string;
+  path: string;
+  show: boolean;
+  type: "internal" | "external";
+  design: "link" | "primary";
+};
 
 function getShowPage(featureFlag?: unknown) {
   return featureFlag ? true : false;
@@ -33,7 +33,9 @@ export function getNavigation() {
     {
       name: "Talks",
       path: "/talks",
-      show: getShowPage(instance.$SHOW_PAGE_TALKS && !instance.$SHOW_PAGE_PROGRAMME),
+      show: getShowPage(
+        instance.$SHOW_PAGE_TALKS && !instance.$SHOW_PAGE_PROGRAMME
+      ),
       type: internal,
       design: link,
     },
@@ -45,7 +47,7 @@ export function getNavigation() {
       design: link,
     },
     {
-      name: `Sponsors ${EDITION}`,
+      name: `Sponsors ${PREVIOUS_EDITION}`,
       path: "/sponsors",
       show: getShowPage(instance.$SHOW_PAGE_SPONSORS),
       type: internal,
@@ -54,7 +56,9 @@ export function getNavigation() {
     {
       name: "Speakers",
       path: "/speakers",
-      show: getShowPage(instance.$SHOW_PAGE_SPEAKERS && !instance.$SHOW_PAGE_PROGRAMME),
+      show: getShowPage(
+        instance.$SHOW_PAGE_SPEAKERS && !instance.$SHOW_PAGE_PROGRAMME
+      ),
       type: internal,
       design: link,
     },
@@ -87,11 +91,11 @@ export function getNavigation() {
       design: primary,
     },
     {
-      name:"Billeterie",
+      name: "Billeterie",
       path: "https://www.billetweb.fr/bdxio-2023",
       show: getShowPage(instance.$SHOW_LINK_BILLETERIE),
       type: external,
-      design:  primary,
+      design: primary,
     },
     {
       name: "CFP",
@@ -100,7 +104,6 @@ export function getNavigation() {
       type: external,
       design: primary,
     },
-
   ].filter((page) => page.show);
 
   return pages;

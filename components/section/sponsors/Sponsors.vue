@@ -1,19 +1,25 @@
 <script setup lang="ts">
 import { useAPI } from "#imports";
 import { Heading, HeadingSection, NuxtImg } from "#components";
-import { EDITION } from "~/services/constants";
+import { type Edition } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Sponsor, Offer } from "@bdxio/bdxio.types";
 
+const props = defineProps<{
+  edition: Edition;
+}>();
+
 const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([
   useAPI("/offers", { params: {
-    "filters[edition][year][$eq]": EDITION,
+    "filters[edition][year][$eq]": props.edition,
   } }),
   useAPI("/sponsors", { params: {
     "populate": "*",
     "pagination[limit]": 1000,
   } }),
 ]);
+
+console.log(offers, sponsors);
 
 const displayableSponsors = sponsors.value
   .map(sponsor => ({
@@ -40,7 +46,10 @@ displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 </script>
 
 <template>
-  <section class="p-section bg-bdxio-blue-darker">
+  <section
+    v-if="displayableOffers.length > 0"
+    class="p-section bg-bdxio-blue-darker"
+  >
     <Heading
       level="2"
       class="title text-bdxio-light text-center !mb-10"
