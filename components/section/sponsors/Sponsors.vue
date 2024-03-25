@@ -19,8 +19,6 @@ const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: R
   } }),
 ]);
 
-console.log(offers, sponsors);
-
 const displayableSponsors = sponsors.value
   .map(sponsor => ({
     ...sponsor,
