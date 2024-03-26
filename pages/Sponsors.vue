@@ -5,29 +5,31 @@ import { ASSOCIATION_NAME, EDITION, PREVIOUS_EDITION } from "~/services/constant
 import type { Ref } from "vue";
 import type { Offer } from "@bdxio/bdxio.types";
 
-const { $SHOW_PAGE_SPONSORS, $SHOW_LINK_SPONSORING } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_SPONSORS) {
+if (!$featureFlags.pages.sponsors) {
   throw createError({ statusCode: 404 });
 }
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
+const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
   "filters[edition][year][$eq]": EDITION,
 } });
 
-data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+offers.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+
 </script>
 
 <template>
   <main>
-    <div v-if="$SHOW_LINK_SPONSORING">
-      <SectionSponsorsBecomeSponsor />
-      <SectionSponsorsOffers
-        v-if="data.length !== 0"
-        :offers="data"
-      />
-    </div>
-    <SectionSponsors :edition="PREVIOUS_EDITION" />
+    <SectionSponsorsBecomeSponsor v-if="$featureFlags.sections.sponsors.becomeSponsor" />
+    <SectionSponsorsOffers
+      v-if="$featureFlags.sections.sponsors.offers && offers.length > 0"
+      :offers="offers"
+    />
+    <SectionSponsors
+      v-if="$featureFlags.sections.sponsors.listing"
+      :edition="PREVIOUS_EDITION"
+    />
   </main>
 </template>

@@ -9,12 +9,8 @@ type Page = {
   design: "link" | "primary";
 };
 
-function getShowPage(featureFlag?: unknown) {
-  return featureFlag ? true : false;
-}
-
 export function getNavigation() {
-  const instance = useNuxtApp();
+  const { $featureFlags } = useNuxtApp();
   const config = useRuntimeConfig();
 
   const link = "link" as const;
@@ -26,81 +22,77 @@ export function getNavigation() {
     {
       name: "Accueil",
       path: "/",
-      show: getShowPage(!instance.$SHOW_PAGE_WIP),
+      show: !$featureFlags.pages.wip,
       type: internal,
       design: link,
     },
     {
       name: "Talks",
       path: "/talks",
-      show: getShowPage(
-        instance.$SHOW_PAGE_TALKS && !instance.$SHOW_PAGE_PROGRAMME
-      ),
+      show: $featureFlags.pages.talks && $featureFlags.pages.schedule,
       type: internal,
       design: link,
     },
     {
       name: "Programme",
       path: "/schedule",
-      show: getShowPage(instance.$SHOW_PAGE_PROGRAMME),
+      show: $featureFlags.pages.schedule,
       type: internal,
       design: link,
     },
     {
       name: `Sponsors ${PREVIOUS_EDITION}`,
       path: "/sponsors",
-      show: getShowPage(instance.$SHOW_PAGE_SPONSORS),
+      show: $featureFlags.pages.sponsors,
       type: internal,
       design: link,
     },
     {
       name: "Speakers",
       path: "/speakers",
-      show: getShowPage(
-        instance.$SHOW_PAGE_SPEAKERS && !instance.$SHOW_PAGE_PROGRAMME
-      ),
+      show: $featureFlags.pages.speakers && $featureFlags.pages.schedule,
       type: internal,
       design: link,
     },
     {
       name: "FAQ",
       path: "/faq",
-      show: getShowPage(instance.$SHOW_PAGE_FAQ),
+      show: $featureFlags.pages.faq,
       type: internal,
       design: link,
     },
     {
       name: "Association",
       path: "/association",
-      show: getShowPage(instance.$SHOW_PAGE_ASSOCIATION),
+      show: $featureFlags.pages.association,
       type: internal,
       design: link,
     },
     {
       name: "Jobs",
       path: "/jobs",
-      show: getShowPage(instance.$SHOW_PAGE_JOBS),
+      show: $featureFlags.pages.jobs,
       type: internal,
       design: link,
     },
     {
       name: "Live",
       path: "/live",
-      show: getShowPage(instance.$SHOW_PAGE_LIVE),
+      show: $featureFlags.pages.live,
       type: internal,
       design: primary,
     },
     {
       name: "Billeterie",
       path: "https://www.billetweb.fr/bdxio-2023",
-      show: getShowPage(instance.$SHOW_LINK_BILLETERIE),
+      show: $featureFlags.links.billeterie,
       type: external,
       design: primary,
     },
     {
       name: "CFP",
       path: `https://conference-hall.io/public/event/${config.public.CONFERENCE_HALL_EVENT_ID}`,
-      show: getShowPage(instance.$SHOW_LINK_CFP),
+      show: $featureFlags.links.cfp,
       type: external,
       design: primary,
     },

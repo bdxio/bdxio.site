@@ -5,9 +5,9 @@ import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constan
 import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
-const { $SHOW_LINK_PROGRAMME_PDF, $SHOW_PAGE_PROGRAMME, $SHOW_PAGE_SPEAKERS } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_PROGRAMME) {
+if (!$featureFlags.pages.schedule) {
   throw createError({ statusCode: 404 });
 }
 
@@ -158,7 +158,7 @@ onClickOutside(categoriesWrapper, () => {
     <section class="mt-14 md:mt-12">
       <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
-          v-if="$SHOW_LINK_PROGRAMME_PDF"
+          v-if="$featureFlags.links.schedulePdf"
           type="link"
           color="light"
           href="/bdxio-2023-programme.pdf"
@@ -168,7 +168,7 @@ onClickOutside(categoriesWrapper, () => {
           Télécharger le programme
         </LinkPrimary>
         <LinkSecondary
-          v-if="$SHOW_PAGE_SPEAKERS"
+          v-if="$featureFlags.pages.speakers"
           type="nuxt"
           to="/speakers"
           color="dark"

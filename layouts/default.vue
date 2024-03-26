@@ -2,14 +2,13 @@
 import { LayoutHeader, LayoutSponsors, LayoutLocation, LayoutFooter } from "#components";
 import { useNuxtApp } from "#imports";
 
-const { $SHOW_SECTION_LAYOUT_SPONSORS } = useNuxtApp();
-
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
   <LayoutHeader :background="$route.name === 'index' ? 'dark' : 'light'" />
   <slot />
-  <LayoutSponsors v-if="$route.name !== 'Sponsors' && $SHOW_SECTION_LAYOUT_SPONSORS" />
-  <LayoutLocation />
+  <LayoutSponsors v-if="$route.name !== 'Sponsors' && $featureFlags.layouts.sponsors" />
+  <LayoutLocation v-if="$featureFlags.layouts.location" />
   <LayoutFooter />
 </template>

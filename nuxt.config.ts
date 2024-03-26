@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-simple-sitemap",
   ],
+  plugins: ["~/plugins/featureFlags/index.ts"],
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {

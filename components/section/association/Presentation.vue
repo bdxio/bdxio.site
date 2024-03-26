@@ -3,7 +3,7 @@ import { useNuxtApp } from "#imports";
 import { Heading, HeadingSection, ButtonSecondary, NuxtImg } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
-const { LINK_PROGRAMME_PDF } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
@@ -49,7 +49,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
           !
         </p>
         <ButtonSecondary
-          v-if="LINK_PROGRAMME_PDF"
+          v-if="$featureFlags.links.schedulePdf"
           color="dark"
           to="/schedule"
         >

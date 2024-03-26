@@ -2,7 +2,7 @@
 import { Heading, LinkPrimary } from "#components";
 import { useNuxtApp } from "#imports";
 
-const { $SHOW_LINK_SPONSORING } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
@@ -66,7 +66,7 @@ const { $SHOW_LINK_SPONSORING } = useNuxtApp();
       </li>
     </ul>
     <LinkPrimary
-      v-if="$SHOW_LINK_SPONSORING"
+      v-if="$featureFlags.links.sponsoringPdf"
       type="link"
       color="light"
       href="/bdxio-2023-sponsors.pdf"

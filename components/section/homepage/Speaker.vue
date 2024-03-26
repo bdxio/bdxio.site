@@ -3,7 +3,7 @@ import { useNuxtApp } from "#imports";
 import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
-const { $SHOW_LINK_CFP } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const { $SHOW_LINK_CFP } = useNuxtApp();
       </p>
     </div>
     <LinkSecondary
-      v-if="$SHOW_LINK_CFP"
+      v-if="$featureFlags.links.cfp"
       type="link"
       color="grey"
       to="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"

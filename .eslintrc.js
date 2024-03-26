@@ -7,38 +7,52 @@ module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
-  extends: ["@nuxt/eslint-config", "plugin:import/recommended", "plugin:import/typescript"],
+  extends: [
+    "@nuxt/eslint-config",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+  ],
   settings: {
     "import/resolver": {
-      "alias": {
+      alias: {
         map: [
           ["#imports", ".nuxt/imports.d.ts"],
           ["#components", ".nuxt/components.d.ts"],
           ["~/services", "./services"],
         ],
-        "extensions": [".ts"],
+        extensions: [".ts"],
       },
     },
   },
   rules: {
     /* General */
-    "semi": [ERROR, "always"],
-    "quotes": [ERROR, "double"],
-    "indent": [ERROR, 2, {
-      "SwitchCase": 1,
-    }],
+    semi: [ERROR, "always"],
+    quotes: [ERROR, "double"],
+    indent: [
+      ERROR,
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
     "comma-dangle": [ERROR, "always-multiline"],
-    "max-len": [ERROR, { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreRegExpLiterals": true }],
-    "keyword-spacing": [ERROR, { "before": true, "after": true }],
-    "space-before-function-paren": [ERROR, { "anonymous": "always", "named": "never" }],
-    "no-multi-spaces": [ERROR, { "ignoreEOLComments": true }],
-    "no-multiple-empty-lines": [ERROR, { "max": 1, "maxBOF": 0, "maxEOF": 0 }],
-    "no-trailing-spaces": [ERROR, { "skipBlankLines": true }],
+    "max-len": [
+      ERROR,
+      { code: 120, tabWidth: 2, ignoreUrls: true, ignoreRegExpLiterals: true },
+    ],
+    "keyword-spacing": [ERROR, { before: true, after: true }],
+    "space-before-function-paren": [
+      ERROR,
+      { anonymous: "always", named: "never" },
+    ],
+    "no-multi-spaces": [ERROR, { ignoreEOLComments: true }],
+    "no-multiple-empty-lines": [ERROR, { max: 1, maxBOF: 0, maxEOF: 0 }],
+    "no-trailing-spaces": [ERROR, { skipBlankLines: true }],
     "space-before-blocks": [ERROR, "always"],
     "import/order": [
       "error",
       {
-        "groups": [
+        groups: [
           ["builtin", "external"],
           ["internal", "parent", "sibling"],
           "index",
@@ -46,14 +60,17 @@ module.exports = {
         ],
       },
     ],
-    "import/newline-after-import": [ERROR, { "count": 1 }],
+    "import/newline-after-import": [ERROR, { count: 1 }],
     "semi-spacing": ERROR,
-    "spaced-comment": [ERROR, "always", { "block": { "balanced": true } }],
+    "spaced-comment": [ERROR, "always", { block: { balanced: true } }],
     "object-curly-spacing": [ERROR, "always"],
     "eol-last": [ERROR, "always"],
-    "comma-spacing": [ERROR, { "before": false, "after": true }],
+    "comma-spacing": [ERROR, { before: false, after: true }],
     /* TypeScript */
-    "@typescript-eslint/consistent-type-imports": [ERROR, { "prefer": "type-imports" }],
+    "@typescript-eslint/consistent-type-imports": [
+      ERROR,
+      { prefer: "type-imports" },
+    ],
     /* Vue */
     "vue/multi-word-component-names": OFF,
     "vue/no-multiple-template-root": OFF,

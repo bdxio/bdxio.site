@@ -4,4 +4,3 @@ pages/**/*.vue
 !pages/Conduct.vue
 !pages/Sponsors.vue
 !pages/index.vue
-!pages/Wip.vue

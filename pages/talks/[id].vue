@@ -9,7 +9,7 @@ useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
 const { params }: {params: Record<string, string>} = useRoute();
 
-const { $SHOW_PAGE_PROGRAMME } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
 const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, {
   params: { populate: "*" },
@@ -33,7 +33,7 @@ if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type ===
       :speaker="speaker"
     />
     <LinkPrimaryNuxt
-      v-if="$SHOW_PAGE_PROGRAMME"
+      v-if="$featureFlags.pages.schedule"
       color="light"
       to="/schedule"
       class="block mt-5 mx-auto mb-0"
