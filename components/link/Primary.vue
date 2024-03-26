@@ -29,12 +29,12 @@ const color = computed(() => {
         icon: "#fff7ec",
       };
     case "dark":
+    default:
       return {
         link: "bg-bdxio-blue-dark text-bdxio-light",
         icon: "#fff7ec",
       };
-    default:
-      return "";
+
   }
 });
 
