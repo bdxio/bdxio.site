@@ -27,8 +27,9 @@ offers.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
       v-if="$featureFlags.sections.sponsors.offers && offers.length > 0"
       :offers="offers"
     />
-    <SectionSponsors
+    <SectionSponsorsListingSponsors
       v-if="$featureFlags.sections.sponsors.listing"
+      title="Ils nous soutiennent&nbsp;!"
       :edition="PREVIOUS_EDITION"
     />
   </main>

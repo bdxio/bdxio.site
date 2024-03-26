@@ -1,6 +1,6 @@
 export default {
   schedule: false,
-  sponsors: true,
+  sponsors: false,
   association: true,
   jobs: false,
   talks: false,
@@ -10,4 +10,7 @@ export default {
   codeOfConduct: true,
   legalNotice: false,
   wip: false,
+  alumni: {
+    sponsors: true,
+  },
 };

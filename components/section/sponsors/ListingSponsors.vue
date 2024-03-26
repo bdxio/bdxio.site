@@ -7,6 +7,7 @@ import type { Sponsor, Offer } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
   edition: Edition;
+  title: string
 }>();
 
 const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([
@@ -52,7 +53,7 @@ displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       level="2"
       class="title text-bdxio-light text-center !mb-10"
     >
-      Ils nous soutiennent&nbsp;!
+      {{ title }}
     </Heading>
     <div
       v-for="(offer, offerIndex) in displayableOffers"
