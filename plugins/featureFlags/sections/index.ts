@@ -1,10 +1,10 @@
 export default {
   homepage: {
     hero: true,
-    figures: false,
-    about: false,
+    figures: true,
+    about: true,
     theme: false,
-    categories: false,
+    categories: true,
     materiel: false,
     jourJ: false,
   },
