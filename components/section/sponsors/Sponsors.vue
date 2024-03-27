@@ -52,7 +52,7 @@ displayableOffers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       level="2"
       class="title text-bdxio-light text-center !mb-10"
     >
-      Ils nous soutiennent&nbsp;!
+      Nos sponsors&nbsp;{{ edition }}&nbsp;!
     </Heading>
     <div
       v-for="(offer, offerIndex) in displayableOffers"

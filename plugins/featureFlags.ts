@@ -12,11 +12,11 @@ const links = {
 };
 
 const sections = {
-  SHOW_SECTION_FIGURES: true,
-  SHOW_SECTION_ABOUT: true,
-  SHOW_SECTION_THEME: false,
-  SHOW_SECTION_MATERIEL: false,
-  SHOW_SECTION_JOUR_J: false,
+  SHOW_SECTION_HOMEPAGE_FIGURES: true,
+  SHOW_SECTION_HOMEPAGE_ABOUT: true,
+  SHOW_SECTION_HOMEPAGE_THEME: false,
+  SHOW_SECTION_HOMEPAGE_MATERIEL: false,
+  SHOW_SECTION_HOMEPAGE_JOUR_J: false,
   SHOW_SECTION_HOMEPAGE_CATEGORIES: false,
   SHOW_SECTION_LAYOUT_SPONSORS: false,
 };
@@ -33,7 +33,7 @@ const pages = {
   SHOW_PAGE_CONCOURS_2023: false,
   SHOW_PAGE_CODE_OF_CONDUCT: true,
   SHOW_PAGE_LEGAL_NOTICE: false,
-  SHOW_PAGE_WIP: true,
+  SHOW_PAGE_WIP: false,
 };
 
 export default defineNuxtPlugin(() => {
