@@ -42,7 +42,7 @@ export function getNavigation() {
     },
     {
       name: `Sponsors ${PREVIOUS_EDITION}`,
-      path: "/alumni/sponsors",
+      path: "/alumni-sponsors",
       show: $featureFlags.pages.alumni.sponsors,
       type: internal,
       design: link,
