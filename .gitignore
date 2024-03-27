@@ -12,3 +12,6 @@ dist
 .vscode
 !.vscode/settings.json
 .vite
+
+# Local Netlify folder
+.netlify

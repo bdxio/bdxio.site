@@ -96,7 +96,7 @@ export function getNavigation() {
       type: external,
       design: primary,
     },
-  ].filter((page) => page.show);
+  ].filter((page) => page.show === true);
 
   return pages;
 }

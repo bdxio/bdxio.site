@@ -11,6 +11,6 @@ export default {
   legalNotice: false,
   wip: false,
   alumni: {
-    sponsors: true,
+    sponsors: false,
   },
 };
