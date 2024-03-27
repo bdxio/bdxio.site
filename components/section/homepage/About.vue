@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Heading, NuxtImg } from "#components";
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, PREVIOUS_EDITION } from "~/services/constants";
 </script>
 
 <template>
@@ -22,7 +22,8 @@ import { ASSOCIATION_NAME } from "~/services/constants";
         <p>
           {{ ASSOCIATION_NAME }} est une conférence bordelaise sur le thème de la programmation et
           de ses métiers annexes.
-          <br>Lors de l'édition 2022, nous avons reçu plus de <span class="font-bold">1000 passionné·e·s</span>
+          <br>Lors de l'édition {{ PREVIOUS_EDITION }},
+          nous avons reçu plus de <span class="font-bold">1000 passionné·e·s</span>
           lors d'une journée de découvertes et de bonne humeur&nbsp;!
         </p>
       </div>

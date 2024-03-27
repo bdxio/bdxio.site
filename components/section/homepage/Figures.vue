@@ -78,7 +78,7 @@ import { Counter } from "#components";
     >
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter
-          :value="900"
+          :value="1000"
           :step="25"
         />
       </p>
