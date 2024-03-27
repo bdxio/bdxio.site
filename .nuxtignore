@@ -1,6 +1,4 @@
 pages/**/*.vue
-
-!pages/alumni-sponsors.vue
 !pages/Association.vue
 !pages/Conduct.vue
 !pages/index.vue
