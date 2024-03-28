@@ -4,9 +4,9 @@ import { Heading } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Room } from "@bdxio/bdxio.types";
 
-const { $SHOW_PAGE_LIVE } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_LIVE) {
+if (!$featureFlags.pages.live) {
   throw createError({ statusCode: 404 });
 }
 
