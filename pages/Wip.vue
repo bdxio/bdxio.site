@@ -5,9 +5,9 @@ import type { Edition } from "@bdxio/bdxio.types";
 
 useHead({ title: ASSOCIATION_NAME });
 definePageMeta({ layout: "empty" });
-const { $SHOW_PAGE_WIP } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_WIP) {
+if (!$featureFlags.pages.wip) {
   throw createError({ statusCode: 404 });
 }
 

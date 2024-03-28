@@ -5,9 +5,9 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Volunteer } from "@bdxio/bdxio.types";
 
-const { $SHOW_PAGE_ASSOCIATION } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_ASSOCIATION) {
+if (!$featureFlags.pages.association) {
   throw createError({ statusCode: 404 });
 }
 

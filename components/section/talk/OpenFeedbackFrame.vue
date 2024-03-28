@@ -8,7 +8,7 @@ defineProps({
   },
 });
 
-const { $SHOW_LINK_OPENFEEDBACK } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
 const config = useRuntimeConfig();
 
@@ -17,7 +17,7 @@ const { OPENFEEDBACK_URL } = config.public;
 
 <template>
   <iframe
-    v-if="$SHOW_LINK_OPENFEEDBACK && OPENFEEDBACK_URL && talkId"
+    v-if="$featureFlags.links.openfeedback && OPENFEEDBACK_URL && talkId"
     :src="`${OPENFEEDBACK_URL}/${talkId || ''}?forceColorScheme=light`"
     title="OpenfeedBack"
     class="frame overflow-hidden w-full py-4"

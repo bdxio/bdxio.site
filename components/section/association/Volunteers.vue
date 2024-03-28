@@ -37,17 +37,22 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
         :key="`v-${volunteer.id}`"
         class="rounded-lg mt-0 mb-8 m:mb-16 mx-auto shadow-card"
       >
-        <NuxtImg
+        <div
           v-if="volunteer.profilePicture?.url"
-          :src="volunteer.profilePicture?.url"
-          :alt="volunteer.profilePicture?.alternativeText ||
-            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
-          :aria-label="volunteer.profilePicture?.alternativeText ||
-            `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
-          class="object-cover object-center rounded-t-lg"
-          loading="lazy"
-          width="500"
-        />
+          class="max-h-[240px] w-full overflow-hidden"
+        >
+          <NuxtImg
+            v-if="volunteer.profilePicture?.url"
+            :src="volunteer.profilePicture?.url"
+            :alt="volunteer.profilePicture?.alternativeText ||
+              `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
+            :aria-label="volunteer.profilePicture?.alternativeText ||
+              `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
+            class="object-cover object-center rounded-t-lg"
+            loading="lazy"
+            width="500"
+          />
+        </div>
         <div class="text-center p-8">
           <div class="text-xl font-bold mb-1">
             {{ getVolunteerName(volunteer) }}

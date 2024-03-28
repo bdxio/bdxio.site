@@ -16,9 +16,9 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Ref } from "vue";
 import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 
-const { $SHOW_PAGE_FAQ } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_FAQ) {
+if (!$featureFlags.pages.faq) {
   throw createError({ statusCode: 404 });
 }
 

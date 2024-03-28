@@ -43,7 +43,7 @@ const contactLinks = [
 ];
 
 const navigation = getNavigation();
-const { $SHOW_PAGE_LEGAL_NOTICE, $SHOW_PAGE_CODE_OF_CONDUCT, $SHOW_LINK_KIT_COMMUNICATION } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
 </script>
 
@@ -134,21 +134,21 @@ const { $SHOW_PAGE_LEGAL_NOTICE, $SHOW_PAGE_CODE_OF_CONDUCT, $SHOW_LINK_KIT_COMM
     <div class="flex flex-col m:flex-row border-t border-solid border-black mt-8 m:mt-16 pt-8 m:pt-16">
       <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ ASSOCIATION_NAME }}</span>
       <NuxtLink
-        v-if="$SHOW_PAGE_LEGAL_NOTICE"
+        v-if="$featureFlags.pages.legalNotice"
         to="/legal-notice"
         class="text-lg m:mr-16 mb-4 m:mb-0"
       >
         Mentions légales
       </NuxtLink>
       <NuxtLink
-        v-if="$SHOW_PAGE_CODE_OF_CONDUCT"
+        v-if="$featureFlags.pages.codeOfConduct"
         to="/conduct"
         class="text-lg m:mr-16 mb-4 m:mb-0"
       >
         Code de conduite
       </NuxtLink>
       <a
-        v-if="$SHOW_LINK_KIT_COMMUNICATION"
+        v-if="$featureFlags.links.kitCommunication"
         href="/bdxio-kit-communication.zip"
         download
         class="text-lg m:mr-16"

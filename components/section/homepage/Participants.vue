@@ -3,7 +3,7 @@ import { useNuxtApp } from "#imports";
 import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
-const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const { $SHOW_LINK_BILLETERIE } = useNuxtApp();
       <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ EDITION }}.</p>
     </div>
     <LinkSecondary
-      v-if="$SHOW_LINK_BILLETERIE"
+      v-if="$featureFlags.links.ticketing"
       type="link"
       color="grey"
       to="https://www.billetweb.fr/bdxio-2023"

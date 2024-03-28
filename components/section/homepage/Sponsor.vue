@@ -2,7 +2,7 @@
 import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { useNuxtApp } from "#imports";
 
-const { $SHOW_LINK_SPONSORING } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const { $SHOW_LINK_SPONSORING } = useNuxtApp();
       </p>
     </div>
     <LinkSecondary
-      v-if="$SHOW_LINK_SPONSORING"
+      v-if="$featureFlags.sections.sponsors.becomeSponsor"
       type="nuxt"
       to="/sponsors"
       color="white"

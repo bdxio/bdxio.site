@@ -3,9 +3,9 @@ import { useHead, useNuxtApp, createError } from "#imports";
 import { SectionJobs } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
-const { $SHOW_PAGE_JOBS } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
-if (!$SHOW_PAGE_JOBS) {
+if (!$featureFlags.pages.jobs) {
   throw createError({ statusCode: 404 });
 }
 

@@ -9,7 +9,7 @@ defineProps({
   },
 });
 
-const { $SHOW_LINK_OPENFEEDBACK } = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
 const config = useRuntimeConfig();
 
@@ -18,7 +18,7 @@ const { OPENFEEDBACK_URL } = config.public;
 
 <template>
   <a
-    v-if="$SHOW_LINK_OPENFEEDBACK && OPENFEEDBACK_URL"
+    v-if="$featureFlags.links.openfeedback && OPENFEEDBACK_URL"
     :href="`${OPENFEEDBACK_URL}/${talkId || ''}`"
     target="_blank"
     class="block text-lg text-center leading-none hover:text-bdxio-blue-dark active:text-bdxio-blue-dark
