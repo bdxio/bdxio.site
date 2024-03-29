@@ -6,8 +6,8 @@ export default {
   talks: false,
   speakers: false,
   live: false,
-  faq: false,
+  faq: true,
   codeOfConduct: true,
-  legalNotice: false,
+  legalNotice: true,
   wip: false,
 };
