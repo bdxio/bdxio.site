@@ -30,6 +30,8 @@ useHead({ title: ASSOCIATION_NAME });
 
 const { data }: { data: Ref<Array<Edition>> } = await useAPI("/editions", {
   params: {
+    "fields[0]": "date",
+    "fields[1]": "year",
     "filters[year][$eq]": EDITION,
   },
 });
