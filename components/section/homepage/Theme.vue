@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Heading, HeadingSection, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { EDITION } from "~/services/constants";
 </script>
 
 <template>
@@ -18,13 +18,15 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
         level="3"
         class="text-bdxio-light"
       >
-        Cette année nous mettrons à l'honneur le numérique responsable&nbsp;!
+        IA&nbsp;-&nbsp;entre progrès et préoccupations
       </Heading>
       <p class="font-medium">
-        À l'occasion de la <span class="font-bold">8ème édition</span> de {{ ASSOCIATION_NAME }},
-        nous avons choisi de mettre en avant le numérique responsable !
+        Notre objectif est de mettre en lumière les avancées extraordinaires que ces technologies offrent,
+        tout en abordant de manière franche les <strong>défis éthiques</strong>
+        et les <strong>dilemmes sociaux</strong> qu'elles suscitent.
         <br><br>
-        Le thème n'est pas obligatoire pour participer, mais il est là pour aider les sponsors à choisir des
+        <strong>Le thème n'est pas obligatoire pour participer</strong>,
+        mais il est là pour aider les sponsors à choisir des
         animations, inspirer les conférenciers sur les contenus et leurs présentations et donner une unité à la
         conférence.
       </p>
@@ -36,8 +38,8 @@ import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
         :aria-hidden="true"
         class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
         loading="lazy"
-        width="620"
-        height="480"
+        width="640"
+        height="625"
         size="xs:50vw lg:100vw"
       />
     </div>
