@@ -4,46 +4,27 @@ import {
   NuxtLink,
   NuxtImg,
 } from "#components";
-import { getNavigation, useNuxtApp } from "#imports";
+import { getNavigation, useAPI, useNuxtApp } from "#imports";
 
-import { ASSOCIATION_NAME } from "~/services/constants";
-
-const socials = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/10651416/",
-    icon: "/images/icons/linkedin.svg",
-  },
-  {
-    label: "Twitter",
-    href: "https://twitter.com/bdxio",
-    icon: "/images/icons/twitter.svg",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/channel/UCA7pEYY0BlgCdpbnjhCDezQ",
-    icon: "/images/icons/youtube.svg",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/bdx.io/",
-    icon: "/images/icons/instagram.svg",
-  },
-];
-
-const contactLinks = [
-  {
-    label: "team@bdxio.fr",
-    href: "mailto:team@bdxio.fr",
-  },
-  {
-    label: "partenariats@bdxio.fr",
-    href: "mailto:partenariats@bdxio.fr",
-  },
-];
+const getSocialIcon = (social: string) => {
+  switch (social) {
+    case "linkedin":
+      return "/images/icons/linkedin.svg";
+    case "twitter":
+      return "/images/icons/twitter.svg";
+    case "youtube":
+      return "/images/icons/youtube.svg";
+    case "instagram":
+      return "/images/icons/instagram.svg";
+    default:
+      return "";
+  }
+};
 
 const navigation = getNavigation();
 const { $featureFlags } = useNuxtApp();
+
+const { data: association } = await useAPI("/association");
 
 </script>
 
@@ -57,11 +38,11 @@ const { $featureFlags } = useNuxtApp();
         src="/images/logo_blue_footer.webp"
         width="160"
         height="58"
-        :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
+        :alt="`Logo de l'association ${association.name}`"
         class="block max-w-[120px] m:max-w-[160px] mb-5 m:mb-0 m:mr-5"
         loading="lazy"
       />
-      <span class="text-2xl m:text-4xl font-bold">Bordeaux Developers eXperience</span>
+      <span class="text-2xl m:text-4xl font-bold">{{ association.completeName }}</span>
     </NuxtLink>
     <div class="flex flex-col m:flex-row">
       <div class="flex flex-col m:w-1/3 mb-8 m:mb-0">
@@ -76,19 +57,19 @@ const { $featureFlags } = useNuxtApp();
         </a>
         <ul class="flex">
           <li
-            v-for="social in socials"
+            v-for="social in association.socials"
             :key="social.label"
             class="mr-4"
           >
             <a
               :href="social.href"
               target="_blank"
-              :aria-label="`lien vers le compte ${social.label} de ${ASSOCIATION_NAME} - Nouvelle fenêtre`"
+              :aria-label="`lien vers le compte ${social.label} de ${association.name} - Nouvelle fenêtre`"
             >
               <NuxtImg
-                :src="social.icon"
+                :src="getSocialIcon(social.name)"
                 :alt="`Icône ${social.label}`"
-                :aria-label="`Consulter le compte de ${ASSOCIATION_NAME} sur ${social.label}`"
+                :aria-label="`Consulter le compte de ${association.name} sur ${social.label}`"
                 width="40"
                 height="40"
                 loading="lazy"
@@ -98,9 +79,7 @@ const { $featureFlags } = useNuxtApp();
         </ul>
       </div>
       <nav class="m:w-1/3 mb-8 m:mb-0">
-        <ul
-          class="flex flex-col"
-        >
+        <ul class="flex flex-col">
           <li
             v-for="page in navigation"
             :key="page.path"
@@ -117,22 +96,26 @@ const { $featureFlags } = useNuxtApp();
       </nav>
       <div class="m:w-1/3">
         <ul class="mb-8">
-          <li
-            v-for="link in contactLinks"
-            :key="link.label"
-            class="mb-2"
-          >
+          <li class="mb-2">
             <a
-              :href="link.href"
-              :title="`Envoyer un mail à ${link.label} - Nouvelle fenêtre`"
-            >{{ link.label }}</a>
+              :href="`mailto:${association.teamEmail}`"
+              :title="`Envoyer un mail à ${association.teamEmail} - Nouvelle fenêtre`"
+            >{{
+              association.teamEmail }}</a>
+          </li>
+          <li>
+            <a
+              :href="`mailto:${association.partnersEmail}`"
+              :title="`Envoyer un mail à ${association.partnersEmail} - Nouvelle fenêtre`"
+            >{{
+              association.partnersEmail }}</a>
           </li>
         </ul>
         <LayoutFooterNewsletter />
       </div>
     </div>
     <div class="flex flex-col m:flex-row border-t border-solid border-black mt-8 m:mt-16 pt-8 m:pt-16">
-      <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ ASSOCIATION_NAME }}</span>
+      <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ association.name }}</span>
       <NuxtLink
         v-if="$featureFlags.pages.legalNotice"
         to="/legal-notice"
