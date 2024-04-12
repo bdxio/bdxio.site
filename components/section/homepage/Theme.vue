@@ -36,7 +36,7 @@ import { EDITION } from "~/services/constants";
         src="/images/illustrations/theme.webp"
         alt="Illustration de la planète Terre connectée et entourée de feuillages"
         :aria-hidden="true"
-        class="object-contain xs:w-1/2 l:w-full xl:max-w-2xl"
+        class="object-contain max-w-md xs:w-1/2 l:w-full"
         loading="lazy"
         width="640"
         height="625"
