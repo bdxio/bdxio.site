@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Heading, HeadingSection, NuxtImg } from "#components";
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { EDITION } from "~/services/constants";
 </script>
 
 <template>
