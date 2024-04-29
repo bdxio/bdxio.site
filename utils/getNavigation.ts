@@ -49,7 +49,7 @@ export function getNavigation() {
       design: link,
     },
     {
-      name: `Sponsors ${PREVIOUS_EDITION}`,
+      name: "Sponsors",
       path: "/sponsors",
       show: getShowPage(instance.$featureFlags.pages.sponsors),
       type: internal,

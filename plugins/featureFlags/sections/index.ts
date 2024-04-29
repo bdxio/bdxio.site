@@ -8,8 +8,8 @@ export default {
     categories: true,
   },
   sponsors: {
-    becomeSponsor: false,
-    offers: false,
+    becomeSponsor: true,
+    offers: true,
   },
   layout: {
     sponsors: false,

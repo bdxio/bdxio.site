@@ -69,8 +69,8 @@ const { $featureFlags } = useNuxtApp();
       v-if="$featureFlags.links.sponsoringPdf"
       type="link"
       color="light"
-      href="/bdxio-2023-sponsors.pdf"
-      download="bdxio-2023-sponsors.pdf"
+      href="/bdxio-2024-sponsors.pdf"
+      download="bdxio-2024-sponsors.pdf"
       class="mt-[160px] self-center"
     >
       Télécharger la plaquette

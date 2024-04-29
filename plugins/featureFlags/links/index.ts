@@ -3,7 +3,7 @@ export default {
   ticketing: false,
   openfeedback: false,
   schedulePdf: false,
-  sponsoringPdf: false,
+  sponsoringPdf: true,
   live: false,
   materiel: false,
   kitCommunication: false,
