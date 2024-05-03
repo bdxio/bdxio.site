@@ -1,5 +1,5 @@
 export default {
-  cfp: false,
+  cfp: true,
   ticketing: false,
   openfeedback: false,
   schedulePdf: false,
