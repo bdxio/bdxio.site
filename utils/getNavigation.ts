@@ -1,5 +1,4 @@
 import { useNuxtApp, useRuntimeConfig } from "#imports";
-import { PREVIOUS_EDITION } from "~/services/constants";
 
 type Page = {
   name: string;
