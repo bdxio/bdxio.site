@@ -26,6 +26,6 @@ data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
       v-if="$featureFlags.sections.sponsors.offers && data.length !== 0"
       :offers="data"
     />
-    <SectionSponsors :edition="PREVIOUS_EDITION" />
+    <SectionSponsors :edition="EDITION" />
   </main>
 </template>
