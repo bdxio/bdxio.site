@@ -6,7 +6,7 @@ const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
-  <section class="p-section flex flex-col items-start bg-bdxio-blue-dark text-bdxio-light">
+  <section class="p-section w-full m:w-1/2 flex flex-col items-start bg-bdxio-blue-dark text-bdxio-light">
     <div>
       <HeadingSection
         level="2"

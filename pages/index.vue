@@ -48,9 +48,11 @@ const edition = data.value[0];
     <SectionHomepageMateriel v-if="$featureFlags.sections.homepage.materiel" />
     <SectionHomepageJourJ v-if="$featureFlags.sections.homepage.jourJ" />
     <SectionHomepageCategories v-if="$featureFlags.sections.homepage.categories" />
-    <div class="grid grid-cols-1 m:grid-cols-2">
-      <SectionHomepageSponsor v-if="$featureFlags.sections.sponsors.becomeSponsor" />
-      <SectionHomepageParticipants v-if="$featureFlags.links.ticketing" />
+    <div
+      class="flex flex-col m:flex-row"
+    >
+      <SectionHomepageSponsor />
+      <SectionHomepageParticipants />
     </div>
   </main>
 </template>

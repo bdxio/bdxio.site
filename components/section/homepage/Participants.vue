@@ -7,7 +7,7 @@ const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
-  <section class="p-section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full">
+  <section class="p-section w-full m:w-1/2 flex flex-col justify-between items-start bg-bdxio-yellow-base">
     <div>
       <HeadingSection
         level="2"
@@ -33,7 +33,7 @@ const { $featureFlags } = useNuxtApp();
     </LinkSecondary>
     <p
       v-else
-      class="italic text-md"
+      class="italic text-md mt-4"
     >
       Billetterie fermée
     </p>
