@@ -21,10 +21,10 @@ const { $featureFlags } = useNuxtApp();
       <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ EDITION }}.</p>
     </div>
     <LinkSecondary
-      v-if="$featureFlags.links.ticketing"
-      type="link"
+      v-if="$featureFlags.pages.ticketing"
+      type="nuxt"
       color="grey"
-      to="https://www.billetweb.fr/bdxio-2023"
+      to="/ticketing"
       class="flex flex-row items-center"
       aria-label="lien vers la billetterie - Nouvelle fenêtre"
       new-window

@@ -94,11 +94,11 @@ export function getNavigation() {
       design: primary,
     },
     {
-      name: "Billeterie",
-      path: "https://www.billetweb.fr/bdxio-2023",
-      show: instance.$featureFlags.links.ticketing,
-      type: external,
-      design: primary,
+      name: "Billetterie",
+      path: "/ticketing",
+      show: instance.$featureFlags.pages.ticketing,
+      type: internal,
+      design: link,
     },
     {
       name: "CFP",

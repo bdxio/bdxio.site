@@ -39,7 +39,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
       >
         <div
           v-if="volunteer.profilePicture?.url"
-          class="max-h-[240px] w-full overflow-hidden"
+          class="h-[240px] w-full overflow-hidden"
         >
           <NuxtImg
             v-if="volunteer.profilePicture?.url"
@@ -48,7 +48,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
               `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
             :aria-label="volunteer.profilePicture?.alternativeText ||
               `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`"
-            class="object-cover object-center rounded-t-lg"
+            class="object-cover object-center rounded-t-lg h-full"
             loading="lazy"
             width="500"
           />
