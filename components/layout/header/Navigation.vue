@@ -60,7 +60,7 @@ const navigation = getNavigation();
             type="link"
             color="light"
             :href="page.path"
-            title="lien vers la billeterie - Nouvelle fenêtre"
+            title="lien vers la billetterie - Nouvelle fenêtre"
             class="flex items-center"
             new-window
           >
