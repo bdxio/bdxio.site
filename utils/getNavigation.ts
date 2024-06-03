@@ -94,7 +94,7 @@ export function getNavigation() {
       design: primary,
     },
     {
-      name: "Billeterie",
+      name: "Billetterie",
       path: "/ticketing",
       show: instance.$featureFlags.pages.ticketing,
       type: internal,
