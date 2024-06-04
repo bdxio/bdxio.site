@@ -10,5 +10,5 @@ export default {
   codeOfConduct: true,
   legalNotice: true,
   wip: false,
-  ticketing: false,
+  ticketing: true,
 };
