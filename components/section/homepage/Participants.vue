@@ -22,12 +22,11 @@ const { $featureFlags } = useNuxtApp();
     </div>
     <LinkSecondary
       v-if="$featureFlags.pages.ticketing"
-      type="nuxt"
+      type="link"
       color="grey"
       to="/ticketing"
       class="flex flex-row items-center"
       aria-label="lien vers la billetterie - Nouvelle fenêtre"
-      new-window
     >
       Billetterie
     </LinkSecondary>

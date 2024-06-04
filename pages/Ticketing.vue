@@ -8,10 +8,19 @@ if (!$featureFlags.pages.ticketing) {
 }
 
 const imaginaIframe = ref<HTMLIFrameElement | null>(null);
+const isLoading = ref(true);
 
 onMounted(async () => {
   await nextTick();
   window.addEventListener("message", resizeIFrame);
+  setTimeout(() => {
+    if (imaginaIframe.value) {
+      imaginaIframe.value.onload = () => {
+        isLoading.value = false;
+      };
+      isLoading.value = false;
+    }
+  }, 1000);
 });
 
 onUnmounted(() => {
@@ -28,6 +37,12 @@ function resizeIFrame(event: MessageEvent) {
 </script>
 
 <template>
+  <div
+    v-if="isLoading"
+    class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200"
+  >
+    Chargement de la billetterie
+  </div>
   <iframe
     ref="imaginaIframe"
     scrolling="no"
