@@ -3,7 +3,7 @@ export default {
   sponsors: true,
   association: true,
   jobs: false,
-  talks: false,
+  talks: true,
   speakers: false,
   live: false,
   faq: true,

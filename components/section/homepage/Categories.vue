@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { Heading, HeadingSection, NuxtImg } from "#components";
+import { Heading, HeadingSection, LinkPrimary, NuxtImg } from "#components";
+import { useNuxtApp } from "#imports";
+
 import { ASSOCIATION_NAME } from "~/services/constants";
 
+const { $featureFlags } = useNuxtApp();
 const categories = [
   {
     name: "Frontend",
@@ -68,6 +71,16 @@ const categories = [
         avec des durées différentes et pour tous les niveaux : vous trouverez
         forcément votre bonheur&nbsp;!
       </p>
+      <LinkPrimary
+        v-if="$featureFlags.pages.talks"
+        class="mt-8"
+        type="link"
+        color="light"
+        href="/talks"
+        aria-label="Lien vers la page Talks"
+      >
+        Voir les talks
+      </LinkPrimary>
     </div>
     <div class="grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
       <div
