@@ -52,12 +52,6 @@ const config: Config = {
         xxl: "1600px",
         xxxl: "1800px",
       },
-      fontSize: {
-        small: "16px",
-        subtitle: "20px",
-        base: "22px",
-        title: "40px",
-      },
       boxShadow: {
         card: "0px 7px 29px rgba(36, 36, 87, 0.1)",
         illustration: "0px 0px 30px 20px #F5F5F5",

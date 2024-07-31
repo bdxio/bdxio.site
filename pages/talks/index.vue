@@ -104,10 +104,10 @@ function setFilter(categoryId: string) {
               <h2 class="text-lg">
                 {{ talk.title }}
               </h2>
-              <span class="font-light italic">{{ talk.level }}</span>
+              <span class="font-light italic text-sm">{{ talk.level }}</span>
               <p
                 v-if="talk.category?.name"
-                class="font-bold"
+                class="font-bold text-sm"
                 :style="{ color: talk.category?.color }"
               >
                 {{ talk.category?.name }}

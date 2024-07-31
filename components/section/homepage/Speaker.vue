@@ -11,7 +11,7 @@ const { $featureFlags } = useNuxtApp();
     <div>
       <HeadingSection
         level="2"
-        class="text-subtitle"
+        class="text-xl"
       >
         Speakers
       </HeadingSection>

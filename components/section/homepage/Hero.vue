@@ -30,7 +30,7 @@ const { edition } = defineProps<{
       On se retrouve au Palais des Congrès <br>de Bordeaux Lac
     </p>
     <time
-      class="font-title text-title text-bdxio-light italic p-10 m:p-16 circle"
+      class="font-title text-[40px] text-bdxio-light italic p-10 m:p-16 circle"
       datetime="2023-11-10"
     >
       {{ displayDate(edition.date) }}
