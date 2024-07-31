@@ -39,12 +39,12 @@ const getOfferColorClass = (offer: Offer["label"]) => {
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
           <span
-            :class="`block font-bold uppercase text-[20px] tracking-[3px] ${getOfferColorClass(offer.label)}`"
+            :class="`block font-bold uppercase text-xl tracking-[3px] ${getOfferColorClass(offer.label)}`"
           >
             {{ offer.label }}
           </span>
           <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
-          <p class="text-base font-normal">
+          <p class="text-lg font-normal">
             {{ offer.description }}
           </p>
           <div
