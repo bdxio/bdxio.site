@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="font-body text-lg text-bdxio-blue-dark font-normal">
+  <div class="font-body text-xl text-bdxio-blue-dark font-normal">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

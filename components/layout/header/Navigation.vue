@@ -26,7 +26,7 @@ const navigation = getNavigation();
           <NuxtLink
             v-if="page.design === 'link'"
             :to="page.path"
-            :class="`no-underline text-2xl m:text-base
+            :class="`no-underline text-2xl m:text-xl
             ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
             tabindex="1"
             :aria-label="`Lien vers la page ${page.name}`"
