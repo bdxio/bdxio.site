@@ -10,7 +10,7 @@ import { EDITION } from "~/services/constants";
     <div class="flex flex-col justify-center w-full l:w-5/12">
       <HeadingSection
         level="2"
-        class="text-bdxio-light text-subtitle"
+        class="text-bdxio-light text-xl"
       >
         Thème {{ EDITION }}
       </HeadingSection>

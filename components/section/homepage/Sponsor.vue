@@ -10,7 +10,7 @@ const { $featureFlags } = useNuxtApp();
     <div>
       <HeadingSection
         level="2"
-        class="text-bdxio-light text-subtitle"
+        class="text-bdxio-light text-xl"
       >
         sponsors
       </HeadingSection>

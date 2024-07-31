@@ -56,7 +56,7 @@ const categories = [
     <div class="w-full m:w-2/5">
       <HeadingSection
         level="2"
-        class="text-subtitle"
+        class="text-xl"
       >
         Thématiques
       </HeadingSection>
@@ -97,7 +97,7 @@ const categories = [
           :width="category.width"
           :height="category.height"
         />
-        <span class="font-bold uppercase mt-4 text-center text-small m:text-base">{{ category.name }}</span>
+        <span class="font-bold uppercase mt-4 text-center text-sm m:text-base">{{ category.name }}</span>
       </div>
     </div>
   </section>

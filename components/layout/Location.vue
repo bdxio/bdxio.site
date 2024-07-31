@@ -11,7 +11,7 @@ import { Heading, HeadingSection } from "#components";
       <div class="bg-grey-100 s:max-w-[50%] shadow-illustration p-0 m:p-8">
         <HeadingSection
           level="2"
-          class="text-subtitle"
+          class="text-xl"
         >
           Transports
         </HeadingSection>
