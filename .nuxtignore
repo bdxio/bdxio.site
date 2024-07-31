@@ -1,5 +1,6 @@
 pages/**/*.vue
 
+!pages/talks/*.vue
 !pages/Association.vue
 !pages/Conduct.vue
 !pages/Sponsors.vue

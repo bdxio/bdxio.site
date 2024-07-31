@@ -58,7 +58,8 @@ export default defineNuxtConfig({
   },
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => tag === "jobs-widget",
+      isCustomElement: (tag) =>
+        ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
     },
   },
   image: {
