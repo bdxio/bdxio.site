@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getSpeakerSocialsLinks } from "#imports";
-import { Heading, SectionTalkSpeakerPicture, NuxtImg } from "#components";
+import { Heading, SectionTalkSpeakerPicture, NuxtImg, Markdown } from "#components";
 import type { Speaker } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
@@ -46,12 +46,10 @@ const speakerSocialLinks = getSpeakerSocialsLinks(props.speaker);
         </a>
       </li>
     </ul>
-    <!-- eslint-disable vue/no-v-html -->
-    <div
+    <Markdown
       v-if="speaker.bio"
       class="mt-8"
-      v-html="$md.render(speaker.bio)"
+      :content="speaker.bio"
     />
-    <!-- eslint-enable vue/no-v-html -->
   </section>
 </template>
