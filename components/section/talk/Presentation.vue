@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "#imports";
-import { Heading, NuxtImg, SectionTalkOpenFeedbackFrame } from "#components";
+import { Heading, NuxtImg, SectionTalkOpenFeedbackFrame, Markdown } from "#components";
 import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
@@ -48,13 +48,10 @@ const duration = computed(() => {
         {{ talk.language }}
       </span>
     </div>
-    <!-- eslint-disable vue/no-v-html -->
-    <div
+    <Markdown
       v-if="talk.abstract"
-      class="mb-20"
-      v-html="$md.render(talk.abstract)"
+      :content="talk.abstract"
     />
-    <!-- eslint-enable vue/no-v-html -->
     <SectionTalkOpenFeedbackFrame
       v-if="talk.id"
       :talkId="talk.id"

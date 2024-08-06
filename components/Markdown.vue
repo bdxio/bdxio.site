@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { useNuxtApp } from "#imports";
+
 defineProps<{
   content: string
 }>();
+
+const { $md } = useNuxtApp();
+
 </script>
 
 <template>
