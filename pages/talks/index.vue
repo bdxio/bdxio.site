@@ -39,8 +39,12 @@ function setFilter(categoryId: string) {
       level="1"
       class="title relative block mx-auto !mb-16"
     >
-      Les talks
+      Les talks <span
+        v-if="filteredTalks.length"
+        class="text-2xl"
+      >({{ filteredTalks.length }})</span>
     </Heading>
+
     <div>
       <ul
         v-if="categories.length"
