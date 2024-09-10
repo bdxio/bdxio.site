@@ -24,7 +24,7 @@
     "@nuxtjs/tailwindcss": "^6.8.1",
     "@types/markdown-it": "^13.0.5",
     "@types/node": "^20.8.9",
-    "@vue-macros/nuxt": "^1.9.4",
+    "@vue-macros/nuxt": "^1.11.11",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -33,6 +33,6 @@
     "nuxt-simple-sitemap": "^3.4.1",
     "postcss-import": "^15.1.0",
     "typescript": "^5.2.2",
-    "vue-tsc": "^1.8.21"
+    "vue-tsc": "^2.1.6"
   }
 }
