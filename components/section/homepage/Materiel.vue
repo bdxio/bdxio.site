@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Heading, LinkSecondary } from "#components";
-</script>
-
 <template>
   <section class="p-section flex flex-col justify-between items-start bg-white w-full">
     <div>

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from "#imports";
-import { NuxtImg } from "#components";
 import type { Speaker } from "@bdxio/bdxio.types";
 
 interface Props {

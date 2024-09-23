@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useHead } from "#imports";
-import { Heading, LinkNative } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 useHead({ title: `Mentions légales | ${ASSOCIATION_NAME}` });

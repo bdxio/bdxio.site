@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Heading, HeadingSection, NuxtImg } from "#components";
 import { EDITION } from "~/services/constants";
 </script>
 

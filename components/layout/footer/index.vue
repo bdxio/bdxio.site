@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import {
-  LayoutFooterNewsletter,
-  NuxtLink,
-  NuxtImg,
-} from "#components";
-import { getNavigation, useAPI, useNuxtApp } from "#imports";
-
 const getSocialIcon = (social: string) => {
   switch (social) {
     case "linkedin":

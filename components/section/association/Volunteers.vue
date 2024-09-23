@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from "#imports";
-import { Heading, NuxtLink, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Volunteer } from "@bdxio/bdxio.types";
 

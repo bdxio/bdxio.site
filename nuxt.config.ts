@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   },
 
   imports: {
-    autoImport: false,
+    autoImport: true,
   },
 
   experimental: {
@@ -78,6 +78,7 @@ export default defineNuxtConfig({
   },
 
   image: {
+    provider: "ipx",
     screens: {
       xs: 320,
       sm: 768,

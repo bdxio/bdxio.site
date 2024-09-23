@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { displayDate } from "#imports";
-import { Heading, NuxtImg } from "#components";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const { edition } = defineProps<{

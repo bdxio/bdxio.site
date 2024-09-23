@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { getNavigation } from "#imports";
-import { NuxtLink, LinkPrimary } from "#components";
-
 defineProps<{
   background?: "light" | "dark";
   open: boolean;

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useNuxtApp } from "#imports";
-import { Heading, HeadingSection, LinkSecondary } from "#components";
 import { EDITION } from "~/services/constants";
 
 const { $featureFlags } = useNuxtApp();

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Counter } from "#components";
-</script>
-
 <template>
   <section class="grid grid-rows-4 grid-cols-2 m:grid-rows-2 m:grid-cols-12 overflow-hidden">
     <NuxtImg

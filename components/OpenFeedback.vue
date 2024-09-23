@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useNuxtApp } from "#imports";
-import { NuxtImg } from "#components";
-
 defineProps({
   talkId: {
     type: Number,

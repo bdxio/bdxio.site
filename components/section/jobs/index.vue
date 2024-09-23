@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Heading } from "#components";
-</script>
-
 <template>
   <section class="p-section section-jobs">
     <Heading

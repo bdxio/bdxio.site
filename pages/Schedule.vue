@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, useAPI, ref, computed, onClickOutside, createError } from "#imports";
-import { Heading, OpenFeedback, NuxtLink, NuxtImg, LinkSecondary } from "#components";
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
-import type { Ref } from "vue";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();

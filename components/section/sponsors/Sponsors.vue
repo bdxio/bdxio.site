@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useAPI } from "#imports";
-import { Heading, HeadingSection, NuxtImg } from "#components";
 import { type Edition } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Sponsor, Offer } from "@bdxio/bdxio.types";

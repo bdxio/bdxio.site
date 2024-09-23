@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Heading, HeadingSection, LinkPrimary, NuxtImg } from "#components";
 import { useNuxtApp } from "#imports";
 
 import { ASSOCIATION_NAME } from "~/services/constants";

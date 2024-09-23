@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { computed } from "#imports";
-import { IconOpenNewWindow } from "#components";
-
 const props = defineProps<{
     type: "nuxt" | "button" | "link";
     color: "white" | "light" | "grey" | "dark";

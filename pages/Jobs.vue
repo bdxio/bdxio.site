@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, createError } from "#imports";
-import { SectionJobs } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $featureFlags } = useNuxtApp();

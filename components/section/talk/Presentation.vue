@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from "#imports";
-import { Heading, NuxtImg, SectionTalkOpenFeedbackFrame, Markdown } from "#components";
 import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{

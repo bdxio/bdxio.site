@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { Heading, LinkPrimary } from "#components";
-import { useNuxtApp } from "#imports";
-
 const { $featureFlags } = useNuxtApp();
 </script>
 

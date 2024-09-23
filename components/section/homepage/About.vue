@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Heading, NuxtImg } from "#components";
 import { ASSOCIATION_NAME, PREVIOUS_EDITION } from "~/services/constants";
 </script>
 
