@@ -2,25 +2,36 @@ export default defineNuxtConfig({
   devServer: {
     port: 3615,
   },
+
   typescript: {
     strict: true,
   },
+
   imports: {
     autoImport: false,
   },
+
   experimental: {
     typedPages: true,
   },
+
+  site: {
+    url: "https://bdxio.fr",
+    name: "BDX I/O",
+  },
+
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vue-macros/nuxt",
     "@vueuse/nuxt",
     "@nuxt/image",
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
   ],
+
   plugins: ["~/plugins/featureFlags/index.ts"],
   css: ["~/assets/css/main.css"],
+
   postcss: {
     plugins: {
       "postcss-import": {},
@@ -29,6 +40,7 @@ export default defineNuxtConfig({
       tailwindcss: {},
     },
   },
+
   runtimeConfig: {
     public: {
       API_TOKEN: process.env.API_TOKEN,
@@ -38,6 +50,7 @@ export default defineNuxtConfig({
       CONFERENCE_HALL_EVENT_ID: process.env.CONFERENCE_HALL_EVENT_ID,
     },
   },
+
   googleFonts: {
     families: {
       Merriweather: {
@@ -46,6 +59,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   app: {
     head: {
       link: [
@@ -56,12 +70,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) =>
-        ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
+      isCustomElement: (tag) => ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
     },
   },
+
   image: {
     screens: {
       xs: 320,
@@ -72,4 +87,6 @@ export default defineNuxtConfig({
       "2xl": 1600,
     },
   },
+
+  compatibilityDate: "2024-09-23",
 });
