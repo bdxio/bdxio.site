@@ -15,18 +15,13 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  site: {
-    url: "https://bdxio.fr",
-    name: "BDX I/O",
-  },
-
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vue-macros/nuxt",
     "@vueuse/nuxt",
     "@nuxt/image",
-    "@nuxtjs/sitemap",
+    "nuxt-simple-sitemap",
   ],
 
   plugins: ["~/plugins/featureFlags/index.ts"],
@@ -88,6 +83,4 @@ export default defineNuxtConfig({
       "2xl": 1600,
     },
   },
-
-  compatibilityDate: "2024-09-23",
 });
