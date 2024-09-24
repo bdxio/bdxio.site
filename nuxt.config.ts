@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     "@vue-macros/nuxt",
     "@vueuse/nuxt",
     "@nuxt/image",
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
   ],
   plugins: ["~/plugins/featureFlags/index.ts"],
   css: ["~/assets/css/main.css"],
