@@ -79,7 +79,7 @@ const getProps = computed(() => {
     :target="props.newWindow ? 'blank' : undefined"
   >
     <slot />
-    <IconOpenNewWindow
+    <OpenNewWindow
       v-if="props.newWindow"
       :color="color.icon"
     />
