@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { useAPI } from "#imports";
-import { Heading, NuxtImg } from "#components";
 import { EDITION } from "~/services/constants";
-import type { Ref } from "vue";
 import type { Sponsor } from "@bdxio/bdxio.types";
 
 const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/sponsors", {

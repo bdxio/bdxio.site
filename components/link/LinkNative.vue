@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { IconOpenNewWindow } from "#components";
-
 const props = defineProps<{
   newWindow?: true;
 }>();

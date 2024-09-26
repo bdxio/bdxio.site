@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Heading, HeadingSection } from "#components";
-</script>
-
 <template>
   <section
     class="p-section bg-no-repeat bg-contain bg-right-bottom bg-grey-100"

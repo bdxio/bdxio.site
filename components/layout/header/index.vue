@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useRoute, watch, computed, reactive } from "#imports";
-import { NuxtLink, LayoutHeaderNavigation, NuxtImg } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 
 const props = defineProps<{

@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { useHead, useRoute, useNuxtApp, useAPI, createError } from "#imports";
-import { SectionTalkCategory, SectionTalkPresentation, SectionTalkSpeaker } from "#components";
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
-import type { Ref } from "vue";
 import type { Talk } from "@bdxio/bdxio.types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });

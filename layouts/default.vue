@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { LayoutHeader, LayoutSponsors, LayoutLocation, LayoutFooter } from "#components";
-import { useNuxtApp } from "#imports";
-
 const { $featureFlags } = useNuxtApp();
-
 </script>
 
 <template>

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import fetchJsonp from "fetch-jsonp";
-import { reactive, useRuntimeConfig } from "#imports";
-import { ButtonSecondary, Loader, NuxtImg } from "#components";
 
 const state = reactive({
   open: false,

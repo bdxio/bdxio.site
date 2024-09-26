@@ -1,20 +1,4 @@
 <script setup lang="ts">
-import {
-  useHead,
-  useNuxtApp,
-  type Ref,
-  useAPI,
-  navigateTo,
-} from "#imports";
-import {
-  SectionHomepageHero,
-  SectionHomepageFigures,
-  SectionHomepageAbout,
-  SectionHomepageTheme,
-  SectionHomepageCategories,
-  SectionHomepageSponsor,
-  SectionHomepageParticipants,
-} from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 

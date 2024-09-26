@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useHead, useNuxtApp, createError, type Ref, useAPI } from "#imports";
-import { Heading } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Room } from "@bdxio/bdxio.types";
 

@@ -2,15 +2,19 @@ export default defineNuxtConfig({
   devServer: {
     port: 3615,
   },
+
   typescript: {
     strict: true,
   },
+
   imports: {
-    autoImport: false,
+    autoImport: true,
   },
+
   experimental: {
     typedPages: true,
   },
+
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
@@ -19,8 +23,10 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-simple-sitemap",
   ],
+
   plugins: ["~/plugins/featureFlags/index.ts"],
   css: ["~/assets/css/main.css"],
+
   postcss: {
     plugins: {
       "postcss-import": {},
@@ -29,6 +35,7 @@ export default defineNuxtConfig({
       tailwindcss: {},
     },
   },
+
   runtimeConfig: {
     public: {
       API_TOKEN: process.env.API_TOKEN,
@@ -38,6 +45,7 @@ export default defineNuxtConfig({
       CONFERENCE_HALL_EVENT_ID: process.env.CONFERENCE_HALL_EVENT_ID,
     },
   },
+
   googleFonts: {
     families: {
       Merriweather: {
@@ -46,6 +54,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   app: {
     head: {
       link: [
@@ -56,13 +65,15 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) =>
-        ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
+      isCustomElement: (tag) => ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
     },
   },
+
   image: {
+    provider: "ipx",
     screens: {
       xs: 320,
       sm: 768,

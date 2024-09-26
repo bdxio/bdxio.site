@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useHead, useAPI, computed, getSpeakerSocialsLinks } from "#imports";
-import { NuxtImg, SectionTalkSpeakerPicture, Heading } from "#components";
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 
 import type { Ref } from "vue";

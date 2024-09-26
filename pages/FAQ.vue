@@ -1,19 +1,5 @@
 <script setup lang="ts">
-import {
-  useHead,
-  useNuxtApp,
-  useRoute,
-  useRouter,
-  useAPI,
-  createError,
-  ref,
-  computed,
-  watch,
-  onMounted,
-} from "#imports";
-import { Collapse, Heading, Markdown } from "#components";
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Ref } from "vue";
 import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
@@ -130,7 +116,7 @@ onMounted(() => {
             <template #title>
               <Heading
                 level="2"
-                class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
+                class="!text-xl !m-0 !text-bdxio-blue-dark !font-body !font-bold"
               >
                 {{ question.title }}
               </Heading>

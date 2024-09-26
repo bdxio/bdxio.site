@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Heading } from "#components";
 import type { Offer } from "@bdxio/bdxio.types";
 
 defineProps<{

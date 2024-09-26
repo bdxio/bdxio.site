@@ -8,9 +8,13 @@ type Page = {
   design: "link" | "primary";
 };
 
-function getShowPage(featureFlag?: unknown) {
-  return featureFlag ? true : false;
-}
+const showPage = (featureFlag?: unknown) => {
+  if (!featureFlag) {
+    return false;
+  }
+
+  return !!featureFlag;
+};
 
 export function getNavigation() {
   const instance = useNuxtApp();
@@ -25,89 +29,83 @@ export function getNavigation() {
     {
       name: "Accueil",
       path: "/",
-      show: getShowPage(!instance.$featureFlags.pages.wip),
+      show: showPage(!instance.$featureFlags.pages.wip),
       type: internal,
       design: link,
     },
     {
       name: "Talks",
       path: "/talks",
-      show:
-        instance.$featureFlags.pages.talks &&
-        !instance.$featureFlags.pages.schedule
-          ? true
-          : false,
+      show: !!(instance.$featureFlags.pages.talks && !instance.$featureFlags.pages.schedule),
       type: internal,
       design: link,
     },
     {
       name: "Programme",
       path: "/schedule",
-      show: getShowPage(instance.$featureFlags.pages.schedule),
+      show: showPage(instance.$featureFlags.pages.schedule),
       type: internal,
       design: link,
     },
     {
       name: "Sponsors",
       path: "/sponsors",
-      show: getShowPage(instance.$featureFlags.pages.sponsors),
+      show: showPage(instance.$featureFlags.pages.sponsors),
       type: internal,
       design: link,
     },
     {
       name: "Speakers",
       path: "/speakers",
-      show:
-        instance.$featureFlags.pages.speakers &&
-        !instance.$featureFlags.pages.schedule
-          ? true
-          : false,
+      show: !!(instance.$featureFlags.pages.speakers && !instance.$featureFlags.pages.schedule),
       type: internal,
       design: link,
     },
     {
       name: "FAQ",
       path: "/faq",
-      show: getShowPage(instance.$featureFlags.pages.faq),
+      show: showPage(instance.$featureFlags.pages.faq),
       type: internal,
       design: link,
     },
     {
       name: "Association",
       path: "/association",
-      show: getShowPage(instance.$featureFlags.pages.association),
+      show: showPage(instance.$featureFlags.pages.association),
       type: internal,
       design: link,
     },
     {
       name: "Jobs",
       path: "/jobs",
-      show: getShowPage(instance.$featureFlags.pages.jobs),
+      show: showPage(instance.$featureFlags.pages.jobs),
       type: internal,
       design: link,
     },
     {
       name: "Live",
       path: "/live",
-      show: getShowPage(instance.$featureFlags.pages.live),
+      show: showPage(instance.$featureFlags.pages.live),
       type: internal,
       design: primary,
     },
     {
       name: "Billetterie",
       path: "/ticketing",
-      show: instance.$featureFlags.pages.ticketing,
+      show: showPage(instance.$featureFlags.pages.ticketing),
       type: internal,
       design: link,
     },
     {
       name: "CFP",
       path: `https://conference-hall.io/public/event/${config.public.CONFERENCE_HALL_EVENT_ID}`,
-      show: instance.$featureFlags.links.cfp,
+      show: showPage(instance.$featureFlags.links.cfp),
       type: external,
       design: primary,
     },
-  ].filter((page) => page.show === true);
+  ]
+    .filter((page) => page.show === true)
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return pages;
 }

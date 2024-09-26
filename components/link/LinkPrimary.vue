@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { computed } from "#imports";
-import { IconOpenNewWindow } from "#components";
-
 const props = defineProps<{
     type: "nuxt" | "button" | "link";
     color: "white" | "light" | "grey" | "dark";
@@ -33,8 +30,6 @@ const color = computed(() => {
         link: "bg-bdxio-blue-dark text-bdxio-light",
         icon: "#fff7ec",
       };
-    default:
-      return "";
   }
 });
 
@@ -82,7 +77,7 @@ const getProps = computed(() => {
     :target="props.newWindow ? 'blank' : undefined"
   >
     <slot />
-    <IconOpenNewWindow
+    <OpenNewWindow
       v-if="props.newWindow"
       :color="color.icon"
     />

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useNuxtApp } from "#imports";
-import { Heading, HeadingSection, ButtonSecondary, NuxtImg } from "#components";
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 
 const { LINK_PROGRAMME_PDF } = useNuxtApp();

@@ -1,5 +1,6 @@
 export default {
-  schedule: false,
+  schedule: true,
+  scheduleLegacy: false,
   sponsors: true,
   association: true,
   jobs: false,

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getSpeakerSocialsLinks } from "#imports";
-import { Heading, SectionTalkSpeakerPicture, NuxtImg, Markdown } from "#components";
 import type { Speaker } from "@bdxio/bdxio.types";
 
 const props = defineProps<{

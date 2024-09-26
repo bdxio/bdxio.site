@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { LayoutHeader, LayoutFooter, LinkNative, NuxtImg } from "#components";
 import type { NuxtError } from "#app";
 
 const props = defineProps<{
