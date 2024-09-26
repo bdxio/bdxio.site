@@ -30,8 +30,6 @@ const color = computed(() => {
         link: "bg-bdxio-blue-dark text-bdxio-light",
         icon: "#fff7ec",
       };
-    default:
-      return "";
   }
 });
 

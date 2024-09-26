@@ -33,6 +33,6 @@
     "nuxt-simple-sitemap": "^3.4.1",
     "postcss-import": "^15.1.0",
     "typescript": "^5.2.2",
-    "vue-tsc": "^1.8.21"
+    "vue-tsc": "^2.1.6"
   }
 }

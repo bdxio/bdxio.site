@@ -116,7 +116,7 @@ onMounted(() => {
             <template #title>
               <Heading
                 level="2"
-                class="!text-base !m-0 !text-bdxio-blue-dark !font-body !font-bold"
+                class="!text-xl !m-0 !text-bdxio-blue-dark !font-body !font-bold"
               >
                 {{ question.title }}
               </Heading>
