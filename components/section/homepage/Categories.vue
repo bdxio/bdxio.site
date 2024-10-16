@@ -63,7 +63,7 @@ const categories = [
         level="3"
         class="relative z-10 scribble"
       >
-        Quels seront les thématiques abordées&nbsp;?
+        Quelles seront les thématiques abordées&nbsp;?
       </Heading>
       <p>
         {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes,

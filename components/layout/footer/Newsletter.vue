@@ -76,7 +76,7 @@ async function register() {
     @click="toggleForm"
     @keydown.enter.exact="toggleForm"
   >
-    <span class="cursor-pointer">S'incrire à la newsletter</span>
+    <span class="cursor-pointer">S'inscrire à la newsletter</span>
     <NuxtImg
       src="/images/drawings/purple_envelope.webp"
       alt=""
@@ -94,7 +94,7 @@ async function register() {
       src="/images/icons/close.svg"
       loading="lazy"
       alt="Icône croix"
-      aria-label="Fermer la fenêtre"
+      aria-label="Fermer la fenêtre de notification"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
       tabindex="1"
       @click="toggleForm"
