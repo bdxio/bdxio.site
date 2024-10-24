@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from "~/services/constants";
 
+const { $featureFlags } = useNuxtApp();
+
 const props = defineProps<{
   background: "light" | "dark";
 }>();
@@ -36,33 +38,36 @@ watch(
 </script>
 
 <template>
-  <header
-    :class="`flex justify-between items-center m:justify-between m:items-center py-5 m:py-8 px-7 m:px-12
-      ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'}`"
-  >
-    <NuxtLink
-      to="/"
-      tabindex="1"
+  <div>
+    <MessagesSoldOut v-if="$featureFlags.messages.soldout" />
+    <header
+      :class="`flex justify-between items-center m:justify-between m:items-center py-5 m:py-8 px-7 m:px-12
+        ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'}`"
     >
-      <NuxtImg
-        src="/images/logo_blue_header.webp"
-        :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
-        width="139"
-        height="50"
-        aria-label="Retourner sur la page d'accueil"
-        class="relative block h-auto max-w-[120px] m:max-w-[160px] z-30"
+      <NuxtLink
+        to="/"
+        tabindex="1"
+      >
+        <NuxtImg
+          src="/images/logo_blue_header.webp"
+          :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
+          width="139"
+          height="50"
+          aria-label="Retourner sur la page d'accueil"
+          class="relative block h-auto max-w-[120px] m:max-w-[160px] z-30"
+        />
+      </NuxtLink>
+      <img
+        :src="icon.src"
+        :alt="icon.alt"
+        :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
+        class="cursor-pointer m:hidden relative z-30"
+        @click.prevent="toggleMenu"
+      >
+      <LayoutHeaderNavigation
+        :background="background"
+        :open="menu.isOpen"
       />
-    </NuxtLink>
-    <img
-      :src="icon.src"
-      :alt="icon.alt"
-      :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
-      class="cursor-pointer m:hidden relative z-30"
-      @click.prevent="toggleMenu"
-    >
-    <LayoutHeaderNavigation
-      :background="background"
-      :open="menu.isOpen"
-    />
-  </header>
+    </header>
+  </div>
 </template>
