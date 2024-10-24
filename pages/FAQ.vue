@@ -73,7 +73,7 @@ onMounted(() => {
         F.A.Q
       </Heading>
       <p class="max-w-[500px] text-center block mx-auto text-bdxio-blue-dark">
-        Que vous soyez sponsors, speakers ou encore participants
+        Que vous soyez sponsors, speakers ou encore participants,
         découvrez les réponses aux questions les plus fréquemment posées.
       </p>
       <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
