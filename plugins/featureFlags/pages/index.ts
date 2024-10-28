@@ -4,7 +4,7 @@ export default {
   sponsors: true,
   association: true,
   jobs: false,
-  talks: true,
+  talks: false,
   speakers: false,
   live: false,
   faq: true,
