@@ -71,17 +71,26 @@ const categories = [
         forcément votre bonheur&nbsp;!
       </p>
       <LinkPrimary
-        v-if="$featureFlags.pages.talks"
+        v-if="$featureFlags.pages.schedule"
         class="mt-8"
         type="link"
         color="light"
-        href="/talks"
-        aria-label="Lien vers la page Talks"
+        href="/schedule"
+        aria-label="Lien vers la page programme"
       >
-        Voir les talks
+        Voir le programme
       </LinkPrimary>
     </div>
-    <div class="grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
+    <div
+      class="
+        grid
+        gap-7
+        grid-cols-2
+        m:grid-cols-3
+        mt-8
+        m:mt-0
+        m:ml-32"
+    >
       <div
         v-for="category in categories"
         :key="category.name"
