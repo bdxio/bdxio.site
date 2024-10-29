@@ -3,7 +3,7 @@ export default {
   scheduleLegacy: false,
   sponsors: true,
   association: true,
-  jobs: false,
+  jobs: true,
   talks: false,
   speakers: false,
   live: false,

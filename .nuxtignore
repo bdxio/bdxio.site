@@ -1,5 +1,6 @@
 pages/**/*.vue
 
+!pages/Jobs.vue
 !pages/Association.vue
 !pages/Sponsors.vue
 !pages/index.vue
