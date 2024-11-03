@@ -70,16 +70,30 @@ const categories = [
         avec des durées différentes et pour tous les niveaux : vous trouverez
         forcément votre bonheur&nbsp;!
       </p>
-      <LinkPrimary
-        v-if="$featureFlags.pages.schedule"
-        class="mt-8"
-        type="link"
-        color="light"
-        href="/schedule"
-        aria-label="Lien vers la page programme"
+      <div
+        v-if="$featureFlags.pages.schedule || $featureFlags.links.schedulePdf"
+        class="mt-8 flex items-center gap-2"
       >
-        Voir le programme
-      </LinkPrimary>
+        <LinkSecondary
+          v-if="$featureFlags.links.schedulePdf"
+          type="link"
+          color="light"
+          to="/bdxio-2024-programme.pdf"
+          download="bdxio-2024-programme.pdf"
+        >
+          Télécharger le programme
+        </LinkSecondary>
+        <LinkPrimary
+          v-if="$featureFlags.pages.schedule"
+          type="link"
+          color="light"
+          
+          href="/schedule"
+          aria-label="Lien vers la page programme"
+        >
+          Voir le programme
+        </LinkPrimary>
+      </div>
     </div>
     <div
       class="
