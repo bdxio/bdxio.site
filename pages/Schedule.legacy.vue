@@ -158,8 +158,8 @@ onClickOutside(categoriesWrapper, () => {
           v-if="$featureFlags.links.schedulePdf"
           type="link"
           color="light"
-          href="/bdxio-2023-programme.pdf"
-          download="bdxio-2023-programme.pdf"
+          href="/bdxio-2024-programme.pdf"
+          download="bdxio-2024-programme.pdf"
           class="whitespace-nowrap"
         >
           Télécharger le programme

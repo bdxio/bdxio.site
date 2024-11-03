@@ -37,6 +37,16 @@ function resizeIFrame(event: MessageEvent) {
 </script>
 
 <template>
+  <LinkPrimary
+    v-if="$featureFlags.links.schedulePdf"
+    type="link"
+    color="light"
+    href="/bdxio-2024-programme.pdf"
+    download="bdxio-2024-programme.pdf"
+    class="whitespace-nowrap block mx-auto mb-6"
+  >
+    Télécharger le programme
+  </LinkPrimary>
   <div
     v-if="isLoading"
     class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200"
