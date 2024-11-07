@@ -4,7 +4,7 @@ export default {
     about: true,
     theme: true,
     materiel: false,
-    jourJ: false,
+    dDay: true,
     categories: true,
   },
   sponsors: {

@@ -25,12 +25,18 @@ const edition = data.value[0];
 
 <template>
   <main>
-    <SectionHomepageHero :edition="edition" />
+    <SectionHomepageDDay
+      v-if="$featureFlags.sections.homepage.dDay"
+      :edition="edition"
+    />
+    <SectionHomepageHero
+      v-else
+      :edition="edition"
+    />
     <SectionHomepageFigures v-if="$featureFlags.sections.homepage.figures" />
     <SectionHomepageAbout v-if="$featureFlags.sections.homepage.about" />
     <SectionHomepageTheme v-if="$featureFlags.sections.homepage.theme" />
     <SectionHomepageMateriel v-if="$featureFlags.sections.homepage.materiel" />
-    <SectionHomepageJourJ v-if="$featureFlags.sections.homepage.jourJ" />
     <SectionHomepageCategories v-if="$featureFlags.sections.homepage.categories" />
     <div
       class="flex flex-col m:flex-row"
