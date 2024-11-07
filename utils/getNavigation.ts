@@ -83,11 +83,11 @@ export function getNavigation() {
       design: link,
     },
     {
-      name: "Live",
+      name: "En live",
       path: "/live",
       show: showPage(instance.$featureFlags.pages.live),
       type: internal,
-      design: primary,
+      design: link,
     },
     {
       name: "Billetterie",

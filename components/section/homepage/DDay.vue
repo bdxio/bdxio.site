@@ -33,16 +33,28 @@ const { edition } = defineProps<{
         class="text-bdxio-blue-light"
       >Palais des Congrès</a> de Bordeaux Lac
     </p>
-    <LinkPrimary
-      type="link"
-      color="light"
-      href="https://app.imagina.com/bdx-io"
-      title="lien vers l'application Imagina - Nouvelle fenêtre"
-      class="flex items-center mt-8"
-      new-window
-    >
-      Télécharger l'application Imagina
-    </LinkPrimary>
+    <div class="flex gap-4 items-center mt-10">
+      <LinkPrimary
+        type="link"
+        color="light"
+        href="https://app.imagina.com/bdx-io"
+        title="lien vers l'application Imagina - Nouvelle fenêtre"
+        class="flex items-center"
+        new-window
+      >
+        Télécharger l'application Imagina
+      </LinkPrimary>
+      <LinkPrimary
+        v-if="$featureFlags.pages.live"
+        type="link"
+        color="white"
+        href="/live"
+        aria-label="Lien vers la page live"
+      >
+        Voir le live
+        <div class="live" />
+      </LinkPrimary>
+    </div>
   </header>
 </template>
 
@@ -50,4 +62,28 @@ const { edition } = defineProps<{
 .circle {
   background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
 }
+
+.live {
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 5px 0px rgba(173, 0, 0, 0.3);
+  }
+  65% {
+    box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0.3);
+  }
+  90% {
+    box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
+  }
+}
+
 </style>

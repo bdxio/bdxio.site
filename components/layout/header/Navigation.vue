@@ -23,33 +23,17 @@ const navigation = getNavigation();
           <NuxtLink
             v-if="page.design === 'link'"
             :to="page.path"
-            :class="`no-underline text-2xl m:text-xl
+            :class="`no-underline text-2xl m:text-xl flex items-center
             ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
             tabindex="1"
             :aria-label="`Lien vers la page ${page.name}`"
           >
             {{ page.name }}
-          </NuxtLink>
-  
-          <LinkPrimary
-            v-if="page.design === 'primary'"
-            type="nuxt"
-            :href="page.path"
-            color="light"
-            :aria-label="`Lien vers la page ${page.name}`"
-          >
             <div
-              v-if="page.name === 'Live'"
-              class="flex items-center text-white"
-            >
-              {{ page.name }}
-              <div class="live" />
-            </div>
-
-            <div v-else>
-              {{ page.name }}
-            </div>
-          </LinkPrimary>
+              v-if="page.name === 'En live'"
+              class="live"
+            />
+          </NuxtLink>
         </div>
         <div v-else-if="page.type === 'external'">
           <LinkPrimary
