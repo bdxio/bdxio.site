@@ -9,3 +9,4 @@ pages/**/*.vue
 !pages/legal-notice/index.vue
 !pages/Ticketing.vue
 !pages/Schedule.vue
+!pages/Live.vue

@@ -6,7 +6,7 @@ export default {
   jobs: true,
   talks: false,
   speakers: false,
-  live: false,
+  live: true,
   faq: true,
   codeOfConduct: true,
   legalNotice: true,
