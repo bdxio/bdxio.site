@@ -1,3 +1,3 @@
 export default {
-  soldout: true,
+  soldout: false,
 };

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useNuxtApp, type Ref, useAPI, createError } from "#imports";
 import { ASSOCIATION_NAME, PREVIOUS_EDITION } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 useHead({ title: ASSOCIATION_NAME });
 definePageMeta({ layout: "empty" });
+
 const { $featureFlags } = useNuxtApp();
 
 if (!$featureFlags.pages.wip) {
@@ -45,7 +45,7 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
         width="450"
         height="71"
       />
-      <p class="mb-3 text-[28px] font-light">
+      <p class="mb-3 italic text-2xl font-light">
         BDX I/O {{ PREVIOUS_EDITION }} c’est terminé ! On vous remercie tous <br>
         chaleureusement pour votre présence et <br>votre soutien.
       </p>
