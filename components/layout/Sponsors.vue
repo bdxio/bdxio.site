@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { EDITION } from "~/services/constants";
+
 import type { Sponsor } from "@bdxio/bdxio.types";
 
 const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/sponsors", {
@@ -9,7 +10,6 @@ const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/spons
     "filters[offers][label][$eq]": "Balthazar",
   },
 });
-
 </script>
 
 <template>

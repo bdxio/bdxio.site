@@ -5,7 +5,7 @@ const { $featureFlags } = useNuxtApp();
 <template>
   <LayoutHeader :background="$route.name === 'index' ? 'dark' : 'light'" />
   <slot />
-  <LayoutSponsors v-if="$route.name !== 'Sponsors' && $featureFlags.sections.layout.sponsors" />
+  <LayoutSponsors v-if="$featureFlags.sections.layout.sponsors" />
   <LayoutLocation />
   <LayoutFooter />
 </template>
