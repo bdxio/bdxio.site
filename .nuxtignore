@@ -1,12 +1,4 @@
 pages/**/*.vue
 
-!pages/Jobs.vue
-!pages/Association.vue
-!pages/Sponsors.vue
 !pages/index.vue
-!pages/FAQ.vue
-!pages/Conduct.vue
-!pages/legal-notice/index.vue
-!pages/Ticketing.vue
-!pages/Schedule.vue
-!pages/Live.vue
+!pages/Wip.vue

@@ -1,8 +1,8 @@
-export type Edition = "2022" | "2023" | "2024";
+export type Edition = "2022" | "2023" | "2024" | "2025";
 
 export const ASSOCIATION_NAME = "BDX I/O";
 
-export const EDITION: Edition = "2024";
+export const EDITION: Edition = "2025";
 export const PREVIOUS_EDITION = (Number(EDITION) - 1).toString() as Edition;
 
 export const STANDARD_TALK_TYPE = "standard";
