@@ -1,15 +1,15 @@
 export default {
   homepage: {
-    figures: true,
-    about: true,
-    theme: true,
+    figures: false,
+    about: false,
+    theme: false,
     materiel: false,
-    dDay: true,
-    categories: true,
+    dDay: false,
+    categories: false,
   },
   sponsors: {
-    becomeSponsor: true,
-    offers: true,
+    becomeSponsor: false,
+    offers: false,
   },
   layout: {
     sponsors: false,
