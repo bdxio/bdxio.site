@@ -1,17 +1,76 @@
 import { defineNuxtPlugin } from "#imports";
 
-import pages from "./pages";
-import sections from "./sections";
-import links from "./links";
-import messages from "./messages";
-
 export default defineNuxtPlugin(() => ({
   provide: {
     featureFlags: {
-      pages,
-      sections,
-      links,
-      messages,
+      pages: {
+        homepage: {
+          show: true,
+          sections: {
+            wip: true,
+            figures: false,
+            about: true,
+            theme: false,
+            materiel: false,
+            dDay: false,
+            categories: false,
+            sponsor: false,
+            participant: false,
+          },
+        },
+        sponsors: {
+          show: true,
+          sections: {
+            becomeSponsor: true,
+            offers: false,
+          },
+          links: {
+            downloadPdf: false,
+          },
+        },
+        schedule: {
+          show: false,
+          links: {
+            downloadPdf: false,
+          },
+        },
+        scheduleLegacy: {
+          show: false,
+          links: {
+            downloadPdf: false,
+          },
+        },
+        association: { show: true },
+        jobs: { show: false },
+        talks: { show: false },
+        speakers: { show: false },
+        live: { show: false },
+        faq: { show: true },
+        codeOfConduct: { show: true },
+        legalNotice: { show: true },
+        ticketing: {
+          show: false,
+          links: {
+            ticketing: false,
+          },
+        },
+      },
+      layout: {
+        sponsors: false,
+        location: false,
+      },
+      links: {
+        cfp: false,
+        openfeedback: false,
+        schedulePdf: false,
+        sponsoringPdf: false,
+        live: false,
+        materiel: false,
+        kitCommunication: true,
+      },
+      messages: {
+        soldout: false,
+      },
     },
   },
 }));

@@ -4,7 +4,7 @@ import type { Volunteer } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.association) {
+if (!$featureFlags.pages.association.show) {
   throw createError({ statusCode: 404 });
 }
 

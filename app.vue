@@ -31,7 +31,7 @@ useSeoMeta({
   ogDescription: `${association.value.name} est une conférence pour les développeur•euse•s, 
     sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
   ogType: "website",
-  ogImage: "/images/association/team2023.webp",
+  ogImage: "/images/association/team2024.webp",
   ogImageAlt: `Photo de l'équipe ${association.value.name} 2023`,
   ogUrl: "https://bdxio.fr",
 

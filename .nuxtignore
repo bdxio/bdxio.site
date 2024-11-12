@@ -1,4 +1,8 @@
 pages/**/*.vue
 
 !pages/index.vue
-!pages/Wip.vue
+!pages/sponsors.vue
+!pages/association.vue
+!pages/faq.vue
+!pages/legalnotice.vue
+!pages/conduct.vue

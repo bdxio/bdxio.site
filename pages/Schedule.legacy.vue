@@ -4,7 +4,7 @@ import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.scheduleLegacy) {
+if (!$featureFlags.pages.scheduleLegacy.show) {
   throw createError({ statusCode: 404 });
 }
 
@@ -155,7 +155,7 @@ onClickOutside(categoriesWrapper, () => {
     <section class="mt-14 md:mt-12">
       <div class="flex flex-col gap-3 justify-center items-center mb-12">
         <LinkPrimary
-          v-if="$featureFlags.links.schedulePdf"
+          v-if="$featureFlags.pages.schedule.links.downloadPdf"
           type="link"
           color="light"
           href="/bdxio-2024-programme.pdf"
@@ -165,7 +165,7 @@ onClickOutside(categoriesWrapper, () => {
           Télécharger le programme
         </LinkPrimary>
         <LinkSecondary
-          v-if="$featureFlags.pages.speakers"
+          v-if="$featureFlags.pages.speakers.show"
           type="nuxt"
           to="/speakers"
           color="dark"

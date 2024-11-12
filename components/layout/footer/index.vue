@@ -40,6 +40,7 @@ const { data: association } = await useAPI("/association");
     <div class="flex flex-col m:flex-row">
       <div class="flex flex-col m:w-1/3 mb-8 m:mb-0">
         <a
+          v-if="$featureFlags.layout.location"
           href="https://goo.gl/maps/aScUymM4T4DqeBvz8"
           target="_blank"
           aria-label="lien vers le palais des congrès sur google maps - Nouvelle fenêtre"
@@ -111,7 +112,7 @@ const { data: association } = await useAPI("/association");
       <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ association.name }}</span>
       <NuxtLink
         v-if="$featureFlags.pages.legalNotice"
-        to="/legal-notice"
+        to="/legalnotice"
         class="text-lg m:mr-16 mb-4 m:mb-0"
       >
         Mentions légales

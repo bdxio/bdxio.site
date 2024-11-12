@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, useNuxtApp, ref, nextTick } from "#imports";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.schedule) {
+if (!$featureFlags.pages.schedule.show) {
   throw createError({ statusCode: 404 });
 }
 
@@ -38,7 +38,7 @@ function resizeIFrame(event: MessageEvent) {
 
 <template>
   <LinkPrimary
-    v-if="$featureFlags.links.schedulePdf"
+    v-if="$featureFlags.pages.schedule.links.downloadPdf"
     type="link"
     color="light"
     href="/bdxio-2024-programme.pdf"

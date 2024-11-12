@@ -57,19 +57,17 @@ watch(
           class="relative block h-auto max-w-[120px] m:max-w-[160px] z-30"
         />
       </NuxtLink>
-      <div v-if="!$featureFlags.pages.wip ">
-        <img
-          :src="icon.src"
-          :alt="icon.alt"
-          :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
-          class="cursor-pointer m:hidden relative z-30"
-          @click.prevent="toggleMenu"
-        >
-        <LayoutHeaderNavigation
-          :background="background"
-          :open="menu.isOpen"
-        />
-      </div>
+      <img
+        :src="icon.src"
+        :alt="icon.alt"
+        :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
+        class="cursor-pointer m:hidden relative z-30"
+        @click.prevent="toggleMenu"
+      >
+      <LayoutHeaderNavigation
+        :background="background"
+        :open="menu.isOpen"
+      />
     </header>
   </div>
 </template>

@@ -3,7 +3,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.jobs) {
+if (!$featureFlags.pages.jobs.show) {
   throw createError({ statusCode: 404 });
 }
 
