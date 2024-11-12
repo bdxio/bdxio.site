@@ -4,7 +4,7 @@ import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.faq) {
+if (!$featureFlags.pages.faq.show) {
   throw createError({ statusCode: 404 });
 }
 

@@ -43,7 +43,7 @@ const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
         </div>
       </div>
       <NuxtImg
-        src="/images/association/team2023.webp"
+        src="/images/association/team2024.webp"
         alt=""
         aria-hidden="true"
         class="mb-6"

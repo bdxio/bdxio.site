@@ -19,7 +19,7 @@ const { $featureFlags } = useNuxtApp();
       <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ EDITION }}.</p>
     </div>
     <LinkSecondary
-      v-if="$featureFlags.pages.ticketing"
+      v-if="$featureFlags.pages.ticketing.links.ticketing"
       type="link"
       color="grey"
       to="/ticketing"

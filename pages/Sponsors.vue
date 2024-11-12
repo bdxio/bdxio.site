@@ -5,24 +5,18 @@ import type { Offer } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.sponsors) {
+if (!$featureFlags.pages.sponsors.show) {
   throw createError({ statusCode: 404 });
 }
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
-const { data }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
-  "filters[edition][year][$eq]": EDITION,
-} });
-
-data.value.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 </script>
 
 <template>
   <main>
-    <SectionSponsorsBecomeSponsor v-if="$featureFlags.sections.sponsors.becomeSponsor" />
+    <SectionSponsorsBecomeSponsor v-if="$featureFlags.pages.sponsors.sections.becomeSponsor" />
     <SectionSponsorsOffers
-      v-if="$featureFlags.sections.sponsors.offers && data.length !== 0"
-      :offers="data"
+      v-if="$featureFlags.pages.sponsors.sections.offers"
     />
     <SectionSponsors :edition="EDITION" />
   </main>

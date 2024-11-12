@@ -4,7 +4,7 @@ import type { Room } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.live) {
+if (!$featureFlags.pages.live.show) {
   throw createError({ statusCode: 404 });
 }
 

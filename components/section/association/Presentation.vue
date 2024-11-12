@@ -20,7 +20,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
     </section>
     <section class="mt-12 m:mt-24 grid grid-cols-1 l:grid-cols-2 items-center">
       <NuxtImg
-        src="/images/association/team2023.webp"
+        src="/images/association/team2024.webp"
         :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(EDITION) - 1}`"
         class="l:w-4/5 rounded-lg"
         preload

@@ -4,6 +4,14 @@ import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constan
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
+const {
+  $featureFlags,
+} = useNuxtApp();
+
+if (!$featureFlags.pages.speakers.show) {
+  throw createError({ statusCode: 404 });
+}
+
 useHead({ title: `Speakers | ${ASSOCIATION_NAME}` });
 
 const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", { params: {

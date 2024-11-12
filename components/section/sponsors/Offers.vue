@@ -1,9 +1,6 @@
 <script setup lang="ts">
+import { EDITION } from "~/services/constants";
 import type { Offer } from "@bdxio/bdxio.types";
-
-defineProps<{
-  offers: Offer[];
-}>();
 
 const getOfferColorClass = (offer: Offer["label"]) => {
   switch (offer) {
@@ -19,6 +16,11 @@ const getOfferColorClass = (offer: Offer["label"]) => {
       return "text-bdxio-blue-base";
   }
 };
+
+const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
+  "filters[edition][year][$eq]": EDITION,
+} });
+
 </script>
 
 <template>
@@ -29,7 +31,16 @@ const getOfferColorClass = (offer: Offer["label"]) => {
     >
       Les offres
     </Heading>
-    <div class="flex gap-8 flex-col m:flex-row mt-[75px]">
+    <div
+      v-if="offers.length === 0"
+      class="text-center italic mt-16"
+    >
+      Pas d'offre actuellement pour l'édition {{ EDITION }}
+    </div>
+    <div
+      v-else
+      class="flex gap-8 flex-col m:flex-row mt-[75px]"
+    >
       <div
         v-for="offer in offers"
         :key="offer.label"

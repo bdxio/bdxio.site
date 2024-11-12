@@ -71,11 +71,11 @@ const categories = [
         forcément votre bonheur&nbsp;!
       </p>
       <div
-        v-if="$featureFlags.pages.schedule || $featureFlags.links.schedulePdf"
+        v-if="$featureFlags.pages.schedule.show || $featureFlags.pages.schedule.links.downloadPdf"
         class="mt-8 flex items-center gap-2"
       >
         <LinkSecondary
-          v-if="$featureFlags.links.schedulePdf"
+          v-if="$featureFlags.pages.schedule.links.downloadPdf"
           type="link"
           color="light"
           to="/bdxio-2024-programme.pdf"
