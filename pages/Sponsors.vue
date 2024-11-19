@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
-import type { Ref } from "vue";
-import type { Offer } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import fetchJsonp from "fetch-jsonp";
+import { EDITION } from "~/services/constants";
 
 const state = reactive({
   open: false,
@@ -76,7 +77,12 @@ async function register() {
     @click="toggleForm"
     @keydown.enter.exact="toggleForm"
   >
-    <span class="cursor-pointer">S'inscrire à la newsletter</span>
+    <span
+      class="border-none py-2 px-4 rounded-lg duration-300 w-fit cursor-pointer
+     bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light"
+    >
+      Newsletter BDX I/O {{ EDITION }} 💌
+    </span>
     <NuxtImg
       src="/images/drawings/purple_envelope.webp"
       alt=""

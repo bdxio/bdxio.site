@@ -42,13 +42,13 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
       width="450"
       height="71"
     />
-    <p class="mb-3 italic text-2xl font-light">
+    <p class="italic text-2xl font-light mb-12">
       BDX I/O {{ PREVIOUS_EDITION }} c’est terminé ! On vous remercie tous <br>
       chaleureusement pour votre présence et <br>votre soutien.
     </p>
     <div
       v-if="youtubePlaylistUrl || picturesGalleryUrl"
-      class="mt-12 flex flex-col items-center md:flex-row gap-8"
+      class="mb-6 flex flex-col items-center md:flex-row gap-8"
     >
       <LinkSecondary
         v-if="picturesGalleryUrl"
@@ -74,5 +74,6 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
         Replay {{ PREVIOUS_EDITION }}
       </LinkPrimary>
     </div>
+    <ButtonNewsletter class="mt-4" />
   </header>
 </template>
