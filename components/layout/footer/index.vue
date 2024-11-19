@@ -105,7 +105,7 @@ const { data: association } = await useAPI("/association");
               association.partnersEmail }}</a>
           </li>
         </ul>
-        <LayoutFooterNewsletter />
+        <ButtonNewsletter />
       </div>
     </div>
     <div class="flex flex-col m:flex-row border-t border-solid border-black mt-8 m:mt-16 pt-8 m:pt-16">
