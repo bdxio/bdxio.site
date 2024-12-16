@@ -22,10 +22,10 @@ export default defineNuxtPlugin(() => ({
           show: true,
           sections: {
             becomeSponsor: true,
-            offers: false,
+            offers: true,
           },
           links: {
-            downloadPdf: false,
+            downloadPdf: true,
           },
         },
         schedule: {
@@ -63,7 +63,7 @@ export default defineNuxtPlugin(() => ({
         cfp: false,
         openfeedback: false,
         schedulePdf: false,
-        sponsoringPdf: false,
+        sponsoringPdf: true,
         live: false,
         materiel: false,
         kitCommunication: true,
