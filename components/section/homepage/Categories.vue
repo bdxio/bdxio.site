@@ -78,8 +78,8 @@ const categories = [
           v-if="$featureFlags.pages.schedule.links.downloadPdf"
           type="link"
           color="light"
-          to="/bdxio-2024-programme.pdf"
-          download="bdxio-2024-programme.pdf"
+          to="/plaquette-sponsors-2025.pdf"
+          download="plaquette-sponsors-2025.pdf"
         >
           Télécharger le programme
         </LinkSecondary>
@@ -87,7 +87,6 @@ const categories = [
           v-if="$featureFlags.pages.schedule"
           type="link"
           color="light"
-          
           href="/schedule"
           aria-label="Lien vers la page programme"
         >
@@ -95,16 +94,14 @@ const categories = [
         </LinkPrimary>
       </div>
     </div>
-    <div
-      class="
+    <div class="
         grid
         gap-7
         grid-cols-2
         m:grid-cols-3
         mt-8
         m:mt-0
-        m:ml-32"
-    >
+        m:ml-32">
       <div
         v-for="category in categories"
         :key="category.name"
