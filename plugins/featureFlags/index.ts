@@ -7,13 +7,13 @@ export default defineNuxtPlugin(() => ({
         homepage: {
           show: true,
           sections: {
-            wip: true,
-            figures: false,
+            wip: false,
+            figures: true,
             about: true,
-            theme: false,
+            theme: true,
             materiel: false,
             dDay: false,
-            categories: false,
+            categories: true,
             sponsor: false,
             participant: false,
           },
