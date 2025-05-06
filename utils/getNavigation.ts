@@ -90,7 +90,7 @@ export function getNavigation() {
     },
     {
       name: "CFP",
-      path: `https://conference-hall.io/public/event/${config.public.CONFERENCE_HALL_EVENT_ID}`,
+      path: "https://conference-hall.io/bdx-i-o-2025",
       show: instance.$featureFlags.links.cfp,
       type: external,
       design: primary,
