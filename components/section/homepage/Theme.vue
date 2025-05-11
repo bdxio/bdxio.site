@@ -15,7 +15,7 @@ import { EDITION } from "~/services/constants";
         level="3"
         class="text-bdxio-light"
       >
-        Dix&nbsp;ans&nbsp;d’innovation, dix ans d’impact:
+        Dix&nbsp;ans d’innovation, dix ans d’impact:
         <br>
         La technologie au service de la société
       </Heading>
@@ -27,13 +27,13 @@ import { EDITION } from "~/services/constants";
     </div>
     <div class="w-full l:w-5/12 flex justify-center item-center mt-16 m:mt-0">
       <NuxtImg
-        src="/images/illustrations/theme.webp"
+        src="/images/illustrations/birthday-cake-bdxio-2025.png"
         alt="Illustration de la planète Terre connectée et entourée de feuillages"
         :aria-hidden="true"
         class="object-contain max-w-md xs:w-1/2 l:w-full"
         loading="lazy"
-        width="640"
-        height="625"
+        width="875"
+        height="1205"
         size="xs:50vw lg:100vw"
       />
     </div>
