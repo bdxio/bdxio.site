@@ -89,7 +89,7 @@ export function getNavigation() {
       design: link,
     },
     {
-      name: "CFP",
+      name: "Proposer un talk",
       path: "https://conference-hall.io/bdx-i-o-2025",
       show: instance.$featureFlags.links.cfp,
       type: external,
