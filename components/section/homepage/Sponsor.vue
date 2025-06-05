@@ -25,7 +25,7 @@ const { $featureFlags } = useNuxtApp();
     </div>
     <LinkSecondary
       v-if="$featureFlags.pages.sponsors.links.downloadPdf"
-      type="nuxt"
+      type="link"
       to="/sponsors"
       color="white"
       class="mt-8"

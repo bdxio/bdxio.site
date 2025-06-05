@@ -14,8 +14,8 @@ export default defineNuxtPlugin(() => ({
             materiel: false,
             dDay: false,
             categories: true,
-            sponsor: false,
-            participant: false,
+            sponsor: true,
+            participant: true,
           },
         },
         sponsors: {
@@ -49,9 +49,9 @@ export default defineNuxtPlugin(() => ({
         codeOfConduct: { show: true },
         legalNotice: { show: true },
         ticketing: {
-          show: false,
+          show: true,
           links: {
-            ticketing: false,
+            ticketing: true,
           },
         },
       },
