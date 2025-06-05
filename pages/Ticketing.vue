@@ -33,7 +33,6 @@ function resizeIFrame(event: MessageEvent) {
     imaginaIframe.value.height = event.data.height;
   }
 }
-
 </script>
 
 <template>
@@ -47,7 +46,7 @@ function resizeIFrame(event: MessageEvent) {
     ref="imaginaIframe"
     scrolling="no"
     allow="geolocation"
-    src="https://app.imagina.com/module/390678/111756?application_id=22841448"
+    src="https://app.imagina.com/module/436613/112144?application_id=34251165"
     tabindex="-1"
     style="border: none; width: 100%; display: block; overflow: hidden;"
   />
