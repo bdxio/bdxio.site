@@ -14,29 +14,35 @@ const { query } = useRoute();
 const router = useRouter();
 
 const filters: Array<{
-  title: string,
-  value: FAQTarget["target"],
-  image: string
-}> = [{
-  title: "Participants",
-  value: "participants",
-  image: "participants.png",
-}, {
-  title: "Sponsors",
-  value: "sponsors",
-  image: "coffee.png",
-}, {
-  title: "Speakers",
-  value: "speakers",
-  image: "mic.png",
-}];
+  title: string;
+  value: FAQTarget["target"];
+  image: string;
+}> = [
+  {
+    title: "Participants",
+    value: "participants",
+    image: "participants.png",
+  },
+  {
+    title: "Sponsors",
+    value: "sponsors",
+    image: "coffee.png",
+  },
+  {
+    title: "Speakers",
+    value: "speakers",
+    image: "mic.png",
+  },
+];
 
 const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
 
-const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", { params: {
-  "populate": "*",
-  "pagination[limit]": 200,
-} });
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {
+  params: {
+    populate: "*",
+    "pagination[limit]": 200,
+  },
+});
 
 const questions = computed(() => {
   return targets.reduce((result, target) => {
@@ -55,12 +61,11 @@ watch(currentTarget, () => router.replace({ query: { target: currentTarget.value
 
 onMounted(() => {
   if (targets.includes(query.target as FAQTarget["target"])) {
-    currentTarget.value = (query.target as FAQTarget["target"]);
+    currentTarget.value = query.target as FAQTarget["target"];
   } else {
     router.replace({ query: { target: currentTarget.value } });
   }
 });
-
 </script>
 
 <template>
@@ -107,27 +112,42 @@ onMounted(() => {
         :key="target"
       >
         <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
-          <Collapse
+          <details
             v-for="question in questions[target]"
             :key="`question-${question.id}`"
             tag="li"
             class="mb-10"
           >
-            <template #title>
+            <summary class="flex items-center cursor-pointer">
+              <span class="arrow-icon mr-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </span>
               <Heading
                 level="2"
                 class="!text-xl !m-0 !text-bdxio-blue-dark !font-body !font-bold"
               >
                 {{ question.title }}
               </Heading>
-            </template>
-            <template #content>
+            </summary>
+            <div>
               <Markdown
                 :content="question.answer"
                 class="mt-3"
               />
-            </template>
-          </Collapse>
+            </div>
+          </details>
         </ul>
       </template>
     </section>
@@ -147,5 +167,29 @@ onMounted(() => {
   background-image: url("/images/drawings/yellow_scribbles.webp");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+/* Custom arrow styling */
+summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  color: var(--bdxio-blue-dark, #00394f);
+}
+
+details[open] .arrow-icon {
+  transform: rotate(90deg);
+}
+
+details:not([open]) .arrow-icon {
+  transform: rotate(0deg);
 }
 </style>
