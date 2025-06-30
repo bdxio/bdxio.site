@@ -3,8 +3,10 @@ const getSocialIcon = (social: string) => {
   switch (social) {
     case "linkedin":
       return "/images/icons/linkedin.svg";
-    case "twitter":
-      return "/images/icons/twitter.svg";
+    case "x":
+      return "/images/icons/x.svg";
+    case "bluesky":
+      return "/images/icons/bluesky.svg";
     case "youtube":
       return "/images/icons/youtube.svg";
     case "instagram":
