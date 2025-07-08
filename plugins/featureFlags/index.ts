@@ -60,7 +60,7 @@ export default defineNuxtPlugin(() => ({
         location: false,
       },
       links: {
-        cfp: true,
+        cfp: false,
         openfeedback: false,
         schedulePdf: false,
         sponsoringPdf: true,
