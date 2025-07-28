@@ -4,9 +4,7 @@ import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constan
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
-const {
-  $featureFlags,
-} = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
 
 if (!$featureFlags.pages.speakers.show) {
   throw createError({ statusCode: 404 });
@@ -14,26 +12,32 @@ if (!$featureFlags.pages.speakers.show) {
 
 useHead({ title: `Speakers | ${ASSOCIATION_NAME}` });
 
-const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", { params: {
-  "populate": "*",
-  "pagination[limit]": 100,
-  "filters[edition][year][$eq]": EDITION,
-  "filters[type][$ne]": CLOSING_TALK_TYPE,
-} });
+const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", {
+  params: {
+    populate: "*",
+    "pagination[limit]": 100,
+    "filters[edition][year][$eq]": EDITION,
+    "filters[type][$ne]": CLOSING_TALK_TYPE,
+  },
+});
 
 const speakers = computed(() => {
   if (!talksWithSpeakers.value?.length) return [];
 
-type SpeakersWithTalkId = Array<Speaker & {
-  talkId: number;
-}>;
+  type SpeakersWithTalkId = Array<
+    Speaker & {
+      talkId: number;
+    }
+  >;
 
-return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
-  if (!talk.speakers?.length) return acc;
+  return talksWithSpeakers.value
+    .reduce((acc: SpeakersWithTalkId, talk: Talk) => {
+      if (!talk.speakers?.length) return acc;
 
-  talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
-  return acc;
-}, []).sort((a, b) => a.name.localeCompare(b.name));
+      talk.speakers.forEach((speaker: Speaker) => acc.push({ ...speaker, talkId: talk.id }));
+      return acc;
+    }, [])
+    .sort((a: Speaker, b: Speaker) => a.name.localeCompare(b.name));
 });
 </script>
 
@@ -88,7 +92,6 @@ return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
                     :src="`/images/${link.imgPath}`"
                     :alt="link.alt"
                     :aria-label="link.alt"
-                    loading="lazy"
                     :width="24"
                     :height="24"
                   />
