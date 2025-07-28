@@ -42,8 +42,10 @@ const { $featureFlags } = useNuxtApp();
       </li>
 
       <li class="flex flex-col items-center  ">
-        <p class="text-[74px] mb-5 m:mb-[50px]
-        ">
+        <p
+          class="text-[74px] mb-5 m:mb-[50px]
+        "
+        >
           4
         </p>
         <p class="text-center max-w-[350px] relative z-10 four">
