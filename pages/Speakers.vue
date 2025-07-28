@@ -6,6 +6,9 @@ import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
 
+type SpeakerId = Speaker["id"];
+type SpeakersWithTalkId = Record<SpeakerId, Speaker & { talkId: number }>;
+
 if (!$featureFlags.pages.speakers.show) {
   throw createError({ statusCode: 404 });
 }
@@ -24,20 +27,24 @@ const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks"
 const speakers = computed(() => {
   if (!talksWithSpeakers.value?.length) return [];
 
-  type SpeakersWithTalkId = Array<
-    Speaker & {
-      talkId: number;
-    }
-  >;
+  return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
+    if (!talk.speakers?.length) return acc;
 
-  return talksWithSpeakers.value
-    .reduce((acc: SpeakersWithTalkId, talk: Talk) => {
-      if (!talk.speakers?.length) return acc;
+    talk.speakers.forEach((speaker: Speaker) => {
+      if (!acc[speaker.id]) {
+        acc[speaker.id] = { ...speaker, talkId: talk.id };
+      } else {
+        // If speaker already exists, we can merge the talkId
+        acc[speaker.id].talkId = talk.id;
+      }
+    });
 
-      talk.speakers.forEach((speaker: Speaker) => acc.push({ ...speaker, talkId: talk.id }));
-      return acc;
-    }, [])
-    .sort((a: Speaker, b: Speaker) => a.name.localeCompare(b.name));
+    return acc;
+  }, []);
+});
+
+const sortedSpeakers = computed(() => {
+  return Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name));
 });
 </script>
 
@@ -57,7 +64,7 @@ const speakers = computed(() => {
       class="flex flex-row flex-wrap items-center justify-start"
     >
       <li
-        v-for="(speaker, index) in speakers"
+        v-for="(speaker, index) in sortedSpeakers"
         :key="`speaker-${index}`"
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-14"
       >
