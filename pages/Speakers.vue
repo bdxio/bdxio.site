@@ -24,8 +24,8 @@ const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks"
   },
 });
 
-const speakers = computed(() => {
-  if (!talksWithSpeakers.value?.length) return [];
+const speakers: SpeakersWithTalkId = computed(() => {
+  if (!talksWithSpeakers.value?.length) return {};
 
   return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
     if (!talk.speakers?.length) return acc;
@@ -40,7 +40,7 @@ const speakers = computed(() => {
     });
 
     return acc;
-  }, []);
+  }, {} as SpeakersWithTalkId);
 });
 
 const sortedSpeakers = computed(() => {
@@ -56,7 +56,7 @@ const sortedSpeakers = computed(() => {
     >
       Les speakers
     </Heading>
-    <p v-if="speakers.length === 0">
+    <p v-if="sortedSpeakers.length === 0">
       Aucun speaker pour l'édition {{ EDITION }}
     </p>
     <ul
