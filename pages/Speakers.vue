@@ -7,7 +7,8 @@ import type { Talk, Speaker } from "@bdxio/bdxio.types";
 const { $featureFlags } = useNuxtApp();
 
 type SpeakerId = Speaker["id"];
-type SpeakersWithTalkId = Record<SpeakerId, Speaker & { talkId: number }>;
+type SpeakersWithTalkId = Speaker & { talkId: number };
+type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
 
 if (!$featureFlags.pages.speakers.show) {
   throw createError({ statusCode: 404 });
@@ -24,10 +25,10 @@ const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks"
   },
 });
 
-const speakers: SpeakersWithTalkId = computed(() => {
+const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
   if (!talksWithSpeakers.value?.length) return {};
 
-  return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
+  return talksWithSpeakers.value.reduce((acc: SpeakersRecordWithTalkId, talk: Talk) => {
     if (!talk.speakers?.length) return acc;
 
     talk.speakers.forEach((speaker: Speaker) => {
@@ -40,12 +41,10 @@ const speakers: SpeakersWithTalkId = computed(() => {
     });
 
     return acc;
-  }, {} as SpeakersWithTalkId);
+  }, {});
 });
 
-const sortedSpeakers = computed(() => {
-  return Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name));
-});
+const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name)));
 </script>
 
 <template>
