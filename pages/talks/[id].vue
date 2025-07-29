@@ -4,7 +4,7 @@ import type { Talk } from "@bdxio/bdxio.types";
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
-const { params }: {params: Record<string, string>} = useRoute();
+const { params }: { params: Record<string, string> } = useRoute();
 
 const { $featureFlags } = useNuxtApp();
 
@@ -30,7 +30,7 @@ if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type ===
       :speaker="speaker"
     />
     <LinkPrimaryNuxt
-      v-if="$featureFlags.pages.schedule"
+      v-if="$featureFlags.pages.schedule.show"
       color="light"
       to="/schedule"
       class="block mt-5 mx-auto mb-0"

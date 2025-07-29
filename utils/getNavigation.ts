@@ -1,4 +1,4 @@
-import { useNuxtApp, useRuntimeConfig } from "#imports";
+import { useNuxtApp } from "#imports";
 
 type Page = {
   name: string;
@@ -10,7 +10,6 @@ type Page = {
 
 export function getNavigation() {
   const instance = useNuxtApp();
-  const config = useRuntimeConfig();
 
   const link = "link" as const;
   const primary = "primary" as const;
@@ -28,7 +27,7 @@ export function getNavigation() {
     {
       name: "Talks",
       path: "/talks",
-      show: instance.$featureFlags.pages.talks.show && instance.$featureFlags.pages.schedule.show,
+      show: instance.$featureFlags.pages.talks.show && !instance.$featureFlags.pages.schedule.show,
       type: internal,
       design: link,
     },

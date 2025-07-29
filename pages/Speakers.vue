@@ -4,9 +4,11 @@ import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constan
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
-const {
-  $featureFlags,
-} = useNuxtApp();
+const { $featureFlags } = useNuxtApp();
+
+type SpeakerId = Speaker["id"];
+type SpeakersWithTalkId = Speaker & { talkId: number };
+type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
 
 if (!$featureFlags.pages.speakers.show) {
   throw createError({ statusCode: 404 });
@@ -14,27 +16,35 @@ if (!$featureFlags.pages.speakers.show) {
 
 useHead({ title: `Speakers | ${ASSOCIATION_NAME}` });
 
-const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", { params: {
-  "populate": "*",
-  "pagination[limit]": 100,
-  "filters[edition][year][$eq]": EDITION,
-  "filters[type][$ne]": CLOSING_TALK_TYPE,
-} });
-
-const speakers = computed(() => {
-  if (!talksWithSpeakers.value?.length) return [];
-
-type SpeakersWithTalkId = Array<Speaker & {
-  talkId: number;
-}>;
-
-return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
-  if (!talk.speakers?.length) return acc;
-
-  talk.speakers.forEach(speaker => acc.push({ ...speaker, talkId: talk.id }));
-  return acc;
-}, []).sort((a, b) => a.name.localeCompare(b.name));
+const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks", {
+  params: {
+    populate: "*",
+    "pagination[limit]": 100,
+    "filters[edition][year][$eq]": EDITION,
+    "filters[type][$ne]": CLOSING_TALK_TYPE,
+  },
 });
+
+const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
+  if (!talksWithSpeakers.value?.length) return {};
+
+  return talksWithSpeakers.value.reduce((acc: SpeakersRecordWithTalkId, talk: Talk) => {
+    if (!talk.speakers?.length) return acc;
+
+    talk.speakers.forEach((speaker: Speaker) => {
+      if (!acc[speaker.id]) {
+        acc[speaker.id] = { ...speaker, talkId: talk.id };
+      } else {
+        // If speaker already exists, we can merge the talkId
+        acc[speaker.id].talkId = talk.id;
+      }
+    });
+
+    return acc;
+  }, {});
+});
+
+const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name)));
 </script>
 
 <template>
@@ -45,7 +55,7 @@ return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
     >
       Les speakers
     </Heading>
-    <p v-if="speakers.length === 0">
+    <p v-if="sortedSpeakers.length === 0">
       Aucun speaker pour l'édition {{ EDITION }}
     </p>
     <ul
@@ -53,7 +63,7 @@ return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
       class="flex flex-row flex-wrap items-center justify-start"
     >
       <li
-        v-for="(speaker, index) in speakers"
+        v-for="(speaker, index) in sortedSpeakers"
         :key="`speaker-${index}`"
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-14"
       >
@@ -88,7 +98,6 @@ return talksWithSpeakers.value.reduce((acc: SpeakersWithTalkId, talk: Talk) => {
                     :src="`/images/${link.imgPath}`"
                     :alt="link.alt"
                     :aria-label="link.alt"
-                    loading="lazy"
                     :width="24"
                     :height="24"
                   />

@@ -7,3 +7,5 @@ pages/**/*.vue
 !pages/faq.vue
 !pages/legalnotice.vue
 !pages/conduct.vue
+!pages/speakers.vue
+!pages/talks/*.vue
