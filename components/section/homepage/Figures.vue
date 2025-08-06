@@ -6,11 +6,9 @@
       m:col-start-1 m:col-end-5 max-h-[280px]"
       loading="lazy"
     />
-    <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center
+    <div class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 row-start-1 col-start-2 col-end-3
-        m:row-start-1 m:col-start-5 m:col-end-7 max-h-[280px]"
-    >
+        m:row-start-1 m:col-start-5 m:col-end-7 max-h-[280px]">
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter :value="7" />
       </p>
@@ -28,13 +26,11 @@
       loading="lazy"
       height=""
     />
-    <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center
+    <div class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 row-start-2 col-start-1 col-end-2
-        m:row-start-1 m:col-start-11 m:col-end-13 max-h-[280px]"
-    >
+        m:row-start-1 m:col-start-11 m:col-end-13 max-h-[280px]">
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
-        <Counter :value="6" />
+        <Counter :value="8" />
       </p>
       <p class="font-title text-bold text-2xl md:text-3xl m-3">
         Amphis
@@ -43,11 +39,9 @@
         Toujours une conf à votre goût !
       </p>
     </div>
-    <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center
+    <div class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 row-start-3 col-start-2 col-end-3
-        m:row-start-2 m:col-start-1 m:col-end-3 max-h-[280px]"
-    >
+        m:row-start-2 m:col-start-1 m:col-end-3 max-h-[280px]">
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter :value="50" />
       </p>
@@ -67,11 +61,9 @@
       height=""
     />
 
-    <div
-      class="flex flex-col items-center justify-center bg-white box-border text-center
+    <div class="flex flex-col items-center justify-center bg-white box-border text-center
         text-bdxio-blue-dark p-4 row-start-4 col-start-1 col-end-2
-          m:row-start-2 m:col-start-7 m:col-end-9 max-h-[280px]"
-    >
+          m:row-start-2 m:col-start-7 m:col-end-9 max-h-[280px]">
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
         <Counter
           :value="1000"
