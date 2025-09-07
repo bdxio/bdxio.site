@@ -29,7 +29,7 @@ export default defineNuxtPlugin(() => ({
           },
         },
         schedule: {
-          show: false,
+          show: true,
           links: {
             downloadPdf: false,
           },
