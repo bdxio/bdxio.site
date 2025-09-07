@@ -57,7 +57,7 @@ function resizeIFrame(event: MessageEvent) {
     ref="imaginaIframe"
     scrolling="no"
     allow="geolocation"
-    src="https://app.imagina.com/module/390679/111756?application_id=26639251"
+    src="https://app.imagina.com/module/436648/112144?application_id=34251165"
     tabindex="-1"
     style="border: none; width: 100%; display: block; overflow: hidden;"
   />
