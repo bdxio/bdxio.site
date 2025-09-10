@@ -11,6 +11,8 @@ const getSocialIcon = (social: string) => {
       return "/images/icons/youtube.svg";
     case "instagram":
       return "/images/icons/instagram.svg";
+    case "flickr":
+      return "/images/icons/flickr.svg";
     default:
       return "";
   }
