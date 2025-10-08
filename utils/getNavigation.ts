@@ -48,7 +48,7 @@ export function getNavigation() {
     {
       name: "Speakers",
       path: "/speakers",
-      show: instance.$featureFlags.pages.speakers.show && !instance.$featureFlags.pages.schedule.show,
+      show: instance.$featureFlags.pages.speakers.show,
       type: internal,
       design: link,
     },
