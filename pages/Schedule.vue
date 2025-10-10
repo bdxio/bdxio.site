@@ -33,6 +33,7 @@ function resizeIFrame(event: MessageEvent) {
     imaginaIframe.value.height = event.data.height;
   }
 }
+</script>
 
 <template>
   <LinkPrimary v-if="$featureFlags.pages.schedule.links.downloadPdf" type="link" color="light"
