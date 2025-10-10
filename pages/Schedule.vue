@@ -34,31 +34,16 @@ function resizeIFrame(event: MessageEvent) {
   }
 }
 
-</script>
-
 <template>
-  <LinkPrimary
-    v-if="$featureFlags.pages.schedule.links.downloadPdf"
-    type="link"
-    color="light"
-    href="/bdxio-2024-programme.pdf"
-    download="bdxio-2024-programme.pdf"
-    class="whitespace-nowrap block mx-auto mb-6"
-  >
+  <LinkPrimary v-if="$featureFlags.pages.schedule.links.downloadPdf" type="link" color="light"
+    href="/bdxio-2024-programme.pdf" download="bdxio-2024-programme.pdf" class="whitespace-nowrap block mx-auto mb-6">
     Télécharger le programme
   </LinkPrimary>
-  <div
-    v-if="isLoading"
-    class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200"
-  >
+  <div v-if="isLoading"
+    class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200">
     Chargement du programme...
   </div>
-  <iframe
-    ref="imaginaIframe"
-    scrolling="no"
-    allow="geolocation"
-    src="https://app.imagina.com/module/436648/112144?application_id=34251165"
-    tabindex="-1"
-    style="border: none; width: 100%; display: block; overflow: hidden;"
-  />
+  <iframe ref="imaginaIframe" scrolling="no" class="website-section-iframe" allow="geolocation"
+    src="https://app.imagina.com/module/436648/112144?application_id=40947770" tabindex="-1"
+    style="border: none; width: 100%; display: block; overflow: hidden;"> </iframe>
 </template>
