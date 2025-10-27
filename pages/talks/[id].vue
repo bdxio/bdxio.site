@@ -29,13 +29,14 @@ if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type ===
       :key="speaker.id"
       :speaker="speaker"
     />
-    <LinkPrimaryNuxt
+    <LinkSecondary
       v-if="$featureFlags.pages.schedule.show"
       color="light"
       to="/schedule"
+      type="link"
       class="block mt-5 mx-auto mb-0"
     >
       Voir le programme
-    </LinkPrimaryNuxt>
+    </LinkSecondary>
   </main>
 </template>
