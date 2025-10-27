@@ -75,10 +75,10 @@
         />
       </p>
       <p class="font-title text-bold text-2xl md:text-3xl m-3">
-        Participant•e•s
+        Participant·e·s
       </p>
       <p class="m-0 mb-4 text-lg md:text-base">
-        Réuni•e•s autour d'une ambiance familliale
+        Réuni•e•s autour d'une ambiance familiale
       </p>
     </div>
 

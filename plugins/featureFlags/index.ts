@@ -16,6 +16,7 @@ export default defineNuxtPlugin(() => ({
             categories: true,
             sponsor: true,
             participant: true,
+            talks: true,
           },
         },
         sponsors: {
