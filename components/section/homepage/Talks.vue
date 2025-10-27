@@ -28,14 +28,13 @@ const randomizeTalks = computed(() => {
     }
     return acc;
   }, []);
-  return firstTalkPerCategory.splice(NUMBER_OF_TALKS_TO_SHOW);
+  return firstTalkPerCategory.splice(0, NUMBER_OF_TALKS_TO_SHOW);
 });
 </script>
 
 <template>
   <section class="p-section flex flex-col items-center
-  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base"
-  >
+  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base">
     <Heading
       level="2"
       class="text-center"
