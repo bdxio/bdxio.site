@@ -28,7 +28,7 @@ const randomizeTalks = computed(() => {
     }
     return acc;
   }, []);
-  return firstTalkPerCategory.splice(NUMBER_OF_TALKS_TO_SHOW);
+  return firstTalkPerCategory.splice(0, NUMBER_OF_TALKS_TO_SHOW);
 });
 </script>
 
