@@ -34,7 +34,8 @@ const randomizeTalks = computed(() => {
 
 <template>
   <section class="p-section flex flex-col items-center
-  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base">
+  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base"
+  >
     <Heading
       level="2"
       class="text-center"
