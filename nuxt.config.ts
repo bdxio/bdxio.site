@@ -1,4 +1,9 @@
 export default defineNuxtConfig({
+  // Ajout pour Server API: Bluesky feed fetching
+  nitro: {
+    preset: 'netlify'
+  },
+
   devServer: {
     port: 3615,
   },
