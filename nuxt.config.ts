@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   // Ajout pour Server API: Bluesky feed fetching
   nitro: {
-    preset: 'netlify'
+    preset: 'static'
   },
 
   devServer: {
