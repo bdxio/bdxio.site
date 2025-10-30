@@ -10,3 +10,5 @@ pages/**/*.vue
 !pages/conduct.vue
 !pages/speakers.vue
 !pages/talks/*.vue
+!pages/blueskyfeed.vue
+!server/**/*.js

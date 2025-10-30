@@ -43,6 +43,8 @@ export default defineNuxtConfig({
       NEWSLETTER_URL: process.env.NEWSLETTER_URL,
       OPENFEEDBACK_URL: process.env.OPENFEEDBACK_URL,
       CONFERENCE_HALL_EVENT_ID: process.env.CONFERENCE_HALL_EVENT_ID,
+      BLUESKY_IDENTIFIER: process.env.BLUESKY_IDENTIFIER,
+      BLUESKY_PASSWORD: process.env.BLUESKY_PASSWORD,
     },
   },
 
