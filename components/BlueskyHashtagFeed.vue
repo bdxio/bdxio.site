@@ -1,90 +1,109 @@
 <template>
   <div class="header-banner">
-    <img src="https://bdxio.fr/_ipx/s_139x50/images/logo_blue_header.webp" alt="BDX I/O" class="logo" />
+    <img src="https://bdxio.fr/_ipx/s_139x50/images/logo_blue_header.webp"
+         alt="BDX I/O"
+         class="logo"
+    >
   </div>
 
   <div class="container">
-
-    <div v-if="loading && posts.length === 0" class="loading">
+    <div v-if="loading && posts.length === 0"
+         class="loading"
+    >
       Chargement des posts...
     </div>
 
-    <div v-if="posts.length > 0" class="posts-container">
-      <div v-for="post in posts" :key="post.uri" class="post">
+    <div v-if="posts.length > 0"
+         class="posts-container"
+    >
+      <div v-for="post in posts"
+           :key="post.uri"
+           class="post"
+      >
         <div class="post-header">
-          <div class="avatar">{{ getInitial(post.author) }}</div>
+          <div class="avatar">
+            {{ getInitial(post.author) }}
+          </div>
           <div class="post-author">
             <div class="author-name">
               {{ post.author.displayName || post.author.handle }}
             </div>
-            <div class="author-handle">@{{ post.author.handle }}</div>
+            <div class="author-handle">
+              @{{ post.author.handle }}
+            </div>
           </div>
-          <div class="post-date">{{ formatDate(post.indexedAt) }}</div>
+          <div class="post-date">
+            {{ formatDate(post.indexedAt) }}
+          </div>
         </div>
-        <div class="post-content">{{ post.record.text }}</div>
+        <div class="post-content">
+          {{ post.record.text }}
+        </div>
       </div>
     </div>
 
-    <div v-if="!loading && posts.length === 0 && !error" class="no-posts">
+    <div v-if="!loading && posts.length === 0 && !error"
+         class="no-posts"
+    >
       Aucun post trouvé pour #bdxio
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
 
-const posts = ref([])
-const loading = ref(false)
-const error = ref('')
-let refreshInterval = null
+const posts = ref([]);
+const loading = ref(false);
+const error = ref("");
+let refreshInterval = null;
 
 const fetchPosts = async () => {
-  loading.value = true
-  error.value = ''
+  loading.value = true;
+  error.value = "";
 
   try {
-    const response = await $fetch('/api/bluesky/search', {
+    const response = await $fetch("/api/bluesky/search", {
       params: {
-        hashtag: 'bdxio',
-        limit: 40
-      }
-    })
+        hashtag: "bdxio",
+        limit: 40,
+      },
+    });
 
-    posts.value = response.posts?.length ? response.posts : []
+    posts.value = response.posts?.length ? response.posts : [];
   } catch (err) {
-    console.error('Erreur:', err)
-    error.value = err.data?.message || 'Erreur lors de la récupération des posts'
+    console.error("Erreur:", err);
+    error.value = err.data?.message || "Erreur lors de la récupération des posts";
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-}
+};
 
 const getInitial = (author) => {
   return author.displayName
     ? author.displayName[0].toUpperCase()
-    : author.handle[0].toUpperCase()
-}
+    : author.handle[0].toUpperCase();
+};
 
 const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  return date.toLocaleString('fr-FR', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  })
-}
+  const date = new Date(dateString);
+  return date.toLocaleString("fr-FR", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
 
 onMounted(() => {
-  fetchPosts()
-  refreshInterval = setInterval(fetchPosts, 10000)
-})
+  fetchPosts();
+  refreshInterval = setInterval(fetchPosts, 10000);
+});
 
 onUnmounted(() => {
-  clearInterval(refreshInterval)
-})
+  clearInterval(refreshInterval);
+});
 </script>
 
 <style scoped>

@@ -7,8 +7,8 @@ pages/**/*.vue
 !pages/association.vue
 !pages/faq.vue
 !pages/legalnotice.vue
+!pages/socialwall.vue
 !pages/conduct.vue
 !pages/speakers.vue
 !pages/talks/*.vue
-!pages/blueskyfeed.vue
 !server/**/*.js

@@ -1,8 +1,7 @@
 <script setup>
-import BlueskyHashtagFeed from '../components/BlueskyHashtagFeed.vue'
+import BlueskyHashtagFeed from "../components/BlueskyHashtagFeed.vue";
 </script>
 
-
 <template>
-<BlueskyHashtagFeed />
+  <BlueskyHashtagFeed />
 </template>

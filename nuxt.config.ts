@@ -1,10 +1,10 @@
 export default defineNuxtConfig({
   // Ajout pour Server API: Bluesky feed fetching
   nitro: {
-    preset: 'netlify',
+    preset: "netlify",
     prerender: {
-      routes: ['/'] // uniquement les pages nécessaires
-    }
+      routes: ["/"], // uniquement les pages nécessaires
+    },
   },
 
   devServer: {

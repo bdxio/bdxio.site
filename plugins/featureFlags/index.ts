@@ -35,6 +35,9 @@ export default defineNuxtPlugin(() => ({
             downloadPdf: true,
           },
         },
+        socialWall: {
+          show: true,
+        },
         scheduleLegacy: {
           show: false,
           links: {
