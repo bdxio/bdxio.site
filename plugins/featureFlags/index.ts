@@ -12,7 +12,7 @@ export default defineNuxtPlugin(() => ({
             about: true,
             theme: true,
             materiel: false,
-            dDay: false,
+            dDay: true,
             categories: true,
             sponsor: true,
             participant: true,
