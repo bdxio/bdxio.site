@@ -2,7 +2,6 @@ pages/**/*.vue
 
 !pages/index.vue
 !pages/sponsors.vue
-!pages/ticketing.vue
 !pages/schedule.vue
 !pages/association.vue
 !pages/faq.vue
