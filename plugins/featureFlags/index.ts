@@ -7,12 +7,12 @@ export default defineNuxtPlugin(() => ({
         homepage: {
           show: true,
           sections: {
-            wip: false,
+            wip: true,
             figures: true,
             about: true,
             theme: true,
             materiel: false,
-            dDay: true,
+            dDay: false,
             categories: true,
             sponsor: true,
             participant: true,
@@ -22,8 +22,8 @@ export default defineNuxtPlugin(() => ({
         sponsors: {
           show: true,
           sections: {
-            becomeSponsor: true,
-            offers: true,
+            becomeSponsor: false,
+            offers: false,
           },
           links: {
             downloadPdf: true,
@@ -50,9 +50,9 @@ export default defineNuxtPlugin(() => ({
         codeOfConduct: { show: true },
         legalNotice: { show: true },
         ticketing: {
-          show: true,
+          show: false,
           links: {
-            ticketing: true,
+            ticketing: false,
           },
         },
       },
