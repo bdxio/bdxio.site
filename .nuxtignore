@@ -1,11 +1,11 @@
 pages/**/*.vue
 
 !pages/index.vue
-!pages/sponsors.vue
-!pages/schedule.vue
+pages/sponsors.vue
+pages/schedule.vue
 !pages/association.vue
 !pages/faq.vue
 !pages/legalnotice.vue
 !pages/conduct.vue
-!pages/speakers.vue
-!pages/talks/*.vue
+pages/speakers.vue
+pages/talks/*.vue
