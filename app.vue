@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta, useAPI } from "#imports";
+import { EDITION } from "./services/constants";
 
 const { data: association } = await useAPI("/association", {
   params: {
@@ -16,7 +17,7 @@ useHead({
         sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
-  
+
   htmlAttrs: {
     lang: "fr",
   },
@@ -31,12 +32,10 @@ useSeoMeta({
   ogDescription: `${association.value.name} est une conférence pour les développeur•euse•s, 
     sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
   ogType: "website",
-  ogImage: "/images/association/team2024.webp",
-  ogImageAlt: `Photo de l'équipe ${association.value.name} 2023`,
+  ogImage: "/images/association/team2025.jpeg",
+  ogImageAlt: `Photo de l'équipe ${association.value.name} ${Number(EDITION) - 1}`,
   ogUrl: "https://bdxio.fr",
-
 });
-
 </script>
 
 <template>

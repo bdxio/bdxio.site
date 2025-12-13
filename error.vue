@@ -35,7 +35,8 @@ const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
             <LinkNative href="/">
               page d'accueil
             </LinkNative>
-          </p><p>
+          </p>
+          <p>
             Si le problème persiste n'hésitez pas à <LinkNative href="mailto:team@bdxio.fr">
               nous contacter
             </LinkNative>
@@ -43,8 +44,8 @@ const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
         </div>
       </div>
       <NuxtImg
-        src="/images/association/team2024.webp"
-        alt=""
+        src="/images/association/team2025.jpeg"
+        :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(EDITION) - 1}`"
         aria-hidden="true"
         class="mb-6"
         width="500"

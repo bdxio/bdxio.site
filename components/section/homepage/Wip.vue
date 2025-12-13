@@ -10,11 +10,13 @@ if (!$featureFlags.pages.homepage.sections.wip) {
   throw createError({ statusCode: 404 });
 }
 
-const { data }: { data: Ref<Edition[]> } = await useAPI("/editions", { params: {
-  "filters[year][$eq]": PREVIOUS_EDITION,
-  "fields[0]": "youtubePlaylistUrl",
-  "fields[1]": "picturesGalleryUrl",
-} });
+const { data }: { data: Ref<Edition[]> } = await useAPI("/editions", {
+  params: {
+    "filters[year][$eq]": PREVIOUS_EDITION,
+    "fields[0]": "youtubePlaylistUrl",
+    "fields[1]": "picturesGalleryUrl",
+  },
+});
 
 if (!data.value.length) {
   throw createError({ statusCode: 400, message: "Edition not found in CMS" });
@@ -24,9 +26,7 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
 </script>
 
 <template>
-  <header
-    class="flex flex-col items-center  bg-bdxio-blue-dark text-bdxio-light text-center p-section p-section"
-  >
+  <header class="flex flex-col items-center  bg-bdxio-blue-dark text-bdxio-light text-center p-section p-section">
     <Heading
       level="1"
       class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
