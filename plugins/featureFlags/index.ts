@@ -32,7 +32,7 @@ export default defineNuxtPlugin(() => ({
         schedule: {
           show: false,
           links: {
-            downloadPdf: true,
+            downloadPdf: false,
           },
         },
         scheduleLegacy: {
