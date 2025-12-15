@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
+
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 </script>
 
 <template>
@@ -9,7 +15,7 @@ import { EDITION } from "~/services/constants";
         level="2"
         class="text-bdxio-light text-xl"
       >
-        Thème {{ EDITION }}
+        Thème {{ edition }}
       </HeadingSection>
       <Heading
         level="3"

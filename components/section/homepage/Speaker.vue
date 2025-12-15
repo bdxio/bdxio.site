@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 const { $featureFlags } = useNuxtApp();
 </script>
 
@@ -18,7 +23,7 @@ const { $featureFlags } = useNuxtApp();
       </Heading>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
-        <br>Rejoignez notre équipe de speakers pour cette édition {{ EDITION }}.
+        <br>Rejoignez notre équipe de speakers pour cette édition {{ edition }}.
       </p>
     </div>
     <LinkSecondary

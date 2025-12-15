@@ -1,6 +1,7 @@
 pages/**/*.vue
 
 !pages/index.vue
+!pages/\[year\]/**
 pages/sponsors.vue
 pages/schedule.vue
 !pages/association.vue

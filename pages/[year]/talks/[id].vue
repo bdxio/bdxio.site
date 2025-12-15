@@ -17,6 +17,9 @@ const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, 
 if (!talk.value || talk.value?.edition?.year !== edition || talk.value?.type === CLOSING_TALK_TYPE) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
+
+const route = useRoute();
+const year = route.params.year as string;
 </script>
 
 <template>
@@ -34,7 +37,7 @@ if (!talk.value || talk.value?.edition?.year !== edition || talk.value?.type ===
     <LinkSecondary
       v-if="$featureFlags.pages.schedule.show"
       color="light"
-      to="/schedule"
+      :to="`/${year}/schedule`"
       type="link"
       class="block mt-5 mx-auto mb-0"
     >
@@ -42,3 +45,4 @@ if (!talk.value || talk.value?.edition?.year !== edition || talk.value?.type ===
     </LinkSecondary>
   </main>
 </template>
+

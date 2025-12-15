@@ -30,6 +30,9 @@ const filteredTalks = computed(() => {
 function setFilter(categoryId: string) {
   currentFilter.value = categoryId;
 }
+
+const route = useRoute();
+const year = route.params.year as string;
 </script>
 
 <template>
@@ -102,7 +105,7 @@ function setFilter(categoryId: string) {
             'border-color': talk.category?.color || 'black',
           }"
         >
-          <NuxtLink :to="`/talks/${talk.id}`">
+          <NuxtLink :to="`/${year}/talks/${talk.id}`">
             <div>
               <h2 class="text-lg">
                 {{ talk.title }}
@@ -169,3 +172,4 @@ input:checked + label {
   border-bottom: 3px solid;
 }
 </style>
+

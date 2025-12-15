@@ -1,5 +1,16 @@
 <script setup lang="ts">
+import type { Edition } from "~/services/constants";
+
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 const { $featureFlags } = useNuxtApp();
+
+const route = useRoute();
+const year = route.params.year as string | undefined;
+const sponsorsPath = year ? `/${year}/sponsors` : "/sponsors";
 </script>
 
 <template>
@@ -26,7 +37,7 @@ const { $featureFlags } = useNuxtApp();
     <LinkSecondary
       v-if="$featureFlags.pages.sponsors.links.downloadPdf"
       type="link"
-      to="/sponsors"
+      :to="sponsorsPath"
       color="white"
       class="mt-8"
     >

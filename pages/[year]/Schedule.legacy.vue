@@ -141,6 +141,9 @@ onClickOutside(categoriesWrapper, () => {
   }
   
 });
+
+const route = useRoute();
+const year = route.params.year as string;
 </script>
 
 <template>
@@ -159,8 +162,8 @@ onClickOutside(categoriesWrapper, () => {
           v-if="$featureFlags.pages.schedule.links.downloadPdf"
           type="link"
           color="light"
-          href="/bdxio-2024-programme.pdf"
-          download="bdxio-2024-programme.pdf"
+          :href="`/bdxio-${year}-programme.pdf`"
+          :download="`bdxio-${year}-programme.pdf`"
           class="whitespace-nowrap"
         >
           Télécharger le programme
@@ -168,7 +171,7 @@ onClickOutside(categoriesWrapper, () => {
         <LinkSecondary
           v-if="$featureFlags.pages.speakers.show"
           type="nuxt"
-          to="/speakers"
+          :to="`/${year}/speakers`"
           color="dark"
           tabindex="1"
         >
@@ -261,7 +264,7 @@ onClickOutside(categoriesWrapper, () => {
                       </div>
                       <NuxtLink
                         v-if="talk.type !== CLOSING_TALK_TYPE"
-                        :to="`/talks/${talk.id}`"
+                        :to="`/${year}/talks/${talk.id}`"
                       >
                         <div class="flex">
                           <NuxtImg
@@ -346,3 +349,4 @@ onClickOutside(categoriesWrapper, () => {
   }
 }
 </style>
+

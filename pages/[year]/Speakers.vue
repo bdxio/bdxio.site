@@ -46,6 +46,9 @@ const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
 });
 
 const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name)));
+
+const route = useRoute();
+const year = route.params.year as string;
 </script>
 
 <template>
@@ -69,7 +72,7 @@ const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) 
         class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-14"
       >
         <NuxtLink
-          :to="`/talks/${speaker.talkId}`"
+          :to="`/${year}/talks/${speaker.talkId}`"
           class="flex items-start justify-start"
         >
           <SectionTalkSpeakerPicture
@@ -111,3 +114,4 @@ const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) 
     </ul>
   </main>
 </template>
+

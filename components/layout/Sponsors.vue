@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 
 import type { Sponsor } from "@bdxio/bdxio.types";
+
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 
 const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/sponsors", {
   params: {
     "populate": "*",
-    "filters[offers][edition][year][$eq]": EDITION,
+    "filters[offers][edition][year][$eq]": edition,
     "filters[offers][label][$eq]": "Balthazar",
   },
 });

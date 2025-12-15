@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import fetchJsonp from "fetch-jsonp";
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
+
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 
 const state = reactive({
   open: false,
@@ -81,7 +87,7 @@ async function register() {
       class="border-none py-2 px-4 rounded-lg duration-300 w-fit cursor-pointer
      bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light"
     >
-      Newsletter BDX I/O {{ EDITION }} 💌
+      Newsletter BDX I/O {{ edition }} 💌
     </span>
     <NuxtImg
       src="/images/drawings/purple_envelope.webp"

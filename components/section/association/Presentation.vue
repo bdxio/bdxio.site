@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME } from "~/services/constants";
 
+const edition = useEdition();
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
+
+const route = useRoute();
+const year = route.params.year as string | undefined;
+const schedulePath = year ? `/${year}/schedule` : "/schedule";
 </script>
 
 <template>
@@ -21,7 +26,7 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
     <section class="mt-12 m:mt-24 grid grid-cols-1 l:grid-cols-2 items-center">
       <NuxtImg
         src="/images/association/team2025.jpeg"
-        :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(EDITION) - 1}`"
+        :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(edition) - 1}`"
         class="l:w-4/5 rounded-lg"
         preload
         sizes="sm:100vw lg:80vw"
@@ -49,9 +54,9 @@ const { LINK_PROGRAMME_PDF } = useNuxtApp();
         <ButtonSecondary
           v-if="LINK_PROGRAMME_PDF"
           color="dark"
-          to="/schedule"
+          :to="schedulePath"
         >
-          Découvrir le programme {{ EDITION }}
+          Découvrir le programme {{ edition }}
         </ButtonSecondary>
       </div>
     </section>

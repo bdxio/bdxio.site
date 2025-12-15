@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 import type { Talk } from "@bdxio/bdxio.types";
 
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 const NUMBER_OF_TALKS_TO_SHOW = 4;
 
 const { data: talks }: { data: Ref<Talk[]> } = await useAPI("/talks", {
   params: {
     populate: "*",
     "pagination[limit]": 100,
-    "filters[edition][year][$eq]": EDITION,
+    "filters[edition][year][$eq]": edition,
   },
 });
+
+const route = useRoute();
+const year = route.params.year as string | undefined;
+const talksPath = year ? `/${year}/talks` : "/talks";
 
 function shuffleArray(array: Talk[]): Talk[] {
   for (let i = array.length - 1; i > 0; i--) {
@@ -53,7 +63,7 @@ const randomizeTalks = computed(() => {
               'border-color': talk.category?.color || 'black',
             }"
           >
-            <NuxtLink :to="`/talks/${talk.id}`">
+            <NuxtLink :to="`${talksPath}/${talk.id}`">
               <div>
                 <h2 class="text-lg">
                   {{ talk.title }}
@@ -88,7 +98,7 @@ const randomizeTalks = computed(() => {
       <LinkSecondary
         type="link"
         color="grey"
-        to="/talks"
+        :to="talksPath"
         class="flex flex-row items-center"
         aria-label="lien vers la billetterie - Nouvelle fenêtre"
       >

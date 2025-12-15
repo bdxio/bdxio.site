@@ -21,3 +21,4 @@ useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
     <SectionSponsors :edition="edition" />
   </main>
 </template>
+
