@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ASSOCIATION_NAME, EDITION } from "~/services/constants";
 import type { NuxtError } from "#app";
 
 const props = defineProps<{
