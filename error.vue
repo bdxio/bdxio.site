@@ -1,19 +1,22 @@
 <script setup lang="ts">
+import { ASSOCIATION_NAME } from "~/services/constants";
 import type { NuxtError } from "#app";
 
 const props = defineProps<{
   error: any;
 }>();
 
+const edition = useEdition();
+
 const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
   switch (statusCode) {
     case 404:
-      return "La page que vous demandez n'existe pas";
+      return "La page que vous demandez n'existe pas.";
     case 400:
-      return "Un problème empêche le chargement de la page demandée";
+      return "Un problème empêche le chargement de la page demandée.";
     case 500:
     default:
-      return "Une erreur est survenue";
+      return "Une erreur est survenue.";
   }
 };
 </script>
@@ -33,19 +36,19 @@ const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
           <p>
             Nous nous excusons pour la gêne occasionnée et vous invitons à vous rediriger sur la
             <LinkNative href="/">
-              page d'accueil
+              page d'accueil.
             </LinkNative>
           </p>
           <p>
             Si le problème persiste n'hésitez pas à <LinkNative href="mailto:team@bdxio.fr">
-              nous contacter
+              nous contacter.
             </LinkNative>
           </p>
         </div>
       </div>
       <NuxtImg
         src="/images/association/team2025.jpeg"
-        :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(EDITION) - 1}`"
+        :alt="`Photo de l'équipe ${ASSOCIATION_NAME} ${Number(edition) - 1}`"
         aria-hidden="true"
         class="mb-6"
         width="500"

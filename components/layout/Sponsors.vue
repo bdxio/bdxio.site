@@ -9,9 +9,9 @@ const props = defineProps<{
 
 const edition = props.edition || useEdition();
 
-const { data: sponsorsBalthazar }: {data: Ref<Sponsor[]>} = await useAPI("/sponsors", {
+const { data: sponsorsBalthazar }: { data: Ref<Sponsor[]> } = await useAPI("/sponsors", {
   params: {
-    "populate": "*",
+    populate: "*",
     "filters[offers][edition][year][$eq]": edition,
     "filters[offers][label][$eq]": "Balthazar",
   },

@@ -1,12 +1,14 @@
 pages/**/*.vue
 
-!pages/index.vue
 !pages/\[year\]/**
-pages/sponsors.vue
-pages/schedule.vue
-!pages/association.vue
+!pages/\[year\]/**/*.vue
+!pages/index.vue
 !pages/faq.vue
 !pages/legalnotice.vue
+!pages/association.vue
 !pages/conduct.vue
+
+pages/sponsors.vue
+pages/schedule.vue
 pages/speakers.vue
 pages/talks/*.vue

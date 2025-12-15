@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nuxt dev",
+    "cleanup": "nuxt cleanup",
     "generate": "nuxi generate",
     "build": "nuxt build",
     "lint": "eslint . --max-warnings=0",

@@ -9,17 +9,18 @@ useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 const ALL = "all";
 const currentFilter = ref(ALL);
 
-const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] =
-  await Promise.all([
-    useAPI("/categories", { params: { populate: "*" } }),
-    useAPI("/talks", { params: {
-      "populate": "*",
+const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] = await Promise.all([
+  useAPI("/categories", { params: { populate: "*" } }),
+  useAPI("/talks", {
+    params: {
+      populate: "*",
       "pagination[limit]": 100,
-      "sort": "title:asc",
+      sort: "title:asc",
       "filters[edition][year][$eq]": edition,
       "filters[type][$eq]": STANDARD_TALK_TYPE,
-    } }),
-  ]);
+    },
+  }),
+]);
 
 const filteredTalks = computed(() => {
   if (!talks.value?.length) return [];
@@ -37,6 +38,16 @@ const year = route.params.year as string;
 
 <template>
   <main class="p-section bg-white flex flex-col">
+    <LinkPrimary
+      type="link"
+      color="light"
+      :href="`/programme-bdxio-${year}.pdf`"
+      :download="`programme-bdxio-${year}.pdf`"
+      class="whitespace-nowrap block mx-auto mb-10"
+    >
+      Télécharger le programme
+    </LinkPrimary>
+
     <Heading
       level="1"
       class="title relative block mx-auto !mb-16"
@@ -148,8 +159,7 @@ const year = route.params.year as string;
     position: absolute;
     left: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_left.webp") center
-      no-repeat;
+    background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
     background-size: cover;
   }
 
@@ -161,8 +171,7 @@ const year = route.params.year as string;
     position: absolute;
     right: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_right.webp") center
-      no-repeat;
+    background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
     background-size: cover;
   }
 }
@@ -172,4 +181,3 @@ input:checked + label {
   border-bottom: 3px solid;
 }
 </style>
-

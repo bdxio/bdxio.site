@@ -1,4 +1,5 @@
 import { useNuxtApp } from "#imports";
+import { EDITION } from "~/services/constants";
 
 type Page = {
   name: string;
@@ -8,8 +9,18 @@ type Page = {
   design: "link" | "primary";
 };
 
+function getLink(path: string, edition: Edition) {
+  const isPreviousEdition = edition !== EDITION;
+  if (isPreviousEdition) {
+    return `/${edition}/${path}`;
+  }
+  return `/${path}`;
+}
+
 export function getNavigation() {
   const instance = useNuxtApp();
+  const edition = useEdition();
+  const isPreviousEdition = computed(() => edition !== EDITION);
 
   const link = "link" as const;
   const primary = "primary" as const;
@@ -26,29 +37,31 @@ export function getNavigation() {
     },
     {
       name: "Talks",
-      path: "/talks",
-      show: instance.$featureFlags.pages.talks.show && !instance.$featureFlags.pages.schedule.show,
+      path: getLink("talks", edition),
+      show:
+        (instance.$featureFlags.pages.talks.show && !instance.$featureFlags.pages.schedule.show) ||
+        isPreviousEdition.value,
       type: internal,
       design: link,
     },
     {
       name: "Programme",
-      path: "/schedule",
+      path: getLink("schedule", edition),
       show: instance.$featureFlags.pages.schedule.show,
       type: internal,
       design: link,
     },
     {
       name: "Sponsors",
-      path: "/sponsors",
-      show: instance.$featureFlags.pages.sponsors.show,
+      path: getLink("sponsors", edition),
+      show: instance.$featureFlags.pages.sponsors.show || isPreviousEdition.value,
       type: internal,
       design: link,
     },
     {
       name: "Speakers",
-      path: "/speakers",
-      show: instance.$featureFlags.pages.speakers.show,
+      path: getLink("speakers", edition),
+      show: instance.$featureFlags.pages.speakers.show || isPreviousEdition.value,
       type: internal,
       design: link,
     },

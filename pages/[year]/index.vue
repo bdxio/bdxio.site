@@ -5,7 +5,7 @@ import type { Edition } from "@bdxio/bdxio.types";
 const route = useRoute();
 const year = route.params.year as string;
 
-if (!year || !["2022", "2023", "2024", "2025", "2026"].includes(year)) {
+if (!year || !["2022", "2023", "2024", "2025"].includes(year)) {
   throw createError({ statusCode: 404, statusMessage: "Edition not found" });
 }
 
@@ -22,41 +22,22 @@ const { data }: { data: Ref<Array<Edition>> } = await useAPI("/editions", {
   },
 });
 
-const editionData = data.value[0];
+const editionData = data.value?.[0];
+
+if (!editionData) {
+  throw createError({ statusCode: 404, statusMessage: "Edition data not found" });
+}
 </script>
 
 <template>
   <main>
-    <SectionHomepageWip v-if="$featureFlags.pages.homepage.sections.wip" />
-    <SectionHomepageDDay
-      v-else-if="$featureFlags.pages.homepage.sections.dDay"
+    <SectionHomepagePreviousEditionHero
+      v-if="editionData"
       :edition="editionData"
     />
-    <SectionHomepageHero
-      v-else
-      :edition="editionData"
-    />
-    <SectionHomepageFigures
-      v-if="$featureFlags.pages.homepage.sections.figures"
-      :edition="edition"
-    />
-    <SectionHomepageTalks
-      v-if="$featureFlags.pages.homepage.sections.talks"
-      :edition="edition"
-    />
-    <div
-      v-if="$featureFlags.pages.homepage.sections.participant || $featureFlags.pages.homepage.sections.sponsor"
-      class="flex flex-col m:flex-row"
-    >
-      <SectionHomepageSponsor
-        v-if="$featureFlags.pages.homepage.sections.sponsor"
-        :edition="edition"
-      />
-      <SectionHomepageParticipants
-        v-if="$featureFlags.pages.homepage.sections.participant"
-        :edition="edition"
-      />
-    </div>
+    <SectionHomepageFigures :edition="edition" />
+    <SectionHomepageTalks :edition="edition" />
+    <SectionSponsors :edition="edition" />
     <SectionHomepageAbout v-if="$featureFlags.pages.homepage.sections.about" />
   </main>
 </template>

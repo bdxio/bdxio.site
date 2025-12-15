@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from "~/services/constants";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
 
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
 const edition = useEdition();
 const { $featureFlags } = useNuxtApp();
+const isPreviousEdition = edition !== EDITION;
 
 type SpeakerId = Speaker["id"];
 type SpeakersWithTalkId = Speaker & { talkId: number };
 type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
 
-if (!$featureFlags.pages.speakers.show) {
+// Allow speakers page for previous editions even if feature flag is disabled
+if (!$featureFlags.pages.speakers.show && !isPreviousEdition) {
   throw createError({ statusCode: 404 });
 }
 
@@ -114,4 +116,3 @@ const year = route.params.year as string;
     </ul>
   </main>
 </template>
-
