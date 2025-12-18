@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from "~/services/constants";
 import type { Talk } from "@bdxio/bdxio.types";
+
+const edition = useEdition();
 
 useHead({ title: `Talk | ${ASSOCIATION_NAME}` });
 
@@ -12,7 +14,7 @@ const { data: talk }: { data: Ref<Talk> } = await useAPI(`/talks/${params.id}`, 
   params: { populate: "*" },
 });
 
-if (!talk.value || talk.value?.edition?.year !== EDITION || talk.value?.type === CLOSING_TALK_TYPE) {
+if (!talk.value || talk.value?.edition?.year !== edition || talk.value?.type === CLOSING_TALK_TYPE) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 </script>

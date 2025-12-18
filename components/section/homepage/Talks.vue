@@ -1,16 +1,28 @@
 <script setup lang="ts">
 import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 import type { Talk } from "@bdxio/bdxio.types";
 
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 const NUMBER_OF_TALKS_TO_SHOW = 4;
+
+const isPreviousEdition = edition !== EDITION;
 
 const { data: talks }: { data: Ref<Talk[]> } = await useAPI("/talks", {
   params: {
     populate: "*",
     "pagination[limit]": 100,
-    "filters[edition][year][$eq]": EDITION,
+    "filters[edition][year][$eq]": edition,
   },
 });
+
+const route = useRoute();
+const year = route.params.year as string | undefined;
+const talksPath = year ? `/${year}/talks` : "/talks";
 
 function shuffleArray(array: Talk[]): Talk[] {
   for (let i = array.length - 1; i > 0; i--) {
@@ -34,8 +46,7 @@ const randomizeTalks = computed(() => {
 
 <template>
   <section class="p-section flex flex-col items-center
-  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base"
-  >
+  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base">
     <Heading
       level="2"
       class="text-center"
@@ -53,7 +64,7 @@ const randomizeTalks = computed(() => {
               'border-color': talk.category?.color || 'black',
             }"
           >
-            <NuxtLink :to="`/talks/${talk.id}`">
+            <NuxtLink :to="`${talksPath}/${talk.id}`">
               <div>
                 <h2 class="text-lg">
                   {{ talk.title }}
@@ -84,16 +95,27 @@ const randomizeTalks = computed(() => {
         </ul>
       </div>
     </ClientOnly>
-    <div>
+    <div class="flex flex-col items-center gap-8">
       <LinkSecondary
         type="link"
         color="grey"
-        to="/talks"
+        :to="talksPath"
         class="flex flex-row items-center"
         aria-label="lien vers la billetterie - Nouvelle fenêtre"
       >
         Découvrir tous les talks
       </LinkSecondary>
+
+      <LinkPrimary
+        :v-if="isPreviousEdition"
+        type="link"
+        color="light"
+        :href="`/programme-bdxio-${year}.pdf`"
+        :download="`programme-bdxio-${year}.pdf`"
+        class="whitespace-nowrap block mx-auto mb-10"
+      >
+        Télécharger le programme
+      </LinkPrimary>
     </div>
   </section>
 </template>

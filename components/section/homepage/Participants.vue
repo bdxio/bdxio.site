@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 const { $featureFlags } = useNuxtApp();
 </script>
 
@@ -16,7 +21,7 @@ const { $featureFlags } = useNuxtApp();
       <Heading level="3">
         Vous aussi, rejoignez le navire&nbsp;!
       </Heading>
-      <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ EDITION }}.</p>
+      <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ edition }}.</p>
     </div>
     <LinkSecondary
       v-if="$featureFlags.pages.ticketing.links.ticketing"

@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import type { Edition } from "~/services/constants";
 import type { Offer } from "@bdxio/bdxio.types";
+
+const props = defineProps<{
+  edition?: Edition;
+}>();
+
+const edition = props.edition || useEdition();
 
 const getOfferColorClass = (offer: Offer["label"]) => {
   switch (offer) {
@@ -18,7 +24,7 @@ const getOfferColorClass = (offer: Offer["label"]) => {
 };
 
 const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
-  "filters[edition][year][$eq]": EDITION,
+  "filters[edition][year][$eq]": edition,
 } });
 
 </script>
@@ -35,7 +41,7 @@ const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { param
       v-if="offers.length === 0"
       class="text-center italic mt-16"
     >
-      Pas d'offre actuellement pour l'édition {{ EDITION }}
+      Pas d'offre actuellement pour l'édition {{ edition }}
     </div>
     <div
       v-else

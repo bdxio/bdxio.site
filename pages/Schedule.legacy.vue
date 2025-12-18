@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from "~/services/constants";
 import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
 
+const edition = useEdition();
 const { $featureFlags } = useNuxtApp();
 
 if (!$featureFlags.pages.scheduleLegacy.show) {
@@ -33,12 +34,12 @@ const [
     useAPI("/slots", { params: {
       "populate": "*",
       "sort": "startSlot:asc",
-      "filters[editions][year][$contains]": EDITION,
+      "filters[editions][year][$contains]": edition,
     } }),
     useAPI("/talks", { params: {
       "populate": "*",
       "pagination[limit]": 100,
-      "filters[edition][year][$eq]": EDITION,
+      "filters[edition][year][$eq]": edition,
     } }),
   ]);
 

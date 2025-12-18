@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, EDITION, STANDARD_TALK_TYPE } from "~/services/constants";
+import { ASSOCIATION_NAME, STANDARD_TALK_TYPE } from "~/services/constants";
 import type { Category, Talk } from "@bdxio/bdxio.types";
+
+const edition = useEdition();
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
@@ -14,7 +16,7 @@ const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { dat
       "populate": "*",
       "pagination[limit]": 100,
       "sort": "title:asc",
-      "filters[edition][year][$eq]": EDITION,
+      "filters[edition][year][$eq]": edition,
       "filters[type][$eq]": STANDARD_TALK_TYPE,
     } }),
   ]);

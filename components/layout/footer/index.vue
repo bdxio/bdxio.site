@@ -19,10 +19,10 @@ const getSocialIcon = (social: string) => {
 };
 
 const navigation = getNavigation();
+const previousEditionsNavigation = getPreviousEditionsNavigation();
 const { $featureFlags } = useNuxtApp();
 
 const { data: association } = await useAPI("/association");
-
 </script>
 
 <template>
@@ -76,10 +76,26 @@ const { data: association } = await useAPI("/association");
           </li>
         </ul>
       </div>
-      <nav class="m:w-1/3 mb-8 m:mb-0">
+      <nav class="m:w-1/6 mb-8 m:mb-0">
         <ul class="flex flex-col">
           <li
             v-for="page in navigation"
+            :key="page.path"
+            class="mr-5 mb-2 last:mr-0 last:mb-0"
+          >
+            <NuxtLink
+              :to="page.path"
+              class="text-2xl m:text-base"
+            >
+              {{ page.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+      <nav class="m:w-1/6 mb-8 m:mb-0">
+        <ul class="flex flex-col">
+          <li
+            v-for="page in previousEditionsNavigation"
             :key="page.path"
             class="mr-5 mb-2 last:mr-0 last:mb-0"
           >

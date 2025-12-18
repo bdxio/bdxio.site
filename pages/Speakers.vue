@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, CLOSING_TALK_TYPE, EDITION } from "~/services/constants";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from "~/services/constants";
 
 import type { Ref } from "vue";
 import type { Talk, Speaker } from "@bdxio/bdxio.types";
 
+const edition = useEdition();
 const { $featureFlags } = useNuxtApp();
 
 type SpeakerId = Speaker["id"];
@@ -20,7 +21,7 @@ const { data: talksWithSpeakers }: { data: Ref<Talk[]> } = await useAPI("/talks"
   params: {
     populate: "*",
     "pagination[limit]": 100,
-    "filters[edition][year][$eq]": EDITION,
+    "filters[edition][year][$eq]": edition,
     "filters[type][$ne]": CLOSING_TALK_TYPE,
   },
 });
@@ -56,7 +57,7 @@ const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) 
       Les speakers
     </Heading>
     <p v-if="sortedSpeakers.length === 0">
-      Aucun speaker pour l'édition {{ EDITION }}
+      Aucun speaker pour l'édition {{ edition }}
     </p>
     <ul
       v-else
