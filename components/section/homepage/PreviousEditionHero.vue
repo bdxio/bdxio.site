@@ -24,7 +24,7 @@ const props = defineProps<{
       height="71"
     />
     <p class="mb-3 text-[28px]">
-      Elle a eu lieu au Palais des Congrès de Bordeaux Lac
+      Elle a eu lieu au Palais des Congrès de Bordeaux Lac<br> <br> le {{ displayDate(edition.date) }}
     </p>
     <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">
       Et c'était le feu ! 🔥
