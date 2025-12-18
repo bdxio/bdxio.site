@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, PREVIOUS_EDITIONS } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const route = useRoute();
 const year = route.params.year as string;
 
-if (!year || !["2022", "2023", "2024", "2025"].includes(year)) {
+if (!year || !PREVIOUS_EDITIONS.includes(year)) {
   throw createError({ statusCode: 404, statusMessage: "Edition not found" });
 }
 
