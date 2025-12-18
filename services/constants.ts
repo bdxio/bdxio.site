@@ -1,3 +1,5 @@
+export const PREVIOUS_EDITIONS = ["2022", "2023", "2024", "2025"];
+
 export type Edition = "2022" | "2023" | "2024" | "2025" | "2026";
 
 export const ASSOCIATION_NAME = "BDX I/O";

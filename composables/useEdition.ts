@@ -1,4 +1,4 @@
-import { EDITION } from "~/services/constants";
+import { EDITION, PREVIOUS_EDITIONS } from "~/services/constants";
 import type { Edition } from "~/services/constants";
 
 /**
@@ -10,7 +10,7 @@ export function useEdition(): Edition {
   const year = route.params.year as string | undefined;
 
   // If year is in route params and is a valid edition, use it
-  if (year && ["2022", "2023", "2024", "2025"].includes(year)) {
+  if (year && PREVIOUS_EDITIONS.includes(year)) {
     return year as Edition;
   }
 

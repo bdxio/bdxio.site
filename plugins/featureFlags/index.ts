@@ -19,6 +19,9 @@ export default defineNuxtPlugin(() => ({
             talks: false,
           },
         },
+        previousEditions: {
+          show: true,
+        },
         sponsors: {
           show: false,
           sections: {

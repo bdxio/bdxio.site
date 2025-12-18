@@ -10,6 +10,11 @@ if (!year || !["2022", "2023", "2024", "2025"].includes(year)) {
 }
 
 const { $featureFlags } = useNuxtApp();
+
+if (!$featureFlags.pages.previousEditions.show) {
+  throw createError({ statusCode: 404, statusMessage: "Edition not found" });
+}
+
 const edition = useEdition();
 
 useHead({ title: ASSOCIATION_NAME });

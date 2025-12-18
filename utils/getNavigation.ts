@@ -1,5 +1,5 @@
 import { useNuxtApp } from "#imports";
-import { EDITION } from "~/services/constants";
+import { EDITION, PREVIOUS_EDITIONS } from "~/services/constants";
 
 type Page = {
   name: string;
@@ -9,6 +9,11 @@ type Page = {
   design: "link" | "primary";
 };
 
+const link = "link" as const;
+const primary = "primary" as const;
+const internal = "internal" as const;
+const external = "external" as const;
+
 function getLink(path: string, edition: Edition) {
   const isPreviousEdition = edition !== EDITION;
   if (isPreviousEdition) {
@@ -17,15 +22,22 @@ function getLink(path: string, edition: Edition) {
   return `/${path}`;
 }
 
+export function getPreviousEditionsNavigation() {
+  const instance = useNuxtApp();
+
+  return PREVIOUS_EDITIONS.map((edition) => ({
+    name: `Édition ${edition}`,
+    path: `/${edition}`,
+    show: instance.$featureFlags.pages.previousEditions.show,
+    type: external,
+    design: link,
+  }));
+}
+
 export function getNavigation() {
   const instance = useNuxtApp();
   const edition = useEdition();
   const isPreviousEdition = computed(() => edition !== EDITION);
-
-  const link = "link" as const;
-  const primary = "primary" as const;
-  const internal = "internal" as const;
-  const external = "external" as const;
 
   const pages: Page[] = [
     {
