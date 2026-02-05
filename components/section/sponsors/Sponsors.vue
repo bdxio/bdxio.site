@@ -39,7 +39,7 @@ displayableSponsors.sort((a: Sponsor, b: Sponsor) => {
 });
 
 const displayableOffers = offers.value.filter((offer: Offer) =>
-  displayableSponsors.some((sponsor: Sponsor) => sponsor.offer?.id === offer.id)
+  displayableSponsors.some((sponsor: Sponsor) => sponsor.offer?.id === offer.id),
 );
 
 displayableOffers.sort((a: Offer, b: Offer) => parseFloat(b.price) - parseFloat(a.price));
