@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import type { Edition } from "~/services/constants";
-
-const props = defineProps<{
-  edition?: Edition;
-}>();
-
-const edition = props.edition || useEdition();
 const { $featureFlags } = useNuxtApp();
 
 const route = useRoute();
