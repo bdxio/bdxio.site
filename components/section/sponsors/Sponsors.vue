@@ -21,14 +21,16 @@ const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: R
   }),
 ]);
 
+type DisplayableSponsor = Sponsor & { offer: Offer | undefined };
+
 const displayableSponsors = sponsors.value
   .map((sponsor: Sponsor) => ({
     ...sponsor,
     offer: sponsor.offers?.find((offer: Offer) => offers.value.map((o: Offer) => o.id).includes(offer.id)),
   }))
-  .filter((sponsor: Sponsor) => sponsor.offer && sponsor.logo);
+  .filter((sponsor: DisplayableSponsor) => sponsor.offer && sponsor.logo);
 
-displayableSponsors.sort((a: Sponsor, b: Sponsor) => {
+displayableSponsors.sort((a: DisplayableSponsor, b: DisplayableSponsor) => {
   if (!a.offer?.price || !b.offer?.price) {
     return 0;
   }
@@ -39,7 +41,7 @@ displayableSponsors.sort((a: Sponsor, b: Sponsor) => {
 });
 
 const displayableOffers = offers.value.filter((offer: Offer) =>
-  displayableSponsors.some((sponsor: Sponsor) => sponsor.offer?.id === offer.id),
+  displayableSponsors.some((sponsor: DisplayableSponsor) => sponsor.offer?.id === offer.id),
 );
 
 displayableOffers.sort((a: Offer, b: Offer) => parseFloat(b.price) - parseFloat(a.price));
