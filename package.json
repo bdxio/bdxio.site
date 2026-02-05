@@ -30,7 +30,7 @@
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-plugin-import": "2.29.0",
     "nuxt": "4.3.0",
-    "nuxt-simple-sitemap": "3.4.1",
+    "nuxt-simple-sitemap": "4.4.1",
     "postcss-import": "15.1.0",
     "typescript": "5.2.2",
     "vue-tsc": "2.1.6"
