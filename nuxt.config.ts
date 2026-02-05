@@ -18,7 +18,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
-    "@vue-macros/nuxt",
     "@vueuse/nuxt",
     "@nuxt/image",
     "nuxt-simple-sitemap",
