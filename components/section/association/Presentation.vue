@@ -4,7 +4,7 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 const edition = useEdition();
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string | undefined;
 const schedulePath = year ? `/${year}/schedule` : "/schedule";
 </script>

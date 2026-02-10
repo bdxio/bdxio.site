@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { $featureFlags } = useNuxtApp();
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string | undefined;
 const sponsorsPath = year ? `/${year}/sponsors` : "/sponsors";
 </script>

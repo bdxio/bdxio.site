@@ -20,16 +20,15 @@ const { data: talks }: { data: Ref<Talk[]> } = await useAPI("/talks", {
   },
 });
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string | undefined;
 const talksPath = year ? `/${year}/talks` : "/talks";
 
-function shuffleArray(array: Talk[]): Talk[] {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
+function shuffleArray(talks: Talk[]): Talk[] {
+  return talks
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
 }
 
 const randomizeTalks = computed(() => {
@@ -46,8 +45,7 @@ const randomizeTalks = computed(() => {
 
 <template>
   <section class="p-section flex flex-col items-center
-  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base"
-  >
+  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base">
     <Heading
       level="2"
       class="text-center"

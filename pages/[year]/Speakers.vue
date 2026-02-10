@@ -49,7 +49,7 @@ const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
 
 const sortedSpeakers = computed(() => Object.values(speakers.value).sort((a, b) => a.name.localeCompare(b.name)));
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string;
 </script>
 
