@@ -18,7 +18,7 @@ const { data }: { data: Ref<Edition[]> } = await useAPI("/editions", {
   },
 });
 
-if (!data.value.length) {
+if (!data.value.length || !data.value[0]) {
   throw createError({ statusCode: 400, message: "Edition not found in CMS" });
 }
 

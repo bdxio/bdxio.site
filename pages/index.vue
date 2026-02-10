@@ -15,6 +15,10 @@ const { data }: { data: Ref<Array<Edition>> } = await useAPI("/editions", {
   },
 });
 
+if (!data.value.length || !data.value[0]) {
+  throw createError({ statusCode: 404, statusMessage: "Edition not found" });
+}
+
 const editionData = data.value[0];
 </script>
 

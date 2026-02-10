@@ -46,7 +46,7 @@ const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
 });
 
 const sortedSpeakers = computed(() =>
-  Object.values(speakers.value).sort((a: SpeakersWithTalkId, b: SpeakersWithTalkId) => a.name.localeCompare(b.name))
+  Object.values(speakers.value).sort((a: SpeakersWithTalkId, b: SpeakersWithTalkId) => a.name.localeCompare(b.name)),
 );
 </script>
 

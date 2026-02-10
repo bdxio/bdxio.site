@@ -39,7 +39,7 @@ const speakers: ComputedRef<SpeakersRecordWithTalkId> = computed(() => {
         acc[speaker.id] = { ...speaker, talkId: talk.id };
       } else {
         // If speaker already exists, we can merge the talkId
-        acc[speaker.id].talkId = talk.id;
+        acc[speaker.id]!.talkId = talk.id;
       }
     });
 
