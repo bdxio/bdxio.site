@@ -45,4 +45,3 @@ const year = route.params.year as string;
     </LinkSecondary>
   </main>
 </template>
-
