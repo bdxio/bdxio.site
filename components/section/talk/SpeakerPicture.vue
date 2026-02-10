@@ -13,12 +13,12 @@ const props = withDefaults(defineProps<Props>(), {
 const initials = computed(() => {
   const [firstName, lastName] = props.speaker.name.split(" ");
 
-  if (!firstName && !lastName) {
+  if (!firstName?.length && !lastName?.length) {
     return "";
   }
 
-  return `${firstName?.length ? firstName[0].toUpperCase() : ""}
-   ${lastName?.length ? ` ${lastName[0].toUpperCase()}` : ""}`;
+  return `${firstName?.length && firstName[0] ? firstName[0].toUpperCase() : ""}
+   ${lastName?.length && lastName[0] ? ` ${lastName[0].toUpperCase()}` : ""}`;
 });
 
 function getPictureSizeClasses() {

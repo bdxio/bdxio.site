@@ -25,14 +25,14 @@ const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { dat
 const filteredTalks = computed(() => {
   if (!talks.value?.length) return [];
   if (currentFilter.value === ALL) return talks.value;
-  return talks.value.filter((talk) => talk.category?.id.toString() === currentFilter.value);
+  return talks.value.filter((talk: Talk) => talk.category?.id.toString() === currentFilter.value);
 });
 
 function setFilter(categoryId: string) {
   currentFilter.value = categoryId;
 }
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string;
 </script>
 

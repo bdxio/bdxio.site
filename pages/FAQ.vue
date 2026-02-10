@@ -46,12 +46,12 @@ const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {
 
 const questions = computed(() => {
   return targets.reduce((result, target) => {
-    result[target] = data.value.filter((question) => question.faq_target?.target === target);
+    result[target] = data.value.filter((question: FAQQuestion) => question.faq_target?.target === target);
     return result;
   }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
 });
 
-const currentTarget = ref<FAQTarget["target"]>(filters[0].value);
+const currentTarget = ref<FAQTarget["target"]>(filters[0]?.value || "participants");
 
 function changeTarget(target: FAQTarget["target"]) {
   currentTarget.value = target;

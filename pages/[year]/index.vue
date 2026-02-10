@@ -2,7 +2,7 @@
 import { ASSOCIATION_NAME, PREVIOUS_EDITIONS } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string;
 
 if (!year || !PREVIOUS_EDITIONS.includes(year)) {

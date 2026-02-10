@@ -6,7 +6,7 @@ import type { Edition } from "~/services/constants";
  * Falls back to the default EDITION constant if no year is in the route.
  */
 export function useEdition(): Edition {
-  const route = useRoute();
+  const route = useRoute("year");
   const year = route.params.year as string | undefined;
 
   // If year is in route params and is a valid edition, use it

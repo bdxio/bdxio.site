@@ -18,7 +18,7 @@ if (!talk.value || talk.value?.edition?.year !== edition || talk.value?.type ===
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
 }
 
-const route = useRoute();
+const route = useRoute("year");
 const year = route.params.year as string;
 </script>
 
