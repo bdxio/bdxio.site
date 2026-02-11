@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME, PREVIOUS_EDITION } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const { $featureFlags } = useNuxtApp();
@@ -36,6 +36,10 @@ const editionData = data.value[0];
     <SectionHomepageFigures v-if="$featureFlags.pages.homepage.sections.figures" />
     <SectionHomepageTalks v-if="$featureFlags.pages.homepage.sections.talks" />
     <SectionHomepageTheme v-if="$featureFlags.pages.homepage.sections.theme" />
+    <SectionSponsors
+      v-if="$featureFlags.pages.homepage.sections.lastYearSponsors"
+      :edition="PREVIOUS_EDITION"
+    />
     <SectionHomepageMateriel v-if="$featureFlags.pages.homepage.sections.materiel" />
     <SectionHomepageCategories v-if="$featureFlags.pages.homepage.sections.categories" />
     <div
