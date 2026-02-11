@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ASSOCIATION_NAME } from "~/services/constants.ts";
+
 const getSocialIcon = (social: string) => {
   switch (social) {
     case "linkedin":
@@ -55,7 +57,7 @@ const { data: association } = await useAPI("/association");
         </a>
         <ul class="flex">
           <li
-            v-for="social in association.socials"
+            v-for="social in association?.socials ?? []"
             :key="social.label"
             class="mr-4"
           >
@@ -112,24 +114,22 @@ const { data: association } = await useAPI("/association");
         <ul class="mb-8">
           <li class="mb-2">
             <a
-              :href="`mailto:${association.teamEmail}`"
-              :title="`Envoyer un mail à ${association.teamEmail} - Nouvelle fenêtre`"
-            >{{
-              association.teamEmail }}</a>
+              :href="`mailto:${association?.teamEmail}`"
+              :title="`Envoyer un mail à ${association?.teamEmail} - Nouvelle fenêtre`"
+            >{{ association?.teamEmail }}</a>
           </li>
           <li>
             <a
-              :href="`mailto:${association.partnersEmail}`"
-              :title="`Envoyer un mail à ${association.partnersEmail} - Nouvelle fenêtre`"
-            >{{
-              association.partnersEmail }}</a>
+              :href="`mailto:${association?.partnersEmail}`"
+              :title="`Envoyer un mail à ${association?.partnersEmail} - Nouvelle fenêtre`"
+            >{{ association?.partnersEmail }}</a>
           </li>
         </ul>
         <ButtonNewsletter />
       </div>
     </div>
     <div class="flex flex-col m:flex-row border-t border-solid border-black mt-8 m:mt-16 pt-8 m:pt-16">
-      <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ association.name }}</span>
+      <span class="text-lg m:mr-16 mb-4 m:mb-0">© {{ new Date().getFullYear() }} - {{ association?.name ?? ASSOCIATION_NAME }}</span>
       <NuxtLink
         v-if="$featureFlags.pages.legalNotice"
         to="/legalnotice"
