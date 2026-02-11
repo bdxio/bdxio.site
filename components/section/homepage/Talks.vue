@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { EDITION } from "~/services/constants";
-import type { Edition } from "~/services/constants";
+import type { EditionYear } from "~/services/constants";
 import type { Talk } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
-  edition?: Edition;
+  edition?: EditionYear;
 }>();
 
 const edition = props.edition || useEdition();

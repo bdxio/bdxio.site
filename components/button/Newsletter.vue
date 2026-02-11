@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import fetchJsonp from "fetch-jsonp";
-import type { Edition } from "~/services/constants";
+import type { EditionYear } from "~/services/constants";
 
 const props = defineProps<{
-  edition?: Edition;
+  edition?: EditionYear;
 }>();
 
 const edition = props.edition || useEdition();

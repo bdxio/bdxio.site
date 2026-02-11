@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Edition } from "~/services/constants";
+import type { EditionYear } from "~/services/constants";
 
 const props = defineProps<{
-  edition?: Edition;
+  edition?: EditionYear;
 }>();
 
 const edition = props.edition || useEdition();
-const previousEdition = (Number(edition) - 1).toString() as Edition;
+const previousEdition = (Number(edition) - 1).toString() as EditionYear;
 </script>
 
 <template>

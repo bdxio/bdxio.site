@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, PREVIOUS_EDITIONS } from "~/services/constants";
+import { ASSOCIATION_NAME, type EditionYear, PREVIOUS_EDITIONS } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const route = useRoute("year");
-const year = route.params.year as string;
+const year = route.params.year as EditionYear;
 
 if (!year || !PREVIOUS_EDITIONS.includes(year)) {
   throw createError({ statusCode: 404, statusMessage: "Edition not found" });
