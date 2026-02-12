@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { type Edition } from "~/services/constants";
+import { type EditionYear } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Sponsor, Offer } from "@bdxio/bdxio.types";
 
 const props = defineProps<{
-  edition: Edition;
+  edition: EditionYear;
 }>();
 
 const [{ data: offers }, { data: sponsors }]: [{ data: Ref<Offer[]> }, { data: Ref<Sponsor[]> }] = await Promise.all([

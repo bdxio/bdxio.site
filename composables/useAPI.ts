@@ -1,11 +1,21 @@
 // @ts-nocheck
-import { useRuntimeConfig, useFetch, ref, createError } from "#imports";
+import { createError, ref, useFetch, useRuntimeConfig } from "#imports";
 
 export default async function useAPI(endpoint, options = {}) {
   const config = useRuntimeConfig();
 
   if (!config.public.API_TOKEN) {
     console.error("Missing API_TOKEN environment variable");
+
+    return {
+      data: ref(null),
+      meta: ref(null),
+    };
+  }
+
+  if (!config.public.API_URL) {
+    console.error("Missing API_URL environment variable");
+
     return {
       data: ref(null),
       meta: ref(null),

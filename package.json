@@ -34,5 +34,6 @@
     "postcss-import": "15.1.0",
     "typescript": "5.2.2",
     "vue-tsc": "2.1.6"
-  }
+  },
+  "type": "module"
 }

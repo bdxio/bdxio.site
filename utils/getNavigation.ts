@@ -1,6 +1,6 @@
 import { useNuxtApp } from "#imports";
 import { EDITION, PREVIOUS_EDITIONS } from "~/services/constants";
-import type { Edition } from "~/services/constants";
+import type { EditionYear } from "~/services/constants";
 
 type Page = {
   name: string;
@@ -15,7 +15,7 @@ const primary = "primary" as const;
 const internal = "internal" as const;
 const external = "external" as const;
 
-function getLink(path: string, edition: Edition) {
+function getLink(path: string, edition: EditionYear) {
   const isPreviousEdition = edition !== EDITION;
   if (isPreviousEdition) {
     return `/${edition}/${path}`;
@@ -40,10 +40,10 @@ export function getNavigation() {
 
   return computed(() => {
     const route = useRoute();
-    const year = (route.params as { year?: string }).year;
+    const year = (route.params as { year?: EditionYear }).year;
 
     // Determine current edition from route
-    const edition: Edition = year && PREVIOUS_EDITIONS.includes(year) ? (year as Edition) : EDITION;
+    const edition: EditionYear = year && PREVIOUS_EDITIONS.includes(year) ? year : EDITION;
 
     const isPreviousEdition = edition !== EDITION;
 

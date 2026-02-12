@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useHead, useSeoMeta, useAPI } from "#imports";
-import { EDITION } from "./services/constants";
+import { useAPI, useHead, useSeoMeta } from "#imports";
+import { ASSOCIATION_NAME, EDITION } from "./services/constants";
 
 const { data: association } = await useAPI("/association", {
   params: {
@@ -8,12 +8,14 @@ const { data: association } = await useAPI("/association", {
   },
 });
 
+const associationName = association?.value?.name ?? ASSOCIATION_NAME;
+
 useHead({
-  title: association.value.name,
+  title: associationName,
   meta: [
     {
       name: "description",
-      content: `${association.value.name} est une conférence pour les développeur•euse•s, 
+      content: `${associationName} est une conférence pour les développeur•euse•s,
         sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
     },
   ],
@@ -24,16 +26,16 @@ useHead({
 });
 
 useSeoMeta({
-  title: association.value.name,
-  description: `${association.value.name} est une conférence pour les développeur•euse•s, 
+  title: associationName,
+  description: `${associationName} est une conférence pour les développeur•euse•s,
     sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
-  ogTitle: association.value.name,
-  ogSiteName: association.value.name,
-  ogDescription: `${association.value.name} est une conférence pour les développeur•euse•s, 
+  ogTitle: associationName,
+  ogSiteName: associationName,
+  ogDescription: `${associationName} est une conférence pour les développeur•euse•s,
     sur les technologies de demain, organisée tous les ans depuis 2014 à Bordeaux.`,
   ogType: "website",
   ogImage: "/images/association/team2025.jpeg",
-  ogImageAlt: `Photo de l'équipe ${association.value.name} ${Number(EDITION) - 1}`,
+  ogImageAlt: `Photo de l'équipe ${associationName} ${Number(EDITION) - 1}`,
   ogUrl: "https://bdxio.fr",
 });
 </script>
