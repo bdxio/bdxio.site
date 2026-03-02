@@ -24,7 +24,9 @@ const editionData = data.value[0];
 
 <template>
   <main>
-    <SectionHomepageWip v-if="$featureFlags.pages.homepage.sections.wip" />
+    <SectionHomepageWip
+      v-if="$featureFlags.pages.homepage.sections.wip"
+    />
     <SectionHomepageDDay
       v-else-if="$featureFlags.pages.homepage.sections.dDay"
       :edition="editionData"

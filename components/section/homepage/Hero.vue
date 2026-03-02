@@ -4,7 +4,7 @@ import type { Edition } from "@bdxio/bdxio.types";
 const { edition } = defineProps<{
   edition: Edition
 }>();
-
+const editionDuration = edition.year === "2026" ? 2 : 1;
 </script>
 
 <template>
@@ -25,13 +25,13 @@ const { edition } = defineProps<{
       height="71"
     />
     <p class="mb-3 text-[28px]">
-      On se retrouve au Palais des Congrès <br>de Bordeaux Lac
+      On revient à l'ENSEIRB-MATMECA <br>de Talence
     </p>
     <time
-      class="font-title text-[40px] text-bdxio-light italic p-10 m:p-16 circle"
-      datetime="2023-11-10"
+      class="font-title text-[40px]/[0.9em] text-bdxio-light italic p-10 m:p-16 circle"
+      :datetime="edition.date"
     >
-      {{ displayDate(edition.date) }}
+      {{ displayDate(edition.date, editionDuration) }}
     </time>
     <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">
       Et on a hâte de vous y (re)voir&nbsp;!
@@ -41,6 +41,6 @@ const { edition } = defineProps<{
 
 <style scoped lang="css">
 .circle {
-  background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
+  background: url("/images/drawings/circle-purple.webp") no-repeat center / 100% 100%;
 }
 </style>
