@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => ({
         homepage: {
           show: true,
           sections: {
-            wip: true,
+            wip: false,
             figures: true,
             about: true,
             theme: false,
