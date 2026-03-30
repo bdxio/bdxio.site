@@ -14,7 +14,7 @@ export default defineNuxtPlugin(() => ({
             materiel: false,
             dDay: false,
             categories: true,
-            sponsor: false,
+            sponsor: true,
             lastYearSponsors: true,
             participant: false,
             talks: false,
@@ -24,13 +24,13 @@ export default defineNuxtPlugin(() => ({
           show: true,
         },
         sponsors: {
-          show: false,
+          show: true,
           sections: {
-            becomeSponsor: false,
-            offers: false,
+            becomeSponsor: true,
+            offers: true,
           },
           links: {
-            downloadPdf: false,
+            downloadPdf: true,
           },
         },
         schedule: {
