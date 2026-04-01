@@ -15,7 +15,7 @@ const location = getEditionLocation(edition);
       href="https://maps.app.goo.gl/dZMB4YFLcWm3jmTx6"
       target="_blank"
       aria-label="lien vers l'ENSEIRB-MATMECA' sur Google Maps - Nouvelle fenêtre"
-      class="text-bdxio-blue-light"
+      class="text-bdxio-blue-light hover:underline"
     >l'ENSEIRB-MATMECA</a>
     de Talence
   </span>
