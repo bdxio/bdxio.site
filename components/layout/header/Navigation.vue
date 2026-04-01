@@ -1,37 +1,64 @@
 <script setup lang="ts">
-defineProps<{
+const { background } = defineProps<{
   background?: "light" | "dark";
-  open: boolean;
 }>();
 
 const navigation = getNavigation();
+
+const menu = reactive({ isOpen: false });
+
+const route = useRoute();
+
+const icon = computed(() => {
+  return menu.isOpen
+    ? {
+      src: background === "light" ? "/images/icons/close_blue.svg" : "/images/icons/close.svg",
+      alt: "Icône croix",
+    }
+    : {
+      src: background === "light" ? "/images/icons/burger_blue.svg" : "/images/icons/burger.svg",
+      alt: "Icône navigation",
+    };
+});
+
+const toggleMenu = () => {
+  menu.isOpen = !menu.isOpen;
+};
+
+watch(
+  () => route.path,
+  () => {
+    menu.isOpen = false;
+  },
+  { deep: true, immediate: true },
+);
 </script>
 
 <template>
-  <nav
-    :class="`flex justify-center m:justify-end items-center w-full fixed m:static top-0 bottom-0 z-20
-      min-h-full m:min-h-auto ${open ? 'right-0' : 'right-full'}
-      ${background === 'dark' ? 'bg-bdxio-blue-dark' : 'bg-white'} m:bg-none`"
+  <button
+    class="toggle-button"
+    :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
+    @click.prevent="toggleMenu"
   >
-    <ul class="flex flex-col m:flex-row justify-center m:justify-end items-center">
-      <li
-        v-for="page in navigation"
-        :key="page.name"
-        class="mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0"
+    <img :src="icon.src"
+         :alt="icon.alt"
+    >
+  </button>
+  <nav :aria-expanded="menu.isOpen ? true : false"
+       :class="background === 'dark' ? 'block--dark' : 'block--light'"
+  >
+    <ul>
+      <li v-for="page in navigation"
+          :key="page.name"
       >
         <div v-if="page.type === 'internal'">
-          <NuxtLink
-            v-if="page.design === 'link'"
-            :to="page.path"
-            :class="`no-underline text-2xl m:text-xl flex items-center
-            ${background === 'dark' ? 'text-bdxio-light' : 'text-bdxio-blue-dark'}`"
-            tabindex="1"
-            :aria-label="`Lien vers la page ${page.name}`"
+          <NuxtLink v-if="page.design === 'link'"
+                    :to="page.path"
+                    :aria-label="`Lien vers la page ${page.name}`"
           >
             {{ page.name }}
-            <div
-              v-if="page.name === 'En live'"
-              class="live"
+            <div v-if="page.name === 'En live'"
+                 class="live"
             />
           </NuxtLink>
         </div>
@@ -41,9 +68,9 @@ const navigation = getNavigation();
             type="link"
             color="light"
             :href="page.path"
-            title="lien vers la billetterie - Nouvelle fenêtre"
+            :title="`Lien vers ${page.name} - Nouvelle fenêtre`"
             class="flex items-center"
-            new-window
+            target="_blank"
           >
             {{ page.name }}
           </LinkPrimary>
@@ -53,7 +80,38 @@ const navigation = getNavigation();
   </nav>
 </template>
 
-<style scoped lang="css">
+<style scoped>
+.toggle-button {
+  @apply flex justify-center items-center w-10 h-10 m:hidden;
+
+  img {
+    @apply cursor-pointer m:hidden relative z-30;
+  }
+}
+
+nav {
+  @apply flex justify-center m:justify-end items-center fixed;
+  @apply m:static top-0 bottom-0 right-full z-20 w-full max-s:min-h-full;
+
+  --colors-link: currentColor;
+
+  &[aria-expanded="true"] {
+    @apply right-0;
+  }
+
+  ul {
+    @apply flex flex-col m:flex-row justify-center m:justify-end items-center;
+  }
+
+  li {
+    @apply mb-8 m:mb-0 m:mr-10 last:mr-0 last:mb-0;
+  }
+
+  a {
+    @apply text-2xl m:text-xl flex items-center;
+  }
+}
+
 .router-link-exact-active {
   position: relative;
   pointer-events: none;
@@ -68,8 +126,7 @@ const navigation = getNavigation();
   bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background: url("/images/drawings/blue_underline.webp") no-repeat
-    center / cover;
+  background: url("/images/drawings/blue_underline.webp") no-repeat center / cover;
 }
 
 .live {

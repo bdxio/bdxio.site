@@ -79,7 +79,6 @@ async function register() {
 <template>
   <div
     class="flex items-center"
-    tabindex="0"
     @click="toggleForm"
     @keydown.enter.exact="toggleForm"
   >
@@ -108,7 +107,6 @@ async function register() {
       alt="Icône croix"
       aria-label="Fermer la fenêtre de notification"
       class="absolute top-8 m:top-12 right-8 m:right-16 cursor-pointer"
-      tabindex="1"
       @click="toggleForm"
       @keydown.enter.exact="toggleForm"
     >

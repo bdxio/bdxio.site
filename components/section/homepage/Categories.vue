@@ -51,24 +51,21 @@ const categories = [
 </script>
 
 <template>
-  <section class="p-section flex flex-col m:flex-row">
+  <section class="p-section flex flex-col m:flex-row block--white">
     <div class="w-full m:w-2/5">
-      <HeadingSection
-        level="2"
-        class="text-xl"
+      <HeadingSection level="2"
+                      class="text-xl"
       >
         Thématiques
       </HeadingSection>
-      <Heading
-        level="3"
-        class="relative z-10 scribble"
+      <Heading level="3"
+               class="relative z-10 scribble"
       >
         Quelles seront les thématiques abordées&nbsp;?
       </Heading>
       <p>
-        {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes,
-        avec des durées différentes et pour tous les niveaux : vous trouverez
-        forcément votre bonheur&nbsp;!
+        {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes, avec des durées différentes
+        et pour tous les niveaux : vous trouverez forcément votre bonheur&nbsp;!
       </p>
       <div
         v-if="$featureFlags.pages.schedule.show || $featureFlags.pages.schedule.links.downloadPdf"
@@ -94,16 +91,7 @@ const categories = [
         </LinkPrimary>
       </div>
     </div>
-    <div
-      class="
-        grid
-        gap-7
-        grid-cols-2
-        m:grid-cols-3
-        mt-8
-        m:mt-0
-        m:ml-32"
-    >
+    <div class="grid gap-7 grid-cols-2 m:grid-cols-3 mt-8 m:mt-0 m:ml-32">
       <div
         v-for="category in categories"
         :key="category.name"

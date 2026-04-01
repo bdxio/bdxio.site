@@ -5,15 +5,13 @@ defineProps<{
   height?: number;
 }>();
 
-const defaultColor = "#4652F8";
-const defaultSize = 20;
-
+const defaultSize = 16;
 </script>
 
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
+    viewBox="0 0 20 20"
     fill="none"
     :width="width || defaultSize"
     :height="height || defaultSize"
@@ -27,7 +25,7 @@ const defaultSize = 20;
         17.6146 0.984472 18.1807 1.40173 18.5982L1.40183 18.5983C1.81933 19.0155 2.38543 19.25 2.97561
         19.25H17.0244C17.6146 19.25 18.1807 19.0155 18.5982 18.5983Z"
       stroke-width="0.5"
-      :fill="color || defaultColor"
+      :fill="color || 'currentColor'"
       :stroke="color"
     />
     <path
@@ -37,8 +35,8 @@ const defaultSize = 20;
         9.72206 9.02743 10.2801 9.3735 10.6261C9.71946 10.9722 10.2776 10.982 10.6354 10.6482L10.6355 10.6483L10.6416
         10.6422L17.4324 3.85141V5.93022C17.4324 6.43205 17.8391 6.83875 18.341 6.83875C18.8428 6.83875 19.2495 6.43205
         19.2495 5.93022V2.26929L19.2669 2.28696L19.2496 1.65192C19.2464 1.53396 19.2202 1.41782 19.1725 1.31004Z"
-      :fill="color || '#4652F8'"
-      :stroke="color || defaultColor"
+      :fill="color || 'currentColor'"
+      :stroke="color || 'currentColor'"
       stroke-width="0.5"
     />
   </svg>

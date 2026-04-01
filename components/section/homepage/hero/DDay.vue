@@ -3,16 +3,14 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 import type { Edition } from "@bdxio/bdxio.types";
 
 const { edition } = defineProps<{
-  edition: Edition
+  edition: Edition;
 }>();
-
 </script>
 
 <template>
-  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-light text-center p-section">
-    <Heading
-      level="1"
-      class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
+  <header class="flex flex-col items-center text-center p-section block--dark">
+    <Heading level="1"
+             class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
     >
       Êtes-vous prêt(e) pour {{ ASSOCIATION_NAME }} {{ edition.year }}&nbsp;?
     </Heading>
@@ -35,7 +33,7 @@ const { edition } = defineProps<{
         href="https://app.imagina.com/bdx-io"
         title="lien vers l'application Imagina - Nouvelle fenêtre"
         class="flex items-center"
-        new-window
+        target="_blank"
       >
         Télécharger l'application Imagina
       </LinkPrimary>
@@ -80,5 +78,4 @@ const { edition } = defineProps<{
     box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
   }
 }
-
 </style>

@@ -9,26 +9,23 @@ const edition = props.edition || useEdition();
 </script>
 
 <template>
-  <div class="p-section flex flex-col bg-bdxio-blue-dark text-bdxio-light m:justify-between l:flex-row">
+  <div class="p-section flex flex-col m:justify-between l:flex-row block--white">
     <div class="flex flex-col justify-center w-full l:w-5/12">
-      <HeadingSection
-        level="2"
-        class="text-bdxio-light text-xl"
+      <HeadingSection level="2"
+                      class="text-bdxio-light text-xl"
       >
         Thème {{ edition }}
       </HeadingSection>
-      <Heading
-        level="3"
-        class="text-bdxio-light"
+      <Heading level="3"
+               class="text-bdxio-light"
       >
         Dix&nbsp;ans d’innovation, dix ans d’impact:
         <br>
         La technologie au service de la société
       </Heading>
       <p class="font-medium">
-        Célébrez avec nous la 10e édition de BDX I/O,
-        un événement qui façonne l'écosystème tech bordelais
-        depuis une décennie.
+        Célébrez avec nous la 10e édition de BDX I/O, un événement qui façonne l'écosystème tech bordelais depuis une
+        décennie.
       </p>
     </div>
     <div class="w-full l:w-5/12 flex justify-center item-center mt-16 m:mt-0">

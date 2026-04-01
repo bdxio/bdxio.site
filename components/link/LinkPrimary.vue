@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const props = defineProps<{
-    type: "nuxt" | "button" | "link";
-    color: "white" | "light" | "grey" | "dark";
-    href: string;
-    disabled?: true;
-    download?: string;
-    newWindow?: true;
+  type: "nuxt" | "button" | "link";
+  color: "white" | "light" | "grey" | "dark";
+  href: string;
+  disabled?: true;
+  download?: string;
+  target?: string;
 }>();
 
 const color = computed(() => {
@@ -61,7 +61,7 @@ const getProps = computed(() => {
         href: props.href,
         target: "_blank",
         rel: "noopener noreferrer",
-        tabindex: props.disabled ? "-1" : 1,
+        tabindex: props.disabled ? "-1" : undefined,
         download: props.download,
       };
   }
@@ -74,12 +74,9 @@ const getProps = computed(() => {
     v-bind="getProps"
     :class="`border-none py-2 px-4 rounded-lg duration-300 w-fit flex gap-3 items-center
     ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'} ${color.link}`"
-    :target="props.newWindow ? 'blank' : undefined"
+    :target="target"
   >
     <slot />
-    <IconOpenNewWindow
-      v-if="props.newWindow"
-      :color="color.icon"
-    />
+    <IconOpenNewWindow v-if="props.target == '_blank'" />
   </component>
 </template>

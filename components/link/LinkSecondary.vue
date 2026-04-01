@@ -3,7 +3,7 @@ const props = defineProps<{
   type: "nuxt" | "link";
   to: string;
   color: "white" | "light" | "grey" | "dark";
-  newWindow?: true;
+  target?: string;
 }>();
 
 const color = computed(() => {
@@ -53,12 +53,8 @@ const getComponentTag = computed(() => {
     :class="`bg-none border-[2px] border-solid py-[6px] px-4 rounded-lg cursor-pointer duration-300 w-fit
     flex gap-3 items-center ${color.link}`"
     :href="to"
-    :target="props.newWindow ? 'blank' : undefined"
   >
     <slot />
-    <IconOpenNewWindow
-      v-if="props.newWindow"
-      :color="color.icon"
-    />
+    <IconOpenNewWindow v-if="props.target == '_blank'" />
   </component>
 </template>
