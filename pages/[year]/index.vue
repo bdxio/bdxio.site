@@ -36,13 +36,13 @@ if (!editionData) {
 
 <template>
   <main>
-    <SectionHomepagePreviousEditionHero
+    <SectionHomepageHeroPreviousEdition
       v-if="editionData"
       :edition="editionData"
     />
     <SectionHomepageFigures :edition="edition" />
     <SectionHomepageTalks :edition="edition" />
-    <SectionSponsors :edition="edition" />
+    <SectionSponsorsList :edition="edition" />
     <SectionHomepageAbout v-if="$featureFlags.pages.homepage.sections.about" />
   </main>
 </template>

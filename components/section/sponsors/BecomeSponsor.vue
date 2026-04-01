@@ -63,11 +63,11 @@ const { $featureFlags } = useNuxtApp();
       </li>
     </ul>
     <LinkPrimary
-      v-if="$featureFlags.links.sponsoringPdf"
+      v-if="$featureFlags.pages.sponsors.links.downloadPdf"
       type="link"
       color="light"
-      href="/plaquette-sponsors-2025.pdf"
-      download="plaquette-sponsors-2025.pdf"
+      href="/plaquette-sponsors-2026.pdf"
+      download="plaquette-sponsors-2026.pdf"
       class="mt-[160px] self-center"
     >
       Télécharger la plaquette

@@ -26,12 +26,7 @@ const { edition } = defineProps<{
       height="71"
     />
     <p class="mb-3 text-[28px]">
-      On se retrouve au <a
-        href="https://goo.gl/maps/aScUymM4T4DqeBvz8"
-        target="_blank"
-        aria-label="lien vers le palais des congrès sur google maps - Nouvelle fenêtre"
-        class="text-bdxio-blue-light"
-      >Palais des Congrès</a> de Bordeaux Lac
+      On se retrouve <ItemLocationSpanWithLink :edition="edition" />
     </p>
     <div class="flex gap-4 items-center mt-10">
       <LinkPrimary

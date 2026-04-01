@@ -7,8 +7,8 @@ pages/**/*.vue
 !pages/legalnotice.vue
 !pages/association.vue
 !pages/conduct.vue
+!pages/sponsors.vue
 
-pages/sponsors.vue
 pages/schedule.vue
 pages/speakers.vue
 pages/talks/*.vue

@@ -7,16 +7,17 @@ export default defineNuxtPlugin(() => ({
         homepage: {
           show: true,
           sections: {
-            wip: false,
+            heroEditionAnnounced: true,
+            heroDDay: false,
+            heroComingBackSoon: false,
             figures: true,
             about: true,
             theme: false,
             materiel: false,
-            dDay: false,
             categories: true,
-            sponsor: false,
             lastYearSponsors: true,
-            participant: false,
+            sponsors: true,
+            participants: false,
             talks: false,
           },
         },
@@ -24,13 +25,14 @@ export default defineNuxtPlugin(() => ({
           show: true,
         },
         sponsors: {
-          show: false,
+          show: true,
           sections: {
-            becomeSponsor: false,
-            offers: false,
+            becomeSponsor: true,
+            offers: true,
+            sponsorsList: false,
           },
           links: {
-            downloadPdf: false,
+            downloadPdf: true,
           },
         },
         schedule: {
@@ -68,7 +70,6 @@ export default defineNuxtPlugin(() => ({
         cfp: false,
         openfeedback: false,
         schedulePdf: false,
-        sponsoringPdf: false,
         live: false,
         materiel: false,
         kitCommunication: false,
