@@ -49,7 +49,7 @@ watch(
         tabindex="1"
       >
         <NuxtImg
-          src="/images/logo_blue_header.webp"
+          src="/images/logo-bdxio.svg"
           :alt="`Logo de l'association ${ASSOCIATION_NAME}`"
           width="139"
           height="50"

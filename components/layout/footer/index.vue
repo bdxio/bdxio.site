@@ -34,7 +34,7 @@ const { data: association } = await useAPI("/association");
       class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16"
     >
       <NuxtImg
-        src="/images/logo_blue_footer.webp"
+        src="/images/logo-bdxio.svg"
         width="160"
         height="58"
         :alt="`Logo de l'association ${association.name}`"
