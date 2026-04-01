@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import type { EditionYear } from "~/services/constants";
+import type { Edition } from "@bdxio/bdxio.types";
 
-const props = defineProps<{
-  edition?: EditionYear;
+const { edition } = defineProps<{
+  edition: Edition;
 }>();
 
-const edition = props.edition || useEdition();
 const { $featureFlags } = useNuxtApp();
 </script>
 
 <template>
-  <section class="p-section w-full m:w-1/2 flex flex-col justify-between items-start bg-bdxio-yellow-base">
+  <section
+    class="p-section w-full m:[&:not(:last-child)]:w-1/2 flex flex-col justify-between items-start bg-bdxio-yellow-base"
+  >
     <div>
-      <HeadingSection
-        level="2"
-        class="text-xl"
+      <HeadingSection level="2"
+                      class="text-xl"
       >
         PARTICIPANTS
       </HeadingSection>
       <Heading level="3">
         Vous aussi, rejoignez le navire&nbsp;!
       </Heading>
-      <p>Rejoignez-nous au Palais des Congrès pour cette édition {{ edition }}.</p>
+      <p>Rejoignez-nous <ItemLocationSpanWithLink :edition="edition" /> pour cette édition {{ edition.year }}.</p>
     </div>
     <LinkSecondary
       v-if="$featureFlags.pages.ticketing.links.ticketing"
@@ -33,9 +33,8 @@ const { $featureFlags } = useNuxtApp();
     >
       Billetterie
     </LinkSecondary>
-    <p
-      v-else
-      class="italic text-md mt-4"
+    <p v-else
+       class="italic text-md mt-4"
     >
       Billetterie fermée
     </p>

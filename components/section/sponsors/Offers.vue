@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { EditionYear } from "~/services/constants";
 import type { Offer } from "@bdxio/bdxio.types";
+import type { EditionYear } from "~/services/constants";
 
-const props = defineProps<{
-  edition?: EditionYear;
+const { edition } = defineProps<{
+  edition: EditionYear;
 }>();
-
-const edition = props.edition || useEdition();
 
 const getOfferColorClass = (offer: Offer["label"]) => {
   switch (offer) {
@@ -23,29 +21,29 @@ const getOfferColorClass = (offer: Offer["label"]) => {
   }
 };
 
-const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { params: {
-  "filters[edition][year][$eq]": edition,
-} });
+const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", {
+  params: {
+    "filters[edition][year][$eq]": edition,
+  },
+});
 
+offers.value.sort((a: Offer, b: Offer) => Number(a.price) - Number(b.price));
 </script>
 
 <template>
   <section class="p-section bg-white">
-    <Heading
-      level="2"
-      class="text-center relative z-10 title"
+    <Heading level="2"
+             class="text-center relative z-10 title"
     >
       Les offres
     </Heading>
-    <div
-      v-if="offers.length === 0"
-      class="text-center italic mt-16"
+    <div v-if="offers.length === 0"
+         class="text-center italic mt-16"
     >
       Pas d'offre actuellement pour l'édition {{ edition }}
     </div>
-    <div
-      v-else
-      class="flex gap-8 flex-col m:flex-row mt-[75px]"
+    <div v-else
+         class="flex gap-8 flex-col m:flex-row mt-[75px]"
     >
       <div
         v-for="offer in offers"
@@ -54,18 +52,15 @@ const { data: offers }: { data: Ref<Offer[]> } = await useAPI("/offers", { param
         ${offer.full ? 'cursor-not-allowed relative z-10' : null}`"
       >
         <div :class="`${offer.full ? 'opacity-30' : ''}`">
-          <span
-            :class="`block font-bold uppercase text-xl tracking-[3px] ${getOfferColorClass(offer.label)}`"
-          >
+          <span :class="`block font-bold uppercase text-xl tracking-[3px] ${getOfferColorClass(offer.label)}`">
             {{ offer.label }}
           </span>
           <span class="block text-4xl font-bold font-title my-4">{{ offer.price }} €</span>
           <p class="text-lg font-normal">
             {{ offer.description }}
           </p>
-          <div
-            v-if="offer.full"
-            :class="`uppercase w-fit text-sm px-4 py-2 bg-bdxio-blue-darker text-white mt-4`"
+          <div v-if="offer.full"
+               :class="`uppercase w-fit text-sm px-4 py-2 bg-bdxio-blue-darker text-white mt-4`"
           >
             Complet
           </div>

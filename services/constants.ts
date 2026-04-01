@@ -14,3 +14,8 @@ export const OPENING_TALK_TYPE = "opening";
 export const CLOSING_TALK_TYPE = "closing";
 
 export const KEYNOTES = [];
+
+export const LOCATION = {
+  PALAIS_DES_CONGRES: "palais-des-congres",
+  ENSEIRB: "enseirb",
+};

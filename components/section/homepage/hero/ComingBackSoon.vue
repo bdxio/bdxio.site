@@ -4,12 +4,6 @@ import type { Edition } from "@bdxio/bdxio.types";
 
 useHead({ title: ASSOCIATION_NAME });
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.homepage.sections.wip) {
-  throw createError({ statusCode: 404 });
-}
-
 const { data }: { data: Ref<Edition[]> } = await useAPI("/editions", {
   params: {
     "filters[year][$eq]": PREVIOUS_EDITION,

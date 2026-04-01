@@ -8,6 +8,6 @@ useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 
 <template>
   <main>
-    <SectionSponsors :edition="edition" />
+    <SectionSponsorsList :edition="edition" />
   </main>
 </template>
