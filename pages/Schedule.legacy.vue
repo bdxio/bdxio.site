@@ -170,7 +170,6 @@ onClickOutside(categoriesWrapper, () => {
           type="nuxt"
           to="/speakers"
           color="dark"
-          tabindex="1"
         >
           Nos speakers
         </LinkSecondary>
@@ -197,7 +196,6 @@ onClickOutside(categoriesWrapper, () => {
               <li
                 class="flex items-center leading-normal h-14 opacity-30 cursor-pointer ml-20"
                 :class="{ 'opacity-100': !filters.length }"
-                tabindex="1"
                 @click="setFilter(ALL)"
                 @keydown.enter.exact="setFilter(ALL)"
               >
@@ -208,7 +206,6 @@ onClickOutside(categoriesWrapper, () => {
                 :key="category.id"
                 class="flex items-center leading-normal h-14 opacity-30 cursor-pointer"
                 :class="{ 'opacity-100': filters.includes(category.id.toString()) }"
-                tabindex="1"
                 @click="setFilter(category.id.toString())"
                 @keydown.enter.exact="setFilter(category.id.toString())"
               >

@@ -2,13 +2,13 @@
 import type { Edition } from "@bdxio/bdxio.types";
 
 const { edition } = defineProps<{
-  edition: Edition
+  edition: Edition;
 }>();
 const editionDuration = getEditionDuration(edition);
 </script>
 
 <template>
-  <header class="flex flex-col items-center bg-bdxio-blue-dark text-bdxio-light text-center p-section">
+  <header class="flex flex-col items-center text-center p-section block--dark">
     <Heading level="1"
              class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
     >

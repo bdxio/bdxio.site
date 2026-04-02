@@ -15,7 +15,6 @@ const location = getEditionLocation(edition);
       href="https://maps.app.goo.gl/dZMB4YFLcWm3jmTx6"
       target="_blank"
       aria-label="lien vers l'ENSEIRB-MATMECA' sur Google Maps - Nouvelle fenêtre"
-      class="text-bdxio-blue-light hover:underline"
     >l'ENSEIRB-MATMECA</a>
     de Talence
   </span>
@@ -25,7 +24,6 @@ const location = getEditionLocation(edition);
       href="https://goo.gl/maps/aScUymM4T4DqeBvz8"
       target="_blank"
       aria-label="lien vers le Palais des congrès sur Google Maps - Nouvelle fenêtre"
-      class="text-bdxio-blue-light"
     >Palais des Congrès</a>
     de Bordeaux Lac
   </span>

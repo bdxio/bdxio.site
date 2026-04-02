@@ -95,7 +95,6 @@ onMounted(() => {
           >
           <label
             for="sponsors"
-            tabindex="1"
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
             bg-contain bg-center bg-no-repeat uppercase hover:opacity-100
             ${currentTarget === value ? 'font-bold' : 'opacity-50 cursor-pointer'}`"

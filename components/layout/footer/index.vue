@@ -28,10 +28,9 @@ const { data: association } = await useAPI("/association");
 </script>
 
 <template>
-  <footer class="p-section !pb-0 mb-8 m:mb-16 flex flex-col">
-    <NuxtLink
-      to="/"
-      class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16"
+  <footer class="footer p-section !pb-0 mb-8 m:mb-16 flex flex-col">
+    <NuxtLink to="/"
+              class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16"
     >
       <NuxtImg
         src="/images/logo-bdxio.svg"
@@ -56,10 +55,9 @@ const { data: association } = await useAPI("/association");
           <span>Avenue Jean Gabriel Domergue<br>33300 BORDEAUX</span>
         </a>
         <ul class="flex">
-          <li
-            v-for="social in association?.socials ?? []"
-            :key="social.label"
-            class="mr-4"
+          <li v-for="social in association?.socials ?? []"
+              :key="social.label"
+              class="mr-4"
           >
             <a
               :href="social.href"
@@ -80,14 +78,12 @@ const { data: association } = await useAPI("/association");
       </div>
       <nav class="m:w-1/6 mb-8 m:mb-0">
         <ul class="flex flex-col">
-          <li
-            v-for="page in navigation"
-            :key="page.path"
-            class="mr-5 mb-2 last:mr-0 last:mb-0"
+          <li v-for="page in navigation"
+              :key="page.path"
+              class="mr-5 mb-2 last:mr-0 last:mb-0"
           >
-            <NuxtLink
-              :to="page.path"
-              class="text-2xl m:text-base"
+            <NuxtLink :to="page.path"
+                      class="text-2xl m:text-base"
             >
               {{ page.name }}
             </NuxtLink>
@@ -96,14 +92,12 @@ const { data: association } = await useAPI("/association");
       </nav>
       <nav class="m:w-1/6 mb-8 m:mb-0">
         <ul class="flex flex-col">
-          <li
-            v-for="page in previousEditionsNavigation"
-            :key="page.path"
-            class="mr-5 mb-2 last:mr-0 last:mb-0"
+          <li v-for="page in previousEditionsNavigation"
+              :key="page.path"
+              class="mr-5 mb-2 last:mr-0 last:mb-0"
           >
-            <NuxtLink
-              :to="page.path"
-              class="text-2xl m:text-base"
+            <NuxtLink :to="page.path"
+                      class="text-2xl m:text-base"
             >
               {{ page.name }}
             </NuxtLink>
@@ -132,17 +126,15 @@ const { data: association } = await useAPI("/association");
       <span class="text-lg m:mr-16 mb-4 m:mb-0">
         © {{ new Date().getFullYear() }} - {{ association?.name ?? ASSOCIATION_NAME }}
       </span>
-      <NuxtLink
-        v-if="$featureFlags.pages.legalNotice"
-        to="/legalnotice"
-        class="text-lg m:mr-16 mb-4 m:mb-0"
+      <NuxtLink v-if="$featureFlags.pages.legalNotice"
+                to="/legalnotice"
+                class="text-lg m:mr-16 mb-4 m:mb-0"
       >
         Mentions légales
       </NuxtLink>
-      <NuxtLink
-        v-if="$featureFlags.pages.codeOfConduct"
-        to="/conduct"
-        class="text-lg m:mr-16 mb-4 m:mb-0"
+      <NuxtLink v-if="$featureFlags.pages.codeOfConduct"
+                to="/conduct"
+                class="text-lg m:mr-16 mb-4 m:mb-0"
       >
         Code de conduite
       </NuxtLink>
@@ -157,3 +149,9 @@ const { data: association } = await useAPI("/association");
     </div>
   </footer>
 </template>
+
+<style>
+.footer a {
+  color: currentColor;
+}
+</style>

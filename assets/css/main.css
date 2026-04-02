@@ -1,36 +1,85 @@
 .p-section {
-  padding: theme('spacing.16') theme('spacing.8');
+  padding: theme("spacing.16") theme("spacing.8");
 
   @media screen(s) {
-    padding: theme('spacing.16');
+    padding: theme("spacing.16");
   }
 
   @media screen(m) {
-    padding: theme('spacing.16');
+    padding: theme("spacing.16");
   }
 
   @media screen(l) {
-    padding: theme('spacing.20');
+    padding: theme("spacing.20");
   }
 
   @media screen(xl) {
-    padding: theme('spacing.24');
+    padding: theme("spacing.24");
   }
 
   @media screen(xxl) {
-    padding: theme('spacing.28');
+    padding: theme("spacing.28");
   }
 
   @media screen(xxxl) {
-    padding: theme('spacing.32');
+    padding: theme("spacing.32");
   }
 }
 
 .markdown ul {
   list-style-type: disc;
-  padding-left: theme("spacing.5")
+  padding-left: theme("spacing.5");
 }
 .markdown a {
-  color: theme('colors.bdxio-blue.base');
+  color: theme("colors.bdxio-blue.base");
 }
 
+html {
+  --colors-bdxio-white: theme(colors.white);
+  --colors-bdxio-light: theme(colors.bdxio-light);
+  --colors-bdxio-dark: theme(colors.bdxio-dark);
+  --colors-bdxio-blue: theme(colors.bdxio-blue.base);
+  --colors-bdxio-blue-light: theme(colors.bdxio-blue.light);
+  --colors-bdxio-blue-dark: theme(colors.bdxio-blue.dark);
+  --colors-bdxio-blue-darker: theme(colors.bdxio-blue.darker);
+  --colors-bdxio-yellow: theme(colors.bdxio-yellow.base);
+  --colors-bdxio-cream: theme(colors.bdxio-cream.base);
+}
+
+body {
+  font-family: theme(fontFamily.body);
+  font-size: 1.25rem;
+  line-height: 1.4;
+
+  color: var(--colors-bdxio-dark);
+  background-color: var(--colors-bdxio-light);
+  --colors-link: var(--colors-bdxio-blue-light);
+}
+
+a {
+  color: var(--colors-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.block--white {
+  color: var(--colors-bdxio-dark);
+  background-color: var(--colors-bdxio-white);
+}
+
+.block--light {
+  color: var(--colors-bdxio-dark);
+  background-color: var(--colors-bdxio-light);
+}
+
+.block--cream {
+  color: var(--colors-bdxio-dark);
+  background-color: var(--colors-bdxio-cream);
+}
+
+.block--dark {
+  color: var(--colors-bdxio-light);
+  background-color: var(--colors-bdxio-blue-dark);
+}

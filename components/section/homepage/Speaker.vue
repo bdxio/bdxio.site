@@ -33,7 +33,7 @@ const { $featureFlags } = useNuxtApp();
       to="https://conference-hall.io/public/event/VORL07zbTZ8CBB8kOVgq"
       class="flex flex-row items-center"
       aria-label="lien vers le CFP (call for paper) pour devenir speaker - Nouvelle fenêtre"
-      new-window
+      target="_blank"
     >
       Devenir speaker
     </LinkSecondary>

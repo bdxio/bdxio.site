@@ -1,19 +1,23 @@
 <script setup lang="ts">
-const props = defineProps<{
-  newWindow?: true;
+const { target } = defineProps<{
+  target?: string;
 }>();
 </script>
 
 <template>
-  <a
-    class="text-bdxio-blue-light"
-    :target="props.newWindow ? 'blank' : undefined"
-  >
+  <a>
     <slot />
-    <IconOpenNewWindow
-      v-if="props.newWindow"
-      class="ml-4"
-      color="#7d7df8"
+    <IconOpenNewWindow v-if="target === '_blank'"
+                       class="icon"
     />
   </a>
 </template>
+
+<style scoped>
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.15em;
+  margin-left: 0.1em;
+}
+</style>

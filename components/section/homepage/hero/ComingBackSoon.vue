@@ -20,10 +20,9 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
 </script>
 
 <template>
-  <header class="flex flex-col items-center  bg-bdxio-blue-dark text-bdxio-light text-center p-section p-section">
-    <Heading
-      level="1"
-      class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
+  <header class="flex flex-col items-center text-center p-section p-section block--dark">
+    <Heading level="1"
+             class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
     >
       La conférence technologique <br>bordelaise revient bientôt&nbsp;!
     </Heading>
@@ -40,9 +39,8 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
       BDX I/O {{ PREVIOUS_EDITION }} c’est terminé ! On vous remercie tous <br>
       chaleureusement pour votre présence et <br>votre soutien.
     </p>
-    <div
-      v-if="youtubePlaylistUrl || picturesGalleryUrl"
-      class="mb-6 flex flex-col items-center md:flex-row gap-8"
+    <div v-if="youtubePlaylistUrl || picturesGalleryUrl"
+         class="mb-6 flex flex-col items-center md:flex-row gap-8"
     >
       <LinkSecondary
         v-if="picturesGalleryUrl"
@@ -51,7 +49,7 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
         :to="picturesGalleryUrl"
         class="flex items-center"
         :aria-label="`lien vers la galerie des photos de ${ASSOCIATION_NAME} ${PREVIOUS_EDITION}  - Nouvelle fenêtre`"
-        new-window
+        target="_blank"
       >
         Galerie photos
       </LinkSecondary>
@@ -63,7 +61,7 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
         :href="youtubePlaylistUrl"
         :aria-label="`lien vers la playlist youtube du replay de l'édition ${PREVIOUS_EDITION} de
         ${ASSOCIATION_NAME} - Nouvelle fenêtre`"
-        new-window
+        target="_blank"
       >
         Replay {{ PREVIOUS_EDITION }}
       </LinkPrimary>

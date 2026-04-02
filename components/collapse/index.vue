@@ -25,7 +25,6 @@ function toggleOpen() {
     :is="tag"
   >
     <div
-      tabindex="0"
       class="flex flex-row items-center cursor-pointer"
       @click="toggleOpen"
       @keydown.enter.exact="toggleOpen"
