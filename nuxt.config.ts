@@ -1,4 +1,8 @@
 export default defineNuxtConfig({
+  site: {
+    url: 'bdxio.fr',
+  },
+
   devServer: {
     port: 3615,
   },
@@ -16,21 +20,21 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxt/eslint",
-    "@nuxtjs/google-fonts",
-    "@nuxtjs/tailwindcss",
-    "@vueuse/nuxt",
-    "@nuxt/image",
-    "@nuxtjs/sitemap",
+    '@nuxt/eslint',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/sitemap',
   ],
 
-  plugins: ["~/plugins/featureFlags/index.ts"],
-  css: ["~/assets/css/main.css"],
+  plugins: ['~/plugins/featureFlags/index.ts'],
+  css: ['~/assets/css/main.css'],
 
   postcss: {
     plugins: {
-      "postcss-import": {},
-      "tailwindcss/nesting": {},
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
       autoprefixer: {},
       tailwindcss: {},
     },
@@ -59,8 +63,8 @@ export default defineNuxtConfig({
     head: {
       link: [
         {
-          rel: "icon",
-          href: "/favicon.ico",
+          rel: 'icon',
+          href: '/favicon.ico',
         },
       ],
     },
@@ -68,27 +72,27 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => ["jobs-widget", "LinkPrimaryNuxt"].includes(tag),
+      isCustomElement: (tag) => ['jobs-widget', 'LinkPrimaryNuxt'].includes(tag),
     },
   },
 
   image: {
-    provider: "ipx",
+    provider: 'ipx',
     screens: {
       xs: 320,
       sm: 768,
       md: 992,
       lg: 1200,
       xl: 1400,
-      "2xl": 1600,
+      '2xl': 1600,
     },
   },
 
   vite: {
     optimizeDeps: {
       include: [
-        "markdown-it",
-        "fetch-jsonp", // CJS
+        'markdown-it',
+        'fetch-jsonp', // CJS
       ],
     },
   },

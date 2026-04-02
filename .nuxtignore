@@ -1,5 +1,6 @@
 pages/**/*.vue
 
+!pages/error.vue
 !pages/\[year\]/**
 !pages/\[year\]/**/*.vue
 !pages/index.vue
