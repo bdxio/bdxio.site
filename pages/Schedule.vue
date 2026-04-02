@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, useNuxtApp, ref, nextTick } from "#imports";
+import { onMounted, onUnmounted, useNuxtApp, ref, nextTick } from '#imports';
 
 const { $featureFlags } = useNuxtApp();
 
@@ -12,7 +12,7 @@ const isLoading = ref(true);
 
 onMounted(async () => {
   await nextTick();
-  window.addEventListener("message", resizeIFrame);
+  window.addEventListener('message', resizeIFrame);
   setTimeout(() => {
     if (imaginaIframe.value) {
       imaginaIframe.value.onload = () => {
@@ -24,7 +24,7 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  window.removeEventListener("message", resizeIFrame);
+  window.removeEventListener('message', resizeIFrame);
 });
 
 function resizeIFrame(event: MessageEvent) {
@@ -36,26 +36,29 @@ function resizeIFrame(event: MessageEvent) {
 </script>
 
 <template>
-  <LinkPrimary v-if="$featureFlags.pages.schedule.links.downloadPdf"
-               type="link"
-               color="light"
-               href="/programme-bdxio-2025.pdf"
-               download="programme-bdxio-2025.pdf"
-               class="whitespace-nowrap block mx-auto mb-6"
+  <LinkPrimary
+    v-if="$featureFlags.pages.schedule.links.downloadPdf"
+    type="link"
+    color="light"
+    href="/programme-bdxio-2025.pdf"
+    download="programme-bdxio-2025.pdf"
+    class="whitespace-nowrap block mx-auto mb-6"
   >
     Télécharger le programme
   </LinkPrimary>
-  <div v-if="isLoading"
-       class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200"
+  <div
+    v-if="isLoading"
+    class="flex items-center justify-center text-2xl font-bold h-[950px] animate-pulse animation-delay-200"
   >
     Chargement du programme...
   </div>
-  <iframe ref="imaginaIframe"
-          scrolling="no"
-          class="website-section-iframe"
-          allow="geolocation"
-          src="https://app.imagina.com/module/436648/112144?application_id=40947770"
-          tabindex="-1"
-          style="border: none; width: 100%; display: block; overflow: hidden;"
+  <iframe
+    ref="imaginaIframe"
+    scrolling="no"
+    class="website-section-iframe"
+    allow="geolocation"
+    src="https://app.imagina.com/module/436648/112144?application_id=40947770"
+    tabindex="-1"
+    style="border: none; width: 100%; display: block; overflow: hidden"
   />
 </template>

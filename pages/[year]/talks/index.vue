@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, STANDARD_TALK_TYPE } from "~/services/constants";
-import type { Category, Talk } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME, STANDARD_TALK_TYPE } from '~/services/constants';
+import type { Category, Talk } from '@bdxio/bdxio.types';
 
 const edition = useEdition();
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });
 
-const ALL = "all";
+const ALL = 'all';
 const currentFilter = ref(ALL);
 
 const [{ data: categories }, { data: talks }]: [{ data: Ref<Category[]> }, { data: Ref<Talk[]> }] = await Promise.all([
-  useAPI("/categories", { params: { populate: "*" } }),
-  useAPI("/talks", {
+  useAPI('/categories', { params: { populate: '*' } }),
+  useAPI('/talks', {
     params: {
-      populate: "*",
-      "pagination[limit]": 100,
-      sort: "title:asc",
-      "filters[edition][year][$eq]": edition,
-      "filters[type][$eq]": STANDARD_TALK_TYPE,
+      populate: '*',
+      'pagination[limit]': 100,
+      sort: 'title:asc',
+      'filters[edition][year][$eq]': edition,
+      'filters[type][$eq]': STANDARD_TALK_TYPE,
     },
   }),
 ]);
@@ -32,7 +32,7 @@ function setFilter(categoryId: string) {
   currentFilter.value = categoryId;
 }
 
-const route = useRoute("year");
+const route = useRoute('year');
 const year = route.params.year as string;
 </script>
 
@@ -48,25 +48,13 @@ const year = route.params.year as string;
       Télécharger le programme
     </LinkPrimary>
 
-    <Heading
-      level="1"
-      class="title relative block mx-auto !mb-16"
-    >
-      Les talks <span
-        v-if="filteredTalks.length"
-        class="text-2xl"
-      >({{ filteredTalks.length }})</span>
+    <Heading level="1" class="title relative block mx-auto !mb-16">
+      Les talks <span v-if="filteredTalks.length" class="text-2xl">({{ filteredTalks.length }})</span>
     </Heading>
 
     <div>
-      <ul
-        v-if="categories.length"
-        class="flex flex-wrap justify-center gap-12 w-1/2 mx-auto mb-20"
-      >
-        <li
-          class="text-center"
-          @click="setFilter(ALL)"
-        >
+      <ul v-if="categories.length" class="flex flex-wrap justify-center gap-12 w-1/2 mx-auto mb-20">
+        <li class="text-center" @click="setFilter(ALL)">
           <input
             :id="ALL"
             v-model="currentFilter"
@@ -75,12 +63,7 @@ const year = route.params.year as string;
             class="hidden"
             :class="{ active: currentFilter === ALL }"
           >
-          <label
-            :for="ALL"
-            class="cursor-pointer border-black"
-          >
-            Tous
-          </label>
+          <label :for="ALL" class="cursor-pointer border-black"> Tous </label>
         </li>
         <li
           v-for="category in categories"
@@ -122,18 +105,11 @@ const year = route.params.year as string;
                 {{ talk.title }}
               </h2>
               <span class="font-light italic text-sm">{{ talk.level }}</span>
-              <p
-                v-if="talk.category?.name"
-                class="font-bold text-sm"
-                :style="{ color: talk.category?.color }"
-              >
+              <p v-if="talk.category?.name" class="font-bold text-sm" :style="{ color: talk.category?.color }">
                 {{ talk.category?.name }}
               </p>
             </div>
-            <div
-              v-if="talk.speakers?.length"
-              class="flex"
-            >
+            <div v-if="talk.speakers?.length" class="flex">
               <SectionTalkSpeakerPicture
                 v-for="speaker in talk.speakers"
                 :key="`speaker-${speaker.id}`"
@@ -152,26 +128,26 @@ const year = route.params.year as string;
 <style scoped lang="css">
 .title {
   &:before {
-    content: "";
+    content: '';
     display: block;
     width: 120px;
     height: 120px;
     position: absolute;
     left: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
+    background: url('/images/drawings/blue_presentation_left.webp') center no-repeat;
     background-size: cover;
   }
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: 120px;
     height: 120px;
     position: absolute;
     right: -110px;
     bottom: -20px;
-    background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
+    background: url('/images/drawings/blue_presentation_right.webp') center no-repeat;
     background-size: cover;
   }
 }

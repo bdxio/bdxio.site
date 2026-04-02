@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const editionYear = useEdition();
 const { $featureFlags } = useNuxtApp();
@@ -13,11 +13,7 @@ useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 <template>
   <main>
     <SectionSponsorsBecomeSponsor v-if="$featureFlags.pages.sponsors.sections.becomeSponsor" />
-    <SectionSponsorsOffers v-if="$featureFlags.pages.sponsors.sections.offers"
-                           :edition="editionYear"
-    />
-    <SectionSponsorsList v-if="$featureFlags.pages.sponsors.sections.sponsorsList"
-                         :edition="editionYear"
-    />
+    <SectionSponsorsOffers v-if="$featureFlags.pages.sponsors.sections.offers" :edition="editionYear" />
+    <SectionSponsorsList v-if="$featureFlags.pages.sponsors.sections.sponsorsList" :edition="editionYear" />
   </main>
 </template>

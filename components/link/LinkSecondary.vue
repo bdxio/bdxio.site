@@ -1,48 +1,48 @@
 <script setup lang="ts">
 const props = defineProps<{
-  type: "nuxt" | "link";
+  type: 'nuxt' | 'link';
   to: string;
-  color: "white" | "light" | "grey" | "dark";
+  color: 'white' | 'light' | 'grey' | 'dark';
   target?: string;
 }>();
 
 const color = computed(() => {
   switch (props.color) {
-    case "white":
+    case 'white':
       return {
-        link: "border-bdxio-cream-base text-bdxio-cream-base",
-        icon: "#f6f2e8",
+        link: 'border-bdxio-cream-base text-bdxio-cream-base',
+        icon: '#f6f2e8',
       };
-    case "light":
+    case 'light':
       return {
-        link: "border-bdxio-blue-light text-bdxio-blue-light",
-        icon: "#7d7df8",
+        link: 'border-bdxio-blue-light text-bdxio-blue-light',
+        icon: '#7d7df8',
       };
-    case "grey":
+    case 'grey':
       return {
-        link: "border-bdxio-dark text-bdxio-dark",
-        icon: "#242457",
+        link: 'border-bdxio-dark text-bdxio-dark',
+        icon: '#242457',
       };
-    case "dark":
+    case 'dark':
       return {
-        link: "border-bdxio-blue-dark text-bdxio-blue-dark",
-        icon: "#242457",
+        link: 'border-bdxio-blue-dark text-bdxio-blue-dark',
+        icon: '#242457',
       };
     default:
       return {
-        link: "",
-        icon: "",
+        link: '',
+        icon: '',
       };
   }
 });
 
 const getComponentTag = computed(() => {
   switch (props.type) {
-    case "nuxt":
-      return "nuxt-link";
-    case "link":
+    case 'nuxt':
+      return 'nuxt-link';
+    case 'link':
     default:
-      return "a";
+      return 'a';
   }
 });
 </script>

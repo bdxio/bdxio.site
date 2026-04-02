@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Talk } from "@bdxio/bdxio.types";
+import type { Talk } from '@bdxio/bdxio.types';
 
 const props = defineProps<{
   talk: Talk;
@@ -7,9 +7,9 @@ const props = defineProps<{
 
 const duration = computed(() => {
   switch (props.talk.format?.name) {
-    case "Quickie":
+    case 'Quickie':
       return 15;
-    case "Hands on lab":
+    case 'Hands on lab':
       return 100;
     default:
       return 45;
@@ -33,26 +33,14 @@ const duration = computed(() => {
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min
       </span>
-      <span
-        v-if="talk.level"
-        class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4"
-      >
+      <span v-if="talk.level" class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.level }}
       </span>
-      <span
-        v-if="talk.language"
-        class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4"
-      >
+      <span v-if="talk.language" class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.language }}
       </span>
     </div>
-    <Markdown
-      v-if="talk.abstract"
-      :content="talk.abstract"
-    />
-    <SectionTalkOpenFeedbackFrame
-      v-if="talk.id"
-      :talkId="talk.id"
-    />
+    <Markdown v-if="talk.abstract" :content="talk.abstract" />
+    <SectionTalkOpenFeedbackFrame v-if="talk.id" :talkId="talk.id" />
   </section>
 </template>

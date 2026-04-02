@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { useNuxtApp } from "#imports";
+import { useNuxtApp } from '#imports';
 
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const { $featureFlags } = useNuxtApp();
 const categories = [
   {
-    name: "Frontend",
-    icon: "/images/drawings/categories/frontend.webp",
-    width: "36",
-    height: "48",
+    name: 'Frontend',
+    icon: '/images/drawings/categories/frontend.webp',
+    width: '36',
+    height: '48',
   },
   {
-    name: "Backend",
-    icon: "/images/drawings/categories/backend.webp",
-    width: "37",
-    height: "48",
+    name: 'Backend',
+    icon: '/images/drawings/categories/backend.webp',
+    width: '37',
+    height: '48',
   },
   {
-    name: "Big Data & I.A.",
-    icon: "/images/drawings/categories/bigdataia.webp",
-    width: "51",
-    height: "48",
+    name: 'Big Data & I.A.',
+    icon: '/images/drawings/categories/bigdataia.webp',
+    width: '51',
+    height: '48',
   },
   {
-    name: "Design & UX",
-    icon: "/images/drawings/categories/designux.webp",
-    width: "50",
-    height: "48",
+    name: 'Design & UX',
+    icon: '/images/drawings/categories/designux.webp',
+    width: '50',
+    height: '48',
   },
   {
-    name: "Cloud & DevSecOps",
-    icon: "/images/drawings/categories/cloudetdevsecops.webp",
-    width: "60",
-    height: "48",
+    name: 'Cloud & DevSecOps',
+    icon: '/images/drawings/categories/cloudetdevsecops.webp',
+    width: '60',
+    height: '48',
   },
   {
-    name: "Méthodo & Architecture",
-    icon: "/images/drawings/categories/methodoarchitecture.webp",
-    width: "54",
-    height: "48",
+    name: 'Méthodo & Architecture',
+    icon: '/images/drawings/categories/methodoarchitecture.webp',
+    width: '54',
+    height: '48',
   },
   {
-    name: "Hors-piste",
-    icon: "/images/drawings/categories/horspiste.webp",
-    width: "47",
-    height: "48",
+    name: 'Hors-piste',
+    icon: '/images/drawings/categories/horspiste.webp',
+    width: '47',
+    height: '48',
   },
 ];
 </script>
@@ -53,16 +53,8 @@ const categories = [
 <template>
   <section class="p-section flex flex-col m:flex-row block--white">
     <div class="w-full m:w-2/5">
-      <HeadingSection level="2"
-                      class="text-xl"
-      >
-        Thématiques
-      </HeadingSection>
-      <Heading level="3"
-               class="relative z-10 scribble"
-      >
-        Quelles seront les thématiques abordées&nbsp;?
-      </Heading>
+      <HeadingSection level="2" class="text-xl"> Thématiques </HeadingSection>
+      <Heading level="3" class="relative z-10 scribble"> Quelles seront les thématiques abordées&nbsp;? </Heading>
       <p>
         {{ ASSOCIATION_NAME }} propose des conférences autour de 7 thématiques différentes, avec des durées différentes
         et pour tous les niveaux : vous trouverez forcément votre bonheur&nbsp;!
@@ -114,14 +106,14 @@ const categories = [
 
 <style scoped lang="css">
 .scribble:before {
-  content: "";
+  content: '';
   position: absolute;
   top: -15px;
   left: -15px;
   width: 110px;
   height: 60px;
   z-index: -1;
-  background: url("/images/drawings/cyan_scribble_2.png") center no-repeat;
+  background: url('/images/drawings/cyan_scribble_2.png') center no-repeat;
   background-size: contain;
 }
 </style>

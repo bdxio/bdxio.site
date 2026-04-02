@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { background } = defineProps<{
-  background?: "light" | "dark";
+const { background = 'light' } = defineProps<{
+  background?: 'light' | 'dark';
 }>();
 
 const navigation = getNavigation();
@@ -12,13 +12,13 @@ const route = useRoute();
 const icon = computed(() => {
   return menu.isOpen
     ? {
-      src: background === "light" ? "/images/icons/close_blue.svg" : "/images/icons/close.svg",
-      alt: "Icône croix",
-    }
+        src: background === 'light' ? '/images/icons/close_blue.svg' : '/images/icons/close.svg',
+        alt: 'Icône croix',
+      }
     : {
-      src: background === "light" ? "/images/icons/burger_blue.svg" : "/images/icons/burger.svg",
-      alt: "Icône navigation",
-    };
+        src: background === 'light' ? '/images/icons/burger_blue.svg' : '/images/icons/burger.svg',
+        alt: 'Icône navigation',
+      };
 });
 
 const toggleMenu = () => {
@@ -30,7 +30,7 @@ watch(
   () => {
     menu.isOpen = false;
   },
-  { deep: true, immediate: true },
+  { deep: true, immediate: true }
 );
 </script>
 
@@ -40,26 +40,15 @@ watch(
     :aria-label="menu.isOpen ? 'Fermer la fenêtre' : 'Ouvrir la fenêtre'"
     @click.prevent="toggleMenu"
   >
-    <img :src="icon.src"
-         :alt="icon.alt"
-    >
+    <img :src="icon.src" :alt="icon.alt">
   </button>
-  <nav :aria-expanded="menu.isOpen ? true : false"
-       :class="background === 'dark' ? 'block--dark' : 'block--light'"
-  >
+  <nav :aria-expanded="menu.isOpen ? true : false" :class="background === 'dark' ? 'block--dark' : 'block--light'">
     <ul>
-      <li v-for="page in navigation"
-          :key="page.name"
-      >
+      <li v-for="page in navigation" :key="page.name">
         <div v-if="page.type === 'internal'">
-          <NuxtLink v-if="page.design === 'link'"
-                    :to="page.path"
-                    :aria-label="`Lien vers la page ${page.name}`"
-          >
+          <NuxtLink v-if="page.design === 'link'" :to="page.path" :aria-label="`Lien vers la page ${page.name}`">
             {{ page.name }}
-            <div v-if="page.name === 'En live'"
-                 class="live"
-            />
+            <div v-if="page.name === 'En live'" class="live" />
           </NuxtLink>
         </div>
         <div v-else-if="page.type === 'external'">
@@ -95,7 +84,7 @@ nav {
 
   --colors-link: currentColor;
 
-  &[aria-expanded="true"] {
+  &[aria-expanded='true'] {
     @apply right-0;
   }
 
@@ -118,7 +107,7 @@ nav {
 }
 
 .router-link-exact-active::after {
-  content: "";
+  content: '';
   width: 90px;
   height: 30px;
   display: block;
@@ -126,7 +115,7 @@ nav {
   bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background: url("/images/drawings/blue_underline.webp") no-repeat center / cover;
+  background: url('/images/drawings/blue_underline.webp') no-repeat center / cover;
 }
 
 .live {

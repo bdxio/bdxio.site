@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Volunteer } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME } from '~/services/constants';
+import type { Volunteer } from '@bdxio/bdxio.types';
 
 const props = defineProps<{
   volunteers: Volunteer[];
@@ -19,9 +19,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
 
 <template>
   <section class="bg-white p-section !pt-0 m:!pt-16 section-association-volunteers">
-    <Heading level="2"
-             class="m:text-center title"
-    >
+    <Heading level="2" class="m:text-center title">
       Découvrez les membres <br>
       de notre <span class="relative z-10 heart">équipe</span>
     </Heading>
@@ -31,19 +29,17 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
         :key="`v-${volunteer.id}`"
         class="rounded-lg mt-0 mb-8 m:mb-16 mx-auto shadow-card"
       >
-        <div v-if="volunteer.profilePicture?.url"
-             class="h-[240px] w-full overflow-hidden"
-        >
+        <div v-if="volunteer.profilePicture?.url" class="h-[240px] w-full overflow-hidden">
           <NuxtImg
             v-if="volunteer.profilePicture?.url"
             :src="volunteer.profilePicture?.url"
             :alt="
               volunteer.profilePicture?.alternativeText ||
-                `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`
+              `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`
             "
             :aria-label="
               volunteer.profilePicture?.alternativeText ||
-                `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`
+              `Photo de profil de ${getVolunteerName(volunteer)} (bénévole ${ASSOCIATION_NAME})`
             "
             class="object-cover object-center rounded-t-lg h-full"
             loading="lazy"
@@ -71,9 +67,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
                 @{{ volunteer.jobCompanyName }}
               </NuxtLink>
             </template>
-            <template v-else>
-              {{ volunteer.jobLabel }} chez {{ volunteer.jobCompanyName }}
-            </template>
+            <template v-else> {{ volunteer.jobLabel }} chez {{ volunteer.jobCompanyName }} </template>
           </div>
           <div class="flex justify-center gap-2">
             <a
@@ -82,12 +76,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
               target="_blank"
               :aria-label="`Lien du profil LinkedIn de ${getVolunteerName(volunteer)} - Nouvelle fenêtre`"
             >
-              <NuxtImg src="/images/icons/linkedin.svg"
-                       alt="Icône LinkedIn"
-                       loading="lazy"
-                       width="40"
-                       height="40"
-              />
+              <NuxtImg src="/images/icons/linkedin.svg" alt="Icône LinkedIn" loading="lazy" width="40" height="40" />
             </a>
             <a
               v-if="volunteer.twitter"
@@ -95,12 +84,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
               target="_blank"
               :aria-label="`Lien du profil Twitter de ${getVolunteerName(volunteer)}`"
             >
-              <NuxtImg src="/images/icons/twitter.svg"
-                       alt="Icône Twitter"
-                       loading="lazy"
-                       width="40"
-                       height="40"
-              />
+              <NuxtImg src="/images/icons/twitter.svg" alt="Icône Twitter" loading="lazy" width="40" height="40" />
             </a>
             <a
               v-if="volunteer.github"
@@ -108,12 +92,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
               target="_blank"
               :aria-label="`Lien du profil GitHub de ${getVolunteerName(volunteer)}`"
             >
-              <NuxtImg src="/images/icons/github.svg"
-                       alt="Icône GitHub"
-                       loading="lazy"
-                       width="40"
-                       height="40"
-              />
+              <NuxtImg src="/images/icons/github.svg" alt="Icône GitHub" loading="lazy" width="40" height="40" />
             </a>
             <a
               v-if="volunteer.website"
@@ -121,12 +100,7 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
               target="_blank"
               :aria-label="`Lien personnalisé de ${getVolunteerName(volunteer)}`"
             >
-              <NuxtImg src="/images/icons/website.svg"
-                       alt="Icône lien"
-                       loading="lazy"
-                       width="40"
-                       height="40"
-              />
+              <NuxtImg src="/images/icons/website.svg" alt="Icône lien" loading="lazy" width="40" height="40" />
             </a>
           </div>
         </div>
@@ -147,12 +121,12 @@ const activeVolunteers = computed(() => props.volunteers.filter((volunteer) => v
 }
 
 .heart::after {
-  content: "";
+  content: '';
   width: 80px;
   height: 80px;
   position: absolute;
   z-index: -1;
-  background: url("/images/drawings/yellow_heart.webp") no-repeat center;
+  background: url('/images/drawings/yellow_heart.webp') no-repeat center;
   background-size: contain;
   right: -30px;
   bottom: -20px;

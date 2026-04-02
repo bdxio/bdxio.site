@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import type { Speaker } from "@bdxio/bdxio.types";
+import type { Speaker } from '@bdxio/bdxio.types';
 
 interface Props {
   speaker: Speaker;
-  size?: "small" | "medium" | "large";
+  size?: 'small' | 'medium' | 'large';
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: "large",
+  size: 'large',
 });
 
 const initials = computed(() => {
-  const [firstName, lastName] = props.speaker.name.split(" ");
+  const [firstName, lastName] = props.speaker.name.split(' ');
 
   if (!firstName?.length && !lastName?.length) {
-    return "";
+    return '';
   }
 
-  return `${firstName?.length && firstName[0] ? firstName[0].toUpperCase() : ""}
-   ${lastName?.length && lastName[0] ? ` ${lastName[0].toUpperCase()}` : ""}`;
+  return `${firstName?.length && firstName[0] ? firstName[0].toUpperCase() : ''}
+   ${lastName?.length && lastName[0] ? ` ${lastName[0].toUpperCase()}` : ''}`;
 });
 
 function getPictureSizeClasses() {
   switch (props.size) {
-    case "small":
-      return "h-8 w-8";
-    case "medium":
-      return "h-12 w-12";
-    case "large":
+    case 'small':
+      return 'h-8 w-8';
+    case 'medium':
+      return 'h-12 w-12';
+    case 'large':
     default:
-      return "h-16 w-16";
+      return 'h-16 w-16';
   }
 }
 </script>

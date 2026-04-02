@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants.ts";
+import { ASSOCIATION_NAME } from '~/services/constants.ts';
 
 const getSocialIcon = (social: string) => {
   switch (social) {
-    case "linkedin":
-      return "/images/icons/linkedin.svg";
-    case "x":
-      return "/images/icons/x.svg";
-    case "bluesky":
-      return "/images/icons/bluesky.svg";
-    case "youtube":
-      return "/images/icons/youtube.svg";
-    case "instagram":
-      return "/images/icons/instagram.svg";
-    case "flickr":
-      return "/images/icons/flickr.svg";
+    case 'linkedin':
+      return '/images/icons/linkedin.svg';
+    case 'x':
+      return '/images/icons/x.svg';
+    case 'bluesky':
+      return '/images/icons/bluesky.svg';
+    case 'youtube':
+      return '/images/icons/youtube.svg';
+    case 'instagram':
+      return '/images/icons/instagram.svg';
+    case 'flickr':
+      return '/images/icons/flickr.svg';
     default:
-      return "";
+      return '';
   }
 };
 
@@ -24,14 +24,12 @@ const navigation = getNavigation();
 const previousEditionsNavigation = getPreviousEditionsNavigation();
 const { $featureFlags } = useNuxtApp();
 
-const { data: association } = await useAPI("/association");
+const { data: association } = await useAPI('/association');
 </script>
 
 <template>
   <footer class="footer p-section !pb-0 mb-8 m:mb-16 flex flex-col">
-    <NuxtLink to="/"
-              class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16"
-    >
+    <NuxtLink to="/" class="flex flex-col m:flex-row m:items-center mb-8 m:mb-16">
       <NuxtImg
         src="/images/logo-bdxio.svg"
         width="160"
@@ -55,10 +53,7 @@ const { data: association } = await useAPI("/association");
           <span>Avenue Jean Gabriel Domergue<br>33300 BORDEAUX</span>
         </a>
         <ul class="flex">
-          <li v-for="social in association?.socials ?? []"
-              :key="social.label"
-              class="mr-4"
-          >
+          <li v-for="social in association?.socials ?? []" :key="social.label" class="mr-4">
             <a
               :href="social.href"
               target="_blank"
@@ -78,13 +73,8 @@ const { data: association } = await useAPI("/association");
       </div>
       <nav class="m:w-1/6 mb-8 m:mb-0">
         <ul class="flex flex-col">
-          <li v-for="page in navigation"
-              :key="page.path"
-              class="mr-5 mb-2 last:mr-0 last:mb-0"
-          >
-            <NuxtLink :to="page.path"
-                      class="text-2xl m:text-base"
-            >
+          <li v-for="page in navigation" :key="page.path" class="mr-5 mb-2 last:mr-0 last:mb-0">
+            <NuxtLink :to="page.path" class="text-2xl m:text-base">
               {{ page.name }}
             </NuxtLink>
           </li>
@@ -92,13 +82,8 @@ const { data: association } = await useAPI("/association");
       </nav>
       <nav class="m:w-1/6 mb-8 m:mb-0">
         <ul class="flex flex-col">
-          <li v-for="page in previousEditionsNavigation"
-              :key="page.path"
-              class="mr-5 mb-2 last:mr-0 last:mb-0"
-          >
-            <NuxtLink :to="page.path"
-                      class="text-2xl m:text-base"
-            >
+          <li v-for="page in previousEditionsNavigation" :key="page.path" class="mr-5 mb-2 last:mr-0 last:mb-0">
+            <NuxtLink :to="page.path" class="text-2xl m:text-base">
               {{ page.name }}
             </NuxtLink>
           </li>
@@ -110,13 +95,15 @@ const { data: association } = await useAPI("/association");
             <a
               :href="`mailto:${association?.teamEmail}`"
               :title="`Envoyer un mail à ${association?.teamEmail} - Nouvelle fenêtre`"
-            >{{ association?.teamEmail }}</a>
+              >{{ association?.teamEmail }}</a
+            >
           </li>
           <li>
             <a
               :href="`mailto:${association?.partnersEmail}`"
               :title="`Envoyer un mail à ${association?.partnersEmail} - Nouvelle fenêtre`"
-            >{{ association?.partnersEmail }}</a>
+              >{{ association?.partnersEmail }}</a
+            >
           </li>
         </ul>
         <ButtonNewsletter />
@@ -126,16 +113,10 @@ const { data: association } = await useAPI("/association");
       <span class="text-lg m:mr-16 mb-4 m:mb-0">
         © {{ new Date().getFullYear() }} - {{ association?.name ?? ASSOCIATION_NAME }}
       </span>
-      <NuxtLink v-if="$featureFlags.pages.legalNotice"
-                to="/legalnotice"
-                class="text-lg m:mr-16 mb-4 m:mb-0"
-      >
+      <NuxtLink v-if="$featureFlags.pages.legalNotice" to="/legalnotice" class="text-lg m:mr-16 mb-4 m:mb-0">
         Mentions légales
       </NuxtLink>
-      <NuxtLink v-if="$featureFlags.pages.codeOfConduct"
-                to="/conduct"
-                class="text-lg m:mr-16 mb-4 m:mb-0"
-      >
+      <NuxtLink v-if="$featureFlags.pages.codeOfConduct" to="/conduct" class="text-lg m:mr-16 mb-4 m:mb-0">
         Code de conduite
       </NuxtLink>
       <a

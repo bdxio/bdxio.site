@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { target } = defineProps<{
+const { target = undefined } = defineProps<{
   target?: string;
 }>();
 </script>
@@ -7,9 +7,7 @@ const { target } = defineProps<{
 <template>
   <a>
     <slot />
-    <IconOpenNewWindow v-if="target === '_blank'"
-                       class="icon"
-    />
+    <IconOpenNewWindow v-if="target === '_blank'" class="icon" />
   </a>
 </template>
 

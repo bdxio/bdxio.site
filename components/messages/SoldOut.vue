@@ -1,13 +1,7 @@
 <template>
-  <div
-
-    class="p-3 bg-bdxio-yellow-base flex relative overflow-hidden"
-  >
+  <div class="p-3 bg-bdxio-yellow-base flex relative overflow-hidden">
     <div class="scroll-left gap-5">
-      <div
-        v-for="i in 50"
-        :key="i"
-      >
+      <div v-for="i in 50" :key="i">
         🔥 L'ensemble des billets pour l'évènement sont <span class="font-semibold">SOLD OUT !</span> Merci 🙏
       </div>
     </div>

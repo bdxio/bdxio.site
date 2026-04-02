@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { computed } from "#imports";
+import { computed } from '#imports';
 
 const props = defineProps<{
-  color: "white" | "light" | "grey" | "dark";
+  color: 'white' | 'light' | 'grey' | 'dark';
   disabled?: boolean;
 }>();
 
 const colorClasses = computed(() => {
   switch (props.color) {
-    case "white":
-      return "border-bdxio-cream-base text-bdxio-cream-base";
-    case "light":
-      return "border-bdxio-blue-light text-bdxio-blue-light hover:border-bdxio-blue-dark hover:text-bdxio-blue-dark";
-    case "grey":
-      return "border-bdxio-dark text-bdxio-dark";
-    case "dark":
-      return "border-bdxio-blue-dark text-bdxio-blue-dark hover:border-bdxio-blue-light hover:text-bdxio-blue-light";
+    case 'white':
+      return 'border-bdxio-cream-base text-bdxio-cream-base';
+    case 'light':
+      return 'border-bdxio-blue-light text-bdxio-blue-light hover:border-bdxio-blue-dark hover:text-bdxio-blue-dark';
+    case 'grey':
+      return 'border-bdxio-dark text-bdxio-dark';
+    case 'dark':
+      return 'border-bdxio-blue-dark text-bdxio-blue-dark hover:border-bdxio-blue-light hover:text-bdxio-blue-light';
     default:
       return null;
   }

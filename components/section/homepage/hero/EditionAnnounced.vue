@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Edition } from "@bdxio/bdxio.types";
+import type { Edition } from '@bdxio/bdxio.types';
 
 const { edition } = defineProps<{
   edition: Edition;
@@ -9,9 +9,7 @@ const editionDuration = getEditionDuration(edition);
 
 <template>
   <header class="flex flex-col items-center text-center p-section block--dark">
-    <Heading level="1"
-             class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
-    >
+    <Heading level="1" class="text-bdxio-light !mb-0 text-4xl m:text-[42px]">
       En {{ edition.year }},<br>
       Nous sommes de retour&nbsp;!
     </Heading>
@@ -24,22 +22,16 @@ const editionDuration = getEditionDuration(edition);
       width="450"
       height="71"
     />
-    <p class="mb-3 text-[28px]">
-      On revient <ItemLocationSpanWithLink :edition="edition" />
-    </p>
-    <time class="font-title text-[40px]/[0.9em] text-bdxio-light italic p-10 m:p-16 circle"
-          :datetime="edition.date"
-    >
+    <p class="mb-3 text-[28px]">On revient <ItemLocationSpanWithLink :edition="edition" /></p>
+    <time class="font-title text-[40px]/[0.9em] text-bdxio-light italic p-10 m:p-16 circle" :datetime="edition.date">
       {{ displayDate(edition.date, editionDuration) }}
     </time>
-    <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">
-      Et on a hâte de vous y (re)voir&nbsp;!
-    </p>
+    <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">Et on a hâte de vous y (re)voir&nbsp;!</p>
   </header>
 </template>
 
 <style scoped lang="css">
 .circle {
-  background: url("/images/drawings/circle-purple.webp") no-repeat center / 100% 100%;
+  background: url('/images/drawings/circle-purple.webp') no-repeat center / 100% 100%;
 }
 </style>

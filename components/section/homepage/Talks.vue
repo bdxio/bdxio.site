@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
-import type { EditionYear } from "~/services/constants";
-import type { Talk } from "@bdxio/bdxio.types";
+import { EDITION } from '~/services/constants';
+import type { EditionYear } from '~/services/constants';
+import type { Talk } from '@bdxio/bdxio.types';
 
 const props = defineProps<{
   edition?: EditionYear;
@@ -12,17 +12,17 @@ const NUMBER_OF_TALKS_TO_SHOW = 4;
 
 const isPreviousEdition = edition !== EDITION;
 
-const { data: talks }: { data: Ref<Talk[]> } = await useAPI("/talks", {
+const { data: talks }: { data: Ref<Talk[]> } = await useAPI('/talks', {
   params: {
-    populate: "*",
-    "pagination[limit]": 100,
-    "filters[edition][year][$eq]": edition,
+    populate: '*',
+    'pagination[limit]': 100,
+    'filters[edition][year][$eq]': edition,
   },
 });
 
-const route = useRoute("year");
+const route = useRoute('year');
 const year = route.params.year as string | undefined;
-const talksPath = year ? `/${year}/talks` : "/talks";
+const talksPath = year ? `/${year}/talks` : '/talks';
 
 function shuffleArray(talks: Talk[]): Talk[] {
   return talks
@@ -44,15 +44,8 @@ const randomizeTalks = computed(() => {
 </script>
 
 <template>
-  <section class="p-section flex flex-col items-center
-  justify-center bg-bdxio-grey-100 bg-bdxio-cream-base"
-  >
-    <Heading
-      level="2"
-      class="text-center"
-    >
-      Des talks pour partager, apprendre et s’inspirer
-    </Heading>
+  <section class="p-section flex flex-col items-center justify-center bg-bdxio-grey-100 bg-bdxio-cream-base">
+    <Heading level="2" class="text-center"> Des talks pour partager, apprendre et s’inspirer </Heading>
     <ClientOnly>
       <div>
         <ul class="flex flex-wrap justify-center gap-4 my-16 mx-12">
@@ -70,18 +63,11 @@ const randomizeTalks = computed(() => {
                   {{ talk.title }}
                 </h2>
                 <span class="font-light italic text-sm">{{ talk.level }}</span>
-                <p
-                  v-if="talk.category?.name"
-                  class="font-bold text-sm"
-                  :style="{ color: talk.category?.color }"
-                >
+                <p v-if="talk.category?.name" class="font-bold text-sm" :style="{ color: talk.category?.color }">
                   {{ talk.category?.name }}
                 </p>
               </div>
-              <div
-                v-if="talk.speakers?.length"
-                class="flex"
-              >
+              <div v-if="talk.speakers?.length" class="flex">
                 <SectionTalkSpeakerPicture
                   v-for="speaker in talk.speakers"
                   :key="`speaker-${speaker.id}`"

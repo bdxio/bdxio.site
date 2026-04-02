@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from "~/services/constants";
-import type { Category, Slot, Talk, Schedule } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from '~/services/constants';
+import type { Category, Slot, Talk, Schedule } from '@bdxio/bdxio.types';
 
 const edition = useEdition();
 const { $featureFlags } = useNuxtApp();
@@ -11,37 +11,38 @@ if (!$featureFlags.pages.scheduleLegacy.show) {
 
 useHead({ title: `Programme | ${ASSOCIATION_NAME}` });
 
-const ALL = "all";
-const ADVANCED = "Avancé";
-const ENGLISH = "Anglais";
+const ALL = 'all';
+const ADVANCED = 'Avancé';
+const ENGLISH = 'Anglais';
 const filters: Ref<string[]> = ref([]);
 const openPanel = ref(false);
 const categoriesWrapper = ref(null);
 
-const [
-  { data: categories },
-  { data: slots },
-  { data: talks },
-]: [
+const [{ data: categories }, { data: slots }, { data: talks }]: [
   { data: Ref<Category[]> },
   { data: Ref<Slot[]> },
-  { data: Ref<Talk[]>}
-] =
-  await Promise.all([
-    useAPI("/categories", { params: {
-      "populate": "*",
-    } }),
-    useAPI("/slots", { params: {
-      "populate": "*",
-      "sort": "startSlot:asc",
-      "filters[editions][year][$contains]": edition,
-    } }),
-    useAPI("/talks", { params: {
-      "populate": "*",
-      "pagination[limit]": 100,
-      "filters[edition][year][$eq]": edition,
-    } }),
-  ]);
+  { data: Ref<Talk[]> },
+] = await Promise.all([
+  useAPI('/categories', {
+    params: {
+      populate: '*',
+    },
+  }),
+  useAPI('/slots', {
+    params: {
+      populate: '*',
+      sort: 'startSlot:asc',
+      'filters[editions][year][$contains]': edition,
+    },
+  }),
+  useAPI('/talks', {
+    params: {
+      populate: '*',
+      'pagination[limit]': 100,
+      'filters[edition][year][$eq]': edition,
+    },
+  }),
+]);
 
 const schedule = slots.value.reduce((result, slot) => {
   const slotTalks = talks.value
@@ -53,7 +54,7 @@ const schedule = slots.value.reduce((result, slot) => {
     });
 
   result.push({
-    time: `${slot.startSlot.split(":")[0]}h${slot.startSlot.split(":")[1]}`,
+    time: `${slot.startSlot.split(':')[0]}h${slot.startSlot.split(':')[1]}`,
     name: slot.name,
     talks: slotTalks,
     rooms: slot.rooms || [],
@@ -66,26 +67,23 @@ const filteredSchedule = computed(() => {
   if (!filters.value.length) {
     return schedule;
   }
-  
+
   return schedule
     .map((scheduleItem) => {
       return {
         ...scheduleItem,
-        talks: scheduleItem.talks
-          ?.filter((talk) => talk.category && filters.value.includes(talk.category.id.toString())),
+        talks: scheduleItem.talks?.filter(
+          (talk) => talk.category && filters.value.includes(talk.category.id.toString())
+        ),
       };
     })
     .filter((scheduleItem) => scheduleItem.talks?.length);
 });
 
 function displayTalkSubInfos(talk: Talk) {
-  const formattedSpeakers = talk.speakers?.length
-    ? talk.speakers
-      .map((s) => s.name)
-      .join(" / ")
-    : "";
+  const formattedSpeakers = talk.speakers?.length ? talk.speakers.map((s) => s.name).join(' / ') : '';
 
-  let text = "";
+  let text = '';
 
   if (formattedSpeakers) text += `${formattedSpeakers} -`;
   if (talk.format?.name) text += ` ${talk.format.name}`;
@@ -105,28 +103,38 @@ function setFilter(value: string) {
 }
 
 function getCategoryImage(category: Category) {
-  return [{
-    name: "Frontend",
-    icon: "/images/drawings/categories/frontend.webp",
-  }, {
-    name: "Backend",
-    icon: "/images/drawings/categories/backend.webp",
-  }, {
-    name: "Big Data & I.A.",
-    icon: "/images/drawings/categories/bigdataia.webp",
-  }, {
-    name: "Design & UX",
-    icon: "/images/drawings/categories/designux.webp",
-  }, {
-    name: "Cloud & DevSecOps",
-    icon: "/images/drawings/categories/cloudetdevsecops.webp",
-  }, {
-    name: "Méthodo & Architecture",
-    icon: "/images/drawings/categories/methodoarchitecture.webp",
-  }, {
-    name: "Hors-piste",
-    icon: "/images/drawings/categories/horspiste.webp",
-  }].find((c) => c.name === category.name)?.icon || "";
+  return (
+    [
+      {
+        name: 'Frontend',
+        icon: '/images/drawings/categories/frontend.webp',
+      },
+      {
+        name: 'Backend',
+        icon: '/images/drawings/categories/backend.webp',
+      },
+      {
+        name: 'Big Data & I.A.',
+        icon: '/images/drawings/categories/bigdataia.webp',
+      },
+      {
+        name: 'Design & UX',
+        icon: '/images/drawings/categories/designux.webp',
+      },
+      {
+        name: 'Cloud & DevSecOps',
+        icon: '/images/drawings/categories/cloudetdevsecops.webp',
+      },
+      {
+        name: 'Méthodo & Architecture',
+        icon: '/images/drawings/categories/methodoarchitecture.webp',
+      },
+      {
+        name: 'Hors-piste',
+        icon: '/images/drawings/categories/horspiste.webp',
+      },
+    ].find((c) => c.name === category.name)?.icon || ''
+  );
 }
 
 function displayMobilePanel() {
@@ -139,19 +147,13 @@ onClickOutside(categoriesWrapper, () => {
   if (window.innerWidth <= 1024 && openPanel.value) {
     displayMobilePanel();
   }
-  
 });
 </script>
 
 <template>
-  <main class="p-section  bg-white">
-    <header class="flex flex-col justify-center items-center text-center ">
-      <Heading
-        level="1"
-        class="relative z-0 title"
-      >
-        Le programme de la journée
-      </Heading>
+  <main class="p-section bg-white">
+    <header class="flex flex-col justify-center items-center text-center">
+      <Heading level="1" class="relative z-0 title"> Le programme de la journée </Heading>
     </header>
     <section class="mt-14 md:mt-12">
       <div class="flex flex-col gap-3 justify-center items-center mb-12">
@@ -165,29 +167,20 @@ onClickOutside(categoriesWrapper, () => {
         >
           Télécharger le programme
         </LinkPrimary>
-        <LinkSecondary
-          v-if="$featureFlags.pages.speakers.show"
-          type="nuxt"
-          to="/speakers"
-          color="dark"
-        >
+        <LinkSecondary v-if="$featureFlags.pages.speakers.show" type="nuxt" to="/speakers" color="dark">
           Nos speakers
         </LinkSecondary>
         <OpenFeedback />
       </div>
       <div class="flex flex-col lg:flex-row">
-        <div
-          v-if="categories.length"
-          class="w-full lg:max-w-[375px]"
-        >
+        <div v-if="categories.length" class="w-full lg:max-w-[375px]">
           <div
             ref="categoriesWrapper"
             class="bg-grey-100 mb-12 pb-7 h-[60px] overflow-hidden lg:sticky lg:top-0 lg:mb-0 lg:h-auto"
             :class="{ '!h-full': openPanel }"
           >
             <span
-              class="text-center text-lg mt-4 block h-7 text-grey-400
-              font-bold cursor-pointer lg:cursor-default "
+              class="text-center text-lg mt-4 block h-7 text-grey-400 font-bold cursor-pointer lg:cursor-default"
               @click.prevent="displayMobilePanel"
             >
               Filtrer par thème
@@ -224,9 +217,7 @@ onClickOutside(categoriesWrapper, () => {
             </ul>
           </div>
         </div>
-        <div
-          v-if="schedule.length"
-        >
+        <div v-if="schedule.length">
           <div class="lg:ml-[100px]">
             <div class="ml-7">
               <span class="block w-[7px] h-[7px] rounded-full bg-bdxio-blue-base -translate-x-[34%]" />
@@ -241,25 +232,16 @@ onClickOutside(categoriesWrapper, () => {
                   {{ time }}
                 </h4>
                 <div class="text-lg border-l-[2px] border-l-solid border-l-bdxio-blue-base ml-7 p-8 lg:p-12">
-                  <ul
-                    v-if="slotTalks?.length"
-                    class="flex flex-col gap-8"
-                  >
+                  <ul v-if="slotTalks?.length" class="flex flex-col gap-8">
                     <li
                       v-for="(talk, indexTalk) in slotTalks"
                       :key="`slot-${indexSlot}-talk-${indexTalk}`"
                       class="talk"
                     >
-                      <div
-                        v-if="talk.room"
-                        class="uppercase tracking-[2px] font-extralight text-sm"
-                      >
+                      <div v-if="talk.room" class="uppercase tracking-[2px] font-extralight text-sm">
                         {{ talk.room.name }}
                       </div>
-                      <NuxtLink
-                        v-if="talk.type !== CLOSING_TALK_TYPE"
-                        :to="`/talks/${talk.id}`"
-                      >
+                      <NuxtLink v-if="talk.type !== CLOSING_TALK_TYPE" :to="`/talks/${talk.id}`">
                         <div class="flex">
                           <NuxtImg
                             v-if="talk.category"
@@ -270,25 +252,21 @@ onClickOutside(categoriesWrapper, () => {
                             width="40"
                           />
                           <div class="font-bold">
-                            {{ talk.title }} {{ talk.language === ENGLISH ? "🇬🇧" : null }}
+                            {{ talk.title }} {{ talk.language === ENGLISH ? '🇬🇧' : null }}
                             <div class="font-extralight">
-                              {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED ? "🌶️" : null }}
+                              {{ displayTalkSubInfos(talk) }} {{ talk.level === ADVANCED ? '🌶️' : null }}
                             </div>
                           </div>
                         </div>
                       </NuxtLink>
                       <div v-else>
-                        <div class="font-bold">
-                          Keynote de fermeture
-                        </div>
+                        <div class="font-bold">Keynote de fermeture</div>
                       </div>
                     </li>
                   </ul>
-                  <div
-                    v-else
-                  >
+                  <div v-else>
                     <div class="uppercase tracking-[2px] font-extralight text-sm">
-                      {{ rooms?.length ? rooms.map(room => room.name).join(", ") : "Communiqué le jour J" }}
+                      {{ rooms?.length ? rooms.map((room) => room.name).join(', ') : 'Communiqué le jour J' }}
                     </div>
                     <div class="font-bold">
                       {{ name }}
@@ -306,7 +284,7 @@ onClickOutside(categoriesWrapper, () => {
 
 <style scoped lang="css">
 .title:before {
-  content: "";
+  content: '';
   display: block;
   width: 80px;
   height: 80px;
@@ -314,7 +292,7 @@ onClickOutside(categoriesWrapper, () => {
   z-index: -1;
   left: -30px;
   bottom: -10px;
-  background: url("/images/drawings/blue_presentation_left.webp") center no-repeat;
+  background: url('/images/drawings/blue_presentation_left.webp') center no-repeat;
   background-size: cover;
 
   @media screen and (min-width: theme('screens.m')) {
@@ -325,7 +303,7 @@ onClickOutside(categoriesWrapper, () => {
 }
 
 .title:after {
-  content: "";
+  content: '';
   display: block;
   width: 80px;
   height: 80px;
@@ -333,7 +311,7 @@ onClickOutside(categoriesWrapper, () => {
   z-index: -1;
   right: -30px;
   bottom: -10px;
-  background: url("/images/drawings/blue_presentation_right.webp") center no-repeat;
+  background: url('/images/drawings/blue_presentation_right.webp') center no-repeat;
   background-size: cover;
 
   @media screen and (min-width: theme('screens.m')) {

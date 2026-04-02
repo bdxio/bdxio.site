@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EditionYear } from "~/services/constants";
+import type { EditionYear } from '~/services/constants';
 
 const props = defineProps<{
   edition?: EditionYear;
@@ -12,15 +12,8 @@ const { $featureFlags } = useNuxtApp();
 <template>
   <section class="p-section flex flex-col justify-between items-start bg-bdxio-yellow-base w-full">
     <div>
-      <HeadingSection
-        level="2"
-        class="text-xl"
-      >
-        Speakers
-      </HeadingSection>
-      <Heading level="3">
-        Vous aussi, rejoignez le navire&nbsp;!
-      </Heading>
+      <HeadingSection level="2" class="text-xl"> Speakers </HeadingSection>
+      <Heading level="3"> Vous aussi, rejoignez le navire&nbsp;! </Heading>
       <p>
         Vous avez un talk à proposer&nbsp;? Des idées à partager&nbsp;?
         <br>Rejoignez notre équipe de speakers pour cette édition {{ edition }}.
@@ -37,11 +30,6 @@ const { $featureFlags } = useNuxtApp();
     >
       Devenir speaker
     </LinkSecondary>
-    <p
-      v-else
-      class="italic text-md"
-    >
-      Inscriptions clôturées
-    </p>
+    <p v-else class="italic text-md">Inscriptions clôturées</p>
   </section>
 </template>

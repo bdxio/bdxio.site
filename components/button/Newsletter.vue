@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import fetchJsonp from "fetch-jsonp";
-import type { EditionYear } from "~/services/constants";
+import fetchJsonp from 'fetch-jsonp';
+import type { EditionYear } from '~/services/constants';
 
 const props = defineProps<{
   edition?: EditionYear;
@@ -14,7 +14,7 @@ const state = reactive({
   loading: false,
   success: false,
   error: false,
-  email: "",
+  email: '',
 });
 
 const config = useRuntimeConfig();
@@ -32,9 +32,9 @@ function onType(event: Event) {
 }
 
 function validateEmail(value: string) {
-  return (
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  ).test(value?.trim()?.toLowerCase());
+  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    value?.trim()?.toLowerCase()
+  );
 }
 
 function resetFeedback() {
@@ -50,7 +50,7 @@ async function register() {
   state.loading = true;
 
   if (!config.public.NEWSLETTER_URL) {
-    console.error("Missing NEWSLETTER_URL environment variable");
+    console.error('Missing NEWSLETTER_URL environment variable');
     state.error = true;
     state.loading = false;
     return;
@@ -60,10 +60,10 @@ async function register() {
    * JSONP is used to avoid CORS issues with Mailchimp.
    */
   try {
-    const response = await (await fetchJsonp(
-      `${config.public.NEWSLETTER_URL}&EMAIL=${state.email}`, { jsonpCallback: "c" },
-    )).json();
-    if (response?.result !== "success") {
+    const response = await (
+      await fetchJsonp(`${config.public.NEWSLETTER_URL}&EMAIL=${state.email}`, { jsonpCallback: 'c' })
+    ).json();
+    if (response?.result !== 'success') {
       state.error = true;
       return;
     }
@@ -77,14 +77,9 @@ async function register() {
 </script>
 
 <template>
-  <div
-    class="flex items-center"
-    @click="toggleForm"
-    @keydown.enter.exact="toggleForm"
-  >
+  <div class="flex items-center" @click="toggleForm" @keydown.enter.exact="toggleForm">
     <span
-      class="border-none py-2 px-4 rounded-lg duration-300 w-fit cursor-pointer
-     bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light"
+      class="border-none py-2 px-4 rounded-lg duration-300 w-fit cursor-pointer bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light"
     >
       Newsletter BDX I/O {{ edition }} 💌
     </span>
@@ -110,31 +105,11 @@ async function register() {
       @click="toggleForm"
       @keydown.enter.exact="toggleForm"
     >
-    <p
-      v-if="state.success"
-      class="text-white"
-    >
-      Votre inscription est validée !
-    </p>
-    <form
-      v-else
-      class="flex flex-col m:justify-center w-full m:w-auto p-4"
-      @submit.prevent="register"
-    >
-      <Loader
-        v-if="state.loading"
-        color="#FFFFFF"
-        :width="100"
-        :height="100"
-        class="m-auto"
-      />
+    <p v-if="state.success" class="text-white">Votre inscription est validée !</p>
+    <form v-else class="flex flex-col m:justify-center w-full m:w-auto p-4" @submit.prevent="register">
+      <Loader v-if="state.loading" color="#FFFFFF" :width="100" :height="100" class="m-auto" />
       <template v-else>
-        <label
-          for="email"
-          class="text-white text-3xl m:text-4xl mb-4"
-        >
-          Saisissez votre adresse email
-        </label>
+        <label for="email" class="text-white text-3xl m:text-4xl mb-4"> Saisissez votre adresse email </label>
         <div class="flex flex-col m:flex-row m:justify-center">
           <input
             v-model="state.email"
@@ -156,10 +131,7 @@ async function register() {
             S'inscrire
           </ButtonSecondary>
         </div>
-        <p
-          v-if="state.error"
-          class="text-red pt-3"
-        >
+        <p v-if="state.error" class="text-red pt-3">
           Une erreur est survenue. <br>Merci de réessayer dans quelques minutes.
         </p>
       </template>
