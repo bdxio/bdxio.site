@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type EditionYear } from "~/services/constants";
+import type { EditionYear } from "~/services/constants";
 import type { Ref } from "vue";
 import type { Sponsor, Offer } from "@bdxio/bdxio.types";
 

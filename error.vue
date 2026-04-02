@@ -3,12 +3,12 @@ import { ASSOCIATION_NAME } from "~/services/constants";
 import type { NuxtError } from "#app";
 
 const props = defineProps<{
-  error: any;
+  error: { statusCode: NuxtError["status"] };
 }>();
 
 const edition = useEdition();
 
-const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
+const getErrorContent = (statusCode: NuxtError["status"]) => {
   switch (statusCode) {
     case 404:
       return "La page que vous demandez n'existe pas.";
@@ -26,23 +26,17 @@ const getErrorContent = (statusCode: NuxtError["statusCode"]) => {
     <LayoutHeader background="light" />
     <section class="p-section flex flex-col gap-10 justify-center items-center">
       <div>
-        <Heading
-          level="1"
-          class="text-center text-bdxio-blue-dark"
-        >
+        <Heading level="1" class="text-center text-bdxio-blue-dark">
           {{ getErrorContent(props.error.statusCode) }}
         </Heading>
         <div class="w-1/2 mx-auto flex flex-col gap-4">
           <p>
             Nous nous excusons pour la gêne occasionnée et vous invitons à vous rediriger sur la
-            <LinkNative href="/">
-              page d'accueil.
-            </LinkNative>
+            <LinkNative href="/"> page d'accueil. </LinkNative>
           </p>
           <p>
-            Si le problème persiste n'hésitez pas à <LinkNative href="mailto:team@bdxio.fr">
-              nous contacter.
-            </LinkNative>
+            Si le problème persiste n'hésitez pas à
+            <LinkNative href="mailto:team@bdxio.fr"> nous contacter. </LinkNative>
           </p>
         </div>
       </div>

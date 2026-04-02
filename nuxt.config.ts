@@ -16,11 +16,12 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    "@nuxt/eslint",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "@nuxt/image",
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
   ],
 
   plugins: ["~/plugins/featureFlags/index.ts"],
@@ -80,6 +81,15 @@ export default defineNuxtConfig({
       lg: 1200,
       xl: 1400,
       "2xl": 1600,
+    },
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        "markdown-it",
+        "fetch-jsonp", // CJS
+      ],
     },
   },
 });

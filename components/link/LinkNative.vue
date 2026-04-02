@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { target } = defineProps<{
+const { target = undefined } = defineProps<{
   target?: string;
 }>();
 </script>
