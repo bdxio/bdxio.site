@@ -1,11 +1,6 @@
 <template>
   <section class="p-section section-jobs">
-    <Heading
-      level="1"
-      class="text-center"
-    >
-      Les offres d'emploi de nos partenaires
-    </Heading>
+    <Heading level="1" class="text-center"> Les offres d'emploi de nos partenaires </Heading>
     <jobs-widget
       color="#7D7DF2"
       locale="fr"

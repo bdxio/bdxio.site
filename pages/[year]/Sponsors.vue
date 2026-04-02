@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const edition = useEdition();
 

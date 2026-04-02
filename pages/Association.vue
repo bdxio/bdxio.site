@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Volunteer } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME } from '~/services/constants';
+import type { Volunteer } from '@bdxio/bdxio.types';
 
 const { $featureFlags } = useNuxtApp();
 
@@ -10,10 +10,10 @@ if (!$featureFlags.pages.association.show) {
 
 useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 
-const { data: volunteers }: { data: Ref<Volunteer[]> } = await useAPI("/volunteers", {
+const { data: volunteers }: { data: Ref<Volunteer[]> } = await useAPI('/volunteers', {
   params: {
-    populate: "*",
-    sort: "firstname:asc",
+    populate: '*',
+    sort: 'firstname:asc',
   },
 });
 </script>
@@ -21,9 +21,6 @@ const { data: volunteers }: { data: Ref<Volunteer[]> } = await useAPI("/voluntee
 <template>
   <main>
     <SectionAssociationPresentation />
-    <SectionAssociationVolunteers
-      v-if="volunteers?.length"
-      :volunteers="volunteers"
-    />
+    <SectionAssociationVolunteers v-if="volunteers?.length" :volunteers="volunteers" />
   </main>
 </template>

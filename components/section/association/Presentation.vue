@@ -1,23 +1,18 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const edition = useEdition();
 const { LINK_PROGRAMME_PDF } = useNuxtApp();
 
-const route = useRoute("year");
+const route = useRoute('year');
 const year = route.params.year as string | undefined;
-const schedulePath = year ? `/${year}/schedule` : "/schedule";
+const schedulePath = year ? `/${year}/schedule` : '/schedule';
 </script>
 
 <template>
   <div class="bg-white p-section">
     <section class="text-center">
-      <Heading
-        level="1"
-        class="inline-block mb-4 relative z-10 scribble"
-      >
-        L'asso {{ ASSOCIATION_NAME }}
-      </Heading>
+      <Heading level="1" class="inline-block mb-4 relative z-10 scribble"> L'asso {{ ASSOCIATION_NAME }} </Heading>
       <p class="m-0">
         Tout connaître sur nous, l'association n'aura plus aucun <br class="hidden m:inline">
         secret pour vous !
@@ -32,30 +27,17 @@ const schedulePath = year ? `/${year}/schedule` : "/schedule";
         sizes="sm:100vw lg:80vw"
       />
       <div class="mb-100 xxxl:w-2/3 mt-10 l:mt-0">
-        <HeadingSection
-          level="2"
-          class="!text-bdxio-blue-base"
-        >
-          Qui sommes nous ?
-        </HeadingSection>
-        <Heading
-          level="3"
-          class="my-3"
-        >
-          Un petit groupe de <br class="hidden m:inline"> bénévoles <span class="relative z-10">bordelais</span> !
+        <HeadingSection level="2" class="!text-bdxio-blue-base"> Qui sommes nous ? </HeadingSection>
+        <Heading level="3" class="my-3">
+          Un petit groupe de <br class="hidden m:inline">
+          bénévoles <span class="relative z-10">bordelais</span> !
         </Heading>
         <p class="mt-4 font-normal">
-          Nous avons à cœur de vous proposer un évènement fédérateur, convivial
-          et de grande ampleur. Notre objectif est de permettre à l'ensemble des
-          membres de la communauté IT de se rassembler au sein d'une journée de
-          conférences dédiées à l'ensemble des métiers du web, et ce depuis 2014
-          !
+          Nous avons à cœur de vous proposer un évènement fédérateur, convivial et de grande ampleur. Notre objectif est
+          de permettre à l'ensemble des membres de la communauté IT de se rassembler au sein d'une journée de
+          conférences dédiées à l'ensemble des métiers du web, et ce depuis 2014 !
         </p>
-        <ButtonSecondary
-          v-if="LINK_PROGRAMME_PDF"
-          color="dark"
-          :to="schedulePath"
-        >
+        <ButtonSecondary v-if="LINK_PROGRAMME_PDF" color="dark" :to="schedulePath">
           Découvrir le programme {{ edition }}
         </ButtonSecondary>
       </div>
@@ -65,7 +47,7 @@ const schedulePath = year ? `/${year}/schedule` : "/schedule";
 
 <style scoped lang="css">
 .scribble::after {
-  content: "";
+  content: '';
   display: block;
   width: 150px;
   height: 70px;
@@ -74,7 +56,7 @@ const schedulePath = year ? `/${year}/schedule` : "/schedule";
   right: -30px;
   bottom: -15px;
   transform: rotate(-20deg);
-  background: url("/images/drawings/yellow_scribbles.webp") center no-repeat;
+  background: url('/images/drawings/yellow_scribbles.webp') center no-repeat;
   background-size: cover;
 }
 </style>

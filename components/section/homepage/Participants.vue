@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Edition } from "@bdxio/bdxio.types";
+import type { Edition } from '@bdxio/bdxio.types';
 
 const { edition } = defineProps<{
   edition: Edition;
@@ -13,14 +13,8 @@ const { $featureFlags } = useNuxtApp();
     class="p-section w-full m:[&:not(:last-child)]:w-1/2 flex flex-col justify-between items-start bg-bdxio-yellow-base"
   >
     <div>
-      <HeadingSection level="2"
-                      class="text-xl"
-      >
-        PARTICIPANTS
-      </HeadingSection>
-      <Heading level="3">
-        Vous aussi, rejoignez le navire&nbsp;!
-      </Heading>
+      <HeadingSection level="2" class="text-xl"> PARTICIPANTS </HeadingSection>
+      <Heading level="3"> Vous aussi, rejoignez le navire&nbsp;! </Heading>
       <p>Rejoignez-nous <ItemLocationSpanWithLink :edition="edition" /> pour cette édition {{ edition.year }}.</p>
     </div>
     <LinkSecondary
@@ -33,10 +27,6 @@ const { $featureFlags } = useNuxtApp();
     >
       Billetterie
     </LinkSecondary>
-    <p v-else
-       class="italic text-md mt-4"
-    >
-      Billetterie fermée
-    </p>
+    <p v-else class="italic text-md mt-4">Billetterie fermée</p>
   </section>
 </template>

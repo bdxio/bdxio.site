@@ -7,9 +7,7 @@ const { target = undefined } = defineProps<{
 <template>
   <a>
     <slot />
-    <IconOpenNewWindow v-if="target === '_blank'"
-                       class="icon"
-    />
+    <IconOpenNewWindow v-if="target === '_blank'" class="icon" />
   </a>
 </template>
 

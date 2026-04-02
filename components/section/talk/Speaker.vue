@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Speaker } from "@bdxio/bdxio.types";
+import type { Speaker } from '@bdxio/bdxio.types';
 
 const props = defineProps<{
   speaker: Speaker;
@@ -12,21 +12,12 @@ const speakerSocialLinks = getSpeakerSocialsLinks(props.speaker);
   <section class="bg-grey-100 p-12">
     <div class="flex items-center">
       <SectionTalkSpeakerPicture :speaker="speaker" />
-      <Heading
-        level="3"
-        class="!mb-0 !text-2xl"
-      >
+      <Heading level="3" class="!mb-0 !text-2xl">
         {{ speaker.name }}
       </Heading>
     </div>
-    <ul
-      v-if="speakerSocialLinks.length > 0"
-      class="flex flex-wrap gap-4 mt-8"
-    >
-      <li
-        v-for="(link, index) in speakerSocialLinks"
-        :key="index"
-      >
+    <ul v-if="speakerSocialLinks.length > 0" class="flex flex-wrap gap-4 mt-8">
+      <li v-for="(link, index) in speakerSocialLinks" :key="index">
         <a
           v-if="link.url"
           :href="link.url"
@@ -44,10 +35,6 @@ const speakerSocialLinks = getSpeakerSocialsLinks(props.speaker);
         </a>
       </li>
     </ul>
-    <Markdown
-      v-if="speaker.bio"
-      class="mt-8"
-      :content="speaker.bio"
-    />
+    <Markdown v-if="speaker.bio" class="mt-8" :content="speaker.bio" />
   </section>
 </template>

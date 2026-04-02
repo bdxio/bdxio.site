@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useNuxtApp } from "#imports";
+import { useRuntimeConfig, useNuxtApp } from '#imports';
 
 defineProps({
   talkId: {

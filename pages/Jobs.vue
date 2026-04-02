@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const { $featureFlags } = useNuxtApp();
 
@@ -11,8 +11,8 @@ useHead({
   title: `Offres d'emploi | ${ASSOCIATION_NAME}`,
   script: [
     {
-      src: "https://widget.welovedevs.com/jobs-widget.js",
-      type: "module",
+      src: 'https://widget.welovedevs.com/jobs-widget.js',
+      type: 'module',
     },
   ],
 });

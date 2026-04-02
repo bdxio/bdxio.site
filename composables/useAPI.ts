@@ -1,11 +1,11 @@
 // @ts-nocheck
-import { createError, ref, useFetch, useRuntimeConfig } from "#imports";
+import { createError, ref, useFetch, useRuntimeConfig } from '#imports';
 
 export default async function useAPI(endpoint, options = {}) {
   const config = useRuntimeConfig();
 
   if (!config.public.API_TOKEN) {
-    console.error("Missing API_TOKEN environment variable");
+    console.error('Missing API_TOKEN environment variable');
 
     return {
       data: ref(null),
@@ -14,7 +14,7 @@ export default async function useAPI(endpoint, options = {}) {
   }
 
   if (!config.public.API_URL) {
-    console.error("Missing API_URL environment variable");
+    console.error('Missing API_URL environment variable');
 
     return {
       data: ref(null),
@@ -22,16 +22,13 @@ export default async function useAPI(endpoint, options = {}) {
     };
   }
 
-  const { data, error } = await useFetch(
-    `${config.public.API_URL}${endpoint}`,
-    {
-      headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
-      ...options,
-    },
-  );
+  const { data, error } = await useFetch(`${config.public.API_URL}${endpoint}`, {
+    headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
+    ...options,
+  });
 
   if (error.value?.status === 404) {
-    throw createError({ statusCode: 404, statusMessage: "Page not found" });
+    throw createError({ statusCode: 404, statusMessage: 'Page not found' });
   }
 
   return {

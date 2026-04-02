@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
-import type { FAQQuestion, FAQTarget } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME } from '~/services/constants';
+import type { FAQQuestion, FAQTarget } from '@bdxio/bdxio.types';
 
 const { $featureFlags } = useNuxtApp();
 
@@ -15,53 +15,56 @@ const router = useRouter();
 
 const filters: Array<{
   title: string;
-  value: FAQTarget["target"];
+  value: FAQTarget['target'];
   image: string;
 }> = [
   {
-    title: "Participants",
-    value: "participants",
-    image: "participants.png",
+    title: 'Participants',
+    value: 'participants',
+    image: 'participants.png',
   },
   {
-    title: "Sponsors",
-    value: "sponsors",
-    image: "coffee.png",
+    title: 'Sponsors',
+    value: 'sponsors',
+    image: 'coffee.png',
   },
   {
-    title: "Speakers",
-    value: "speakers",
-    image: "mic.png",
+    title: 'Speakers',
+    value: 'speakers',
+    image: 'mic.png',
   },
 ];
 
-const targets: FAQTarget["target"][] = filters.map((filter) => filter.value);
+const targets: FAQTarget['target'][] = filters.map((filter) => filter.value);
 
-const { data }: { data: Ref<FAQQuestion[]> } = await useAPI("/faq-questions", {
+const { data }: { data: Ref<FAQQuestion[]> } = await useAPI('/faq-questions', {
   params: {
-    populate: "*",
-    "pagination[limit]": 200,
+    populate: '*',
+    'pagination[limit]': 200,
   },
 });
 
 const questions = computed(() => {
-  return targets.reduce((result, target) => {
-    result[target] = data.value.filter((question: FAQQuestion) => question.faq_target?.target === target);
-    return result;
-  }, {} as Record<FAQTarget["target"], FAQQuestion[]>);
+  return targets.reduce(
+    (result, target) => {
+      result[target] = data.value.filter((question: FAQQuestion) => question.faq_target?.target === target);
+      return result;
+    },
+    {} as Record<FAQTarget['target'], FAQQuestion[]>
+  );
 });
 
-const currentTarget = ref<FAQTarget["target"]>(filters[0]?.value || "participants");
+const currentTarget = ref<FAQTarget['target']>(filters[0]?.value || 'participants');
 
-function changeTarget(target: FAQTarget["target"]) {
+function changeTarget(target: FAQTarget['target']) {
   currentTarget.value = target;
 }
 
 watch(currentTarget, () => router.replace({ query: { target: currentTarget.value } }));
 
 onMounted(() => {
-  if (targets.includes(query.target as FAQTarget["target"])) {
-    currentTarget.value = query.target as FAQTarget["target"];
+  if (targets.includes(query.target as FAQTarget['target'])) {
+    currentTarget.value = query.target as FAQTarget['target'];
   } else {
     router.replace({ query: { target: currentTarget.value } });
   }
@@ -71,28 +74,14 @@ onMounted(() => {
 <template>
   <main>
     <section class="p-section bg-white">
-      <Heading
-        level="1"
-        class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"
-      >
-        F.A.Q
-      </Heading>
+      <Heading level="1" class="text-center !text-bdxio-blue-dark !relative !z-10 title w-fit mx-auto"> F.A.Q </Heading>
       <p class="max-w-[500px] text-center block mx-auto text-bdxio-blue-dark">
-        Que vous soyez sponsors, speakers ou encore participants,
-        découvrez les réponses aux questions les plus fréquemment posées.
+        Que vous soyez sponsors, speakers ou encore participants, découvrez les réponses aux questions les plus
+        fréquemment posées.
       </p>
-      <form class="flex flex-col gap-10 s:flex-row  justify-center my-14">
-        <fieldset
-          v-for="{ title, value, image } in filters"
-          :key="`filter-${value}`"
-        >
-          <input
-            :id="value"
-            v-model="currentTarget"
-            type="radio"
-            :value="value"
-            class="hidden"
-          >
+      <form class="flex flex-col gap-10 s:flex-row justify-center my-14">
+        <fieldset v-for="{ title, value, image } in filters" :key="`filter-${value}`">
+          <input :id="value" v-model="currentTarget" type="radio" :value="value" class="hidden">
           <label
             for="sponsors"
             :class="`ml-1 shadow-card flex flex-col items-center justify-center p-10 l:p-20 rounded-xl m-0
@@ -106,17 +95,9 @@ onMounted(() => {
           </label>
         </fieldset>
       </form>
-      <template
-        v-for="target in targets"
-        :key="target"
-      >
+      <template v-for="target in targets" :key="target">
         <ul :class="`mt-[100px] m:max-w-[50%] m:mx-auto ${target !== currentTarget ? 'hidden' : null}`">
-          <details
-            v-for="question in questions[target]"
-            :key="`question-${question.id}`"
-            tag="li"
-            class="mb-10"
-          >
+          <details v-for="question in questions[target]" :key="`question-${question.id}`" tag="li" class="mb-10">
             <summary class="flex items-center cursor-pointer">
               <span class="arrow-icon mr-2">
                 <svg
@@ -133,18 +114,12 @@ onMounted(() => {
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
               </span>
-              <Heading
-                level="2"
-                class="!text-xl !m-0 !text-bdxio-blue-dark !font-body !font-bold"
-              >
+              <Heading level="2" class="!text-xl !m-0 !text-bdxio-blue-dark !font-body !font-bold">
                 {{ question.title }}
               </Heading>
             </summary>
             <div>
-              <Markdown
-                :content="question.answer"
-                class="mt-3"
-              />
+              <Markdown :content="question.answer" class="mt-3" />
             </div>
           </details>
         </ul>
@@ -155,7 +130,7 @@ onMounted(() => {
 
 <style scoped lang="css">
 .title::after {
-  content: "";
+  content: '';
   display: block;
   width: 140px;
   height: 70px;
@@ -163,7 +138,7 @@ onMounted(() => {
   right: -100px;
   bottom: -30px;
   z-index: -1;
-  background-image: url("/images/drawings/yellow_scribbles.webp");
+  background-image: url('/images/drawings/yellow_scribbles.webp');
   background-size: contain;
   background-repeat: no-repeat;
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
-  type: "nuxt" | "button" | "link";
-  color: "white" | "light" | "grey" | "dark";
+  type: 'nuxt' | 'button' | 'link';
+  color: 'white' | 'light' | 'grey' | 'dark';
   href: string;
   disabled?: true;
   download?: string;
@@ -10,59 +10,59 @@ const props = defineProps<{
 
 const color = computed(() => {
   switch (props.color) {
-    case "white":
+    case 'white':
       return {
-        link: "bg-bdxio-cream-base text-bdxio-blue-dark",
-        icon: "#242457",
+        link: 'bg-bdxio-cream-base text-bdxio-blue-dark',
+        icon: '#242457',
       };
-    case "light":
+    case 'light':
       return {
-        link: "bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light",
-        icon: "#fff7ec",
+        link: 'bg-bdxio-blue-light text-bdxio-light hover:text-bdxio-light',
+        icon: '#fff7ec',
       };
-    case "grey":
+    case 'grey':
       return {
-        link: "bg-bdxio-dark text-bdxio-light",
-        icon: "#fff7ec",
+        link: 'bg-bdxio-dark text-bdxio-light',
+        icon: '#fff7ec',
       };
-    case "dark":
+    case 'dark':
     default:
       return {
-        link: "bg-bdxio-blue-dark text-bdxio-light",
-        icon: "#fff7ec",
+        link: 'bg-bdxio-blue-dark text-bdxio-light',
+        icon: '#fff7ec',
       };
   }
 });
 
 const tag = computed(() => {
   switch (props.type) {
-    case "nuxt":
-      return "nuxt-link";
-    case "button":
-      return "button";
-    case "link":
+    case 'nuxt':
+      return 'nuxt-link';
+    case 'button':
+      return 'button';
+    case 'link':
     default:
-      return "a";
+      return 'a';
   }
 });
 
 const getProps = computed(() => {
   switch (props.type) {
-    case "nuxt":
+    case 'nuxt':
       return {
         to: props.href,
       };
-    case "button":
+    case 'button':
       return {
-        type: "button",
+        type: 'button',
       };
-    case "link":
+    case 'link':
     default:
       return {
         href: props.href,
-        target: "_blank",
-        rel: "noopener noreferrer",
-        tabindex: props.disabled ? "-1" : undefined,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        tabindex: props.disabled ? '-1' : undefined,
         download: props.download,
       };
   }

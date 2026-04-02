@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Edition } from "@bdxio/bdxio.types";
+import type { Edition } from '@bdxio/bdxio.types';
 
 const props = defineProps<{
   edition: Edition;
@@ -8,9 +8,7 @@ const props = defineProps<{
 
 <template>
   <header class="flex flex-col items-center text-center p-section block--dark">
-    <Heading level="1"
-             class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
-    >
+    <Heading level="1" class="text-bdxio-light !mb-0 text-4xl m:text-[42px]">
       BDX I/O Édition {{ props.edition.year }}
     </Heading>
     <NuxtImg
@@ -27,14 +25,12 @@ const props = defineProps<{
       <br>
       le {{ displayDate(edition.date) }}
     </p>
-    <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">
-      Et c'était le feu ! 🔥
-    </p>
+    <p class="font-title text-bdxio-light mt-4 text-3xl m:text-[32px]">Et c'était le feu ! 🔥</p>
   </header>
 </template>
 
 <style scoped lang="css">
 .circle {
-  background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
+  background: url('/images/drawings/circle-purple.webp') no-repeat center / contain;
 }
 </style>

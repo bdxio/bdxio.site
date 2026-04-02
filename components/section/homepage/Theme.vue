@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EditionYear } from "~/services/constants";
+import type { EditionYear } from '~/services/constants';
 
 const props = defineProps<{
   edition?: EditionYear;
@@ -11,14 +11,8 @@ const edition = props.edition || useEdition();
 <template>
   <div class="p-section flex flex-col m:justify-between l:flex-row block--white">
     <div class="flex flex-col justify-center w-full l:w-5/12">
-      <HeadingSection level="2"
-                      class="text-bdxio-light text-xl"
-      >
-        Thème {{ edition }}
-      </HeadingSection>
-      <Heading level="3"
-               class="text-bdxio-light"
-      >
+      <HeadingSection level="2" class="text-bdxio-light text-xl"> Thème {{ edition }} </HeadingSection>
+      <Heading level="3" class="text-bdxio-light">
         Dix&nbsp;ans d’innovation, dix ans d’impact:
         <br>
         La technologie au service de la société

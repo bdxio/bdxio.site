@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from "#imports";
+import { defineNuxtPlugin } from '#imports';
 
 export default defineNuxtPlugin(() => ({
   provide: {

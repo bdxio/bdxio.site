@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
-import type { Edition } from "@bdxio/bdxio.types";
+import { ASSOCIATION_NAME } from '~/services/constants';
+import type { Edition } from '@bdxio/bdxio.types';
 
 const { edition } = defineProps<{
   edition: Edition;
@@ -9,9 +9,7 @@ const { edition } = defineProps<{
 
 <template>
   <header class="flex flex-col items-center text-center p-section block--dark">
-    <Heading level="1"
-             class="text-bdxio-light !mb-0 text-4xl m:text-[42px]"
-    >
+    <Heading level="1" class="text-bdxio-light !mb-0 text-4xl m:text-[42px]">
       Êtes-vous prêt(e) pour {{ ASSOCIATION_NAME }} {{ edition.year }}&nbsp;?
     </Heading>
     <NuxtImg
@@ -23,9 +21,7 @@ const { edition } = defineProps<{
       width="450"
       height="71"
     />
-    <p class="mb-3 text-[28px]">
-      On se retrouve <ItemLocationSpanWithLink :edition="edition" />
-    </p>
+    <p class="mb-3 text-[28px]">On se retrouve <ItemLocationSpanWithLink :edition="edition" /></p>
     <div class="flex gap-4 items-center mt-10">
       <LinkPrimary
         type="link"
@@ -53,7 +49,7 @@ const { edition } = defineProps<{
 
 <style scoped lang="css">
 .circle {
-  background: url("/images/drawings/circle-purple.webp") no-repeat center / contain;
+  background: url('/images/drawings/circle-purple.webp') no-repeat center / contain;
 }
 
 .live {

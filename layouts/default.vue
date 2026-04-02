@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EDITION } from "~/services/constants";
+import { EDITION } from '~/services/constants';
 
 const { $featureFlags } = useNuxtApp();
 const edition = useEdition();

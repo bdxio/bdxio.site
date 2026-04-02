@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from "~/services/constants";
+import { ASSOCIATION_NAME } from '~/services/constants';
 
 const { $featureFlags } = useNuxtApp();
 
 const { background } = defineProps<{
-  background: "light" | "dark";
+  background: 'light' | 'dark';
 }>();
 </script>
 
