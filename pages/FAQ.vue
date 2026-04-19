@@ -47,7 +47,9 @@ const { data }: { data: Ref<FAQQuestion[]> } = await useAPI('/faq-questions', {
 const questions = computed(() => {
   return targets.reduce(
     (result, target) => {
-      result[target] = data.value.filter((question: FAQQuestion) => question.faq_target?.target === target);
+      result[target] = data.value
+        .filter((question: FAQQuestion) => question.faq_target?.target === target)
+        .sort((a, b) => a.id - b.id);
       return result;
     },
     {} as Record<FAQTarget['target'], FAQQuestion[]>
