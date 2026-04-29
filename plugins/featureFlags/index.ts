@@ -56,9 +56,9 @@ export default defineNuxtPlugin(() => ({
         codeOfConduct: { show: true },
         legalNotice: { show: true },
         ticketing: {
-          show: false,
+          show: true,
           links: {
-            ticketing: false,
+            ticketing: true,
           },
         },
       },

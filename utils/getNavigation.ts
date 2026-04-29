@@ -114,10 +114,10 @@ export function getNavigation() {
       },
       {
         name: 'Billetterie',
-        path: '/ticketing',
+        path: 'https://www.billetweb.fr/bdxio-2026',
         show: instance.$featureFlags.pages.ticketing.show,
-        type: internal,
-        design: link,
+        type: external,
+        design: primary,
       },
       {
         name: 'Proposer un talk',
