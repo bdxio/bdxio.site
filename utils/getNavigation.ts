@@ -121,7 +121,7 @@ export function getNavigation() {
       },
       {
         name: 'Proposer un talk',
-        path: 'https://conference-hall.io/bdx-i-o-2025',
+        path: 'https://conference-hall.io/bdx-i-o-2026',
         show: instance.$featureFlags.links.cfp,
         type: external,
         design: primary,
