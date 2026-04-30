@@ -13,7 +13,7 @@ useHead({ title: `Mentions légales | ${ASSOCIATION_NAME}` });
       </Heading>
       <p>Association loi 1901</p>
       <p>
-        <strong>Siège social</strong>: BORDEAUX DEVELOPER EXPERIENCE, 43/45 RUE D'ARMAGNAC, CS 72073, 33088 BORDEAUX
+        <strong>Siège social</strong>: BORDEAUX DEVELOPER EXPERIENCE, 12 rue cendrillon, 33600 Pessac
       </p>
       <p><strong>SIRET</strong>: 811 910 520 00022</p>
       <p><strong>Présidente</strong>: Amélie Benoit</p>
