@@ -9,6 +9,7 @@ pages/**/*.vue
 !pages/association.vue
 !pages/conduct.vue
 !pages/sponsors.vue
+!pages/ticketing.vue
 
 pages/schedule.vue
 pages/speakers.vue
