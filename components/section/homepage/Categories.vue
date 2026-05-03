@@ -6,37 +6,37 @@ import { ASSOCIATION_NAME } from '~/services/constants';
 const { $featureFlags } = useNuxtApp();
 const categories = [
   {
-    name: 'Frontend',
-    icon: '/images/drawings/categories/frontend.webp',
-    width: '36',
-    height: '48',
-  },
-  {
-    name: 'Backend',
+    name: 'Cybersécurité',
     icon: '/images/drawings/categories/backend.webp',
     width: '37',
     height: '48',
   },
   {
-    name: 'Big Data & I.A.',
-    icon: '/images/drawings/categories/bigdataia.webp',
-    width: '51',
+    name: 'Software Development',
+    icon: '/images/drawings/categories/frontend.webp',
+    width: '36',
     height: '48',
   },
   {
-    name: 'Design & UX',
+    name: 'Produit & Design',
     icon: '/images/drawings/categories/designux.webp',
     width: '50',
     height: '48',
   },
   {
-    name: 'Cloud & DevSecOps',
+    name: 'Cloud, Infra & DevOps',
     icon: '/images/drawings/categories/cloudetdevsecops.webp',
     width: '60',
     height: '48',
   },
   {
-    name: 'Méthodo & Architecture',
+    name: 'IA, Data & Machine Learning',
+    icon: '/images/drawings/categories/bigdataia.webp',
+    width: '51',
+    height: '48',
+  },
+  {
+    name: 'Architecture & Méthodologies',
     icon: '/images/drawings/categories/methodoarchitecture.webp',
     width: '54',
     height: '48',
