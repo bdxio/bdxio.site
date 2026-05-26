@@ -12,7 +12,7 @@ export default defineNuxtPlugin(() => ({
             heroComingBackSoon: false,
             figures: true,
             about: true,
-            theme: false,
+            theme: true,
             materiel: false,
             categories: true,
             lastYearSponsors: true,

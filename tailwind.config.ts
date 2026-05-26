@@ -40,6 +40,7 @@ const config: Config = {
     fontFamily: {
       body: ["Arial", "sans-serif"],
       title: ["Merriweather", "Arial", "serif"],
+      lato: ['Lato', 'Arial', 'sans-serif'],
     },
     extend: {
       screens: {

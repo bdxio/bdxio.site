@@ -83,3 +83,8 @@ a:hover {
   color: var(--colors-bdxio-light);
   background-color: var(--colors-bdxio-blue-dark);
 }
+
+.block--yellow {
+  color: var(--colors-bdxio-dark);
+  background-color: var(--colors-bdxio-yellow);
+}
