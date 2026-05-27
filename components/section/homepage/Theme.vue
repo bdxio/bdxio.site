@@ -6,7 +6,7 @@ const props = defineProps<{
 }>();
 
 const edition = props.edition || useEdition();
-const ticketingPath = "https://www.billetweb.fr/bdxio-2026";
+const ticketingPath = "https://www.billetweb.fr/bdx-i-o-2026";
 </script>
 
 <template>

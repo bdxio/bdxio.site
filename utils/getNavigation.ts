@@ -114,7 +114,7 @@ export function getNavigation() {
       },
       {
         name: 'Billetterie',
-        path: 'https://www.billetweb.fr/bdxio-2026',
+        path: 'https://www.billetweb.fr/bdx-i-o-2026',
         show: instance.$featureFlags.pages.ticketing.show,
         type: external,
         design: primary,
