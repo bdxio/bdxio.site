@@ -56,6 +56,9 @@ export default defineNuxtConfig({
         wght: [700],
         ital: [700],
       },
+      Lato: {
+        wght: [300, 700],
+      }
     },
   },
 

@@ -12,7 +12,7 @@ export default defineNuxtPlugin(() => ({
             heroComingBackSoon: false,
             figures: true,
             about: true,
-            theme: false,
+            theme: true,
             materiel: false,
             categories: true,
             lastYearSponsors: true,
@@ -56,9 +56,9 @@ export default defineNuxtPlugin(() => ({
         codeOfConduct: { show: true },
         legalNotice: { show: true },
         ticketing: {
-          show: false,
+          show: true,
           links: {
-            ticketing: false,
+            ticketing: true,
           },
         },
       },
