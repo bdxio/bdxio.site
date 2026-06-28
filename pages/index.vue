@@ -41,6 +41,7 @@ const editionData = data.value[0];
     <SectionHomepageTalks v-if="$featureFlags.pages.homepage.sections.talks" />
     <SectionHomepageTheme v-if="$featureFlags.pages.homepage.sections.theme" />
     <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.lastYearSponsors" :edition="PREVIOUS_EDITION" />
+    <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.sponsors" :edition="editionYear" />
     <SectionHomepageMateriel v-if="$featureFlags.pages.homepage.sections.materiel" />
     <SectionHomepageCategories v-if="$featureFlags.pages.homepage.sections.categories" />
     <SectionHomepageAbout v-if="$featureFlags.pages.homepage.sections.about" />
