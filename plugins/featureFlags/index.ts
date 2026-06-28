@@ -29,7 +29,7 @@ export default defineNuxtPlugin(() => ({
           sections: {
             becomeSponsor: true,
             offers: true,
-            sponsorsList: false,
+            sponsorsList: true,
           },
           links: {
             downloadPdf: true,
