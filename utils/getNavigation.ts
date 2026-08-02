@@ -58,15 +58,14 @@ export function getNavigation() {
       {
         name: 'Talks',
         path: getLink('talks', edition),
-        show:
-          (instance.$featureFlags.pages.talks.show && !instance.$featureFlags.pages.schedule.show) || isPreviousEdition,
+        show: instance.$featureFlags.pages.talks.show || isPreviousEdition,
         type: internal,
         design: link,
       },
       {
         name: 'Programme',
         path: getLink('schedule', edition),
-        show: instance.$featureFlags.pages.schedule.show,
+        show: instance.$featureFlags.pages.schedule.show && !isPreviousEdition,
         type: internal,
         design: link,
       },
