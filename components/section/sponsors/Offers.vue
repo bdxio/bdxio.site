@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Offer } from '@bdxio/bdxio.types';
+import type { Offer } from '~/types';
 import type { EditionYear } from '~/services/constants';
 
 const { edition } = defineProps<{

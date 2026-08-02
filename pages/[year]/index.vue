@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME, type EditionYear, PREVIOUS_EDITIONS } from '~/services/constants';
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 const route = useRoute('year');
 const year = route.params.year as EditionYear;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 const { edition } = defineProps<{
   edition: Edition;

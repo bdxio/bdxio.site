@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME, PREVIOUS_EDITION } from '~/services/constants';
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 const editionYear = useEdition();
@@ -11,6 +11,7 @@ const { data }: { data: Ref<Array<Edition>> } = await useAPI('/editions', {
   params: {
     'fields[0]': 'date',
     'fields[1]': 'year',
+    'fields[2]': 'duration',
     'filters[year][$eq]': editionYear,
   },
 });

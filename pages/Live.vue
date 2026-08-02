@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
-import type { Room } from '@bdxio/bdxio.types';
+import type { Room } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 

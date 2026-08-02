@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 const { edition } = defineProps<{
   edition: Edition;
 }>();
-const editionDuration = getEditionDuration(edition);
+const editionDuration = edition.duration ?? 1;
 </script>
 
 <template>

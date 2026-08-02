@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { Talk } from '@bdxio/bdxio.types';
+import type { Talk } from '~/types';
 
 const props = defineProps<{
   talk: Talk;
+  scheduleInfo?: string;
 }>();
 
 const duration = computed(() => {
@@ -29,7 +30,7 @@ const duration = computed(() => {
       class="underline-scribble"
       loading="lazy"
     />
-    <div class="flex flex-wrap gap-6 my-12">
+    <div class="flex flex-wrap items-center gap-6 my-12">
       <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min
       </span>
@@ -39,6 +40,7 @@ const duration = computed(() => {
       <span v-if="talk.language" class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.language }}
       </span>
+      <p v-if="scheduleInfo" class="font-bold ml-auto">{{ scheduleInfo }}</p>
     </div>
     <Markdown v-if="talk.abstract" :content="talk.abstract" />
     <SectionTalkOpenFeedbackFrame v-if="talk.id" :talkId="talk.id" />

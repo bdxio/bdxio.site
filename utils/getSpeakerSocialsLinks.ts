@@ -1,4 +1,4 @@
-import type { Speaker } from '@bdxio/bdxio.types';
+import type { Speaker } from '~/types';
 
 function getSocialUrl(
   link: string,

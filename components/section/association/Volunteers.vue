@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
-import type { Volunteer } from '@bdxio/bdxio.types';
+import type { Volunteer } from '~/types';
 
 const props = defineProps<{
   volunteers: Volunteer[];

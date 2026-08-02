@@ -36,7 +36,7 @@ export default defineNuxtPlugin(() => ({
           },
         },
         schedule: {
-          show: false,
+          show: true,
           links: {
             downloadPdf: false,
           },
@@ -49,8 +49,8 @@ export default defineNuxtPlugin(() => ({
         },
         association: { show: true },
         jobs: { show: false },
-        talks: { show: false },
-        speakers: { show: false },
+        talks: { show: true },
+        speakers: { show: true },
         live: { show: false },
         faq: { show: true },
         codeOfConduct: { show: true },
