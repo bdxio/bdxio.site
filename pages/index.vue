@@ -11,6 +11,7 @@ const { data }: { data: Ref<Array<Edition>> } = await useAPI('/editions', {
   params: {
     'fields[0]': 'date',
     'fields[1]': 'year',
+    'fields[2]': 'duration',
     'filters[year][$eq]': editionYear,
   },
 });
