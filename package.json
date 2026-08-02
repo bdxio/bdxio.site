@@ -19,7 +19,6 @@
     "markdown-it": "14.1.1"
   },
   "devDependencies": {
-    "@bdxio/bdxio.types": "1.8.0",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/eslint-config": "1.15.2",
     "@nuxt/image": "2.0.0",

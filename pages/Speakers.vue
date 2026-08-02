@@ -2,7 +2,7 @@
 import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from '~/services/constants';
 
 import type { Ref } from 'vue';
-import type { Talk, Speaker } from '@bdxio/bdxio.types';
+import type { Talk, Speaker } from '~/types';
 
 const edition = useEdition();
 const { $featureFlags } = useNuxtApp();

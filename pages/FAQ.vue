@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
-import type { FAQQuestion, FAQTarget } from '@bdxio/bdxio.types';
+import type { FAQQuestion, FAQTarget } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 

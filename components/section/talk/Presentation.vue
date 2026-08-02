@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Talk } from '@bdxio/bdxio.types';
+import type { Talk } from '~/types';
 
 const props = defineProps<{
   talk: Talk;

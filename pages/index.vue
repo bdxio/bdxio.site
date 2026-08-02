@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME, PREVIOUS_EDITION } from '~/services/constants';
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 const editionYear = useEdition();

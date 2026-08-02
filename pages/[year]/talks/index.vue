@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME, STANDARD_TALK_TYPE } from '~/services/constants';
-import type { Category, Talk } from '@bdxio/bdxio.types';
+import type { Category, Talk } from '~/types';
 
 const edition = useEdition();
 

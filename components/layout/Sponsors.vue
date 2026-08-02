@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { EditionYear } from '~/services/constants';
 
-import type { Sponsor } from '@bdxio/bdxio.types';
+import type { Sponsor } from '~/types';
 
 const props = defineProps<{
   edition?: EditionYear;

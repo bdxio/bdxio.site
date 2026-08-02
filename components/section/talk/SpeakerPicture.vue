@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Speaker } from '@bdxio/bdxio.types';
+import type { Speaker } from '~/types';
 
 interface Props {
   speaker: Speaker;

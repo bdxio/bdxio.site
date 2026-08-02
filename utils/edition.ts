@@ -1,5 +1,5 @@
 import { LOCATION } from '~/services/constants';
-import type { Edition } from '@bdxio/bdxio.types';
+import type { Edition } from '~/types';
 
 export const getEditionDuration = (edition: Edition) => (edition.year === '2026' ? 2 : 1);
 
