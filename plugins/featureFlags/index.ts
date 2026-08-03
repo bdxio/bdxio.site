@@ -5,7 +5,6 @@ export default defineNuxtPlugin(() => ({
     featureFlags: {
       pages: {
         homepage: {
-          show: true,
           sections: {
             heroEditionAnnounced: true,
             heroDDay: false,
@@ -41,12 +40,6 @@ export default defineNuxtPlugin(() => ({
             downloadPdf: false,
           },
         },
-        scheduleLegacy: {
-          show: false,
-          links: {
-            downloadPdf: false,
-          },
-        },
         association: { show: true },
         jobs: { show: false },
         talks: { show: true },
@@ -69,9 +62,6 @@ export default defineNuxtPlugin(() => ({
       links: {
         cfp: false,
         openfeedback: false,
-        schedulePdf: false,
-        live: false,
-        materiel: false,
         kitCommunication: false,
       },
       messages: {
