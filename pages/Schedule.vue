@@ -74,6 +74,11 @@ function buildGrid(dayTalks: Talk[]) {
   return { rooms, rows };
 }
 
+const pageTitle = computed(() => {
+  const duration = editionData.duration || 1;
+  return duration > 1 ? `Le programme des ${duration} jours` : 'Le programme de la journée';
+});
+
 const days = computed(() => {
   const duration = editionData.duration || 1;
 
@@ -93,7 +98,7 @@ const days = computed(() => {
 <template>
   <main class="schedule">
     <header class="schedule-header">
-      <Heading level="1" class="schedule-title"> Le programme de la journée </Heading>
+      <Heading level="1" class="schedule-title"> {{ pageTitle }} </Heading>
     </header>
     <SectionTalkCategoryFilter v-model="currentFilter" :categories="categories" />
     <section class="schedule-days">

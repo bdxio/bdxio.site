@@ -24,7 +24,7 @@
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark p-4 row-start-2 col-start-1 col-end-2 m:row-start-1 m:col-start-11 m:col-end-13 max-h-[280px]"
     >
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
-        <Counter :value="8" />
+        <Counter :value="7" />
       </p>
       <p class="font-title text-bold text-2xl md:text-3xl m-3">Amphis</p>
       <p class="m-0 mb-4 text-lg md:text-base">Toujours une conf à votre goût !</p>
@@ -33,7 +33,7 @@
       class="flex flex-col items-center justify-center bg-white box-border text-center text-bdxio-blue-dark p-4 row-start-3 col-start-2 col-end-3 m:row-start-2 m:col-start-1 m:col-end-3 max-h-[280px]"
     >
       <p class="m-0 font-bold text-5xl xs:text-[82px] font-title leading-none">
-        <Counter :value="50" />
+        <Counter :value="80" />
       </p>
       <p class="font-title text-bold text-2xl md:text-3xl m-3">Conférences</p>
       <p class="m-0 mb-4 text-lg md:text-base">Une répartition à 50% de bordelais&nbsp;!</p>

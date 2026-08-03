@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { EDITION } from '~/services/constants';
 import type { EditionYear } from '~/services/constants';
 import type { Talk } from '~/types';
 
@@ -9,8 +8,6 @@ const props = defineProps<{
 
 const edition = props.edition || useEdition();
 const NUMBER_OF_TALKS_TO_SHOW = 4;
-
-const isPreviousEdition = edition !== EDITION;
 
 const { data: talks }: { data: Ref<Talk[]> } = await useAPI('/talks', {
   params: {
@@ -89,19 +86,8 @@ const randomizeTalks = computed(() => {
         class="flex flex-row items-center"
         aria-label="lien vers la billetterie - Nouvelle fenêtre"
       >
-        Découvrir tous les talks
+        Tous les talks de {{ edition }}
       </LinkSecondary>
-
-      <LinkPrimary
-        :v-if="isPreviousEdition"
-        type="link"
-        color="light"
-        :href="`/programme-bdxio-${year}.pdf`"
-        :download="`programme-bdxio-${year}.pdf`"
-        class="whitespace-nowrap block mx-auto mb-10"
-      >
-        Télécharger le programme
-      </LinkPrimary>
     </div>
   </section>
 </template>
