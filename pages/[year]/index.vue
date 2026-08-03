@@ -37,7 +37,6 @@ if (!editionData) {
 <template>
   <main>
     <SectionHomepageHeroPreviousEdition v-if="editionData" :edition="editionData" />
-    <SectionHomepageFigures v-if="edition" :edition="edition" />
     <SectionHomepageTalks v-if="edition" :edition="edition" />
     <SectionSponsorsList v-if="edition" :edition="edition" />
     <SectionHomepageAbout v-if="$featureFlags.pages.homepage.sections.about" />

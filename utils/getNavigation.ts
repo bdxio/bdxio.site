@@ -1,6 +1,5 @@
 import { useNuxtApp } from '#imports';
-import { EDITION, PREVIOUS_EDITIONS } from '~/services/constants';
-import type { EditionYear } from '~/services/constants';
+import { PREVIOUS_EDITIONS } from '~/services/constants';
 
 type Page = {
   name: string;
@@ -14,14 +13,6 @@ const link = 'link' as const;
 const primary = 'primary' as const;
 const internal = 'internal' as const;
 const external = 'external' as const;
-
-function getLink(path: string, edition: EditionYear) {
-  const isPreviousEdition = edition !== EDITION;
-  if (isPreviousEdition) {
-    return `/${edition}/${path}`;
-  }
-  return `/${path}`;
-}
 
 export function getPreviousEditionsNavigation() {
   const instance = useNuxtApp();
@@ -39,14 +30,6 @@ export function getNavigation() {
   const instance = useNuxtApp();
 
   return computed(() => {
-    const route = useRoute();
-    const year = (route.params as { year?: EditionYear }).year;
-
-    // Determine current edition from route
-    const edition: EditionYear = year && PREVIOUS_EDITIONS.includes(year) ? year : EDITION;
-
-    const isPreviousEdition = edition !== EDITION;
-
     const pages: Page[] = [
       {
         name: 'Accueil',
@@ -57,29 +40,29 @@ export function getNavigation() {
       },
       {
         name: 'Talks',
-        path: getLink('talks', edition),
-        show: instance.$featureFlags.pages.talks.show || isPreviousEdition,
+        path: '/talks',
+        show: instance.$featureFlags.pages.talks.show,
         type: internal,
         design: link,
       },
       {
         name: 'Programme',
-        path: getLink('schedule', edition),
-        show: instance.$featureFlags.pages.schedule.show && !isPreviousEdition,
+        path: '/schedule',
+        show: instance.$featureFlags.pages.schedule.show,
         type: internal,
         design: link,
       },
       {
         name: 'Sponsors',
-        path: getLink('sponsors', edition),
-        show: instance.$featureFlags.pages.sponsors.show || isPreviousEdition,
+        path: '/sponsors',
+        show: instance.$featureFlags.pages.sponsors.show,
         type: internal,
         design: link,
       },
       {
         name: 'Speakers',
-        path: getLink('speakers', edition),
-        show: instance.$featureFlags.pages.speakers.show || isPreviousEdition,
+        path: '/speakers',
+        show: instance.$featureFlags.pages.speakers.show,
         type: internal,
         design: link,
       },
