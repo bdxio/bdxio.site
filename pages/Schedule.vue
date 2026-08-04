@@ -79,7 +79,8 @@ function buildGrid(dayTalks: Talk[]) {
 
       return { talk, rowIndex, rowSpan, columnIndex };
     })
-    .filter((cell) => cell.columnIndex !== -1);
+    .filter((cell) => cell.columnIndex !== -1)
+    .sort((a, b) => a.rowIndex - b.rowIndex || a.columnIndex - b.columnIndex);
 
   return { rooms, rows, cells };
 }
