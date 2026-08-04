@@ -61,17 +61,27 @@ function buildGrid(dayTalks: Talk[]) {
     }, [] as Room[])
   );
 
-  const times = [...new Set(dayTalks.filter((talk) => talk.slot).map((talk) => talk.slot!.startSlot))].sort();
+  const boundaries = [
+    ...new Set(dayTalks.filter((talk) => talk.slot).flatMap((talk) => [talk.slot!.startSlot, talk.slot!.endSlot])),
+  ].sort();
 
-  const rows = times.map((time) => ({
-    time,
-    cells: rooms.map((room) => ({
-      room,
-      talk: dayTalks.find((talk) => talk.slot?.startSlot === time && talk.room?.id === room.id),
-    })),
-  }));
+  const startTimes = new Set(dayTalks.filter((talk) => talk.slot).map((talk) => talk.slot!.startSlot));
 
-  return { rooms, rows };
+  const rows = boundaries.slice(0, -1).map((time) => ({ time, hasStart: startTimes.has(time) }));
+
+  const cells = dayTalks
+    .filter((talk) => talk.slot && talk.room)
+    .map((talk) => {
+      const rowIndex = boundaries.indexOf(talk.slot!.startSlot);
+      const endIndex = boundaries.indexOf(talk.slot!.endSlot);
+      const rowSpan = endIndex > rowIndex ? endIndex - rowIndex : 1;
+      const columnIndex = rooms.findIndex((room) => room.id === talk.room?.id);
+
+      return { talk, rowIndex, rowSpan, columnIndex };
+    })
+    .filter((cell) => cell.columnIndex !== -1);
+
+  return { rooms, rows, cells };
 }
 
 const pageTitle = computed(() => {
@@ -119,32 +129,37 @@ const days = computed(() => {
           </LinkPrimary>
         </div>
         <div class="schedule-table-scroll">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th class="schedule-cell-corner" />
-                <th v-for="room in group.rooms" :key="room.id" class="schedule-cell-room">
-                  {{ room.name }}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="row in group.rows" :key="row.time">
-                <th class="schedule-cell-time">
-                  {{ formatTime(row.time) }}
-                </th>
-                <td v-for="cell in row.cells" :key="cell.room.id" class="schedule-cell-talk">
-                  <SectionTalkCard
-                    v-if="cell.talk"
-                    :talk="cell.talk"
-                    :to="`/talks/${cell.talk.id}`"
-                    class="schedule-talk-card"
-                    :class="{ 'schedule-talk-card--dimmed': isDimmed(cell.talk) }"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div
+            class="schedule-grid"
+            :style="{ gridTemplateColumns: `auto repeat(${group.rooms.length}, max-content)` }"
+          >
+            <div
+              v-for="(room, roomIndex) in group.rooms"
+              :key="room.id"
+              class="schedule-cell-room"
+              :style="{ gridColumn: roomIndex + 2, gridRow: 1 }"
+            >
+              {{ room.name }}
+            </div>
+            <template v-for="(row, rowIndex) in group.rows" :key="row.time">
+              <div
+                v-if="row.hasStart"
+                class="schedule-cell-time"
+                :style="{ gridColumn: 1, gridRow: rowIndex + 2 }"
+              >
+                {{ formatTime(row.time) }}
+              </div>
+            </template>
+            <SectionTalkCard
+              v-for="cell in group.cells"
+              :key="cell.talk.id"
+              :talk="cell.talk"
+              :to="`/talks/${cell.talk.id}`"
+              class="schedule-talk-card"
+              :class="{ 'schedule-talk-card--dimmed': isDimmed(cell.talk) }"
+              :style="{ gridColumn: cell.columnIndex + 2, gridRow: `${cell.rowIndex + 2} / span ${cell.rowSpan}` }"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -338,6 +353,7 @@ const days = computed(() => {
 
 .schedule-table-scroll {
   overflow-x: auto;
+  padding-bottom: 20px;
   padding-left: 2rem;
   padding-right: 2rem;
 
@@ -367,14 +383,10 @@ const days = computed(() => {
   }
 }
 
-.schedule-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.schedule-cell-corner {
-  padding: 0.5rem;
-  text-align: left;
+.schedule-grid {
+  display: grid;
+  align-items: stretch;
+  gap: 1rem;
 }
 
 .schedule-cell-room {
@@ -385,16 +397,11 @@ const days = computed(() => {
 .schedule-cell-time {
   padding: 0.5rem;
   text-align: right;
-  vertical-align: top;
   white-space: nowrap;
 }
 
-.schedule-cell-talk {
-  padding: 0.5rem;
-  vertical-align: top;
-}
-
 .schedule-talk-card {
+  height: 100%;
   transition: opacity 0.2s ease;
 }
 
