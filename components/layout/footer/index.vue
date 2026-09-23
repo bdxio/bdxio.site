@@ -113,10 +113,10 @@ const { data: association } = await useAPI('/association');
       <span class="text-lg m:mr-16 mb-4 m:mb-0">
         © {{ new Date().getFullYear() }} - {{ association?.name ?? ASSOCIATION_NAME }}
       </span>
-      <NuxtLink v-if="$featureFlags.pages.legalNotice" to="/legalnotice" class="text-lg m:mr-16 mb-4 m:mb-0">
+      <NuxtLink v-if="$featureFlags.pages.legalNotice.page" to="/legalnotice" class="text-lg m:mr-16 mb-4 m:mb-0">
         Mentions légales
       </NuxtLink>
-      <NuxtLink v-if="$featureFlags.pages.codeOfConduct" to="/conduct" class="text-lg m:mr-16 mb-4 m:mb-0">
+      <NuxtLink v-if="$featureFlags.pages.codeOfConduct.page" to="/conduct" class="text-lg m:mr-16 mb-4 m:mb-0">
         Code de conduite
       </NuxtLink>
       <a

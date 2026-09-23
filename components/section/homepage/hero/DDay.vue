@@ -34,7 +34,7 @@ const { edition } = defineProps<{
         Télécharger l'application Imagina
       </LinkPrimary>
       <LinkPrimary
-        v-if="$featureFlags.pages.live"
+        v-if="$featureFlags.pages.live.page"
         type="link"
         color="white"
         href="/live"

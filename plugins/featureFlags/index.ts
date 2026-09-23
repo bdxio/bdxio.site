@@ -49,8 +49,8 @@ export default defineNuxtPlugin(() => ({
         speakers: { page: true, menu: true },
         live: { page: false, menu: false },
         faq: { page: true, menu: true },
-        codeOfConduct: { page: true, menu: true },
-        legalNotice: { page: true, menu: true },
+        codeOfConduct: { page: true },
+        legalNotice: { page: true },
         ticketing: {
           page: true,
           menu: true,
