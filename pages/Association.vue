@@ -4,7 +4,7 @@ import type { Volunteer } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.association.show) {
+if (!$featureFlags.pages.association.page) {
   throw createError({ statusCode: 404 });
 }
 

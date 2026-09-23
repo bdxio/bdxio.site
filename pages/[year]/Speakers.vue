@@ -13,7 +13,7 @@ type SpeakersWithTalkId = Speaker & { talkId: number };
 type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
 
 // Allow speakers page for previous editions even if feature flag is disabled
-if (!$featureFlags.pages.speakers.show && !isPreviousEdition) {
+if (!$featureFlags.pages.speakers.page && !isPreviousEdition) {
   throw createError({ statusCode: 404 });
 }
 

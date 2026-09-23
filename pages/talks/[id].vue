@@ -39,7 +39,7 @@ const scheduleInfo = getTalkScheduleInfo(editions.value[0].date, talk.value);
     <SectionTalkPresentation :talk="talk" :schedule-info="scheduleInfo" />
     <SectionTalkSpeaker v-for="speaker in talk.speakers" :key="speaker.id" :speaker="speaker" />
     <LinkSecondary
-      v-if="$featureFlags.pages.schedule.show"
+      v-if="$featureFlags.pages.schedule.page"
       color="light"
       to="/schedule"
       type="link"

@@ -2,13 +2,13 @@
   <section class="p-section section-jobs">
     <Heading level="1" class="text-center"> Les offres d'emploi de nos partenaires </Heading>
     <jobs-widget
-      color="#7D7DF2"
+      color="#220BAB"
       locale="fr"
-      items="40"
+      items="30"
       hidePartnership="false"
       hideFooter="false"
       referralCode="BDXIO"
-      customAlgoliaFilters="inSelections.-NGVxFQ3IDZ1Ep5hDwMu > 0"
+      customAlgoliaFilters="inSelections.-NDhWt3fwP2jee_n16t9 > 0"
       eventMode="true"
       class="mt-12 m:mt-24"
     />

@@ -18,7 +18,7 @@ const sponsorsPath = year ? `/${year}/sponsors` : '/sponsors';
         En cliquant sur le bouton ci-dessous vous trouverez toutes les informations nécessaires.
       </p>
     </div>
-    <LinkSecondary v-if="$featureFlags.pages.sponsors.show" type="link" :to="sponsorsPath" color="white" class="mt-8">
+    <LinkSecondary v-if="$featureFlags.pages.sponsors.page" type="link" :to="sponsorsPath" color="white" class="mt-8">
       Devenir sponsor
     </LinkSecondary>
     <p v-else class="italic text-md mt-4">Sponsoring fermé</p>

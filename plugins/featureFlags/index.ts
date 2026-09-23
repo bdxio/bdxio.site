@@ -21,10 +21,12 @@ export default defineNuxtPlugin(() => ({
           },
         },
         previousEditions: {
-          show: true,
+          page: true,
+          menu: true,
         },
         sponsors: {
-          show: true,
+          page: true,
+          menu: true,
           sections: {
             becomeSponsor: true,
             offers: true,
@@ -35,21 +37,23 @@ export default defineNuxtPlugin(() => ({
           },
         },
         schedule: {
-          show: true,
+          page: true,
+          menu: true,
           links: {
             downloadPdf: false,
           },
         },
-        association: { show: true },
-        jobs: { show: false },
-        talks: { show: true },
-        speakers: { show: true },
-        live: { show: false },
-        faq: { show: true },
-        codeOfConduct: { show: true },
-        legalNotice: { show: true },
+        association: { page: true, menu: true },
+        jobs: { page: true, menu: false },
+        talks: { page: true, menu: true },
+        speakers: { page: true, menu: true },
+        live: { page: false, menu: false },
+        faq: { page: true, menu: true },
+        codeOfConduct: { page: true, menu: true },
+        legalNotice: { page: true, menu: true },
         ticketing: {
-          show: true,
+          page: true,
+          menu: true,
           links: {
             ticketing: true,
           },

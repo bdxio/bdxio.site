@@ -7,6 +7,7 @@ pages/**/*.vue
 !pages/faq.vue
 !pages/legalnotice.vue
 !pages/association.vue
+!pages/jobs.vue
 !pages/conduct.vue
 !pages/sponsors.vue
 !pages/schedule.vue

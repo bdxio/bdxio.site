@@ -11,7 +11,7 @@ if (!year || !PREVIOUS_EDITIONS.includes(year)) {
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.previousEditions.show) {
+if (!$featureFlags.pages.previousEditions.page) {
   throw createError({ statusCode: 404, statusMessage: 'Edition not found' });
 }
 

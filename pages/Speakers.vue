@@ -11,7 +11,7 @@ type SpeakerId = Speaker['id'];
 type SpeakersWithTalkId = Speaker & { talkId: Talk['id'] };
 type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
 
-if (!$featureFlags.pages.speakers.show) {
+if (!$featureFlags.pages.speakers.page) {
   throw createError({ statusCode: 404 });
 }
 

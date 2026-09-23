@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, useNuxtApp, ref, nextTick } from '#imports';
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.ticketing.show) {
+if (!$featureFlags.pages.ticketing.page) {
   throw createError({ statusCode: 404 });
 }
 
