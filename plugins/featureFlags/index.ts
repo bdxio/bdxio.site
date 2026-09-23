@@ -44,7 +44,7 @@ export default defineNuxtPlugin(() => ({
           },
         },
         association: { page: true, menu: true },
-        jobs: { page: false, menu: false },
+        jobs: { page: true, menu: false },
         talks: { page: true, menu: true },
         speakers: { page: true, menu: true },
         live: { page: false, menu: false },
