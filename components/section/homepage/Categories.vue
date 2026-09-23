@@ -60,7 +60,7 @@ const categories = [
         et pour tous les niveaux : vous trouverez forcément votre bonheur&nbsp;!
       </p>
       <div
-        v-if="$featureFlags.pages.schedule.show || $featureFlags.pages.schedule.links.downloadPdf"
+        v-if="$featureFlags.pages.schedule.page || $featureFlags.pages.schedule.links.downloadPdf"
         class="mt-8 flex items-center gap-2"
       >
         <LinkSecondary

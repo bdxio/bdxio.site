@@ -4,7 +4,7 @@ import type { Room } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.live.show) {
+if (!$featureFlags.pages.live.page) {
   throw createError({ statusCode: 404 });
 }
 

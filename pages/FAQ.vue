@@ -4,7 +4,7 @@ import type { FAQQuestion, FAQTarget } from '~/types';
 
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.faq.show) {
+if (!$featureFlags.pages.faq.page) {
   throw createError({ statusCode: 404 });
 }
 

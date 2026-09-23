@@ -4,7 +4,7 @@ import { ASSOCIATION_NAME } from '~/services/constants';
 const editionYear = useEdition();
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.sponsors.show) {
+if (!$featureFlags.pages.sponsors.page) {
   throw createError({ statusCode: 404 });
 }
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
