@@ -1,21 +1,10 @@
 <script setup lang="ts">
 import type { Talk } from '~/types';
 
-const props = defineProps<{
+defineProps<{
   talk: Talk;
   scheduleInfo?: string;
 }>();
-
-const duration = computed(() => {
-  switch (props.talk.format?.name) {
-    case 'Quickie':
-      return 15;
-    case 'Hands on lab':
-      return 100;
-    default:
-      return 45;
-  }
-});
 </script>
 
 <template>
@@ -31,8 +20,8 @@ const duration = computed(() => {
       loading="lazy"
     />
     <div class="flex flex-wrap items-center gap-6 my-12">
-      <span class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
-        {{ talk.format?.name ? `${talk.format.name} - ` : null }}{{ duration }}min
+      <span v-if="talk.format" class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
+        {{ talk.format.name }} - {{ talk.format.duration }}
       </span>
       <span v-if="talk.level" class="border-2 border-bdxio-blue-dark rounded-full py-3 px-4 leading-4">
         {{ talk.level }}
