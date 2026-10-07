@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
 import { ALL_CATEGORIES } from '~/components/section/talk/CategoryFilter.vue';
-import type { Edition, Room, Talk } from '~/types';
+import type { Edition, Talk } from '~/types';
 
 const currentFilter = ref(ALL_CATEGORIES);
 
@@ -51,38 +51,8 @@ function formatTime(time: string) {
   return time.slice(0, 5);
 }
 
-function buildGrid(dayTalks: Talk[]) {
-  const rooms = sortRooms(
-    dayTalks.reduce((result, talk) => {
-      if (talk.room && !result.some((room) => room.id === talk.room?.id)) {
-        result.push(talk.room);
-      }
-      return result;
-    }, [] as Room[])
-  );
-
-  const boundaries = [
-    ...new Set(dayTalks.filter((talk) => talk.slot).flatMap((talk) => [talk.slot!.startSlot, talk.slot!.endSlot])),
-  ].sort();
-
-  const startTimes = new Set(dayTalks.filter((talk) => talk.slot).map((talk) => talk.slot!.startSlot));
-
-  const rows = boundaries.slice(0, -1).map((time) => ({ time, hasStart: startTimes.has(time) }));
-
-  const cells = dayTalks
-    .filter((talk) => talk.slot && talk.room)
-    .map((talk) => {
-      const rowIndex = boundaries.indexOf(talk.slot!.startSlot);
-      const endIndex = boundaries.indexOf(talk.slot!.endSlot);
-      const rowSpan = endIndex > rowIndex ? endIndex - rowIndex : 1;
-      const columnIndex = rooms.findIndex((room) => room.id === talk.room?.id);
-
-      return { talk, rowIndex, rowSpan, columnIndex };
-    })
-    .filter((cell) => cell.columnIndex !== -1)
-    .sort((a, b) => a.rowIndex - b.rowIndex || a.columnIndex - b.columnIndex);
-
-  return { rooms, rows, cells };
+function getGridTemplateRows(rows: { isBreak: boolean }[]) {
+  return ['auto', ...rows.map((row) => (row.isBreak ? '2rem' : 'auto'))].join(' ');
 }
 
 const pageTitle = computed(() => {
@@ -100,7 +70,7 @@ const days = computed(() => {
     return {
       day,
       ...getDayDate(day),
-      ...buildGrid(dayTalks),
+      ...buildScheduleGrid(dayTalks),
     };
   });
 });
@@ -132,7 +102,10 @@ const days = computed(() => {
         <div class="schedule-table-scroll">
           <div
             class="schedule-grid"
-            :style="{ gridTemplateColumns: `auto repeat(${group.rooms.length}, max-content)` }"
+            :style="{
+              gridTemplateColumns: `auto repeat(${group.rooms.length}, max-content)`,
+              gridTemplateRows: getGridTemplateRows(group.rows),
+            }"
           >
             <div
               v-for="(room, roomIndex) in group.rooms"

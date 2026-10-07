@@ -1,6 +1,6 @@
-import type { Talk } from "./Talk";
-import type { Slot } from "./Slot";
-import type { Offer } from "./Offer";
+import type { Talk } from './Talk';
+import type { Slot } from './Slot';
+import type { Offer } from './Offer';
 
 export type Edition = {
   id: number;
@@ -10,6 +10,8 @@ export type Edition = {
   slots: Slot[];
   offers: Offer[];
   duration?: number;
+  placeName?: string;
+  placeAddress?: string;
   youtubePlaylistUrl?: string;
   picturesGalleryUrl?: string;
   createdAt: string;
