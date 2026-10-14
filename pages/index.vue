@@ -33,16 +33,16 @@ const editionData = data.value[0];
     <SectionHomepageHeroComingBackSoon v-if="$featureFlags.pages.homepage.sections.heroComingBackSoon" />
     <SectionHomepageFigures v-if="$featureFlags.pages.homepage.sections.figures" />
     <div
-      v-if="$featureFlags.pages.homepage.sections.participants || $featureFlags.pages.homepage.sections.sponsors"
+      v-if="$featureFlags.pages.homepage.sections.participants || $featureFlags.pages.homepage.sections.becomingSponsor"
       class="flex flex-col m:flex-row"
     >
-      <SectionHomepageSponsors v-if="$featureFlags.pages.homepage.sections.sponsors" :edition="editionData" />
+      <SectionHomepageSponsors v-if="$featureFlags.pages.homepage.sections.becomingSponsor" :edition="editionData" />
       <SectionHomepageParticipants v-if="$featureFlags.pages.homepage.sections.participants" :edition="editionData" />
     </div>
     <SectionHomepageTalks v-if="$featureFlags.pages.homepage.sections.talks" />
     <SectionHomepageTheme v-if="$featureFlags.pages.homepage.sections.theme" />
-    <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.lastYearSponsors" :edition="PREVIOUS_EDITION" />
-    <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.sponsors" :edition="editionYear" />
+    <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.previousEditionSponsors" :edition="PREVIOUS_EDITION" />
+    <SectionSponsorsList v-if="$featureFlags.pages.homepage.sections.currentEditionSponsors" :edition="editionYear" />
     <SectionHomepageMateriel v-if="$featureFlags.pages.homepage.sections.materiel" />
     <SectionHomepageCategories v-if="$featureFlags.pages.homepage.sections.categories" />
     <SectionHomepageAbout v-if="$featureFlags.pages.homepage.sections.about" />
