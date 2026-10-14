@@ -24,7 +24,7 @@ const { $featureFlags } = useNuxtApp();
       color="grey"
       :to="TICKETING_URL"
       target="_blank"
-      class="flex flex-row items-center"
+      class="flex flex-row items-center mt-8"
       aria-label="lien vers la billetterie - Nouvelle fenêtre"
     >
       Billetterie

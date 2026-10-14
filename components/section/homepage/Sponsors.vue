@@ -8,7 +8,7 @@ const sponsorsPath = year ? `/${year}/sponsors` : '/sponsors';
 
 <template>
   <section
-    class="p-section w-full m:flex-1 flex flex-col items-start bg-bdxio-blue-dark text-bdxio-light"
+    class="p-section w-full m:flex-1 flex flex-col justify-between items-start bg-bdxio-blue-dark text-bdxio-light"
   >
     <div>
       <HeadingSection level="2" class="text-bdxio-light text-xl"> sponsors </HeadingSection>
