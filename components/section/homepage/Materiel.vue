@@ -17,7 +17,7 @@ const devices = [
 
 <template>
   <section class="p-section flex flex-col items-start bg-white w-full">
-    <div class="w-full max-w-5xl">
+    <div class="w-full max-w-5xl mx-auto">
       <Heading level="2" class="w-fit relative z-[2] title"> Matériel inutilisé&nbsp;? </Heading>
       <p class="mt-10 text-lg">
         Faites un geste solidaire et écologique à BDX I/O : la grande collecte tech avec <strong>Emmaüs Connect</strong>&nbsp;!
