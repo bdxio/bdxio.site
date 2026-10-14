@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
 
+definePageMeta({ featureFlag: 'sponsors' });
+
 const editionYear = useEdition();
 const { $featureFlags } = useNuxtApp();
 
-if (!$featureFlags.pages.sponsors.page) {
-  throw createError({ statusCode: 404 });
-}
 useHead({ title: `Sponsors | ${ASSOCIATION_NAME}` });
 </script>
 

@@ -4,16 +4,13 @@ import { ASSOCIATION_NAME, CLOSING_TALK_TYPE } from '~/services/constants';
 import type { Ref } from 'vue';
 import type { Talk, Speaker } from '~/types';
 
+definePageMeta({ featureFlag: 'speakers' });
+
 const edition = useEdition();
-const { $featureFlags } = useNuxtApp();
 
 type SpeakerId = Speaker['id'];
 type SpeakersWithTalkId = Speaker & { talkId: Talk['id'] };
 type SpeakersRecordWithTalkId = Record<SpeakerId, SpeakersWithTalkId>;
-
-if (!$featureFlags.pages.speakers.page) {
-  throw createError({ statusCode: 404 });
-}
 
 useHead({ title: `Speakers | ${ASSOCIATION_NAME}` });
 

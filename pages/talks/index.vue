@@ -3,6 +3,8 @@ import { ASSOCIATION_NAME, STANDARD_TALK_TYPE } from '~/services/constants';
 import { ALL_CATEGORIES } from '~/components/section/talk/CategoryFilter.vue';
 import type { Edition, Talk } from '~/types';
 
+definePageMeta({ featureFlag: 'talks' });
+
 const edition = useEdition();
 
 useHead({ title: `Talks | ${ASSOCIATION_NAME}` });

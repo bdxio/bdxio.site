@@ -2,7 +2,7 @@
 import { ASSOCIATION_NAME } from '~/services/constants';
 import type { Edition, Talk } from '~/types';
 
-definePageMeta({ layout: false });
+definePageMeta({ layout: false, featureFlag: 'scheduleSvg' });
 
 const edition = useEdition();
 

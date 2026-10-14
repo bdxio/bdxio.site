@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.codeOfConduct.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'codeOfConduct' });
 
 useHead({ title: `Code de conduite | ${ASSOCIATION_NAME}` });
 </script>

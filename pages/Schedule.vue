@@ -3,6 +3,8 @@ import { ASSOCIATION_NAME } from '~/services/constants';
 import { ALL_CATEGORIES } from '~/components/section/talk/CategoryFilter.vue';
 import type { Edition, Talk } from '~/types';
 
+definePageMeta({ featureFlag: 'schedule' });
+
 const currentFilter = ref(ALL_CATEGORIES);
 
 const edition = useEdition();

@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, useNuxtApp, ref, nextTick } from '#imports';
+import { onMounted, onUnmounted, ref, nextTick } from '#imports';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.ticketing.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'ticketing' });
 
 const imaginaIframe = ref<HTMLIFrameElement | null>(null);
 const isLoading = ref(true);
