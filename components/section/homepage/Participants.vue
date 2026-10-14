@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { TICKETING_URL } from '~/services/constants';
 import type { Edition } from '~/types';
 
 const { edition } = defineProps<{
@@ -10,7 +11,7 @@ const { $featureFlags } = useNuxtApp();
 
 <template>
   <section
-    class="p-section w-full m:[&:not(:last-child)]:w-1/2 flex flex-col justify-between items-start bg-bdxio-yellow-base"
+    class="p-section w-full m:flex-1 flex flex-col justify-between items-start bg-bdxio-yellow-base"
   >
     <div>
       <HeadingSection level="2" class="text-xl"> PARTICIPANTS </HeadingSection>
@@ -21,7 +22,8 @@ const { $featureFlags } = useNuxtApp();
       v-if="$featureFlags.pages.ticketing.links.ticketing"
       type="link"
       color="grey"
-      to="/ticketing"
+      :to="TICKETING_URL"
+      target="_blank"
       class="flex flex-row items-center"
       aria-label="lien vers la billetterie - Nouvelle fenêtre"
     >

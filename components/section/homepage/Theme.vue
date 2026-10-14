@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { EditionYear } from '~/services/constants';
+import { TICKETING_URL, type EditionYear } from '~/services/constants';
 
 const props = defineProps<{
   edition?: EditionYear;
 }>();
 
 const edition = props.edition || useEdition();
-const ticketingPath = "https://www.billetweb.fr/bdx-i-o-2026";
 </script>
 
 <template>
@@ -29,7 +28,7 @@ const ticketingPath = "https://www.billetweb.fr/bdx-i-o-2026";
       </Heading>
       <LinkSecondary
         type="link"
-        :to="ticketingPath"
+        :to="TICKETING_URL"
         color="dark"
         class="mt-10 text-xl m:text-2xl py-4"
       >

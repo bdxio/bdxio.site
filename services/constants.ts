@@ -4,6 +4,8 @@ export const PREVIOUS_EDITIONS: EditionYear[] = ['2022', '2023', '2024', '2025']
 
 export const ASSOCIATION_NAME = 'BDX I/O';
 
+export const TICKETING_URL = 'https://www.billetweb.fr/bdx-i-o-2026';
+
 export const EDITION: EditionYear = '2026';
 export const PREVIOUS_EDITION = (Number(EDITION) - 1).toString() as EditionYear;
 

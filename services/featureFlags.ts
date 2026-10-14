@@ -12,8 +12,8 @@ export const featureFlags = {
         categories: true,
         lastYearSponsors: false,
         sponsors: true,
-        participants: false,
-        talks: false,
+        participants: true,
+        talks: true,
       },
     },
     previousEditions: {
@@ -49,7 +49,6 @@ export const featureFlags = {
     codeOfConduct: { page: true },
     legalNotice: { page: true },
     ticketing: {
-      page: true,
       menu: true,
       links: {
         ticketing: true,

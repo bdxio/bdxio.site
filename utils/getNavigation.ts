@@ -1,5 +1,5 @@
 import { useNuxtApp } from '#imports';
-import { PREVIOUS_EDITIONS } from '~/services/constants';
+import { PREVIOUS_EDITIONS, TICKETING_URL } from '~/services/constants';
 
 type Page = {
   name: string;
@@ -96,7 +96,7 @@ export function getNavigation() {
       },
       {
         name: 'Billetterie',
-        path: 'https://www.billetweb.fr/bdx-i-o-2026',
+        path: TICKETING_URL,
         show: instance.$featureFlags.pages.ticketing.menu,
         type: external,
         design: primary,
