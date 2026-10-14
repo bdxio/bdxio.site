@@ -24,16 +24,6 @@ const { edition } = defineProps<{
     <p class="mb-3 text-[28px]">On se retrouve <ItemLocationSpanWithLink :edition="edition" /></p>
     <div class="flex gap-4 items-center mt-10">
       <LinkPrimary
-        type="link"
-        color="light"
-        href="https://app.imagina.com/bdx-io"
-        title="lien vers l'application Imagina - Nouvelle fenêtre"
-        class="flex items-center"
-        target="_blank"
-      >
-        Télécharger l'application Imagina
-      </LinkPrimary>
-      <LinkPrimary
         v-if="$featureFlags.pages.live.page"
         type="link"
         color="white"
