@@ -2,8 +2,8 @@ export const featureFlags = {
   pages: {
     homepage: {
       sections: {
-        heroEditionAnnounced: true,
-        heroDDay: false,
+        heroEditionAnnounced: false,
+        heroDDay: true,
         heroComingBackSoon: false,
         figures: true,
         about: true,
@@ -12,7 +12,7 @@ export const featureFlags = {
         categories: true,
         previousEditionSponsors: false,
         currentEditionSponsors: true,
-        becomingSponsor: true,
+        becomingSponsor: false,
         participants: true,
         talks: true,
       },
@@ -44,13 +44,13 @@ export const featureFlags = {
     jobs: { page: true, menu: false },
     talks: { page: true, menu: true },
     speakers: { page: true, menu: true },
-    live: { page: false, menu: false },
+    live: { page: true, menu: true },
     faq: { page: true, menu: true },
     scheduleSvg: { page: true },
     codeOfConduct: { page: true },
     legalNotice: { page: true },
     ticketing: {
-      menu: true,
+      menu: false,
       links: {
         ticketing: true,
       },
