@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.legalNotice.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'legalNotice' });
 
 useHead({ title: `Mentions légales | ${ASSOCIATION_NAME}` });
 </script>

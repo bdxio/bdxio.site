@@ -2,11 +2,7 @@
 import { ASSOCIATION_NAME } from '~/services/constants';
 import type { FAQQuestion, FAQTarget } from '~/types';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.faq.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'faq' });
 
 useHead({ title: `FAQ | ${ASSOCIATION_NAME}` });
 

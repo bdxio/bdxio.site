@@ -1,3 +1,19 @@
+import type { NuxtPage } from 'nuxt/schema';
+import { isPageEnabled } from './services/featureFlags';
+
+function removeDisabledPages(pages: NuxtPage[]) {
+  for (let index = pages.length - 1; index >= 0; index--) {
+    const page = pages[index]!;
+    const flag = page.meta?.featureFlag;
+
+    if (typeof flag === 'string' && !isPageEnabled(flag)) {
+      pages.splice(index, 1);
+    } else if (page.children) {
+      removeDisabledPages(page.children);
+    }
+  }
+}
+
 export default defineNuxtConfig({
   site: {
     url: 'bdxio.fr',
@@ -17,6 +33,12 @@ export default defineNuxtConfig({
 
   experimental: {
     typedPages: true,
+    extraPageMetaExtractionKeys: ['featureFlag'],
+  },
+
+  hooks: {
+    // Disabled pages are dropped before Nuxt collects the routes to prerender, otherwise their 404 breaks generate.
+    'pages:resolved': removeDisabledPages,
   },
 
   modules: [

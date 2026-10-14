@@ -2,6 +2,8 @@
 import { ASSOCIATION_NAME, type EditionYear, PREVIOUS_EDITIONS } from '~/services/constants';
 import type { Edition } from '~/types';
 
+definePageMeta({ featureFlag: 'previousEditions' });
+
 const route = useRoute('year');
 const year = route.params.year as EditionYear;
 
@@ -10,10 +12,6 @@ if (!year || !PREVIOUS_EDITIONS.includes(year)) {
 }
 
 const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.previousEditions.page) {
-  throw createError({ statusCode: 404, statusMessage: 'Edition not found' });
-}
 
 const edition = useEdition();
 

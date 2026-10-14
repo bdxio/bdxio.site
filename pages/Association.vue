@@ -2,11 +2,7 @@
 import { ASSOCIATION_NAME } from '~/services/constants';
 import type { Volunteer } from '~/types';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.association.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'association' });
 
 useHead({ title: `L'association | ${ASSOCIATION_NAME}` });
 

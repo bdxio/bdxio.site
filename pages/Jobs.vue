@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { ASSOCIATION_NAME } from '~/services/constants';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.jobs.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'jobs' });
 
 useHead({
   title: `Offres d'emploi | ${ASSOCIATION_NAME}`,

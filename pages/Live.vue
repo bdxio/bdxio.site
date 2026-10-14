@@ -2,11 +2,7 @@
 import { ASSOCIATION_NAME } from '~/services/constants';
 import type { Room } from '~/types';
 
-const { $featureFlags } = useNuxtApp();
-
-if (!$featureFlags.pages.live.page) {
-  throw createError({ statusCode: 404 });
-}
+definePageMeta({ featureFlag: 'live' });
 
 useHead({
   title: `We're live | ${ASSOCIATION_NAME}`,
