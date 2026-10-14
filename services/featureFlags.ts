@@ -8,7 +8,7 @@ export const featureFlags = {
         figures: true,
         about: true,
         theme: true,
-        materiel: false,
+        materiel: true,
         categories: true,
         previousEditionSponsors: false,
         currentEditionSponsors: true,
