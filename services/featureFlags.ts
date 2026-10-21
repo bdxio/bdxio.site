@@ -41,7 +41,7 @@ export const featureFlags = {
       },
     },
     association: { page: true, menu: true },
-    jobs: { page: true, menu: false },
+    jobs: { page: true, menu: true },
     talks: { page: true, menu: true },
     speakers: { page: true, menu: true },
     live: { page: false, menu: false },
