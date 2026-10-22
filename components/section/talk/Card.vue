@@ -24,12 +24,15 @@ defineProps<{
         {{ talk.category?.name }}
       </p>
     </div>
-    <div v-if="talk.speakers?.length" class="card-speakers">
-      <NuxtLink v-for="speaker in talk.speakers" :key="`speaker-${speaker.id}`" :to="to">
-        <SectionTalkSpeakerPicture :speaker="speaker" size="small" class="card-speaker" />
-      </NuxtLink>
+    <div v-if="talk.speakers?.length || startTime" class="card-footer">
+      <div v-if="talk.speakers?.length" class="card-speakers">
+        <NuxtLink v-for="speaker in talk.speakers" :key="`speaker-${speaker.id}`" :to="to" class="card-speaker">
+          <SectionTalkSpeakerPicture :speaker="speaker" size="small" class="card-speaker-picture" />
+          <span class="card-speaker-name">{{ speaker.name }}</span>
+        </NuxtLink>
+      </div>
+      <span v-if="startTime" class="card-time">{{ startTime }}</span>
     </div>
-    <span v-if="startTime" class="card-time">{{ startTime }}</span>
   </div>
 </template>
 
@@ -81,19 +84,40 @@ defineProps<{
   font-weight: 700;
 }
 
-.card-speakers {
+.card-footer {
   display: flex;
-}
-
-.card-speaker {
-  margin-right: 0.5rem !important;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
   margin-top: 1.25rem;
 }
 
+.card-speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-speaker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--colors-bdxio-dark);
+}
+
+.card-speaker-picture {
+  flex-shrink: 0;
+  margin-right: 0 !important;
+}
+
+.card-speaker-name {
+  font-size: 0.875rem;
+}
+
 .card-time {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  margin-left: auto;
+  text-align: right;
   font-size: 0.875rem;
   color: var(--colors-bdxio-dark);
 }
