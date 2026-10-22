@@ -5,6 +5,7 @@ type FormatName =
   | "Conférence"
   | "Hands on lab"
   | "Université"
+  | "Table ronde"
   | "Keynote"
   | "Keynote de fermeture"
   | "Keynote d'ouverture";

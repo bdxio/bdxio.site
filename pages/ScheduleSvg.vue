@@ -55,48 +55,11 @@ const days = computed(() =>
 
 const photos = ref<Record<number, string>>({});
 
-function loadPhoto(url: string) {
-  return new Promise<string>((resolve) => {
-    const image = new Image();
-    image.crossOrigin = 'anonymous';
-    image.onerror = () => resolve(url);
-    image.onload = () => {
-      const size = 96;
-      const side = Math.min(image.naturalWidth, image.naturalHeight);
-      const canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
-      canvas
-        .getContext('2d')!
-        .drawImage(
-          image,
-          (image.naturalWidth - side) / 2,
-          (image.naturalHeight - side) / 2,
-          side,
-          side,
-          0,
-          0,
-          size,
-          size
-        );
-      resolve(canvas.toDataURL('image/jpeg', 0.8));
-    };
-    image.src = url;
-  });
-}
-
-onMounted(async () => {
-  const speakers = new Map(talks.value.flatMap((talk) => talk.speakers ?? []).map((speaker) => [speaker.id, speaker]));
-  const queue = [...speakers.values()].filter((speaker) => speaker.photoUrl);
-
-  await Promise.all(
-    Array.from({ length: 8 }, async () => {
-      for (let speaker = queue.shift(); speaker; speaker = queue.shift()) {
-        photos.value[speaker.id] = await loadPhoto(speaker.photoUrl!);
-      }
-    })
-  );
-});
+onMounted(() =>
+  loadSpeakerPhotos(talks.value, (speakerId, photo) => {
+    photos.value[speakerId] = photo;
+  })
+);
 
 function toDataUrl(href: string) {
   return fetch(href)
