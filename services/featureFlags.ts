@@ -47,7 +47,6 @@ export const featureFlags = {
     live: { page: false, menu: false },
     faq: { page: true, menu: true },
     scheduleSvg: { page: true },
-    schedulePdf: { page: true },
     codeOfConduct: { page: true },
     legalNotice: { page: true },
     ticketing: {

@@ -1,6 +1,6 @@
 import type { Speaker, Talk } from '~/types';
-import { buildScheduleGrid } from '~/utils/buildScheduleGrid';
-import { sortRooms } from '~/utils/sortRooms';
+import { buildScheduleGrid } from '../../utils/buildScheduleGrid';
+import { sortRooms } from '../../utils/sortRooms';
 
 export const SCHEDULE_PDF_PAGE = { width: 842, height: 595 };
 

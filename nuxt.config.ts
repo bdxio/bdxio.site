@@ -1,5 +1,9 @@
 import type { NuxtPage } from 'nuxt/schema';
+import { fileURLToPath } from 'node:url';
+import { EDITION } from './services/constants';
 import { isPageEnabled } from './services/featureFlags';
+
+const SCHEDULE_PDF_DAYS = [1, 2];
 
 function removeDisabledPages(pages: NuxtPage[]) {
   for (let index = pages.length - 1; index >= 0; index--) {
@@ -110,6 +114,13 @@ export default defineNuxtConfig({
       lg: 1200,
       xl: 1400,
       '2xl': 1600,
+    },
+  },
+
+  nitro: {
+    serverAssets: [{ baseName: 'fonts', dir: fileURLToPath(new URL('./node_modules/@fontsource/merriweather/files', import.meta.url)) }],
+    prerender: {
+      routes: SCHEDULE_PDF_DAYS.map((day) => `/programme/bdxio-${EDITION}-${day}.pdf`),
     },
   },
 

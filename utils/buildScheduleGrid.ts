@@ -1,4 +1,5 @@
 import type { Room, Talk } from '~/types';
+import { sortRooms } from './sortRooms';
 
 const BREAK_MIN_DURATION = 60;
 

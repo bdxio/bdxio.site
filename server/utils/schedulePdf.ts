@@ -1,7 +1,7 @@
 import type { PDFDocument, PDFFont, PDFPage } from 'pdf-lib';
 import type { Talk } from '~/types';
-import { buildSchedulePdfLayouts, SCHEDULE_PDF_PAGE } from '~/utils/schedulePdfLayout';
-import type { PdfCard, PdfFont, PdfPageLayout, PdfText } from '~/utils/schedulePdfLayout';
+import { buildSchedulePdfLayouts, SCHEDULE_PDF_PAGE } from './schedulePdfLayout';
+import type { PdfCard, PdfFont, PdfPageLayout, PdfText } from './schedulePdfLayout';
 
 type Options = {
   template: ArrayBuffer;
