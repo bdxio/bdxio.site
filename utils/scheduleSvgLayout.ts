@@ -25,14 +25,14 @@ export type ScheduleSvgCard = {
   title: PlacedText[];
   level: PlacedText[];
   category: PlacedText[];
-  speakers: { speaker: Speaker; x: number; y: number }[];
+  speakers: { speaker: Speaker; x: number; y: number; name: PlacedText[] }[];
 };
 
 export type ScheduleSvgLayout = {
   scale: number;
   border: number;
   speakerSize: number;
-  fontSizes: { title: number; meta: number; room: number; time: number };
+  fontSizes: { title: number; meta: number; speaker: number; room: number; time: number };
   rooms: { id: number; name: string; x: number; y: number }[];
   times: { time: string; x: number; y: number }[];
   cards: ScheduleSvgCard[];
@@ -48,6 +48,9 @@ function createStyle(k: number) {
     lineHeight: 1.22,
     speakerSize: Math.max(15, 26 * k),
     speakerGap: 4,
+    speakerItemGap: 10 * k,
+    speakerNameGap: 5 * k,
+    speakerFontSize: 12 * k,
     speakerMargin: 6 * k,
     roomSize: 20 * k,
     timeSize: 18 * k,
@@ -91,6 +94,49 @@ function baseline(top: number, size: number, lineHeight: number) {
 
 type Grid = ReturnType<typeof buildScheduleGrid>;
 
+function measureSpeakers(speakers: Speaker[], innerWidth: number, style: Style, measure: TextMeasurer) {
+  const nameMaxWidth = innerWidth - style.speakerSize - style.speakerNameGap;
+
+  const items = speakers.map((speaker) => {
+    const lines = wrapText(speaker.name, nameMaxWidth, style.speakerFontSize, 'regular', measure);
+    const textWidth = Math.max(0, ...lines.map((line) => measure(line, style.speakerFontSize, 'regular')));
+    const textHeight = lines.length * style.speakerFontSize * style.lineHeight;
+    return {
+      speaker,
+      lines,
+      textHeight,
+      width: style.speakerSize + style.speakerNameGap + textWidth,
+      height: Math.max(style.speakerSize, textHeight),
+      x: 0,
+      rowTop: 0,
+      rowHeight: 0,
+    };
+  });
+
+  const rows: (typeof items)[] = [];
+  let cursor = 0;
+  for (const item of items) {
+    const row = rows.at(-1);
+    if (!row || cursor + item.width > innerWidth) {
+      rows.push([item]);
+      item.x = 0;
+    } else {
+      row.push(item);
+      item.x = cursor;
+    }
+    cursor = item.x + item.width + style.speakerItemGap;
+  }
+
+  let top = 0;
+  for (const row of rows) {
+    const rowHeight = Math.max(...row.map((item) => item.height));
+    for (const item of row) Object.assign(item, { rowTop: top, rowHeight });
+    top += rowHeight + style.speakerGap;
+  }
+
+  return { items, height: rows.length ? top - style.speakerGap : 0 };
+}
+
 function measureCard(talk: Talk, width: number, style: Style, measure: TextMeasurer) {
   const innerWidth = width - style.border - 2 * style.padding;
 
@@ -102,13 +148,10 @@ function measureCard(talk: Talk, width: number, style: Style, measure: TextMeasu
     title.length * style.titleSize * style.lineHeight +
     (level.length + category.length) * style.metaSize * style.lineHeight;
 
-  const perRow = Math.max(1, Math.floor((innerWidth + style.speakerGap) / (style.speakerSize + style.speakerGap)));
-  const speakerRows = Math.ceil((talk.speakers?.length ?? 0) / perRow);
-  const speakersHeight = speakerRows
-    ? style.speakerMargin + speakerRows * style.speakerSize + (speakerRows - 1) * style.speakerGap
-    : 0;
+  const speakers = measureSpeakers(talk.speakers ?? [], innerWidth, style, measure);
+  const speakersHeight = speakers.items.length ? style.speakerMargin + speakers.height : 0;
 
-  return { title, level, category, perRow, speakersHeight, height: 2 * style.padding + textHeight + speakersHeight };
+  return { title, level, category, speakers, speakersHeight, height: 2 * style.padding + textHeight + speakersHeight };
 }
 
 function layoutRows(grid: Grid, columnWidth: number, style: Style, measure: TextMeasurer) {
@@ -208,11 +251,21 @@ export function buildScheduleSvgLayout(dayTalks: Talk[], measure: TextMeasurer):
       const category = place(cell.card.category, style.metaSize);
 
       const speakersTop = y + cell.height - style.padding - (cell.card.speakersHeight - style.speakerMargin);
-      const speakers = (cell.talk.speakers ?? []).map((speaker, index) => ({
-        speaker,
-        x: textX + (index % cell.card.perRow) * (style.speakerSize + style.speakerGap),
-        y: speakersTop + Math.floor(index / cell.card.perRow) * (style.speakerSize + style.speakerGap),
-      }));
+      const speakers = cell.card.speakers.items.map((item) => {
+        const itemTop = speakersTop + item.rowTop + (item.rowHeight - item.height) / 2;
+        const textTop = itemTop + (item.height - item.textHeight) / 2;
+        const lineHeight = style.speakerFontSize * style.lineHeight;
+        return {
+          speaker: item.speaker,
+          x: textX + item.x,
+          y: itemTop + (item.height - style.speakerSize) / 2,
+          name: item.lines.map((text, index) => ({
+            text,
+            x: textX + item.x + style.speakerSize + style.speakerNameGap,
+            y: baseline(textTop + index * lineHeight, style.speakerFontSize, style.lineHeight),
+          })),
+        };
+      });
 
       return {
         id: cell.talk.id,
@@ -232,7 +285,13 @@ export function buildScheduleSvgLayout(dayTalks: Talk[], measure: TextMeasurer):
     scale: style.k,
     border: style.border,
     speakerSize: style.speakerSize,
-    fontSizes: { title: style.titleSize, meta: style.metaSize, room: style.roomSize, time: style.timeSize },
+    fontSizes: {
+      title: style.titleSize,
+      meta: style.metaSize,
+      speaker: style.speakerFontSize,
+      room: style.roomSize,
+      time: style.timeSize,
+    },
     rooms: grid.rooms.map((room, index) => ({
       id: room.id,
       name: room.name,

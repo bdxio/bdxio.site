@@ -163,7 +163,16 @@ function initials(speaker: Speaker) {
         :fill="card.color"
         v-text="line.text"
       />
-      <template v-for="{ speaker, x, y } in card.speakers" :key="speaker.id">
+      <template v-for="{ speaker, x, y, name } in card.speakers" :key="speaker.id">
+        <text
+          v-for="line in name"
+          :key="`speaker-name-${line.y}`"
+          :x="line.x"
+          :y="line.y"
+          :font-size="layout.fontSizes.speaker"
+          :fill="DARK"
+          v-text="line.text"
+        />
         <image
           v-if="photos[speaker.id]"
           :href="photos[speaker.id]"
