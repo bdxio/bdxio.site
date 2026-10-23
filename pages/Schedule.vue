@@ -95,7 +95,7 @@ const days = computed(() => {
             color="light"
             target="_blank"
             class="schedule-day-download"
-            :href="`/programme-bdxio-${edition}-${group.day}.pdf`"
+            :href="`/programme/bdxio-${edition}-${group.day}.pdf`"
             :download="`programme-bdxio-${edition}-${group.day}.pdf`"
           >
             <span class="schedule-day-download-label">Télécharger</span>
