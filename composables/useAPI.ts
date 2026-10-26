@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { createError, ref, useFetch, useRuntimeConfig } from '#imports';
-import { getTalksPublicationParams } from '~/services/featureFlags';
+import { getTalksPublicationParams } from '~/services/talksPublication';
 import { normalizeTalkTitles } from '~/utils/normalizeTalkTitle';
 
 export default async function useAPI(endpoint, options = {}) {
@@ -24,7 +24,7 @@ export default async function useAPI(endpoint, options = {}) {
     };
   }
 
-  const params = endpoint.startsWith('/talks') ? { ...getTalksPublicationParams(), ...options.params } : options.params;
+  const params = endpoint.startsWith('/talks') ? { ...getTalksPublicationParams(config.public.DRAFT_TALKS), ...options.params } : options.params;
 
   const { data, error } = await useFetch(`${config.public.API_URL}${endpoint}`, {
     headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },

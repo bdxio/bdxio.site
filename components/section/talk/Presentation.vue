@@ -31,7 +31,13 @@ defineProps<{
       </span>
       <p v-if="scheduleInfo" class="font-bold ml-auto">{{ scheduleInfo }}</p>
     </div>
-    <Markdown v-if="talk.abstract" :content="talk.abstract" />
+    <Markdown v-if="talk.abstract" :content="talk.abstract" class="talk-description" />
     <SectionTalkOpenFeedbackFrame v-if="talk.id" :talkId="talk.id" />
   </section>
 </template>
+
+<style scoped lang="css">
+.talk-description :deep(p) {
+  margin-bottom: 1em;
+}
+</style>

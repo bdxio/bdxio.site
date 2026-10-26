@@ -73,6 +73,7 @@ export default defineNuxtConfig({
       NEWSLETTER_URL: process.env.NEWSLETTER_URL,
       OPENFEEDBACK_URL: process.env.OPENFEEDBACK_URL,
       CONFERENCE_HALL_EVENT_ID: process.env.CONFERENCE_HALL_EVENT_ID,
+      DRAFT_TALKS: process.env.DRAFT_TALKS,
     },
   },
 

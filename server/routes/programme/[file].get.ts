@@ -1,5 +1,5 @@
 import type { Talk } from '~/types';
-import { getTalksPublicationParams } from '../../../services/featureFlags';
+import { getTalksPublicationParams } from '../../../services/talksPublication';
 import { isTalkOnDay } from '../../../utils/isTalkOnDay';
 import { normalizeTalkTitles } from '../../../utils/normalizeTalkTitle';
 
@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
 
   const [, year = '', dayParam = ''] = match;
   const day = Number(dayParam);
-  const { API_URL, API_TOKEN } = useRuntimeConfig(event).public;
+  const { API_URL, API_TOKEN, DRAFT_TALKS } = useRuntimeConfig(event).public;
 
   const template = await useStorage('assets:server').getItemRaw<Buffer>(TEMPLATE_NAME(year));
   const titleFont = await useStorage('assets:fonts').getItemRaw<Buffer>(TITLE_FONT);
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
       'pagination[limit]': 100,
       'filters[edition][year][$eq]': year,
       'filters[backup][$eq]': false,
-      ...getTalksPublicationParams(),
+      ...getTalksPublicationParams(DRAFT_TALKS),
     },
   });
 
