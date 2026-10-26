@@ -22,10 +22,10 @@ const GRID = {
   right: 803,
   columnGap: 7.5,
   maxColumnWidth: 140,
-  top: 143,
-  bottom: 585,
+  top: 126,
+  bottom: 577,
   timeX: 12,
-  headerBaseline: 112,
+  headerBaseline: 100,
   contiguousGap: 8,
   shortBreakGap: 14,
   mediumBreakGap: 24,
@@ -209,7 +209,7 @@ function measureCard(talk: Talk, width: number, style: Style, measure: PdfMeasur
 }
 
 function placeCard(talk: Talk, measured: MeasuredCard, x: number, top: number, width: number, height: number, style: Style): PdfCard {
-  const color = talk.category?.color || '#000000';
+  const color = talk.category?.color || COLORS.room;
   const textX = x + style.bar + style.padLeft;
   const texts: PdfText[] = [];
   let cursor = top + style.padTop;

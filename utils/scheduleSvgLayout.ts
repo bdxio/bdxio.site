@@ -273,7 +273,7 @@ export function buildScheduleSvgLayout(dayTalks: Talk[], measure: TextMeasurer):
         y,
         width: columnWidth,
         height: cell.height,
-        color: cell.talk.category?.color || 'black',
+        color: cell.talk.category?.color || '#7d7df8',
         title,
         level,
         category,

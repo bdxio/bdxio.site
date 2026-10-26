@@ -15,6 +15,7 @@ const [{ data: editions }, { data: talks }]: [{ data: Ref<Edition[]> }, { data: 
   useAPI('/editions', {
     params: {
       'fields[0]': 'date',
+      'fields[1]': 'duration',
       'filters[year][$eq]': edition,
     },
   }),
@@ -36,7 +37,7 @@ if (!editions.value[0]) {
 const editionData = editions.value[0];
 
 function getStartTime(talk: Talk) {
-  return getTalkScheduleInfo(editionData.date, talk);
+  return getTalkScheduleInfo(editionData, talk);
 }
 
 const categories = computed(() => getTalksCategories(talks.value));

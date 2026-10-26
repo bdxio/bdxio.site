@@ -49,7 +49,7 @@ const days = computed(() =>
     const title = dayFormatter
       .format(getEditionDayDate(editionData.date, day))
       .replace(/(^|\s)(\S)/g, (_, space, char) => space + char.toUpperCase());
-    return { day, title, talks: talks.value.filter((talk) => talk.day === day) };
+    return { day, title, talks: talks.value.filter((talk) => isTalkOnDay(talk, day)) };
   })
 );
 

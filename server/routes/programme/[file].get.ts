@@ -1,4 +1,7 @@
 import type { Talk } from '~/types';
+import { getTalksPublicationParams } from '../../../services/featureFlags';
+import { isTalkOnDay } from '../../../utils/isTalkOnDay';
+import { normalizeTalkTitles } from '../../../utils/normalizeTalkTitle';
 
 const FILE_NAME = /^bdxio-(\d{4})-(\d+)\.pdf$/;
 const TEMPLATE_NAME = (year: string) => `programme-bdxio-${year}-template.pdf`;
@@ -27,10 +30,11 @@ export default defineEventHandler(async (event) => {
       'pagination[limit]': 100,
       'filters[edition][year][$eq]': year,
       'filters[backup][$eq]': false,
+      ...getTalksPublicationParams(),
     },
   });
 
-  const talks = response.data.filter((talk) => talk.day === day);
+  const talks = normalizeTalkTitles(response.data).filter((talk) => isTalkOnDay(talk, day));
   if (!talks.length) throw createError({ statusCode: 404, statusMessage: `No talks for day ${day}` });
 
   const pdf = await generateSchedulePdf({

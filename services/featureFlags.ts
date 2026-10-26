@@ -56,6 +56,9 @@ export const featureFlags = {
       },
     },
   },
+  content: {
+    draftTalks: true,
+  },
   layout: {
     sponsors: false,
     location: false,
@@ -84,4 +87,9 @@ export function isPageEnabled(flag: string) {
   }
 
   return page.page;
+}
+
+// Strapi only returns published entries unless the publication state is set to "preview".
+export function getTalksPublicationParams() {
+  return featureFlags.content.draftTalks ? { publicationState: 'preview' } : {};
 }

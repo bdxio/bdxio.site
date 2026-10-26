@@ -51,7 +51,7 @@ const randomizeTalks = computed(() => {
             :key="`talk-${talk.id}`"
             class="flex flex-col justify-between cursor-pointer p-4 border-2 border-solid rounded-lg w-full l:w-1/5"
             :style="{
-              'border-color': talk.category?.color || 'black',
+              'border-color': talk.category?.color || 'var(--colors-bdxio-blue-light)',
             }"
           >
             <NuxtLink :to="`${talksPath}/${talk.id}`">

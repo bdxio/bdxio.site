@@ -12,7 +12,7 @@ defineProps<{
   <div
     class="card"
     :style="{
-      'border-color': talk.category?.color || 'black',
+      'border-color': talk.category?.color || 'var(--colors-bdxio-blue-light)',
     }"
   >
     <div>

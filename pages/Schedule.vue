@@ -67,7 +67,7 @@ const days = computed(() => {
 
   return Array.from({ length: duration }, (_, index) => {
     const day = index + 1;
-    const dayTalks = talks.value.filter((talk) => talk.day === day);
+    const dayTalks = talks.value.filter((talk) => isTalkOnDay(talk, day));
 
     return {
       day,

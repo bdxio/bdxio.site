@@ -14,6 +14,7 @@ const [{ data: editions }, { data: talk }]: [{ data: Ref<Edition[]> }, { data: R
   useAPI('/editions', {
     params: {
       'fields[0]': 'date',
+      'fields[1]': 'duration',
       'filters[year][$eq]': edition,
     },
   }),
@@ -30,7 +31,7 @@ if (!editions.value[0]) {
   throw createError({ statusCode: 404, statusMessage: 'Edition not found' });
 }
 
-const scheduleInfo = getTalkScheduleInfo(editions.value[0].date, talk.value);
+const scheduleInfo = getTalkScheduleInfo(editions.value[0], talk.value);
 </script>
 
 <template>
