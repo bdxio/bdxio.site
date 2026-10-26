@@ -57,7 +57,7 @@ export const featureFlags = {
     },
   },
   content: {
-    draftTalks: true,
+    draftTalks: false,
   },
   layout: {
     sponsors: false,
