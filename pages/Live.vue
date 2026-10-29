@@ -11,17 +11,18 @@ useHead({
 const { data }: { data: Ref<Room[]> } = await useAPI('/rooms', {
   params: {
     'filters[iframeId][$notNull]': 'true',
-    sort: 'name:asc',
   },
 });
+
+const rooms = computed(() => sortRooms(data.value));
 </script>
 
 <template>
   <main>
     <section class="p-section !px-4 s:!px-16">
       <Heading level="1" class="!relative !z-10 title w-fit mx-auto"> Le live </Heading>
-      <ul v-if="data.length" class="flex flex-wrap gap-10 justify-center my-8">
-        <li v-for="room in data" :key="room.id" class="w-full max-w-[450px]">
+      <ul v-if="rooms.length" class="flex flex-wrap gap-10 justify-center my-8">
+        <li v-for="room in rooms" :key="room.id" class="w-full max-w-[450px]">
           <div class="">
             {{ room.name }}
           </div>
