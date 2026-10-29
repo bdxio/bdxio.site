@@ -18,16 +18,15 @@ const { data }: { data: Ref<Room[]> } = await useAPI('/rooms', {
 
 <template>
   <main>
-    <section class="p-section">
+    <section class="p-section !px-4 s:!px-16">
       <Heading level="1" class="!relative !z-10 title w-fit mx-auto"> Le live </Heading>
       <ul v-if="data.length" class="flex flex-wrap gap-10 justify-center my-8">
-        <li v-for="room in data" :key="room.id">
+        <li v-for="room in data" :key="room.id" class="w-full max-w-[450px]">
           <div class="">
             {{ room.name }}
           </div>
           <iframe
-            width="450"
-            height="250"
+            class="w-full aspect-[450/250]"
             :src="`https://www.youtube.com/embed/${room.iframeId}`"
             title="YouTube video player"
             frameborder="0"
