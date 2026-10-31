@@ -39,9 +39,9 @@ export function getNavigation() {
         design: link,
       },
       {
-        name: 'Talks',
-        path: '/talks',
-        show: instance.$featureFlags.pages.talks.menu,
+        name: 'Association',
+        path: '/association',
+        show: instance.$featureFlags.pages.association.menu,
         type: internal,
         design: link,
       },
@@ -53,13 +53,6 @@ export function getNavigation() {
         design: link,
       },
       {
-        name: 'Sponsors',
-        path: '/sponsors',
-        show: instance.$featureFlags.pages.sponsors.menu,
-        type: internal,
-        design: link,
-      },
-      {
         name: 'Speakers',
         path: '/speakers',
         show: instance.$featureFlags.pages.speakers.menu,
@@ -67,16 +60,16 @@ export function getNavigation() {
         design: link,
       },
       {
-        name: 'Faq',
-        path: '/faq',
-        show: instance.$featureFlags.pages.faq.menu,
+        name: 'Talks',
+        path: '/talks',
+        show: instance.$featureFlags.pages.talks.menu,
         type: internal,
         design: link,
       },
       {
-        name: 'Association',
-        path: '/association',
-        show: instance.$featureFlags.pages.association.menu,
+        name: 'Sponsors',
+        path: '/sponsors',
+        show: instance.$featureFlags.pages.sponsors.menu,
         type: internal,
         design: link,
       },
@@ -108,9 +101,15 @@ export function getNavigation() {
         type: external,
         design: primary,
       },
+      {
+        name: 'Faq',
+        path: '/faq',
+        show: instance.$featureFlags.pages.faq.menu,
+        type: internal,
+        design: link,
+      },
     ]
-      .filter((page) => page.show)
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .filter((page) => page.show);
 
     return pages;
   });

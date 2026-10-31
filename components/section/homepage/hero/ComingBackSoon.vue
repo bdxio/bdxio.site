@@ -62,6 +62,6 @@ const { youtubePlaylistUrl, picturesGalleryUrl } = data.value[0];
         Replay {{ PREVIOUS_EDITION }}
       </LinkPrimary>
     </div>
-    <ButtonNewsletter class="mt-4" />
+    <!-- <ButtonNewsletter class="mt-4" /> -->
   </header>
 </template>

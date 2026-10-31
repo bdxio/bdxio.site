@@ -7,7 +7,7 @@ export const ASSOCIATION_NAME = 'BDX I/O';
 export const TICKETING_URL = 'https://www.billetweb.fr/bdx-i-o-2026';
 
 export const EDITION: EditionYear = '2026';
-export const PREVIOUS_EDITION = (Number(EDITION) - 1).toString() as EditionYear;
+export const PREVIOUS_EDITION = '2026'; //(Number(EDITION) - 1).toString() as EditionYear;
 
 export const STANDARD_TALK_TYPE = 'standard';
 

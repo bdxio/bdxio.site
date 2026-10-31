@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import { ASSOCIATION_NAME } from '~/services/constants';
-import type { EditionYear } from '~/services/constants';
-
-const props = defineProps<{
-  edition?: EditionYear;
-}>();
-
-const edition = props.edition || useEdition();
-const previousEdition = (Number(edition) - 1).toString() as EditionYear;
+import { ASSOCIATION_NAME, PREVIOUS_EDITION } from '~/services/constants';
 </script>
 
 <template>
@@ -29,8 +21,8 @@ const previousEdition = (Number(edition) - 1).toString() as EditionYear;
         </Heading>
         <p>
           {{ ASSOCIATION_NAME }} est une conférence bordelaise sur le thème de la programmation et de ses métiers
-          annexes. <br>Lors de l'édition {{ previousEdition }}, nous avons reçu plus de
-          <span class="font-bold">1000 passionné·e·s</span>
+          annexes. <br />Lors de l'édition {{ PREVIOUS_EDITION }}, nous avons reçu plus de
+          <span class="font-bold">800 passionné·e·s</span>
           lors d'une journée de découvertes et de bonne humeur&nbsp;!
         </p>
       </div>
