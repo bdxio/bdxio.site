@@ -17,6 +17,7 @@ export type Talk = {
   abstract?: string;
   backup: boolean;
   openfeedbackUrl?: string;
+  youtubeUrl?: string;
   category?: Category;
   slot?: Slot;
   room?: Room;

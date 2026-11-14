@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import type { Talk } from '~/types';
 
-defineProps<{
+const props = defineProps<{
   talk: Talk;
   scheduleInfo?: string;
 }>();
+
+const youtubeEmbedUrl = computed(() => getYoutubeEmbedUrl(props.talk.youtubeUrl));
 </script>
 
 <template>
-  <section class="!pt-0 m:p-16 l:p-20 xl:p-24 xxl:p-28 xxxl:p-32 mb-20">
+  <section class="!pt-0 m:p-16 l:p-20 xl:p-24 xxl:p-28 xxxl:p-32 mb-8">
     <Heading level="1">
       {{ talk.title }}
     </Heading>
@@ -32,6 +34,15 @@ defineProps<{
       <p v-if="scheduleInfo" class="font-bold ml-auto">{{ scheduleInfo }}</p>
     </div>
     <Markdown v-if="talk.abstract" :content="talk.abstract" class="talk-description" />
+    <iframe
+      v-if="youtubeEmbedUrl"
+      class="w-full aspect-video mt-10 m:mt-20"
+      :src="youtubeEmbedUrl"
+      :title="`Vidéo : ${talk.title}`"
+      loading="lazy"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
     <SectionTalkOpenFeedbackFrame v-if="talk.id" :talkId="talk.id" />
   </section>
 </template>
